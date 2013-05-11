@@ -94,6 +94,11 @@ static NSString* cellIdentifier = @"playListCell";
         _slider.hidden = YES;
         _coveralpha.hidden = YES;
         _playlist_title.hidden = YES;
+        _current_track_title.hidden = YES;
+        _current_duration.hidden = YES;
+        _current_time.hidden = YES;
+        _current_user_picture.hidden = YES;
+        
     }else{
         _play.hidden = NO;
         _last.hidden = NO;
@@ -103,6 +108,10 @@ static NSString* cellIdentifier = @"playListCell";
         _slider.hidden = NO;
         _coveralpha.hidden = NO;
         _playlist_title.hidden = NO;
+        _current_track_title.hidden = NO;
+        _current_duration.hidden = NO;
+        _current_time.hidden = NO;
+        _current_user_picture.hidden = NO;
     }
 }
 
