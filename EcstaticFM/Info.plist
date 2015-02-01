@@ -36,6 +36,16 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Dosis-SemiBold.otf</string>
+		<string>Dosis-Regular.otf</string>
+		<string>Dosis-Medium.otf</string>
+		<string>Dosis-Light.otf</string>
+		<string>Dosis-ExtraLight.otf</string>
+		<string>Dosis-ExtraBold.otf</string>
+		<string>Dosis-Bold.otf</string>
+	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

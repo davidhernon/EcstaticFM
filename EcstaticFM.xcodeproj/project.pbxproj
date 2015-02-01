@@ -7,13 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C3AC14D1A7EC168004B1D86 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3AC14C1A7EC168004B1D86 /* EventViewController.m */; };
+		1C3AC1501A7EC1CB004B1D86 /* MusicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3AC14F1A7EC1CB004B1D86 /* MusicTableViewController.m */; };
+		1C4861D51A7AB75C004EFEAD /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428D71A79AA2B001DB0AD /* logo1.png */; };
+		1C4861D61A7AB75C004EFEAD /* logo1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428D81A79AA2B001DB0AD /* logo1@2x.png */; };
+		1C4861D71A7AB75C004EFEAD /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428D91A79AA2B001DB0AD /* logo.png */; };
+		1C4861D81A7AB75C004EFEAD /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428DA1A79AA2B001DB0AD /* logo@2x.png */; };
+		1C4861D91A7AB75C004EFEAD /* LaunchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428DB1A79AA2B001DB0AD /* LaunchIcon.png */; };
+		1C4861DA1A7AB75C004EFEAD /* LaunchIcon-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428DC1A79AA2B001DB0AD /* LaunchIcon-568h.png */; };
+		1C4861DB1A7AB75C004EFEAD /* LaunchIcon-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428DD1A79AA2B001DB0AD /* LaunchIcon-568h@2x.png */; };
+		1C4861DC1A7AB75C004EFEAD /* LaunchIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428DE1A79AA2B001DB0AD /* LaunchIcon@2x.png */; };
+		1C4861DD1A7AB75C004EFEAD /* Dosis-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428DF1A79AA2B001DB0AD /* Dosis-Bold.otf */; };
+		1C4861DE1A7AB75C004EFEAD /* Dosis-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428E01A79AA2B001DB0AD /* Dosis-ExtraBold.otf */; };
+		1C4861DF1A7AB75C004EFEAD /* Dosis-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428E11A79AA2B001DB0AD /* Dosis-ExtraLight.otf */; };
+		1C4861E01A7AB75C004EFEAD /* Dosis-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428E21A79AA2B001DB0AD /* Dosis-Light.otf */; };
+		1C4861E11A7AB75C004EFEAD /* Dosis-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428E31A79AA2B001DB0AD /* Dosis-Medium.otf */; };
+		1C4861E21A7AB75C004EFEAD /* Dosis-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428E41A79AA2B001DB0AD /* Dosis-Regular.otf */; };
+		1C4861E31A7AB75C004EFEAD /* Dosis-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428E51A79AA2B001DB0AD /* Dosis-SemiBold.otf */; };
+		1C4861E41A7AB75C004EFEAD /* logos-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428E61A79AA2B001DB0AD /* logos-03.png */; };
+		1C4861E51A7AB75C004EFEAD /* TurningWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428E71A79AA2B001DB0AD /* TurningWhite.png */; };
+		1C4861E61A7AB75C004EFEAD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428A91A799CE9001DB0AD /* Info.plist */; };
+		1C4861E71A7AB75C004EFEAD /* main.m in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
 		1CA428AB1A799CE9001DB0AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
 		1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428AD1A799CE9001DB0AD /* AppDelegate.m */; };
-		1CA428B11A799CE9001DB0AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428B01A799CE9001DB0AD /* ViewController.m */; };
 		1CA428B41A799CE9001DB0AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428B21A799CE9001DB0AD /* Main.storyboard */; };
 		1CA428B61A799CE9001DB0AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428B51A799CE9001DB0AD /* Images.xcassets */; };
 		1CA428B91A799CE9001DB0AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428B71A799CE9001DB0AD /* LaunchScreen.xib */; };
 		1CA428C51A799CE9001DB0AD /* EcstaticFMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428C41A799CE9001DB0AD /* EcstaticFMTests.m */; };
+		1CA428D41A799E68001DB0AD /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428CF1A799E68001DB0AD /* HomeTableViewController.m */; };
+		1CA428D51A799E68001DB0AD /* EventCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428D11A799E68001DB0AD /* EventCellView.m */; };
+		1CA428D61A799E68001DB0AD /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428D31A799E68001DB0AD /* Utils.m */; };
+		1CA428FA1A79AA2B001DB0AD /* logos-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428E81A79AA2B001DB0AD /* logos-04.png */; };
+		1CC438B91A7DBDF3000A5AEC /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC438B81A7DBDF3000A5AEC /* Event.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +52,47 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C3AC14B1A7EC168004B1D86 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
+		1C3AC14C1A7EC168004B1D86 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+		1C3AC14E1A7EC1CB004B1D86 /* MusicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicTableViewController.h; sourceTree = "<group>"; };
+		1C3AC14F1A7EC1CB004B1D86 /* MusicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicTableViewController.m; sourceTree = "<group>"; };
 		1CA428A51A799CE9001DB0AD /* EcstaticFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcstaticFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA428A91A799CE9001DB0AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CA428AA1A799CE9001DB0AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1CA428AC1A799CE9001DB0AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1CA428AD1A799CE9001DB0AD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1CA428AF1A799CE9001DB0AD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1CA428B01A799CE9001DB0AD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1CA428B31A799CE9001DB0AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1CA428B51A799CE9001DB0AD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1CA428B81A799CE9001DB0AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1CA428BE1A799CE9001DB0AD /* EcstaticFMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EcstaticFMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA428C31A799CE9001DB0AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CA428C41A799CE9001DB0AD /* EcstaticFMTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EcstaticFMTests.m; sourceTree = "<group>"; };
+		1CA428CE1A799E68001DB0AD /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeTableViewController.h; path = ../Ecstatic/Ecstatic/HomeTableViewController.h; sourceTree = "<group>"; };
+		1CA428CF1A799E68001DB0AD /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeTableViewController.m; path = ../Ecstatic/Ecstatic/HomeTableViewController.m; sourceTree = "<group>"; };
+		1CA428D01A799E68001DB0AD /* EventCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventCellView.h; path = ../Ecstatic/Ecstatic/EventCellView.h; sourceTree = "<group>"; };
+		1CA428D11A799E68001DB0AD /* EventCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventCellView.m; path = ../Ecstatic/Ecstatic/EventCellView.m; sourceTree = "<group>"; };
+		1CA428D21A799E68001DB0AD /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = ../Ecstatic/Ecstatic/Utils.h; sourceTree = "<group>"; };
+		1CA428D31A799E68001DB0AD /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = ../Ecstatic/Ecstatic/Utils.m; sourceTree = "<group>"; };
+		1CA428D71A79AA2B001DB0AD /* logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo1.png; sourceTree = "<group>"; };
+		1CA428D81A79AA2B001DB0AD /* logo1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo1@2x.png"; sourceTree = "<group>"; };
+		1CA428D91A79AA2B001DB0AD /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		1CA428DA1A79AA2B001DB0AD /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		1CA428DB1A79AA2B001DB0AD /* LaunchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchIcon.png; sourceTree = "<group>"; };
+		1CA428DC1A79AA2B001DB0AD /* LaunchIcon-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchIcon-568h.png"; sourceTree = "<group>"; };
+		1CA428DD1A79AA2B001DB0AD /* LaunchIcon-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchIcon-568h@2x.png"; sourceTree = "<group>"; };
+		1CA428DE1A79AA2B001DB0AD /* LaunchIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchIcon@2x.png"; sourceTree = "<group>"; };
+		1CA428DF1A79AA2B001DB0AD /* Dosis-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Bold.otf"; sourceTree = "<group>"; };
+		1CA428E01A79AA2B001DB0AD /* Dosis-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraBold.otf"; sourceTree = "<group>"; };
+		1CA428E11A79AA2B001DB0AD /* Dosis-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraLight.otf"; sourceTree = "<group>"; };
+		1CA428E21A79AA2B001DB0AD /* Dosis-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Light.otf"; sourceTree = "<group>"; };
+		1CA428E31A79AA2B001DB0AD /* Dosis-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Medium.otf"; sourceTree = "<group>"; };
+		1CA428E41A79AA2B001DB0AD /* Dosis-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.otf"; sourceTree = "<group>"; };
+		1CA428E51A79AA2B001DB0AD /* Dosis-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-SemiBold.otf"; sourceTree = "<group>"; };
+		1CA428E61A79AA2B001DB0AD /* logos-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logos-03.png"; sourceTree = "<group>"; };
+		1CA428E71A79AA2B001DB0AD /* TurningWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TurningWhite.png; sourceTree = "<group>"; };
+		1CA428E81A79AA2B001DB0AD /* logos-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logos-04.png"; sourceTree = "<group>"; };
+		1CC438B71A7DBDF3000A5AEC /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		1CC438B81A7DBDF3000A5AEC /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +116,7 @@
 		1CA4289C1A799CE9001DB0AD = {
 			isa = PBXGroup;
 			children = (
+				1CC438BA1A7DBF38000A5AEC /* Source */,
 				1CA428A71A799CE9001DB0AD /* EcstaticFM */,
 				1CA428C11A799CE9001DB0AD /* EcstaticFMTests */,
 				1CA428A61A799CE9001DB0AD /* Products */,
@@ -83,8 +137,6 @@
 			children = (
 				1CA428AC1A799CE9001DB0AD /* AppDelegate.h */,
 				1CA428AD1A799CE9001DB0AD /* AppDelegate.m */,
-				1CA428AF1A799CE9001DB0AD /* ViewController.h */,
-				1CA428B01A799CE9001DB0AD /* ViewController.m */,
 				1CA428B21A799CE9001DB0AD /* Main.storyboard */,
 				1CA428B51A799CE9001DB0AD /* Images.xcassets */,
 				1CA428B71A799CE9001DB0AD /* LaunchScreen.xib */,
@@ -96,6 +148,24 @@
 		1CA428A81A799CE9001DB0AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1CA428D71A79AA2B001DB0AD /* logo1.png */,
+				1CA428D81A79AA2B001DB0AD /* logo1@2x.png */,
+				1CA428D91A79AA2B001DB0AD /* logo.png */,
+				1CA428DA1A79AA2B001DB0AD /* logo@2x.png */,
+				1CA428DB1A79AA2B001DB0AD /* LaunchIcon.png */,
+				1CA428DC1A79AA2B001DB0AD /* LaunchIcon-568h.png */,
+				1CA428DD1A79AA2B001DB0AD /* LaunchIcon-568h@2x.png */,
+				1CA428DE1A79AA2B001DB0AD /* LaunchIcon@2x.png */,
+				1CA428DF1A79AA2B001DB0AD /* Dosis-Bold.otf */,
+				1CA428E01A79AA2B001DB0AD /* Dosis-ExtraBold.otf */,
+				1CA428E11A79AA2B001DB0AD /* Dosis-ExtraLight.otf */,
+				1CA428E21A79AA2B001DB0AD /* Dosis-Light.otf */,
+				1CA428E31A79AA2B001DB0AD /* Dosis-Medium.otf */,
+				1CA428E41A79AA2B001DB0AD /* Dosis-Regular.otf */,
+				1CA428E51A79AA2B001DB0AD /* Dosis-SemiBold.otf */,
+				1CA428E61A79AA2B001DB0AD /* logos-03.png */,
+				1CA428E71A79AA2B001DB0AD /* TurningWhite.png */,
+				1CA428E81A79AA2B001DB0AD /* logos-04.png */,
 				1CA428A91A799CE9001DB0AD /* Info.plist */,
 				1CA428AA1A799CE9001DB0AD /* main.m */,
 			);
@@ -117,6 +187,25 @@
 				1CA428C31A799CE9001DB0AD /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1CC438BA1A7DBF38000A5AEC /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				1CC438B71A7DBDF3000A5AEC /* Event.h */,
+				1CC438B81A7DBDF3000A5AEC /* Event.m */,
+				1CA428CE1A799E68001DB0AD /* HomeTableViewController.h */,
+				1CA428CF1A799E68001DB0AD /* HomeTableViewController.m */,
+				1CA428D01A799E68001DB0AD /* EventCellView.h */,
+				1CA428D11A799E68001DB0AD /* EventCellView.m */,
+				1CA428D21A799E68001DB0AD /* Utils.h */,
+				1CA428D31A799E68001DB0AD /* Utils.m */,
+				1C3AC14B1A7EC168004B1D86 /* EventViewController.h */,
+				1C3AC14C1A7EC168004B1D86 /* EventViewController.m */,
+				1C3AC14E1A7EC1CB004B1D86 /* MusicTableViewController.h */,
+				1C3AC14F1A7EC1CB004B1D86 /* MusicTableViewController.m */,
+			);
+			name = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +288,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C4861D51A7AB75C004EFEAD /* logo1.png in Resources */,
+				1C4861D61A7AB75C004EFEAD /* logo1@2x.png in Resources */,
+				1C4861D71A7AB75C004EFEAD /* logo.png in Resources */,
+				1C4861D81A7AB75C004EFEAD /* logo@2x.png in Resources */,
+				1C4861D91A7AB75C004EFEAD /* LaunchIcon.png in Resources */,
+				1C4861DA1A7AB75C004EFEAD /* LaunchIcon-568h.png in Resources */,
+				1C4861DB1A7AB75C004EFEAD /* LaunchIcon-568h@2x.png in Resources */,
+				1C4861DC1A7AB75C004EFEAD /* LaunchIcon@2x.png in Resources */,
+				1C4861DD1A7AB75C004EFEAD /* Dosis-Bold.otf in Resources */,
+				1C4861DE1A7AB75C004EFEAD /* Dosis-ExtraBold.otf in Resources */,
+				1C4861DF1A7AB75C004EFEAD /* Dosis-ExtraLight.otf in Resources */,
+				1C4861E01A7AB75C004EFEAD /* Dosis-Light.otf in Resources */,
+				1C4861E11A7AB75C004EFEAD /* Dosis-Medium.otf in Resources */,
+				1C4861E21A7AB75C004EFEAD /* Dosis-Regular.otf in Resources */,
+				1C4861E31A7AB75C004EFEAD /* Dosis-SemiBold.otf in Resources */,
+				1C4861E41A7AB75C004EFEAD /* logos-03.png in Resources */,
+				1C4861E51A7AB75C004EFEAD /* TurningWhite.png in Resources */,
+				1C4861E61A7AB75C004EFEAD /* Info.plist in Resources */,
+				1C4861E71A7AB75C004EFEAD /* main.m in Resources */,
+				1CA428FA1A79AA2B001DB0AD /* logos-04.png in Resources */,
 				1CA428B41A799CE9001DB0AD /* Main.storyboard in Resources */,
 				1CA428B91A799CE9001DB0AD /* LaunchScreen.xib in Resources */,
 				1CA428B61A799CE9001DB0AD /* Images.xcassets in Resources */,
@@ -219,9 +328,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CA428B11A799CE9001DB0AD /* ViewController.m in Sources */,
+				1CC438B91A7DBDF3000A5AEC /* Event.m in Sources */,
+				1CA428D41A799E68001DB0AD /* HomeTableViewController.m in Sources */,
 				1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */,
+				1C3AC14D1A7EC168004B1D86 /* EventViewController.m in Sources */,
 				1CA428AB1A799CE9001DB0AD /* main.m in Sources */,
+				1C3AC1501A7EC1CB004B1D86 /* MusicTableViewController.m in Sources */,
+				1CA428D61A799E68001DB0AD /* Utils.m in Sources */,
+				1CA428D51A799E68001DB0AD /* EventCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +528,7 @@
 				1CA428CA1A799CE9001DB0AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1CA428CB1A799CE9001DB0AD /* Build configuration list for PBXNativeTarget "EcstaticFMTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +537,7 @@
 				1CA428CD1A799CE9001DB0AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
