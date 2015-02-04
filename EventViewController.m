@@ -21,7 +21,42 @@
     [self initializeMapView];
     [self createMapView];
     [self createVolumeView];
-    [self checkForTrack];
+    [self stream];
+    //[self checkForTrack];
+}
+
+/**
+    initializeAudio
+*/
+-(void) initializeAudio{
+    NSError *sessionError = nil;
+    [[AVAudioSession sharedInstance] setDelegate:self];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
+    
+    // Change the default output audio route
+    UInt32 doChangeDefaultRoute = 1;
+    AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker,
+                            sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
+}
+
+/**
+ 
+ */
+-(void) stream
+{
+    NSLog(@"Stream.");
+    //Get the Stream URL
+    NSURL *url = [NSURL URLWithString:streamURL];
+    self->avAsset = [AVURLAsset URLAssetWithURL:url options:nil];
+    self->playerItem = [AVPlayerItem playerItemWithAsset:avAsset];
+    self->player = [AVPlayer playerWithPlayerItem:playerItem];
+    double serverTime = [self calculateNetworkLatency];
+    double eta = _startprop - serverTime;
+    NSLog(@"eta=%f", eta);
+    [self->player play];
+    [self createTimeLabels];
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
+
 }
 
 /*****************************************************/
@@ -40,98 +75,8 @@
     childVC.delegate = self;
 }
 
-- (void)checkForTrack
-{
-    MPMediaPropertyPredicate *songPredicate =
-    [MPMediaPropertyPredicate predicateWithValue:songTitle
-                                     forProperty:MPMediaItemPropertyTitle
-                                  comparisonType:MPMediaPredicateComparisonContains];
-    NSSet *predicates = [NSSet setWithObjects: songPredicate, nil];
-    MPMediaQuery *songsQuery =  [[MPMediaQuery alloc] initWithFilterPredicates: predicates];
-    self->autoResults = [songsQuery items];
-    
-    //no song found locally
-    if(!([autoResults count] == 0))
-    {
-        [self foundLocally];
-    }
-    //found song locally
-    else{
-        [self notFoundLocally];
-    }
-}
-- (void) notFoundLocally{
-    NSString *message = [NSString stringWithFormat:@""];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@ Not Found", songTitle]														message:message
-                                                   delegate:self
-                                          cancelButtonTitle:@"Cancel"
-                                          otherButtonTitles:nil];
-    
-    [alert addButtonWithTitle:@"Stream"];
-    [alert addButtonWithTitle:@"Pick Track to Synchronize"];
-    [alert show];
-}
-
-- (void) foundLocally{
-    NSString *message = [NSString stringWithFormat:@"You've got the Track!: %@", songTitle];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sweeeeeeet"
-                                                    message:message
-                                                   delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-    
-    //found song locally, and play it
-    self->discoTrack = [autoResults objectAtIndex:0];
-    [self loadAndPlayLocalTrack];
-}
-
-- (void) loadAndPlayLocalTrack{
-    [self createTimeLabels];
-    songURL = [self->discoTrack valueForProperty:MPMediaItemPropertyAssetURL];
-    AVURLAsset *urlAsset = [[AVURLAsset alloc] initWithURL:songURL options:nil];
-    NSArray *keyArray = [[NSArray alloc] initWithObjects:@"tracks", nil];
-    [urlAsset loadValuesAsynchronouslyForKeys:keyArray completionHandler:^{
-        
-        self->playerItem = [[AVPlayerItem alloc] initWithAsset:urlAsset];
-        
-        player = [[AVPlayer alloc] initWithPlayerItem:self->playerItem];
-        
-        while (true) {
-            if (player.status == AVPlayerStatusReadyToPlay && playerItem.status == AVPlayerItemStatusReadyToPlay)
-                break;
-        }
-        
-        [player play];
-    }];
-}
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
-    
-    if([title isEqualToString:@"Stream"])
-    {
-        NSLog(@"Stream.");
-        //Get the Stream URL
-        NSURL *url = [NSURL URLWithString:streamURL];
-        self->avAsset = [AVURLAsset URLAssetWithURL:url options:nil];
-        self->playerItem = [AVPlayerItem playerItemWithAsset:avAsset];
-        self->player = [AVPlayer playerWithPlayerItem:playerItem];
-        double serverTime = [self calculateNetworkLatency];
-        double eta = _startprop - serverTime;
-        NSLog(@"eta=%f", eta);
-        [self->player play];
-        [self createTimeLabels];
-        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
-    }
-    else if([title isEqualToString:@"Pick Track to Synchronize"])
-    {
-        NSLog(@"Pick Track to Synchronize.");
-        [self pickTrack];
-    }
-}
-
 - (void) updateSlider{
+    NSLog(@"Came here to update slider");
     AVPlayerItem *currentItem = player.currentItem;
     Float64 currentTime = CMTimeGetSeconds(currentItem.currentTime); //playing time
     Float64 duration = CMTimeGetSeconds(currentItem.duration); //total time
@@ -169,7 +114,7 @@
 - (void) setTrack:(MPMediaItem *)song
 {
     self->discoTrack = song;
-    [self loadAndPlayLocalTrack];
+    //[self loadAndPlayLocalTrack];
 }
 
 
@@ -190,6 +135,7 @@
     [locationManager startUpdatingLocation];
     self->setSpan = FALSE;
     
+#warning Exchange static frame info for constraints
     CGRect r = self.view.bounds;
     r.size.height = 350;
     self->mapView = [[MKMapView alloc] initWithFrame:r];
@@ -238,17 +184,6 @@
     [self.view addSubview:mapView];
 }
 
--(void) initializeAudio{
-    NSError *sessionError = nil;
-    [[AVAudioSession sharedInstance] setDelegate:self];
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
-    
-    // Change the default output audio route
-    UInt32 doChangeDefaultRoute = 1;
-    AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker,
-                            sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
-}
-
 
 /*****************************************************/
 ///////////////////////// //////////////////*//////////
@@ -264,6 +199,7 @@
     
     //put the trackname on the view
     UILabel *tracknameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 20)];
+    NSLog(@"Track name: %@", tracknameLabel.text);
     tracknameLabel.text = self->songTitle;
     tracknameLabel.textAlignment = NSTextAlignmentCenter;
     [tracknameLabel setTextColor:[UIColor whiteColor]];

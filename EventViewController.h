@@ -12,7 +12,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "MusicTableViewController.h"
 #import "Utils.h"
-@interface dEventViewController : UIViewController<NSURLSessionDelegate,NSURLSessionDownloadDelegate,NSURLSessionDataDelegate, UIAlertViewDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, PassInformation>{
+@interface EventViewController : UIViewController<NSURLSessionDelegate,NSURLSessionDownloadDelegate,NSURLSessionDataDelegate, UIAlertViewDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, PassInformation>{
     MKMapView *mapView;
 @public float latitude;
 @public float longitude;
