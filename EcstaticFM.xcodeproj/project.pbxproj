@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C1E9BFD1A844DBA001C488E /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1E9BFC1A844DBA001C488E /* PlayerView.m */; };
 		1C3AC14D1A7EC168004B1D86 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3AC14C1A7EC168004B1D86 /* EventViewController.m */; };
 		1C3AC1501A7EC1CB004B1D86 /* MusicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3AC14F1A7EC1CB004B1D86 /* MusicTableViewController.m */; };
 		1C4861D51A7AB75C004EFEAD /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428D71A79AA2B001DB0AD /* logo1.png */; };
@@ -52,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C1E9BFB1A844DBA001C488E /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
+		1C1E9BFC1A844DBA001C488E /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
 		1C3AC14B1A7EC168004B1D86 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		1C3AC14C1A7EC168004B1D86 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		1C3AC14E1A7EC1CB004B1D86 /* MusicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicTableViewController.h; sourceTree = "<group>"; };
@@ -204,6 +207,8 @@
 				1C3AC14C1A7EC168004B1D86 /* EventViewController.m */,
 				1C3AC14E1A7EC1CB004B1D86 /* MusicTableViewController.h */,
 				1C3AC14F1A7EC1CB004B1D86 /* MusicTableViewController.m */,
+				1C1E9BFB1A844DBA001C488E /* PlayerView.h */,
+				1C1E9BFC1A844DBA001C488E /* PlayerView.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 				1CA428AB1A799CE9001DB0AD /* main.m in Sources */,
 				1C3AC1501A7EC1CB004B1D86 /* MusicTableViewController.m in Sources */,
 				1CA428D61A799E68001DB0AD /* Utils.m in Sources */,
+				1C1E9BFD1A844DBA001C488E /* PlayerView.m in Sources */,
 				1CA428D51A799E68001DB0AD /* EventCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

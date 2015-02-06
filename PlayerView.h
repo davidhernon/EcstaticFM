@@ -1,44 +1,34 @@
 //
-//  EventViewController.h
+//  PlayerView.h
 //  EcstaticFM
 //
-//  Created by David Hernon on 2015-02-01.
+//  Created by David Hernon on 2015-02-05.
 //  Copyright (c) 2015 David Hernon. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 #import "MusicTableViewController.h"
-#import "Utils.h"
-@interface EventViewController : UIViewController<NSURLSessionDelegate,NSURLSessionDownloadDelegate,NSURLSessionDataDelegate, UIAlertViewDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, PassInformation>{
-    MKMapView *mapView;
-@public float latitude;
-@public float longitude;
-@public NSString *eventTitle;
-@public NSString *songTitle;
-@public NSString *streamURL;
-@public NSString *location;
-@public MPMediaItem *discoTrack;
+
+@interface PlayerView : UIView<NSURLSessionDataDelegate, PassInformation>
+{
+    @public NSString *songTitle;
+    @public NSString *streamURL;
+    @public MPMediaItem *discoTrack; //maybe take this out
     IBOutlet UILabel *countdownTimer;
-   // UIView *playerView;
+    UIView *playerView;
     AVPlayer *player;
     AVAsset *avAsset;
     AVPlayerItem *playerItem;
     NSURL *songURL;
     NSArray *autoResults;
     IBOutlet UIView *volumeView;
-    CLLocationDegrees userlat;
-    CLLocationDegrees userlong;
     NSTimer *userLocTimer;
-    MKUserLocation *userLocation;
-    CLLocationManager *locationManager;
     BOOL setSpan;
     UISlider *slider;
     UILabel *playtimeLabel;
     UILabel *durationLabel;
-    
 }
 @property double startprop;
 @property double eta;

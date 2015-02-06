@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Utils.h"
 
 @implementation AppDelegate
 
@@ -22,7 +23,7 @@
 {
     NSURLSession *defaultSession = [NSURLSession sharedSession];
     
-    NSURL * url = [NSURL URLWithString:@"http://54.173.157.204/appindex.html/"];
+    NSURL * url = [NSURL URLWithString:[Utils getWebsiteURL]];
     //NSURL * url = [NSURL URLWithString:@"http://silentdiscosquad.com/appindex.html/"];
     NSURLSessionDataTask *dataTask = [defaultSession dataTaskWithURL:url
                                                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
