@@ -2,57 +2,69 @@
 //  PlayerView.m
 //  EcstaticFM
 //
-//  Created by David Hernon on 2015-02-05.
+//  Created by David Hernon on 2015-02-11.
 //  Copyright (c) 2015 David Hernon. All rights reserved.
 //
 
 #import "PlayerView.h"
-#import "Utils.h"
 
 @implementation PlayerView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
-- (void)createVolumeView{
-    volumeView.backgroundColor = [Utils colorWithHexString:@"0EA48B"];
-    
-    //put the trackname on the view
-    UILabel *tracknameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 20)];
-    NSLog(@"Track name: %@", tracknameLabel.text);
-    tracknameLabel.text = self->songTitle;
-    tracknameLabel.textAlignment = NSTextAlignmentCenter;
-    [tracknameLabel setTextColor:[UIColor whiteColor]];
-    [tracknameLabel setBackgroundColor:[UIColor clearColor]];
-    [tracknameLabel setFont:[UIFont fontWithName: @"Dosis-Bold" size: 14.0f]];
-    [self->volumeView addSubview:tracknameLabel];
-    
-    //create slider
-    CGRect frame = CGRectMake(30.0, 40.0, 260.0, 10.0);
-    self->slider = [[UISlider alloc] initWithFrame:frame];
-    //[slider addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventValueChanged];
-    [slider setBackgroundColor:[UIColor clearColor]];
-    slider.minimumValue = 0.0;
-    slider.maximumValue = 1.0;
-    slider.continuous = YES;
-    slider.value = 0.0;
-    [self->volumeView addSubview:slider];
-    
+-(void)awakeFromNib {
+    //Note That You Must Change @”BNYSharedView’ With Whatever Your Nib Is Named
+    [[NSBundle mainBundle] loadNibNamed:@"PlayerView" owner:self options:nil];
+    [self addSubview: self.contentView];
 }
 
-- (void) createTimeLabels{
-    self->playtimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 75, 100, 20)];
-    self->durationLabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 75, 100, 20)];
-    [self->volumeView addSubview:playtimeLabel];
-    [self->volumeView addSubview:durationLabel];
-    [self->volumeView bringSubviewToFront:playtimeLabel];
+- (void) updateSlider
+{
+    NSLog(@"Came here to update slider");
+    AVPlayerItem *currentItem = _player.currentItem;
+    Float64 currentTime = CMTimeGetSeconds(currentItem.currentTime); //playing time
+    Float64 duration = CMTimeGetSeconds(currentItem.duration); //total time
+    
+    //create a pair of labels
+    _playTimeLabel.text = [Utils floatToText:currentTime];
+    _durationLabel.text = [Utils floatToText:duration];
+    _slider.value = currentTime/duration;
 }
-//returns the exact time that the server thinks it is, adjusted for network latency :)
+
+// Stuff that needs to be moved to Player:
+///
+//
+//
+//
+//
+//
+
+-(void) initializeAudio{
+    NSError *sessionError = nil;
+    [[AVAudioSession sharedInstance] setDelegate:self];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
+    
+    // Change the default output audio route
+    UInt32 doChangeDefaultRoute = 1;
+    AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker,
+                            sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
+}
+
+-(void) stream:(NSString*) streamURL
+{
+    NSLog(@"Stream.");
+    //Get the Stream URL
+    NSURL *url = [NSURL URLWithString:streamURL];
+    _avAsset = [AVURLAsset URLAssetWithURL:url options:nil];
+    _playerItem = [AVPlayerItem playerItemWithAsset:_avAsset];
+    _player = [AVPlayer playerWithPlayerItem:_playerItem];
+    double serverTime = [self calculateNetworkLatency];
+    double eta = _startprop - serverTime;
+    NSLog(@"eta=%f", eta);
+    [_player play];
+   // [self createTimeLabels]; THIS LINE IS NOT NEEDED ANYMORE BECAUSE WE CREATE THEM IN THE .XIB
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
+    
+}
+
 - (double)calculateNetworkLatency
 {
     if(self.j < 10)
@@ -61,7 +73,7 @@
         NSURLSession *delegateFreeSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate:self delegateQueue: [NSOperationQueue mainQueue]];
         
         NSURL * url = [NSURL URLWithString:[Utils getWebsiteURL]];
-        self.requestStart = [NSDate date];
+        _requestStart = [NSDate date];
         
         NSURLSessionDataTask *dataTask = [delegateFreeSession dataTaskWithURL:url
                                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -107,8 +119,5 @@
     }
     return -193234;
 }
-
-
-
 
 @end

@@ -10,9 +10,15 @@
 #import <MapKit/MapKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
-#import "MusicTableViewController.h"
 #import "Utils.h"
-@interface EventViewController : UIViewController<NSURLSessionDelegate,NSURLSessionDownloadDelegate,NSURLSessionDataDelegate, UIAlertViewDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate, PassInformation>{
+#import "PlayerView.h"
+@interface EventViewController : UIViewController<NSURLSessionDelegate,NSURLSessionDownloadDelegate,NSURLSessionDataDelegate, UIAlertViewDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate>{
+    
+    //David's stuff
+    IBOutlet PlayerView *playerView;
+    
+    
+    
     MKMapView *mapView;
 @public float latitude;
 @public float longitude;
@@ -22,13 +28,11 @@
 @public NSString *location;
 @public MPMediaItem *discoTrack;
     IBOutlet UILabel *countdownTimer;
-   // UIView *playerView;
     AVPlayer *player;
     AVAsset *avAsset;
     AVPlayerItem *playerItem;
     NSURL *songURL;
     NSArray *autoResults;
-    IBOutlet UIView *volumeView;
     CLLocationDegrees userlat;
     CLLocationDegrees userlong;
     NSTimer *userLocTimer;
