@@ -41,6 +41,7 @@
 		1CA428D61A799E68001DB0AD /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428D31A799E68001DB0AD /* Utils.m */; };
 		1CA428FA1A79AA2B001DB0AD /* logos-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428E81A79AA2B001DB0AD /* logos-04.png */; };
 		1CC438B91A7DBDF3000A5AEC /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC438B81A7DBDF3000A5AEC /* Event.m */; };
+		1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCB176C1A92792C0055D68C /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,8 @@
 		1CA428E81A79AA2B001DB0AD /* logos-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logos-04.png"; sourceTree = "<group>"; };
 		1CC438B71A7DBDF3000A5AEC /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		1CC438B81A7DBDF3000A5AEC /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		1CCB176B1A92792C0055D68C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		1CCB176C1A92792C0055D68C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 		1CA4289C1A799CE9001DB0AD = {
 			isa = PBXGroup;
 			children = (
+				1CCB176B1A92792C0055D68C /* LoginViewController.h */,
+				1CCB176C1A92792C0055D68C /* LoginViewController.m */,
 				1CC438BA1A7DBF38000A5AEC /* Source */,
 				1CA428A71A799CE9001DB0AD /* EcstaticFM */,
 				1CA428C11A799CE9001DB0AD /* EcstaticFMTests */,
@@ -341,6 +346,7 @@
 				1CA428D41A799E68001DB0AD /* HomeTableViewController.m in Sources */,
 				1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */,
 				1C3AC14D1A7EC168004B1D86 /* EventViewController.m in Sources */,
+				1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */,
 				1CA428AB1A799CE9001DB0AD /* main.m in Sources */,
 				1CA428D61A799E68001DB0AD /* Utils.m in Sources */,
 				1C8F93C71A8C07EB007990AD /* PlayerView.m in Sources */,

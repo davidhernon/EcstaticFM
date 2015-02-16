@@ -12,19 +12,24 @@
 #import "Utils.h"
 
 @interface PlayerView : UIView
+{
+    AVPlayer *player;
+    AVAsset *avAsset;
+    AVPlayerItem *playerItem;
+}
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak,nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UILabel *playTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
-@property (weak, nonatomic) AVPlayer *player;
+//@property (strong, atomic) AVPlayer *player;
 // PLAYER STUFF TO REFACTOR:
 
 -(void) initializeAudio;
--(void) stream:(NSString*) streamURL;
-- (double)calculateNetworkLatency;
-
-@property (weak, nonatomic) AVAsset *avAsset;
-@property (weak, nonatomic) AVPlayerItem *playerItem;
+-(void) stream:(NSString*)streamURL withNetworkLatency:(double)network;
+//- (double)calculateNetworkLatency;
+//
+//@property (strong, atomic) AVAsset *avAsset;
+//@property (weak, nonatomic) AVPlayerItem *playerItem;
 @property int j;
 @property double startprop;
 @property (weak, nonatomic) NSDate *requestStart;
