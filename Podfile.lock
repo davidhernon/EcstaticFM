@@ -1,0 +1,23 @@
+PODS:
+  - CocoaSoundCloudAPI (1.0.1):
+    - NXOAuth2Client (= 1.2.1)
+  - CocoaSoundCloudUI (1.0.5):
+    - CocoaSoundCloudAPI (~> 1.0.1)
+    - JSONKit
+    - OHAttributedLabel
+  - JSONKit (1.4)
+  - NXOAuth2Client (1.2.1)
+  - OHAttributedLabel (3.5.5)
+
+DEPENDENCIES:
+  - CocoaSoundCloudAPI (= 1.0.1)
+  - CocoaSoundCloudUI (= 1.0.5)
+
+SPEC CHECKSUMS:
+  CocoaSoundCloudAPI: 5e6bab9b529e0c0de1a0b470a25673e199e3b12b
+  CocoaSoundCloudUI: a9690cb539fc2f9a20cb718caf25be4e760e7f43
+  JSONKit: 2111ac2b11f7ea0d07bb1d9d09e650918336a134
+  NXOAuth2Client: 28de3d9bde510d398e62d723a0123c500017af84
+  OHAttributedLabel: 733b32053cd02be1044749d394e874143e41e8d7
+
+COCOAPODS: 0.35.0
