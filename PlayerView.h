@@ -26,20 +26,8 @@
 
 -(void) initializeAudio;
 -(void) stream:(NSString*)streamURL withNetworkLatency:(double)network;
-//- (double)calculateNetworkLatency;
-//
-//@property (strong, atomic) AVAsset *avAsset;
-//@property (weak, nonatomic) AVPlayerItem *playerItem;
-@property int j;
+
 @property double startprop;
-@property (weak, nonatomic) NSDate *requestStart;
-@property (nonatomic, retain) NSArray *serverTimestamp;
-@property (nonatomic, retain) NSString* serverTimestampString;
-@property (nonatomic, retain) NSDate* serverTimestampDate;
-@property NSTimeInterval serverTimeSinceEpoch;
-@property NSMutableArray *serverTimestampsArray;
-@property NSMutableArray *durations;
-@property NSTimeInterval requestDuration;
 //
 -(void)updateSlider;
 @end

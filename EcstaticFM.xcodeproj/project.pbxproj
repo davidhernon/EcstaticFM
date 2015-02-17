@@ -124,8 +124,6 @@
 		1CA4289C1A799CE9001DB0AD = {
 			isa = PBXGroup;
 			children = (
-				1CCB176B1A92792C0055D68C /* LoginViewController.h */,
-				1CCB176C1A92792C0055D68C /* LoginViewController.m */,
 				1CC438BA1A7DBF38000A5AEC /* Source */,
 				1CA428A71A799CE9001DB0AD /* EcstaticFM */,
 				1CA428C11A799CE9001DB0AD /* EcstaticFMTests */,
@@ -202,6 +200,8 @@
 		1CC438BA1A7DBF38000A5AEC /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1CCB176B1A92792C0055D68C /* LoginViewController.h */,
+				1CCB176C1A92792C0055D68C /* LoginViewController.m */,
 				1C8F93C81A8C0823007990AD /* PlayerView.xib */,
 				1C8F93C51A8C07EB007990AD /* PlayerView.h */,
 				1C8F93C61A8C07EB007990AD /* PlayerView.m */,

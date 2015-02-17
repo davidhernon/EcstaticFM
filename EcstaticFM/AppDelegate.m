@@ -17,8 +17,13 @@
     [self GetIndex];
     return YES;
     
+    
 }
 
+/*!
+  Gets an NSDictionary of upcoming Ecstatic Community Events
+  @returns YES or NO depending on success of SDS API call
+ */
 -(BOOL) GetIndex
 {
     NSURLSession *defaultSession = [NSURLSession sharedSession];

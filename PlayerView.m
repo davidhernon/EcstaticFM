@@ -10,12 +10,19 @@
 
 @implementation PlayerView
 
+/*!
+ Runs specific code upon call from associated .xib file
+ Loads the appropriate Nib into the mainBundle and adds contentView as the subview
+ */
 -(void)awakeFromNib {
     //Note That You Must Change @”BNYSharedView’ With Whatever Your Nib Is Named
     [[NSBundle mainBundle] loadNibNamed:@"PlayerView" owner:self options:nil];
     [self addSubview: self.contentView];
 }
 
+/*!
+ Updates PlayerView's UISlider for to indicate duration through the current item
+ */
 - (void) updateSlider
 {
     NSLog(@"Came here to update slider");
@@ -32,41 +39,37 @@
         self.slider.value = currentTime/duration;
 }
 
+/*!
+ Prepares iOS audio with appropriate parameters and changes default audio output
+ */
 -(void) initializeAudio
 {
     NSError *sessionError = nil;
     [[AVAudioSession sharedInstance] setDelegate:self];
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
     
-    // Change the default output audio route
     UInt32 doChangeDefaultRoute = 1;
     AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker,
                             sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
 }
 
+/*!
+ Begins playing audio over a streaming protocol
+ @params streamURL NSString indicating location of streaming media
+ @params network A double indicating the network latency in milliseconds
+ */
 -(void) stream:(NSString*) streamURL withNetworkLatency:(double)network
 {
-    NSLog(@"Stream.");
-    //Get the Stream URL
+
     NSURL *url = [NSURL URLWithString:streamURL];
     self->avAsset = [AVURLAsset URLAssetWithURL:url options:nil];
-    NSArray *commonMeta = [avAsset commonMetadata];
-    for(AVMetadataItem *metaItem in commonMeta)
-    {
-        NSLog(@"common meta: %@", [metaItem commonKey]);
-    }
     self->playerItem = [AVPlayerItem playerItemWithAsset:self->avAsset];
     self->player = [AVPlayer playerWithPlayerItem:self->playerItem];
     
-    //double serverTime = [self calculateNetworkLatency];
-    double serverTime = network;
-    double eta = _startprop - serverTime;
-    NSLog(@"eta=%f", eta);
+    double eta = _startprop - network;
     [self->player play];
     
-    [self updateSlider];
-    
-    //[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
     
 }
 

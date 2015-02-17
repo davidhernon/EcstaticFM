@@ -10,6 +10,10 @@
 
 @implementation Event
 
+/*!
+ Constructor for Event, initializes the appropriate variables and calls super
+ @returns id for this Event
+ */
 - (id) init
 {
     self = [super init];
@@ -22,6 +26,12 @@
     return self;
 }
 
+/*!
+ Constructor for Event that takes in a Dictionary
+ @params eventDict A Dictionary to build an Event from
+ @params index The index of the required Event in the dictionary of Events
+ @returns An id for this Event
+ */
 - (id)initWithDict:(NSArray*)eventDict atIndex:(NSInteger)index
 {
     self = [super init];

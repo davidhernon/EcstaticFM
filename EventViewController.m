@@ -11,6 +11,9 @@
 
 @implementation EventViewController
 
+/*!
+ Calls super viewDidLoad and initializes View Controller
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -24,34 +27,6 @@
     
 }
 
-///**
-// 
-// */
-//-(void) stream
-//{
-//    NSLog(@"Stream.");
-//    //Get the Stream URL
-//    NSURL *url = [NSURL URLWithString:streamURL];
-//    self->avAsset = [AVURLAsset URLAssetWithURL:url options:nil];
-//    
-//    AVPlayerItem *pItem = [AVPlayerItem playerItemWithURL:url];
-//    NSArray *metadataList = [pItem.asset commonMetadata];
-//    for (AVMetadataItem *metaItem in metadataList) {
-//        NSLog(@"metadata: %@",[metaItem commonKey]);
-//    }
-//    
-//    self->playerItem = [AVPlayerItem playerItemWithAsset:avAsset];
-//
-//    self->player = [AVPlayer playerWithPlayerItem:playerItem];
-//    double serverTime = [self calculateNetworkLatency];
-//    double eta = _startprop - serverTime;
-//    NSLog(@"eta=%f", eta);
-//    [self->player play];
-//   // [self createTimeLabels];
-//    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
-//
-//}
-
 
 /*****************************************************/
 ///////////////////////// //////////////////*//////////
@@ -61,9 +36,12 @@
 ///////////////////////// //////////////*//////////////
 /*****************************************************/
 
+/*!
+ Initializes a Map UI for the User Interface
+ */
 -(void) initializeMapView{
     
-    [self.navigationController setNavigationBarHidden:NO];   //it hides
+    [self.navigationController setNavigationBarHidden:NO];
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
@@ -79,7 +57,12 @@
     mapView.userTrackingMode = YES;
 }
 
-//grab the user location
+/*!
+ Manages the location of the components in the map and calls createMapView
+ @params manager
+ @params newLocation
+ @params oldLocation
+ */
 -(void)locationManager:(CLLocationManager *)manager
    didUpdateToLocation:(CLLocation *)newLocation
           fromLocation:(CLLocation *)oldLocation
@@ -94,6 +77,9 @@
     }
 }
 
+/*!
+ Creates and adds the Map to the UI
+ */
 - (void)createMapView{
     //create the point for the destination
     CLLocationCoordinate2D coord = {.latitude =  self->latitude, .longitude =  self->longitude};
@@ -119,6 +105,10 @@
     [self.view addSubview:mapView];
 }
 
+/*!
+ Calculates Network Latency
+ @returns millisecond latency on the network
+ */
 /*- (double)calculateNetworkLatency
 {
     // NOT WORKING AT ALL
