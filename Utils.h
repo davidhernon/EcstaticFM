@@ -1,0 +1,16 @@
+//
+//  Utils.h
+//  EcstaticFM
+//
+//  Created by David Hernon on 2015-02-18.
+//  Copyright (c) 2015 David Hernon. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+@interface Utils : NSObject
++(UIColor*) colorWithHexString:(NSString*)hex;
++(NSString*)getWebsiteURL;
++(NSMutableString*) floatToText: (Float64)time;
+@end
