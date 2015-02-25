@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1C2251441A9E7CA600210324 /* MediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2251431A9E7CA600210324 /* MediaItem.m */; };
 		1C2251471A9E7E5F00210324 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2251461A9E7E5F00210324 /* Playlist.m */; };
+		1C22514D1A9E8D7C00210324 /* MediaPickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C22514C1A9E8D7C00210324 /* MediaPickerTableViewController.m */; };
+		1C2251501A9E8EB000210324 /* MediaItemViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C22514F1A9E8EB000210324 /* MediaItemViewCell.m */; };
 		1C2838011A955F59006F10EC /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2838001A955F59006F10EC /* HomeTableViewController.m */; };
 		1C2838041A955F8D006F10EC /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2838031A955F8D006F10EC /* Utils.m */; };
 		1C2838071A955FA5006F10EC /* EventCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2838061A955FA5006F10EC /* EventCellView.m */; };
@@ -62,6 +64,10 @@
 		1C2251431A9E7CA600210324 /* MediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaItem.m; sourceTree = "<group>"; };
 		1C2251451A9E7E5F00210324 /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
 		1C2251461A9E7E5F00210324 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
+		1C22514B1A9E8D7C00210324 /* MediaPickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPickerTableViewController.h; sourceTree = "<group>"; };
+		1C22514C1A9E8D7C00210324 /* MediaPickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaPickerTableViewController.m; sourceTree = "<group>"; };
+		1C22514E1A9E8EB000210324 /* MediaItemViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaItemViewCell.h; sourceTree = "<group>"; };
+		1C22514F1A9E8EB000210324 /* MediaItemViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaItemViewCell.m; sourceTree = "<group>"; };
 		1C2837FF1A955F59006F10EC /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
 		1C2838001A955F59006F10EC /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		1C2838021A955F8D006F10EC /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
@@ -234,6 +240,10 @@
 				1C33F84C1A8D4A0C0072ABBE /* Player.m */,
 				1C2251421A9E7CA600210324 /* MediaItem.h */,
 				1C2251431A9E7CA600210324 /* MediaItem.m */,
+				1C22514B1A9E8D7C00210324 /* MediaPickerTableViewController.h */,
+				1C22514C1A9E8D7C00210324 /* MediaPickerTableViewController.m */,
+				1C22514E1A9E8EB000210324 /* MediaItemViewCell.h */,
+				1C22514F1A9E8EB000210324 /* MediaItemViewCell.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -420,6 +430,8 @@
 				1CA428AB1A799CE9001DB0AD /* main.m in Sources */,
 				1C2251471A9E7E5F00210324 /* Playlist.m in Sources */,
 				1C8F93C71A8C07EB007990AD /* PlayerView.m in Sources */,
+				1C22514D1A9E8D7C00210324 /* MediaPickerTableViewController.m in Sources */,
+				1C2251501A9E8EB000210324 /* MediaItemViewCell.m in Sources */,
 				1C2838071A955FA5006F10EC /* EventCellView.m in Sources */,
 				1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */,
 				1C2838011A955F59006F10EC /* HomeTableViewController.m in Sources */,

@@ -114,6 +114,12 @@
     // NOT WORKING AT ALL
 }*/
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    self->dest = [segue destinationViewController];
+}
+
+
+
 
 
 - (void)didReceiveMemoryWarning
