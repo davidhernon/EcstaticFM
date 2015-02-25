@@ -8,6 +8,7 @@
 
 #import "PlayerView.h"
 
+
 @implementation PlayerView
 
 /*!
@@ -65,11 +66,44 @@
     self->avAsset = [AVURLAsset URLAssetWithURL:url options:nil];
     self->playerItem = [AVPlayerItem playerItemWithAsset:self->avAsset];
     self->player = [AVPlayer playerWithPlayerItem:self->playerItem];
-    
-    double eta = _startprop - network;
     [self->player play];
     
+     double eta = _startprop - network;
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
+    
+}
+
+-(IBAction)soundCloudRequest:(id)sender
+{
+    
+    SCAccount *account = [SCSoundCloud account];
+    
+    NSString *resourceURL = @"https://api.soundcloud.com/me/favorites.json";
+    
+    id obj = [SCRequest performMethod:SCRequestMethodGET
+                           onResource:[NSURL URLWithString:resourceURL]
+                      usingParameters:nil
+                          withAccount:account
+               sendingProgressHandler:nil
+                      responseHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+                          // Handle the response
+                          if (error) {
+                              NSLog(@"Ooops, something went wrong: %@", [error localizedDescription]);
+                          } else {
+                              // Check the statuscode and parse the data
+                              NSError *jsonError = nil;
+                              NSJSONSerialization *jsonResponse = [NSJSONSerialization
+                                                                   JSONObjectWithData:data
+                                                                   options:0
+                                                                   error:&jsonError];
+                                  if (!jsonError && [jsonResponse isKindOfClass:[NSArray class]]) {
+                                      NSLog(@"json %@",(NSArray *)jsonResponse);
+                                      
+                                  }
+                              
+                          }
+                      }];
+    
     
 }
 

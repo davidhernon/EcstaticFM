@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
+#import "playlist.h"
 
 @interface Player : NSObject
+
+@property AVPlayer* player;
+@property Playlist* playlist;
+
+
 
 @end

@@ -10,6 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 #import "Utils.h"
+#import "SCUI.h"
 
 @interface PlayerView : UIView
 {
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak,nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UILabel *playTimeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *soundCloudRequest;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 //@property (strong, atomic) AVPlayer *player;
 // PLAYER STUFF TO REFACTOR:
@@ -30,4 +32,5 @@
 @property double startprop;
 //
 -(void)updateSlider;
+-(IBAction)soundCloudRequest:(id)sender;
 @end
