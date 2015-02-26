@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1C2251441A9E7CA600210324 /* MediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2251431A9E7CA600210324 /* MediaItem.m */; };
 		1C2251471A9E7E5F00210324 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2251461A9E7E5F00210324 /* Playlist.m */; };
-		1C22514D1A9E8D7C00210324 /* MediaPickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C22514C1A9E8D7C00210324 /* MediaPickerTableViewController.m */; };
 		1C2251501A9E8EB000210324 /* MediaItemViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C22514F1A9E8EB000210324 /* MediaItemViewCell.m */; };
 		1C2838011A955F59006F10EC /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2838001A955F59006F10EC /* HomeTableViewController.m */; };
 		1C2838041A955F8D006F10EC /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2838031A955F8D006F10EC /* Utils.m */; };
@@ -46,6 +45,8 @@
 		1CA428FA1A79AA2B001DB0AD /* logos-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428E81A79AA2B001DB0AD /* logos-04.png */; };
 		1CC438B91A7DBDF3000A5AEC /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC438B81A7DBDF3000A5AEC /* Event.m */; };
 		1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCB176C1A92792C0055D68C /* LoginViewController.m */; };
+		1CEB11DB1A9ED611005C162D /* MediaPickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB11D91A9ED611005C162D /* MediaPickerTableViewController.m */; };
+		1CEB11DC1A9ED611005C162D /* MediaPickerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CEB11DA1A9ED611005C162D /* MediaPickerTableViewController.xib */; };
 		D2A8C828A1F2E13542223221 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA11C45E121802EEDA9E85 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -64,8 +65,6 @@
 		1C2251431A9E7CA600210324 /* MediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaItem.m; sourceTree = "<group>"; };
 		1C2251451A9E7E5F00210324 /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
 		1C2251461A9E7E5F00210324 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
-		1C22514B1A9E8D7C00210324 /* MediaPickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPickerTableViewController.h; sourceTree = "<group>"; };
-		1C22514C1A9E8D7C00210324 /* MediaPickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaPickerTableViewController.m; sourceTree = "<group>"; };
 		1C22514E1A9E8EB000210324 /* MediaItemViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaItemViewCell.h; sourceTree = "<group>"; };
 		1C22514F1A9E8EB000210324 /* MediaItemViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaItemViewCell.m; sourceTree = "<group>"; };
 		1C2837FF1A955F59006F10EC /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
@@ -114,6 +113,9 @@
 		1CC438B81A7DBDF3000A5AEC /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		1CCB176B1A92792C0055D68C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1CCB176C1A92792C0055D68C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		1CEB11D81A9ED611005C162D /* MediaPickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPickerTableViewController.h; sourceTree = "<group>"; };
+		1CEB11D91A9ED611005C162D /* MediaPickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaPickerTableViewController.m; sourceTree = "<group>"; };
+		1CEB11DA1A9ED611005C162D /* MediaPickerTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaPickerTableViewController.xib; sourceTree = "<group>"; };
 		357C25CB851B05BF017C7876 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4CDA11C45E121802EEDA9E85 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2B767D1CC5F084F45D1F4FB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -240,10 +242,11 @@
 				1C33F84C1A8D4A0C0072ABBE /* Player.m */,
 				1C2251421A9E7CA600210324 /* MediaItem.h */,
 				1C2251431A9E7CA600210324 /* MediaItem.m */,
-				1C22514B1A9E8D7C00210324 /* MediaPickerTableViewController.h */,
-				1C22514C1A9E8D7C00210324 /* MediaPickerTableViewController.m */,
 				1C22514E1A9E8EB000210324 /* MediaItemViewCell.h */,
 				1C22514F1A9E8EB000210324 /* MediaItemViewCell.m */,
+				1CEB11D81A9ED611005C162D /* MediaPickerTableViewController.h */,
+				1CEB11D91A9ED611005C162D /* MediaPickerTableViewController.m */,
+				1CEB11DA1A9ED611005C162D /* MediaPickerTableViewController.xib */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CEB11DC1A9ED611005C162D /* MediaPickerTableViewController.xib in Resources */,
 				1C4861D51A7AB75C004EFEAD /* logo1.png in Resources */,
 				1C4861D61A7AB75C004EFEAD /* logo1@2x.png in Resources */,
 				1C4861D71A7AB75C004EFEAD /* logo.png in Resources */,
@@ -429,8 +433,8 @@
 				1C2251441A9E7CA600210324 /* MediaItem.m in Sources */,
 				1CA428AB1A799CE9001DB0AD /* main.m in Sources */,
 				1C2251471A9E7E5F00210324 /* Playlist.m in Sources */,
+				1CEB11DB1A9ED611005C162D /* MediaPickerTableViewController.m in Sources */,
 				1C8F93C71A8C07EB007990AD /* PlayerView.m in Sources */,
-				1C22514D1A9E8D7C00210324 /* MediaPickerTableViewController.m in Sources */,
 				1C2251501A9E8EB000210324 /* MediaItemViewCell.m in Sources */,
 				1C2838071A955FA5006F10EC /* EventCellView.m in Sources */,
 				1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */,

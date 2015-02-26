@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *playTimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *soundCloudRequest;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
+@property UINavigationController* navigationController;
 //@property (strong, atomic) AVPlayer *player;
 // PLAYER STUFF TO REFACTOR:
 

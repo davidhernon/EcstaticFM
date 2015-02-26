@@ -8,6 +8,7 @@
 
 #import "EventViewController.h"
 #import "PlayerView.h"
+#import "MediaPickerTableViewController.h"
 
 @implementation EventViewController
 
@@ -103,6 +104,7 @@
     [mapView setRegion:region];
     
     [self.view addSubview:mapView];
+    //[self nextScreen];
 }
 
 /*!
@@ -114,9 +116,6 @@
     // NOT WORKING AT ALL
 }*/
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    self->dest = [segue destinationViewController];
-}
 
 
 
@@ -125,6 +124,12 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+-(IBAction)nextScreen
+{
+    MediaPickerTableViewController* mptvc = [[MediaPickerTableViewController alloc] initWithNibName:@"MediaPickerTableViewController" bundle:nil];
+    [self presentViewController:mptvc animated:YES completion:^(void){}];
 }
 
 

@@ -172,7 +172,7 @@
         <!--Media Picker Table View Controller-->
         <scene sceneID="u5J-c5-urU">
             <objects>
-                <tableViewController id="q2N-wv-JKe" customClass="MediaPickerTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MediaPickerTableViewController" id="q2N-wv-JKe" customClass="MediaPickerTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="kYF-hB-kJs">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -7,6 +7,7 @@
 //
 
 #import "PlayerView.h"
+#import "MediaPickerTableViewController.h"
 
 
 @implementation PlayerView
@@ -105,6 +106,11 @@
                       }];
     
     
+}
+
+-(IBAction)nextScreen
+{
+   
 }
 
 @end
