@@ -104,7 +104,7 @@
     [mapView setRegion:region];
     
     [self.view addSubview:mapView];
-    //[self nextScreen];
+    [self nextScreen];
 }
 
 /*!

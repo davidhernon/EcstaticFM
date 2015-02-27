@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface MediaPickerTableViewController : UITableViewController
+@interface MediaPickerTableViewController : UITableViewController<AVAudioPlayerDelegate>
+@property NSJSONSerialization* favorites;
+
+@property (nonatomic, strong) NSArray *tracks;
 
 @end

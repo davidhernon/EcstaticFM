@@ -79,6 +79,12 @@
     
     SCAccount *account = [SCSoundCloud account];
     
+    if(account == nil){
+        // TODO:
+        NSLog(@"SoundCloud account was nil, need to sign in!");
+        return;
+    }
+    
     NSString *resourceURL = @"https://api.soundcloud.com/me/favorites.json";
     
     id obj = [SCRequest performMethod:SCRequestMethodGET

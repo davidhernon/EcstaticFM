@@ -7,15 +7,24 @@
 //
 
 #import "MediaPickerTableViewController.h"
+#import "MediaItemViewCell.h"
+#import "Utils.h"
+#import "SCUI.h"
 
 @interface MediaPickerTableViewController ()
 
 @end
 
 @implementation MediaPickerTableViewController
+@synthesize tracks;
 
 - (void)viewDidLoad {
+    //[self getTracks:self];
     [super viewDidLoad];
+    [self.tableView reloadData];
+    
+    //self.favorites = [Utils soundCloudRequest:self];
+// TODO there might need to be a [self reloadData] call here
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -34,24 +43,91 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.tracks count];
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    MediaItemViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MediaPickerTableViewController" forIndexPath:indexPath];
+//    if (cell == nil) {
+//        cell = [[MediaItemViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MediaPickerTableViewController"];
+//    }
+//    
+//    NSArray* response = (NSArray*)_favorites;
+//    
+//    for(NSDictionary *item in response) {
+//        NSLog(@"Item: %@", item);
+//    }
+//    
+//    // Configure the cell...
+//    
+//    return cell;
+//}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"MediaPickerCellView";
+    MediaItemViewCell *cell = [tableView
+                             dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Configure the cell...
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]
+                initWithStyle:UITableViewCellStyleDefault
+                reuseIdentifier:CellIdentifier];
+    }
+    
+    NSDictionary *track = [self.tracks objectAtIndex:indexPath.row];
+    cell.trackTitle.text = [track objectForKey:@"title"];
     
     return cell;
 }
-*/
+
+//- (IBAction) getTracks:(id) sender
+//{
+//    SCAccount *account = [SCSoundCloud account];
+//    if (account == nil) {
+//        UIAlertView *alert = [[UIAlertView alloc]
+//                              initWithTitle:@"Not Logged In"
+//                              message:@"You must login first"
+//                              delegate:nil
+//                              cancelButtonTitle:@"OK"
+//                              otherButtonTitles:nil];
+//        [alert show];
+//        return;
+//    }
+//    
+//    SCRequestResponseHandler handler;
+//    handler = ^(NSURLResponse *response, NSData *data, NSError *error) {
+//        NSError *jsonError = nil;
+//        NSJSONSerialization *jsonResponse = [NSJSONSerialization
+//                                             JSONObjectWithData:data
+//                                             options:0
+//                                             error:&jsonError];
+//        if (!jsonError && [jsonResponse isKindOfClass:[NSArray class]]) {
+//            tracks = (NSArray *)jsonResponse;
+//            for(NSDictionary *item in (NSDictionary*)jsonResponse)
+//            {
+//                NSLog(@"item: %@", item);
+//            }
+//        }
+//    };
+//    
+//    NSString *resourceURL = @"https://api.soundcloud.com/me/favorites.json";
+//    [SCRequest performMethod:SCRequestMethodGET
+//                  onResource:[NSURL URLWithString:resourceURL]
+//             usingParameters:nil
+//                 withAccount:account
+//      sendingProgressHandler:nil
+//             responseHandler:handler];
+//}
+
 
 /*
 // Override to support conditional editing of the table view.

@@ -10,7 +10,9 @@
 #import <Foundation/Foundation.h>
 
 @interface Utils : NSObject
+@property NSJSONSerialization* queryFromSoundCloud;
 +(UIColor*) colorWithHexString:(NSString*)hex;
 +(NSString*)getWebsiteURL;
 +(NSMutableString*) floatToText: (Float64)time;
++(NSJSONSerialization*)soundCloudRequest:(id)sender;
 @end

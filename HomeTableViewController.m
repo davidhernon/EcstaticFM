@@ -106,7 +106,6 @@ NSArray *keys;
     cell.dateLabel.textColor = [Utils colorWithHexString: @"#D8D6D3"];
     cell.titleLabel.textColor = [Utils colorWithHexString: @"#697880"];
     cell.locationLabel.textColor = [Utils colorWithHexString: @"#697880"];
-    NSLog (@"hiii");
     
     return cell;
 }
