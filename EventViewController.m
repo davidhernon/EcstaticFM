@@ -20,11 +20,11 @@
     [super viewDidLoad];
     [self initializeMapView];
     [self createMapView];
-    
+    playerView.delegate = self;
     playerView.startprop = _startprop; //need to set the startprop properly
-    double network = 16;
     //[playerView initializeAudio]; does this even do anything?
-    [playerView stream:streamURL withNetworkLatency:network];
+    //TODO: take out withNetworkLatency tag
+    [playerView stream:streamURL withNetworkLatency:16];
     
 }
 
@@ -104,7 +104,6 @@
     [mapView setRegion:region];
     
     [self.view addSubview:mapView];
-    [self nextScreen];
 }
 
 
@@ -128,14 +127,14 @@
     [super didReceiveMemoryWarning];
 }
 
--(IBAction)nextScreen
+-(void)nextScreen
 {
-//    MediaPickerTableViewController* mptvc = [[MediaPickerTableViewController alloc] initWithNibName:@"MediaPickerTableViewController" bundle:nil];
-//    [self presentViewController:mptvc animated:YES completion:^(void){}];
     [self getTracks:self];
 }
 
-- (IBAction) getTracks:(id) sender
+//Refactor and (probably) move this to Utils
+//Maybe add in a delegate to Utils to properly call the nav controller
+-(void) getTracks:(id) sender
 {
     SCAccount *account = [SCSoundCloud account];
     if (account == nil) {

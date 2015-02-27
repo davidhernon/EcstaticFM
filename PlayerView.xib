@@ -39,16 +39,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="nextScreen" destination="-1" eventType="touchUpInside" id="vx2-Nh-k7d"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mp3-IO-2R5">
-                    <rect key="frame" x="163" y="284" width="46" height="30"/>
-                    <state key="normal" title="Button">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="nextScreen" destination="-1" eventType="touchUpInside" id="xjT-bU-vJh"/>
+                        <action selector="pickSongs" destination="-1" eventType="touchUpInside" id="Hmc-ma-Dzu"/>
                     </connections>
                 </button>
             </subviews>

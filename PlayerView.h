@@ -12,18 +12,28 @@
 #import "Utils.h"
 #import "SCUI.h"
 
+@protocol mediaPickerDelegate
+- (void)nextScreen;
+@end
+
 @interface PlayerView : UIView
 {
     AVPlayer *player;
     AVAsset *avAsset;
     AVPlayerItem *playerItem;
+    UIViewController* parentView;
+    
 }
+//delegate
+@property (assign) id delegate;
+
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak,nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UILabel *playTimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *soundCloudRequest;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
-@property UINavigationController* navigationController;
+
+
 //@property (strong, atomic) AVPlayer *player;
 // PLAYER STUFF TO REFACTOR:
 
@@ -34,4 +44,5 @@
 //
 -(void)updateSlider;
 -(IBAction)soundCloudRequest:(id)sender;
+
 @end

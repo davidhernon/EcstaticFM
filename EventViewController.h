@@ -12,7 +12,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "Utils.h"
 #import "PlayerView.h"
-@interface EventViewController : UIViewController<NSURLSessionDelegate,NSURLSessionDownloadDelegate,NSURLSessionDataDelegate, UIAlertViewDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate>{
+@interface EventViewController : UIViewController<mediaPickerDelegate,NSURLSessionDelegate,NSURLSessionDownloadDelegate,NSURLSessionDataDelegate, UIAlertViewDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate>{
     
     //David's stuff
     IBOutlet PlayerView *playerView;
