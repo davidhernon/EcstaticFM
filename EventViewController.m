@@ -107,6 +107,8 @@
     [self nextScreen];
 }
 
+
+
 /*!
  Calculates Network Latency
  @returns millisecond latency on the network
@@ -128,10 +130,50 @@
 
 -(IBAction)nextScreen
 {
-    MediaPickerTableViewController* mptvc = [[MediaPickerTableViewController alloc] initWithNibName:@"MediaPickerTableViewController" bundle:nil];
-    [self presentViewController:mptvc animated:YES completion:^(void){}];
+//    MediaPickerTableViewController* mptvc = [[MediaPickerTableViewController alloc] initWithNibName:@"MediaPickerTableViewController" bundle:nil];
+//    [self presentViewController:mptvc animated:YES completion:^(void){}];
+    [self getTracks:self];
 }
 
-
+- (IBAction) getTracks:(id) sender
+{
+    SCAccount *account = [SCSoundCloud account];
+    if (account == nil) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Not Logged In"
+                              message:@"You must login first"
+                              delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    SCRequestResponseHandler handler;
+    handler = ^(NSURLResponse *response, NSData *data, NSError *error) {
+        NSError *jsonError = nil;
+        NSJSONSerialization *jsonResponse = [NSJSONSerialization
+                                             JSONObjectWithData:data
+                                             options:0
+                                             error:&jsonError];
+        if (!jsonError && [jsonResponse isKindOfClass:[NSArray class]]) {
+            MediaPickerTableViewController *trackListVC;
+            trackListVC = [[MediaPickerTableViewController alloc]
+                           initWithNibName:@"MediaPickerTableViewController"
+                           bundle:nil];
+            trackListVC.tracks = (NSArray *)jsonResponse;
+            [self presentViewController:trackListVC
+                               animated:YES completion:nil];
+        }
+    };
+    
+    NSString *resourceURL = @"https://api.soundcloud.com/me/favorites.json";
+    [SCRequest performMethod:SCRequestMethodGET
+                  onResource:[NSURL URLWithString:resourceURL]
+             usingParameters:nil
+                 withAccount:account
+      sendingProgressHandler:nil
+             responseHandler:handler];
+}
 
 @end

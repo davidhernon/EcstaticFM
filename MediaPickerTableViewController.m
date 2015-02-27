@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     //[self getTracks:self];
     [super viewDidLoad];
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
     
     //self.favorites = [Utils soundCloudRequest:self];
 // TODO there might need to be a [self reloadData] call here
@@ -78,13 +78,13 @@
                              dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]
+        cell = [[MediaItemViewCell alloc]
                 initWithStyle:UITableViewCellStyleDefault
                 reuseIdentifier:CellIdentifier];
     }
     
     NSDictionary *track = [self.tracks objectAtIndex:indexPath.row];
-    cell.trackTitle.text = [track objectForKey:@"title"];
+    cell.textLabel.text = [track objectForKey:@"title"];
     
     return cell;
 }

@@ -10,7 +10,7 @@
 
 @interface MediaItemViewCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UILabel *trackTitle;
+@property (strong, nonatomic) IBOutlet UILabel *song;
 @property (strong, nonatomic) IBOutlet UILabel *artist;
 
 @end
