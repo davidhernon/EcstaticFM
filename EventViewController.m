@@ -7,8 +7,6 @@
 //
 
 #import "EventViewController.h"
-#import "PlayerView.h"
-#import "MediaPickerTableViewController.h"
 
 @implementation EventViewController
 
@@ -18,11 +16,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self initializeMapView];
-    [self createMapView];
+    //[self initializeMapView];
+    //[self createMapView];
     playerView.delegate = self;
     playerView.startprop = _startprop; //need to set the startprop properly
-    //[playerView initializeAudio]; does this even do anything?
     //TODO: take out withNetworkLatency tag
     [playerView stream:streamURL withNetworkLatency:16];
     
@@ -106,22 +103,6 @@
     [self.view addSubview:mapView];
 }
 
-
-
-/*!
- Calculates Network Latency
- @returns millisecond latency on the network
- */
-/*- (double)calculateNetworkLatency
-{
-    // NOT WORKING AT ALL
-}*/
-
-
-
-
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -129,50 +110,10 @@
 
 -(void)nextScreen
 {
-    [self getTracks:self];
-}
-
-//Refactor and (probably) move this to Utils
-//Maybe add in a delegate to Utils to properly call the nav controller
--(void) getTracks:(id) sender
-{
-    SCAccount *account = [SCSoundCloud account];
-    if (account == nil) {
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle:@"Not Logged In"
-                              message:@"You must login first"
-                              delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
-        [alert show];
-        return;
-    }
+    MediaPickerTableViewController* mptvc = [[MediaPickerTableViewController alloc] initWithNibName:@"MediaPickerTableViewController" bundle:nil];
+    mptvc.tracks = [SoundCloudAPI getFavorites];
+    [self presentViewController:mptvc animated:YES completion:^(void){}];
     
-    SCRequestResponseHandler handler;
-    handler = ^(NSURLResponse *response, NSData *data, NSError *error) {
-        NSError *jsonError = nil;
-        NSJSONSerialization *jsonResponse = [NSJSONSerialization
-                                             JSONObjectWithData:data
-                                             options:0
-                                             error:&jsonError];
-        if (!jsonError && [jsonResponse isKindOfClass:[NSArray class]]) {
-            MediaPickerTableViewController *trackListVC;
-            trackListVC = [[MediaPickerTableViewController alloc]
-                           initWithNibName:@"MediaPickerTableViewController"
-                           bundle:nil];
-            trackListVC.tracks = (NSArray *)jsonResponse;
-            [self presentViewController:trackListVC
-                               animated:YES completion:nil];
-        }
-    };
-    
-    NSString *resourceURL = @"https://api.soundcloud.com/me/favorites.json";
-    [SCRequest performMethod:SCRequestMethodGET
-                  onResource:[NSURL URLWithString:resourceURL]
-             usingParameters:nil
-                 withAccount:account
-      sendingProgressHandler:nil
-             responseHandler:handler];
 }
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "Utils.h"
+#import "SDSAPI.h"
 #import "SCUI.h"
 
 @implementation AppDelegate
@@ -22,42 +22,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [self GetIndex];
+    _eventD = [SDSAPI getUpcomingEvents];
     return YES;
     
     
 }
 
-/*!
-  Gets an NSDictionary of upcoming Ecstatic Community Events
-  @returns YES or NO depending on success of SDS API call
- */
--(BOOL) GetIndex
-{
-    NSURLSession *defaultSession = [NSURLSession sharedSession];
-    
-    NSURL * url = [NSURL URLWithString:[Utils getWebsiteURL]];
-    //NSURL * url = [NSURL URLWithString:@"http://silentdiscosquad.com/appindex.html/"];
-    NSURLSessionDataTask *dataTask = [defaultSession dataTaskWithURL:url
-                                                   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                       if(error == nil)
-                                                       {
-                                                           self.eventD = [NSJSONSerialization JSONObjectWithData:data
-                                                                                                         options:kNilOptions
-                                                                                                           error:&error];
-                                                           for(NSDictionary *item in self.eventD) {
-                                                               NSLog (@"nsdic = %@", item);
-                                                           }
-                                                           self.returned = TRUE;
-                                                       }
-                                                   }];
-    [dataTask resume];
-    self.returned = FALSE;
-    while(self.returned == FALSE){
-        [NSThread sleepForTimeInterval:0.1f];
-    }
-    return TRUE;
-}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

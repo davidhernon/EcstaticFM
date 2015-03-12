@@ -12,8 +12,9 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property id completionHandler;
-@property BOOL returned;
 @property (nonatomic, retain) NSArray *eventD;
+
+
 
 
 @end

@@ -19,18 +19,9 @@
 @synthesize tracks;
 
 - (void)viewDidLoad {
-    //[self getTracks:self];
+
     [super viewDidLoad];
-    //[self.tableView reloadData];
-    
-    //self.favorites = [Utils soundCloudRequest:self];
-// TODO there might need to be a [self reloadData] call here
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,24 +43,6 @@
     return [self.tracks count];
 }
 
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    MediaItemViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MediaPickerTableViewController" forIndexPath:indexPath];
-//    if (cell == nil) {
-//        cell = [[MediaItemViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MediaPickerTableViewController"];
-//    }
-//    
-//    NSArray* response = (NSArray*)_favorites;
-//    
-//    for(NSDictionary *item in response) {
-//        NSLog(@"Item: %@", item);
-//    }
-//    
-//    // Configure the cell...
-//    
-//    return cell;
-//}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -88,46 +61,6 @@
     
     return cell;
 }
-
-//- (IBAction) getTracks:(id) sender
-//{
-//    SCAccount *account = [SCSoundCloud account];
-//    if (account == nil) {
-//        UIAlertView *alert = [[UIAlertView alloc]
-//                              initWithTitle:@"Not Logged In"
-//                              message:@"You must login first"
-//                              delegate:nil
-//                              cancelButtonTitle:@"OK"
-//                              otherButtonTitles:nil];
-//        [alert show];
-//        return;
-//    }
-//    
-//    SCRequestResponseHandler handler;
-//    handler = ^(NSURLResponse *response, NSData *data, NSError *error) {
-//        NSError *jsonError = nil;
-//        NSJSONSerialization *jsonResponse = [NSJSONSerialization
-//                                             JSONObjectWithData:data
-//                                             options:0
-//                                             error:&jsonError];
-//        if (!jsonError && [jsonResponse isKindOfClass:[NSArray class]]) {
-//            tracks = (NSArray *)jsonResponse;
-//            for(NSDictionary *item in (NSDictionary*)jsonResponse)
-//            {
-//                NSLog(@"item: %@", item);
-//            }
-//        }
-//    };
-//    
-//    NSString *resourceURL = @"https://api.soundcloud.com/me/favorites.json";
-//    [SCRequest performMethod:SCRequestMethodGET
-//                  onResource:[NSURL URLWithString:resourceURL]
-//             usingParameters:nil
-//                 withAccount:account
-//      sendingProgressHandler:nil
-//             responseHandler:handler];
-//}
-
 
 /*
 // Override to support conditional editing of the table view.

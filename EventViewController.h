@@ -12,7 +12,11 @@
 #import <AVFoundation/AVFoundation.h>
 #import "Utils.h"
 #import "PlayerView.h"
-@interface EventViewController : UIViewController<mediaPickerDelegate,NSURLSessionDelegate,NSURLSessionDownloadDelegate,NSURLSessionDataDelegate, UIAlertViewDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate>{
+#import "MediaPickerTableViewController.h"
+#import "SoundCloudAPI.h"
+#import "MusicServiceAPI.h"
+
+@interface EventViewController : UIViewController<mediaPickerDelegate,NSURLSessionDelegate,NSURLSessionDownloadDelegate,NSURLSessionDataDelegate, CLLocationManagerDelegate>{
     
     //David's stuff
     IBOutlet PlayerView *playerView;
