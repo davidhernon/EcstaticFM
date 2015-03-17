@@ -11,7 +11,11 @@
 #import "MediaPickerTableViewController.h"
 #import <UIKit/UIKit.h>
 #import "SCUI.h"
+#import "soundCloudMediaPickerViewController.h"
 
 @interface SoundCloudAPI : NSObject<MusicServiceAPI>
+
++(NSArray*)searchSC;
++(void)getFavorites:(soundCloudMediaPickerViewController*)sender;
 
 @end

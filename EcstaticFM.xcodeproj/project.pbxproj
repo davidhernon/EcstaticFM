@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C1B6E191AB8C1B100382E7D /* MediaItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1B6E181AB8C1B100382E7D /* MediaItemTableViewCell.m */; };
 		1C2251441A9E7CA600210324 /* MediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2251431A9E7CA600210324 /* MediaItem.m */; };
 		1C2251471A9E7E5F00210324 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2251461A9E7E5F00210324 /* Playlist.m */; };
-		1C2251501A9E8EB000210324 /* MediaItemViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C22514F1A9E8EB000210324 /* MediaItemViewCell.m */; };
 		1C2838011A955F59006F10EC /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2838001A955F59006F10EC /* HomeTableViewController.m */; };
 		1C2838041A955F8D006F10EC /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2838031A955F8D006F10EC /* Utils.m */; };
 		1C2838071A955FA5006F10EC /* EventCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2838061A955FA5006F10EC /* EventCellView.m */; };
@@ -40,6 +40,7 @@
 		1C7E49C81AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49C71AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m */; };
 		1C7E49CB1AB21B04005BB999 /* PlayerInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49CA1AB21B04005BB999 /* PlayerInfoViewController.m */; };
 		1C7E49CE1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49CD1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m */; };
+		1C7E49D11AB33A48005BB999 /* soundCloudMediaPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49D01AB33A48005BB999 /* soundCloudMediaPickerViewController.m */; };
 		1C8F93C71A8C07EB007990AD /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8F93C61A8C07EB007990AD /* PlayerView.m */; };
 		1C8F93C91A8C0823007990AD /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C8F93C81A8C0823007990AD /* PlayerView.xib */; };
 		1CA428AB1A799CE9001DB0AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
@@ -69,12 +70,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C1B6E171AB8C1B100382E7D /* MediaItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaItemTableViewCell.h; sourceTree = "<group>"; };
+		1C1B6E181AB8C1B100382E7D /* MediaItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaItemTableViewCell.m; sourceTree = "<group>"; };
 		1C2251421A9E7CA600210324 /* MediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaItem.h; sourceTree = "<group>"; };
 		1C2251431A9E7CA600210324 /* MediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaItem.m; sourceTree = "<group>"; };
 		1C2251451A9E7E5F00210324 /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
 		1C2251461A9E7E5F00210324 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
-		1C22514E1A9E8EB000210324 /* MediaItemViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaItemViewCell.h; sourceTree = "<group>"; };
-		1C22514F1A9E8EB000210324 /* MediaItemViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaItemViewCell.m; sourceTree = "<group>"; };
 		1C2837FF1A955F59006F10EC /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
 		1C2838001A955F59006F10EC /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		1C2838021A955F8D006F10EC /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
@@ -96,6 +97,8 @@
 		1C7E49CA1AB21B04005BB999 /* PlayerInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInfoViewController.m; sourceTree = "<group>"; };
 		1C7E49CC1AB22503005BB999 /* SwipeBetweenAPIViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeBetweenAPIViewControllers.h; sourceTree = "<group>"; };
 		1C7E49CD1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeBetweenAPIViewControllers.m; sourceTree = "<group>"; };
+		1C7E49CF1AB33A48005BB999 /* soundCloudMediaPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soundCloudMediaPickerViewController.h; sourceTree = "<group>"; };
+		1C7E49D01AB33A48005BB999 /* soundCloudMediaPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = soundCloudMediaPickerViewController.m; sourceTree = "<group>"; };
 		1C8F93C51A8C07EB007990AD /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
 		1C8F93C61A8C07EB007990AD /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
 		1C8F93C81A8C0823007990AD /* PlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
@@ -173,6 +176,15 @@
 				1C7E49CD1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m */,
 			);
 			name = "Page View Control";
+			sourceTree = "<group>";
+		};
+		1C7E49D21AB33A4E005BB999 /* soundCloudMediaPicker */ = {
+			isa = PBXGroup;
+			children = (
+				1C7E49CF1AB33A48005BB999 /* soundCloudMediaPickerViewController.h */,
+				1C7E49D01AB33A48005BB999 /* soundCloudMediaPickerViewController.m */,
+			);
+			name = soundCloudMediaPicker;
 			sourceTree = "<group>";
 		};
 		1CA4289C1A799CE9001DB0AD = {
@@ -284,6 +296,7 @@
 		1CC438BA1A7DBF38000A5AEC /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1C7E49D21AB33A4E005BB999 /* soundCloudMediaPicker */,
 				1C7E49C51AB1FB5B005BB999 /* Page View Control */,
 				1CB9BB311AA2456900748236 /* API Integrations */,
 				1CB9BB2A1AA2428200748236 /* Player */,
@@ -299,8 +312,6 @@
 				1C2838031A955F8D006F10EC /* Utils.m */,
 				1C3AC14B1A7EC168004B1D86 /* EventViewController.h */,
 				1C3AC14C1A7EC168004B1D86 /* EventViewController.m */,
-				1C22514E1A9E8EB000210324 /* MediaItemViewCell.h */,
-				1C22514F1A9E8EB000210324 /* MediaItemViewCell.m */,
 				1CEB11D81A9ED611005C162D /* MediaPickerTableViewController.h */,
 				1CEB11D91A9ED611005C162D /* MediaPickerTableViewController.m */,
 				1CEB11DA1A9ED611005C162D /* MediaPickerTableViewController.xib */,
@@ -311,6 +322,8 @@
 				1C61D5701AA2609900833E0C /* MapManager.m */,
 				1C7E49C91AB21B04005BB999 /* PlayerInfoViewController.h */,
 				1C7E49CA1AB21B04005BB999 /* PlayerInfoViewController.m */,
+				1C1B6E171AB8C1B100382E7D /* MediaItemTableViewCell.h */,
+				1C1B6E181AB8C1B100382E7D /* MediaItemTableViewCell.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -497,6 +510,7 @@
 				1C2838041A955F8D006F10EC /* Utils.m in Sources */,
 				1C3AC14D1A7EC168004B1D86 /* EventViewController.m in Sources */,
 				1C61D5711AA2609900833E0C /* MapManager.m in Sources */,
+				1C1B6E191AB8C1B100382E7D /* MediaItemTableViewCell.m in Sources */,
 				1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */,
 				1CB9BB301AA2456400748236 /* SoundCloudAPI.m in Sources */,
 				1C2251441A9E7CA600210324 /* MediaItem.m in Sources */,
@@ -505,10 +519,10 @@
 				1C2251471A9E7E5F00210324 /* Playlist.m in Sources */,
 				1CEB11DB1A9ED611005C162D /* MediaPickerTableViewController.m in Sources */,
 				1C8F93C71A8C07EB007990AD /* PlayerView.m in Sources */,
-				1C2251501A9E8EB000210324 /* MediaItemViewCell.m in Sources */,
 				1C2838071A955FA5006F10EC /* EventCellView.m in Sources */,
 				1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */,
 				1C2838011A955F59006F10EC /* HomeTableViewController.m in Sources */,
+				1C7E49D11AB33A48005BB999 /* soundCloudMediaPickerViewController.m in Sources */,
 				1C7E49CE1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m in Sources */,
 				1C61D56C1AA25A6200833E0C /* EventMapView.m in Sources */,
 			);

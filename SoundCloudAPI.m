@@ -11,10 +11,8 @@
 
 @implementation SoundCloudAPI
 
-+(NSArray*) getFavorites
++(void) getFavorites:(soundCloudMediaPickerViewController*)sender
 {
-    __block BOOL returned = FALSE;
-    __block NSArray* favorites;
     SCAccount *account = [SCSoundCloud account];
     if (account == nil) {
         UIAlertView *alert = [[UIAlertView alloc]
@@ -24,7 +22,7 @@
                               cancelButtonTitle:@"OK"
                               otherButtonTitles:nil];
         [alert show];
-        return [[NSArray alloc]init];
+       // return [[NSArray alloc]init];
     }
     
     SCRequestResponseHandler handler;
@@ -36,8 +34,10 @@
                                              error:&jsonError];
         NSLog(@"We returned from SC");
         if (!jsonError && [jsonResponse isKindOfClass:[NSArray class]]) {
-            returned = TRUE;
-            favorites = (NSArray *)jsonResponse;
+            NSLog(@"did succeed in SC query");
+            [sender addSoundCloudFavorites:((NSArray*)jsonResponse)];
+        }else{
+            NSLog(@"did not succeed in SC query");
         }
     };
     
@@ -49,12 +49,42 @@
       sendingProgressHandler:nil
              responseHandler:handler];
     
+    
+   // return (NSArray*)favorites;
+    
+}
+
++(NSArray*) searchSC
+{
+    __block NSArray* favorites;
+    __block BOOL returned = FALSE;
+    [SCRequest performMethod:SCRequestMethodGET onResource:[NSURL URLWithString:@"https://api.soundcloud.com/me/favorites.json"] usingParameters:nil withAccount:[SCSoundCloud account] sendingProgressHandler:nil responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        NSError *jsonError;
+        NSJSONSerialization *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        
+        if (!jsonError && [jsonResponse isKindOfClass:[NSArray class]]) {
+            //sender.tracksFromSoundCloud = (NSArray *)jsonResponse;
+            returned = TRUE;
+            NSLog(@"Returned Favorites!");
+            favorites = (NSArray *)jsonResponse;
+        }
+        
+        else {
+            
+            NSLog(@"%@", error.localizedDescription);
+            
+        }
+        
+    }];
+    
+
     while(returned == FALSE){
         [NSThread sleepForTimeInterval:0.1f];
     }
     
-    return (NSArray*)favorites;
-    
+    return favorites;
 }
+
 
 @end

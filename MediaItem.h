@@ -12,6 +12,6 @@
 
 @property NSString* trackTitle;
 @property NSString* artist;
-@property NSString* owner; //which user added the song
+@property NSString* duration; //which user added the song
 
 @end

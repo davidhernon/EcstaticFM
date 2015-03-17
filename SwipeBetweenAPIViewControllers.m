@@ -7,6 +7,7 @@
 //
 
 #import "SwipeBetweenAPIViewControllers.h"
+#import "SoundCloudAPI.h"
 
 //%%% customizeable button attributes
 #define X_BUFFER 0 //%%% the number of pixels on either side of the segment
@@ -35,15 +36,6 @@
 @synthesize navigationView;
 @synthesize buttonText;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -52,11 +44,15 @@
     self.navigationBar.translucent = NO;
     viewControllerArray = [[NSMutableArray alloc]init];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController* soundCloudAPI = [storyboard instantiateViewControllerWithIdentifier:@"soundCloudAPI"];
-    UIViewController* sdsAPI = [storyboard instantiateViewControllerWithIdentifier:@"sdsAPI"];
+    soundCloudMediaPickerViewController* soundCloudAPI = [storyboard instantiateViewControllerWithIdentifier:@"soundCloudAPI"];
+    [SoundCloudAPI getFavorites:soundCloudAPI];
+     UIViewController* sdsAPI = [storyboard instantiateViewControllerWithIdentifier:@"sdsAPI"];
+    
     [viewControllerArray addObjectsFromArray:@[soundCloudAPI, sdsAPI]];
     currentPageIndex = 0;
 }
+
+
 
 //This stuff here is customizeable: buttons, views, etc
 ////////////////////////////////////////////////////////////
@@ -67,9 +63,9 @@
 
 //%%% color of the status bar
 -(UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
+    //return UIStatusBarStyleLightContent;
     
-    //    return UIStatusBarStyleDefault;
+        return UIStatusBarStyleDefault;
 }
 
 //%%% sets up the tabs using a loop.  You can take apart the loop to customize individual buttons, but remember to tag the buttons.  (button.tag=0 and the second button.tag=1, etc)
@@ -96,34 +92,6 @@
     }
     
     pageController.navigationController.navigationBar.topItem.titleView = navigationView;
-    
-    //%%% example custom buttons example:
-    /*
-     NSInteger width = (self.view.frame.size.width-(2*X_BUFFER))/3;
-     UIButton *leftButton = [[UIButton alloc]initWithFrame:CGRectMake(X_BUFFER, Y_BUFFER, width, HEIGHT)];
-     UIButton *middleButton = [[UIButton alloc]initWithFrame:CGRectMake(X_BUFFER+width, Y_BUFFER, width, HEIGHT)];
-     UIButton *rightButton = [[UIButton alloc]initWithFrame:CGRectMake(X_BUFFER+2*width, Y_BUFFER, width, HEIGHT)];
-     
-     [self.navigationBar addSubview:leftButton];
-     [self.navigationBar addSubview:middleButton];
-     [self.navigationBar addSubview:rightButton];
-     
-     leftButton.tag = 0;
-     middleButton.tag = 1;
-     rightButton.tag = 2;
-     
-     leftButton.backgroundColor = [UIColor colorWithRed:0.03 green:0.07 blue:0.08 alpha:1];
-     middleButton.backgroundColor = [UIColor colorWithRed:0.03 green:0.07 blue:0.08 alpha:1];
-     rightButton.backgroundColor = [UIColor colorWithRed:0.03 green:0.07 blue:0.08 alpha:1];
-     
-     [leftButton addTarget:self action:@selector(tapSegmentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-     [middleButton addTarget:self action:@selector(tapSegmentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-     [rightButton addTarget:self action:@selector(tapSegmentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-     
-     [leftButton setTitle:@"left" forState:UIControlStateNormal];
-     [middleButton setTitle:@"middle" forState:UIControlStateNormal];
-     [rightButton setTitle:@"right" forState:UIControlStateNormal];
-     */
     
     [self setupSelector];
 }

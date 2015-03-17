@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "SCUI.h"
+#import "SoundCloudAPI.h"
 
 @interface LoginViewController ()
 
@@ -45,6 +46,11 @@
                                completionHandler:handler];
         [self presentModalViewController:loginViewController animated:YES];
     }];
+}
+
+-(IBAction)querySoundCloud
+{
+    NSArray* favs = [SoundCloudAPI searchSC];
 }
 
 

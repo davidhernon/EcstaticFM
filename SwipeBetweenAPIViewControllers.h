@@ -13,7 +13,8 @@
 
 
 #import <UIKit/UIKit.h>
-
+#import "soundCloudMediaPickerViewController.h"
+#import "SCUI.h"
 
 @interface SwipeBetweenViewControllers : UINavigationController <UIPageViewControllerDelegate,UIPageViewControllerDataSource,UIScrollViewDelegate>
 
@@ -24,5 +25,6 @@
 @property (nonatomic, strong)UIPageViewController *pageController;
 @property (nonatomic, strong)UIView *navigationView;
 @property (nonatomic, strong)NSArray *buttonText;
+@property (nonatomic, strong)soundCloudMediaPickerViewController* soundCloudAPI;
 
 @end

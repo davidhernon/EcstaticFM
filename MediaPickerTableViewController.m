@@ -7,7 +7,7 @@
 //
 
 #import "MediaPickerTableViewController.h"
-#import "MediaItemViewCell.h"
+#import "MediaItemTableViewCell.h"
 #import "Utils.h"
 #import "SCUI.h"
 
@@ -47,17 +47,17 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"MediaPickerCellView";
-    MediaItemViewCell *cell = [tableView
+    MediaItemTableViewCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[MediaItemViewCell alloc]
+        cell = [[MediaItemTableViewCell alloc]
                 initWithStyle:UITableViewCellStyleDefault
                 reuseIdentifier:CellIdentifier];
     }
     
     NSDictionary *track = [self.tracks objectAtIndex:indexPath.row];
-    cell.textLabel.text = [track objectForKey:@"title"];
+    cell.trackTitle.text = [track objectForKey:@"title"];
     
     return cell;
 }
