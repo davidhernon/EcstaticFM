@@ -14,6 +14,8 @@
 
 @implementation soundCloudMediaPickerViewController
 
+static NSString* cellIdentifier = @"soundCloudTrackCell";
+
 - (id) initWithArray:(NSArray*)tracks
 {
     
@@ -49,19 +51,27 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MediaItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"soundCloudCell"];
-    
-    if (cell == nil) {
-        cell = [[MediaItemTableViewCell alloc]
-                initWithStyle:UITableViewCellStyleDefault
-                reuseIdentifier:@"soundCloudCell"];
-    }
+    MediaItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+//Do we need this? I dont think so
+//    if (cell == nil) {
+//        cell = [[MediaItemTableViewCell alloc]
+//                initWithStyle:UITableViewCellStyleDefault
+//                reuseIdentifier:@"soundCloudCell"];
+//    }
     
     NSDictionary *track = [self.tracksFromSoundCloud objectAtIndex:indexPath.row];
-    cell.trackTitle.text = [track objectForKey:@"title"];
+    cell.track_title.text = [track objectForKey:@"title"];
     cell.artist.text = [[track objectForKey:@"user"] objectForKey:@"username"];
-    cell.max_length.text = [NSString stringWithFormat:@"%@", [self convertTimeFromMillis:(int) [[track objectForKey:@"duration"] intValue]]];
-//    cell.album_image.image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[track objectForKey:@"artwork_url"]]]];
+    cell.duration.text = [NSString stringWithFormat:@"%@", [self convertTimeFromMillis:(int) [[track objectForKey:@"duration"] intValue]]];
+    NSString *stringURL = (NSString*)[track objectForKey:@"artwork_url"];
+    if([stringURL isEqual:[NSNull null]]){
+        stringURL = @"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi8MYn94Vl1HVxqMb7u31QSRa3cNCJOYhxw7xI_GGDvcSKQ7xwPA370w";
+    }
+//    stringURL = [stringURL stringByReplacingOccurrencesOfString:@"large" withString:@"t67x67"];
+    NSURL *imageURL = [NSURL URLWithString:stringURL];
+    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+    UIImage *myImage = [UIImage imageWithData:imageData];
+    cell.sc_album_image.image = (UIImage*)myImage;
     return cell;
     
 }

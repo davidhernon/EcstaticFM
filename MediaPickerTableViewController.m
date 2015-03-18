@@ -57,7 +57,7 @@
     }
     
     NSDictionary *track = [self.tracks objectAtIndex:indexPath.row];
-    cell.trackTitle.text = [track objectForKey:@"title"];
+    //cell.trackTitle.text = [track objectForKey:@"title"];
     
     return cell;
 }

@@ -44,7 +44,7 @@
     self.navigationBar.translucent = NO;
     viewControllerArray = [[NSMutableArray alloc]init];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    soundCloudMediaPickerViewController* soundCloudAPI = [storyboard instantiateViewControllerWithIdentifier:@"soundCloudAPI"];
+    soundCloudMediaPickerViewController* soundCloudAPI = [storyboard instantiateViewControllerWithIdentifier:@"soundCloudQuery"];
     [SoundCloudAPI getFavorites:soundCloudAPI];
      UIViewController* sdsAPI = [storyboard instantiateViewControllerWithIdentifier:@"sdsAPI"];
     

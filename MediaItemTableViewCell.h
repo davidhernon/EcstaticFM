@@ -2,18 +2,16 @@
 //  MediaItemTableViewCell.h
 //  EcstaticFM
 //
-//  Created by David Hernon on 2015-03-17.
+//  Created by David Hernon on 2015-03-18.
 //  Copyright (c) 2015 David Hernon. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 @interface MediaItemTableViewCell : UITableViewCell
-
-@property (weak, nonatomic) IBOutlet UILabel *trackTitle;
-
+@property (weak, nonatomic) IBOutlet UILabel *track_title;
 @property (weak, nonatomic) IBOutlet UILabel *artist;
-
-@property (weak, nonatomic) IBOutlet UILabel *max_length;
+@property (weak, nonatomic) IBOutlet UILabel *duration;
+@property (weak, nonatomic) IBOutlet UIImageView *sc_album_image;
 
 @end
