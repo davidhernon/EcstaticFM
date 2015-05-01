@@ -15,7 +15,10 @@
 
 @interface SoundCloudAPI : NSObject<MusicServiceAPI>
 
-+(NSArray*)searchSC;
+
+//+(NSArray*)searchSC;
 +(void)getFavorites:(soundCloudMediaPickerViewController*)sender;
++ (void)getAccessTokenWithCompletion;
++ (void)storeUserDefaults;
 
 @end

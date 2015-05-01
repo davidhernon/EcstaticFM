@@ -11,6 +11,7 @@
 
 @implementation SoundCloudAPI
 
+
 +(void) getFavorites:(soundCloudMediaPickerViewController*)sender
 {
     SCAccount *account = [SCSoundCloud account];
@@ -49,42 +50,54 @@
       sendingProgressHandler:nil
              responseHandler:handler];
     
-    
-   // return (NSArray*)favorites;
-    
 }
 
-+(NSArray*) searchSC
++ (void)getAccessTokenWithCompletion
 {
-    __block NSArray* favorites;
-    __block BOOL returned = FALSE;
-    [SCRequest performMethod:SCRequestMethodGET onResource:[NSURL URLWithString:@"https://api.soundcloud.com/me/favorites.json"] usingParameters:nil withAccount:[SCSoundCloud account] sendingProgressHandler:nil responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
-        NSError *jsonError;
-        NSJSONSerialization *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-        
-        if (!jsonError && [jsonResponse isKindOfClass:[NSArray class]]) {
-            //sender.tracksFromSoundCloud = (NSArray *)jsonResponse;
-            returned = TRUE;
-            NSLog(@"Returned Favorites!");
-            favorites = (NSArray *)jsonResponse;
-        }
-        
-        else {
-            
-            NSLog(@"%@", error.localizedDescription);
-            
-        }
-        
-    }];
+    NSString *BaseURI = @"https://api.soundcloud.com";
+    NSString *OAuth2TokenURI = @"/oauth2/token";
     
-
-    while(returned == FALSE){
-        [NSThread sleepForTimeInterval:0.1f];
-    }
+    NSString *requestURL = [BaseURI stringByAppendingString:OAuth2TokenURI];
     
-    return favorites;
+    SCRequestResponseHandler handler;
+    handler = ^(NSURLResponse *response, NSData *data, NSError *error) {
+        NSError *jsonError = nil;
+        NSJSONSerialization *jsonResponse = [NSJSONSerialization
+                                             JSONObjectWithData:data
+                                             options:0
+                                             error:&jsonError];
+        if (!jsonError)
+        {
+            NSLog(@"output of getToken\n%@",jsonResponse);
+            NSDictionary* serverResponse = (NSDictionary*)jsonResponse;
+            
+            if ([serverResponse objectForKey:@"access_token"])
+            {
+                NSLog(@"received non expiron token");
+                NSString *accessToken = [serverResponse objectForKey:@"access_token"];
+                [[NSUserDefaults standardUserDefaults] setObject:accessToken forKey:@"SC_ACCESS_TOKEN"];
+//                NSDictionary *dict=[[NSDictionary alloc]initWithObjectsAndKeys:accessToken,@"SC_ACCESS_TOKEN_KEY",nil];
+             //what to do on complete
+            }
+            else{
+              //what to do on complete
+                NSLog(@"There was no token to be had");
+            }
+        }
+    };
+    
+    //get non expiring key
+    //DOESNT WORK
+    NSMutableDictionary *parameter=[[NSMutableDictionary alloc]init];
+    [parameter setObject:@"non-expiring" forKey:@"scope"];
+    
+    //Could be problematic as I have not tested parameters + SC account
+    [SCRequest performMethod:SCRequestMethodPOST
+                  onResource:[NSURL URLWithString:requestURL]
+             usingParameters:nil
+                 withAccount:[SCSoundCloud account]
+      sendingProgressHandler:nil
+             responseHandler:handler];
 }
-
 
 @end

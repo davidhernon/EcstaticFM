@@ -16,23 +16,21 @@
 
 static NSString* cellIdentifier = @"soundCloudTrackCell";
 
-- (id) initWithArray:(NSArray*)tracks
-{
-    
-    self = [super init];
-    if(self){
-        self.tracksFromSoundCloud = tracks;
-    }
-    
-    return self;
-}
+//- (id) initWithArray:(NSArray*)tracks
+//{
+//    
+//    self = [super init];
+//    if(self){
+//        self.tracksFromSoundCloud = tracks;
+//    }
+//    
+//    return self;
+//}
 
 - (void)viewDidLoad {
-    //[self getFavorites:self];
-//    [self makeSoundCloudQuery];
+
     [super viewDidLoad];
-    //[self.soundCloudResultsTableView reloadData];
-    // Do any additional setup after loading the view.
+    self.soundCloudResultsTableView.allowsMultipleSelectionDuringEditing = YES;
     
 }
 
@@ -63,17 +61,27 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     cell.track_title.text = [track objectForKey:@"title"];
     cell.artist.text = [[track objectForKey:@"user"] objectForKey:@"username"];
     cell.duration.text = [NSString stringWithFormat:@"%@", [self convertTimeFromMillis:(int) [[track objectForKey:@"duration"] intValue]]];
-    NSString *stringURL = (NSString*)[track objectForKey:@"artwork_url"];
-    if([stringURL isEqual:[NSNull null]]){
-        stringURL = @"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi8MYn94Vl1HVxqMb7u31QSRa3cNCJOYhxw7xI_GGDvcSKQ7xwPA370w";
-    }
-//    stringURL = [stringURL stringByReplacingOccurrencesOfString:@"large" withString:@"t67x67"];
-    NSURL *imageURL = [NSURL URLWithString:stringURL];
-    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-    UIImage *myImage = [UIImage imageWithData:imageData];
-    cell.sc_album_image.image = (UIImage*)myImage;
+//    NSString *stringURL = (NSString*)[track objectForKey:@"artwork_url"];
+//    if([stringURL isEqual:[NSNull null]]){
+//        stringURL = @"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi8MYn94Vl1HVxqMb7u31QSRa3cNCJOYhxw7xI_GGDvcSKQ7xwPA370w";
+//    }
+////    stringURL = [stringURL stringByReplacingOccurrencesOfString:@"large" withString:@"t67x67"];
+//    NSURL *imageURL = [NSURL URLWithString:stringURL];
+//    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+//    UIImage *myImage = [UIImage imageWithData:imageData];
+//    cell.sc_album_image.image = (UIImage*)myImage;
+    [cell setAlbumArtworkFromStringURL:[track objectForKey:@"artwork_url"]];
     return cell;
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryCheckmark){
+        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+    }else{
+        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+    }
 }
 
 -(void) addSoundCloudFavorites:(NSArray*)tracks
@@ -92,6 +100,26 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     }else{
         return [NSString stringWithFormat:@"%ld:%ld",minutes,seconds];
     }
+}
+
+-(MediaItem*)mediaItemFromCell:(int)index
+{
+    NSDictionary *selectedTrack = [self.tracksFromSoundCloud objectAtIndex:index];
+    MediaItem* mediaItem = [[MediaItem alloc] init];
+    mediaItem.track_title = [selectedTrack objectForKey:@"title"];
+    mediaItem.artist = [selectedTrack objectForKey:@"user"];
+    mediaItem.duration = [selectedTrack objectForKey:@"duration"];
+    NSString *stringURL = (NSString*)[selectedTrack objectForKey:@"artwork_url"];
+    if([stringURL isEqual:[NSNull null]]){
+        stringURL = @"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi8MYn94Vl1HVxqMb7u31QSRa3cNCJOYhxw7xI_GGDvcSKQ7xwPA370w";
+    }
+    //    stringURL = [stringURL stringByReplacingOccurrencesOfString:@"large" withString:@"t67x67"];
+    NSURL *imageURL = [NSURL URLWithString:stringURL];
+    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+    UIImage *myImage = [UIImage imageWithData:imageData];
+    mediaItem.artwork = (UIImage*)myImage;
+    
+    return mediaItem;
 }
 
 /*

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MediaItemTableViewCell.h"
+#import "MediaItem.h"
 #import "SCUI.h"
 
 

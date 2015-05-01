@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface MediaItem : NSObject
+@interface MediaItem : NSObject//<NSCoding>
 
-@property NSString* trackTitle;
+@property NSString* track_title;
 @property NSString* artist;
 @property NSString* duration; //which user added the song
+@property UIImage* artwork;
 
 @end

@@ -14,4 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *duration;
 @property (weak, nonatomic) IBOutlet UIImageView *sc_album_image;
 
+-(void)setAlbumArtworkFromStringURL:(NSString*)stringURL;
+
 @end
