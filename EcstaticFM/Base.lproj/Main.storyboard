@@ -274,10 +274,10 @@
             </objects>
             <point key="canvasLocation" x="1143" y="1036"/>
         </scene>
-        <!--View Controller-->
+        <!--Player View Controller-->
         <scene sceneID="qla-Id-jgh">
             <objects>
-                <viewController storyboardIdentifier="player" id="XgF-Cq-hZq" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="player" id="XgF-Cq-hZq" customClass="PlayerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFit" id="bvh-Wc-xs5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -369,7 +369,7 @@
                                 <color key="sectionIndexBackgroundColor" red="0.33959818019999999" green="0.80562810880000002" blue="0.82419902150000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.33959818019999999" green="0.80562810880000002" blue="0.82419902150000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="76" id="Bds-LQ-pb3">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="playListCell" rowHeight="76" id="Bds-LQ-pb3" customClass="MediaItemTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bds-LQ-pb3" id="uyA-2g-aRK">
@@ -404,10 +404,19 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="XgF-Cq-hZq" id="Uyu-1d-OqC"/>
+                                    <outlet property="delegate" destination="XgF-Cq-hZq" id="oyd-XC-sJF"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.33959818019999999" green="0.80562810880000002" blue="0.82419902150000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="playListTableView" destination="fim-yG-u2G" id="goh-MD-M0Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJn-H3-nVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -480,7 +489,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wtb-bS-ik1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1602.1333333333332" y="1718.2"/>
+            <point key="canvasLocation" x="1290" y="1714"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ZOF-of-Qtp">
@@ -582,16 +591,44 @@
                                     <outlet property="delegate" destination="NW7-8C-V9l" id="zAH-JZ-rj0"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IVQ-Tl-ukL">
+                                <rect key="frame" x="29" y="20" width="35" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FSC-Hu-VvY">
+                                <rect key="frame" x="257" y="20" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addSelectedTracksToPlaylist:" destination="NW7-8C-V9l" eventType="touchUpInside" id="rzC-Cv-KHR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Chk-g9-cUx">
+                                <rect key="frame" x="29" y="20" width="35" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="XgF-Cq-hZq" kind="modal" id="6BO-RA-lqi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.67140510119999997" blue="0.35339384550000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="addSongsToPlaylist" destination="FSC-Hu-VvY" id="UJ8-B7-KsN"/>
                         <outlet property="soundCloudResultsTableView" destination="0FZ-o0-ngg" id="Ikt-a5-Usc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhK-Pb-bck" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2443" y="2431"/>
+            <point key="canvasLocation" x="2441" y="2424"/>
         </scene>
     </scenes>
     <resources>

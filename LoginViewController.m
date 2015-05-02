@@ -86,12 +86,10 @@
             if ([serverResponse objectForKey:@"access_token"])
             {
                 NSString *accessToken = [serverResponse objectForKey:@"access_token"];
-                NSLog(@"Got the token: %@", accessToken);
-//                [[NSUserDefaults standardUserDefaults] setObject:accessToken forKey:SC_ACCESS_TOKEN_KEY];
+                NSLog(@"Got the non-expiring token: %@", accessToken);
+                [[NSUserDefaults standardUserDefaults] setObject:accessToken forKey:@"SC_ACCESS_TOKEN_KEY"];
 //                NSDictionary *dict=[[NSDictionary alloc]initWithObjectsAndKeys:accessToken,SC_ACCESS_TOKEN_KEY,nil];
 //                completion(dict);
-                NSObject *account = [SCSoundCloud account];
-                NSLog(@"did it work?");
             }
             else{
 //                completion(nil);

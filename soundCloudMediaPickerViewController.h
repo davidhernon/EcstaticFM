@@ -10,11 +10,14 @@
 #import "MediaItemTableViewCell.h"
 #import "MediaItem.h"
 #import "SCUI.h"
+#import "Playlist.h"
 
 
 @interface soundCloudMediaPickerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *addSongsToPlaylist;
 
 @property (weak, nonatomic) IBOutlet UITableView *soundCloudResultsTableView;
+@property NSMutableArray *selectedTracks;
 
 @property (strong, nonatomic) NSArray *tracksFromSoundCloud;
 @property BOOL returned;

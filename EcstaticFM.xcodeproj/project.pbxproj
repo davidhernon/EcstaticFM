@@ -14,6 +14,8 @@
 		1C2838041A955F8D006F10EC /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2838031A955F8D006F10EC /* Utils.m */; };
 		1C2838071A955FA5006F10EC /* EventCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2838061A955FA5006F10EC /* EventCellView.m */; };
 		1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C33F84C1A8D4A0C0072ABBE /* Player.m */; };
+		1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C37B7CC1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m */; };
+		1C37B7D91AF540BA00566216 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C37B7D81AF540BA00566216 /* PlayerViewController.m */; };
 		1C3AC14D1A7EC168004B1D86 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3AC14C1A7EC168004B1D86 /* EventViewController.m */; };
 		1C4861D51A7AB75C004EFEAD /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428D71A79AA2B001DB0AD /* logo1.png */; };
 		1C4861D61A7AB75C004EFEAD /* logo1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428D81A79AA2B001DB0AD /* logo1@2x.png */; };
@@ -84,6 +86,10 @@
 		1C2838061A955FA5006F10EC /* EventCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCellView.m; sourceTree = "<group>"; };
 		1C33F84B1A8D4A0C0072ABBE /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		1C33F84C1A8D4A0C0072ABBE /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		1C37B7CB1AF3E29C00566216 /* SoundCloudMediaPickerTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundCloudMediaPickerTableView.h; sourceTree = "<group>"; };
+		1C37B7CC1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundCloudMediaPickerTableView.m; sourceTree = "<group>"; };
+		1C37B7D71AF540BA00566216 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		1C37B7D81AF540BA00566216 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		1C3AC14B1A7EC168004B1D86 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		1C3AC14C1A7EC168004B1D86 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		1C61D56A1AA25A6200833E0C /* EventMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventMapView.h; sourceTree = "<group>"; };
@@ -279,6 +285,8 @@
 				1C33F84C1A8D4A0C0072ABBE /* Player.m */,
 				1C2251421A9E7CA600210324 /* MediaItem.h */,
 				1C2251431A9E7CA600210324 /* MediaItem.m */,
+				1C37B7D71AF540BA00566216 /* PlayerViewController.h */,
+				1C37B7D81AF540BA00566216 /* PlayerViewController.m */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -324,6 +332,8 @@
 				1C61D5701AA2609900833E0C /* MapManager.m */,
 				1C7E49C91AB21B04005BB999 /* PlayerInfoViewController.h */,
 				1C7E49CA1AB21B04005BB999 /* PlayerInfoViewController.m */,
+				1C37B7CB1AF3E29C00566216 /* SoundCloudMediaPickerTableView.h */,
+				1C37B7CC1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -508,7 +518,9 @@
 				1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */,
 				1C7E49C81AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m in Sources */,
 				1C2838041A955F8D006F10EC /* Utils.m in Sources */,
+				1C37B7D91AF540BA00566216 /* PlayerViewController.m in Sources */,
 				1C3AC14D1A7EC168004B1D86 /* EventViewController.m in Sources */,
+				1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */,
 				1C61D5711AA2609900833E0C /* MapManager.m in Sources */,
 				1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */,
 				1CB9BB301AA2456400748236 /* SoundCloudAPI.m in Sources */,

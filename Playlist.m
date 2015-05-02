@@ -35,6 +35,11 @@ static Playlist *sharedPlaylist = nil;
     [self.playlist addObject:song];
 }
 
+- (void) addTracks:(NSMutableArray*)songsToAdd
+{
+    [self.playlist addObjectsFromArray:songsToAdd];
+}
+
 - (NSUInteger) count
 {
     return self.playlist.count;

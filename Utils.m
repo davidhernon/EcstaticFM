@@ -61,4 +61,18 @@
     return timeString;
 }
 
++(NSString*)convertTimeFromMillis:(int)millis
+{
+    NSInteger seconds = (NSInteger) (millis / 1000) % 60 ;
+    NSInteger minutes = (NSInteger) ((millis / (1000*60)) % 60);
+    NSInteger hours   = (NSInteger) ((millis / (1000*60*60)) % 24);
+    if(hours != 0){
+        return [NSString stringWithFormat:@"%ld:%ld:%ld",hours,minutes,seconds];
+    }else{
+        return [NSString stringWithFormat:@"%ld:%ld",minutes,seconds];
+    }
+}
+
+
+
 @end

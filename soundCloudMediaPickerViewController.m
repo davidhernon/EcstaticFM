@@ -31,6 +31,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 
     [super viewDidLoad];
     self.soundCloudResultsTableView.allowsMultipleSelectionDuringEditing = YES;
+    self.selectedTracks = [[NSMutableArray alloc] init];
     
 }
 
@@ -50,38 +51,32 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MediaItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//Do we need this? I dont think so
-//    if (cell == nil) {
-//        cell = [[MediaItemTableViewCell alloc]
-//                initWithStyle:UITableViewCellStyleDefault
-//                reuseIdentifier:@"soundCloudCell"];
-//    }
     
     NSDictionary *track = [self.tracksFromSoundCloud objectAtIndex:indexPath.row];
     cell.track_title.text = [track objectForKey:@"title"];
     cell.artist.text = [[track objectForKey:@"user"] objectForKey:@"username"];
     cell.duration.text = [NSString stringWithFormat:@"%@", [self convertTimeFromMillis:(int) [[track objectForKey:@"duration"] intValue]]];
-//    NSString *stringURL = (NSString*)[track objectForKey:@"artwork_url"];
-//    if([stringURL isEqual:[NSNull null]]){
-//        stringURL = @"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi8MYn94Vl1HVxqMb7u31QSRa3cNCJOYhxw7xI_GGDvcSKQ7xwPA370w";
-//    }
-////    stringURL = [stringURL stringByReplacingOccurrencesOfString:@"large" withString:@"t67x67"];
-//    NSURL *imageURL = [NSURL URLWithString:stringURL];
-//    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-//    UIImage *myImage = [UIImage imageWithData:imageData];
-//    cell.sc_album_image.image = (UIImage*)myImage;
     [cell setAlbumArtworkFromStringURL:[track objectForKey:@"artwork_url"]];
+    
     return cell;
     
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    MediaItem* mediaItemSelected = [self mediaItemFromCell:indexPath.row];
     if([tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryCheckmark){
+//        cell clicked and it was previously selected
+        [self removeMediaItemFromSelectedTracks:mediaItemSelected];
         [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
     }else{
+        
+//        cell clicked and it was not previously selected
+        if(![self itemAlreadySelected:mediaItemSelected])
+            [self.selectedTracks addObject:mediaItemSelected];
         [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
     }
+    [self printSelectedTracks];
 }
 
 -(void) addSoundCloudFavorites:(NSArray*)tracks
@@ -102,7 +97,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     }
 }
 
--(MediaItem*)mediaItemFromCell:(int)index
+-(MediaItem*)mediaItemFromCell:(NSInteger)index
 {
     NSDictionary *selectedTrack = [self.tracksFromSoundCloud objectAtIndex:index];
     MediaItem* mediaItem = [[MediaItem alloc] init];
@@ -120,6 +115,53 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     mediaItem.artwork = (UIImage*)myImage;
     
     return mediaItem;
+}
+
+-(void)printSelectedTracks
+{
+    NSLog(@"Printing the tracks selected by the user");
+    for(MediaItem* mediaItem in self.selectedTracks){
+        NSLog(@"%@", mediaItem.track_title);
+    }
+}
+
+-(BOOL)itemAlreadySelected:(MediaItem*)selected
+{
+    for(MediaItem * mediaItem in self.selectedTracks)
+    {
+        if(selected.track_title == mediaItem.track_title && selected.artist == mediaItem.artist)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+-(void)removeMediaItemFromSelectedTracks:(MediaItem *)itemToRemove
+{
+    NSUInteger indexToDelete = -1;
+    NSUInteger counter = 0;
+    for(MediaItem * mediaItem in self.selectedTracks)
+    {
+        if(itemToRemove.track_title == mediaItem.track_title && itemToRemove.artist == mediaItem.artist)
+        {
+            indexToDelete = counter;
+        }
+        counter++;
+    }
+    if(indexToDelete!=-1){
+        [self.selectedTracks removeObjectAtIndex:indexToDelete];
+    }
+}
+
+-(IBAction)addSelectedTracksToPlaylist:(id)sender
+{
+    [[Playlist sharedPlaylist] addTracks:self.selectedTracks];
+    UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *player = [mystoryboard instantiateViewControllerWithIdentifier:@"player"];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.navigationController pushViewController:player animated:YES];
+    
 }
 
 /*

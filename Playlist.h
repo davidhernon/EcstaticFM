@@ -16,6 +16,7 @@
 + (Playlist*) sharedPlaylist;
 -(NSUInteger)count;
 - (void) addTrack:(MediaItem *)song;
+- (void) addTracks:(NSMutableArray*)songsToAdd;
 - (id)objectAtIndex:(NSUInteger)index;
 
 @end
