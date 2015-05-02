@@ -11,7 +11,10 @@
 
 @interface Utils : NSObject
 @property NSJSONSerialization* queryFromSoundCloud;
+
+
 +(UIColor*) colorWithHexString:(NSString*)hex;
 +(NSMutableString*) floatToText: (Float64)time;
 +(NSString*)convertTimeFromMillis:(int)millis;
 @end
+

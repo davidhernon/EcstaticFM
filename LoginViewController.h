@@ -7,6 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+
+#import "SCUI.h"
+#import "SoundCloudAPI.h"
+#import "GFXUtils.h"
+#import "RadialGradientLayer.h"
+
 
 @interface LoginViewController : UIViewController
 
