@@ -13,7 +13,15 @@
 
 @property NSString* track_title;
 @property NSString* artist;
-@property NSString* duration; //which user added the song
+@property NSString* duration;
 @property UIImage* artwork;
+//Duration of track
+@property NSNumber* duration_hours;
+@property NSNumber* duration_minutes;
+@property NSNumber* duration_seconds;
+@property NSString* stream_url;
+
+- (id) initWithSoundCloudTrack:(NSDictionary *)soundCloudTrack;
+-(NSString*)convertTimeFromMillis:(int)millis;
 
 @end

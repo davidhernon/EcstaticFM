@@ -20,6 +20,7 @@ static Playlist *sharedPlaylist = nil;
     return  self;
 }
 
+//Why the fuck does this method work?
 + sharedPlaylist
 {
     static dispatch_once_t onceToken;
@@ -30,7 +31,7 @@ static Playlist *sharedPlaylist = nil;
     return sharedPlaylist;
 }
 
-- (void) addTrack:(MPMediaItem *)song
+- (void) addTrack:(MediaItem *)song
 {
     [self.playlist addObject:song];
 }
@@ -38,6 +39,11 @@ static Playlist *sharedPlaylist = nil;
 - (void) addTracks:(NSMutableArray*)songsToAdd
 {
     [self.playlist addObjectsFromArray:songsToAdd];
+}
+
+-(void) removeTrack:(MediaItem*)song
+{
+    [self.playlist removeObject:song];
 }
 
 - (NSUInteger) count

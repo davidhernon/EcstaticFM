@@ -10,10 +10,12 @@
 #import "Playlist.h"
 #import "MediaItemTableViewCell.h"
 #import "Utils.h"
+#import "Player.h"
 
 @interface PlayerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *playListTableView;
 @property (weak, nonatomic) NSArray* playlist;
+@property (weak, nonatomic) Player* player;
 
 @end

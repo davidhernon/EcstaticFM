@@ -64,7 +64,10 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MediaItem* mediaItemSelected = [self mediaItemFromCell:indexPath.row];
+    //MediaItem* mediaItemSelected = [self mediaItemFromCell:indexPath.row];
+    MediaItem* mediaItemSelected = [[MediaItem alloc] initWithSoundCloudTrack:[self.tracksFromSoundCloud objectAtIndex:indexPath.row]];
+//    MediaItem* mediaItemSelected = [[MediaItem alloc] init];
+    
     if([tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryCheckmark){
 //        cell clicked and it was previously selected
         [self removeMediaItemFromSelectedTracks:mediaItemSelected];
@@ -97,25 +100,25 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     }
 }
 
--(MediaItem*)mediaItemFromCell:(NSInteger)index
-{
-    NSDictionary *selectedTrack = [self.tracksFromSoundCloud objectAtIndex:index];
-    MediaItem* mediaItem = [[MediaItem alloc] init];
-    mediaItem.track_title = [selectedTrack objectForKey:@"title"];
-    mediaItem.artist = [selectedTrack objectForKey:@"user"];
-    mediaItem.duration = [selectedTrack objectForKey:@"duration"];
-    NSString *stringURL = (NSString*)[selectedTrack objectForKey:@"artwork_url"];
-    if([stringURL isEqual:[NSNull null]]){
-        stringURL = @"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi8MYn94Vl1HVxqMb7u31QSRa3cNCJOYhxw7xI_GGDvcSKQ7xwPA370w";
-    }
-    //    stringURL = [stringURL stringByReplacingOccurrencesOfString:@"large" withString:@"t67x67"];
-    NSURL *imageURL = [NSURL URLWithString:stringURL];
-    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-    UIImage *myImage = [UIImage imageWithData:imageData];
-    mediaItem.artwork = (UIImage*)myImage;
-    
-    return mediaItem;
-}
+//-(MediaItem*)mediaItemFromCell:(NSInteger)index
+//{
+//    NSDictionary *selectedTrack = [self.tracksFromSoundCloud objectAtIndex:index];
+//    MediaItem* mediaItem = [[MediaItem alloc] init];
+//    mediaItem.track_title = [selectedTrack objectForKey:@"title"];
+//    mediaItem.artist = [selectedTrack objectForKey:@"user"];
+//    mediaItem.duration = [selectedTrack objectForKey:@"duration"];
+//    NSString *stringURL = (NSString*)[selectedTrack objectForKey:@"artwork_url"];
+//    if([stringURL isEqual:[NSNull null]]){
+//        stringURL = @"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi8MYn94Vl1HVxqMb7u31QSRa3cNCJOYhxw7xI_GGDvcSKQ7xwPA370w";
+//    }
+//    //    stringURL = [stringURL stringByReplacingOccurrencesOfString:@"large" withString:@"t67x67"];
+//    NSURL *imageURL = [NSURL URLWithString:stringURL];
+//    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+//    UIImage *myImage = [UIImage imageWithData:imageData];
+//    mediaItem.artwork = (UIImage*)myImage;
+//    
+//    return mediaItem;
+//}
 
 -(void)printSelectedTracks
 {

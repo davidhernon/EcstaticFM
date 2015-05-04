@@ -8,13 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
-#import "playlist.h"
+#import "Playlist.h"
 
 @interface Player : NSObject
 
-@property AVPlayer* player;
 @property Playlist* playlist;
+@property MediaItem* currentTrack;
+@property AVPlayer* avPlayer;
 
++(Player*) sharedPlayer;
+-(void)play;
+-(void) updatePlaylist;
 
 
 @end

@@ -216,6 +216,8 @@
 		1C7E49D21AB33A4E005BB999 /* soundCloudMediaPicker */ = {
 			isa = PBXGroup;
 			children = (
+				1C37B7CB1AF3E29C00566216 /* SoundCloudMediaPickerTableView.h */,
+				1C37B7CC1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m */,
 				1C7E49CF1AB33A48005BB999 /* soundCloudMediaPickerViewController.h */,
 				1C7E49D01AB33A48005BB999 /* soundCloudMediaPickerViewController.m */,
 				1C13A9461AB9BF4800B2DF81 /* MediaItemTableViewCell.h */,
@@ -346,8 +348,6 @@
 				1C61D5701AA2609900833E0C /* MapManager.m */,
 				1C7E49C91AB21B04005BB999 /* PlayerInfoViewController.h */,
 				1C7E49CA1AB21B04005BB999 /* PlayerInfoViewController.m */,
-				1C37B7CB1AF3E29C00566216 /* SoundCloudMediaPickerTableView.h */,
-				1C37B7CC1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";

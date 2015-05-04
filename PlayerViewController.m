@@ -19,6 +19,7 @@ static NSString* cellIdentifier = @"playListCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.playlist = [Playlist sharedPlaylist].playlist;
+    self.player = [Player sharedPlayer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,7 +42,7 @@ static NSString* cellIdentifier = @"playListCell";
     MediaItem *track = [self.playlist objectAtIndex:indexPath.row];
     cell.track_title.text = track.track_title;
     cell.artist.text = track.artist;
-    cell.duration.text = track.duration;
+    cell.duration.text = [NSString stringWithFormat:@"%@",track.duration ];
     cell.sc_album_image.image =  track.artwork;
     
     return cell;
@@ -54,14 +55,19 @@ static NSString* cellIdentifier = @"playListCell";
 }
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)play:(id)sender
+{
+    [self.player play];
 }
-*/
+
+-(void) pause
+{
+    
+}
+
+-(void) skip
+{
+    
+}
 
 @end

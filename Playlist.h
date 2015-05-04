@@ -18,5 +18,6 @@
 - (void) addTrack:(MediaItem *)song;
 - (void) addTracks:(NSMutableArray*)songsToAdd;
 - (id)objectAtIndex:(NSUInteger)index;
+-(void) removeTrack:(MediaItem*)song;
 
 @end

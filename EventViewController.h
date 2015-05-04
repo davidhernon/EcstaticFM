@@ -30,7 +30,7 @@
 @public NSString *songTitle;
 @public NSString *streamURL;
 @public NSString *location;
-@public MPMediaItem *discoTrack;
+
     IBOutlet UILabel *countdownTimer;
     AVPlayer *player;
     AVAsset *avAsset;
