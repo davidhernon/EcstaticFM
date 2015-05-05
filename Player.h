@@ -9,16 +9,37 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "Playlist.h"
+#import "SoundCloudAPI.h"
+//#import "PlayerViewController.h"
+
+@protocol PlayerDelegate;
 
 @interface Player : NSObject
 
 @property Playlist* playlist;
 @property MediaItem* currentTrack;
-@property AVPlayer* avPlayer;
+@property AVAudioPlayer* avPlayer;
+@property NSTimer* progressTimer;
+
+@property (nonatomic, weak) id<PlayerDelegate> delegate;
 
 +(Player*) sharedPlayer;
 -(void)play;
+-(void) pause;
 -(void) updatePlaylist;
+-(void)addDelegate:(id)sender;
+-(void)updateTime;
+-(void)seek:(float)value;
 
+
+@end
+
+@protocol PlayerDelegate <NSObject>
+
+- (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack;
+
+- (void) setCurrentSliderValue:(AVAudioPlayer*)childPlayer;
+
+- (void)updatePlaylistTable;
 
 @end

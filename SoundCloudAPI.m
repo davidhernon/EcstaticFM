@@ -11,6 +11,11 @@
 
 @implementation SoundCloudAPI
 
++(NSString*)getClientID
+{
+    return @"230ccb26b40f7c87eb65fc03357ffa81";
+}
+
 
 +(void) getFavorites:(soundCloudMediaPickerViewController*)sender
 {

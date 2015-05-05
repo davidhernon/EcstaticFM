@@ -33,88 +33,100 @@ static Player *ecstaticPlayer = nil;
     return ecstaticPlayer;
 }
 
+- (void) addDelegate:(id)sender
+{
+    _delegate = sender;
+}
+
 -(void) updatePlaylist
 {
     ecstaticPlayer.playlist = [Playlist sharedPlaylist];
+    [_delegate updatePlaylistTable];
 }
 
 -(void)play
 {
     [self updatePlaylist];
-////    If play rate = 0, or player has an error
-//    if(avPlayer.rate == 0 || avPlayer.error)
-//    {
-////        If there is no current Track and there are items in the Playlist
-//        if(!ecstaticPlayer.currentTrack && [ecstaticPlayer.playlist count] != 0)
-//        {
-//            ecstaticPlayer.currentTrack = [ecstaticPlayer.playlist objectAtIndex:0];
-//            [[Playlist sharedPlaylist] removeTrack:ecstaticPlayer.currentTrack];
-//            [self updatePlaylist];
-////            WARNING: Recursion here could cause infinite loop
-//            [self play];
-//        }else{
-////            There is a currentTrack but its not playing
-//            
-//        }
-//    }
-//    Check if player is playing or has an error
-        if(_avPlayer.rate == 0 || _avPlayer.error)
+    if(_avPlayer.rate == 0)
+    {
+        NSLog(@"rate: %f",_avPlayer.rate);
+        if(!_currentTrack)
         {
-//          There is no current track
-            if(!_currentTrack){
-//              Playlist has more than 0 items in it
-                if([_playlist count] > 0){
-                    _currentTrack = [_playlist objectAtIndex:0];
-                    [[Playlist sharedPlaylist] removeTrack:_currentTrack];
-                    [self updatePlaylist];
-//               Else there are no tracks in the playlist, return
-                }else{
-                    return;
-                }
+            if([_playlist count] > 0)
+            {
+                _currentTrack = [_playlist objectAtIndex:0];
+                [[Playlist sharedPlaylist] removeTrack:_currentTrack];
+                [self updatePlaylist];
+            }else{
+                return;
             }
-            AVPlayer *player = [[AVPlayer alloc]initWithURL:[NSURL URLWithString:_currentTrack.stream_url]];
-            _avPlayer = player;
-            [[NSNotificationCenter defaultCenter] addObserver:self
-                                                     selector:@selector(playerItemDidReachEnd:)
-                                                         name:AVPlayerItemDidPlayToEndTimeNotification
-                                                       object:[_avPlayer currentItem]];
-            [_avPlayer addObserver:self forKeyPath:@"status" options:0 context:nil];
-            [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(idle:) userInfo:nil repeats:YES];
-            _avPlayer.volume=1.0;
+        }else{
             [_avPlayer play];
-            [player play];
         }
+        
+        
+    }else{
+        NSLog(@"rate %f",_avPlayer.rate);
+        [_avPlayer pause];
+    }
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@?client_id=%@", _currentTrack.stream_url,[SoundCloudAPI getClientID]];//Your client ID
+    
+    
+    [SCRequest performMethod:SCRequestMethodGET
+                  onResource:[NSURL URLWithString:urlString]
+             usingParameters:nil
+                 withAccount:[SCSoundCloud account]
+      sendingProgressHandler:nil
+             responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                 NSError *playerError;
+                 NSLog(@"data:%@",data);
+                 _avPlayer = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
+                 [_avPlayer prepareToPlay];
+                 [_delegate initPlayerUI:[_avPlayer duration] withTrack:_currentTrack];
+                 _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
+                 [_avPlayer play];
+             }];
+    
+    
     
 }
 
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    
-    if (object == _avPlayer && [keyPath isEqualToString:@"status"]) {
-        if (_avPlayer.status == AVPlayerStatusFailed) {
-            NSLog(@"AVPlayer Failed");
-        } else if (_avPlayer.status == AVPlayerStatusReadyToPlay) {
-            NSLog(@"AVPlayerStatusReadyToPlay");
-        } else if (_avPlayer.status == AVPlayerItemStatusUnknown) {
-            NSLog(@"AVPlayer Unknown");
-        }
+-(void)updateTime
+{
+    [_delegate setCurrentSliderValue:_avPlayer];
+    if(!_avPlayer.playing){
+        [self audioPlayerDidFinishPlaying:_avPlayer successfully:YES];
     }
 }
 
-- (void)playerItemDidReachEnd:(NSNotification *)notification {
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    [self.progressTimer invalidate];
+    self.progressTimer = nil;
     
-    //  code here to play next sound file
-    
+    _currentTrack = nil;
+    [ecstaticPlayer updatePlaylist];
+    _avPlayer.rate = 0;
+    [ecstaticPlayer play];
+}
+
+-(void)seek:(float)value
+{
+    if(_avPlayer.rate != 0)
+    {
+        _avPlayer.currentTime = value;
+    }
 }
 
 -(void) pause
 {
-    
+    [_avPlayer pause];
 }
 
 -(void)next
 {
-    
+
 }
 
 -(void)last

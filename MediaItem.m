@@ -37,7 +37,7 @@
         self.artist = [[soundCloudTrack objectForKey:@"user"] objectForKey:@"username"];
         self.duration = [NSString stringWithFormat:@"%@", [self convertTimeFromMillis:(int) [[soundCloudTrack objectForKey:@"duration"] intValue]]];
         self.artwork = [self addAlbumArtwork:(NSString*)[soundCloudTrack objectForKey:@"artwork_url"]];
-        self.stream_url = [soundCloudTrack objectForKey:@"uri"];
+        self.stream_url = [soundCloudTrack objectForKey:@"stream_url"];
     }
     return self;
 }

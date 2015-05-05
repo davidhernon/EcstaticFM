@@ -20,5 +20,6 @@
 +(void)getFavorites:(soundCloudMediaPickerViewController*)sender;
 + (void)getAccessTokenWithCompletion;
 + (void)storeUserDefaults;
++ (NSString*)getClientID;
 
 @end

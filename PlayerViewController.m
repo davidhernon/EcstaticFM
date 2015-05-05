@@ -18,8 +18,13 @@ static NSString* cellIdentifier = @"playListCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.slider.value = 0.0;
     self.playlist = [Playlist sharedPlaylist].playlist;
     self.player = [Player sharedPlayer];
+    [self.player addDelegate:self];
+    [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,7 +47,7 @@ static NSString* cellIdentifier = @"playListCell";
     MediaItem *track = [self.playlist objectAtIndex:indexPath.row];
     cell.track_title.text = track.track_title;
     cell.artist.text = track.artist;
-    cell.duration.text = [NSString stringWithFormat:@"%@",track.duration ];
+    cell.duration.text = track.duration;
     cell.sc_album_image.image =  track.artwork;
     
     return cell;
@@ -54,6 +59,33 @@ static NSString* cellIdentifier = @"playListCell";
 
 }
 
+- (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack
+{
+    _slider.maximumValue = duration;
+    _slider.value = 0.0;
+    _current_artist.text = currentTrack.artist;
+    _current_track_title.text = currentTrack.track_title;
+    _current_duration.text = currentTrack.duration;
+    _current_time.text = @"0";
+    _current_album_artwork.image = currentTrack.artwork;
+}
+
+- (void) setCurrentSliderValue:(AVAudioPlayer*)childPlayer
+{
+    NSLog(@"current time: %f", childPlayer.currentTime);
+    _slider.value = childPlayer.currentTime;
+    _current_time.text = [Utils convertTimeFromMillis:(int)1000*childPlayer.currentTime];
+}
+
+- (IBAction)sliderValueChanged:(UISlider *)sender {
+    [_player seek:sender.value];
+}
+
+- (void)updatePlaylistTable
+{
+    [self.playListTableView reloadData];
+}
+
 
 - (IBAction)play:(id)sender
 {
@@ -62,7 +94,7 @@ static NSString* cellIdentifier = @"playListCell";
 
 -(void) pause
 {
-    
+    [self.player pause];
 }
 
 -(void) skip
