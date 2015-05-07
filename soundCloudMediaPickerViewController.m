@@ -30,6 +30,9 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+    // Add the gradient to the view
+    [self.view.layer insertSublayer:[GFXUtils getGradient:self.view.bounds] atIndex:0];
+    
     self.soundCloudResultsTableView.allowsMultipleSelectionDuringEditing = YES;
     self.selectedTracks = [[NSMutableArray alloc] init];
     
@@ -53,6 +56,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     MediaItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     NSDictionary *track = [self.tracksFromSoundCloud objectAtIndex:indexPath.row];
+    tableView.backgroundColor = [UIColor clearColor];
     cell.track_title.text = [track objectForKey:@"title"];
     cell.artist.text = [[track objectForKey:@"user"] objectForKey:@"username"];
     cell.duration.text = [NSString stringWithFormat:@"%@", [self convertTimeFromMillis:(int) [[track objectForKey:@"duration"] intValue]]];

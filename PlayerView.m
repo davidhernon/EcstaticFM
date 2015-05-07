@@ -36,9 +36,9 @@
     self.playTimeLabel.text = [Utils floatToText:currentTime];
     self.durationLabel.text = [Utils floatToText:duration];
     if(duration == NAN)
-        self.slider.value = 0;
+        self.slider.value = duration;
     else
-        self.slider.value = currentTime/duration;
+        self.slider.value = duration-(currentTime/duration);
 }
 
 /*!

@@ -8,6 +8,7 @@
 
 #import "PlayerViewController.h"
 
+
 @interface PlayerViewController ()
 
 @end
@@ -18,6 +19,14 @@ static NSString* cellIdentifier = @"playListCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Add the gradient to the view
+    [self.view.layer insertSublayer:[GFXUtils getGradient:self.view.bounds] atIndex:0];
+    
+    // Remove line between cells
+    self.playListTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    
     self.slider.value = 0.0;
     self.playlist = [Playlist sharedPlaylist].playlist;
     self.player = [Player sharedPlayer];
@@ -45,6 +54,10 @@ static NSString* cellIdentifier = @"playListCell";
     MediaItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     MediaItem *track = [self.playlist objectAtIndex:indexPath.row];
+    tableView.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = [UIColor clearColor];
     cell.track_title.text = track.track_title;
     cell.artist.text = track.artist;
     cell.duration.text = track.duration;
@@ -63,7 +76,7 @@ static NSString* cellIdentifier = @"playListCell";
 - (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack
 {
     _slider.maximumValue = duration;
-    _slider.value = 0.0;
+    _slider.value = duration;
     _current_artist.text = currentTrack.artist;
     _current_track_title.text = currentTrack.track_title;
     _current_duration.text = currentTrack.duration;
@@ -75,7 +88,7 @@ static NSString* cellIdentifier = @"playListCell";
 - (void) setCurrentSliderValue:(AVAudioPlayer*)childPlayer
 {
     NSLog(@"current time: %f", childPlayer.currentTime);
-    _slider.value = childPlayer.currentTime;
+    _slider.value = _slider.maximumValue-childPlayer.currentTime;
     _current_time.text = [Utils convertTimeFromMillis:(int)1000*childPlayer.currentTime];
 }
 

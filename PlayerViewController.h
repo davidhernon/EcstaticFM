@@ -11,6 +11,8 @@
 #import "MediaItemTableViewCell.h"
 #import "Utils.h"
 #import "Player.h"
+#import "GFXUtils.h"
+#import "RadialGradientLayer.h"
 
 
 @interface PlayerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PlayerDelegate>
@@ -22,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *current_artist;
 @property (weak, nonatomic) IBOutlet UILabel *current_track_title;
 @property (weak, nonatomic) IBOutlet UIImageView *current_album_artwork;
+@property (weak, nonatomic) IBOutlet UIImageView *current_waveform;
 @property (weak, nonatomic) IBOutlet UIButton *play;
 @property (weak, nonatomic) IBOutlet UIImageView *waveform;
 
