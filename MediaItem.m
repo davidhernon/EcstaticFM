@@ -38,13 +38,16 @@
         self.duration = [NSString stringWithFormat:@"%@", [self convertTimeFromMillis:(int) [[soundCloudTrack objectForKey:@"duration"] intValue]]];
         
         //Manipulate url to grab larger image from soundcloud api
-        NSString* artwork_url_string = [soundCloudTrack objectForKey:@"artwork_url"];
-        NSString* artwork_url_string_mod = [artwork_url_string stringByReplacingOccurrencesOfString:@"large.jpg"
-                                             withString:@"t500x500.jpg"];
-        self.artwork = [self addAlbumArtwork:artwork_url_string_mod];
+       // NSString* artwork_url_string = [soundCloudTrack objectForKey:@"artwork_url"];
+       // NSString* artwork_url_string_mod = [artwork_url_string stringByReplacingOccurrencesOfString:@"large.jpg" withString:@"t500x500.jpg"];
+        self.artwork = [self addAlbumArtwork:[soundCloudTrack objectForKey:@"artwork_url"]];
         
         self.stream_url = [soundCloudTrack objectForKey:@"stream_url"];
-        self.waveform = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[soundCloudTrack objectForKey:@"waveform"]]]];
+        
+        //Get waveform URL
+        NSString* waveform_url_string = [soundCloudTrack objectForKey:@"waveform_url"];
+        self.waveform_url = [self addWaveform:waveform_url_string];
+        NSLog(waveform_url_string);
     }
     return self;
 }
@@ -54,6 +57,7 @@
     if([stringURL isEqual:[NSNull null]]){
         stringURL = @"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi8MYn94Vl1HVxqMb7u31QSRa3cNCJOYhxw7xI_GGDvcSKQ7xwPA370w";
     }
+    stringURL = [stringURL stringByReplacingOccurrencesOfString:@"large.jpg" withString:@"t500x500.jpg"];
     return [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:stringURL]]];
     
 }

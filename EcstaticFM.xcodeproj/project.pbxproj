@@ -366,6 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				1C73F35F1AFA8CCB0003B1FA /* Rooms */,
+				DEE628DC1AFA7FEF009084FF /* GFX */,
 				DE5763B61AF40CCD003F7507 /* Login */,
 				1C7E49D21AB33A4E005BB999 /* soundCloudMediaPicker */,
 				1C7E49C51AB1FB5B005BB999 /* Page View Control */,
@@ -614,6 +615,9 @@
 				DE5763AB1AF40817003F7507 /* Raleway-Regular.ttf in Resources */,
 				1CA428B61A799CE9001DB0AD /* Images.xcassets in Resources */,
 				1C73F3691AFBDFF60003B1FA /* AroundMeTableCellView.xib in Resources */,
+				DE79A7DF1AFBFD6A00E99957 /* icon_playerback.png in Resources */,
+				DE79A7E01AFBFD6A00E99957 /* icon_playernext.png in Resources */,
+				DE79A7E11AFBFD6A00E99957 /* icon_playerpause.png in Resources */,
 				1C8F93C91A8C0823007990AD /* PlayerView.xib in Resources */,
 				1C37B7EF1AF5789A00566216 /* image_coverart.png in Resources */,
 				DEE628DE1AFA8D59009084FF /* icon_close.png in Resources */,

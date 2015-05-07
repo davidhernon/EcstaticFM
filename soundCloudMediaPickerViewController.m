@@ -69,6 +69,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //MediaItem* mediaItemSelected = [self mediaItemFromCell:indexPath.row];
+    NSDictionary *itemOne = [self.tracksFromSoundCloud objectAtIndex:indexPath.row];
     MediaItem* mediaItemSelected = [[MediaItem alloc] initWithSoundCloudTrack:[self.tracksFromSoundCloud objectAtIndex:indexPath.row]];
 //    MediaItem* mediaItemSelected = [[MediaItem alloc] init];
     
