@@ -11,6 +11,8 @@
 #import "MediaItem.h"
 #import "SCUI.h"
 #import "Playlist.h"
+#import "GFXUtils.h"
+#import "RadialGradientLayer.h"
 
 
 @interface soundCloudMediaPickerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
