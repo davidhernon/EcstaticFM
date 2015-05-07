@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *current_track_title;
 @property (weak, nonatomic) IBOutlet UIImageView *current_album_artwork;
 @property (weak, nonatomic) IBOutlet UIButton *play;
+@property (weak, nonatomic) IBOutlet UIImageView *waveform;
 
 @property (weak, nonatomic) NSArray* playlist;
 @property Player* player;

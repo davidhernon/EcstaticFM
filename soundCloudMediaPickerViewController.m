@@ -160,11 +160,6 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 -(IBAction)addSelectedTracksToPlaylist:(id)sender
 {
     [[Playlist sharedPlaylist] addTracks:self.selectedTracks];
-    UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *player = [mystoryboard instantiateViewControllerWithIdentifier:@"player"];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [self.navigationController pushViewController:player animated:YES];
-    
 }
 
 /*

@@ -50,6 +50,7 @@ static NSString* cellIdentifier = @"playListCell";
     cell.duration.text = track.duration;
     cell.sc_album_image.image =  track.artwork;
     
+    
     return cell;
     
 }
@@ -68,6 +69,7 @@ static NSString* cellIdentifier = @"playListCell";
     _current_duration.text = currentTrack.duration;
     _current_time.text = @"0";
     _current_album_artwork.image = currentTrack.artwork;
+    _waveform.image = currentTrack.waveform;
 }
 
 - (void) setCurrentSliderValue:(AVAudioPlayer*)childPlayer
@@ -85,7 +87,6 @@ static NSString* cellIdentifier = @"playListCell";
 {
     [self.playListTableView reloadData];
 }
-
 
 - (IBAction)play:(id)sender
 {

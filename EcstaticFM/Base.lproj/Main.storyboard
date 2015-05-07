@@ -39,73 +39,6 @@
             </objects>
             <point key="canvasLocation" x="209.06666666666666" y="-337.95999999999998"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="gEg-0X-1ho">
-            <objects>
-                <viewController id="Kdp-lB-F7m" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="k7c-Ya-Uvd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bCX-bI-ddr">
-                                <rect key="frame" x="141" y="409" width="38" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="A48-xd-fVX" kind="modal" id="D5T-Vt-k9R"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="xdW-aE-Ib5">
-                                <rect key="frame" x="82" y="218" width="156" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="efC-3U-Ro8">
-                                <rect key="frame" x="122" y="268" width="76" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="XEK-V4-qg9">
-                                <rect key="frame" x="82" y="297" width="156" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="e3J-0u-9Z2">
-                                <rect key="frame" x="202" y="511" width="102" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="SoundCloud">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="soundCloudLogin:" destination="Kdp-lB-F7m" eventType="touchUpInside" id="9hB-nQ-p7e"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username or Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qgd-Uw-X3T">
-                                <rect key="frame" x="87" y="183" width="146" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="skT-nH-hwF"/>
-                    <connections>
-                        <outlet property="password" destination="XEK-V4-qg9" id="VVB-YL-dPN"/>
-                        <outlet property="username" destination="xdW-aE-Ib5" id="q3E-mg-Bsl"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uOx-t6-I0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="209" y="366"/>
-        </scene>
         <!--Page View Controller-->
         <scene sceneID="UTi-VB-nZP">
             <objects>
@@ -114,12 +47,12 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41c-vY-GH9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="678.39999999999998" y="1036.5999999999999"/>
+            <point key="canvasLocation" x="304" y="1030"/>
         </scene>
         <!--Swipe Between View Controllers-->
         <scene sceneID="G2j-rj-nkt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="A48-xd-fVX" customClass="RKSwipeBetweenViewControllers" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="playerEventChat" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="A48-xd-fVX" customClass="RKSwipeBetweenViewControllers" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="x5j-Gv-q6D"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jc9-h2-GuE">
@@ -133,12 +66,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3L-sP-9R1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="73" y="1160"/>
+            <point key="canvasLocation" x="2391" y="1674"/>
         </scene>
-        <!--View Controller-->
+        <!--Rooms View Controller-->
         <scene sceneID="ldK-YC-Z4E">
             <objects>
-                <viewController storyboardIdentifier="aroundMe" id="pL3-Xv-Udv" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="aroundMe" id="pL3-Xv-Udv" customClass="RoomsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gwg-uV-IfY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,14 +87,21 @@
                                 <rect key="frame" x="0.0" y="77" width="320" height="415"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="pL3-Xv-Udv" id="goa-kC-fc0"/>
+                                    <outlet property="delegate" destination="pL3-Xv-Udv" id="dRd-mL-ad2"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.33917758516615143" green="0.88673847853535359" blue="0.60648692546946603" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="roomTableView" destination="VCT-aS-wi5" id="OTL-fT-rhh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wuJ-ls-KuR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1143" y="1036"/>
+            <point key="canvasLocation" x="805" y="1036"/>
         </scene>
         <!--Login Screen-->
         <scene sceneID="L4S-P1-2em">
@@ -239,7 +179,6 @@
                                         </state>
                                         <connections>
                                             <action selector="soundCloudLogin:" destination="Na0-VS-aPw" eventType="touchUpInside" id="b3g-nE-BhA"/>
-                                            <action selector="soundCloudLogin:" destination="Kdp-lB-F7m" eventType="touchUpInside" id="oYz-4h-cWB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -367,6 +306,10 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="S8f-jV-zzm">
                                         <rect key="frame" x="0.0" y="24" width="320" height="239"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="aMM-Kv-Z4P">
+                                        <rect key="frame" x="-0.5" y="265" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="91V-MZ-V64">
@@ -522,6 +465,7 @@
                         <outlet property="play" destination="gnl-oJ-0Zd" id="Oix-Te-KKR"/>
                         <outlet property="playListTableView" destination="fim-yG-u2G" id="goh-MD-M0Z"/>
                         <outlet property="slider" destination="x77-TT-zEN" id="XXa-Qj-n4U"/>
+                        <outlet property="waveform" destination="aMM-Kv-Z4P" id="hpr-El-oHt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJn-H3-nVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -595,7 +539,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wtb-bS-ik1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1401" y="1703"/>
+            <point key="canvasLocation" x="745" y="2424"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ZOF-of-Qtp">
@@ -637,7 +581,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2KK-cU-Fg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1602" y="306"/>
+            <point key="canvasLocation" x="1614" y="2424"/>
         </scene>
         <!--Sound Cloud Media Picker View Controller-->
         <scene sceneID="9K1-1D-fzc">
@@ -713,6 +657,7 @@
                                 </state>
                                 <connections>
                                     <action selector="addSelectedTracksToPlaylist:" destination="NW7-8C-V9l" eventType="touchUpInside" id="rzC-Cv-KHR"/>
+                                    <segue destination="A48-xd-fVX" kind="modal" id="xyo-QM-v5q"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Chk-g9-cUx">
@@ -722,7 +667,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="XgF-Cq-hZq" kind="modal" id="6BO-RA-lqi"/>
+                                    <segue destination="A48-xd-fVX" kind="modal" id="PM4-0y-y1q"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -758,5 +703,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="yjt-o9-w9F"/>
+        <segue reference="PM4-0y-y1q"/>
     </inferredMetricsTieBreakers>
 </document>

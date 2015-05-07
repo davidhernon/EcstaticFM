@@ -38,6 +38,7 @@
         self.duration = [NSString stringWithFormat:@"%@", [self convertTimeFromMillis:(int) [[soundCloudTrack objectForKey:@"duration"] intValue]]];
         self.artwork = [self addAlbumArtwork:(NSString*)[soundCloudTrack objectForKey:@"artwork_url"]];
         self.stream_url = [soundCloudTrack objectForKey:@"stream_url"];
+        self.waveform = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[soundCloudTrack objectForKey:@"waveform"]]]];
     }
     return self;
 }

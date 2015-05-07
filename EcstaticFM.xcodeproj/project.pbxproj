@@ -28,6 +28,11 @@
 		1C61D56C1AA25A6200833E0C /* EventMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C61D56B1AA25A6200833E0C /* EventMapView.m */; };
 		1C61D56E1AA25A8200833E0C /* EventMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C61D56D1AA25A8200833E0C /* EventMapView.xib */; };
 		1C61D5711AA2609900833E0C /* MapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C61D5701AA2609900833E0C /* MapManager.m */; };
+		1C73F3651AFA936D0003B1FA /* RoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73F3641AFA936D0003B1FA /* RoomsViewController.m */; };
+		1C73F3671AFBDECF0003B1FA /* PopularTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C73F3661AFBDECF0003B1FA /* PopularTableCellView.xib */; };
+		1C73F3691AFBDFF60003B1FA /* AroundMeTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C73F3681AFBDFF60003B1FA /* AroundMeTableCellView.xib */; };
+		1C73F36C1AFBE9470003B1FA /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73F36B1AFBE9470003B1FA /* Room.m */; };
+		1C73F36E1AFC036A0003B1FA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C73F36D1AFC036A0003B1FA /* CoreLocation.framework */; };
 		1C7E49C81AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49C71AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m */; };
 		1C7E49CB1AB21B04005BB999 /* PlayerInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49CA1AB21B04005BB999 /* PlayerInfoViewController.m */; };
 		1C7E49CE1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49CD1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m */; };
@@ -115,6 +120,13 @@
 		1C61D56D1AA25A8200833E0C /* EventMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventMapView.xib; sourceTree = "<group>"; };
 		1C61D56F1AA2609900833E0C /* MapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapManager.h; sourceTree = "<group>"; };
 		1C61D5701AA2609900833E0C /* MapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapManager.m; sourceTree = "<group>"; };
+		1C73F3631AFA936D0003B1FA /* RoomsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomsViewController.h; sourceTree = "<group>"; };
+		1C73F3641AFA936D0003B1FA /* RoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomsViewController.m; sourceTree = "<group>"; };
+		1C73F3661AFBDECF0003B1FA /* PopularTableCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopularTableCellView.xib; sourceTree = "<group>"; };
+		1C73F3681AFBDFF60003B1FA /* AroundMeTableCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AroundMeTableCellView.xib; sourceTree = "<group>"; };
+		1C73F36A1AFBE9470003B1FA /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
+		1C73F36B1AFBE9470003B1FA /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
+		1C73F36D1AFC036A0003B1FA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1C7E49C61AB1FB82005BB999 /* RKSwipeBetweenViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKSwipeBetweenViewControllers.h; sourceTree = "<group>"; };
 		1C7E49C71AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKSwipeBetweenViewControllers.m; sourceTree = "<group>"; };
 		1C7E49C91AB21B04005BB999 /* PlayerInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerInfoViewController.h; sourceTree = "<group>"; };
@@ -187,6 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C73F36E1AFC036A0003B1FA /* CoreLocation.framework in Frameworks */,
 				DE5763AF1AF40A8F003F7507 /* QuartzCore.framework in Frameworks */,
 				D2A8C828A1F2E13542223221 /* libPods.a in Frameworks */,
 			);
@@ -202,6 +215,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C73F35F1AFA8CCB0003B1FA /* Rooms */ = {
+			isa = PBXGroup;
+			children = (
+				1C73F3631AFA936D0003B1FA /* RoomsViewController.h */,
+				1C73F3641AFA936D0003B1FA /* RoomsViewController.m */,
+				1C73F3661AFBDECF0003B1FA /* PopularTableCellView.xib */,
+				1C73F3681AFBDFF60003B1FA /* AroundMeTableCellView.xib */,
+				1C73F36A1AFBE9470003B1FA /* Room.h */,
+				1C73F36B1AFBE9470003B1FA /* Room.m */,
+			);
+			name = Rooms;
+			sourceTree = "<group>";
+		};
 		1C7E49C51AB1FB5B005BB999 /* Page View Control */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +347,7 @@
 		1CC438BA1A7DBF38000A5AEC /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1C73F35F1AFA8CCB0003B1FA /* Rooms */,
 				DE5763B61AF40CCD003F7507 /* Login */,
 				1C7E49D21AB33A4E005BB999 /* soundCloudMediaPicker */,
 				1C7E49C51AB1FB5B005BB999 /* Page View Control */,
@@ -355,6 +382,7 @@
 		41E1FCC16606E980DDA2964F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1C73F36D1AFC036A0003B1FA /* CoreLocation.framework */,
 				DE5763AE1AF40A8E003F7507 /* QuartzCore.framework */,
 				4CDA11C45E121802EEDA9E85 /* libPods.a */,
 			);
@@ -521,6 +549,7 @@
 				DE5763A91AF40817003F7507 /* Raleway-Light.ttf in Resources */,
 				1C61D56E1AA25A8200833E0C /* EventMapView.xib in Resources */,
 				DE5763AD1AF40817003F7507 /* Raleway-Thin.ttf in Resources */,
+				1C73F3671AFBDECF0003B1FA /* PopularTableCellView.xib in Resources */,
 				1C37B7EE1AF5789A00566216 /* icon_people.png in Resources */,
 				1C37B7ED1AF5789A00566216 /* icon_musicplaying.png in Resources */,
 				DE9A4A0E1AF5765A00B26BA4 /* image_navbarbg.png in Resources */,
@@ -545,6 +574,7 @@
 				1C37B7F01AF5789A00566216 /* image_portrait.png in Resources */,
 				DE5763AB1AF40817003F7507 /* Raleway-Regular.ttf in Resources */,
 				1CA428B61A799CE9001DB0AD /* Images.xcassets in Resources */,
+				1C73F3691AFBDFF60003B1FA /* AroundMeTableCellView.xib in Resources */,
 				1C8F93C91A8C0823007990AD /* PlayerView.xib in Resources */,
 				1C37B7EF1AF5789A00566216 /* image_coverart.png in Resources */,
 			);
@@ -597,6 +627,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C73F36C1AFBE9470003B1FA /* Room.m in Sources */,
 				DE5763D41AF5608C003F7507 /* GFXUtils.m in Sources */,
 				DE5763B91AF427ED003F7507 /* RadialGradientLayer.m in Sources */,
 				DE5763D11AF447F4003F7507 /* GradientNavigationBar.m in Sources */,
@@ -607,6 +638,7 @@
 				1C2838041A955F8D006F10EC /* Utils.m in Sources */,
 				1C37B7D91AF540BA00566216 /* PlayerViewController.m in Sources */,
 				1C3AC14D1A7EC168004B1D86 /* EventViewController.m in Sources */,
+				1C73F3651AFA936D0003B1FA /* RoomsViewController.m in Sources */,
 				1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */,
 				1C61D5711AA2609900833E0C /* MapManager.m in Sources */,
 				1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */,

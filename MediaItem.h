@@ -20,6 +20,7 @@
 @property NSNumber* duration_minutes;
 @property NSNumber* duration_seconds;
 @property NSString* stream_url;
+@property UIImage* waveform;
 
 - (id) initWithSoundCloudTrack:(NSDictionary *)soundCloudTrack;
 -(NSString*)convertTimeFromMillis:(int)millis;
