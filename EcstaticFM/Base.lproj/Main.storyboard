@@ -373,10 +373,6 @@ Feed me songs!</string>
                                                     <action selector="last:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="17E-Wt-25o"/>
                                                 </connections>
                                             </button>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="tJd-bh-QGo">
-                                                <rect key="frame" x="10" y="169" width="306" height="31"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </slider>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
@@ -477,7 +473,6 @@ Feed me songs!</string>
                         <outlet property="current_album_artwork" destination="S8f-jV-zzm" id="UrP-5n-CHf"/>
                         <outlet property="play" destination="gnl-oJ-0Zd" id="Oix-Te-KKR"/>
                         <outlet property="playListTableView" destination="fim-yG-u2G" id="goh-MD-M0Z"/>
-                        <outlet property="slider" destination="tJd-bh-QGo" id="C7p-Mt-N50"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJn-H3-nVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
