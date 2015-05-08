@@ -19,6 +19,14 @@ static NSString* around_me_event_cell = @"around_me_cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Add the gradient to the view
+    [self.view.layer insertSublayer:[GFXUtils getGradient:self.view.bounds] atIndex:0];
+    
+    // Remove line between cells
+    self.roomTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    
     _popular = [NSArray arrayWithObjects:@"a", @"b", nil];
     _around_me = [NSArray arrayWithObjects:@"around", @"me", nil];
     [_roomTableView reloadData];
@@ -46,6 +54,10 @@ static NSString* around_me_event_cell = @"around_me_cell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [[UITableViewCell alloc] init];
+    tableView.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = [UIColor clearColor];
     
     if (indexPath.section == 0){
         cell = [self.roomTableView dequeueReusableCellWithIdentifier:@"popular_event_cell"];

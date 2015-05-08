@@ -79,12 +79,18 @@
 		DE9A4A0D1AF5765A00B26BA4 /* button_addmusic.png in Resources */ = {isa = PBXBuildFile; fileRef = DE9A4A0B1AF5765A00B26BA4 /* button_addmusic.png */; };
 		DE9A4A0E1AF5765A00B26BA4 /* image_navbarbg.png in Resources */ = {isa = PBXBuildFile; fileRef = DE9A4A0C1AF5765A00B26BA4 /* image_navbarbg.png */; };
 		DE9A4A101AF5767300B26BA4 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = DE9A4A0F1AF5767300B26BA4 /* splash.png */; };
+		DEBABA351AFC2113002D66F7 /* image_arrowup.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBABA341AFC2113002D66F7 /* image_arrowup.png */; };
 		DEE628D91AFA796F009084FF /* icon_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE628D81AFA796F009084FF /* icon_bubble.png */; };
 		DEE628DB1AFA79C1009084FF /* icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE628DA1AFA79C1009084FF /* icon_back.png */; };
 		DEE628DE1AFA8D59009084FF /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE628DD1AFA8D59009084FF /* icon_close.png */; };
 		DEE628E21AFA9D04009084FF /* icon_heartfull.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE628DF1AFA9D04009084FF /* icon_heartfull.png */; };
 		DEE628E31AFA9D04009084FF /* icon_playlist.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE628E01AFA9D04009084FF /* icon_playlist.png */; };
 		DEE628E41AFA9D04009084FF /* icon_search.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE628E11AFA9D04009084FF /* icon_search.png */; };
+		DEEC12211AFCF4BB00E21C52 /* image_roombg01.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC12201AFCF4BB00E21C52 /* image_roombg01.png */; };
+		DEEC12231AFCF56200E21C52 /* image_roombg02.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC12221AFCF56200E21C52 /* image_roombg02.png */; };
+		DEEC12251AFCF68700E21C52 /* icon_location.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC12241AFCF68700E21C52 /* icon_location.png */; };
+		DEEC12271AFCF79800E21C52 /* icon_person.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC12261AFCF79800E21C52 /* icon_person.png */; };
+		DEEC122A1AFCFCC800E21C52 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC12291AFCFCC800E21C52 /* ChatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,12 +210,19 @@
 		DE9A4A0B1AF5765A00B26BA4 /* button_addmusic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_addmusic.png; sourceTree = "<group>"; };
 		DE9A4A0C1AF5765A00B26BA4 /* image_navbarbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_navbarbg.png; sourceTree = "<group>"; };
 		DE9A4A0F1AF5767300B26BA4 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
+		DEBABA341AFC2113002D66F7 /* image_arrowup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_arrowup.png; sourceTree = "<group>"; };
 		DEE628D81AFA796F009084FF /* icon_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble.png; sourceTree = "<group>"; };
 		DEE628DA1AFA79C1009084FF /* icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_back.png; sourceTree = "<group>"; };
 		DEE628DD1AFA8D59009084FF /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_close.png; sourceTree = "<group>"; };
 		DEE628DF1AFA9D04009084FF /* icon_heartfull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_heartfull.png; sourceTree = "<group>"; };
 		DEE628E01AFA9D04009084FF /* icon_playlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_playlist.png; sourceTree = "<group>"; };
 		DEE628E11AFA9D04009084FF /* icon_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_search.png; sourceTree = "<group>"; };
+		DEEC12201AFCF4BB00E21C52 /* image_roombg01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_roombg01.png; sourceTree = "<group>"; };
+		DEEC12221AFCF56200E21C52 /* image_roombg02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_roombg02.png; sourceTree = "<group>"; };
+		DEEC12241AFCF68700E21C52 /* icon_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_location.png; sourceTree = "<group>"; };
+		DEEC12261AFCF79800E21C52 /* icon_person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_person.png; sourceTree = "<group>"; };
+		DEEC12281AFCFCC800E21C52 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		DEEC12291AFCFCC800E21C52 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,6 +378,7 @@
 		1CC438BA1A7DBF38000A5AEC /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				DEEC122B1AFCFCD000E21C52 /* Chat */,
 				1C73F35F1AFA8CCB0003B1FA /* Rooms */,
 				DEE628DC1AFA7FEF009084FF /* GFX */,
 				DE5763B61AF40CCD003F7507 /* Login */,
@@ -409,6 +423,7 @@
 		DE5763861AF400BF003F7507 /* Assets (2x) */ = {
 			isa = PBXGroup;
 			children = (
+				DEBABA341AFC2113002D66F7 /* image_arrowup.png */,
 				1C37B7E61AF5789A00566216 /* icon_heart.png */,
 				1C37B7E71AF5789A00566216 /* icon_musicplaying.png */,
 				DEE628DA1AFA79C1009084FF /* icon_back.png */,
@@ -418,8 +433,12 @@
 				DEE628D81AFA796F009084FF /* icon_bubble.png */,
 				DEE628DF1AFA9D04009084FF /* icon_heartfull.png */,
 				DEE628E01AFA9D04009084FF /* icon_playlist.png */,
+				DEEC12201AFCF4BB00E21C52 /* image_roombg01.png */,
+				DEEC12241AFCF68700E21C52 /* icon_location.png */,
+				DEEC12221AFCF56200E21C52 /* image_roombg02.png */,
 				DEE628E11AFA9D04009084FF /* icon_search.png */,
 				DEE628DD1AFA8D59009084FF /* icon_close.png */,
+				DEEC12261AFCF79800E21C52 /* icon_person.png */,
 				1C37B7E81AF5789A00566216 /* icon_people.png */,
 				1C37B7E91AF5789A00566216 /* image_coverart.png */,
 				1C37B7EA1AF5789A00566216 /* image_portrait.png */,
@@ -484,6 +503,15 @@
 				DE5763D31AF5608C003F7507 /* GFXUtils.m */,
 			);
 			name = GFX;
+			sourceTree = "<group>";
+		};
+		DEEC122B1AFCFCD000E21C52 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				DEEC12281AFCFCC800E21C52 /* ChatViewController.h */,
+				DEEC12291AFCFCC800E21C52 /* ChatViewController.m */,
+			);
+			name = Chat;
 			sourceTree = "<group>";
 		};
 		E04848918A20C9B3F50F1020 /* Pods */ = {
@@ -598,6 +626,7 @@
 				DE5763A81AF40817003F7507 /* Raleway-Heavy.ttf in Resources */,
 				DE5763961AF40723003F7507 /* input-password.png in Resources */,
 				DE5763941AF40723003F7507 /* button-facebook.png in Resources */,
+				DEEC12251AFCF68700E21C52 /* icon_location.png in Resources */,
 				DE9A4A101AF5767300B26BA4 /* splash.png in Resources */,
 				1C4861E61A7AB75C004EFEAD /* Info.plist in Resources */,
 				DEE628E21AFA9D04009084FF /* icon_heartfull.png in Resources */,
@@ -606,11 +635,14 @@
 				DE5763A71AF40817003F7507 /* Raleway-ExtraLight.ttf in Resources */,
 				1CA428B41A799CE9001DB0AD /* Main.storyboard in Resources */,
 				1CA428B91A799CE9001DB0AD /* LaunchScreen.xib in Resources */,
+				DEBABA351AFC2113002D66F7 /* image_arrowup.png in Resources */,
 				DE5763A51AF40817003F7507 /* Raleway-Bold.ttf in Resources */,
 				DE5763951AF40723003F7507 /* button-login.png in Resources */,
 				1C37B7F11AF5789A00566216 /* image_waveform.png in Resources */,
+				DEEC12231AFCF56200E21C52 /* image_roombg02.png in Resources */,
 				DEE628DB1AFA79C1009084FF /* icon_back.png in Resources */,
 				DE5763AA1AF40817003F7507 /* Raleway-Medium.ttf in Resources */,
+				DEEC12271AFCF79800E21C52 /* icon_person.png in Resources */,
 				1C37B7F01AF5789A00566216 /* image_portrait.png in Resources */,
 				DE5763AB1AF40817003F7507 /* Raleway-Regular.ttf in Resources */,
 				1CA428B61A799CE9001DB0AD /* Images.xcassets in Resources */,
@@ -620,6 +652,7 @@
 				DE79A7E11AFBFD6A00E99957 /* icon_playerpause.png in Resources */,
 				1C8F93C91A8C0823007990AD /* PlayerView.xib in Resources */,
 				1C37B7EF1AF5789A00566216 /* image_coverart.png in Resources */,
+				DEEC12211AFCF4BB00E21C52 /* image_roombg01.png in Resources */,
 				DEE628DE1AFA8D59009084FF /* icon_close.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -684,6 +717,7 @@
 				1C3AC14D1A7EC168004B1D86 /* EventViewController.m in Sources */,
 				1C73F3651AFA936D0003B1FA /* RoomsViewController.m in Sources */,
 				1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */,
+				DEEC122A1AFCFCC800E21C52 /* ChatViewController.m in Sources */,
 				1C61D5711AA2609900833E0C /* MapManager.m in Sources */,
 				1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */,
 				1CB9BB301AA2456400748236 /* SoundCloudAPI.m in Sources */,

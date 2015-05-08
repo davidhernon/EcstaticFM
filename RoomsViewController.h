@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GFXUtils.h"
+#import "RadialGradientLayer.h"
 
 @interface RoomsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
