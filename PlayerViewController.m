@@ -155,8 +155,10 @@ static NSString* cellIdentifier = @"playListCell";
     [self.player last];
 }
 
--(void) skip
+-(IBAction)next:(id)sender
 {
+    [self.player next];
+  //  [self.player play];
     
 }
 
