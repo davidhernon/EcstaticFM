@@ -33,6 +33,9 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     // Add the gradient to the view
     [self.view.layer insertSublayer:[GFXUtils getGradient:self.view.bounds] atIndex:0];
     
+    // Remove line between cells
+    self.soundCloudResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     self.soundCloudResultsTableView.allowsMultipleSelectionDuringEditing = YES;
     self.selectedTracks = [[NSMutableArray alloc] init];
     

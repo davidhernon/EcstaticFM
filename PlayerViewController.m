@@ -21,7 +21,7 @@ static NSString* cellIdentifier = @"playListCell";
     [super viewDidLoad];
     
     // Add the gradient to the view
-    [self.view.layer insertSublayer:[GFXUtils getGradient:self.view.bounds] atIndex:0];
+    [self.view.layer insertSublayer:[GFXUtils getGradientPlayer:self.view.bounds] atIndex:0];
     
     // Remove line between cells
     self.playListTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
