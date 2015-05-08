@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "Utils.h"
 
 @interface MediaItem : NSObject//<NSCoding>
 
@@ -24,6 +25,5 @@
 @property UIImage* waveform;
 
 - (id) initWithSoundCloudTrack:(NSDictionary *)soundCloudTrack;
--(NSString*)convertTimeFromMillis:(int)millis;
 
 @end

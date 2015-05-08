@@ -10,9 +10,7 @@
 		1C13A9481AB9BF4800B2DF81 /* MediaItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C13A9471AB9BF4800B2DF81 /* MediaItemTableViewCell.m */; };
 		1C2251441A9E7CA600210324 /* MediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2251431A9E7CA600210324 /* MediaItem.m */; };
 		1C2251471A9E7E5F00210324 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2251461A9E7E5F00210324 /* Playlist.m */; };
-		1C2838011A955F59006F10EC /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2838001A955F59006F10EC /* HomeTableViewController.m */; };
 		1C2838041A955F8D006F10EC /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2838031A955F8D006F10EC /* Utils.m */; };
-		1C2838071A955FA5006F10EC /* EventCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2838061A955FA5006F10EC /* EventCellView.m */; };
 		1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C33F84C1A8D4A0C0072ABBE /* Player.m */; };
 		1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C37B7CC1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m */; };
 		1C37B7D91AF540BA00566216 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C37B7D81AF540BA00566216 /* PlayerViewController.m */; };
@@ -22,23 +20,16 @@
 		1C37B7EF1AF5789A00566216 /* image_coverart.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C37B7E91AF5789A00566216 /* image_coverart.png */; };
 		1C37B7F01AF5789A00566216 /* image_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C37B7EA1AF5789A00566216 /* image_portrait.png */; };
 		1C37B7F11AF5789A00566216 /* image_waveform.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C37B7EB1AF5789A00566216 /* image_waveform.png */; };
-		1C3AC14D1A7EC168004B1D86 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3AC14C1A7EC168004B1D86 /* EventViewController.m */; };
 		1C4861E61A7AB75C004EFEAD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428A91A799CE9001DB0AD /* Info.plist */; };
 		1C4861E71A7AB75C004EFEAD /* main.m in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
-		1C61D56C1AA25A6200833E0C /* EventMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C61D56B1AA25A6200833E0C /* EventMapView.m */; };
-		1C61D56E1AA25A8200833E0C /* EventMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C61D56D1AA25A8200833E0C /* EventMapView.xib */; };
-		1C61D5711AA2609900833E0C /* MapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C61D5701AA2609900833E0C /* MapManager.m */; };
 		1C73F3651AFA936D0003B1FA /* RoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73F3641AFA936D0003B1FA /* RoomsViewController.m */; };
 		1C73F3671AFBDECF0003B1FA /* PopularTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C73F3661AFBDECF0003B1FA /* PopularTableCellView.xib */; };
 		1C73F3691AFBDFF60003B1FA /* AroundMeTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C73F3681AFBDFF60003B1FA /* AroundMeTableCellView.xib */; };
 		1C73F36C1AFBE9470003B1FA /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73F36B1AFBE9470003B1FA /* Room.m */; };
 		1C73F36E1AFC036A0003B1FA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C73F36D1AFC036A0003B1FA /* CoreLocation.framework */; };
 		1C7E49C81AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49C71AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m */; };
-		1C7E49CB1AB21B04005BB999 /* PlayerInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49CA1AB21B04005BB999 /* PlayerInfoViewController.m */; };
 		1C7E49CE1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49CD1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m */; };
 		1C7E49D11AB33A48005BB999 /* soundCloudMediaPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49D01AB33A48005BB999 /* soundCloudMediaPickerViewController.m */; };
-		1C8F93C71A8C07EB007990AD /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8F93C61A8C07EB007990AD /* PlayerView.m */; };
-		1C8F93C91A8C0823007990AD /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C8F93C81A8C0823007990AD /* PlayerView.xib */; };
 		1CA428AB1A799CE9001DB0AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
 		1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428AD1A799CE9001DB0AD /* AppDelegate.m */; };
 		1CA428B41A799CE9001DB0AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428B21A799CE9001DB0AD /* Main.storyboard */; };
@@ -47,10 +38,7 @@
 		1CA428C51A799CE9001DB0AD /* EcstaticFMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428C41A799CE9001DB0AD /* EcstaticFMTests.m */; };
 		1CB9BB301AA2456400748236 /* SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9BB2F1AA2456400748236 /* SoundCloudAPI.m */; };
 		1CB9BB341AA2459000748236 /* SDSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9BB331AA2459000748236 /* SDSAPI.m */; };
-		1CC438B91A7DBDF3000A5AEC /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC438B81A7DBDF3000A5AEC /* Event.m */; };
 		1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCB176C1A92792C0055D68C /* LoginViewController.m */; };
-		1CEB11DB1A9ED611005C162D /* MediaPickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CEB11D91A9ED611005C162D /* MediaPickerTableViewController.m */; };
-		1CEB11DC1A9ED611005C162D /* MediaPickerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CEB11DA1A9ED611005C162D /* MediaPickerTableViewController.xib */; };
 		D2A8C828A1F2E13542223221 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA11C45E121802EEDA9E85 /* libPods.a */; };
 		DE57638A1AF400E6003F7507 /* ecstatic-wordmark-330.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763871AF400E6003F7507 /* ecstatic-wordmark-330.png */; };
 		DE57638B1AF400E6003F7507 /* icon-key-21.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763881AF400E6003F7507 /* icon-key-21.png */; };
@@ -104,12 +92,8 @@
 		1C2251431A9E7CA600210324 /* MediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaItem.m; sourceTree = "<group>"; };
 		1C2251451A9E7E5F00210324 /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = "<group>"; };
 		1C2251461A9E7E5F00210324 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
-		1C2837FF1A955F59006F10EC /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
-		1C2838001A955F59006F10EC /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		1C2838021A955F8D006F10EC /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		1C2838031A955F8D006F10EC /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		1C2838051A955FA5006F10EC /* EventCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCellView.h; sourceTree = "<group>"; };
-		1C2838061A955FA5006F10EC /* EventCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCellView.m; sourceTree = "<group>"; };
 		1C33F84B1A8D4A0C0072ABBE /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		1C33F84C1A8D4A0C0072ABBE /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		1C37B7CB1AF3E29C00566216 /* SoundCloudMediaPickerTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundCloudMediaPickerTableView.h; sourceTree = "<group>"; };
@@ -122,13 +106,6 @@
 		1C37B7E91AF5789A00566216 /* image_coverart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_coverart.png; sourceTree = "<group>"; };
 		1C37B7EA1AF5789A00566216 /* image_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_portrait.png; sourceTree = "<group>"; };
 		1C37B7EB1AF5789A00566216 /* image_waveform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_waveform.png; sourceTree = "<group>"; };
-		1C3AC14B1A7EC168004B1D86 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
-		1C3AC14C1A7EC168004B1D86 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
-		1C61D56A1AA25A6200833E0C /* EventMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventMapView.h; sourceTree = "<group>"; };
-		1C61D56B1AA25A6200833E0C /* EventMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventMapView.m; sourceTree = "<group>"; };
-		1C61D56D1AA25A8200833E0C /* EventMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventMapView.xib; sourceTree = "<group>"; };
-		1C61D56F1AA2609900833E0C /* MapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapManager.h; sourceTree = "<group>"; };
-		1C61D5701AA2609900833E0C /* MapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapManager.m; sourceTree = "<group>"; };
 		1C73F3631AFA936D0003B1FA /* RoomsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomsViewController.h; sourceTree = "<group>"; };
 		1C73F3641AFA936D0003B1FA /* RoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomsViewController.m; sourceTree = "<group>"; };
 		1C73F3661AFBDECF0003B1FA /* PopularTableCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopularTableCellView.xib; sourceTree = "<group>"; };
@@ -138,15 +115,10 @@
 		1C73F36D1AFC036A0003B1FA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1C7E49C61AB1FB82005BB999 /* RKSwipeBetweenViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKSwipeBetweenViewControllers.h; sourceTree = "<group>"; };
 		1C7E49C71AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKSwipeBetweenViewControllers.m; sourceTree = "<group>"; };
-		1C7E49C91AB21B04005BB999 /* PlayerInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerInfoViewController.h; sourceTree = "<group>"; };
-		1C7E49CA1AB21B04005BB999 /* PlayerInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInfoViewController.m; sourceTree = "<group>"; };
 		1C7E49CC1AB22503005BB999 /* SwipeBetweenAPIViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeBetweenAPIViewControllers.h; sourceTree = "<group>"; };
 		1C7E49CD1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeBetweenAPIViewControllers.m; sourceTree = "<group>"; };
 		1C7E49CF1AB33A48005BB999 /* soundCloudMediaPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soundCloudMediaPickerViewController.h; sourceTree = "<group>"; };
 		1C7E49D01AB33A48005BB999 /* soundCloudMediaPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = soundCloudMediaPickerViewController.m; sourceTree = "<group>"; };
-		1C8F93C51A8C07EB007990AD /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
-		1C8F93C61A8C07EB007990AD /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
-		1C8F93C81A8C0823007990AD /* PlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
 		1CA428A51A799CE9001DB0AD /* EcstaticFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcstaticFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA428A91A799CE9001DB0AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CA428AA1A799CE9001DB0AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -163,13 +135,8 @@
 		1CB9BB2F1AA2456400748236 /* SoundCloudAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundCloudAPI.m; sourceTree = "<group>"; };
 		1CB9BB321AA2459000748236 /* SDSAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSAPI.h; sourceTree = "<group>"; };
 		1CB9BB331AA2459000748236 /* SDSAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSAPI.m; sourceTree = "<group>"; };
-		1CC438B71A7DBDF3000A5AEC /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		1CC438B81A7DBDF3000A5AEC /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		1CCB176B1A92792C0055D68C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1CCB176C1A92792C0055D68C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		1CEB11D81A9ED611005C162D /* MediaPickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPickerTableViewController.h; sourceTree = "<group>"; };
-		1CEB11D91A9ED611005C162D /* MediaPickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaPickerTableViewController.m; sourceTree = "<group>"; };
-		1CEB11DA1A9ED611005C162D /* MediaPickerTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaPickerTableViewController.xib; sourceTree = "<group>"; };
 		357C25CB851B05BF017C7876 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4CDA11C45E121802EEDA9E85 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2B767D1CC5F084F45D1F4FB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -337,9 +304,6 @@
 			children = (
 				1C2251451A9E7E5F00210324 /* Playlist.h */,
 				1C2251461A9E7E5F00210324 /* Playlist.m */,
-				1C8F93C81A8C0823007990AD /* PlayerView.xib */,
-				1C8F93C51A8C07EB007990AD /* PlayerView.h */,
-				1C8F93C61A8C07EB007990AD /* PlayerView.m */,
 				1C33F84B1A8D4A0C0072ABBE /* Player.h */,
 				1C33F84C1A8D4A0C0072ABBE /* Player.m */,
 				1C2251421A9E7CA600210324 /* MediaItem.h */,
@@ -372,26 +336,8 @@
 				1C7E49C51AB1FB5B005BB999 /* Page View Control */,
 				1CB9BB311AA2456900748236 /* API Integrations */,
 				1CB9BB2A1AA2428200748236 /* Player */,
-				1CC438B71A7DBDF3000A5AEC /* Event.h */,
-				1CC438B81A7DBDF3000A5AEC /* Event.m */,
-				1C2837FF1A955F59006F10EC /* HomeTableViewController.h */,
-				1C2838001A955F59006F10EC /* HomeTableViewController.m */,
-				1C2838051A955FA5006F10EC /* EventCellView.h */,
-				1C2838061A955FA5006F10EC /* EventCellView.m */,
 				1C2838021A955F8D006F10EC /* Utils.h */,
 				1C2838031A955F8D006F10EC /* Utils.m */,
-				1C3AC14B1A7EC168004B1D86 /* EventViewController.h */,
-				1C3AC14C1A7EC168004B1D86 /* EventViewController.m */,
-				1CEB11D81A9ED611005C162D /* MediaPickerTableViewController.h */,
-				1CEB11D91A9ED611005C162D /* MediaPickerTableViewController.m */,
-				1CEB11DA1A9ED611005C162D /* MediaPickerTableViewController.xib */,
-				1C61D56A1AA25A6200833E0C /* EventMapView.h */,
-				1C61D56B1AA25A6200833E0C /* EventMapView.m */,
-				1C61D56D1AA25A8200833E0C /* EventMapView.xib */,
-				1C61D56F1AA2609900833E0C /* MapManager.h */,
-				1C61D5701AA2609900833E0C /* MapManager.m */,
-				1C7E49C91AB21B04005BB999 /* PlayerInfoViewController.h */,
-				1C7E49CA1AB21B04005BB999 /* PlayerInfoViewController.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -578,12 +524,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEE628E31AFA9D04009084FF /* icon_playlist.png in Resources */,
-				1CEB11DC1A9ED611005C162D /* MediaPickerTableViewController.xib in Resources */,
 				DE5763971AF40723003F7507 /* input-username.png in Resources */,
 				DE9A4A0D1AF5765A00B26BA4 /* button_addmusic.png in Resources */,
 				DE57638B1AF400E6003F7507 /* icon-key-21.png in Resources */,
 				DE5763A91AF40817003F7507 /* Raleway-Light.ttf in Resources */,
-				1C61D56E1AA25A8200833E0C /* EventMapView.xib in Resources */,
 				DEE628D91AFA796F009084FF /* icon_bubble.png in Resources */,
 				DE5763AD1AF40817003F7507 /* Raleway-Thin.ttf in Resources */,
 				1C73F3671AFBDECF0003B1FA /* PopularTableCellView.xib in Resources */,
@@ -618,7 +562,6 @@
 				DE79A7DF1AFBFD6A00E99957 /* icon_playerback.png in Resources */,
 				DE79A7E01AFBFD6A00E99957 /* icon_playernext.png in Resources */,
 				DE79A7E11AFBFD6A00E99957 /* icon_playerpause.png in Resources */,
-				1C8F93C91A8C0823007990AD /* PlayerView.xib in Resources */,
 				1C37B7EF1AF5789A00566216 /* image_coverart.png in Resources */,
 				DEE628DE1AFA8D59009084FF /* icon_close.png in Resources */,
 			);
@@ -675,16 +618,12 @@
 				DE5763D41AF5608C003F7507 /* GFXUtils.m in Sources */,
 				DE5763B91AF427ED003F7507 /* RadialGradientLayer.m in Sources */,
 				DE5763D11AF447F4003F7507 /* GradientNavigationBar.m in Sources */,
-				1CC438B91A7DBDF3000A5AEC /* Event.m in Sources */,
-				1C7E49CB1AB21B04005BB999 /* PlayerInfoViewController.m in Sources */,
 				1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */,
 				1C7E49C81AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m in Sources */,
 				1C2838041A955F8D006F10EC /* Utils.m in Sources */,
 				1C37B7D91AF540BA00566216 /* PlayerViewController.m in Sources */,
-				1C3AC14D1A7EC168004B1D86 /* EventViewController.m in Sources */,
 				1C73F3651AFA936D0003B1FA /* RoomsViewController.m in Sources */,
 				1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */,
-				1C61D5711AA2609900833E0C /* MapManager.m in Sources */,
 				1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */,
 				1CB9BB301AA2456400748236 /* SoundCloudAPI.m in Sources */,
 				1C2251441A9E7CA600210324 /* MediaItem.m in Sources */,
@@ -692,15 +631,10 @@
 				1C13A9481AB9BF4800B2DF81 /* MediaItemTableViewCell.m in Sources */,
 				1CA428AB1A799CE9001DB0AD /* main.m in Sources */,
 				1C2251471A9E7E5F00210324 /* Playlist.m in Sources */,
-				1CEB11DB1A9ED611005C162D /* MediaPickerTableViewController.m in Sources */,
-				1C8F93C71A8C07EB007990AD /* PlayerView.m in Sources */,
-				1C2838071A955FA5006F10EC /* EventCellView.m in Sources */,
 				1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */,
-				1C2838011A955F59006F10EC /* HomeTableViewController.m in Sources */,
 				DE5763CC1AF438E7003F7507 /* RoomViewController.m in Sources */,
 				1C7E49D11AB33A48005BB999 /* soundCloudMediaPickerViewController.m in Sources */,
 				1C7E49CE1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m in Sources */,
-				1C61D56C1AA25A6200833E0C /* EventMapView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

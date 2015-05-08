@@ -10,6 +10,7 @@
 
 @implementation MediaItem
 
+// Default constructor
 - (id) init
 {
     self = [super init];
@@ -27,7 +28,16 @@
 }
 
 
-
+/**
+ constructor for a MediaItem* that is initialized with a JSON Disctionary from Soundcloud's API
+ Example usage:
+ @code
+ MediaItem* mediaItem = [MediaItem alloc] initWithSoundCloudTrack:yourNSDictionarySoundCloudTrack;
+ @endcode
+ @param soundCloudTrack
+        NSDictionary from JSON response of SoundCloud API for a single song.
+ @return (id) of the newly created MediaItem
+ */
 - (id) initWithSoundCloudTrack:(NSDictionary *)soundCloudTrack
 {
     self = [super init];
@@ -35,23 +45,23 @@
     {
         self.track_title = [soundCloudTrack objectForKey:@"title"];
         self.artist = [[soundCloudTrack objectForKey:@"user"] objectForKey:@"username"];
-        self.duration = [NSString stringWithFormat:@"%@", [self convertTimeFromMillis:(int) [[soundCloudTrack objectForKey:@"duration"] intValue]]];
-        
-        //Manipulate url to grab larger image from soundcloud api
-       // NSString* artwork_url_string = [soundCloudTrack objectForKey:@"artwork_url"];
-       // NSString* artwork_url_string_mod = [artwork_url_string stringByReplacingOccurrencesOfString:@"large.jpg" withString:@"t500x500.jpg"];
+        self.duration = [NSString stringWithFormat:@"%@", [Utils convertTimeFromMillis:(int) [[soundCloudTrack objectForKey:@"duration"] intValue]]];
         self.artwork = [self addAlbumArtwork:[soundCloudTrack objectForKey:@"artwork_url"]];
-        
         self.stream_url = [soundCloudTrack objectForKey:@"stream_url"];
-        
-        //Get waveform URL
-        NSString* waveform_url_string = [soundCloudTrack objectForKey:@"waveform_url"];
-        self.waveform_url = [self addWaveform:waveform_url_string];
-        NSLog(waveform_url_string);
+        self.waveform_url = [self addWaveform:[soundCloudTrack objectForKey:@"waveform_url"]];
     }
     return self;
 }
 
+/**
+ A Method for adding a UIImage from a url string containing the album artwork location for a track
+ @code
+ myMediaItem.artwork = [myMediaItem addAlbumArtwork:[soundCloudTrack objectForKey:@"arwork_url"];
+ @endcode
+ @param stringURL
+        URL in string form of http location of album artwork
+ @returns UIImage with artwork loaded or with default artwork if the stringURL is nil
+ */
 -(UIImage*)addAlbumArtwork:(NSString*)stringURL
 {
     if([stringURL isEqual:[NSNull null]]){
@@ -62,6 +72,15 @@
     
 }
 
+/**
+ A Method for adding a UIImage from a url string containing the waveformlocation for a track
+ @code
+ myMediaItem.artwork = [myMediaItem addWaveform:[soundCloudTrack objectForKey:@"waveform_url"];
+ @endcode
+ @param stringURL
+ URL in string form of http location of waveform image
+ @returns UIImage with waveform loaded or with default waveform if the stringURL is nil
+ */
 -(UIImage*)addWaveform:(NSString*)stringURL
 {
     if([stringURL isEqual:[NSNull null]]){
@@ -70,22 +89,5 @@
     return [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:stringURL]]];
     
 }
-
--(NSString*)convertTimeFromMillis:(int)millis
-{
-    NSNumber* seconds = [NSNumber numberWithInt:(millis / 1000) % 60];
-    NSNumber* minutes = [NSNumber numberWithInt:((millis / (1000*60)) % 60)];
-    NSNumber* hours   = [NSNumber numberWithInt:((millis / (1000*60*60)) % 24)];
-    self.duration_seconds = seconds;
-    self.duration_minutes = minutes;
-    self.duration_hours = hours;
-    if(hours != 0){
-        return [NSString stringWithFormat:@"%@:%@:%@",hours.stringValue,minutes.stringValue,seconds.stringValue];
-    }else{
-        return [NSString stringWithFormat:@"%@:%@",minutes.stringValue,seconds.stringValue];
-    }
-}
-
-
 
 @end

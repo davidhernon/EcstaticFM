@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MusicServiceAPI.h"
-#import "MediaPickerTableViewController.h"
 #import <UIKit/UIKit.h>
 #import "SCUI.h"
 #import "soundCloudMediaPickerViewController.h"

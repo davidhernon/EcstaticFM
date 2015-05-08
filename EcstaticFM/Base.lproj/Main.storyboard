@@ -58,7 +58,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4sH-dn-pjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="209.06666666666666" y="-337.95999999999998"/>
+            <point key="canvasLocation" x="715" y="-302"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="UTi-VB-nZP">
@@ -70,7 +70,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41c-vY-GH9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304" y="1030"/>
+            <point key="canvasLocation" x="715" y="1036"/>
         </scene>
         <!--Swipe Between View Controllers-->
         <scene sceneID="G2j-rj-nkt">
@@ -91,7 +91,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3L-sP-9R1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2391" y="1674"/>
+            <point key="canvasLocation" x="299" y="1036"/>
         </scene>
         <!--Rooms View Controller-->
         <scene sceneID="ldK-YC-Z4E">
@@ -126,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wuJ-ls-KuR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="805" y="1036"/>
+            <point key="canvasLocation" x="1143" y="1030"/>
         </scene>
         <!--Login Screen-->
         <scene sceneID="L4S-P1-2em">
@@ -218,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iU6-sO-xiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="577" y="412"/>
+            <point key="canvasLocation" x="715" y="412"/>
         </scene>
         <!--Room View Controller-->
         <scene sceneID="h7X-kW-JpH">
@@ -474,7 +474,7 @@ Feed me songs!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJn-H3-nVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1602" y="1036"/>
+            <point key="canvasLocation" x="1554" y="1036"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="L4H-Y1-xge">
@@ -486,7 +486,7 @@ Feed me songs!</string>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c6Z-pi-U5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2035.2" y="2424.4133333333334"/>
+            <point key="canvasLocation" x="1564" y="1958"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="yiU-pE-MiS">
@@ -511,43 +511,7 @@ Feed me songs!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bSz-Zi-L5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2862.9333333333334" y="2424.4133333333334"/>
-        </scene>
-        <!--Player Info View Controller-->
-        <scene sceneID="nKP-G9-IcJ">
-            <objects>
-                <viewController id="MEZ-Eu-PS7" customClass="PlayerInfoViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="sJu-PN-UqK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Pgi-6r-3N6">
-                                <rect key="frame" x="16" y="9" width="35" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="dismissInfoView:" destination="MEZ-Eu-PS7" eventType="touchUpInside" id="d4f-L0-fnY"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here is Some Info About Our Event!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gCQ-go-PvX">
-                                <rect key="frame" x="31" y="168" width="273" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.59887927103450522" green="0.84181615934643572" blue="0.85172032828282829" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <connections>
-                        <outlet property="Back" destination="Pgi-6r-3N6" id="Taf-n9-YWN"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wtb-bS-ik1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="745" y="2424"/>
+            <point key="canvasLocation" x="2391" y="1958"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ZOF-of-Qtp">
@@ -570,7 +534,7 @@ Feed me songs!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TYt-f5-Oqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2060.8000000000002" y="1036.5999999999999"/>
+            <point key="canvasLocation" x="1984" y="1036"/>
         </scene>
         <!--Swipe Between View Controllers-->
         <scene sceneID="EiS-I7-PFP">
@@ -591,7 +555,7 @@ Feed me songs!</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2KK-cU-Fg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1614" y="2424"/>
+            <point key="canvasLocation" x="1143" y="1958"/>
         </scene>
         <!--Sound Cloud Media Picker View Controller-->
         <scene sceneID="9K1-1D-fzc">
@@ -759,7 +723,7 @@ Feed me songs!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhK-Pb-bck" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2441" y="2424"/>
+            <point key="canvasLocation" x="1970" y="1958"/>
         </scene>
     </scenes>
     <resources>
@@ -789,7 +753,7 @@ Feed me songs!</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Tfl-ru-KcS"/>
-        <segue reference="PM4-0y-y1q"/>
+        <segue reference="yjt-o9-w9F"/>
+        <segue reference="xyo-QM-v5q"/>
     </inferredMetricsTieBreakers>
 </document>

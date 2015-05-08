@@ -23,6 +23,14 @@ static Player *ecstaticPlayer = nil;
     return  self;
 }
 
+/**
+ Singleton Constructor for creating a single Player Object for the client
+ Example usage:
+ @code
+ Player* player = [Player sharedPlayer];
+ @endcode
+ @return Player* for the singleton player, either a new one or the already created one.
+ */
 + (Player*)sharedPlayer
 {
     static dispatch_once_t onceToken;
@@ -33,17 +41,43 @@ static Player *ecstaticPlayer = nil;
     return ecstaticPlayer;
 }
 
+/**
+ add the delegate to Player for Player to communicate with a view controller
+ Example usage:
+ @code
+ [player addDelegate:self];
+ @endcode
+ @param (id) sender
+ Usually called with the PlayerViewController to set up a delegate relation between the two
+ @return void
+ */
 - (void) addDelegate:(id)sender
 {
     _delegate = sender;
 }
 
+/**
+ updates the playlist in the Player form the singleton Playlist object. also updates the delegate playlistTableView
+ Example usage:
+ @code
+ [player updatePlaylist];
+ @endcode
+ @return (void)
+ */
 -(void) updatePlaylist
 {
     ecstaticPlayer.playlist = [Playlist sharedPlaylist];
     [_delegate updatePlaylistTable];
 }
 
+/**
+ Method for playing or pausing and controlling which currentTrack is playing
+ Example usage:
+ @code
+ [[Player sharedPlayer] play];
+ @endcode
+ @return void
+ */
 -(void)play
 {
    // [self updatePlaylist];
@@ -90,6 +124,15 @@ static Player *ecstaticPlayer = nil;
         }];
 }
 
+/**
+ Calls the delegate to update the UISlider from the current time in the player
+ Example usage:
+ @code
+ [self updateTime];
+ [[Player sharedPlayer] updateTime];
+ @endcode
+ @return void
+ */
 -(void)updateTime
 {
     [_delegate setCurrentSliderValue:_avPlayer];
@@ -98,6 +141,18 @@ static Player *ecstaticPlayer = nil;
     }
 }
 
+/**
+ Calls inside the updateTime selector to control functionality at the end of a song playing
+ Example usage:
+ @code
+ Called in a callback when the song ends
+ @endcode
+ @param player
+        AVAudioPlayer that was playing the song
+        flag
+        Boolean that indicates if the song played successfully or not
+ @return (id) of the newly created MediaItem
+ */
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
     [self.progressTimer invalidate];
@@ -109,6 +164,16 @@ static Player *ecstaticPlayer = nil;
     [ecstaticPlayer play];
 }
 
+/**
+ Changes the currentTime value to the correct point as dictated by the UISlider
+ Example usage:
+ @code
+ [[Player sharedPlayer] seek:slider.value]
+ @endcode
+ @param value
+        Float variable indicating how for through the song you are. Usually set from a UISlider in PlayerViewController
+ @return void
+ */
 -(void)seek:(float)value
 {
     if(_avPlayer.rate != 0)
