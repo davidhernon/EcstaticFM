@@ -79,6 +79,15 @@
 		DEEC12251AFCF68700E21C52 /* icon_location.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC12241AFCF68700E21C52 /* icon_location.png */; };
 		DEEC12271AFCF79800E21C52 /* icon_person.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC12261AFCF79800E21C52 /* icon_person.png */; };
 		DEEC122A1AFCFCC800E21C52 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC12291AFCFCC800E21C52 /* ChatViewController.m */; };
+		DEEC122D1AFD4F9700E21C52 /* NoGeoTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEEC122C1AFD4F9700E21C52 /* NoGeoTableCellView.xib */; };
+		DEEC122F1AFD514D00E21C52 /* button_seewhois.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC122E1AFD514D00E21C52 /* button_seewhois.png */; };
+		DEEC12331AFD536400E21C52 /* icon_locationblack.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC12301AFD536400E21C52 /* icon_locationblack.png */; };
+		DEEC12341AFD536400E21C52 /* icon_playlist_black.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC12311AFD536400E21C52 /* icon_playlist_black.png */; };
+		DEEC12351AFD536400E21C52 /* icon_star.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC12321AFD536400E21C52 /* icon_star.png */; };
+		DEEC12371AFD56D800E21C52 /* ecstatic-wordmark-color.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC12361AFD56D800E21C52 /* ecstatic-wordmark-color.png */; };
+		DEEC123B1AFD5DC900E21C52 /* PopularHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC12391AFD5DC900E21C52 /* PopularHeader.m */; };
+		DEEC123C1AFD5DC900E21C52 /* PopularHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEEC123A1AFD5DC900E21C52 /* PopularHeader.xib */; };
+		DEEC123E1AFD76EA00E21C52 /* dropshadow_leftofscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC123D1AFD76E900E21C52 /* dropshadow_leftofscreen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +199,16 @@
 		DEEC12261AFCF79800E21C52 /* icon_person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_person.png; sourceTree = "<group>"; };
 		DEEC12281AFCFCC800E21C52 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		DEEC12291AFCFCC800E21C52 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		DEEC122C1AFD4F9700E21C52 /* NoGeoTableCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoGeoTableCellView.xib; sourceTree = "<group>"; };
+		DEEC122E1AFD514D00E21C52 /* button_seewhois.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_seewhois.png; sourceTree = "<group>"; };
+		DEEC12301AFD536400E21C52 /* icon_locationblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_locationblack.png; sourceTree = "<group>"; };
+		DEEC12311AFD536400E21C52 /* icon_playlist_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_playlist_black.png; sourceTree = "<group>"; };
+		DEEC12321AFD536400E21C52 /* icon_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_star.png; sourceTree = "<group>"; };
+		DEEC12361AFD56D800E21C52 /* ecstatic-wordmark-color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecstatic-wordmark-color.png"; sourceTree = "<group>"; };
+		DEEC12381AFD5DC900E21C52 /* PopularHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopularHeader.h; sourceTree = "<group>"; };
+		DEEC12391AFD5DC900E21C52 /* PopularHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularHeader.m; sourceTree = "<group>"; };
+		DEEC123A1AFD5DC900E21C52 /* PopularHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopularHeader.xib; sourceTree = "<group>"; };
+		DEEC123D1AFD76E900E21C52 /* dropshadow_leftofscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropshadow_leftofscreen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,10 +237,14 @@
 			children = (
 				1C73F3631AFA936D0003B1FA /* RoomsViewController.h */,
 				1C73F3641AFA936D0003B1FA /* RoomsViewController.m */,
+				DEEC12381AFD5DC900E21C52 /* PopularHeader.h */,
+				DEEC12391AFD5DC900E21C52 /* PopularHeader.m */,
+				DEEC123A1AFD5DC900E21C52 /* PopularHeader.xib */,
 				1C73F3661AFBDECF0003B1FA /* PopularTableCellView.xib */,
 				1C73F3681AFBDFF60003B1FA /* AroundMeTableCellView.xib */,
 				1C73F36A1AFBE9470003B1FA /* Room.h */,
 				1C73F36B1AFBE9470003B1FA /* Room.m */,
+				DEEC122C1AFD4F9700E21C52 /* NoGeoTableCellView.xib */,
 			);
 			name = Rooms;
 			sourceTree = "<group>";
@@ -370,6 +393,12 @@
 			isa = PBXGroup;
 			children = (
 				DEBABA341AFC2113002D66F7 /* image_arrowup.png */,
+				DEEC122E1AFD514D00E21C52 /* button_seewhois.png */,
+				DEEC12301AFD536400E21C52 /* icon_locationblack.png */,
+				DEEC12311AFD536400E21C52 /* icon_playlist_black.png */,
+				DEEC123D1AFD76E900E21C52 /* dropshadow_leftofscreen.png */,
+				DEEC12321AFD536400E21C52 /* icon_star.png */,
+				DEEC12361AFD56D800E21C52 /* ecstatic-wordmark-color.png */,
 				1C37B7E61AF5789A00566216 /* icon_heart.png */,
 				1C37B7E71AF5789A00566216 /* icon_musicplaying.png */,
 				DEE628DA1AFA79C1009084FF /* icon_back.png */,
@@ -558,9 +587,11 @@
 				DE5763A91AF40817003F7507 /* Raleway-Light.ttf in Resources */,
 				DEE628D91AFA796F009084FF /* icon_bubble.png in Resources */,
 				DE5763AD1AF40817003F7507 /* Raleway-Thin.ttf in Resources */,
+				DEEC12331AFD536400E21C52 /* icon_locationblack.png in Resources */,
 				1C73F3671AFBDECF0003B1FA /* PopularTableCellView.xib in Resources */,
 				1C37B7EE1AF5789A00566216 /* icon_people.png in Resources */,
 				1C37B7ED1AF5789A00566216 /* icon_musicplaying.png in Resources */,
+				DEEC122D1AFD4F9700E21C52 /* NoGeoTableCellView.xib in Resources */,
 				DE9A4A0E1AF5765A00B26BA4 /* image_navbarbg.png in Resources */,
 				DE57638A1AF400E6003F7507 /* ecstatic-wordmark-330.png in Resources */,
 				DE57638C1AF400E6003F7507 /* icon-person-21.png in Resources */,
@@ -581,17 +612,23 @@
 				1CA428B91A799CE9001DB0AD /* LaunchScreen.xib in Resources */,
 				DEBABA351AFC2113002D66F7 /* image_arrowup.png in Resources */,
 				DE5763A51AF40817003F7507 /* Raleway-Bold.ttf in Resources */,
+				DEEC12341AFD536400E21C52 /* icon_playlist_black.png in Resources */,
 				DE5763951AF40723003F7507 /* button-login.png in Resources */,
 				1C37B7F11AF5789A00566216 /* image_waveform.png in Resources */,
 				DEEC12231AFCF56200E21C52 /* image_roombg02.png in Resources */,
+				DEEC12351AFD536400E21C52 /* icon_star.png in Resources */,
 				DEE628DB1AFA79C1009084FF /* icon_back.png in Resources */,
 				DE5763AA1AF40817003F7507 /* Raleway-Medium.ttf in Resources */,
 				DEEC12271AFCF79800E21C52 /* icon_person.png in Resources */,
+				DEEC123C1AFD5DC900E21C52 /* PopularHeader.xib in Resources */,
 				1C37B7F01AF5789A00566216 /* image_portrait.png in Resources */,
 				DE5763AB1AF40817003F7507 /* Raleway-Regular.ttf in Resources */,
 				1CA428B61A799CE9001DB0AD /* Images.xcassets in Resources */,
+				DEEC122F1AFD514D00E21C52 /* button_seewhois.png in Resources */,
 				1C73F3691AFBDFF60003B1FA /* AroundMeTableCellView.xib in Resources */,
 				DE79A7DF1AFBFD6A00E99957 /* icon_playerback.png in Resources */,
+				DEEC12371AFD56D800E21C52 /* ecstatic-wordmark-color.png in Resources */,
+				DEEC123E1AFD76EA00E21C52 /* dropshadow_leftofscreen.png in Resources */,
 				DE79A7E01AFBFD6A00E99957 /* icon_playernext.png in Resources */,
 				DE79A7E11AFBFD6A00E99957 /* icon_playerpause.png in Resources */,
 				1C37B7EF1AF5789A00566216 /* image_coverart.png in Resources */,
@@ -653,12 +690,12 @@
 				DE5763D11AF447F4003F7507 /* GradientNavigationBar.m in Sources */,
 				1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */,
 				1C7E49C81AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m in Sources */,
+				DEEC123B1AFD5DC900E21C52 /* PopularHeader.m in Sources */,
 				1C2838041A955F8D006F10EC /* Utils.m in Sources */,
 				1C37B7D91AF540BA00566216 /* PlayerViewController.m in Sources */,
 				1C73F3651AFA936D0003B1FA /* RoomsViewController.m in Sources */,
 				1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */,
 				DEEC122A1AFCFCC800E21C52 /* ChatViewController.m in Sources */,
-				1C61D5711AA2609900833E0C /* MapManager.m in Sources */,
 				1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */,
 				1CB9BB301AA2456400748236 /* SoundCloudAPI.m in Sources */,
 				1C2251441A9E7CA600210324 /* MediaItem.m in Sources */,
