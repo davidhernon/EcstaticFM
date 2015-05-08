@@ -37,6 +37,8 @@ static Player *ecstaticPlayer = nil;
     dispatch_once(&onceToken, ^{
         ecstaticPlayer = [[Player alloc] init];
         ecstaticPlayer.avPlayer = [[AVPlayer alloc] init];
+        ecstaticPlayer.currentTrackIndex = 0;
+        ecstaticPlayer.isPaused = NO;
     });
     return ecstaticPlayer;
 }
@@ -86,23 +88,29 @@ static Player *ecstaticPlayer = nil;
         NSLog(@"rate: %f",_avPlayer.rate);
         if(!_currentTrack)
         {
-            if([_playlist count] > 0)
+            if([_playlist count] > 0 && _currentTrackIndex < [_playlist count])
             {
-                _currentTrack = [_playlist objectAtIndex:0];
+                _currentTrack = [_playlist objectAtIndex:_currentTrackIndex];
                // [[Playlist sharedPlaylist] removeTrack:_currentTrack];
                 [self updatePlaylist];
             }else{
+                [_avPlayer stop];
                 return;
             }
         }else{
             [_avPlayer play];
+            _isPaused = NO;
             return;
         }
         
         
-    }else{
-        NSLog(@"rate %f",_avPlayer.rate);
+    }else if(!_isPaused){
         [_avPlayer pause];
+        _isPaused = YES;
+        return;
+    }else{
+        [_avPlayer play];
+        _isPaused = NO;
         return;
     }
     
@@ -121,6 +129,7 @@ static Player *ecstaticPlayer = nil;
                      [_delegate initPlayerUI:[_avPlayer duration] withTrack:_currentTrack];
                      _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
                      [_avPlayer play];
+                     _isPaused = NO;
         }];
 }
 
@@ -136,7 +145,7 @@ static Player *ecstaticPlayer = nil;
 -(void)updateTime
 {
     [_delegate setCurrentSliderValue:_avPlayer];
-    if(!_avPlayer.playing){
+    if(!_avPlayer.playing && !_isPaused){
         [self audioPlayerDidFinishPlaying:_avPlayer successfully:YES];
     }
 }
@@ -157,10 +166,10 @@ static Player *ecstaticPlayer = nil;
 {
     [self.progressTimer invalidate];
     self.progressTimer = nil;
-    
     _currentTrack = nil;
     [ecstaticPlayer updatePlaylist];
     _avPlayer.rate = 0;
+    _currentTrackIndex++;
     [ecstaticPlayer play];
 }
 
@@ -194,6 +203,16 @@ static Player *ecstaticPlayer = nil;
 
 -(void)last
 {
+    NSLog(@"print currentTime of player: %f", _avPlayer.currentTime);
+    if(_avPlayer.currentTime <= 10.0)
+    {
+        _currentTrackIndex--;
+        [self updatePlaylist];
+        _isPaused = YES;
+        [self play];
+    }else{
+        _avPlayer.currentTime = 0.0;
+    }
     
 }
 

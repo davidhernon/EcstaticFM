@@ -50,7 +50,7 @@
     [super viewDidLoad];
 
 //    self.navigationBar.barTintColor = [UIColor colorWithRed:0.01 green:0.05 blue:0.06 alpha:1]; //%%% bartint
-//    self.navigationBar.translucent = NO;
+    
     viewControllerArray = [[NSMutableArray alloc]init];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -62,6 +62,7 @@
     
     
     currentPageIndex = 1;
+    self.navigationBar.hidden = YES;
 }
 
 //This stuff here is customizeable: buttons, views, etc

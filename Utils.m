@@ -69,9 +69,32 @@
     NSInteger minutes = (NSInteger) ((millis / (1000*60)) % 60);
     NSInteger hours   = (NSInteger) ((millis / (1000*60*60)) % 24);
     if(hours != 0){
-        return [NSString stringWithFormat:@"%ld:%ld:%ld",hours,minutes,seconds];
+        NSString *minute_string;
+        NSString *seconds_string;
+        if(minutes < 10)
+        {
+            minute_string = [NSString stringWithFormat:@"0%ld",minutes];
+        }else
+        {
+            minute_string = [NSString stringWithFormat:@"%ld",minutes];
+        }
+        if(seconds < 10)
+        {
+            seconds_string = [NSString stringWithFormat:@"0%ld",seconds];
+        }else
+        {
+            seconds_string = [NSString stringWithFormat:@"%ld",seconds];
+        }
+        return [NSString stringWithFormat:@"%ld:%@:%@",hours,minute_string,seconds_string];
+        
     }else{
-        return [NSString stringWithFormat:@"%ld:%ld",minutes,seconds];
+        if(seconds < 10)
+        {
+            return [NSString stringWithFormat:@"%ld:0%ld",minutes,seconds];
+        }else
+        {
+           return [NSString stringWithFormat:@"%ld:%ld",minutes,seconds];
+        }
     }
 }
 

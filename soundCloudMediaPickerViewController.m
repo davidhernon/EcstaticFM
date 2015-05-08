@@ -62,7 +62,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     tableView.backgroundColor = [UIColor clearColor];
     cell.track_title.text = [track objectForKey:@"title"];
     cell.artist.text = [[track objectForKey:@"user"] objectForKey:@"username"];
-    cell.duration.text = [NSString stringWithFormat:@"%@", [self convertTimeFromMillis:(int) [[track objectForKey:@"duration"] intValue]]];
+    cell.duration.text = [NSString stringWithFormat:@"%@", [Utils convertTimeFromMillis:(int) [[track objectForKey:@"duration"] intValue]]];
     [cell setAlbumArtworkFromStringURL:[track objectForKey:@"artwork_url"]];
     
     return cell;
@@ -94,18 +94,6 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 {
     self.tracksFromSoundCloud = tracks;
     [self.soundCloudResultsTableView reloadData];
-}
-
--(NSString*)convertTimeFromMillis:(int)millis
-{
-    NSInteger seconds = (NSInteger) (millis / 1000) % 60 ;
-    NSInteger minutes = (NSInteger) ((millis / (1000*60)) % 60);
-    NSInteger hours   = (NSInteger) ((millis / (1000*60*60)) % 24);
-    if(hours != 0){
-        return [NSString stringWithFormat:@"%ld:%ld:%ld",hours,minutes,seconds];
-    }else{
-        return [NSString stringWithFormat:@"%ld:%ld",minutes,seconds];
-    }
 }
 
 //-(MediaItem*)mediaItemFromCell:(NSInteger)index

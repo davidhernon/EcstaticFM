@@ -102,6 +102,12 @@
             pageScrollView.delegate = self;
         }
     }
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return NO;
 }
 
 

@@ -20,12 +20,15 @@
 @property MediaItem* currentTrack;
 @property AVAudioPlayer* avPlayer;
 @property NSTimer* progressTimer;
+@property NSUInteger currentTrackIndex;
+@property BOOL isPaused;
 
 @property (nonatomic, weak) id<PlayerDelegate> delegate;
 
 +(Player*) sharedPlayer;
 -(void)play;
 -(void) pause;
+-(void) last;
 -(void) updatePlaylist;
 -(void)addDelegate:(id)sender;
 -(void)updateTime;
