@@ -46,7 +46,7 @@ static Player *ecstaticPlayer = nil;
 
 -(void)play
 {
-    [self updatePlaylist];
+   // [self updatePlaylist];
     if(_avPlayer.rate == 0)
     {
         NSLog(@"rate: %f",_avPlayer.rate);
@@ -55,41 +55,39 @@ static Player *ecstaticPlayer = nil;
             if([_playlist count] > 0)
             {
                 _currentTrack = [_playlist objectAtIndex:0];
-                [[Playlist sharedPlaylist] removeTrack:_currentTrack];
+               // [[Playlist sharedPlaylist] removeTrack:_currentTrack];
                 [self updatePlaylist];
             }else{
                 return;
             }
         }else{
             [_avPlayer play];
+            return;
         }
         
         
     }else{
         NSLog(@"rate %f",_avPlayer.rate);
         [_avPlayer pause];
+        return;
     }
     
     NSString *urlString = [NSString stringWithFormat:@"%@?client_id=%@", _currentTrack.stream_url,[SoundCloudAPI getClientID]];//Your client ID
     
-    
-    [SCRequest performMethod:SCRequestMethodGET
-                  onResource:[NSURL URLWithString:urlString]
-             usingParameters:nil
-                 withAccount:[SCSoundCloud account]
-      sendingProgressHandler:nil
-             responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                 NSError *playerError;
-                 NSLog(@"data:%@",data);
-                 _avPlayer = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
-                 [_avPlayer prepareToPlay];
-                 [_delegate initPlayerUI:[_avPlayer duration] withTrack:_currentTrack];
-                 _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
-                 [_avPlayer play];
-             }];
-    
-    
-    
+        [SCRequest performMethod:SCRequestMethodGET
+                      onResource:[NSURL URLWithString:urlString]
+                 usingParameters:nil
+                     withAccount:[SCSoundCloud account]
+          sendingProgressHandler:nil
+                 responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                     NSError *playerError;
+                    // NSLog(@"data:%@",data);
+                     _avPlayer = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
+                     [_avPlayer prepareToPlay];
+                     [_delegate initPlayerUI:[_avPlayer duration] withTrack:_currentTrack];
+                     _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
+                     [_avPlayer play];
+        }];
 }
 
 -(void)updateTime

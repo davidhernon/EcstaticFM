@@ -14,6 +14,16 @@
 
 @implementation RoomsViewController
 
+// https://api.soundcloud.com/tracks/189670713/stream
+// https://api.soundcloud.com/tracks/189917203/stream
+// https://api.soundcloud.com/tracks/191160846/stream
+
+-(void)createDummyRooms
+{
+    _popular = @[[[Room alloc] init]];
+    
+}
+
 static NSString* popular_event_cell = @"popular_event_cell";
 static NSString* around_me_event_cell = @"around_me_cell";
 

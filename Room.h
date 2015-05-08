@@ -7,9 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Room : NSObject
 
+// location
+// title
+@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *location;
+
+
+// playlist
+//
 
 
 @end

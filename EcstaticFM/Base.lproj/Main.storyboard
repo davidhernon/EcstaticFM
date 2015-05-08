@@ -43,9 +43,10 @@
         <!--Navigation Controller-->
         <scene sceneID="ylj-jh-8qF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bOe-aM-vI5" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="bOe-aM-vI5" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bD6-qm-PK7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -64,6 +65,8 @@
             <objects>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="rmR-1b-J5h" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="XQS-9O-7pG"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41c-vY-GH9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,6 +78,8 @@
                 <navigationController storyboardIdentifier="playerEventChat" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="A48-xd-fVX" customClass="RKSwipeBetweenViewControllers" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="x5j-Gv-q6D"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jc9-h2-GuE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -268,7 +273,7 @@ Feed me songs!</string>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="VWd-v9-bYb" kind="modal" id="Tfl-ru-KcS"/>
+                                                    <segue destination="VWd-v9-bYb" kind="modal" modalPresentationStyle="fullScreen" id="Tfl-ru-KcS"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -289,6 +294,8 @@ Feed me songs!</string>
                             </button>
                         </barButtonItem>
                     </toolbarItems>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xXJ-U2-NaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -360,6 +367,10 @@ Feed me songs!</string>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="tJd-bh-QGo">
+                                        <rect key="frame" x="8" y="227" width="306" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </slider>
                                 </subviews>
                                 <color key="backgroundColor" red="0.33959818019999999" green="0.80562810880000002" blue="0.82419902150000002" alpha="0.0" colorSpace="calibratedRGB"/>
                             </view>
@@ -457,6 +468,7 @@ Feed me songs!</string>
                         <outlet property="current_album_artwork" destination="S8f-jV-zzm" id="UrP-5n-CHf"/>
                         <outlet property="play" destination="gnl-oJ-0Zd" id="Oix-Te-KKR"/>
                         <outlet property="playListTableView" destination="fim-yG-u2G" id="goh-MD-M0Z"/>
+                        <outlet property="slider" destination="tJd-bh-QGo" id="C7p-Mt-N50"/>
                         <outlet property="waveform" destination="aMM-Kv-Z4P" id="hpr-El-oHt"/>
                     </connections>
                 </viewController>
@@ -467,8 +479,10 @@ Feed me songs!</string>
         <!--Page View Controller-->
         <scene sceneID="L4H-Y1-xge">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="uWy-Ea-v0c" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" hidesBottomBarWhenPushed="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="uWy-Ea-v0c" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="fRw-ZE-tbW"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c6Z-pi-U5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -492,6 +506,8 @@ Feed me songs!</string>
                         </subviews>
                         <color key="backgroundColor" red="0.96141954255335527" green="0.66976473011645077" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bSz-Zi-L5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -562,6 +578,8 @@ Feed me songs!</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="VWd-v9-bYb" customClass="SwipeBetweenViewControllers" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="AGQ-Nc-6hA"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z4W-gK-Ryo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -732,7 +750,8 @@ Feed me songs!</string>
                         </subviews>
                         <color key="backgroundColor" red="0.79843317360287469" green="0.78935001296433938" blue="0.82527503188775508" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="addSongsToPlaylist" destination="FSC-Hu-VvY" id="UJ8-B7-KsN"/>
                         <outlet property="soundCloudResultsTableView" destination="0FZ-o0-ngg" id="Ikt-a5-Usc"/>
@@ -770,7 +789,7 @@ Feed me songs!</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="yjt-o9-w9F"/>
+        <segue reference="Tfl-ru-KcS"/>
         <segue reference="PM4-0y-y1q"/>
     </inferredMetricsTieBreakers>
 </document>

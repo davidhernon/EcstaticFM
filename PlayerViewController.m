@@ -77,7 +77,7 @@ static NSString* cellIdentifier = @"playListCell";
 - (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack
 {
     _slider.maximumValue = duration;
-    _slider.value = duration;
+    _slider.value = 0.0;
     _current_artist.text = currentTrack.artist;
     _current_track_title.text = currentTrack.track_title;
     _current_duration.text = currentTrack.duration;
@@ -89,7 +89,7 @@ static NSString* cellIdentifier = @"playListCell";
 - (void) setCurrentSliderValue:(AVAudioPlayer*)childPlayer
 {
     NSLog(@"current time: %f", childPlayer.currentTime);
-    _slider.value = _slider.maximumValue-childPlayer.currentTime;
+    _slider.value = childPlayer.currentTime;
     _current_time.text = [Utils convertTimeFromMillis:(int)1000*childPlayer.currentTime];
 }
 
@@ -104,6 +104,7 @@ static NSString* cellIdentifier = @"playListCell";
 
 - (IBAction)play:(id)sender
 {
+    [self.player updatePlaylist];
     [self.player play];
 }
 

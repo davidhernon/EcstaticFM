@@ -12,7 +12,19 @@
 
 static Room *currentRoom = nil;
 
+
+
 -(id)init
+{
+    self = [super init];
+    if(self)
+    {
+        //initialize
+    }
+    return self;
+}
+
+-(id)initWithStream:(NSString*)streamURL
 {
     self = [super init];
     if(self)
