@@ -4,59 +4,58 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Raleway-SemiBold.ttf">
-            <string>Raleway-SemiBold</string>
-            <string>Raleway-SemiBold</string>
-            <string>Raleway-SemiBold</string>
+        <mutableArray key="Raleway-Light.ttf">
+            <string>Raleway-Light</string>
+            <string>Raleway-Light</string>
         </mutableArray>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="around_me_cell" rowHeight="123" id="slZ-o3-4s9">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="156"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="around_me_cell" rowHeight="116" id="slZ-o3-4s9">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="116"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="slZ-o3-4s9" id="PhC-0h-7pe">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_roombg01.png" translatesAutoresizingMaskIntoConstraints="NO" id="ud8-2h-2K5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#DeepHouse" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdD-24-USq">
-                        <rect key="frame" x="33" y="47" width="147" height="29"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="21"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="999xx  " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKT-Ic-fHc">
-                        <rect key="frame" x="33" y="80" width="73" height="21"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EP9-zS-XeW">
-                        <rect key="frame" x="105" y="80" width="74" height="21"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_location.png" translatesAutoresizingMaskIntoConstraints="NO" id="KvL-GN-IV2">
-                        <rect key="frame" x="41" y="82" width="13" height="17"/>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_person.png" translatesAutoresizingMaskIntoConstraints="NO" id="xS6-wR-wns">
-                        <rect key="frame" x="119" y="83" width="15" height="15"/>
-                    </imageView>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Tk-xd-x9k">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="116"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_roombg01.png" translatesAutoresizingMaskIntoConstraints="NO" id="ud8-2h-2K5">
+                                <rect key="frame" x="7" y="0.0" width="305" height="77"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="999 km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6M-Xi-NQu">
+                                <rect key="frame" x="263" y="76" width="66" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="14"/>
+                                <color key="textColor" red="0.29173309949999998" green="0.29173309949999998" blue="0.29173309949999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_locationblack.png" translatesAutoresizingMaskIntoConstraints="NO" id="mkw-lV-VhW">
+                                <rect key="frame" x="245" y="78" width="13" height="17"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jonathan &amp; 999 others" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVh-yo-mlm">
+                                <rect key="frame" x="43" y="76" width="186" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="14"/>
+                                <color key="textColor" red="0.29173309949999998" green="0.29173309949999998" blue="0.29173309949999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_portrait.png" translatesAutoresizingMaskIntoConstraints="NO" id="1dX-Pr-SoH">
+                                <rect key="frame" x="12" y="68" width="28" height="28"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="334" y="62"/>
+            <point key="canvasLocation" x="334" y="41.5"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon_location.png" width="23" height="33"/>
-        <image name="icon_person.png" width="33" height="34"/>
+        <image name="icon_locationblack.png" width="23" height="32"/>
+        <image name="image_portrait.png" width="59" height="62"/>
         <image name="image_roombg01.png" width="639" height="311"/>
     </resources>
 </document>
