@@ -657,6 +657,8 @@
 				1C37B7D91AF540BA00566216 /* PlayerViewController.m in Sources */,
 				1C73F3651AFA936D0003B1FA /* RoomsViewController.m in Sources */,
 				1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */,
+				DEEC122A1AFCFCC800E21C52 /* ChatViewController.m in Sources */,
+				1C61D5711AA2609900833E0C /* MapManager.m in Sources */,
 				1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */,
 				1CB9BB301AA2456400748236 /* SoundCloudAPI.m in Sources */,
 				1C2251441A9E7CA600210324 /* MediaItem.m in Sources */,

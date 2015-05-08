@@ -365,6 +365,18 @@ Feed me songs!</string>
                                         <rect key="frame" x="8" y="227" width="306" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </slider>
+                                    <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" id="cWa-eN-Cpi">
+                                        <rect key="frame" x="-2" y="60" width="322" height="212"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="S8f-jV-zzm">
+                                                <rect key="frame" x="-9" y="-64" width="340" height="340"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.33959818019999999" green="0.80562810880000002" blue="0.82419902150000002" alpha="0.0" colorSpace="calibratedRGB"/>
                             </view>
@@ -507,6 +519,42 @@ Feed me songs!</string>
             </objects>
             <point key="canvasLocation" x="2391" y="1958"/>
         </scene>
+        <!--Player Info View Controller-->
+        <scene sceneID="nKP-G9-IcJ">
+            <objects>
+                <viewController id="MEZ-Eu-PS7" customClass="PlayerInfoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sJu-PN-UqK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Pgi-6r-3N6">
+                                <rect key="frame" x="16" y="9" width="35" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissInfoView:" destination="MEZ-Eu-PS7" eventType="touchUpInside" id="d4f-L0-fnY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here is Some Info About Our Event!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gCQ-go-PvX">
+                                <rect key="frame" x="31" y="168" width="273" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.59887927103450522" green="0.84181615934643572" blue="0.85172032828282829" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="Back" destination="Pgi-6r-3N6" id="Taf-n9-YWN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wtb-bS-ik1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="745" y="2424"/>
+        </scene>
         <!--Chat View Controller-->
         <scene sceneID="ZOF-of-Qtp">
             <objects>
@@ -550,7 +598,7 @@ Feed me songs!</string>
                     </view>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1984" y="1036"/>
+            <point key="canvasLocation" x="2060" y="1036"/>
         </scene>
         <!--Swipe Between View Controllers-->
         <scene sceneID="EiS-I7-PFP">
