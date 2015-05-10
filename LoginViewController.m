@@ -136,6 +136,15 @@
     
 }
 
+
+// dismiss keyboard
+
+-(void)dismissKeyboard {
+    [_username resignFirstResponder];
+    [_password resignFirstResponder];
+}
+
+
 /*
 #pragma mark - Navigation
 
