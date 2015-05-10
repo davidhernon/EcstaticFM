@@ -198,7 +198,7 @@ static Player *ecstaticPlayer = nil;
 
 -(void)next
 {
-    _avPlayer.currentTime = _avPlayer.duration;
+
 }
 
 -(void)last

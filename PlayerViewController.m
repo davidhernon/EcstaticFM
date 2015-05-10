@@ -20,6 +20,31 @@ static NSString* cellIdentifier = @"playListCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    // Set AVAudioSession
+    NSError *sessionError = nil;
+    [[AVAudioSession sharedInstance] setDelegate:self];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
+    
+    // Change the default output audio route
+    UInt32 doChangeDefaultRoute = 1;
+    AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker,
+                            sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
+
+
+    
+    // Make playerTableView & it's header transparent
+    
+    _playListTableView.backgroundColor = [UIColor clearColor];
+    __playerTableHeaderView.backgroundColor = [UIColor clearColor];
+    
+    // Make the nav bar transparent
+
+    [self._playerNavigationBar setBackgroundImage:[UIImage new]
+                             forBarMetrics:UIBarMetricsDefault];
+    self._playerNavigationBar.shadowImage = [UIImage new];
+    self._playerNavigationBar.translucent = YES;
+
     // Add the gradient to the view
     [self.view.layer insertSublayer:[GFXUtils getGradientPlayer:self.view.bounds] atIndex:0];
     
@@ -32,6 +57,14 @@ static NSString* cellIdentifier = @"playListCell";
     self.player = [Player sharedPlayer];
     [self.player addDelegate:self];
     [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    _current_album_artwork.layer.shadowColor = [UIColor blackColor].CGColor;
+    _current_album_artwork.layer.shadowRadius = 10.f;
+    _current_album_artwork.layer.shadowOffset = CGSizeMake(0.f, 5.f);
+    _current_album_artwork.layer.shadowOpacity = 1.f;
+    _current_album_artwork.clipsToBounds = NO;
+    _playListTableView.tableHeaderView = __playerTableHeaderView;
+    _playListTableView.tableFooterView = __playerAddMusicCell;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,10 +89,14 @@ static NSString* cellIdentifier = @"playListCell";
     MediaItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     MediaItem *track = [self.playlist objectAtIndex:indexPath.row];
-    tableView.backgroundColor = [UIColor clearColor];
+    
+    _playListTableView.backgroundColor = [UIColor clearColor];
+    
     cell.backgroundColor = [UIColor clearColor];
     cell.contentView.backgroundColor = [UIColor clearColor];
     cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
+    
     cell.track_title.text = track.track_title;
     cell.artist.text = track.artist;
     cell.duration.text = track.duration;
@@ -155,10 +192,8 @@ static NSString* cellIdentifier = @"playListCell";
     [self.player last];
 }
 
--(IBAction)next:(id)sender
+-(void) skip
 {
-    [self.player next];
-  //  [self.player play];
     
 }
 
