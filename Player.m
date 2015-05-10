@@ -17,7 +17,6 @@ static Player *ecstaticPlayer = nil;
 -(id)init{
     self=[super init];
     if(self){
-        //Do custom init work
         [self updatePlaylist];
     }
     return  self;

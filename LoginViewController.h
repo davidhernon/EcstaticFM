@@ -13,7 +13,7 @@
 #import "SoundCloudAPI.h"
 #import "GFXUtils.h"
 #import "RadialGradientLayer.h"
-
+#import "SDSAPI.h"
 
 @interface LoginViewController : UIViewController
 
@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *username;
 
 @property (weak, nonatomic) IBOutlet UITextField *password;
+- (IBAction)SDSLogin:(id)sender;
+- (IBAction)fbLogin:(id)sender;
 
 
 
