@@ -183,6 +183,7 @@ music around you.</string>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="SDSLogin:" destination="Na0-VS-aPw" eventType="touchUpInside" id="BXu-QB-iOA"/>
                                             <segue destination="VOg-FZ-x98" kind="modal" id="f1Y-iV-NZw"/>
                                         </connections>
                                     </button>
@@ -193,6 +194,9 @@ music around you.</string>
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="fbLogin:" destination="Na0-VS-aPw" eventType="touchUpInside" id="ASY-ap-5Q6"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input-username.png" id="mPF-Cw-eNK">
                                         <rect key="frame" x="51" y="189" width="218" height="41"/>
@@ -221,6 +225,10 @@ music around you.</string>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="password" destination="xcA-jx-oUM" id="HBQ-YL-Rnl"/>
+                        <outlet property="username" destination="JGO-sv-2TQ" id="Pg8-Vu-66Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iU6-sO-xiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -609,7 +617,7 @@ music around you.</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="ixu-xt-lhn">
-                                            <rect key="frame" x="56" y="8" width="888" height="340"/>
+                                            <rect key="frame" x="56" y="8" width="1208" height="443.5"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>

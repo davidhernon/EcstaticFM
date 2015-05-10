@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "EcstaticFM-Swift.h"
 
 @interface LoginViewController ()
 
@@ -145,4 +146,12 @@
 }
 */
 
+- (IBAction)SDSLogin:(id)sender {
+    [SDSAPI login: self.username.text password:self.password.text];
+    [SDSAPI createRoom: self.username.text];
+}
+
+- (IBAction)fbLogin:(id)sender {
+    [SDSAPI fbLogin];
+}
 @end
