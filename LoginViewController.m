@@ -147,6 +147,8 @@
 */
 
 - (IBAction)SDSLogin:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.username.text forKey:@"sdsUsername"];
     [SDSAPI login: self.username.text password:self.password.text];
     [SDSAPI createRoom: self.username.text];
 }

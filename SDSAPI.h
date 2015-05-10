@@ -13,7 +13,7 @@
 +(NSArray*)getUpcomingEvents;
 +(void)login:(NSString*)username password:(NSString*)password;
 +(void)fbLogin;
-+(void)createRoom:(NSDictionary*)params;
++(void)createRoom:(NSString*)params;
 +(void)aroundMe:(NSString*)username;
 +(void)connect;
 
