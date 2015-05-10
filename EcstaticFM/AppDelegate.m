@@ -21,10 +21,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     // Override point for customization after application launch.
     _eventD = [SDSAPI getUpcomingEvents];
     _player = [[Player alloc] init];
     return YES;
+    
+    
     
     
 }

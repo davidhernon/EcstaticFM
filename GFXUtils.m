@@ -18,6 +18,8 @@
 #define UIColorPinkTop [UIColor colorWithRed:0.867 green:0.467 blue:0.384 alpha:1] /*#dd7762*/
 #define UIColorPinkBottom [UIColor colorWithRed:0.827 green:0.4 blue:0.475 alpha:1] /*#d36679*/
 
+#define UIColorWhite [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1] /*#fff*/
+
 
 // The Main Background !
 // This draws a background gradient
@@ -34,6 +36,28 @@
     
     // Set locations
     gradient.startPoint = CGPointMake(1,0);
+    gradient.endPoint = CGPointMake(0,1);
+    
+    // Set bounds
+    gradient.frame = bounds;
+    
+    return gradient;
+}
+
+// nav controller view
++(RadialGradientLayer*)getGradientNav:(CGRect)bounds
+{
+    // Create the gradient
+    RadialGradientLayer *gradient = [RadialGradientLayer layer];
+    
+    // Set colors
+    gradient.colors = [NSArray arrayWithObjects:
+                       (id)UIColorOrange.CGColor,
+                       (id)UIColorWhite.CGColor,
+                       nil];
+    
+    // Set locations
+    gradient.startPoint = CGPointMake(2,0);
     gradient.endPoint = CGPointMake(0,1);
     
     // Set bounds

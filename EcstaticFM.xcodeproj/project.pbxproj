@@ -27,8 +27,6 @@
 		1C73F3691AFBDFF60003B1FA /* AroundMeTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C73F3681AFBDFF60003B1FA /* AroundMeTableCellView.xib */; };
 		1C73F36C1AFBE9470003B1FA /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73F36B1AFBE9470003B1FA /* Room.m */; };
 		1C73F36E1AFC036A0003B1FA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C73F36D1AFC036A0003B1FA /* CoreLocation.framework */; };
-		1C7E49C81AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49C71AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m */; };
-		1C7E49CE1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49CD1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m */; };
 		1C7E49D11AB33A48005BB999 /* soundCloudMediaPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49D01AB33A48005BB999 /* soundCloudMediaPickerViewController.m */; };
 		1CA428AB1A799CE9001DB0AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
 		1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428AD1A799CE9001DB0AD /* AppDelegate.m */; };
@@ -40,6 +38,21 @@
 		1CB9BB341AA2459000748236 /* SDSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9BB331AA2459000748236 /* SDSAPI.m */; };
 		1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCB176C1A92792C0055D68C /* LoginViewController.m */; };
 		D2A8C828A1F2E13542223221 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA11C45E121802EEDA9E85 /* libPods.a */; };
+		DE14B9BC1AFF0BCD004470C7 /* button_controlsnext.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9BA1AFF0BCD004470C7 /* button_controlsnext.png */; };
+		DE14B9BD1AFF0BCD004470C7 /* button_controlspause.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9BB1AFF0BCD004470C7 /* button_controlspause.png */; };
+		DE14B9BF1AFF0BF0004470C7 /* button_controlsback.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9BE1AFF0BF0004470C7 /* button_controlsback.png */; };
+		DE14B9C11AFF0ED4004470C7 /* image_geobuttonborder.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9C01AFF0ED4004470C7 /* image_geobuttonborder.png */; };
+		DE14B9C31AFF105C004470C7 /* ecstatic-wordmark-black.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9C21AFF105C004470C7 /* ecstatic-wordmark-black.png */; };
+		DE14B9C51AFF130B004470C7 /* icon_playlistblack.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9C41AFF130B004470C7 /* icon_playlistblack.png */; };
+		DE14B9C71AFF147C004470C7 /* image_paintdrip.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9C61AFF147C004470C7 /* image_paintdrip.png */; };
+		DE14B9C91AFF1F56004470C7 /* image_paintdrip2.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9C81AFF1F56004470C7 /* image_paintdrip2.png */; };
+		DE14B9CB1AFF2A16004470C7 /* image_covertartgradient.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9CA1AFF2A16004470C7 /* image_covertartgradient.png */; };
+		DE14B9CF1AFF2A5C004470C7 /* button_chat.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9CD1AFF2A5C004470C7 /* button_chat.png */; };
+		DE14B9D11AFF2AAA004470C7 /* button_around.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9D01AFF2AAA004470C7 /* button_around.png */; };
+		DE14B9D31AFF8342004470C7 /* button_addmusicpink.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9D21AFF8342004470C7 /* button_addmusicpink.png */; };
+		DE14B9D71AFF8AC4004470C7 /* image_playerdropshadow.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9D61AFF8AC4004470C7 /* image_playerdropshadow.png */; };
+		DE14B9DD1AFFA4CB004470C7 /* button_closepink.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9DC1AFFA4CB004470C7 /* button_closepink.png */; };
+		DE14B9DF1AFFA8E8004470C7 /* button_controlsplaypink.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9DE1AFFA8E8004470C7 /* button_controlsplaypink.png */; };
 		DE57638A1AF400E6003F7507 /* ecstatic-wordmark-330.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763871AF400E6003F7507 /* ecstatic-wordmark-330.png */; };
 		DE57638B1AF400E6003F7507 /* icon-key-21.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763881AF400E6003F7507 /* icon-key-21.png */; };
 		DE57638C1AF400E6003F7507 /* icon-person-21.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763891AF400E6003F7507 /* icon-person-21.png */; };
@@ -132,10 +145,6 @@
 		1C73F36A1AFBE9470003B1FA /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
 		1C73F36B1AFBE9470003B1FA /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
 		1C73F36D1AFC036A0003B1FA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		1C7E49C61AB1FB82005BB999 /* RKSwipeBetweenViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKSwipeBetweenViewControllers.h; sourceTree = "<group>"; };
-		1C7E49C71AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKSwipeBetweenViewControllers.m; sourceTree = "<group>"; };
-		1C7E49CC1AB22503005BB999 /* SwipeBetweenAPIViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeBetweenAPIViewControllers.h; sourceTree = "<group>"; };
-		1C7E49CD1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeBetweenAPIViewControllers.m; sourceTree = "<group>"; };
 		1C7E49CF1AB33A48005BB999 /* soundCloudMediaPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soundCloudMediaPickerViewController.h; sourceTree = "<group>"; };
 		1C7E49D01AB33A48005BB999 /* soundCloudMediaPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = soundCloudMediaPickerViewController.m; sourceTree = "<group>"; };
 		1CA428A51A799CE9001DB0AD /* EcstaticFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcstaticFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +168,21 @@
 		357C25CB851B05BF017C7876 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4CDA11C45E121802EEDA9E85 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2B767D1CC5F084F45D1F4FB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		DE14B9BA1AFF0BCD004470C7 /* button_controlsnext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_controlsnext.png; sourceTree = "<group>"; };
+		DE14B9BB1AFF0BCD004470C7 /* button_controlspause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_controlspause.png; sourceTree = "<group>"; };
+		DE14B9BE1AFF0BF0004470C7 /* button_controlsback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_controlsback.png; sourceTree = "<group>"; };
+		DE14B9C01AFF0ED4004470C7 /* image_geobuttonborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_geobuttonborder.png; sourceTree = "<group>"; };
+		DE14B9C21AFF105C004470C7 /* ecstatic-wordmark-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecstatic-wordmark-black.png"; sourceTree = "<group>"; };
+		DE14B9C41AFF130B004470C7 /* icon_playlistblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_playlistblack.png; sourceTree = "<group>"; };
+		DE14B9C61AFF147C004470C7 /* image_paintdrip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_paintdrip.png; sourceTree = "<group>"; };
+		DE14B9C81AFF1F56004470C7 /* image_paintdrip2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_paintdrip2.png; sourceTree = "<group>"; };
+		DE14B9CA1AFF2A16004470C7 /* image_covertartgradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_covertartgradient.png; sourceTree = "<group>"; };
+		DE14B9CD1AFF2A5C004470C7 /* button_chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_chat.png; sourceTree = "<group>"; };
+		DE14B9D01AFF2AAA004470C7 /* button_around.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_around.png; sourceTree = "<group>"; };
+		DE14B9D21AFF8342004470C7 /* button_addmusicpink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_addmusicpink.png; sourceTree = "<group>"; };
+		DE14B9D61AFF8AC4004470C7 /* image_playerdropshadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_playerdropshadow.png; sourceTree = "<group>"; };
+		DE14B9DC1AFFA4CB004470C7 /* button_closepink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_closepink.png; sourceTree = "<group>"; };
+		DE14B9DE1AFFA8E8004470C7 /* button_controlsplaypink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_controlsplaypink.png; sourceTree = "<group>"; };
 		DE5763871AF400E6003F7507 /* ecstatic-wordmark-330.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecstatic-wordmark-330.png"; sourceTree = "<group>"; };
 		DE5763881AF400E6003F7507 /* icon-key-21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-key-21.png"; sourceTree = "<group>"; };
 		DE5763891AF400E6003F7507 /* icon-person-21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-person-21.png"; sourceTree = "<group>"; };
@@ -260,10 +284,6 @@
 		1C7E49C51AB1FB5B005BB999 /* Page View Control */ = {
 			isa = PBXGroup;
 			children = (
-				1C7E49C61AB1FB82005BB999 /* RKSwipeBetweenViewControllers.h */,
-				1C7E49C71AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m */,
-				1C7E49CC1AB22503005BB999 /* SwipeBetweenAPIViewControllers.h */,
-				1C7E49CD1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m */,
 			);
 			name = "Page View Control";
 			sourceTree = "<group>";
@@ -400,14 +420,25 @@
 		DE5763861AF400BF003F7507 /* Assets (2x) */ = {
 			isa = PBXGroup;
 			children = (
+				DE14B9DE1AFFA8E8004470C7 /* button_controlsplaypink.png */,
 				DECC69201AFEC11A00A761DE /* icon_addmusicfull.png */,
 				DECC691E1AFEB07F00A761DE /* image_supermodegraff.png */,
 				DECC691C1AFE631D00A761DE /* image_whitearrowleft.png */,
+				DE14B9C21AFF105C004470C7 /* ecstatic-wordmark-black.png */,
+				DE14B9DC1AFFA4CB004470C7 /* button_closepink.png */,
+				DE14B9D61AFF8AC4004470C7 /* image_playerdropshadow.png */,
+				DE14B9D21AFF8342004470C7 /* button_addmusicpink.png */,
 				DEBABA341AFC2113002D66F7 /* image_arrowup.png */,
 				DEEC122E1AFD514D00E21C52 /* button_seewhois.png */,
+				DE14B9C01AFF0ED4004470C7 /* image_geobuttonborder.png */,
+				DE14B9CD1AFF2A5C004470C7 /* button_chat.png */,
 				DEEC123F1AFD82E900E21C52 /* image_whitearrowright.png */,
+				DE14B9D01AFF2AAA004470C7 /* button_around.png */,
 				DEEC12301AFD536400E21C52 /* icon_locationblack.png */,
 				DEEC12311AFD536400E21C52 /* icon_playlist_black.png */,
+				DE14B9BA1AFF0BCD004470C7 /* button_controlsnext.png */,
+				DE14B9BB1AFF0BCD004470C7 /* button_controlspause.png */,
+				DE14B9BE1AFF0BF0004470C7 /* button_controlsback.png */,
 				DEEC123D1AFD76E900E21C52 /* dropshadow_leftofscreen.png */,
 				DEEC12321AFD536400E21C52 /* icon_star.png */,
 				DEEC12361AFD56D800E21C52 /* ecstatic-wordmark-color.png */,
@@ -422,9 +453,13 @@
 				DEE628E01AFA9D04009084FF /* icon_playlist.png */,
 				DEEC12201AFCF4BB00E21C52 /* image_roombg01.png */,
 				DEEC12241AFCF68700E21C52 /* icon_location.png */,
+				DE14B9C41AFF130B004470C7 /* icon_playlistblack.png */,
 				DEEC12221AFCF56200E21C52 /* image_roombg02.png */,
+				DE14B9CA1AFF2A16004470C7 /* image_covertartgradient.png */,
+				DE14B9C81AFF1F56004470C7 /* image_paintdrip2.png */,
 				DEE628E11AFA9D04009084FF /* icon_search.png */,
 				DEE628DD1AFA8D59009084FF /* icon_close.png */,
+				DE14B9C61AFF147C004470C7 /* image_paintdrip.png */,
 				DEEC12261AFCF79800E21C52 /* icon_person.png */,
 				1C37B7E81AF5789A00566216 /* icon_people.png */,
 				1C37B7E91AF5789A00566216 /* image_coverart.png */,
@@ -599,20 +634,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE14B9C51AFF130B004470C7 /* icon_playlistblack.png in Resources */,
 				DEE628E31AFA9D04009084FF /* icon_playlist.png in Resources */,
 				DE5763971AF40723003F7507 /* input-username.png in Resources */,
 				DE9A4A0D1AF5765A00B26BA4 /* button_addmusic.png in Resources */,
 				DE57638B1AF400E6003F7507 /* icon-key-21.png in Resources */,
+				DE14B9BD1AFF0BCD004470C7 /* button_controlspause.png in Resources */,
 				DE5763A91AF40817003F7507 /* Raleway-Light.ttf in Resources */,
 				DECC69211AFEC11A00A761DE /* icon_addmusicfull.png in Resources */,
 				DEE628D91AFA796F009084FF /* icon_bubble.png in Resources */,
 				DE5763AD1AF40817003F7507 /* Raleway-Thin.ttf in Resources */,
 				DEEC12331AFD536400E21C52 /* icon_locationblack.png in Resources */,
 				1C73F3671AFBDECF0003B1FA /* PopularTableCellView.xib in Resources */,
+				DE14B9D11AFF2AAA004470C7 /* button_around.png in Resources */,
 				1C37B7EE1AF5789A00566216 /* icon_people.png in Resources */,
 				1C37B7ED1AF5789A00566216 /* icon_musicplaying.png in Resources */,
 				DEEC122D1AFD4F9700E21C52 /* NoGeoTableCellView.xib in Resources */,
 				DECC691D1AFE631D00A761DE /* image_whitearrowleft.png in Resources */,
+				DE14B9BC1AFF0BCD004470C7 /* button_controlsnext.png in Resources */,
 				DE9A4A0E1AF5765A00B26BA4 /* image_navbarbg.png in Resources */,
 				DE57638A1AF400E6003F7507 /* ecstatic-wordmark-330.png in Resources */,
 				DE57638C1AF400E6003F7507 /* icon-person-21.png in Resources */,
@@ -620,12 +659,16 @@
 				DE5763A61AF40817003F7507 /* Raleway-ExtraBold.ttf in Resources */,
 				DE5763AC1AF40817003F7507 /* Raleway-SemiBold.ttf in Resources */,
 				DE5763A81AF40817003F7507 /* Raleway-Heavy.ttf in Resources */,
+				DE14B9D71AFF8AC4004470C7 /* image_playerdropshadow.png in Resources */,
 				DE5763961AF40723003F7507 /* input-password.png in Resources */,
+				DE14B9DF1AFFA8E8004470C7 /* button_controlsplaypink.png in Resources */,
 				DE5763941AF40723003F7507 /* button-facebook.png in Resources */,
 				DEEC12251AFCF68700E21C52 /* icon_location.png in Resources */,
+				DE14B9CB1AFF2A16004470C7 /* image_covertartgradient.png in Resources */,
 				DE9A4A101AF5767300B26BA4 /* splash.png in Resources */,
 				1C4861E61A7AB75C004EFEAD /* Info.plist in Resources */,
 				DEE628E21AFA9D04009084FF /* icon_heartfull.png in Resources */,
+				DE14B9C11AFF0ED4004470C7 /* image_geobuttonborder.png in Resources */,
 				1C4861E71A7AB75C004EFEAD /* main.m in Resources */,
 				1C37B7EC1AF5789A00566216 /* icon_heart.png in Resources */,
 				DE5763A71AF40817003F7507 /* Raleway-ExtraLight.ttf in Resources */,
@@ -638,23 +681,30 @@
 				DE5763951AF40723003F7507 /* button-login.png in Resources */,
 				1C37B7F11AF5789A00566216 /* image_waveform.png in Resources */,
 				DEEC12231AFCF56200E21C52 /* image_roombg02.png in Resources */,
+				DE14B9C71AFF147C004470C7 /* image_paintdrip.png in Resources */,
 				DEEC12351AFD536400E21C52 /* icon_star.png in Resources */,
 				DEEC12401AFD82E900E21C52 /* image_whitearrowright.png in Resources */,
 				DEE628DB1AFA79C1009084FF /* icon_back.png in Resources */,
 				DE5763AA1AF40817003F7507 /* Raleway-Medium.ttf in Resources */,
+				DE14B9CF1AFF2A5C004470C7 /* button_chat.png in Resources */,
 				DEEC12271AFCF79800E21C52 /* icon_person.png in Resources */,
 				DEEC123C1AFD5DC900E21C52 /* PopularHeader.xib in Resources */,
+				DE14B9C91AFF1F56004470C7 /* image_paintdrip2.png in Resources */,
 				1C37B7F01AF5789A00566216 /* image_portrait.png in Resources */,
 				DE5763AB1AF40817003F7507 /* Raleway-Regular.ttf in Resources */,
 				1CA428B61A799CE9001DB0AD /* Images.xcassets in Resources */,
+				DE14B9DD1AFFA4CB004470C7 /* button_closepink.png in Resources */,
 				DEEC122F1AFD514D00E21C52 /* button_seewhois.png in Resources */,
 				1C73F3691AFBDFF60003B1FA /* AroundMeTableCellView.xib in Resources */,
+				DE14B9BF1AFF0BF0004470C7 /* button_controlsback.png in Resources */,
 				DE79A7DF1AFBFD6A00E99957 /* icon_playerback.png in Resources */,
 				DEEC12371AFD56D800E21C52 /* ecstatic-wordmark-color.png in Resources */,
 				DEEC123E1AFD76EA00E21C52 /* dropshadow_leftofscreen.png in Resources */,
 				DE79A7E01AFBFD6A00E99957 /* icon_playernext.png in Resources */,
 				DE79A7E11AFBFD6A00E99957 /* icon_playerpause.png in Resources */,
 				1C37B7EF1AF5789A00566216 /* image_coverart.png in Resources */,
+				DE14B9C31AFF105C004470C7 /* ecstatic-wordmark-black.png in Resources */,
+				DE14B9D31AFF8342004470C7 /* button_addmusicpink.png in Resources */,
 				DEEC12211AFCF4BB00E21C52 /* image_roombg01.png in Resources */,
 				DEE628DE1AFA8D59009084FF /* icon_close.png in Resources */,
 			);
@@ -712,7 +762,6 @@
 				DE5763B91AF427ED003F7507 /* RadialGradientLayer.m in Sources */,
 				DE5763D11AF447F4003F7507 /* GradientNavigationBar.m in Sources */,
 				1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */,
-				1C7E49C81AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m in Sources */,
 				DEEC123B1AFD5DC900E21C52 /* PopularHeader.m in Sources */,
 				1C2838041A955F8D006F10EC /* Utils.m in Sources */,
 				1C37B7D91AF540BA00566216 /* PlayerViewController.m in Sources */,
@@ -729,7 +778,6 @@
 				1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */,
 				DE5763CC1AF438E7003F7507 /* RoomViewController.m in Sources */,
 				1C7E49D11AB33A48005BB999 /* soundCloudMediaPickerViewController.m in Sources */,
-				1C7E49CE1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

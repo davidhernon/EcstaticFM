@@ -54,6 +54,8 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     return self.tracksFromSoundCloud.count;
 }
 
+
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MediaItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -156,6 +158,14 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 -(IBAction)addSelectedTracksToPlaylist:(id)sender
 {
     [[Playlist sharedPlaylist] addTracks:self.selectedTracks];
+}
+
+
+// The close button
+
+-(IBAction)closeMediaPicker:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

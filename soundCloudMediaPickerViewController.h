@@ -17,6 +17,7 @@
 
 @interface soundCloudMediaPickerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *addSongsToPlaylist;
+@property (weak, nonatomic) IBOutlet UIButton *closeMediaPickerButton;
 
 @property (weak, nonatomic) IBOutlet UITableView *soundCloudResultsTableView;
 @property NSMutableArray *selectedTracks;
