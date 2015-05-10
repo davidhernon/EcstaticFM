@@ -26,7 +26,6 @@
             <string>Raleway</string>
             <string>Raleway</string>
             <string>Raleway</string>
-            <string>Raleway</string>
         </mutableArray>
         <mutableArray key="Raleway-SemiBold.ttf">
             <string>Raleway-SemiBold</string>
@@ -312,6 +311,10 @@ music around you.</string>
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_welcomehome.png" id="XUD-Se-vx4">
+                                                <rect key="frame" x="80" y="190" width="160" height="16"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="S8f-jV-zzm">
                                                 <rect key="frame" x="0.0" y="-20" width="320" height="280"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -438,15 +441,6 @@ music around you.</string>
                             <view contentMode="scaleToFill" id="3Nl-bT-cC9">
                                 <rect key="frame" x="0.0" y="21" width="320" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gr6-Q9-cxw">
-                                        <rect key="frame" x="59" y="8" width="203" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Raleway" family="Raleway" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="zAh-Xy-nYN">
@@ -850,6 +844,7 @@ music around you.</string>
         <image name="image_paintdrip2.png" width="96" height="98"/>
         <image name="image_playerdropshadow.png" width="1288" height="248"/>
         <image name="image_portrait.png" width="59" height="62"/>
+        <image name="image_welcomehome.png" width="624" height="64"/>
         <image name="image_whitearrowleft.png" width="48" height="34"/>
         <image name="image_whitearrowright.png" width="48" height="34"/>
         <image name="input-password.png" width="436" height="76"/>
