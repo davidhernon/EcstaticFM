@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bOe-aM-vI5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bOe-aM-vI5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Raleway-Bold.ttf">
-            <string>Raleway-Bold</string>
             <string>Raleway-Bold</string>
         </mutableArray>
         <mutableArray key="Raleway-Light.ttf">
@@ -395,15 +394,12 @@ music around you.</string>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="deW-3i-Mwz">
-                                                                    <rect key="frame" x="42" y="5" width="18" height="25"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="12"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_portrait.png" id="ps0-Ns-6aB">
                                                                     <rect key="frame" x="1" y="12" width="30" height="30"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                </imageView>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="q0H-PN-5j9">
+                                                                    <rect key="frame" x="33" y="12" width="27" height="21"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 </imageView>
                                                             </subviews>
@@ -413,6 +409,7 @@ music around you.</string>
                                                         <connections>
                                                             <outlet property="artist" destination="tNM-Q8-6pE" id="FaJ-VK-N3i"/>
                                                             <outlet property="duration" destination="XYH-9M-vGL" id="Vf1-H8-WFB"/>
+                                                            <outlet property="playing_animation" destination="q0H-PN-5j9" id="pFi-Af-hAT"/>
                                                             <outlet property="track_title" destination="4nq-q5-8Sg" id="ez0-aN-OWx"/>
                                                         </connections>
                                                     </tableViewCell>
@@ -924,6 +921,6 @@ music around you.</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="5oG-wH-lum"/>
+        <segue reference="y37-lS-CUE"/>
     </inferredMetricsTieBreakers>
 </document>

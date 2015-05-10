@@ -23,6 +23,7 @@
 @property NSNumber* duration_seconds;
 @property NSString* stream_url;
 @property UIImage* waveform;
+@property UIImage* playing_animation;
 
 - (id) initWithSoundCloudTrack:(NSDictionary *)soundCloudTrack;
 

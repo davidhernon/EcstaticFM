@@ -117,7 +117,7 @@
     [parameter setObject:@"230ccb26b40f7c87eb65fc03357ffa81" forKey:@"client_id"];
     [parameter setObject:@"4a50ef64acc242ce02e9abc5e370c064" forKey:@"client_secret"];
     [parameter setObject:@"kizmadub@gmail.com" forKey:@"username"];
-    [parameter setObject:@"4535600gG!dB" forKey:@"password"];
+    [parameter setObject:@"" forKey:@"password"];
     [parameter setObject:@"non-expiring" forKey:@"scope"];
     
     
