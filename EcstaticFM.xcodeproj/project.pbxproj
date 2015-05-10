@@ -11,6 +11,17 @@
 		1C2251441A9E7CA600210324 /* MediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2251431A9E7CA600210324 /* MediaItem.m */; };
 		1C2251471A9E7E5F00210324 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2251461A9E7E5F00210324 /* Playlist.m */; };
 		1C2838041A955F8D006F10EC /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2838031A955F8D006F10EC /* Utils.m */; };
+		1C291D911AFFF2A1006A2B4F /* SocketAckMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D861AFFF2A1006A2B4F /* SocketAckMap.swift */; };
+		1C291D921AFFF2A1006A2B4F /* SocketAnyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D871AFFF2A1006A2B4F /* SocketAnyEvent.swift */; };
+		1C291D931AFFF2A1006A2B4F /* SocketEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D881AFFF2A1006A2B4F /* SocketEngine.swift */; };
+		1C291D941AFFF2A1006A2B4F /* SocketEngineClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D891AFFF2A1006A2B4F /* SocketEngineClient.swift */; };
+		1C291D951AFFF2A1006A2B4F /* SocketEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D8A1AFFF2A1006A2B4F /* SocketEventHandler.swift */; };
+		1C291D961AFFF2A1006A2B4F /* SocketFixUTF8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D8B1AFFF2A1006A2B4F /* SocketFixUTF8.swift */; };
+		1C291D971AFFF2A1006A2B4F /* SocketIOClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D8C1AFFF2A1006A2B4F /* SocketIOClient.swift */; };
+		1C291D981AFFF2A1006A2B4F /* SocketPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D8D1AFFF2A1006A2B4F /* SocketPacket.swift */; };
+		1C291D991AFFF2A1006A2B4F /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D8E1AFFF2A1006A2B4F /* SocketParser.swift */; };
+		1C291D9A1AFFF2A1006A2B4F /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D8F1AFFF2A1006A2B4F /* SwiftRegex.swift */; };
+		1C291D9B1AFFF2A1006A2B4F /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D901AFFF2A1006A2B4F /* WebSocket.swift */; };
 		1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C33F84C1A8D4A0C0072ABBE /* Player.m */; };
 		1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C37B7CC1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m */; };
 		1C37B7D91AF540BA00566216 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C37B7D81AF540BA00566216 /* PlayerViewController.m */; };
@@ -139,6 +150,18 @@
 		1C2251461A9E7E5F00210324 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = "<group>"; };
 		1C2838021A955F8D006F10EC /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		1C2838031A955F8D006F10EC /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		1C291D851AFFF06B006A2B4F /* EcstaticFM-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EcstaticFM-Bridging-Header.h"; sourceTree = "<group>"; };
+		1C291D861AFFF2A1006A2B4F /* SocketAckMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketAckMap.swift; sourceTree = "<group>"; };
+		1C291D871AFFF2A1006A2B4F /* SocketAnyEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketAnyEvent.swift; sourceTree = "<group>"; };
+		1C291D881AFFF2A1006A2B4F /* SocketEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEngine.swift; sourceTree = "<group>"; };
+		1C291D891AFFF2A1006A2B4F /* SocketEngineClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEngineClient.swift; sourceTree = "<group>"; };
+		1C291D8A1AFFF2A1006A2B4F /* SocketEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEventHandler.swift; sourceTree = "<group>"; };
+		1C291D8B1AFFF2A1006A2B4F /* SocketFixUTF8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketFixUTF8.swift; sourceTree = "<group>"; };
+		1C291D8C1AFFF2A1006A2B4F /* SocketIOClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOClient.swift; sourceTree = "<group>"; };
+		1C291D8D1AFFF2A1006A2B4F /* SocketPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketPacket.swift; sourceTree = "<group>"; };
+		1C291D8E1AFFF2A1006A2B4F /* SocketParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketParser.swift; sourceTree = "<group>"; };
+		1C291D8F1AFFF2A1006A2B4F /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRegex.swift; sourceTree = "<group>"; };
+		1C291D901AFFF2A1006A2B4F /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		1C33F84B1A8D4A0C0072ABBE /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		1C33F84C1A8D4A0C0072ABBE /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		1C37B7CB1AF3E29C00566216 /* SoundCloudMediaPickerTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundCloudMediaPickerTableView.h; sourceTree = "<group>"; };
@@ -435,6 +458,17 @@
 				1CB9BB2A1AA2428200748236 /* Player */,
 				1C2838021A955F8D006F10EC /* Utils.h */,
 				1C2838031A955F8D006F10EC /* Utils.m */,
+				1C291D861AFFF2A1006A2B4F /* SocketAckMap.swift */,
+				1C291D871AFFF2A1006A2B4F /* SocketAnyEvent.swift */,
+				1C291D881AFFF2A1006A2B4F /* SocketEngine.swift */,
+				1C291D891AFFF2A1006A2B4F /* SocketEngineClient.swift */,
+				1C291D8A1AFFF2A1006A2B4F /* SocketEventHandler.swift */,
+				1C291D8B1AFFF2A1006A2B4F /* SocketFixUTF8.swift */,
+				1C291D8C1AFFF2A1006A2B4F /* SocketIOClient.swift */,
+				1C291D8D1AFFF2A1006A2B4F /* SocketPacket.swift */,
+				1C291D8E1AFFF2A1006A2B4F /* SocketParser.swift */,
+				1C291D8F1AFFF2A1006A2B4F /* SwiftRegex.swift */,
+				1C291D901AFFF2A1006A2B4F /* WebSocket.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -551,6 +585,7 @@
 			children = (
 				1CCB176B1A92792C0055D68C /* LoginViewController.h */,
 				1CCB176C1A92792C0055D68C /* LoginViewController.m */,
+				1C291D851AFFF06B006A2B4F /* EcstaticFM-Bridging-Header.h */,
 				DE5763CA1AF438E7003F7507 /* RoomViewController.h */,
 				DE5763CB1AF438E7003F7507 /* RoomViewController.m */,
 				DE5763CF1AF447F4003F7507 /* GradientNavigationBar.h */,
@@ -814,13 +849,23 @@
 				1C73F36C1AFBE9470003B1FA /* Room.m in Sources */,
 				DE5763D41AF5608C003F7507 /* GFXUtils.m in Sources */,
 				DE14B9E21AFFB115004470C7 /* PlayerPageViewController.m in Sources */,
+				1C291D9B1AFFF2A1006A2B4F /* WebSocket.swift in Sources */,
+				1C291D991AFFF2A1006A2B4F /* SocketParser.swift in Sources */,
+				1C291D911AFFF2A1006A2B4F /* SocketAckMap.swift in Sources */,
+				1C291D9A1AFFF2A1006A2B4F /* SwiftRegex.swift in Sources */,
+				1C291D951AFFF2A1006A2B4F /* SocketEventHandler.swift in Sources */,
 				DE5763B91AF427ED003F7507 /* RadialGradientLayer.m in Sources */,
+				1C291D961AFFF2A1006A2B4F /* SocketFixUTF8.swift in Sources */,
+				1C291D921AFFF2A1006A2B4F /* SocketAnyEvent.swift in Sources */,
 				DE5763D11AF447F4003F7507 /* GradientNavigationBar.m in Sources */,
 				1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */,
 				DEEC123B1AFD5DC900E21C52 /* PopularHeader.m in Sources */,
 				1C2838041A955F8D006F10EC /* Utils.m in Sources */,
 				1C37B7D91AF540BA00566216 /* PlayerViewController.m in Sources */,
+				1C291D981AFFF2A1006A2B4F /* SocketPacket.swift in Sources */,
 				1C73F3651AFA936D0003B1FA /* RoomsViewController.m in Sources */,
+				1C291D931AFFF2A1006A2B4F /* SocketEngine.swift in Sources */,
+				1C291D971AFFF2A1006A2B4F /* SocketIOClient.swift in Sources */,
 				1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */,
 				DEEC122A1AFCFCC800E21C52 /* ChatViewController.m in Sources */,
 				1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */,
@@ -830,6 +875,7 @@
 				1C13A9481AB9BF4800B2DF81 /* MediaItemTableViewCell.m in Sources */,
 				1CA428AB1A799CE9001DB0AD /* main.m in Sources */,
 				1C2251471A9E7E5F00210324 /* Playlist.m in Sources */,
+				1C291D941AFFF2A1006A2B4F /* SocketEngineClient.swift in Sources */,
 				1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */,
 				DE5763CC1AF438E7003F7507 /* RoomViewController.m in Sources */,
 				DE14B9E51AFFB12B004470C7 /* MediaPageViewController.m in Sources */,
@@ -894,6 +940,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -936,6 +983,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -958,9 +1006,12 @@
 			baseConfigurationReference = 357C25CB851B05BF017C7876 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = EcstaticFM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EcstaticFM-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -969,9 +1020,11 @@
 			baseConfigurationReference = C2B767D1CC5F084F45D1F4FB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = EcstaticFM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EcstaticFM-Bridging-Header.h";
 			};
 			name = Release;
 		};

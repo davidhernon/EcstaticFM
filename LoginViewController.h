@@ -13,7 +13,7 @@
 #import "SoundCloudAPI.h"
 #import "GFXUtils.h"
 #import "RadialGradientLayer.h"
-
+#import "SDSAPI.h"
 
 @interface LoginViewController : UIViewController
 
