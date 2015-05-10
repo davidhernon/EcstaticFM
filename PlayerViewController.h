@@ -29,7 +29,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *play;
 @property (weak, nonatomic) IBOutlet UIImageView *waveform;
 @property (weak, nonatomic) IBOutlet UINavigationBar *_playerNavigationBar;
-@property (weak, nonatomic) IBOutlet UITableView *_playerTableView;
 @property (weak, nonatomic) IBOutlet UIView *_playerTableHeaderView;
 @property (weak, nonatomic) IBOutlet UIView *_playerAddMusicCell;
 

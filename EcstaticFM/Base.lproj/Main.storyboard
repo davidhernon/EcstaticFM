@@ -480,7 +480,6 @@
                         <outlet property="_playerAddMusicCell" destination="ujE-F6-d0i" id="6uG-Fx-5lB"/>
                         <outlet property="_playerNavigationBar" destination="SeZ-TF-nbD" id="Hyw-NH-lDA"/>
                         <outlet property="_playerTableHeaderView" destination="5SA-bc-LWc" id="Vz3-vz-TFc"/>
-                        <outlet property="_playerTableView" destination="fim-yG-u2G" id="PXQ-8E-2DF"/>
                         <outlet property="current_album_artwork" destination="S8f-jV-zzm" id="UrP-5n-CHf"/>
                         <outlet property="play" destination="gnl-oJ-0Zd" id="Oix-Te-KKR"/>
                         <outlet property="playListTableView" destination="fim-yG-u2G" id="goh-MD-M0Z"/>

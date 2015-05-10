@@ -35,7 +35,7 @@ static NSString* cellIdentifier = @"playListCell";
     
     // Make playerTableView & it's header transparent
     
-    __playerTableView.backgroundColor = [UIColor clearColor];
+    _playListTableView.backgroundColor = [UIColor clearColor];
     __playerTableHeaderView.backgroundColor = [UIColor clearColor];
     
     // Make the nav bar transparent
