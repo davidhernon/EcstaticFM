@@ -21,6 +21,7 @@
 #define UIColorWhite [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1] /*#fff*/
 
 
+
 // The Main Background !
 // This draws a background gradient
 +(RadialGradientLayer*)getGradient:(CGRect)bounds

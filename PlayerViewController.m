@@ -33,6 +33,16 @@ static NSString* cellIdentifier = @"playListCell";
                             sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
 
 
+    // Hide the slider thumb & background color
+    
+    UIImage *empty = [UIImage new];
+    [_slider setThumbImage:[UIImage alloc] forState:UIControlStateNormal];
+    
+//    UIImage *progressbar = [UIImage imageNamed:[NSString stringWithFormat:@"image_progressbarcolors.png"]];
+//    [_slider setMinimumTrackImage:[UIImage alloc] forState:UIControlStateNormal];
+    
+    _slider.maximumTrackTintColor = [UIColor colorWithRed:0.541 green:0.267 blue:0.435 alpha:1] /*#8a446f*/;
+    
     
     // Make playerTableView & it's header transparent
     
@@ -79,10 +89,20 @@ static NSString* cellIdentifier = @"playListCell";
         _play.hidden = YES;
         _last.hidden = YES;
         _next.hidden = YES;
+        _add_songs.hidden = YES;
+        _add_songs_welcome.hidden = NO;
+        _slider.hidden = YES;
+        _coveralpha.hidden = YES;
+        _playlist_title.hidden = YES;
     }else{
         _play.hidden = NO;
-        _last.hidden = NO;
-        _next.hidden = NO;
+        _last.hidden = YES;
+        _next.hidden = YES;
+        _add_songs.hidden = NO;
+        _add_songs_welcome.hidden = YES;
+        _slider.hidden = NO;
+        _coveralpha.hidden = NO;
+        _playlist_title.hidden = NO;
     }
 }
 

@@ -30,6 +30,11 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+    
+    // Transparency
+    
+    _soundCloudResultsTableView.backgroundColor = [UIColor clearColor];
+    
     // Add the gradient to the view
     [self.view.layer insertSublayer:[GFXUtils getGradient:self.view.bounds] atIndex:0];
     
