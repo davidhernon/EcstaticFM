@@ -44,7 +44,7 @@ static Player *ecstaticPlayer = nil;
 }
 
 /**
- add the delegate to Player for Player to communicate with a view controller
+the delegate to Player for Player to communicate with a view controller
  Example usage:
  @code
  [player addDelegate:self];

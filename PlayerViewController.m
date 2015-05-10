@@ -80,6 +80,11 @@ static NSString* cellIdentifier = @"playListCell";
 
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.playListTableView reloadData];
+}
+
 - (void) viewWillAppear:(BOOL)animated
 {
     [self.player updatePlaylist];
@@ -103,6 +108,10 @@ static NSString* cellIdentifier = @"playListCell";
         _slider.hidden = NO;
         _coveralpha.hidden = NO;
         _playlist_title.hidden = NO;
+    }
+    if(![_player isPlaying] && ![_player isPaused] && [_playlist count] > 0)
+    {
+        [_player play];
     }
 }
 
@@ -146,6 +155,7 @@ static NSString* cellIdentifier = @"playListCell";
     if((int)_current_track_index == (int)indexPath.row && _player.isPlaying)
     {
         cell.playing_animation.image = [UIImage animatedImageNamed:@"wave" duration:0.6f];
+        cell.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
     }
     
     return cell;
