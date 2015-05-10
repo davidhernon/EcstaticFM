@@ -123,16 +123,6 @@ music around you.</string>
                                     </tableView>
                                 </subviews>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fru-fS-uFw">
-                                <rect key="frame" x="282" y="29" width="22" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="icon_playlistblack.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="XgF-Cq-hZq" kind="modal" modalTransitionStyle="crossDissolve" id="cLr-aP-fr8"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -325,7 +315,7 @@ music around you.</string>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="S8f-jV-zzm">
                                                 <rect key="frame" x="0.0" y="-20" width="320" height="280"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                                 <gestureRecognizers/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_playerdropshadow.png" id="nIC-pg-9MQ">
@@ -339,26 +329,6 @@ music around you.</string>
                                         <rect key="frame" x="0.0" y="21" width="320" height="504"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="gnl-oJ-0Zd">
-                                                <rect key="frame" x="138" y="99" width="44" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Play" image="button_controlsplaypink.png">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="play:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="QZb-RV-uWl"/>
-                                                </connections>
-                                            </button>
-                                            <button hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="koU-o0-AIH">
-                                                <rect key="frame" x="62" y="99" width="44" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Last" image="button_controlsback.png">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="last:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="17E-Wt-25o"/>
-                                                </connections>
-                                            </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="56" sectionHeaderHeight="22" sectionFooterHeight="22" id="fim-yG-u2G" userLabel="playerTableView">
                                                 <rect key="frame" x="9" y="121" width="301" height="343"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -369,13 +339,33 @@ music around you.</string>
                                                     <rect key="frame" x="0.0" y="0.0" width="301" height="160"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gr6-Q9-cxw">
-                                                            <rect key="frame" x="49" y="110" width="203" height="21"/>
+                                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="gnl-oJ-0Zd">
+                                                            <rect key="frame" x="128" y="114" width="44" height="44"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Raleway" family="Raleway" pointSize="21"/>
-                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                            <state key="normal" title="Play" image="button_controlsplaypink.png">
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="play:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="QZb-RV-uWl"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="koU-o0-AIH">
+                                                            <rect key="frame" x="52" y="114" width="44" height="44"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" title="Last" image="button_controlsback.png">
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="last:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="17E-Wt-25o"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eQi-L5-ahx">
+                                                            <rect key="frame" x="209" y="114" width="44" height="44"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" title="Next" image="button_controlsnext.png">
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.50215242346938771" green="0.50215242346938771" blue="0.50215242346938771" alpha="0.0" colorSpace="calibratedRGB"/>
                                                 </view>
@@ -439,13 +429,6 @@ music around you.</string>
                                                     <outlet property="delegate" destination="XgF-Cq-hZq" id="oyd-XC-sJF"/>
                                                 </connections>
                                             </tableView>
-                                            <button hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eQi-L5-ahx">
-                                                <rect key="frame" x="217" y="99" width="44" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Next" image="button_controlsnext.png">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </scrollView>
@@ -456,16 +439,13 @@ music around you.</string>
                                 <rect key="frame" x="0.0" y="21" width="320" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="08p-0q-HWE">
-                                        <rect key="frame" x="16" y="27" width="12" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gr6-Q9-cxw">
+                                        <rect key="frame" x="59" y="8" width="203" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="icon_back.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="pL3-Xv-Udv" kind="modal" modalTransitionStyle="crossDissolve" id="clH-LM-fMf"/>
-                                        </connections>
-                                    </button>
+                                        <fontDescription key="fontDescription" name="Raleway" family="Raleway" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -581,7 +561,7 @@ music around you.</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no one with you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gj7-uQ-hvi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 people with you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gj7-uQ-hvi">
                                 <rect key="frame" x="59" y="25" width="203" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Raleway" family="Raleway" pointSize="17"/>
@@ -669,7 +649,7 @@ music around you.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TYt-f5-Oqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="S0C-vz-uLu"/>
             </objects>
-            <point key="canvasLocation" x="1916" y="1020"/>
+            <point key="canvasLocation" x="1916" y="1030"/>
         </scene>
         <!--Media Page View Controller-->
         <scene sceneID="4i4-y3-gba">
@@ -855,14 +835,12 @@ music around you.</string>
         <image name="dropshadow_leftofscreen.png" width="8" height="580"/>
         <image name="ecstatic-wordmark-330.png" width="662" height="164"/>
         <image name="ecstatic-wordmark-black.png" width="177" height="45"/>
-        <image name="icon_back.png" width="23" height="38"/>
         <image name="icon_close.png" width="38" height="34"/>
         <image name="icon_heartfull.png" width="82" height="78"/>
         <image name="icon_playerback.png" width="106" height="116"/>
         <image name="icon_playernext.png" width="106" height="116"/>
         <image name="icon_playerpause.png" width="96" height="116"/>
         <image name="icon_playlist.png" width="74" height="60"/>
-        <image name="icon_playlistblack.png" width="36" height="29"/>
         <image name="icon_search.png" width="74" height="76"/>
         <image name="image_arrowup.png" width="36" height="23"/>
         <image name="image_geobuttonborder.png" width="930" height="182"/>
