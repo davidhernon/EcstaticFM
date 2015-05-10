@@ -62,6 +62,7 @@
 		DE14B9F11AFFBF07004470C7 /* wave5.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9EA1AFFBF07004470C7 /* wave5.png */; };
 		DE14B9F21AFFBF07004470C7 /* wave6.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9EB1AFFBF07004470C7 /* wave6.png */; };
 		DE14B9F31AFFBF07004470C7 /* wave7.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9EC1AFFBF07004470C7 /* wave7.png */; };
+		DE14B9F91AFFC162004470C7 /* image_welcomehome.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9F81AFFC162004470C7 /* image_welcomehome.png */; };
 		DE57638A1AF400E6003F7507 /* ecstatic-wordmark-330.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763871AF400E6003F7507 /* ecstatic-wordmark-330.png */; };
 		DE57638B1AF400E6003F7507 /* icon-key-21.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763881AF400E6003F7507 /* icon-key-21.png */; };
 		DE57638C1AF400E6003F7507 /* icon-person-21.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763891AF400E6003F7507 /* icon-person-21.png */; };
@@ -203,6 +204,7 @@
 		DE14B9EA1AFFBF07004470C7 /* wave5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wave5.png; sourceTree = "<group>"; };
 		DE14B9EB1AFFBF07004470C7 /* wave6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wave6.png; sourceTree = "<group>"; };
 		DE14B9EC1AFFBF07004470C7 /* wave7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wave7.png; sourceTree = "<group>"; };
+		DE14B9F81AFFC162004470C7 /* image_welcomehome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_welcomehome.png; sourceTree = "<group>"; };
 		DE5763871AF400E6003F7507 /* ecstatic-wordmark-330.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecstatic-wordmark-330.png"; sourceTree = "<group>"; };
 		DE5763881AF400E6003F7507 /* icon-key-21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-key-21.png"; sourceTree = "<group>"; };
 		DE5763891AF400E6003F7507 /* icon-person-21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-person-21.png"; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 				DE14B9C21AFF105C004470C7 /* ecstatic-wordmark-black.png */,
 				DE14B9DC1AFFA4CB004470C7 /* button_closepink.png */,
 				DE14B9D61AFF8AC4004470C7 /* image_playerdropshadow.png */,
+				DE14B9F81AFFC162004470C7 /* image_welcomehome.png */,
 				DE14B9E61AFFBF07004470C7 /* wave1.png */,
 				DE14B9E71AFFBF07004470C7 /* wave2.png */,
 				DE14B9E81AFFBF07004470C7 /* wave3.png */,
@@ -666,6 +669,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE14B9C51AFF130B004470C7 /* icon_playlistblack.png in Resources */,
+				DE14B9F91AFFC162004470C7 /* image_welcomehome.png in Resources */,
 				DEE628E31AFA9D04009084FF /* icon_playlist.png in Resources */,
 				DE5763971AF40723003F7507 /* input-username.png in Resources */,
 				DE9A4A0D1AF5765A00B26BA4 /* button_addmusic.png in Resources */,
