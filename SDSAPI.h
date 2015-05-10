@@ -12,12 +12,5 @@
 
 +(NSString*)getWebsiteURL;
 +(NSArray*)getUpcomingEvents;
-+(void)login:(NSString*)username password:(NSString*)password;
-+(void)fbLogin;
-+(void)createRoom:(NSDictionary*)params;
-+(void)aroundMe:(NSString*)username;
-+(void)connect;
-
-
 
 @end

@@ -10,7 +10,7 @@
 #import "Room.h"
 #import "GFXUtils.h"
 #import "RadialGradientLayer.h"
-#import "SDSAPI.h"
+
 @interface RoomsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *roomTableView;

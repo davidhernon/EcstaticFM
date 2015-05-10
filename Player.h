@@ -10,7 +10,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import "Playlist.h"
 #import "SoundCloudAPI.h"
-#import "SDSAPI.h"
 //#import "PlayerViewController.h"
 
 @protocol PlayerDelegate;

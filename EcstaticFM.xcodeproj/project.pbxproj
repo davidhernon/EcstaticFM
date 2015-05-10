@@ -37,7 +37,6 @@
 		1CB9BB301AA2456400748236 /* SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9BB2F1AA2456400748236 /* SoundCloudAPI.m */; };
 		1CB9BB341AA2459000748236 /* SDSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9BB331AA2459000748236 /* SDSAPI.m */; };
 		1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCB176C1A92792C0055D68C /* LoginViewController.m */; };
-		D2A8C828A1F2E13542223221 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA11C45E121802EEDA9E85 /* libPods.a */; };
 		DE14B9BC1AFF0BCD004470C7 /* button_controlsnext.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9BA1AFF0BCD004470C7 /* button_controlsnext.png */; };
 		DE14B9BD1AFF0BCD004470C7 /* button_controlspause.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9BB1AFF0BCD004470C7 /* button_controlspause.png */; };
 		DE14B9BF1AFF0BF0004470C7 /* button_controlsback.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9BE1AFF0BF0004470C7 /* button_controlsback.png */; };
@@ -272,7 +271,6 @@
 			files = (
 				1C73F36E1AFC036A0003B1FA /* CoreLocation.framework in Frameworks */,
 				DE5763AF1AF40A8F003F7507 /* QuartzCore.framework in Frameworks */,
-				4D0C0E575E4C56A0B4ED5BEC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +410,6 @@
 				1CB9BB2F1AA2456400748236 /* SoundCloudAPI.m */,
 				1CB9BB321AA2459000748236 /* SDSAPI.h */,
 				1CB9BB331AA2459000748236 /* SDSAPI.m */,
-				FCF784C11AFF935B0013FB49 /* EcstaticFM-Bridging-Header.h */,
 			);
 			name = "API Integrations";
 			sourceTree = "<group>";
@@ -430,17 +427,6 @@
 				1CB9BB2A1AA2428200748236 /* Player */,
 				1C2838021A955F8D006F10EC /* Utils.h */,
 				1C2838031A955F8D006F10EC /* Utils.m */,
-				FCF784C41AFF953B0013FB49 /* SocketAckMap.swift */,
-				FCF784C51AFF953B0013FB49 /* SocketAnyEvent.swift */,
-				FCF784C61AFF953B0013FB49 /* SocketEngine.swift */,
-				FCF784C71AFF953B0013FB49 /* SocketEngineClient.swift */,
-				FCF784C81AFF953B0013FB49 /* SocketEventHandler.swift */,
-				FCF784C91AFF953B0013FB49 /* SocketFixUTF8.swift */,
-				FCF784CA1AFF953B0013FB49 /* SocketIOClient.swift */,
-				FCF784CB1AFF953B0013FB49 /* SocketPacket.swift */,
-				FCF784CC1AFF953B0013FB49 /* SocketParser.swift */,
-				FCF784CD1AFF953B0013FB49 /* SwiftRegex.swift */,
-				FCF784CE1AFF953B0013FB49 /* WebSocket.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -815,22 +801,12 @@
 				DE5763D41AF5608C003F7507 /* GFXUtils.m in Sources */,
 				DE14B9E21AFFB115004470C7 /* PlayerPageViewController.m in Sources */,
 				DE5763B91AF427ED003F7507 /* RadialGradientLayer.m in Sources */,
-				FCF784D91AFF953B0013FB49 /* WebSocket.swift in Sources */,
-				FCF784D71AFF953B0013FB49 /* SocketParser.swift in Sources */,
-				FCF784CF1AFF953B0013FB49 /* SocketAckMap.swift in Sources */,
-				FCF784D81AFF953B0013FB49 /* SwiftRegex.swift in Sources */,
-				FCF784D31AFF953B0013FB49 /* SocketEventHandler.swift in Sources */,
 				DE5763D11AF447F4003F7507 /* GradientNavigationBar.m in Sources */,
-				FCF784D41AFF953B0013FB49 /* SocketFixUTF8.swift in Sources */,
-				FCF784D01AFF953B0013FB49 /* SocketAnyEvent.swift in Sources */,
 				1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */,
 				DEEC123B1AFD5DC900E21C52 /* PopularHeader.m in Sources */,
 				1C2838041A955F8D006F10EC /* Utils.m in Sources */,
 				1C37B7D91AF540BA00566216 /* PlayerViewController.m in Sources */,
-				FCF784D61AFF953B0013FB49 /* SocketPacket.swift in Sources */,
 				1C73F3651AFA936D0003B1FA /* RoomsViewController.m in Sources */,
-				FCF784D11AFF953B0013FB49 /* SocketEngine.swift in Sources */,
-				FCF784D51AFF953B0013FB49 /* SocketIOClient.swift in Sources */,
 				1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */,
 				DEEC122A1AFCFCC800E21C52 /* ChatViewController.m in Sources */,
 				1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */,
@@ -840,7 +816,6 @@
 				1C13A9481AB9BF4800B2DF81 /* MediaItemTableViewCell.m in Sources */,
 				1CA428AB1A799CE9001DB0AD /* main.m in Sources */,
 				1C2251471A9E7E5F00210324 /* Playlist.m in Sources */,
-				FCF784D21AFF953B0013FB49 /* SocketEngineClient.swift in Sources */,
 				1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */,
 				DE5763CC1AF438E7003F7507 /* RoomViewController.m in Sources */,
 				DE14B9E51AFFB12B004470C7 /* MediaPageViewController.m in Sources */,
@@ -907,6 +882,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -952,6 +928,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
