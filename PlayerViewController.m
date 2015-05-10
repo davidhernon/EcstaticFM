@@ -96,8 +96,8 @@ static NSString* cellIdentifier = @"playListCell";
         _playlist_title.hidden = YES;
     }else{
         _play.hidden = NO;
-        _last.hidden = YES;
-        _next.hidden = YES;
+        _last.hidden = NO;
+        _next.hidden = NO;
         _add_songs.hidden = NO;
         _add_songs_welcome.hidden = YES;
         _slider.hidden = NO;

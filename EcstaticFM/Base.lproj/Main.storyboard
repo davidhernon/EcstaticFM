@@ -422,7 +422,7 @@ music around you.</string>
                                                     <outlet property="delegate" destination="XgF-Cq-hZq" id="oyd-XC-sJF"/>
                                                 </connections>
                                             </tableView>
-                                            <button alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="gnl-oJ-0Zd">
+                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="gnl-oJ-0Zd">
                                                 <rect key="frame" x="136" y="123" width="44" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Play" image="button_controlsplaypink.png">
@@ -432,17 +432,17 @@ music around you.</string>
                                                     <action selector="play:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="QZb-RV-uWl"/>
                                                 </connections>
                                             </button>
-                                            <button hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eQi-L5-ahx">
+                                            <button alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eQi-L5-ahx">
                                                 <rect key="frame" x="257" y="123" width="44" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Next" image="button_controlsnext.png">
+                                                <state key="normal" title="Next" image="icon_controlsnext.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <button hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="koU-o0-AIH">
+                                            <button alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="koU-o0-AIH">
                                                 <rect key="frame" x="21" y="123" width="44" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Last" image="button_controlsback.png">
+                                                <state key="normal" title="Last" image="icon_controlsback.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -677,7 +677,7 @@ music around you.</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="ixu-xt-lhn">
-                                            <rect key="frame" x="56" y="8" width="1208" height="443"/>
+                                            <rect key="frame" x="56" y="8" width="1528" height="546"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>
@@ -895,13 +895,13 @@ music around you.</string>
         <image name="button_addmusiclight.png" width="80" height="79"/>
         <image name="button_addmusicpink.png" width="168" height="168"/>
         <image name="button_closepink.png" width="88" height="88"/>
-        <image name="button_controlsback.png" width="112" height="112"/>
-        <image name="button_controlsnext.png" width="224" height="224"/>
         <image name="button_controlsplaypink.png" width="112" height="112"/>
         <image name="dropshadow_leftofscreen.png" width="8" height="580"/>
         <image name="ecstatic-wordmark-330.png" width="662" height="164"/>
         <image name="ecstatic-wordmark-black.png" width="177" height="45"/>
         <image name="icon_close.png" width="38" height="34"/>
+        <image name="icon_controlsback.png" width="106" height="120"/>
+        <image name="icon_controlsnext.png" width="54" height="60"/>
         <image name="icon_heartfull.png" width="82" height="78"/>
         <image name="icon_playerback.png" width="106" height="116"/>
         <image name="icon_playernext.png" width="106" height="116"/>
