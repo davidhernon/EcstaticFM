@@ -126,7 +126,7 @@ static Player *ecstaticPlayer = nil;
                     // NSLog(@"data:%@",data);
                      _avPlayer = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
                      [_avPlayer prepareToPlay];
-                     [_delegate initPlayerUI:[_avPlayer duration] withTrack:_currentTrack];
+                     [_delegate initPlayerUI:[_avPlayer duration] withTrack:_currentTrack atIndex:_currentTrackIndex];
                      _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
                      [_avPlayer play];
                      _isPaused = NO;
@@ -214,6 +214,16 @@ static Player *ecstaticPlayer = nil;
         _avPlayer.currentTime = 0.0;
     }
     
+}
+
+-(BOOL)isPlaying
+{
+    if(_avPlayer.rate == 0 || _isPaused)
+    {
+        return NO;
+    }else{
+        return YES;
+    }
 }
 
 @end

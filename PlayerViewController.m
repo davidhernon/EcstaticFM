@@ -142,6 +142,12 @@ static NSString* cellIdentifier = @"playListCell";
     cell.sc_album_image.image =  track.artwork;
     cell.backgroundColor = [UIColor clearColor];
     
+    
+    if((int)_current_track_index == (int)indexPath.row && _player.isPlaying)
+    {
+        cell.playing_animation.image = [UIImage animatedImageNamed:@"wave" duration:0.6f];
+    }
+    
     return cell;
     
 }
@@ -157,7 +163,7 @@ static NSString* cellIdentifier = @"playListCell";
  @param currentTrack
  MediaItem of the currently playing track
  */
-- (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack
+- (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack atIndex:(NSUInteger*)index
 {
     _slider.maximumValue = duration;
     _slider.value = 0.0;
@@ -167,6 +173,8 @@ static NSString* cellIdentifier = @"playListCell";
     _current_time.text = @"0";
     _current_album_artwork.image = currentTrack.artwork;
     _current_waveform.image = currentTrack.waveform_url;
+    _current_track_index = index;
+    [self.playListTableView reloadData];
 }
 
 /**
