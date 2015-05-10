@@ -340,7 +340,7 @@
                                         <gestureRecognizers/>
                                         <color key="tintColor" red="0.8556680485" green="0.51652169670000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <textAttributes key="titleTextAttributes">
-                                            <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </textAttributes>
                                         <items>
