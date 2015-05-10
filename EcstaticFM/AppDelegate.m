@@ -19,11 +19,15 @@
                   redirectURL:[NSURL URLWithString:@"sampleproject://oauth"]];
 }
 
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     _eventD = [SDSAPI getUpcomingEvents];
     _player = [[Player alloc] init];
+	[SDSAPI connect];
+
     return YES;
     
     

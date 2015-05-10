@@ -29,8 +29,8 @@ static NSString* around_me_event_cell = @"around_me_cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
+	[SDSAPI aroundMe:@"mweiss10"];
+	
     // Remove line between cells
     self.roomTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     

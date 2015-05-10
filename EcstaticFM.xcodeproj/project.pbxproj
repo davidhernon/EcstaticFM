@@ -39,7 +39,7 @@
 		1CB9BB301AA2456400748236 /* SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9BB2F1AA2456400748236 /* SoundCloudAPI.m */; };
 		1CB9BB341AA2459000748236 /* SDSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9BB331AA2459000748236 /* SDSAPI.m */; };
 		1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCB176C1A92792C0055D68C /* LoginViewController.m */; };
-		D2A8C828A1F2E13542223221 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA11C45E121802EEDA9E85 /* libPods.a */; };
+		4D0C0E575E4C56A0B4ED5BEC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CE01308B23B450D690E37F /* libPods.a */; };
 		DE57638A1AF400E6003F7507 /* ecstatic-wordmark-330.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763871AF400E6003F7507 /* ecstatic-wordmark-330.png */; };
 		DE57638B1AF400E6003F7507 /* icon-key-21.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763881AF400E6003F7507 /* icon-key-21.png */; };
 		DE57638C1AF400E6003F7507 /* icon-person-21.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763891AF400E6003F7507 /* icon-person-21.png */; };
@@ -88,6 +88,17 @@
 		DEEC123B1AFD5DC900E21C52 /* PopularHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC12391AFD5DC900E21C52 /* PopularHeader.m */; };
 		DEEC123C1AFD5DC900E21C52 /* PopularHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEEC123A1AFD5DC900E21C52 /* PopularHeader.xib */; };
 		DEEC123E1AFD76EA00E21C52 /* dropshadow_leftofscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC123D1AFD76E900E21C52 /* dropshadow_leftofscreen.png */; };
+		FCF784CF1AFF953B0013FB49 /* SocketAckMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF784C41AFF953B0013FB49 /* SocketAckMap.swift */; };
+		FCF784D01AFF953B0013FB49 /* SocketAnyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF784C51AFF953B0013FB49 /* SocketAnyEvent.swift */; };
+		FCF784D11AFF953B0013FB49 /* SocketEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF784C61AFF953B0013FB49 /* SocketEngine.swift */; };
+		FCF784D21AFF953B0013FB49 /* SocketEngineClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF784C71AFF953B0013FB49 /* SocketEngineClient.swift */; };
+		FCF784D31AFF953B0013FB49 /* SocketEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF784C81AFF953B0013FB49 /* SocketEventHandler.swift */; };
+		FCF784D41AFF953B0013FB49 /* SocketFixUTF8.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF784C91AFF953B0013FB49 /* SocketFixUTF8.swift */; };
+		FCF784D51AFF953B0013FB49 /* SocketIOClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF784CA1AFF953B0013FB49 /* SocketIOClient.swift */; };
+		FCF784D61AFF953B0013FB49 /* SocketPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF784CB1AFF953B0013FB49 /* SocketPacket.swift */; };
+		FCF784D71AFF953B0013FB49 /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF784CC1AFF953B0013FB49 /* SocketParser.swift */; };
+		FCF784D81AFF953B0013FB49 /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF784CD1AFF953B0013FB49 /* SwiftRegex.swift */; };
+		FCF784D91AFF953B0013FB49 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF784CE1AFF953B0013FB49 /* WebSocket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,7 +164,7 @@
 		1CCB176B1A92792C0055D68C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1CCB176C1A92792C0055D68C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		357C25CB851B05BF017C7876 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		4CDA11C45E121802EEDA9E85 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		93CE01308B23B450D690E37F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2B767D1CC5F084F45D1F4FB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DE5763871AF400E6003F7507 /* ecstatic-wordmark-330.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecstatic-wordmark-330.png"; sourceTree = "<group>"; };
 		DE5763881AF400E6003F7507 /* icon-key-21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-key-21.png"; sourceTree = "<group>"; };
@@ -209,6 +220,18 @@
 		DEEC12391AFD5DC900E21C52 /* PopularHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularHeader.m; sourceTree = "<group>"; };
 		DEEC123A1AFD5DC900E21C52 /* PopularHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopularHeader.xib; sourceTree = "<group>"; };
 		DEEC123D1AFD76E900E21C52 /* dropshadow_leftofscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropshadow_leftofscreen.png; sourceTree = "<group>"; };
+		FCF784C11AFF935B0013FB49 /* EcstaticFM-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EcstaticFM-Bridging-Header.h"; sourceTree = "<group>"; };
+		FCF784C41AFF953B0013FB49 /* SocketAckMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketAckMap.swift; path = SwiftIO/SocketAckMap.swift; sourceTree = "<group>"; };
+		FCF784C51AFF953B0013FB49 /* SocketAnyEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketAnyEvent.swift; path = SwiftIO/SocketAnyEvent.swift; sourceTree = "<group>"; };
+		FCF784C61AFF953B0013FB49 /* SocketEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketEngine.swift; path = SwiftIO/SocketEngine.swift; sourceTree = "<group>"; };
+		FCF784C71AFF953B0013FB49 /* SocketEngineClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketEngineClient.swift; path = SwiftIO/SocketEngineClient.swift; sourceTree = "<group>"; };
+		FCF784C81AFF953B0013FB49 /* SocketEventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketEventHandler.swift; path = SwiftIO/SocketEventHandler.swift; sourceTree = "<group>"; };
+		FCF784C91AFF953B0013FB49 /* SocketFixUTF8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketFixUTF8.swift; path = SwiftIO/SocketFixUTF8.swift; sourceTree = "<group>"; };
+		FCF784CA1AFF953B0013FB49 /* SocketIOClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketIOClient.swift; path = SwiftIO/SocketIOClient.swift; sourceTree = "<group>"; };
+		FCF784CB1AFF953B0013FB49 /* SocketPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketPacket.swift; path = SwiftIO/SocketPacket.swift; sourceTree = "<group>"; };
+		FCF784CC1AFF953B0013FB49 /* SocketParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketParser.swift; path = SwiftIO/SocketParser.swift; sourceTree = "<group>"; };
+		FCF784CD1AFF953B0013FB49 /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftRegex.swift; path = SwiftIO/SwiftRegex.swift; sourceTree = "<group>"; };
+		FCF784CE1AFF953B0013FB49 /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = SwiftIO/WebSocket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,7 +241,7 @@
 			files = (
 				1C73F36E1AFC036A0003B1FA /* CoreLocation.framework in Frameworks */,
 				DE5763AF1AF40A8F003F7507 /* QuartzCore.framework in Frameworks */,
-				D2A8C828A1F2E13542223221 /* libPods.a in Frameworks */,
+				4D0C0E575E4C56A0B4ED5BEC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +381,7 @@
 				1CB9BB2F1AA2456400748236 /* SoundCloudAPI.m */,
 				1CB9BB321AA2459000748236 /* SDSAPI.h */,
 				1CB9BB331AA2459000748236 /* SDSAPI.m */,
+				FCF784C11AFF935B0013FB49 /* EcstaticFM-Bridging-Header.h */,
 			);
 			name = "API Integrations";
 			sourceTree = "<group>";
@@ -375,6 +399,17 @@
 				1CB9BB2A1AA2428200748236 /* Player */,
 				1C2838021A955F8D006F10EC /* Utils.h */,
 				1C2838031A955F8D006F10EC /* Utils.m */,
+				FCF784C41AFF953B0013FB49 /* SocketAckMap.swift */,
+				FCF784C51AFF953B0013FB49 /* SocketAnyEvent.swift */,
+				FCF784C61AFF953B0013FB49 /* SocketEngine.swift */,
+				FCF784C71AFF953B0013FB49 /* SocketEngineClient.swift */,
+				FCF784C81AFF953B0013FB49 /* SocketEventHandler.swift */,
+				FCF784C91AFF953B0013FB49 /* SocketFixUTF8.swift */,
+				FCF784CA1AFF953B0013FB49 /* SocketIOClient.swift */,
+				FCF784CB1AFF953B0013FB49 /* SocketPacket.swift */,
+				FCF784CC1AFF953B0013FB49 /* SocketParser.swift */,
+				FCF784CD1AFF953B0013FB49 /* SwiftRegex.swift */,
+				FCF784CE1AFF953B0013FB49 /* WebSocket.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -384,7 +419,7 @@
 			children = (
 				1C73F36D1AFC036A0003B1FA /* CoreLocation.framework */,
 				DE5763AE1AF40A8E003F7507 /* QuartzCore.framework */,
-				4CDA11C45E121802EEDA9E85 /* libPods.a */,
+				93CE01308B23B450D690E37F /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -687,13 +722,23 @@
 				1C73F36C1AFBE9470003B1FA /* Room.m in Sources */,
 				DE5763D41AF5608C003F7507 /* GFXUtils.m in Sources */,
 				DE5763B91AF427ED003F7507 /* RadialGradientLayer.m in Sources */,
+				FCF784D91AFF953B0013FB49 /* WebSocket.swift in Sources */,
+				FCF784D71AFF953B0013FB49 /* SocketParser.swift in Sources */,
+				FCF784CF1AFF953B0013FB49 /* SocketAckMap.swift in Sources */,
+				FCF784D81AFF953B0013FB49 /* SwiftRegex.swift in Sources */,
+				FCF784D31AFF953B0013FB49 /* SocketEventHandler.swift in Sources */,
 				DE5763D11AF447F4003F7507 /* GradientNavigationBar.m in Sources */,
+				FCF784D41AFF953B0013FB49 /* SocketFixUTF8.swift in Sources */,
+				FCF784D01AFF953B0013FB49 /* SocketAnyEvent.swift in Sources */,
 				1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */,
 				1C7E49C81AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m in Sources */,
 				DEEC123B1AFD5DC900E21C52 /* PopularHeader.m in Sources */,
 				1C2838041A955F8D006F10EC /* Utils.m in Sources */,
 				1C37B7D91AF540BA00566216 /* PlayerViewController.m in Sources */,
+				FCF784D61AFF953B0013FB49 /* SocketPacket.swift in Sources */,
 				1C73F3651AFA936D0003B1FA /* RoomsViewController.m in Sources */,
+				FCF784D11AFF953B0013FB49 /* SocketEngine.swift in Sources */,
+				FCF784D51AFF953B0013FB49 /* SocketIOClient.swift in Sources */,
 				1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */,
 				DEEC122A1AFCFCC800E21C52 /* ChatViewController.m in Sources */,
 				1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */,
@@ -703,6 +748,7 @@
 				1C13A9481AB9BF4800B2DF81 /* MediaItemTableViewCell.m in Sources */,
 				1CA428AB1A799CE9001DB0AD /* main.m in Sources */,
 				1C2251471A9E7E5F00210324 /* Playlist.m in Sources */,
+				FCF784D21AFF953B0013FB49 /* SocketEngineClient.swift in Sources */,
 				1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */,
 				DE5763CC1AF438E7003F7507 /* RoomViewController.m in Sources */,
 				1C7E49D11AB33A48005BB999 /* soundCloudMediaPickerViewController.m in Sources */,
@@ -750,6 +796,7 @@
 /* Begin XCBuildConfiguration section */
 		1CA428C61A799CE9001DB0AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 357C25CB851B05BF017C7876 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -767,6 +814,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -785,6 +833,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_MODULE_NAME = EcstaticFM;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -792,6 +841,7 @@
 		};
 		1CA428C71A799CE9001DB0AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2B767D1CC5F084F45D1F4FB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -809,6 +859,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -820,6 +871,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_MODULE_NAME = EcstaticFM;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -831,9 +883,12 @@
 			baseConfigurationReference = 357C25CB851B05BF017C7876 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = EcstaticFM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EcstaticFM-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -842,9 +897,11 @@
 			baseConfigurationReference = C2B767D1CC5F084F45D1F4FB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = EcstaticFM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EcstaticFM-Bridging-Header.h";
 			};
 			name = Release;
 		};
