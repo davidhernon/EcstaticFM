@@ -29,8 +29,6 @@
 		1C73F36E1AFC036A0003B1FA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C73F36D1AFC036A0003B1FA /* CoreLocation.framework */; };
 		1C73F3A91AFEA8E00003B1FA /* MediaPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73F3A81AFEA8E00003B1FA /* MediaPageViewController.m */; };
 		1C73F3AF1AFEC1D20003B1FA /* PlayerPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73F3AE1AFEC1D20003B1FA /* PlayerPageViewController.m */; };
-		1C7E49C81AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49C71AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m */; };
-		1C7E49CE1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49CD1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m */; };
 		1C7E49D11AB33A48005BB999 /* soundCloudMediaPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49D01AB33A48005BB999 /* soundCloudMediaPickerViewController.m */; };
 		1CA428AB1A799CE9001DB0AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
 		1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428AD1A799CE9001DB0AD /* AppDelegate.m */; };
@@ -134,10 +132,6 @@
 		1C73F3A81AFEA8E00003B1FA /* MediaPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaPageViewController.m; sourceTree = "<group>"; };
 		1C73F3AD1AFEC1D20003B1FA /* PlayerPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerPageViewController.h; sourceTree = "<group>"; };
 		1C73F3AE1AFEC1D20003B1FA /* PlayerPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerPageViewController.m; sourceTree = "<group>"; };
-		1C7E49C61AB1FB82005BB999 /* RKSwipeBetweenViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKSwipeBetweenViewControllers.h; sourceTree = "<group>"; };
-		1C7E49C71AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKSwipeBetweenViewControllers.m; sourceTree = "<group>"; };
-		1C7E49CC1AB22503005BB999 /* SwipeBetweenAPIViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeBetweenAPIViewControllers.h; sourceTree = "<group>"; };
-		1C7E49CD1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeBetweenAPIViewControllers.m; sourceTree = "<group>"; };
 		1C7E49CF1AB33A48005BB999 /* soundCloudMediaPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soundCloudMediaPickerViewController.h; sourceTree = "<group>"; };
 		1C7E49D01AB33A48005BB999 /* soundCloudMediaPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = soundCloudMediaPickerViewController.m; sourceTree = "<group>"; };
 		1CA428A51A799CE9001DB0AD /* EcstaticFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcstaticFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,10 +252,6 @@
 		1C7E49C51AB1FB5B005BB999 /* Page View Control */ = {
 			isa = PBXGroup;
 			children = (
-				1C7E49C61AB1FB82005BB999 /* RKSwipeBetweenViewControllers.h */,
-				1C7E49C71AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m */,
-				1C7E49CC1AB22503005BB999 /* SwipeBetweenAPIViewControllers.h */,
-				1C7E49CD1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m */,
 				1C73F3A71AFEA8E00003B1FA /* MediaPageViewController.h */,
 				1C73F3A81AFEA8E00003B1FA /* MediaPageViewController.m */,
 				1C73F3AD1AFEC1D20003B1FA /* PlayerPageViewController.h */,
@@ -700,7 +690,6 @@
 				DE5763B91AF427ED003F7507 /* RadialGradientLayer.m in Sources */,
 				DE5763D11AF447F4003F7507 /* GradientNavigationBar.m in Sources */,
 				1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */,
-				1C7E49C81AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m in Sources */,
 				1C73F3AF1AFEC1D20003B1FA /* PlayerPageViewController.m in Sources */,
 				DEEC123B1AFD5DC900E21C52 /* PopularHeader.m in Sources */,
 				1C2838041A955F8D006F10EC /* Utils.m in Sources */,
@@ -718,7 +707,6 @@
 				1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */,
 				DE5763CC1AF438E7003F7507 /* RoomViewController.m in Sources */,
 				1C7E49D11AB33A48005BB999 /* soundCloudMediaPickerViewController.m in Sources */,
-				1C7E49CE1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
