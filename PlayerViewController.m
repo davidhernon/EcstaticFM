@@ -19,6 +19,7 @@ static NSString* cellIdentifier = @"playListCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+  //  [self.player updatePlaylist];
     
     
     // Set AVAudioSession
@@ -65,6 +66,24 @@ static NSString* cellIdentifier = @"playListCell";
     _current_album_artwork.clipsToBounds = NO;
     _playListTableView.tableHeaderView = __playerTableHeaderView;
     _playListTableView.tableFooterView = __playerAddMusicCell;
+    
+
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self.player updatePlaylist];
+    //If no playlist then make buttons hidden
+    if([_playlist count] == 0)
+    {
+        _play.hidden = YES;
+        _last.hidden = YES;
+        _next.hidden = YES;
+    }else{
+        _play.hidden = NO;
+        _last.hidden = NO;
+        _next.hidden = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

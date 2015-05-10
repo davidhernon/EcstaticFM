@@ -26,8 +26,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *current_track_title;
 @property (weak, nonatomic) IBOutlet UIImageView *current_album_artwork;
 @property (weak, nonatomic) IBOutlet UIImageView *current_waveform;
-@property (weak, nonatomic) IBOutlet UIButton *play;
 @property (weak, nonatomic) IBOutlet UIImageView *waveform;
+@property (weak, nonatomic) IBOutlet UIButton *play;
+@property (weak, nonatomic) IBOutlet UIButton *last;
+@property (weak, nonatomic) IBOutlet UIButton *next;
+@property (weak, nonatomic) IBOutlet UIButton *add_songs;
+
 
 //nav bar
 @property (weak, nonatomic) IBOutlet UINavigationBar *_playerNavigationBar;
