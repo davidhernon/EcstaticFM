@@ -15,6 +15,9 @@
 #import <UIKit/UIKit.h>
 #import "soundCloudMediaPickerViewController.h"
 #import "SCUI.h"
+#import "GFXUtils.h"
+#import "RadialGradientLayer.h"
+
 
 @interface SwipeBetweenViewControllers : UINavigationController <UIPageViewControllerDelegate,UIPageViewControllerDataSource,UIScrollViewDelegate>
 

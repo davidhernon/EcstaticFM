@@ -40,6 +40,11 @@
 {
     [super viewDidLoad];
     
+    
+    // Add the gradient to the view
+    [self.view.layer insertSublayer:[GFXUtils getGradientChat:self.view.bounds] atIndex:0];
+
+    
     //self.navigationBar.barTintColor = [UIColor colorWithRed:0.01 green:0.05 blue:0.06 alpha:1]; //%%% bartint
     //self.navigationBar.translucent = NO;
     viewControllerArray = [[NSMutableArray alloc]init];

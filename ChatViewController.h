@@ -14,4 +14,13 @@
 
 @interface ChatViewController : UIViewController
 
+
+// @property (nonatomic, strong)UITapGestureRecognizer *chatTapGestureRecognizer;
+@property (weak, nonatomic) IBOutlet UIScrollView *chatScrollView;
+@property (weak, nonatomic) IBOutlet UITextField *chatTextField;
+@property BOOL keyboardIsShown;
+
+- (void)didReceiveMemoryWarning;
+- (void)keyboardWillHide:(NSNotification *)n;
+
 @end

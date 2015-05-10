@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "Playlist.h"
 #import "MediaItemTableViewCell.h"
 #import "Utils.h"
@@ -27,6 +28,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *current_waveform;
 @property (weak, nonatomic) IBOutlet UIButton *play;
 @property (weak, nonatomic) IBOutlet UIImageView *waveform;
+@property (weak, nonatomic) IBOutlet UINavigationBar *_playerNavigationBar;
+@property (weak, nonatomic) IBOutlet UITableView *_playerTableView;
+@property (weak, nonatomic) IBOutlet UIView *_playerTableHeaderView;
+@property (weak, nonatomic) IBOutlet UIView *_playerAddMusicCell;
+
 
 @property (weak, nonatomic) NSArray* playlist;
 @property Player* player;
