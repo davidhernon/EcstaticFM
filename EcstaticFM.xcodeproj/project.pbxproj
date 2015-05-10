@@ -53,6 +53,8 @@
 		DE14B9D71AFF8AC4004470C7 /* image_playerdropshadow.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9D61AFF8AC4004470C7 /* image_playerdropshadow.png */; };
 		DE14B9DD1AFFA4CB004470C7 /* button_closepink.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9DC1AFFA4CB004470C7 /* button_closepink.png */; };
 		DE14B9DF1AFFA8E8004470C7 /* button_controlsplaypink.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9DE1AFFA8E8004470C7 /* button_controlsplaypink.png */; };
+		DE14B9E21AFFB115004470C7 /* PlayerPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE14B9E11AFFB115004470C7 /* PlayerPageViewController.m */; };
+		DE14B9E51AFFB12B004470C7 /* MediaPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE14B9E41AFFB12B004470C7 /* MediaPageViewController.m */; };
 		DE57638A1AF400E6003F7507 /* ecstatic-wordmark-330.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763871AF400E6003F7507 /* ecstatic-wordmark-330.png */; };
 		DE57638B1AF400E6003F7507 /* icon-key-21.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763881AF400E6003F7507 /* icon-key-21.png */; };
 		DE57638C1AF400E6003F7507 /* icon-person-21.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763891AF400E6003F7507 /* icon-person-21.png */; };
@@ -183,6 +185,10 @@
 		DE14B9D61AFF8AC4004470C7 /* image_playerdropshadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_playerdropshadow.png; sourceTree = "<group>"; };
 		DE14B9DC1AFFA4CB004470C7 /* button_closepink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_closepink.png; sourceTree = "<group>"; };
 		DE14B9DE1AFFA8E8004470C7 /* button_controlsplaypink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_controlsplaypink.png; sourceTree = "<group>"; };
+		DE14B9E01AFFB115004470C7 /* PlayerPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerPageViewController.h; sourceTree = "<group>"; };
+		DE14B9E11AFFB115004470C7 /* PlayerPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerPageViewController.m; sourceTree = "<group>"; };
+		DE14B9E31AFFB12B004470C7 /* MediaPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPageViewController.h; sourceTree = "<group>"; };
+		DE14B9E41AFFB12B004470C7 /* MediaPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaPageViewController.m; sourceTree = "<group>"; };
 		DE5763871AF400E6003F7507 /* ecstatic-wordmark-330.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecstatic-wordmark-330.png"; sourceTree = "<group>"; };
 		DE5763881AF400E6003F7507 /* icon-key-21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-key-21.png"; sourceTree = "<group>"; };
 		DE5763891AF400E6003F7507 /* icon-person-21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-person-21.png"; sourceTree = "<group>"; };
@@ -284,6 +290,10 @@
 		1C7E49C51AB1FB5B005BB999 /* Page View Control */ = {
 			isa = PBXGroup;
 			children = (
+				DE14B9E01AFFB115004470C7 /* PlayerPageViewController.h */,
+				DE14B9E11AFFB115004470C7 /* PlayerPageViewController.m */,
+				DE14B9E31AFFB12B004470C7 /* MediaPageViewController.h */,
+				DE14B9E41AFFB12B004470C7 /* MediaPageViewController.m */,
 			);
 			name = "Page View Control";
 			sourceTree = "<group>";
@@ -759,6 +769,7 @@
 			files = (
 				1C73F36C1AFBE9470003B1FA /* Room.m in Sources */,
 				DE5763D41AF5608C003F7507 /* GFXUtils.m in Sources */,
+				DE14B9E21AFFB115004470C7 /* PlayerPageViewController.m in Sources */,
 				DE5763B91AF427ED003F7507 /* RadialGradientLayer.m in Sources */,
 				DE5763D11AF447F4003F7507 /* GradientNavigationBar.m in Sources */,
 				1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */,
@@ -777,6 +788,7 @@
 				1C2251471A9E7E5F00210324 /* Playlist.m in Sources */,
 				1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */,
 				DE5763CC1AF438E7003F7507 /* RoomViewController.m in Sources */,
+				DE14B9E51AFFB12B004470C7 /* MediaPageViewController.m in Sources */,
 				1C7E49D11AB33A48005BB999 /* soundCloudMediaPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

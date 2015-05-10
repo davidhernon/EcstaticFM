@@ -2,7 +2,7 @@
 //  PlayerPageViewController.m
 //  EcstaticFM
 //
-//  Created by David Hernon on 2015-05-09.
+//  Created by Kizma on 2015-05-10.
 //  Copyright (c) 2015 David Hernon. All rights reserved.
 //
 
@@ -47,7 +47,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataSource = self;
- 
+    
     [self setViewControllers:@[self.second]
                    direction:UIPageViewControllerNavigationDirectionForward
                     animated:YES
@@ -88,3 +88,4 @@
 }
 
 @end
+
