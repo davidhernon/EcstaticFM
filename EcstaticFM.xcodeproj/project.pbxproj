@@ -27,6 +27,8 @@
 		1C73F3691AFBDFF60003B1FA /* AroundMeTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C73F3681AFBDFF60003B1FA /* AroundMeTableCellView.xib */; };
 		1C73F36C1AFBE9470003B1FA /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73F36B1AFBE9470003B1FA /* Room.m */; };
 		1C73F36E1AFC036A0003B1FA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C73F36D1AFC036A0003B1FA /* CoreLocation.framework */; };
+		1C73F3A91AFEA8E00003B1FA /* MediaPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73F3A81AFEA8E00003B1FA /* MediaPageViewController.m */; };
+		1C73F3AF1AFEC1D20003B1FA /* PlayerPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73F3AE1AFEC1D20003B1FA /* PlayerPageViewController.m */; };
 		1C7E49C81AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49C71AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m */; };
 		1C7E49CE1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49CD1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m */; };
 		1C7E49D11AB33A48005BB999 /* soundCloudMediaPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49D01AB33A48005BB999 /* soundCloudMediaPickerViewController.m */; };
@@ -128,6 +130,10 @@
 		1C73F36A1AFBE9470003B1FA /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
 		1C73F36B1AFBE9470003B1FA /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
 		1C73F36D1AFC036A0003B1FA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1C73F3A71AFEA8E00003B1FA /* MediaPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPageViewController.h; sourceTree = "<group>"; };
+		1C73F3A81AFEA8E00003B1FA /* MediaPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaPageViewController.m; sourceTree = "<group>"; };
+		1C73F3AD1AFEC1D20003B1FA /* PlayerPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerPageViewController.h; sourceTree = "<group>"; };
+		1C73F3AE1AFEC1D20003B1FA /* PlayerPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerPageViewController.m; sourceTree = "<group>"; };
 		1C7E49C61AB1FB82005BB999 /* RKSwipeBetweenViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKSwipeBetweenViewControllers.h; sourceTree = "<group>"; };
 		1C7E49C71AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKSwipeBetweenViewControllers.m; sourceTree = "<group>"; };
 		1C7E49CC1AB22503005BB999 /* SwipeBetweenAPIViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeBetweenAPIViewControllers.h; sourceTree = "<group>"; };
@@ -256,6 +262,10 @@
 				1C7E49C71AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m */,
 				1C7E49CC1AB22503005BB999 /* SwipeBetweenAPIViewControllers.h */,
 				1C7E49CD1AB22503005BB999 /* SwipeBetweenAPIViewControllers.m */,
+				1C73F3A71AFEA8E00003B1FA /* MediaPageViewController.h */,
+				1C73F3A81AFEA8E00003B1FA /* MediaPageViewController.m */,
+				1C73F3AD1AFEC1D20003B1FA /* PlayerPageViewController.h */,
+				1C73F3AE1AFEC1D20003B1FA /* PlayerPageViewController.m */,
 			);
 			name = "Page View Control";
 			sourceTree = "<group>";
@@ -684,12 +694,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C73F3A91AFEA8E00003B1FA /* MediaPageViewController.m in Sources */,
 				1C73F36C1AFBE9470003B1FA /* Room.m in Sources */,
 				DE5763D41AF5608C003F7507 /* GFXUtils.m in Sources */,
 				DE5763B91AF427ED003F7507 /* RadialGradientLayer.m in Sources */,
 				DE5763D11AF447F4003F7507 /* GradientNavigationBar.m in Sources */,
 				1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */,
 				1C7E49C81AB1FB82005BB999 /* RKSwipeBetweenViewControllers.m in Sources */,
+				1C73F3AF1AFEC1D20003B1FA /* PlayerPageViewController.m in Sources */,
 				DEEC123B1AFD5DC900E21C52 /* PopularHeader.m in Sources */,
 				1C2838041A955F8D006F10EC /* Utils.m in Sources */,
 				1C37B7D91AF540BA00566216 /* PlayerViewController.m in Sources */,

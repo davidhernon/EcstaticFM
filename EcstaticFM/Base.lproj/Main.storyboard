@@ -7,10 +7,6 @@
         <mutableArray key="Raleway-Bold.ttf">
             <string>Raleway-Bold</string>
             <string>Raleway-Bold</string>
-            <string>Raleway-Bold</string>
-        </mutableArray>
-        <mutableArray key="Raleway-ExtraLight.ttf">
-            <string>Raleway-ExtraLight</string>
         </mutableArray>
         <mutableArray key="Raleway-Light.ttf">
             <string>Raleway-Light</string>
@@ -24,7 +20,6 @@
             <string>Raleway-Medium</string>
         </mutableArray>
         <mutableArray key="Raleway-Regular.ttf">
-            <string>Raleway</string>
             <string>Raleway</string>
             <string>Raleway</string>
             <string>Raleway</string>
@@ -61,39 +56,6 @@
             </objects>
             <point key="canvasLocation" x="715" y="-302"/>
         </scene>
-        <!--Page View Controller-->
-        <scene sceneID="UTi-VB-nZP">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="rmR-1b-J5h" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="XQS-9O-7pG"/>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="41c-vY-GH9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="715" y="1036"/>
-        </scene>
-        <!--Swipe Between View Controllers-->
-        <scene sceneID="G2j-rj-nkt">
-            <objects>
-                <navigationController storyboardIdentifier="playerEventChat" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="A48-xd-fVX" customClass="RKSwipeBetweenViewControllers" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="x5j-Gv-q6D"/>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" translucent="NO" id="jc9-h2-GuE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="rmR-1b-J5h" kind="relationship" relationship="rootViewController" id="Fm4-Zw-Rfk"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d3L-sP-9R1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="299" y="1036"/>
-        </scene>
         <!--Rooms View Controller-->
         <scene sceneID="ldK-YC-Z4E">
             <objects>
@@ -125,6 +87,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wuJ-ls-KuR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1143" y="1030"/>
+        </scene>
+        <!--Player Page View Controller-->
+        <scene sceneID="Mmo-d8-HHl">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="mat-kv-pz9" customClass="PlayerPageViewController" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QHa-0h-vnB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="681" y="1137"/>
         </scene>
         <!--Login Screen-->
         <scene sceneID="L4S-P1-2em">
@@ -175,7 +145,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="A48-xd-fVX" kind="modal" id="PpC-DJ-xox"/>
+                                            <segue destination="mat-kv-pz9" kind="modal" id="dmt-Vf-5Ja"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="M6J-fc-kp4">
@@ -204,6 +174,20 @@
                                             <action selector="soundCloudLogin:" destination="Na0-VS-aPw" eventType="touchUpInside" id="b3g-nE-BhA"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LkT-4W-72f">
+                                        <rect key="frame" x="16" y="129" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eEy-Ni-Znk">
+                                        <rect key="frame" x="8" y="91" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                             </view>
                         </subviews>
@@ -218,92 +202,10 @@
             </objects>
             <point key="canvasLocation" x="715" y="412"/>
         </scene>
-        <!--Room View Controller-->
-        <scene sceneID="h7X-kW-JpH">
-            <objects>
-                <viewController id="qVm-VF-PBX" customClass="RoomViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="q62-sU-BQQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" id="6L9-Zj-L6h">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" id="gwr-de-ax5">
-                                        <rect key="frame" x="0.0" y="-8" width="320" height="480"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your sound space" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tvd-5J-HtA">
-                                                <rect key="frame" x="87" y="34" width="147" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Raleway-ExtraLight" family="Raleway" pointSize="17"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1YG-eO-MBt">
-                                                <rect key="frame" x="8" y="34" width="12" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="icon_back.png">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other people will be able to join you when you are listening to music. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FOa-C6-B94">
-                                                <rect key="frame" x="50" y="104" width="220" height="130"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Raleway" family="Raleway" pointSize="14"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TFV-hi-ike">
-                                                <rect key="frame" x="50" y="154" width="220" height="130"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <string key="text">
-Feed me songs!</string>
-                                                <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="14"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aEE-Gd-Lgb">
-                                                <rect key="frame" x="127" y="322" width="67" height="67"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="button_addmusic.png">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="VWd-v9-bYb" kind="modal" modalPresentationStyle="fullScreen" id="Tfl-ru-KcS"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </view>
-                                </subviews>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.41999999999999998" colorSpace="calibratedRGB"/>
-                    </view>
-                    <toolbarItems>
-                        <barButtonItem style="plain" id="qpK-l1-L1j">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2nQ-wQ-AEg">
-                                <rect key="frame" x="100" y="113" width="32" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="icon_people.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </barButtonItem>
-                    </toolbarItems>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xXJ-U2-NaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1143" y="412"/>
-        </scene>
         <!--Player View Controller-->
         <scene sceneID="qla-Id-jgh">
             <objects>
-                <viewController storyboardIdentifier="player" id="XgF-Cq-hZq" customClass="PlayerViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="player" wantsFullScreenLayout="YES" extendedLayoutIncludesOpaqueBars="YES" modalPresentationStyle="overFullScreen" id="XgF-Cq-hZq" customClass="PlayerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFit" id="bvh-Wc-xs5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -462,7 +364,7 @@ Feed me songs!</string>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="VWd-v9-bYb" kind="modal" id="fk0-EO-Zeu"/>
+                                            <segue destination="5Tx-wE-gWr" kind="modal" id="EK2-wq-HeJ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -471,8 +373,6 @@ Feed me songs!</string>
                         </subviews>
                         <color key="backgroundColor" red="0.65982380158265119" green="0.65883943487467" blue="0.67940848214285721" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="current_album_artwork" destination="S8f-jV-zzm" id="UrP-5n-CHf"/>
                         <outlet property="play" destination="gnl-oJ-0Zd" id="Oix-Te-KKR"/>
@@ -482,18 +382,6 @@ Feed me songs!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJn-H3-nVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1554" y="1044"/>
-        </scene>
-        <!--Page View Controller-->
-        <scene sceneID="L4H-Y1-xge">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" wantsFullScreenLayout="YES" extendedLayoutIncludesOpaqueBars="YES" hidesBottomBarWhenPushed="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="uWy-Ea-v0c" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="fRw-ZE-tbW"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c6Z-pi-U5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1564" y="1958"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="yiU-pE-MiS">
@@ -601,28 +489,6 @@ Feed me songs!</string>
             </objects>
             <point key="canvasLocation" x="2060" y="1036"/>
         </scene>
-        <!--Swipe Between View Controllers-->
-        <scene sceneID="EiS-I7-PFP">
-            <objects>
-                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="VWd-v9-bYb" customClass="SwipeBetweenViewControllers" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="AGQ-Nc-6hA"/>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z4W-gK-Ryo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="uWy-Ea-v0c" kind="relationship" relationship="rootViewController" id="RZT-ks-ecf"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2KK-cU-Fg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1143" y="1958"/>
-        </scene>
         <!--Sound Cloud Media Picker View Controller-->
         <scene sceneID="9K1-1D-fzc">
             <objects>
@@ -698,7 +564,8 @@ Feed me songs!</string>
                                 <rect key="frame" x="5" y="139" width="310" height="289"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="soundCloudTrackCell" rowHeight="59" id="J11-R0-4Dp" customClass="MediaItemTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -758,7 +625,7 @@ Feed me songs!</string>
                                 </state>
                                 <connections>
                                     <action selector="addSelectedTracksToPlaylist:" destination="NW7-8C-V9l" eventType="touchUpInside" id="rzC-Cv-KHR"/>
-                                    <segue destination="A48-xd-fVX" kind="modal" id="xyo-QM-v5q"/>
+                                    <segue destination="mat-kv-pz9" kind="modal" id="Sn3-7F-MF2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Chk-g9-cUx">
@@ -768,7 +635,7 @@ Feed me songs!</string>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="A48-xd-fVX" kind="modal" id="PM4-0y-y1q"/>
+                                    <segue destination="mat-kv-pz9" kind="modal" id="ebP-id-LyG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -786,6 +653,14 @@ Feed me songs!</string>
             </objects>
             <point key="canvasLocation" x="1984" y="1958"/>
         </scene>
+        <!--Media Page View Controller-->
+        <scene sceneID="bLv-lP-3Qc">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="5Tx-wE-gWr" customClass="MediaPageViewController" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rfT-A5-fep" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1579" y="2016"/>
+        </scene>
     </scenes>
     <resources>
         <image name="button-facebook.png" width="435" height="76"/>
@@ -798,7 +673,6 @@ Feed me songs!</string>
         <image name="icon_bubble.png" width="53" height="57"/>
         <image name="icon_close.png" width="38" height="34"/>
         <image name="icon_heartfull.png" width="82" height="78"/>
-        <image name="icon_people.png" width="60" height="42"/>
         <image name="icon_playerback.png" width="106" height="116"/>
         <image name="icon_playernext.png" width="106" height="116"/>
         <image name="icon_playerpause.png" width="96" height="116"/>
@@ -816,7 +690,6 @@ Feed me songs!</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="PM4-0y-y1q"/>
-        <segue reference="fk0-EO-Zeu"/>
+        <segue reference="Sn3-7F-MF2"/>
     </inferredMetricsTieBreakers>
 </document>
