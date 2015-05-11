@@ -26,7 +26,7 @@
 + (Room*)currentRoom;
 -(Playlist*)getRoomPlaylist;
 -(Player*)getRoomPlayer;
--(void)addMediaItemToPlaylist:(MediaItem*)media_item
+-(void)addMediaItemToPlaylist:(MediaItem*)media_item;
 
 
 // playlist
