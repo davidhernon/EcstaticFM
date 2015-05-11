@@ -32,7 +32,18 @@
     // Add the gradient to the view
     [self.view.layer insertSublayer:[GFXUtils getGradient:self.view.bounds] atIndex:0];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard)];
     
+    [self.view addGestureRecognizer:tap];
+    
+    
+}
+
+//Dismisses keyboard
+-(void)dismissKeyboard {
+    [_username resignFirstResponder];
+    [_password resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -134,14 +145,6 @@
     
     
     
-}
-
-
-// dismiss keyboard
-
--(void)dismissKeyboard {
-    [_username resignFirstResponder];
-    [_password resignFirstResponder];
 }
 
 
