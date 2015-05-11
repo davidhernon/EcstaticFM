@@ -80,6 +80,11 @@ static NSString* cellIdentifier = @"playListCell";
 
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.playListTableView reloadData];
+}
+
 - (void) viewWillAppear:(BOOL)animated
 {
     [self.player updatePlaylist];
@@ -94,15 +99,28 @@ static NSString* cellIdentifier = @"playListCell";
         _slider.hidden = YES;
         _coveralpha.hidden = YES;
         _playlist_title.hidden = YES;
+        _current_track_title.hidden = YES;
+        _current_duration.hidden = YES;
+        _current_time.hidden = YES;
+        _current_user_picture.hidden = YES;
+        
     }else{
         _play.hidden = NO;
-        _last.hidden = YES;
-        _next.hidden = YES;
+        _last.hidden = NO;
+        _next.hidden = NO;
         _add_songs.hidden = NO;
         _add_songs_welcome.hidden = YES;
         _slider.hidden = NO;
         _coveralpha.hidden = NO;
         _playlist_title.hidden = NO;
+        _current_track_title.hidden = NO;
+        _current_duration.hidden = NO;
+        _current_time.hidden = NO;
+        _current_user_picture.hidden = NO;
+    }
+    if(![_player isPlaying] && ![_player isPaused] && [_playlist count] > 0)
+    {
+        [_player play];
     }
 }
 
@@ -142,6 +160,13 @@ static NSString* cellIdentifier = @"playListCell";
     cell.sc_album_image.image =  track.artwork;
     cell.backgroundColor = [UIColor clearColor];
     
+    
+    if((int)_current_track_index == (int)indexPath.row && _player.isPlaying)
+    {
+        cell.playing_animation.image = [UIImage animatedImageNamed:@"wave" duration:0.6f];
+        cell.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
+    }
+    
     return cell;
     
 }
@@ -157,7 +182,7 @@ static NSString* cellIdentifier = @"playListCell";
  @param currentTrack
  MediaItem of the currently playing track
  */
-- (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack
+- (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack atIndex:(NSUInteger*)index
 {
     _slider.maximumValue = duration;
     _slider.value = 0.0;
@@ -167,6 +192,8 @@ static NSString* cellIdentifier = @"playListCell";
     _current_time.text = @"0";
     _current_album_artwork.image = currentTrack.artwork;
     _current_waveform.image = currentTrack.waveform_url;
+    _current_track_index = index;
+    [self.playListTableView reloadData];
 }
 
 /**
@@ -231,9 +258,9 @@ static NSString* cellIdentifier = @"playListCell";
     [self.player last];
 }
 
--(void) skip
+-(IBAction)next:(id)sender
 {
-    
+    [self.player next];
 }
 
 @end

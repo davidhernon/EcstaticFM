@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *current_time;
 @property (weak, nonatomic) IBOutlet UILabel *current_artist;
 @property (weak, nonatomic) IBOutlet UILabel *current_track_title;
+@property NSUInteger *current_track_index;
 @property (weak, nonatomic) IBOutlet UIImageView *current_album_artwork;
 @property (weak, nonatomic) IBOutlet UIView *coveralpha;
 @property (weak, nonatomic) IBOutlet UIImageView *current_waveform;
@@ -34,6 +35,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *add_songs;
 @property (weak, nonatomic) IBOutlet UIButton *add_songs_welcome;
 @property (weak, nonatomic) IBOutlet UILabel *playlist_title;
+@property (weak, nonatomic) IBOutlet UIImageView *current_user_picture;
+
+
 
 
 //nav bar
@@ -48,5 +52,6 @@
 @property Player* player;
 
 - (IBAction)sliderValueChanged:(UISlider *)sender;
+- (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack atIndex:(NSUInteger*)index;
 
 @end

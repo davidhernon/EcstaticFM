@@ -44,7 +44,7 @@ static Player *ecstaticPlayer = nil;
 }
 
 /**
- add the delegate to Player for Player to communicate with a view controller
+the delegate to Player for Player to communicate with a view controller
  Example usage:
  @code
  [player addDelegate:self];
@@ -114,6 +114,9 @@ static Player *ecstaticPlayer = nil;
         return;
     }
     
+    [_delegate initPlayerUI:0.0f withTrack:_currentTrack atIndex:_currentTrackIndex];
+    
+    
     NSString *urlString = [NSString stringWithFormat:@"%@?client_id=%@", _currentTrack.stream_url,[SoundCloudAPI getClientID]];//Your client ID
     
         [SCRequest performMethod:SCRequestMethodGET
@@ -126,9 +129,10 @@ static Player *ecstaticPlayer = nil;
                     // NSLog(@"data:%@",data);
                      _avPlayer = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
                      [_avPlayer prepareToPlay];
-                     [_delegate initPlayerUI:[_avPlayer duration] withTrack:_currentTrack];
-                     _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
                      [_avPlayer play];
+                     [_delegate initPlayerUI:[_avPlayer duration] withTrack:_currentTrack atIndex:_currentTrackIndex];
+                     _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
+                     
                      _isPaused = NO;
         }];
 }
@@ -198,7 +202,9 @@ static Player *ecstaticPlayer = nil;
 
 -(void)next
 {
-
+    [_avPlayer stop];
+    _avPlayer.rate = 0;
+    [self audioPlayerDidFinishPlaying:_avPlayer successfully:YES];
 }
 
 -(void)last
@@ -214,6 +220,16 @@ static Player *ecstaticPlayer = nil;
         _avPlayer.currentTime = 0.0;
     }
     
+}
+
+-(BOOL)isPlaying
+{
+    if(_avPlayer.rate == 0 || _isPaused)
+    {
+        return NO;
+    }else{
+        return YES;
+    }
 }
 
 @end

@@ -36,7 +36,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     _soundCloudResultsTableView.backgroundColor = [UIColor clearColor];
     
     // Add the gradient to the view
-    [self.view.layer insertSublayer:[GFXUtils getGradient:self.view.bounds] atIndex:0];
+    [self.view.layer insertSublayer:[GFXUtils getGradientPlayer:(CGRect)self.view.bounds] atIndex:0];
     
     // Remove line between cells
     self.soundCloudResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -164,6 +164,9 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 {
     [[Playlist sharedPlaylist] addTracks:self.selectedTracks];
 }
+
+// selected state checkmark
+
 
 
 // The close button

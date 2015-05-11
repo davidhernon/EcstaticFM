@@ -32,7 +32,18 @@
     // Add the gradient to the view
     [self.view.layer insertSublayer:[GFXUtils getGradient:self.view.bounds] atIndex:0];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard)];
     
+    [self.view addGestureRecognizer:tap];
+    
+    
+}
+
+//Dismisses keyboard
+-(void)dismissKeyboard {
+    [_username resignFirstResponder];
+    [_password resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -117,7 +128,7 @@
     [parameter setObject:@"230ccb26b40f7c87eb65fc03357ffa81" forKey:@"client_id"];
     [parameter setObject:@"4a50ef64acc242ce02e9abc5e370c064" forKey:@"client_secret"];
     [parameter setObject:@"kizmadub@gmail.com" forKey:@"username"];
-    [parameter setObject:@"4535600gG!dB" forKey:@"password"];
+    [parameter setObject:@"" forKey:@"password"];
     [parameter setObject:@"non-expiring" forKey:@"scope"];
     
     
@@ -135,6 +146,7 @@
     
     
 }
+
 
 /*
 #pragma mark - Navigation

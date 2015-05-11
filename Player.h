@@ -29,17 +29,19 @@
 -(void)play;
 -(void) pause;
 -(void) last;
+-(void) next;
 -(void) updatePlaylist;
 -(void)addDelegate:(id)sender;
 -(void)updateTime;
 -(void)seek:(float)value;
+-(BOOL)isPlaying;
 
 
 @end
 
 @protocol PlayerDelegate <NSObject>
 
-- (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack;
+- (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack atIndex:(NSUInteger)index;
 
 - (void) setCurrentSliderValue:(AVAudioPlayer*)childPlayer;
 
