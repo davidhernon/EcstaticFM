@@ -28,11 +28,6 @@
 		<key>64321BCBF7FC3DA9FD2857275A8726C66E02A52A</key>
 		<string>..</string>
 	</dict>
-	<key>IDESourceControlProjectRepositoryRootDictionary</key>
-	<dict>
-		<key>1d5a7336-c65e-6947-a78c-d4236001c669++505</key>
-		<string>svn://cserg0.site.uottawa.ca/projetseg</string>
-	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:davidhernon/EcstaticFM.git</string>
 	<key>IDESourceControlProjectVersion</key>
@@ -43,23 +38,23 @@
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1d5a7336-c65e-6947-a78c-d4236001c669++505</string>
-			<key>IDESourceControlWCCName</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1d5a7336-c65e-6947-a78c-d4236001c669++505</string>
-			<key>IDESourceControlWCCName</key>
-			<string></string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1d5a7336-c65e-6947-a78c-d4236001c669++505</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1d5a7336-c65e-6947-a78c-d4236001c669++505</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>1d5a7336-c65e-6947-a78c-d4236001c669++505</string>
 			<key>IDESourceControlWCCName</key>
