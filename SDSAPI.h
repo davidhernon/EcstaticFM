@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 David Hernon. All rights reserved.
 //
 #import <Foundation/Foundation.h>
-#import "Room.h"
+#import "RoomsViewController.h"
 @interface SDSAPI : NSObject
 
 
@@ -15,7 +15,7 @@
 +(void)login:(NSString*)username password:(NSString*)password;
 +(void)fbLogin;
 +(void)createRoom:(NSString*)params;
-+(void)aroundMe:(NSString*)username;
++(void)aroundMe:(NSString*)username withID:(id)sender;
 +(void)connect;
 
 @end

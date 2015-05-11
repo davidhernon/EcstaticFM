@@ -33,7 +33,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
 	NSString* username = [defaults objectForKey:@"sdsUsername"];
 	self.locationServices = [[LocationServices alloc]init];
 	[self.locationServices start_location_services];
-	[SDSAPI aroundMe:username];
+    [SDSAPI aroundMe:username withID:self];
 	
     // Remove line between cells
     self.roomTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -57,19 +57,19 @@ static NSString* around_me_event_cell = @"around_me_cell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0)
-        return _popular.count;
+        return 1;
     if (section == 1)
-        return _around_me.count;
+        return [_room_cards count];
     return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    tableView.backgroundColor = [UIColor clearColor];
-    cell.backgroundColor = [UIColor clearColor];
-    cell.contentView.backgroundColor = [UIColor clearColor];
-    cell.backgroundColor = [UIColor clearColor];
+    AroundMeTableViewCell *cell = [[AroundMeTableViewCell alloc] init];
+//    tableView.backgroundColor = [UIColor clearColor];
+//    cell.backgroundColor = [UIColor clearColor];
+//    cell.contentView.backgroundColor = [UIColor clearColor];
+//    cell.backgroundColor = [UIColor clearColor];
     
     
     if (indexPath.section == 0){
@@ -86,15 +86,30 @@ static NSString* around_me_event_cell = @"around_me_cell";
     
     if (indexPath.section == 1){
         cell = [self.roomTableView dequeueReusableCellWithIdentifier:@"around_me_cell"];
+        
         //cell.textLabel.text = [_around_me objectAtIndex:indexPath.row];
         if(cell==nil){
             // Load the top-level objects from the custom cell XIB.
             NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"AroundMeTableCellView" owner:self options:nil];
             // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
             cell = [topLevelObjects objectAtIndex:0];
-            
         }
+        NSDictionary *json_for_cell = [_room_cards objectAtIndex:indexPath.row];
+        cell.distance.text = [NSString stringWithFormat:@"%@",[json_for_cell objectForKey:@"distance"] ];
+        NSString *user = [json_for_cell objectForKey:@"user"];
+        NSLog(@"user: %@", user );
+        cell.owner.text = user;
+        cell.title.text = [json_for_cell objectForKey:@"title"];
+        cell.listener_count = [[json_for_cell objectForKey:@"number_of_users"] integerValue];
+        cell.owner_and_others_label.text = [NSString stringWithFormat:@"%@ and %d others",user,(int)cell.listener_count];
+        
+        
     }
+    
+    tableView.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = [UIColor clearColor];
     
     return cell;
 }
@@ -107,6 +122,12 @@ static NSString* around_me_event_cell = @"around_me_cell";
     if (section == 1)
         return @"Around Me";
     return @"undefined";
+}
+
+- (void)showRoomsScrollView:(NSArray*)room_dictionaries
+{
+    _room_cards = room_dictionaries;
+    [self.roomTableView reloadData];
 }
 
 /*

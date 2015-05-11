@@ -12,10 +12,13 @@
 #import "RadialGradientLayer.h"
 #import "SDSAPI.h"
 #import "LocationServices.h"
+#import "AroundMeTableViewCell.h"
 @interface RoomsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *roomTableView;
 @property NSArray* popular;
 @property NSArray* around_me;
 @property LocationServices* locationServices;
+@property NSArray* room_cards;
+- (void)showRoomsScrollView:(NSArray*)room_dictionaries;
 @end

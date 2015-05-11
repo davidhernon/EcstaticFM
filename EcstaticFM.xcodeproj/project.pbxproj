@@ -22,6 +22,7 @@
 		1C291D991AFFF2A1006A2B4F /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D8E1AFFF2A1006A2B4F /* SocketParser.swift */; };
 		1C291D9A1AFFF2A1006A2B4F /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D8F1AFFF2A1006A2B4F /* SwiftRegex.swift */; };
 		1C291D9B1AFFF2A1006A2B4F /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D901AFFF2A1006A2B4F /* WebSocket.swift */; };
+		1C291D9E1B014B96006A2B4F /* AroundMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D9D1B014B96006A2B4F /* AroundMeTableViewCell.m */; };
 		1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C33F84C1A8D4A0C0072ABBE /* Player.m */; };
 		1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C37B7CC1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m */; };
 		1C37B7D91AF540BA00566216 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C37B7D81AF540BA00566216 /* PlayerViewController.m */; };
@@ -166,6 +167,8 @@
 		1C291D8E1AFFF2A1006A2B4F /* SocketParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketParser.swift; sourceTree = "<group>"; };
 		1C291D8F1AFFF2A1006A2B4F /* SwiftRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRegex.swift; sourceTree = "<group>"; };
 		1C291D901AFFF2A1006A2B4F /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
+		1C291D9C1B014B96006A2B4F /* AroundMeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMeTableViewCell.h; sourceTree = "<group>"; };
+		1C291D9D1B014B96006A2B4F /* AroundMeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMeTableViewCell.m; sourceTree = "<group>"; };
 		1C33F84B1A8D4A0C0072ABBE /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		1C33F84C1A8D4A0C0072ABBE /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		1C37B7CB1AF3E29C00566216 /* SoundCloudMediaPickerTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundCloudMediaPickerTableView.h; sourceTree = "<group>"; };
@@ -337,6 +340,8 @@
 				1C73F36A1AFBE9470003B1FA /* Room.h */,
 				1C73F36B1AFBE9470003B1FA /* Room.m */,
 				DEEC122C1AFD4F9700E21C52 /* NoGeoTableCellView.xib */,
+				1C291D9C1B014B96006A2B4F /* AroundMeTableViewCell.h */,
+				1C291D9D1B014B96006A2B4F /* AroundMeTableViewCell.m */,
 			);
 			name = Rooms;
 			sourceTree = "<group>";
@@ -867,6 +872,7 @@
 				DE5763D41AF5608C003F7507 /* GFXUtils.m in Sources */,
 				DE14B9E21AFFB115004470C7 /* PlayerPageViewController.m in Sources */,
 				1C291D9B1AFFF2A1006A2B4F /* WebSocket.swift in Sources */,
+				1C291D9E1B014B96006A2B4F /* AroundMeTableViewCell.m in Sources */,
 				1C291D991AFFF2A1006A2B4F /* SocketParser.swift in Sources */,
 				1C291D911AFFF2A1006A2B4F /* SocketAckMap.swift in Sources */,
 				1C291D9A1AFFF2A1006A2B4F /* SwiftRegex.swift in Sources */,

@@ -109,15 +109,6 @@ static SocketIOClient *static_socket;
 	[static_socket on: @"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
 		NSLog(@"here connected");
 	}];
-	
-	[static_socket on: @"get_rooms_around_me" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
-		NSLog(@"get_rooms_around_me returned,%@", data[0]);
-		NSDictionary* locationsDict =(NSDictionary*) data[0];
-		NSArray* locationsArray = [locationsDict objectForKey:@"locations"];
-		for(NSDictionary *item in locationsArray) {
-		   NSLog(@"Item: %@", item);
-		}
-	}];
 
     [static_socket connect];
 }
@@ -141,7 +132,15 @@ static SocketIOClient *static_socket;
 
 
 
-+(void) aroundMe:(NSString*)username{
++(void) aroundMe:(NSString*)username withID:(id)sender{
+    
+    [static_socket on: @"get_rooms_around_me" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
+        NSLog(@"get_rooms_around_me returned,%@", data[0]);
+        NSDictionary* locationsDict =(NSDictionary*) data[0];
+        NSArray* locationsArray = [locationsDict objectForKey:@"locations"];
+        [sender showRoomsScrollView:locationsArray];
+    }];
+    
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		
 		while(!static_socket.connected){
@@ -155,6 +154,8 @@ static SocketIOClient *static_socket;
 		NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
 		[static_socket emitObjc:@"get_rooms_around_me" withItems:@[jsonData]];
 	});
+    
+    
 }
 
 @end
