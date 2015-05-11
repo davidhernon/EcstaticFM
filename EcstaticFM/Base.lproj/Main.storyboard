@@ -635,7 +635,7 @@ music around you.</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="ixu-xt-lhn">
-                                            <rect key="frame" x="56" y="8" width="2488" height="855"/>
+                                            <rect key="frame" x="56" y="8" width="2808" height="958.5"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>
@@ -667,6 +667,7 @@ music around you.</string>
                     <connections>
                         <outlet property="chatScrollView" destination="BLS-0s-TgN" id="9KI-4U-t4D"/>
                         <outlet property="chatTextField" destination="a39-3G-JzK" id="7BG-Bd-eYr"/>
+                        <outlet property="people_with_you" destination="Gj7-uQ-hvi" id="Roj-mA-V6j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TYt-f5-Oqi" userLabel="First Responder" sceneMemberID="firstResponder"/>

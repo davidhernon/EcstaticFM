@@ -50,6 +50,19 @@
 
 }
 
+-(void) viewDidAppear:(BOOL)animated
+{
+    int people = [[Room currentRoom] getNumberOfListenersInRoom];
+    if(people == 1)
+    {
+        _people_with_you.text = [NSString stringWithFormat:@"1 person with you"];
+    }else{
+        _people_with_you.text = [NSString stringWithFormat:@"%d people with you",people];
+
+    }
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
