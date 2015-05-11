@@ -95,6 +95,7 @@ the delegate to Player for Player to communicate with a view controller
                 [self updatePlaylist];
             }else{
                 [_avPlayer stop];
+                
                 return;
             }
         }else{
@@ -230,6 +231,11 @@ the delegate to Player for Player to communicate with a view controller
     }else{
         return YES;
     }
+}
+
+-(void)hidePlayerUIWhenPlaylistIsFinished
+{
+    [_delegate hideUI];
 }
 
 @end
