@@ -109,11 +109,16 @@ static SocketIOClient *static_socket;
 	[static_socket on: @"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
 		NSLog(@"here connected");
 	}];
-	[static_socket on: @"get_rooms_around_me" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
-		NSLog(@"get_rooms_around_me returned");
-		NSLog(@"get_rooms_around_me returned,%@", data);
-	}];
 	
+	[static_socket on: @"get_rooms_around_me" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
+		NSLog(@"get_rooms_around_me returned,%@", data[0]);
+		NSDictionary* locationsDict =(NSDictionary*) data[0];
+		NSArray* locationsArray = [locationsDict objectForKey:@"locations"];
+		for(NSDictionary *item in locationsArray) {
+		   NSLog(@"Item: %@", item);
+		}
+	}];
+
     [static_socket connect];
 }
 
