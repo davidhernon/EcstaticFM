@@ -47,4 +47,6 @@
 
 - (void)updatePlaylistTable;
 
+- (void)hideUI;
+
 @end
