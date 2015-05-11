@@ -114,6 +114,9 @@ the delegate to Player for Player to communicate with a view controller
         return;
     }
     
+    [_delegate initPlayerUI:0.0f withTrack:_currentTrack atIndex:_currentTrackIndex];
+    
+    
     NSString *urlString = [NSString stringWithFormat:@"%@?client_id=%@", _currentTrack.stream_url,[SoundCloudAPI getClientID]];//Your client ID
     
         [SCRequest performMethod:SCRequestMethodGET
@@ -126,9 +129,10 @@ the delegate to Player for Player to communicate with a view controller
                     // NSLog(@"data:%@",data);
                      _avPlayer = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
                      [_avPlayer prepareToPlay];
+                     [_avPlayer play];
                      [_delegate initPlayerUI:[_avPlayer duration] withTrack:_currentTrack atIndex:_currentTrackIndex];
                      _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
-                     [_avPlayer play];
+                     
                      _isPaused = NO;
         }];
 }
@@ -198,7 +202,9 @@ the delegate to Player for Player to communicate with a view controller
 
 -(void)next
 {
-
+    [_avPlayer stop];
+    _avPlayer.rate = 0;
+    [self audioPlayerDidFinishPlaying:_avPlayer successfully:YES];
 }
 
 -(void)last

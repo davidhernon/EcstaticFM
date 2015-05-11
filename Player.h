@@ -29,6 +29,7 @@
 -(void)play;
 -(void) pause;
 -(void) last;
+-(void) next;
 -(void) updatePlaylist;
 -(void)addDelegate:(id)sender;
 -(void)updateTime;

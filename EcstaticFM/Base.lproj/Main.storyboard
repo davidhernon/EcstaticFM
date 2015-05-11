@@ -436,6 +436,9 @@ music around you.</string>
                                                 <state key="normal" title="Next" image="icon_controlsnext.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="next:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="KoH-vt-kGP"/>
+                                                </connections>
                                             </button>
                                             <button alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="koU-o0-AIH">
                                                 <rect key="frame" x="21" y="123" width="44" height="44"/>
@@ -675,7 +678,7 @@ music around you.</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="ixu-xt-lhn">
-                                            <rect key="frame" x="56" y="8" width="2488" height="856"/>
+                                            <rect key="frame" x="55.5" y="7.5" width="3128.5" height="1063.5"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>
