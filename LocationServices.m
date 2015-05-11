@@ -17,8 +17,8 @@
 	self.locationManager = [[CLLocationManager alloc] init];
  
 	self.locationManager.delegate = self;
-	self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
- 
+	self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+
 	// Set a movement threshold for new events.
 	
 	// Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
@@ -31,8 +31,9 @@
 {
 	if(status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse)
 	{
-		NSLog(@"start updating locations");
 		[self.locationManager startUpdatingLocation];
+		self.lastUpdatedTime = [NSDate date];
+		self.howOftenToUpdate = 15.0;
 	}
 }
 
@@ -43,9 +44,10 @@
 	
 	// If it's a relatively recent event, turn off updates to save power.
 	CLLocation* location = [locations lastObject];
-	NSDate* eventDate = location.timestamp;
-	NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
-	if (abs(howRecent) < 15.0) {
+	NSTimeInterval howRecent = [_lastUpdatedTime timeIntervalSinceNow];
+	if (abs(howRecent) > _howOftenToUpdate) {
+		self.lastUpdatedTime = [NSDate date];
+
 		// If the event is recent, do something with it.
 		NSLog(@"latitude %+.6f, longitude %+.6f\n",
 			  location.coordinate.latitude,
@@ -63,7 +65,6 @@
 		for (NSHTTPCookie *cookie in cookies) {
 			if ([cookie.name isEqualToString:@"csrftoken"]) {
 				csrf_cookie = cookie.value;
-				NSLog(@"cookie.value=%@", cookie.value);
 				break;
 			}
 		}
@@ -71,7 +72,6 @@
 		NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
 		
 		NSString* bodyData = [NSString stringWithFormat:@"username=%@&my_location_lat=%f&my_location_lon=%f", username, location.coordinate.latitude, location.coordinate.longitude];
-		NSLog(@"bodyData=%@", bodyData);
 		NSData *postData = [bodyData dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
 		NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
 		
@@ -98,20 +98,5 @@
 		
 	}
 }
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-	NSLog(@"got loc");
-}
-
-- (void)locationManager:(CLLocationManager *)manager
-	   didFailWithError:(NSError *)error
-{
-	NSLog(@"Error while getting core location : %@",[error localizedFailureReason]);
-	if ([error code] == kCLErrorDenied) {
-		//you had denied
-	}
-	[manager stopUpdatingLocation];
-}
-
 
 @end

@@ -106,10 +106,14 @@ static SocketIOClient *static_socket;
 + (void) connect{
     static_socket = [[SocketIOClient alloc] initWithSocketURL:@"http://54.173.157.204:8888" options:nil];
     
-    [static_socket on: @"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
-        NSLog(@"here connected");
-    }];
-    
+	[static_socket on: @"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
+		NSLog(@"here connected");
+	}];
+	[static_socket on: @"get_rooms_around_me" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
+		NSLog(@"get_rooms_around_me returned");
+		NSLog(@"get_rooms_around_me returned,%@", data);
+	}];
+	
     [static_socket connect];
 }
 
@@ -133,7 +137,6 @@ static SocketIOClient *static_socket;
 
 
 +(void) aroundMe:(NSString*)username{
-
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		
 		while(!static_socket.connected){

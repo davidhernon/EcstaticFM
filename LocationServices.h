@@ -11,7 +11,8 @@
 
 @interface LocationServices : NSObject<CLLocationManagerDelegate>
 @property (nonatomic, strong) CLLocationManager* locationManager;
-
+@property (nonatomic, strong) NSDate *lastUpdatedTime;
+@property int howOftenToUpdate;
 -(void)start_location_services;
 -(void)locationManager:(CLLocationManager *)manager
 	didUpdateLocations:(NSArray *)locations;
