@@ -35,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *add_songs;
 @property (weak, nonatomic) IBOutlet UIButton *add_songs_welcome;
 @property (weak, nonatomic) IBOutlet UILabel *playlist_title;
+@property (weak, nonatomic) IBOutlet UIImageView *current_user_picture;
 
 
 

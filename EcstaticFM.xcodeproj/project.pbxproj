@@ -79,6 +79,7 @@
 		DE14BA031AFFE3E0004470C7 /* image_progressbar.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14BA021AFFE3E0004470C7 /* image_progressbar.png */; };
 		DE14BA061B000595004470C7 /* icon_controlsback.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14BA041B000595004470C7 /* icon_controlsback.png */; };
 		DE14BA071B000595004470C7 /* icon_controlsnext.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14BA051B000595004470C7 /* icon_controlsnext.png */; };
+		DE14BA091B002130004470C7 /* button_pluspink.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14BA081B002130004470C7 /* button_pluspink.png */; };
 		DE57638A1AF400E6003F7507 /* ecstatic-wordmark-330.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763871AF400E6003F7507 /* ecstatic-wordmark-330.png */; };
 		DE57638B1AF400E6003F7507 /* icon-key-21.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763881AF400E6003F7507 /* icon-key-21.png */; };
 		DE57638C1AF400E6003F7507 /* icon-person-21.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763891AF400E6003F7507 /* icon-person-21.png */; };
@@ -238,6 +239,7 @@
 		DE14BA021AFFE3E0004470C7 /* image_progressbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_progressbar.png; sourceTree = "<group>"; };
 		DE14BA041B000595004470C7 /* icon_controlsback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_controlsback.png; sourceTree = "<group>"; };
 		DE14BA051B000595004470C7 /* icon_controlsnext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_controlsnext.png; sourceTree = "<group>"; };
+		DE14BA081B002130004470C7 /* button_pluspink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_pluspink.png; sourceTree = "<group>"; };
 		DE5763871AF400E6003F7507 /* ecstatic-wordmark-330.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecstatic-wordmark-330.png"; sourceTree = "<group>"; };
 		DE5763881AF400E6003F7507 /* icon-key-21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-key-21.png"; sourceTree = "<group>"; };
 		DE5763891AF400E6003F7507 /* icon-person-21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-person-21.png"; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 				DE14B9FC1AFFE145004470C7 /* image_progressbarcolors.png */,
 				DECC691E1AFEB07F00A761DE /* image_supermodegraff.png */,
 				DE14BA021AFFE3E0004470C7 /* image_progressbar.png */,
+				DE14BA081B002130004470C7 /* button_pluspink.png */,
 				DE14B9FA1AFFC9C8004470C7 /* button_addmusiclight.png */,
 				DECC691C1AFE631D00A761DE /* image_whitearrowleft.png */,
 				DE14B9C21AFF105C004470C7 /* ecstatic-wordmark-black.png */,
@@ -803,6 +806,7 @@
 				DE14B9C31AFF105C004470C7 /* ecstatic-wordmark-black.png in Resources */,
 				DE14B9D31AFF8342004470C7 /* button_addmusicpink.png in Resources */,
 				DEEC12211AFCF4BB00E21C52 /* image_roombg01.png in Resources */,
+				DE14BA091B002130004470C7 /* button_pluspink.png in Resources */,
 				DEE628DE1AFA8D59009084FF /* icon_close.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
