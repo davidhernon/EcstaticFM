@@ -132,6 +132,7 @@
 		DEEC123C1AFD5DC900E21C52 /* PopularHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEEC123A1AFD5DC900E21C52 /* PopularHeader.xib */; };
 		DEEC123E1AFD76EA00E21C52 /* dropshadow_leftofscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC123D1AFD76E900E21C52 /* dropshadow_leftofscreen.png */; };
 		DEEC12401AFD82E900E21C52 /* image_whitearrowright.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC123F1AFD82E900E21C52 /* image_whitearrowright.png */; };
+		FCEB2FDE1B001E3C00010187 /* LocationServices.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEB2FDD1B001E3C00010187 /* LocationServices.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -298,6 +299,8 @@
 		DEEC123A1AFD5DC900E21C52 /* PopularHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopularHeader.xib; sourceTree = "<group>"; };
 		DEEC123D1AFD76E900E21C52 /* dropshadow_leftofscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropshadow_leftofscreen.png; sourceTree = "<group>"; };
 		DEEC123F1AFD82E900E21C52 /* image_whitearrowright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_whitearrowright.png; sourceTree = "<group>"; };
+		FCEB2FDC1B001E3C00010187 /* LocationServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationServices.h; sourceTree = "<group>"; };
+		FCEB2FDD1B001E3C00010187 /* LocationServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationServices.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -447,6 +450,8 @@
 				1CB9BB2F1AA2456400748236 /* SoundCloudAPI.m */,
 				1CB9BB321AA2459000748236 /* SDSAPI.h */,
 				1CB9BB331AA2459000748236 /* SDSAPI.m */,
+				FCEB2FDC1B001E3C00010187 /* LocationServices.h */,
+				FCEB2FDD1B001E3C00010187 /* LocationServices.m */,
 			);
 			name = "API Integrations";
 			sourceTree = "<group>";
@@ -683,7 +688,7 @@
 				TargetAttributes = {
 					1CA428A41A799CE9001DB0AD = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = VF62VHS44V;
+						DevelopmentTeam = 6ZUB2TR58V;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -692,7 +697,7 @@
 					};
 					1CA428BD1A799CE9001DB0AD = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = VF62VHS44V;
+						DevelopmentTeam = 6ZUB2TR58V;
 						TestTargetID = 1CA428A41A799CE9001DB0AD;
 					};
 				};
@@ -878,6 +883,7 @@
 				1C73F3651AFA936D0003B1FA /* RoomsViewController.m in Sources */,
 				1C291D931AFFF2A1006A2B4F /* SocketEngine.swift in Sources */,
 				1C291D971AFFF2A1006A2B4F /* SocketIOClient.swift in Sources */,
+				FCEB2FDE1B001E3C00010187 /* LocationServices.m in Sources */,
 				1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */,
 				DEEC122A1AFCFCC800E21C52 /* ChatViewController.m in Sources */,
 				1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */,
@@ -1019,9 +1025,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EcstaticFM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EcstaticFM-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1033,9 +1042,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EcstaticFM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EcstaticFM-Bridging-Header.h";
 			};
 			name = Release;
