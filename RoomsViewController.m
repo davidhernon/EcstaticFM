@@ -29,8 +29,12 @@ static NSString* around_me_event_cell = @"around_me_cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	NSString* username = [defaults objectForKey:@"sdsUsername"];
+	self.locationServices = [[LocationServices alloc]init];
+	[self.locationServices start_location_services];
+	[SDSAPI aroundMe:username];
+	
     // Remove line between cells
     self.roomTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     

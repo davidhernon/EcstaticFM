@@ -133,19 +133,20 @@ static SocketIOClient *static_socket;
 
 
 +(void) aroundMe:(NSString*)username{
-    
-    SocketIOClient* socket = [[SocketIOClient alloc] initWithSocketURL:@"http://54.173.157.204:8888" options:nil];
-    
-    /*[socket on: @"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
-     NSLog(@"connected");
-     NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: username, nil]
-     forKeys:[NSArray arrayWithObjects:@"username", nil]];
-     
-     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
-     [socket emitObjc:@"get_rooms_around_me" withItems:@[jsonData]];
-     }];*/
-    
-    [socket connect];
+
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		
+		while(!static_socket.connected){
+			NSLog(@"static_socket connected inside=%d", static_socket.connected);
+			[NSThread sleepForTimeInterval:0.1f];
+		}
+		
+		NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: username, nil]
+																	forKeys:[NSArray arrayWithObjects:@"username", nil]];
+		
+		NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
+		[static_socket emitObjc:@"get_rooms_around_me" withItems:@[jsonData]];
+	});
 }
 
 @end
