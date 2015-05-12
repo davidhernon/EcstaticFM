@@ -158,4 +158,27 @@ static SocketIOClient *static_socket;
     
 }
 
+/**
+ Method for Serializing a Media Item and sending it to the server
+ Currently only called by soundCloudMediaPicker when a track is added to the playlist
+ */
++(void) sendMediaItemToServer:(MediaItem*)media_item
+{
+    NSDictionary* item = [media_item serializeMediaItem];
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:item
+                                                       options:nil
+                                                         error:&error];
+    
+    if (! jsonData) {
+        NSLog(@"Didnt work kid");
+    } else {
+        [static_socket emitObjc:@"add_song" withItems:@[jsonData]];
+       // return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+    
+    
+    
+}
+
 @end

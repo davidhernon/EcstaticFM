@@ -17,5 +17,6 @@
 +(void)createRoom:(NSString*)params;
 +(void)aroundMe:(NSString*)username withID:(id)sender;
 +(void)connect;
++(void) sendMediaItemToServer:(MediaItem*)media_item;
 
 @end

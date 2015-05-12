@@ -163,6 +163,10 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 -(IBAction)addSelectedTracksToPlaylist:(id)sender
 {
     [[Playlist sharedPlaylist] addTracks:self.selectedTracks];
+    for(MediaItem* item in self.selectedTracks)
+    {
+        [SDSAPI sendMediaItemToServer:item];
+    }
 }
 
 // selected state checkmark

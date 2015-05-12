@@ -26,5 +26,6 @@
 @property UIImage* playing_animation;
 
 - (id) initWithSoundCloudTrack:(NSDictionary *)soundCloudTrack;
+-(NSDictionary*)serializeMediaItem;
 
 @end

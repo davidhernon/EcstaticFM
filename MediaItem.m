@@ -10,6 +10,25 @@
 
 @implementation MediaItem
 
+- (void)encodeWithCoder:(NSCoder *)coder {
+    
+    [coder encodeObject:self.track_title forKey:@"treack_title"];
+    [coder encodeObject:self.artist forKey:@"artist"];
+    [coder encodeObject:self.duration forKey:@"duration"];
+    [coder encodeObject:self.artwork forKey:@"artwork"];
+    [coder encodeObject:self.stream_url forKey:@"stream_url"];
+}
+
+-(NSDictionary*)serializeMediaItem
+{
+    NSMutableDictionary* serialized = [[NSMutableDictionary alloc] init];
+    [serialized setValue:self.track_title forKey:@"track_title"];
+    [serialized setValue:self.artist forKey:@"artist"];
+    [serialized setValue:self.duration forKey:@"duration"];
+    [serialized setValue:self.stream_url forKey:@"stream_url"];
+    return serialized;
+}
+
 // Default constructor
 - (id) init
 {
