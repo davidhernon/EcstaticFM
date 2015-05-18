@@ -175,6 +175,12 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(NSString*)getLargestArtwork:(NSString*)providedURLString
+{
+    
+    return nil;
+}
+
 /*
 #pragma mark - Navigation
 
