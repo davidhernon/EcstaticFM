@@ -10,8 +10,6 @@
 
 @implementation MediaItemTableViewCell
 
-
-
 - (void)awakeFromNib {
     // Initialization code
 }

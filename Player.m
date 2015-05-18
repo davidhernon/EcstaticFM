@@ -82,34 +82,42 @@ the delegate to Player for Player to communicate with a view controller
  */
 -(void)play
 {
-   // [self updatePlaylist];
+   // if(player is not playing audio)
     if(_avPlayer.rate == 0)
     {
-        NSLog(@"rate: %f",_avPlayer.rate);
+        // if(there is not current track (i.e. player is not paused)
         if(!_currentTrack)
         {
+            // if(playlist has songs and currentTrackIndex is less than the length of the list
             if([_playlist count] > 0 && _currentTrackIndex < [_playlist count])
             {
                 _currentTrack = [_playlist objectAtIndex:_currentTrackIndex];
-               // [[Playlist sharedPlaylist] removeTrack:_currentTrack];
                 [self updatePlaylist];
+            // else player is playing but there is no track to be played in playlist so stop
             }else{
+                #warning Update Player UI
                 [_avPlayer stop];
-                
                 return;
             }
+        // else there is a current track and the player is just paused
         }else{
+#warning Update Player UI
             [_avPlayer play];
             _isPaused = NO;
             return;
         }
         
-        
+    // audio is not playing check if we are not paused
     }else if(!_isPaused){
+        #warning Update Player UI
+        NSLog(@"User just hit pause button, update Player UI to show paused state");
         [_avPlayer pause];
         _isPaused = YES;
         return;
+    // audio is not playing but we are not paused
     }else{
+        #warning Update Player UI
+        NSLog(@"User just hit play after being paused");
         [_avPlayer play];
         _isPaused = NO;
         return;
@@ -126,6 +134,7 @@ the delegate to Player for Player to communicate with a view controller
                      withAccount:[SCSoundCloud account]
           sendingProgressHandler:nil
                  responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+#warning UpdatePlayer UI
                      NSError *playerError;
                     // NSLog(@"data:%@",data);
                      _avPlayer = [[AVAudioPlayer alloc] initWithData:data error:&playerError];
@@ -133,8 +142,8 @@ the delegate to Player for Player to communicate with a view controller
                      [_avPlayer play];
                      [_delegate initPlayerUI:[_avPlayer duration] withTrack:_currentTrack atIndex:_currentTrackIndex];
                      _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
-                     
                      _isPaused = NO;
+                     NSLog(@"make sure player UI reflects that songs is playing");
         }];
 }
 
