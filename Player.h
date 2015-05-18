@@ -18,7 +18,7 @@
 
 @property Playlist* playlist;
 @property MediaItem* currentTrack;
-@property AVAudioPlayer* avPlayer;
+@property AVPlayer* avPlayer;
 @property NSTimer* progressTimer;
 @property int currentTrackIndex;
 @property BOOL isPaused;

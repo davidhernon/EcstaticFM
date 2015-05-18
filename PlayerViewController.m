@@ -205,9 +205,9 @@ static NSString* cellIdentifier = @"playListCell";
  */
 - (void) setCurrentSliderValue:(AVAudioPlayer*)childPlayer
 {
-    NSLog(@"current time: %f", childPlayer.currentTime);
-    _slider.value = childPlayer.currentTime;
-    _current_time.text = [Utils convertTimeFromMillis:(int)1000*childPlayer.currentTime];
+//    NSLog(@"current time: %f", childPlayer.currentTime);
+//    _slider.value = childPlayer.currentTime;
+//    _current_time.text = [Utils convertTimeFromMillis:(int)1000*childPlayer.currentTime];
 }
 
 /**
