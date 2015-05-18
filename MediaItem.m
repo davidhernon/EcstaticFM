@@ -69,6 +69,7 @@
         self.stream_url = [soundCloudTrack objectForKey:@"stream_url"];
         self.waveform_url = [self addWaveform:[soundCloudTrack objectForKey:@"waveform_url"]];
         self.playing_animation = [[UIImage alloc] init];
+        self.username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     }
     return self;
 }

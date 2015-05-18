@@ -22,6 +22,10 @@
 @property (weak, nonatomic) Playlist* playlist;
 @property (weak, nonatomic) Player* player;
 
+@property (weak, nonatomic) NSString* owner;
+
+@property NSInteger* room_number;
+
 -(int)getNumberOfListenersInRoom;
 + (Room*)currentRoom;
 -(Playlist*)getRoomPlaylist;

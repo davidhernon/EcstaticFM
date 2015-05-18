@@ -43,6 +43,14 @@ static Room *currentRoom = nil;
     return currentRoom;
 }
 
+- (void) initWithRoom:(NSDictionary*)room_to_join
+{
+    if(!currentRoom)
+        [Room currentRoom];
+    
+    currentRoom.title = [room_to_join objectForKey:@"title"];
+}
+
 #warning Unfinished Code Block
 /**
  Function returns the number of other listeners in the current room
@@ -101,6 +109,11 @@ static Room *currentRoom = nil;
     //Wait and check server queue to see if playlists match or client needs to reorder
     //Update Playey
     //Update PlayerUI
+}
+
+-(NSInteger*)getRoomNumber
+{
+    return _room_number;
 }
 
 @end

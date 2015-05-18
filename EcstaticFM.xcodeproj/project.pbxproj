@@ -46,6 +46,8 @@
 		1CA428B61A799CE9001DB0AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428B51A799CE9001DB0AD /* Images.xcassets */; };
 		1CA428B91A799CE9001DB0AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428B71A799CE9001DB0AD /* LaunchScreen.xib */; };
 		1CA428C51A799CE9001DB0AD /* EcstaticFMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428C41A799CE9001DB0AD /* EcstaticFMTests.m */; };
+		1CB835561B027A9F0003D9DC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB835551B027A9F0003D9DC /* Security.framework */; };
+		1CB8355A1B027BA60003D9DC /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB835591B027BA60003D9DC /* SSKeychain.m */; };
 		1CB9BB301AA2456400748236 /* SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9BB2F1AA2456400748236 /* SoundCloudAPI.m */; };
 		1CB9BB341AA2459000748236 /* SDSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9BB331AA2459000748236 /* SDSAPI.m */; };
 		1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCB176C1A92792C0055D68C /* LoginViewController.m */; };
@@ -201,6 +203,9 @@
 		1CA428BE1A799CE9001DB0AD /* EcstaticFMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EcstaticFMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA428C31A799CE9001DB0AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CA428C41A799CE9001DB0AD /* EcstaticFMTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EcstaticFMTests.m; sourceTree = "<group>"; };
+		1CB835551B027A9F0003D9DC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1CB835581B027BA60003D9DC /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		1CB835591B027BA60003D9DC /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		1CB9BB2B1AA2434B00748236 /* MusicServiceAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicServiceAPI.h; sourceTree = "<group>"; };
 		1CB9BB2E1AA2456400748236 /* SoundCloudAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundCloudAPI.h; sourceTree = "<group>"; };
 		1CB9BB2F1AA2456400748236 /* SoundCloudAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundCloudAPI.m; sourceTree = "<group>"; };
@@ -311,6 +316,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CB835561B027A9F0003D9DC /* Security.framework in Frameworks */,
 				1C73F36E1AFC036A0003B1FA /* CoreLocation.framework in Frameworks */,
 				DE5763AF1AF40A8F003F7507 /* QuartzCore.framework in Frameworks */,
 				D2A8C828A1F2E13542223221 /* libPods.a in Frameworks */,
@@ -432,6 +438,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		1CB835571B027B6A0003D9DC /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				1CB835581B027BA60003D9DC /* SSKeychain.h */,
+				1CB835591B027BA60003D9DC /* SSKeychain.m */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
 		1CB9BB2A1AA2428200748236 /* Player */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +465,17 @@
 		1CB9BB311AA2456900748236 /* API Integrations */ = {
 			isa = PBXGroup;
 			children = (
+				1C291D861AFFF2A1006A2B4F /* SocketAckMap.swift */,
+				1C291D871AFFF2A1006A2B4F /* SocketAnyEvent.swift */,
+				1C291D881AFFF2A1006A2B4F /* SocketEngine.swift */,
+				1C291D891AFFF2A1006A2B4F /* SocketEngineClient.swift */,
+				1C291D8A1AFFF2A1006A2B4F /* SocketEventHandler.swift */,
+				1C291D8B1AFFF2A1006A2B4F /* SocketFixUTF8.swift */,
+				1C291D8C1AFFF2A1006A2B4F /* SocketIOClient.swift */,
+				1C291D8D1AFFF2A1006A2B4F /* SocketPacket.swift */,
+				1C291D8E1AFFF2A1006A2B4F /* SocketParser.swift */,
+				1C291D8F1AFFF2A1006A2B4F /* SwiftRegex.swift */,
+				1C291D901AFFF2A1006A2B4F /* WebSocket.swift */,
 				1CB9BB2B1AA2434B00748236 /* MusicServiceAPI.h */,
 				1CB9BB2E1AA2456400748236 /* SoundCloudAPI.h */,
 				1CB9BB2F1AA2456400748236 /* SoundCloudAPI.m */,
@@ -464,6 +490,7 @@
 		1CC438BA1A7DBF38000A5AEC /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1CB835571B027B6A0003D9DC /* Security */,
 				DEEC122B1AFCFCD000E21C52 /* Chat */,
 				1C73F35F1AFA8CCB0003B1FA /* Rooms */,
 				DEE628DC1AFA7FEF009084FF /* GFX */,
@@ -474,17 +501,6 @@
 				1CB9BB2A1AA2428200748236 /* Player */,
 				1C2838021A955F8D006F10EC /* Utils.h */,
 				1C2838031A955F8D006F10EC /* Utils.m */,
-				1C291D861AFFF2A1006A2B4F /* SocketAckMap.swift */,
-				1C291D871AFFF2A1006A2B4F /* SocketAnyEvent.swift */,
-				1C291D881AFFF2A1006A2B4F /* SocketEngine.swift */,
-				1C291D891AFFF2A1006A2B4F /* SocketEngineClient.swift */,
-				1C291D8A1AFFF2A1006A2B4F /* SocketEventHandler.swift */,
-				1C291D8B1AFFF2A1006A2B4F /* SocketFixUTF8.swift */,
-				1C291D8C1AFFF2A1006A2B4F /* SocketIOClient.swift */,
-				1C291D8D1AFFF2A1006A2B4F /* SocketPacket.swift */,
-				1C291D8E1AFFF2A1006A2B4F /* SocketParser.swift */,
-				1C291D8F1AFFF2A1006A2B4F /* SwiftRegex.swift */,
-				1C291D901AFFF2A1006A2B4F /* WebSocket.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -492,6 +508,7 @@
 		41E1FCC16606E980DDA2964F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1CB835551B027A9F0003D9DC /* Security.framework */,
 				1C73F36D1AFC036A0003B1FA /* CoreLocation.framework */,
 				DE5763AE1AF40A8E003F7507 /* QuartzCore.framework */,
 				4CDA11C45E121802EEDA9E85 /* libPods.a */,
@@ -899,6 +916,7 @@
 				1C13A9481AB9BF4800B2DF81 /* MediaItemTableViewCell.m in Sources */,
 				1CA428AB1A799CE9001DB0AD /* main.m in Sources */,
 				1C2251471A9E7E5F00210324 /* Playlist.m in Sources */,
+				1CB8355A1B027BA60003D9DC /* SSKeychain.m in Sources */,
 				1C291D941AFFF2A1006A2B4F /* SocketEngineClient.swift in Sources */,
 				1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */,
 				DE5763CC1AF438E7003F7507 /* RoomViewController.m in Sources */,

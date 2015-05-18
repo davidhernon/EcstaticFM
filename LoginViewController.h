@@ -14,6 +14,7 @@
 #import "GFXUtils.h"
 #import "RadialGradientLayer.h"
 #import "SDSAPI.h"
+#import "SSKeychain.h"
 
 @interface LoginViewController : UIViewController
 

@@ -174,7 +174,6 @@ static SocketIOClient *static_socket;
         NSLog(@"Didnt work kid");
     } else {
         [static_socket emitObjc:@"add_song" withItems:@[jsonData]];
-       // return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
     
     

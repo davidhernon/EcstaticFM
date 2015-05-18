@@ -25,6 +25,8 @@
 @property UIImage* waveform;
 @property UIImage* playing_animation;
 
+@property NSString* username;
+
 - (id) initWithSoundCloudTrack:(NSDictionary *)soundCloudTrack;
 -(NSDictionary*)serializeMediaItem;
 
