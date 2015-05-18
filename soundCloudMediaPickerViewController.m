@@ -43,6 +43,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     
     self.soundCloudResultsTableView.allowsMultipleSelectionDuringEditing = YES;
     self.selectedTracks = [[NSMutableArray alloc] init];
+    self.selectedTrackIndices = [[NSMutableArray alloc] init];
     
 }
 
@@ -64,6 +65,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MediaItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     NSDictionary *track = [self.tracksFromSoundCloud objectAtIndex:indexPath.row];
     tableView.backgroundColor = [UIColor clearColor];
@@ -71,6 +73,19 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     cell.artist.text = [[track objectForKey:@"user"] objectForKey:@"username"];
     cell.duration.text = [NSString stringWithFormat:@"%@", [Utils convertTimeFromMillis:(int) [[track objectForKey:@"duration"] intValue]]];
     [cell setAlbumArtworkFromStringURL:[track objectForKey:@"artwork_url"]];
+    
+    [cell setAccessoryType:UITableViewCellAccessoryNone];
+    for (int i = 0; i < _selectedTrackIndices.count; i++) {
+        NSUInteger num = [[_selectedTrackIndices objectAtIndex:i] intValue];
+        
+        if (num == indexPath.row) {
+            [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+            // Once we find a match there is no point continuing the loop
+            break;
+        }
+    }
+    
+    
     
     return cell;
     
@@ -81,18 +96,18 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     //MediaItem* mediaItemSelected = [self mediaItemFromCell:indexPath.row];
     NSDictionary *itemOne = [self.tracksFromSoundCloud objectAtIndex:indexPath.row];
     MediaItem* mediaItemSelected = [[MediaItem alloc] initWithSoundCloudTrack:[self.tracksFromSoundCloud objectAtIndex:indexPath.row]];
-//    MediaItem* mediaItemSelected = [[MediaItem alloc] init];
     
     if([tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryCheckmark){
 //        cell clicked and it was previously selected
         [self removeMediaItemFromSelectedTracks:mediaItemSelected];
         [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+        [_selectedTrackIndices removeObject:@(indexPath.row)];
     }else{
-        
 //        cell clicked and it was not previously selected
         if(![self itemAlreadySelected:mediaItemSelected])
             [self.selectedTracks addObject:mediaItemSelected];
         [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+        [_selectedTrackIndices addObject:@(indexPath.row)];
     }
     [self printSelectedTracks];
 }

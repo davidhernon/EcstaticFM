@@ -22,6 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *soundCloudResultsTableView;
 @property NSMutableArray *selectedTracks;
+@property (strong, nonatomic) NSMutableArray *selectedTrackIndices;
 
 @property (strong, nonatomic) NSArray *tracksFromSoundCloud;
 @property BOOL returned;
