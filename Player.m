@@ -187,7 +187,7 @@ the delegate to Player for Player to communicate with a view controller
 }
 
 /**
- Currently (Deprecated) and commented out (May 18)
+ Does not seek while player is not playing
  Changes the currentTime value to the correct point as dictated by the UISlider
  Example usage:
  @code
@@ -199,10 +199,10 @@ the delegate to Player for Player to communicate with a view controller
  */
 -(void)seek:(float)value
 {
-//    if(_avPlayer.rate != 0)
-//    {
-//         _avPlayer.currentTime = value;
-//    }
+    if(_avPlayer.rate != 0)
+    {
+        [_avPlayer seekToTime:CMTimeMake(value, 100000)];
+    }
 }
 
 -(void) pause
