@@ -73,7 +73,7 @@ the delegate to Player for Player to communicate with a view controller
 }
 
 /**
- Method for playing or pausing and controlling which currentTrack is playing
+ Method for playing or pausing and controlling which currentTrack is playing. Needs refactoring.
  Example usage:
  @code
  [[Player sharedPlayer] play];
@@ -124,14 +124,14 @@ the delegate to Player for Player to communicate with a view controller
         _isPaused = NO;
         return;
     }
-    
+    //set up the UI in advance to display album art while song is buffering
     [_delegate initPlayerUI:0.0f withTrack:_currentTrack atIndex:_currentTrackIndex];
     
     
     NSString *urlString = [NSString stringWithFormat:@"%@?client_id=%@", _currentTrack.stream_url,[SoundCloudAPI getClientID]];//Your client ID
     _avPlayer = [AVPlayer playerWithURL:[NSURL URLWithString:urlString]];
     [_avPlayer play];
-    [_delegate initPlayerUI:1000*CMTimeGetSeconds(_avPlayer.currentItem.asset.duration) withTrack:_currentTrack atIndex:_currentTrackIndex];
+    [_delegate initPlayerUI:(1.0f*CMTimeGetSeconds(_avPlayer.currentItem.asset.duration)) withTrack:_currentTrack atIndex:_currentTrackIndex];
     _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
     _isPaused = NO;
     NSLog(@"make sure player UI reflects that songs is playing");
@@ -187,6 +187,7 @@ the delegate to Player for Player to communicate with a view controller
 }
 
 /**
+ Currently (Deprecated) and commented out (May 18)
  Changes the currentTime value to the correct point as dictated by the UISlider
  Example usage:
  @code

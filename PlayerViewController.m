@@ -157,7 +157,7 @@ static NSString* cellIdentifier = @"playListCell";
 
     if((int)_current_track_index == (int)indexPath.row && _player.isPlaying)
     {
-        cell.playing_animation.image = [UIImage animatedImageNamed:@"wave" duration:0.6f];
+        cell.playing_animation.image = track.playing_animation;
         cell.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
     }
     
@@ -203,11 +203,10 @@ static NSString* cellIdentifier = @"playListCell";
  the AVAudioPlayer which is a parameter of the EcstaticPlayer
  @return void
  */
-- (void) setCurrentSliderValue:(AVAudioPlayer*)childPlayer
+- (void) setCurrentSliderValue:(AVPlayer*)childPlayer
 {
-//    NSLog(@"current time: %f", childPlayer.currentTime);
-//    _slider.value = childPlayer.currentTime;
-//    _current_time.text = [Utils convertTimeFromMillis:(int)1000*childPlayer.currentTime];
+    _slider.value = (int)CMTimeGetSeconds([childPlayer currentTime]);
+    _current_time.text = [Utils convertTimeFromMillis:(int)1000*_slider.value];
 }
 
 /**
