@@ -154,12 +154,16 @@ static NSString* cellIdentifier = @"playListCell";
     cell.duration.text = track.duration;
     cell.sc_album_image.image =  track.artwork;
     cell.backgroundColor = [UIColor clearColor];
+        cell.song_index_label.text = [NSString stringWithFormat:@"%d",indexPath.row+1];
 
     if((int)_current_track_index == (int)indexPath.row && _player.isPlaying)
     {
         cell.playing_animation.image = track.playing_animation;
         cell.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
+        cell.song_index_label.text = @"";
     }
+    
+
     
     return cell;
     

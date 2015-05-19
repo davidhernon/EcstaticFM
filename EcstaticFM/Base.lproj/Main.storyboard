@@ -371,6 +371,13 @@ music around you.</string>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bds-LQ-pb3" id="uyA-2g-aRK">
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o4F-BC-Qhh">
+                                                                    <rect key="frame" x="46" y="18" width="17" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="q0H-PN-5j9">
                                                                     <rect key="frame" x="45" y="9" width="18" height="15"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -411,6 +418,7 @@ music around you.</string>
                                                             <outlet property="artist" destination="tNM-Q8-6pE" id="FaJ-VK-N3i"/>
                                                             <outlet property="duration" destination="XYH-9M-vGL" id="Vf1-H8-WFB"/>
                                                             <outlet property="playing_animation" destination="q0H-PN-5j9" id="pFi-Af-hAT"/>
+                                                            <outlet property="song_index_label" destination="o4F-BC-Qhh" id="wld-cv-nhT"/>
                                                             <outlet property="track_title" destination="4nq-q5-8Sg" id="ez0-aN-OWx"/>
                                                         </connections>
                                                     </tableViewCell>
