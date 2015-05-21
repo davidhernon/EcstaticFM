@@ -156,14 +156,24 @@ static NSString* cellIdentifier = @"playListCell";
     cell.backgroundColor = [UIColor clearColor];
         cell.song_index_label.text = [NSString stringWithFormat:@"%d",indexPath.row+1];
 
+    // If the track added is the track currently playing add other UI
     if((int)_current_track_index == (int)indexPath.row && _player.isPlaying)
     {
-        cell.playing_animation.image = track.playing_animation;
         cell.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
         cell.song_index_label.text = @"";
+        NSArray *imageNames = @[@"wave1.png", @"wave2.png", @"wave3.png", @"wave4.png", @"wave5.png", @"wave6.png", @"wave7.png"];
+        
+        NSMutableArray *images = [[NSMutableArray alloc] init];
+        for (int i = 0; i < imageNames.count; i++) {
+            [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
+        }
+        
+        // Normal Animation
+        cell.playing_animation.animationImages = images;
+        cell.playing_animation.animationDuration = 0.6;
+        [cell.playing_animation startAnimating];
     }
     
-
     
     return cell;
     
