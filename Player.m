@@ -1,3 +1,4 @@
+
 //
 //  Player.m
 //  EcstaticFM
@@ -39,6 +40,7 @@ static Player *ecstaticPlayer = nil;
         ecstaticPlayer.avPlayer = [[AVPlayer alloc] init];
         ecstaticPlayer.currentTrackIndex = 0;
         ecstaticPlayer.isPaused = NO;
+        ecstaticPlayer.isNextSong = NO;
     });
     return ecstaticPlayer;
 }
@@ -128,14 +130,27 @@ the delegate to Player for Player to communicate with a view controller
     [_delegate initPlayerUI:0.0f withTrack:_currentTrack atIndex:_currentTrackIndex];
     
     
+    [self callNextSong];
+    
+}
+
+-(void)callNextSong
+{
+    //set up the UI in advance to display album art while song is buffering
+    [_delegate initPlayerUI:0.0f withTrack:_currentTrack atIndex:_currentTrackIndex];
+    
+    
     NSString *urlString = [NSString stringWithFormat:@"%@?client_id=%@", _currentTrack.stream_url,[SoundCloudAPI getClientID]];//Your client ID
     _avPlayer = [AVPlayer playerWithURL:[NSURL URLWithString:urlString]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioPlayerDidFinishPlaying) name:AVPlayerItemDidPlayToEndTimeNotification object:[_avPlayer currentItem]];
     [_avPlayer play];
+//    _avPlayer.rate = 1.0;
     [_delegate initPlayerUI:(1.0f*CMTimeGetSeconds(_avPlayer.currentItem.asset.duration)) withTrack:_currentTrack atIndex:_currentTrackIndex];
     _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
     _isPaused = NO;
+//    if(_currentTrackIndex !=0 && _currentTrackIndex != [[Playlist sharedPlaylist] count])
+//        _isNextSong = YES;
     NSLog(@"make sure player UI reflects that songs is playing");
-    
 }
 
 /**
@@ -150,12 +165,13 @@ the delegate to Player for Player to communicate with a view controller
 -(void)updateTime
 {
     [_delegate setCurrentSliderValue:_avPlayer];
-    if((_avPlayer.rate == 0.0 && !_isPaused) || _avPlayer.error){
+    if((_avPlayer.rate == 0.0 && !_isPaused) || _avPlayer.error ){
+        NSLog(@"rate, isPaused, and error: %f space %hhd", _avPlayer.rate, _isPaused);
         if(_avPlayer.error)
         {
-            NSLog(@"ERROR: We did not finish playing successfully!!");
+            NSLog(@"ERROR: We did not finish playing successfully!! with error: %@", _avPlayer.error);
         }
-        [self audioPlayerDidFinishPlaying:_avPlayer successfully:YES];
+//        [self audioPlayerDidFinishPlaying:_avPlayer successfully:YES];
     }
 }
 
@@ -171,19 +187,22 @@ the delegate to Player for Player to communicate with a view controller
         Boolean that indicates if the song played successfully or not
  @return (id) of the newly created MediaItem
  */
-- (void)audioPlayerDidFinishPlaying:(AVPlayer *)player successfully:(BOOL)flag
+- (void)audioPlayerDidFinishPlaying
 {
-    if(_currentTrackIndex == [[Playlist sharedPlaylist] count])
+    if(_currentTrackIndex == [[Playlist sharedPlaylist] count] - 1)
     {
+        _currentTrack = nil;
+        [self updatePlaylist];
         return;
     }
     [self.progressTimer invalidate];
     self.progressTimer = nil;
     _currentTrack = nil;
     [ecstaticPlayer updatePlaylist];
-    _avPlayer.rate = 0;
     _currentTrackIndex++;
-    [ecstaticPlayer play];
+    _currentTrack = [_playlist objectAtIndex:_currentTrackIndex];
+    [self updatePlaylist];
+    [self callNextSong];
 }
 
 /**
@@ -201,7 +220,7 @@ the delegate to Player for Player to communicate with a view controller
 {
     if(_avPlayer.rate != 0)
     {
-        [_avPlayer seekToTime:CMTimeMake(value, 100000)];
+        [_avPlayer seekToTime:CMTimeMake(value, 100)];
     }
 }
 
@@ -213,7 +232,7 @@ the delegate to Player for Player to communicate with a view controller
 -(void)next
 {
     _avPlayer.rate = 0;
-    [self audioPlayerDidFinishPlaying:_avPlayer successfully:YES];
+    [self audioPlayerDidFinishPlaying];
 }
 
 -(void)last

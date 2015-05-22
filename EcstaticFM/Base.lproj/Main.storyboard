@@ -555,7 +555,7 @@ music around you.</string>
                         <outlet property="play" destination="gnl-oJ-0Zd" id="Oix-Te-KKR"/>
                         <outlet property="playListTableView" destination="fim-yG-u2G" id="goh-MD-M0Z"/>
                         <outlet property="playlist_title" destination="3Yn-vV-iHf" id="dQ8-Bk-HZc"/>
-                        <outlet property="slider" destination="w8p-jS-ofe" id="hLc-iy-mvE"/>
+                        <outlet property="slider" destination="w8p-jS-ofe" id="s0c-r3-LAC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJn-H3-nVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -841,6 +841,19 @@ music around you.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhK-Pb-bck" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1956" y="1630"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6xx-op-dd8">
+            <objects>
+                <viewController id="qsC-ro-ebl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dZB-we-jH7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bLz-Jo-uvZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

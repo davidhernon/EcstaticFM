@@ -22,6 +22,7 @@
 @property NSTimer* progressTimer;
 @property int currentTrackIndex;
 @property BOOL isPaused;
+@property BOOL isNextSong;
 
 @property (nonatomic, weak) id<PlayerDelegate> delegate;
 
@@ -43,7 +44,7 @@
 
 - (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack atIndex:(int)index;
 
-- (void) setCurrentSliderValue:(AVAudioPlayer*)childPlayer;
+- (void) setCurrentSliderValue:(AVPlayer*)childPlayer;
 
 - (void)updatePlaylistTable;
 

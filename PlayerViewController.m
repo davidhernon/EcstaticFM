@@ -20,6 +20,7 @@ static NSString* cellIdentifier = @"playListCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
   //  [self.player updatePlaylist];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
     // Set AVAudioSession
     NSError *sessionError = nil;
