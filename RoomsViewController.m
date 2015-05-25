@@ -10,9 +10,15 @@
 
 @interface RoomsViewController ()
 
+@property (strong) UICollectionView *collectionView;
+@property (strong) NSArray *content;
+
 @end
 
 @implementation RoomsViewController
+
+
+#define kDragVelocityDampener .85
 
 // https://api.soundcloud.com/tracks/189670713/stream
 // https://api.soundcloud.com/tracks/189917203/stream
@@ -27,6 +33,7 @@
 static NSString* popular_event_cell = @"popular_event_cell";
 static NSString* around_me_event_cell = @"around_me_cell";
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -35,6 +42,11 @@ static NSString* around_me_event_cell = @"around_me_cell";
 	[self.locationServices start_location_services];
     [SDSAPI aroundMe:username withID:self];
 	
+    
+    // enable scrolling
+    //   _roomsScrollView.scrollEnabled = YES;
+    
+    
     // Remove line between cells
     self.roomTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
