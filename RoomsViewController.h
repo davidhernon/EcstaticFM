@@ -11,10 +11,21 @@
 #import "GFXUtils.h"
 #import "RadialGradientLayer.h"
 
-@interface RoomsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+#define kUVCellDragInterval 180.f
+
+@interface RoomsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>;
+
 
 @property (weak, nonatomic) IBOutlet UITableView *roomTableView;
 @property NSArray* popular;
 @property NSArray* around_me;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *roomsScrollView;
+@property (weak, nonatomic) IBOutlet UIGestureRecognizer *roomsGestureRecognizer;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *roomsSwipe;
+
+-(IBAction)buttonPressed:(id)sender;
 
 @end

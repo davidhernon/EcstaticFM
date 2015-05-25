@@ -10,9 +10,15 @@
 
 @interface RoomsViewController ()
 
+@property (strong) UICollectionView *collectionView;
+@property (strong) NSArray *content;
+
 @end
 
 @implementation RoomsViewController
+
+
+#define kDragVelocityDampener .85
 
 // https://api.soundcloud.com/tracks/189670713/stream
 // https://api.soundcloud.com/tracks/189917203/stream
@@ -27,8 +33,12 @@
 static NSString* popular_event_cell = @"popular_event_cell";
 static NSString* around_me_event_cell = @"around_me_cell";
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // enable scrolling
+    //   _roomsScrollView.scrollEnabled = YES;
     
     
     // Remove line between cells
@@ -104,6 +114,22 @@ static NSString* around_me_event_cell = @"around_me_cell";
         return @"Around Me";
     return @"undefined";
 }
+
+//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+//{
+//     targetContentOffset->y  = _roomsScrollView.contentOffset.x - 400;
+    
+//     NSLog(@"Yo");
+    
+//}
+
+-(IBAction)buttonPressed:(id)sender {
+   
+ 
+
+
+}
+
 
 /*
 #pragma mark - Navigation

@@ -80,6 +80,10 @@
 		DE14BA061B000595004470C7 /* icon_controlsback.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14BA041B000595004470C7 /* icon_controlsback.png */; };
 		DE14BA071B000595004470C7 /* icon_controlsnext.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14BA051B000595004470C7 /* icon_controlsnext.png */; };
 		DE14BA091B002130004470C7 /* button_pluspink.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14BA081B002130004470C7 /* button_pluspink.png */; };
+		DE46125E1B01388B00192E49 /* image_ecstaticlogocolor.png in Resources */ = {isa = PBXBuildFile; fileRef = DE46125D1B01388B00192E49 /* image_ecstaticlogocolor.png */; };
+		DE4612601B0138A100192E49 /* icon_distance.png in Resources */ = {isa = PBXBuildFile; fileRef = DE46125F1B0138A100192E49 /* icon_distance.png */; };
+		DE4612621B0138C800192E49 /* image_roomdummy.png in Resources */ = {isa = PBXBuildFile; fileRef = DE4612611B0138C800192E49 /* image_roomdummy.png */; };
+		DE4612661B01540300192E49 /* icon_leave.png in Resources */ = {isa = PBXBuildFile; fileRef = DE4612651B01540300192E49 /* icon_leave.png */; };
 		DE57638A1AF400E6003F7507 /* ecstatic-wordmark-330.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763871AF400E6003F7507 /* ecstatic-wordmark-330.png */; };
 		DE57638B1AF400E6003F7507 /* icon-key-21.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763881AF400E6003F7507 /* icon-key-21.png */; };
 		DE57638C1AF400E6003F7507 /* icon-person-21.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5763891AF400E6003F7507 /* icon-person-21.png */; };
@@ -240,6 +244,10 @@
 		DE14BA041B000595004470C7 /* icon_controlsback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_controlsback.png; sourceTree = "<group>"; };
 		DE14BA051B000595004470C7 /* icon_controlsnext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_controlsnext.png; sourceTree = "<group>"; };
 		DE14BA081B002130004470C7 /* button_pluspink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_pluspink.png; sourceTree = "<group>"; };
+		DE46125D1B01388B00192E49 /* image_ecstaticlogocolor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_ecstaticlogocolor.png; sourceTree = "<group>"; };
+		DE46125F1B0138A100192E49 /* icon_distance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_distance.png; sourceTree = "<group>"; };
+		DE4612611B0138C800192E49 /* image_roomdummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_roomdummy.png; sourceTree = "<group>"; };
+		DE4612651B01540300192E49 /* icon_leave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_leave.png; sourceTree = "<group>"; };
 		DE5763871AF400E6003F7507 /* ecstatic-wordmark-330.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecstatic-wordmark-330.png"; sourceTree = "<group>"; };
 		DE5763881AF400E6003F7507 /* icon-key-21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-key-21.png"; sourceTree = "<group>"; };
 		DE5763891AF400E6003F7507 /* icon-person-21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-person-21.png"; sourceTree = "<group>"; };
@@ -493,8 +501,12 @@
 			isa = PBXGroup;
 			children = (
 				DE14B9DE1AFFA8E8004470C7 /* button_controlsplaypink.png */,
+				DE46125D1B01388B00192E49 /* image_ecstaticlogocolor.png */,
+				DE4612611B0138C800192E49 /* image_roomdummy.png */,
+				DE4612651B01540300192E49 /* icon_leave.png */,
 				DECC69201AFEC11A00A761DE /* icon_addmusicfull.png */,
 				DE14BA041B000595004470C7 /* icon_controlsback.png */,
+				DE46125F1B0138A100192E49 /* icon_distance.png */,
 				DE14BA051B000595004470C7 /* icon_controlsnext.png */,
 				DE14B9FC1AFFE145004470C7 /* image_progressbarcolors.png */,
 				DECC691E1AFEB07F00A761DE /* image_supermodegraff.png */,
@@ -721,6 +733,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE46125E1B01388B00192E49 /* image_ecstaticlogocolor.png in Resources */,
 				DE14B9FB1AFFC9C8004470C7 /* button_addmusiclight.png in Resources */,
 				DE14BA071B000595004470C7 /* icon_controlsnext.png in Resources */,
 				DE14B9C51AFF130B004470C7 /* icon_playlistblack.png in Resources */,
@@ -741,6 +754,7 @@
 				DE14B9F11AFFBF07004470C7 /* wave5.png in Resources */,
 				1C37B7ED1AF5789A00566216 /* icon_musicplaying.png in Resources */,
 				DEEC122D1AFD4F9700E21C52 /* NoGeoTableCellView.xib in Resources */,
+				DE4612661B01540300192E49 /* icon_leave.png in Resources */,
 				DECC691D1AFE631D00A761DE /* image_whitearrowleft.png in Resources */,
 				DE14B9BC1AFF0BCD004470C7 /* button_controlsnext.png in Resources */,
 				DE9A4A0E1AF5765A00B26BA4 /* image_navbarbg.png in Resources */,
@@ -771,6 +785,7 @@
 				DEBABA351AFC2113002D66F7 /* image_arrowup.png in Resources */,
 				DE5763A51AF40817003F7507 /* Raleway-Bold.ttf in Resources */,
 				DEEC12341AFD536400E21C52 /* icon_playlist_black.png in Resources */,
+				DE4612621B0138C800192E49 /* image_roomdummy.png in Resources */,
 				DECC691F1AFEB07F00A761DE /* image_supermodegraff.png in Resources */,
 				DE5763951AF40723003F7507 /* button-login.png in Resources */,
 				1C37B7F11AF5789A00566216 /* image_waveform.png in Resources */,
@@ -793,6 +808,7 @@
 				DEEC122F1AFD514D00E21C52 /* button_seewhois.png in Resources */,
 				1C73F3691AFBDFF60003B1FA /* AroundMeTableCellView.xib in Resources */,
 				DE14B9FD1AFFE145004470C7 /* image_progressbarcolors.png in Resources */,
+				DE4612601B0138A100192E49 /* icon_distance.png in Resources */,
 				DE14B9F21AFFBF07004470C7 /* wave6.png in Resources */,
 				DE14B9BF1AFF0BF0004470C7 /* button_controlsback.png in Resources */,
 				DE14BA031AFFE3E0004470C7 /* image_progressbar.png in Resources */,
