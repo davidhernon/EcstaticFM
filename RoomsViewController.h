@@ -13,7 +13,11 @@
 #import "SDSAPI.h"
 #import "LocationServices.h"
 #import "AroundMeTableViewCell.h"
-@interface RoomsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+#define kUVCellDragInterval 180.f
+
+@interface RoomsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>;
+
 
 @property (weak, nonatomic) IBOutlet UITableView *roomTableView;
 @property NSArray* popular;
@@ -21,4 +25,13 @@
 @property LocationServices* locationServices;
 @property NSArray* room_cards;
 - (void)showRoomsScrollView:(NSArray*)room_dictionaries;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *roomsScrollView;
+@property (weak, nonatomic) IBOutlet UIGestureRecognizer *roomsGestureRecognizer;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *roomsSwipe;
+
+-(IBAction)buttonPressed:(id)sender;
+
 @end

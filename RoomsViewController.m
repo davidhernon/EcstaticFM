@@ -37,7 +37,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString* username = [defaults objectForKey:@"sdsUsername"];
+	NSString* username = [defaults objectForKey:@"username"];
 	self.locationServices = [[LocationServices alloc]init];
 	[self.locationServices start_location_services];
     [SDSAPI aroundMe:username withID:self];
@@ -141,6 +141,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
     _room_cards = room_dictionaries;
     [self.roomTableView reloadData];
 }
+
 
 /*
 #pragma mark - Navigation

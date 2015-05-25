@@ -57,7 +57,7 @@
 		
 		static NSString *csrf_cookie;
 		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-		NSString* username = [defaults objectForKey:@"sdsUsername"];
+		NSString* username = [defaults objectForKey:@"username"];
 		
 		NSString* urlString = @"http://54.173.157.204/geo/post_location/";
 		NSURL *url = [NSURL URLWithString:urlString];
