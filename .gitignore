@@ -1,0 +1,20 @@
+.DS_Store
+build/
+*.pbxuser
+!EcstaticFM.pbxuser
+*.mode1v3
+!EcstaticFM.mode1v3
+*.mode2v3
+!EcstaticFM.mode2v3
+*.perspectivev3
+!EcstaticFM.perspectivev3
+*.xcworkspace
+!EcstaticFM.xcworkspace
+xcuserdata
+profile
+*.moved-aside
+DerivedData
+.idea/
+# Pods - for those of you who use CocoaPods
+Pods
+

@@ -263,4 +263,10 @@ static NSString* cellIdentifier = @"playListCell";
     [self.player next];
 }
 
+-(void)hideUI
+{
+    _current_album_artwork = nil;
+    _current_track_title = @"";
+}
+
 @end
