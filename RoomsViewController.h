@@ -10,6 +10,8 @@
 #import "Room.h"
 #import "GFXUtils.h"
 #import "RadialGradientLayer.h"
+#import "SDSAPI.h"
+#import "LocationServices.h"
 
 #define kUVCellDragInterval 180.f
 
@@ -19,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *roomTableView;
 @property NSArray* popular;
 @property NSArray* around_me;
+@property LocationServices* locationServices;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *roomsScrollView;
 @property (weak, nonatomic) IBOutlet UIGestureRecognizer *roomsGestureRecognizer;
