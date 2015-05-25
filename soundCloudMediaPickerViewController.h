@@ -25,6 +25,8 @@
 @property (strong, nonatomic) NSMutableArray *selectedTrackIndices;
 
 @property (strong, nonatomic) NSArray *tracksFromSoundCloud;
+@property (strong, nonatomic) NSMutableArray *soundCloudAlbumImages;
+@property (strong, nonatomic) NSArray *soundCloudAlbumUrls;
 @property BOOL returned;
 
 -(void)searchSC;

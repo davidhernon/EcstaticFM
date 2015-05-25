@@ -44,6 +44,8 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     self.soundCloudResultsTableView.allowsMultipleSelectionDuringEditing = YES;
     self.selectedTracks = [[NSMutableArray alloc] init];
     self.selectedTrackIndices = [[NSMutableArray alloc] init];
+    self.soundCloudAlbumImages = [[NSMutableArray alloc] init];
+    [self getAlbumImageArray];
     
 }
 
@@ -72,7 +74,11 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     cell.track_title.text = [track objectForKey:@"title"];
     cell.artist.text = [[track objectForKey:@"user"] objectForKey:@"username"];
     cell.duration.text = [NSString stringWithFormat:@"%@", [Utils convertTimeFromMillis:(int) [[track objectForKey:@"duration"] intValue]]];
-    [cell setAlbumArtworkFromStringURL:[track objectForKey:@"artwork_url"]];
+
+    if(indexPath.row < [_soundCloudAlbumImages count])
+    {
+        cell.sc_album_image.image = [_soundCloudAlbumImages objectAtIndex:indexPath.row];
+    }
     
     [cell setAccessoryType:UITableViewCellAccessoryNone];
     for (int i = 0; i < _selectedTrackIndices.count; i++) {
@@ -162,6 +168,38 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     {
         [SDSAPI sendMediaItemToServer:item];
     }
+}
+
+-(void) getAlbumImageArray
+{
+//    @property (strong, nonatomic) NSArray *soundCloudAlbumImages;
+//    @property (strong, nonatomic) NSArray *soundCloudAlbumUrls;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        while(_tracksFromSoundCloud == nil)
+        {
+            [NSThread sleepForTimeInterval:0.1f];
+        }
+        
+        for(NSDictionary *track in _tracksFromSoundCloud)
+        {
+            NSString *url = [track objectForKey:@"artwork_url"];
+            if([url isEqual:[NSNull null]]){
+                url = @"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi8MYn94Vl1HVxqMb7u31QSRa3cNCJOYhxw7xI_GGDvcSKQ7xwPA370w";
+            }
+            NSURL *imageURL = [NSURL URLWithString:url];
+            NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+            UIImage *myImage = [UIImage imageWithData:imageData];
+            [_soundCloudAlbumImages addObject:myImage];
+            NSLog(@"reload!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            [_soundCloudResultsTableView performSelectorOnMainThread:@selector(reloadData)
+                                             withObject:nil
+                                          waitUntilDone:NO];
+            
+
+        }
+        
+    });
+    
 }
 
 // selected state checkmark
