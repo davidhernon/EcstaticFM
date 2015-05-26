@@ -47,7 +47,6 @@
 		1CA428AB1A799CE9001DB0AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
 		1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428AD1A799CE9001DB0AD /* AppDelegate.m */; };
 		1CA428B41A799CE9001DB0AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428B21A799CE9001DB0AD /* Main.storyboard */; };
-		1CA428B61A799CE9001DB0AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428B51A799CE9001DB0AD /* Images.xcassets */; };
 		1CA428B91A799CE9001DB0AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428B71A799CE9001DB0AD /* LaunchScreen.xib */; };
 		1CA428C51A799CE9001DB0AD /* EcstaticFMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428C41A799CE9001DB0AD /* EcstaticFMTests.m */; };
 		1CB835561B027A9F0003D9DC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB835551B027A9F0003D9DC /* Security.framework */; };
@@ -87,6 +86,7 @@
 		DE14BA061B000595004470C7 /* icon_controlsback.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14BA041B000595004470C7 /* icon_controlsback.png */; };
 		DE14BA071B000595004470C7 /* icon_controlsnext.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14BA051B000595004470C7 /* icon_controlsnext.png */; };
 		DE14BA091B002130004470C7 /* button_pluspink.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14BA081B002130004470C7 /* button_pluspink.png */; };
+		DE1D9FC11B1526BD00829471 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE1D9FC01B1526BD00829471 /* Images.xcassets */; };
 		DE46125E1B01388B00192E49 /* image_ecstaticlogocolor.png in Resources */ = {isa = PBXBuildFile; fileRef = DE46125D1B01388B00192E49 /* image_ecstaticlogocolor.png */; };
 		DE4612601B0138A100192E49 /* icon_distance.png in Resources */ = {isa = PBXBuildFile; fileRef = DE46125F1B0138A100192E49 /* icon_distance.png */; };
 		DE4612621B0138C800192E49 /* image_roomdummy.png in Resources */ = {isa = PBXBuildFile; fileRef = DE4612611B0138C800192E49 /* image_roomdummy.png */; };
@@ -150,6 +150,8 @@
 		DEEC123C1AFD5DC900E21C52 /* PopularHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEEC123A1AFD5DC900E21C52 /* PopularHeader.xib */; };
 		DEEC123E1AFD76EA00E21C52 /* dropshadow_leftofscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC123D1AFD76E900E21C52 /* dropshadow_leftofscreen.png */; };
 		DEEC12401AFD82E900E21C52 /* image_whitearrowright.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC123F1AFD82E900E21C52 /* image_whitearrowright.png */; };
+		DEFF739F1B15203A0001B107 /* icon_distance2.png in Resources */ = {isa = PBXBuildFile; fileRef = DEFF739E1B15203A0001B107 /* icon_distance2.png */; };
+		DEFF73A11B1521820001B107 /* icon_headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = DEFF73A01B1521820001B107 /* icon_headphones.png */; };
 		FCEB2FDE1B001E3C00010187 /* LocationServices.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEB2FDD1B001E3C00010187 /* LocationServices.m */; };
 /* End PBXBuildFile section */
 
@@ -219,7 +221,6 @@
 		1CA428AC1A799CE9001DB0AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1CA428AD1A799CE9001DB0AD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1CA428B31A799CE9001DB0AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1CA428B51A799CE9001DB0AD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1CA428B81A799CE9001DB0AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1CA428BE1A799CE9001DB0AD /* EcstaticFMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EcstaticFMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA428C31A799CE9001DB0AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -270,6 +271,7 @@
 		DE14BA041B000595004470C7 /* icon_controlsback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_controlsback.png; sourceTree = "<group>"; };
 		DE14BA051B000595004470C7 /* icon_controlsnext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_controlsnext.png; sourceTree = "<group>"; };
 		DE14BA081B002130004470C7 /* button_pluspink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_pluspink.png; sourceTree = "<group>"; };
+		DE1D9FC01B1526BD00829471 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DE46125D1B01388B00192E49 /* image_ecstaticlogocolor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_ecstaticlogocolor.png; sourceTree = "<group>"; };
 		DE46125F1B0138A100192E49 /* icon_distance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_distance.png; sourceTree = "<group>"; };
 		DE4612611B0138C800192E49 /* image_roomdummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_roomdummy.png; sourceTree = "<group>"; };
@@ -339,6 +341,8 @@
 		DEEC123A1AFD5DC900E21C52 /* PopularHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopularHeader.xib; sourceTree = "<group>"; };
 		DEEC123D1AFD76E900E21C52 /* dropshadow_leftofscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropshadow_leftofscreen.png; sourceTree = "<group>"; };
 		DEEC123F1AFD82E900E21C52 /* image_whitearrowright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_whitearrowright.png; sourceTree = "<group>"; };
+		DEFF739E1B15203A0001B107 /* icon_distance2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_distance2.png; sourceTree = "<group>"; };
+		DEFF73A01B1521820001B107 /* icon_headphones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_headphones.png; sourceTree = "<group>"; };
 		FCEB2FDC1B001E3C00010187 /* LocationServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationServices.h; sourceTree = "<group>"; };
 		FCEB2FDD1B001E3C00010187 /* LocationServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationServices.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -439,7 +443,7 @@
 				1CA428AC1A799CE9001DB0AD /* AppDelegate.h */,
 				1CA428AD1A799CE9001DB0AD /* AppDelegate.m */,
 				1CA428B21A799CE9001DB0AD /* Main.storyboard */,
-				1CA428B51A799CE9001DB0AD /* Images.xcassets */,
+				DE1D9FC01B1526BD00829471 /* Images.xcassets */,
 				1CA428B71A799CE9001DB0AD /* LaunchScreen.xib */,
 				1CA428A81A799CE9001DB0AD /* Supporting Files */,
 			);
@@ -558,8 +562,10 @@
 				DE14B9DE1AFFA8E8004470C7 /* button_controlsplaypink.png */,
 				DE46125D1B01388B00192E49 /* image_ecstaticlogocolor.png */,
 				DE4612611B0138C800192E49 /* image_roomdummy.png */,
+				DEFF739E1B15203A0001B107 /* icon_distance2.png */,
 				DE4612651B01540300192E49 /* icon_leave.png */,
 				DECC69201AFEC11A00A761DE /* icon_addmusicfull.png */,
+				DEFF73A01B1521820001B107 /* icon_headphones.png */,
 				DE14BA041B000595004470C7 /* icon_controlsback.png */,
 				DE46125F1B0138A100192E49 /* icon_distance.png */,
 				DE14BA051B000595004470C7 /* icon_controlsnext.png */,
@@ -842,15 +848,18 @@
 				DEEC12251AFCF68700E21C52 /* icon_location.png in Resources */,
 				DE14B9CB1AFF2A16004470C7 /* image_covertartgradient.png in Resources */,
 				DE9A4A101AF5767300B26BA4 /* splash.png in Resources */,
+				DE1D9FC11B1526BD00829471 /* Images.xcassets in Resources */,
 				1C4861E61A7AB75C004EFEAD /* Info.plist in Resources */,
 				DEE628E21AFA9D04009084FF /* icon_heartfull.png in Resources */,
 				DE14B9ED1AFFBF07004470C7 /* wave1.png in Resources */,
 				DE14B9C11AFF0ED4004470C7 /* image_geobuttonborder.png in Resources */,
+				DEFF73A11B1521820001B107 /* icon_headphones.png in Resources */,
 				1C4861E71A7AB75C004EFEAD /* main.m in Resources */,
 				1C37B7EC1AF5789A00566216 /* icon_heart.png in Resources */,
 				DE5763A71AF40817003F7507 /* Raleway-ExtraLight.ttf in Resources */,
 				1CA428B41A799CE9001DB0AD /* Main.storyboard in Resources */,
 				1CA428B91A799CE9001DB0AD /* LaunchScreen.xib in Resources */,
+				DEFF739F1B15203A0001B107 /* icon_distance2.png in Resources */,
 				DEBABA351AFC2113002D66F7 /* image_arrowup.png in Resources */,
 				DE5763A51AF40817003F7507 /* Raleway-Bold.ttf in Resources */,
 				DEEC12341AFD536400E21C52 /* icon_playlist_black.png in Resources */,
@@ -874,7 +883,6 @@
 				1C37B7F01AF5789A00566216 /* image_portrait.png in Resources */,
 				DE85B68F1B1510F300BCC36F /* button_signup.png in Resources */,
 				DE5763AB1AF40817003F7507 /* Raleway-Regular.ttf in Resources */,
-				1CA428B61A799CE9001DB0AD /* Images.xcassets in Resources */,
 				DE14B9DD1AFFA4CB004470C7 /* button_closepink.png in Resources */,
 				DEEC122F1AFD514D00E21C52 /* button_seewhois.png in Resources */,
 				1C73F3691AFBDFF60003B1FA /* AroundMeTableCellView.xib in Resources */,
@@ -1117,7 +1125,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EcstaticFM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EcstaticFM;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EcstaticFM-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1134,7 +1142,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EcstaticFM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EcstaticFM;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EcstaticFM-Bridging-Header.h";
 			};
@@ -1156,7 +1164,7 @@
 				);
 				INFOPLIST_FILE = EcstaticFMTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EcstaticFMTests;
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EcstaticFM.app/EcstaticFM";
 			};
@@ -1174,7 +1182,7 @@
 				);
 				INFOPLIST_FILE = EcstaticFMTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EcstaticFMTests;
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EcstaticFM.app/EcstaticFM";
 			};

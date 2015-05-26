@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1CA428A41A799CE9001DB0AD"
-               BuildableName = "EcstaticFM.app"
+               BuildableName = "Ecstatic.app"
                BlueprintName = "EcstaticFM"
                ReferencedContainer = "container:EcstaticFM.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1CA428A41A799CE9001DB0AD"
-            BuildableName = "EcstaticFM.app"
+            BuildableName = "Ecstatic.app"
             BlueprintName = "EcstaticFM"
             ReferencedContainer = "container:EcstaticFM.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1CA428A41A799CE9001DB0AD"
-            BuildableName = "EcstaticFM.app"
+            BuildableName = "Ecstatic.app"
             BlueprintName = "EcstaticFM"
             ReferencedContainer = "container:EcstaticFM.xcodeproj">
          </BuildableReference>
@@ -94,7 +94,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1CA428A41A799CE9001DB0AD"
-            BuildableName = "EcstaticFM.app"
+            BuildableName = "Ecstatic.app"
             BlueprintName = "EcstaticFM"
             ReferencedContainer = "container:EcstaticFM.xcodeproj">
          </BuildableReference>
