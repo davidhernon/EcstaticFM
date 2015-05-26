@@ -15,7 +15,7 @@
 #import "RadialGradientLayer.h"
 #import "SDSAPI.h"
 #import "SoundCloudAPI.h"
-
+#import "ILTranslucentView.h"
 
 @interface soundCloudMediaPickerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *addSongsToPlaylist;
@@ -31,7 +31,10 @@
 @property (strong, nonatomic) NSArray *soundCloudAlbumUrls;
 @property BOOL returned;
 
--(void)searchSC;
+-(IBAction)searchSoundcloud:(id)sender;
+-(IBAction)showSearchSoundCloudUI:(id)sender;
 -(void) addSoundCloudFavorites:(NSArray*)tracks;
+-(void) getAlbumImageArray;
+-(void)updateTable;
 
 @end

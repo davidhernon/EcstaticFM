@@ -59,9 +59,15 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     }else{
         _connect_to_soundcloud.hidden = YES;
     }
-    
-    [SoundCloudAPI getFavorites:self];
-    
+//    _tracksFromSoundCloud = nil;
+//    [SoundCloudAPI getFavorites:self];
+//    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        while(_tracksFromSoundCloud == nil){
+//            [NSThread sleepForTimeInterval:0.1f];
+//        }
+//    });
+//    [self getAlbumImageArray];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -187,8 +193,6 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 
 -(void) getAlbumImageArray
 {
-//    @property (strong, nonatomic) NSArray *soundCloudAlbumImages;
-//    @property (strong, nonatomic) NSArray *soundCloudAlbumUrls;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         while(_tracksFromSoundCloud == nil)
         {
@@ -236,6 +240,37 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     [SoundCloudAPI login:self];
 }
 
+-(IBAction)showSearchSoundCloudUI:(id)sender
+{
+    // May break if there is more than one UIView in the NIB
+    ILTranslucentView *search_soundcloud = [[[NSBundle mainBundle] loadNibNamed:@"SoundCloudSearchView" owner:self options:nil] objectAtIndex:0];
+    search_soundcloud.translucentAlpha = 1;
+    search_soundcloud.translucentStyle = UIBarStyleDefault;
+    search_soundcloud.translucentTintColor = [UIColor clearColor];
+    search_soundcloud.backgroundColor = [UIColor clearColor];
+    
+    [search_soundcloud addSender:self];
+    
+    [self.view addSubview:search_soundcloud];
+    
+}
+
+-(void)searchSoundcloud:(NSString*)search_text
+{
+    [SoundCloudAPI searchSoundCloud:search_text withSender:self];
+}
+
+-(void)updateTable
+{
+    
+//    self.selectedTracks = [[NSMutableArray alloc] init];
+//    self.selectedTrackIndices = [[NSMutableArray alloc] init];
+    self.soundCloudAlbumImages = [[NSMutableArray alloc] init];
+    [self getAlbumImageArray];
+    [self.soundCloudResultsTableView reloadData];
+    
+    
+}
 
 /*
 #pragma mark - Navigation

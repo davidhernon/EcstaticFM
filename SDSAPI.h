@@ -20,4 +20,5 @@
 +(void) sendMediaItemToServer:(MediaItem*)media_item;
 +(void)postLocation:(NSString*)username withLatitude:(float)latitude withLongitude:(float)longitude;
 
+
 @end

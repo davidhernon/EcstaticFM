@@ -39,6 +39,7 @@
             [sender addSoundCloudFavorites:((NSArray*)jsonResponse)];
             // reload table data?
             [sender.soundCloudResultsTableView reloadData];
+            
         }else{
             NSLog(@"did not succeed in SC query");
         }
@@ -135,6 +136,33 @@
                                loginViewControllerWithPreparedURL:preparedURL
                                completionHandler:handler];
         [sender presentModalViewController:loginViewController animated:YES];
+    }];
+}
+
++(void)searchSoundCloud:(NSString*)search_text withSender:(soundCloudMediaPickerViewController*)sender
+{
+    //query SC with text
+    
+    //when we get the response reload soundCloudMediaPicker
+    NSString *search = [search_text stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    
+    [SCRequest performMethod:SCRequestMethodGET onResource:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.soundcloud.com/me/tracks?q=%@&format=json", search]] usingParameters:nil withAccount:[SCSoundCloud account] sendingProgressHandler:nil responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        NSError *jsonError;
+        NSJSONSerialization *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        
+        if (!jsonError && [jsonResponse isKindOfClass:[NSArray class]]) {
+            
+            [sender addSoundCloudFavorites:((NSArray*)jsonResponse)];
+            // reload table data?
+            [sender.soundCloudResultsTableView reloadData];
+            [sender getAlbumImageArray];
+        }
+        else {
+            
+            NSLog(@"%@", error.localizedDescription);
+            
+        }
     }];
 }
 

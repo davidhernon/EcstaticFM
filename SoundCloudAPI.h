@@ -21,4 +21,5 @@
 + (void)storeUserDefaults;
 + (NSString*)getClientID;
 + (void)login:(id)sender;
++(void)searchSoundCloud:(NSString*)search_text withSender:(soundCloudMediaPickerViewController*)sender;
 @end
