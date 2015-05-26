@@ -23,6 +23,8 @@
 		1C291D9A1AFFF2A1006A2B4F /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D8F1AFFF2A1006A2B4F /* SwiftRegex.swift */; };
 		1C291D9B1AFFF2A1006A2B4F /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D901AFFF2A1006A2B4F /* WebSocket.swift */; };
 		1C291D9E1B014B96006A2B4F /* AroundMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D9D1B014B96006A2B4F /* AroundMeTableViewCell.m */; };
+		1C30272E1B14B25A0085485A /* RoomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C30272D1B14B25A0085485A /* RoomView.xib */; };
+		1C3027311B14C6410085485A /* UIRoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3027301B14C6410085485A /* UIRoomView.m */; };
 		1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C33F84C1A8D4A0C0072ABBE /* Player.m */; };
 		1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C37B7CC1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m */; };
 		1C37B7D91AF540BA00566216 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C37B7D81AF540BA00566216 /* PlayerViewController.m */; };
@@ -175,6 +177,9 @@
 		1C291D901AFFF2A1006A2B4F /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		1C291D9C1B014B96006A2B4F /* AroundMeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMeTableViewCell.h; sourceTree = "<group>"; };
 		1C291D9D1B014B96006A2B4F /* AroundMeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMeTableViewCell.m; sourceTree = "<group>"; };
+		1C30272D1B14B25A0085485A /* RoomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomView.xib; sourceTree = "<group>"; };
+		1C30272F1B14C6410085485A /* UIRoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRoomView.h; sourceTree = "<group>"; };
+		1C3027301B14C6410085485A /* UIRoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIRoomView.m; sourceTree = "<group>"; };
 		1C33F84B1A8D4A0C0072ABBE /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		1C33F84C1A8D4A0C0072ABBE /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		1C37B7CB1AF3E29C00566216 /* SoundCloudMediaPickerTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundCloudMediaPickerTableView.h; sourceTree = "<group>"; };
@@ -356,6 +361,9 @@
 				DEEC122C1AFD4F9700E21C52 /* NoGeoTableCellView.xib */,
 				1C291D9C1B014B96006A2B4F /* AroundMeTableViewCell.h */,
 				1C291D9D1B014B96006A2B4F /* AroundMeTableViewCell.m */,
+				1C30272D1B14B25A0085485A /* RoomView.xib */,
+				1C30272F1B14C6410085485A /* UIRoomView.h */,
+				1C3027301B14C6410085485A /* UIRoomView.m */,
 			);
 			name = Rooms;
 			sourceTree = "<group>";
@@ -793,6 +801,7 @@
 				DE5763A61AF40817003F7507 /* Raleway-ExtraBold.ttf in Resources */,
 				DE5763AC1AF40817003F7507 /* Raleway-SemiBold.ttf in Resources */,
 				DE5763A81AF40817003F7507 /* Raleway-Heavy.ttf in Resources */,
+				1C30272E1B14B25A0085485A /* RoomView.xib in Resources */,
 				DE14B9D71AFF8AC4004470C7 /* image_playerdropshadow.png in Resources */,
 				DE5763961AF40723003F7507 /* input-password.png in Resources */,
 				DE14B9DF1AFFA8E8004470C7 /* button_controlsplaypink.png in Resources */,
@@ -934,6 +943,7 @@
 				1C2251471A9E7E5F00210324 /* Playlist.m in Sources */,
 				1CB8355A1B027BA60003D9DC /* SSKeychain.m in Sources */,
 				1C291D941AFFF2A1006A2B4F /* SocketEngineClient.swift in Sources */,
+				1C3027311B14C6410085485A /* UIRoomView.m in Sources */,
 				1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */,
 				DE5763CC1AF438E7003F7507 /* RoomViewController.m in Sources */,
 				DE14B9E51AFFB12B004470C7 /* MediaPageViewController.m in Sources */,

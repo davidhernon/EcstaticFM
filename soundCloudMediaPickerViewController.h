@@ -14,6 +14,7 @@
 #import "GFXUtils.h"
 #import "RadialGradientLayer.h"
 #import "SDSAPI.h"
+#import "SoundCloudAPI.h"
 
 
 @interface soundCloudMediaPickerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *closeMediaPickerButton;
 
 @property (weak, nonatomic) IBOutlet UITableView *soundCloudResultsTableView;
+@property (weak, nonatomic) IBOutlet UIView *connect_to_soundcloud;
 @property NSMutableArray *selectedTracks;
 @property (strong, nonatomic) NSMutableArray *selectedTrackIndices;
 

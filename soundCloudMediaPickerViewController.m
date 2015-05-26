@@ -46,6 +46,21 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     self.selectedTrackIndices = [[NSMutableArray alloc] init];
     self.soundCloudAlbumImages = [[NSMutableArray alloc] init];
     [self getAlbumImageArray];
+
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    
+    if([SCSoundCloud account] == nil)
+    {
+        _connect_to_soundcloud.hidden = NO;
+    }else{
+        _connect_to_soundcloud.hidden = YES;
+    }
+    
+    [SoundCloudAPI getFavorites:self];
     
 }
 
@@ -218,6 +233,12 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     
     return nil;
 }
+
+-(IBAction)soundcloudLogin:(id)sender
+{
+    [SoundCloudAPI login:self];
+}
+
 
 /*
 #pragma mark - Navigation

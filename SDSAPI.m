@@ -107,8 +107,12 @@ static SocketIOClient *static_socket;
     static_socket = [[SocketIOClient alloc] initWithSocketURL:@"http://54.173.157.204:8888" options:nil];
     
 	[static_socket on: @"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
-		NSLog(@"here connected");
+//		NSLog(@"here connected");
 	}];
+    
+    [static_socket on: @"return_post_location" callback: ^(NSArray* data, void (^ack)(NSArray*)){
+//        NSLog(@"Posted a location");
+    }];
 
     [static_socket connect];
 }
@@ -134,11 +138,11 @@ static SocketIOClient *static_socket;
 
 +(void) aroundMe:(NSString*)username withID:(id)sender{
     
-    [static_socket on: @"get_rooms_around_me" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
+    [static_socket on: @"return_get_rooms_around_me" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"get_rooms_around_me returned,%@", data[0]);
-        NSDictionary* locationsDict =(NSDictionary*) data[0];
-        NSArray* locationsArray = [locationsDict objectForKey:@"locations"];
-        [sender showRoomsScrollView:locationsArray];
+//        NSDictionary* locationsDict =(NSDictionary*) data[0];
+//        NSArray* locationsArray = [locationsDict objectForKey:@"locations"];
+//        [sender showRoomsScrollView:locationsArray];
     }];
     
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -156,6 +160,24 @@ static SocketIOClient *static_socket;
 	});
     
     
+}
+
++(void)postLocation:(NSString*)username withLatitude:(float)latitude withLongitude:(float)longitude
+{
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+       while(!static_socket.connected)
+       {
+           NSLog(@"waiting to connect!");
+           [NSThread sleepForTimeInterval:0.1f];
+       }
+        NSLog(@"username, latitude, longitude: %@, %f, %f", username, latitude, longitude);
+        NSArray *objects = [NSArray arrayWithObjects:username, @(latitude), @(longitude), nil];
+        NSArray *keys = [NSArray arrayWithObjects:@"username", @"latitude", @"longitude", nil];
+        NSDictionary *postDictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
+        [static_socket emitObjc:@"post_location" withItems:@[jsonData]];
+    });
 }
 
 /**

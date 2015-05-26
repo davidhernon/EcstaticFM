@@ -7,6 +7,7 @@
 //
 
 #import "SoundCloudAPI.h"
+#import "soundCloudMediaPickerViewController.h"
 
 
 @implementation SoundCloudAPI
@@ -21,14 +22,8 @@
 {
     SCAccount *account = [SCSoundCloud account];
     if (account == nil) {
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle:@"Not Logged In"
-                              message:@"You must login first"
-                              delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
-        [alert show];
-       // return [[NSArray alloc]init];
+        NSLog(@"tried to get favorites when no user was signed into soundcloud");
+        return;
     }
     
     SCRequestResponseHandler handler;
@@ -42,6 +37,8 @@
         if (!jsonError && [jsonResponse isKindOfClass:[NSArray class]]) {
             NSLog(@"did succeed in SC query");
             [sender addSoundCloudFavorites:((NSArray*)jsonResponse)];
+            // reload table data?
+            [sender.soundCloudResultsTableView reloadData];
         }else{
             NSLog(@"did not succeed in SC query");
         }
@@ -103,6 +100,42 @@
                  withAccount:[SCSoundCloud account]
       sendingProgressHandler:nil
              responseHandler:handler];
+}
+
++(void)login:(id)sender
+{
+    SCLoginViewControllerCompletionHandler handler = ^(NSError *error) {
+        if (SC_CANCELED(error)) {
+            NSLog(@"Canceled!");
+        } else if (error) {
+            NSLog(@"Error: %@", [error localizedDescription]);
+        } else {
+            NSLog(@"Done!");
+        }
+    };
+    
+    // if access token is available
+    // use it to login
+    // else
+    // login using soundcloud details
+    
+    NSString *userAccessToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"SC_ACCESS_TOKEN"];
+    NSLog(@"user token: %@",userAccessToken);
+    
+    if(userAccessToken != nil){
+        
+        return;
+    }
+    
+    //Query soundCloud API to log user in
+    [SCSoundCloud requestAccessWithPreparedAuthorizationURLHandler:^(NSURL *preparedURL) {
+        SCLoginViewController *loginViewController;
+        
+        loginViewController = [SCLoginViewController
+                               loginViewControllerWithPreparedURL:preparedURL
+                               completionHandler:handler];
+        [sender presentModalViewController:loginViewController animated:YES];
+    }];
 }
 
 @end

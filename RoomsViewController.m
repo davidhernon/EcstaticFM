@@ -8,16 +8,7 @@
 
 #import "RoomsViewController.h"
 
-@interface RoomsViewController ()
-
-@property (strong) UICollectionView *collectionView;
-@property (strong) NSArray *content;
-
-@end
-
 @implementation RoomsViewController
-
-
 #define kDragVelocityDampener .85
 
 // https://api.soundcloud.com/tracks/189670713/stream
@@ -41,19 +32,27 @@ static NSString* around_me_event_cell = @"around_me_cell";
 	self.locationServices = [[LocationServices alloc]init];
 	[self.locationServices start_location_services];
     [SDSAPI aroundMe:username withID:self];
-	
     
-    // enable scrolling
-    //   _roomsScrollView.scrollEnabled = YES;
+    int x = 0;
+    int number_of_events = 5;
+    for( int i = 0; i < number_of_events; i++)
+    {
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
+        UIRoomView *room_view = [[UIRoomView alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
+        button.tag = i;
+        [button addTarget:self  action:@selector(joinRoom:) forControlEvents:UIControlEventTouchUpInside];
+        [button addSubview:room_view];
+        [_roomsScrollView addSubview:button];
+        x += (234/2) + 15;
+    }
     
+    _roomsScrollView.contentSize = CGSizeMake(x, _roomsScrollView.frame.size.height);
+}
+
+-(void)joinRoom:(UIButton*)sender
+{
     
-    // Remove line between cells
-    self.roomTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    
-    _popular = [NSArray arrayWithObjects:@"a", @"b", nil];
-    _around_me = [NSArray arrayWithObjects:@"around", @"me", nil];
-    [_roomTableView reloadData];
+    NSLog(@"*******  !!!!!!!!!!!! Holy fuck we clicked a button !!!!!!!!!!! ****** %d", sender.tag);
 }
 
 - (void)didReceiveMemoryWarning {
