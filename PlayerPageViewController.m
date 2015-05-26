@@ -10,9 +10,10 @@
 
 @interface PlayerPageViewController ()
 
-@property (nonatomic, retain) UIViewController *first;
-@property (nonatomic, retain) UIViewController *second;
-@property (nonatomic, retain) UIViewController *third;
+@property (nonatomic, retain) UIViewController *around_me;
+@property (nonatomic, retain) UIViewController *player;
+@property (nonatomic, retain) UIViewController *chat;
+
 
 @end
 
@@ -20,27 +21,31 @@
     NSArray *viewControllers;
 }
 
-- (UIViewController *)first {
-    if (!_first) {
+NSString* around_me_view_identifier = @"aroundMe";
+NSString* player_me_view_identifier = @"player";
+NSString* chat_view_identifier = @"chat";
+
+- (UIViewController *)around_me {
+    if (!_around_me) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        _first = [sb instantiateViewControllerWithIdentifier:@"aroundMe"];
+        _around_me = [sb instantiateViewControllerWithIdentifier:around_me_view_identifier];
     }
-    return _first;
+    return _around_me;
 }
 
-- (UIViewController *)second {
-    if (!_second) {
+- (UIViewController *)player {
+    if (!_player) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        _second = [sb instantiateViewControllerWithIdentifier:@"player"];
+        _player = [sb instantiateViewControllerWithIdentifier:player_me_view_identifier];
     }
-    return _second;
+    return _player;
 }
-- (UIViewController *)third {
-    if (!_third) {
+- (UIViewController *)chat {
+    if (!_chat) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        _third = [sb instantiateViewControllerWithIdentifier:@"chat"];
+        _chat = [sb instantiateViewControllerWithIdentifier:chat_view_identifier];
     }
-    return _third;
+    return _chat;
 }
 
 
@@ -48,7 +53,7 @@
     [super viewDidLoad];
     self.dataSource = self;
     
-    [self setViewControllers:@[self.second]
+    [self setViewControllers:@[self.player]
                    direction:UIPageViewControllerNavigationDirectionForward
                     animated:YES
                   completion:nil];
@@ -63,11 +68,11 @@
     
     UIViewController *nextViewController = nil;
     
-    if (viewController == self.first) {
-        nextViewController = self.second;
+    if (viewController == self.around_me) {
+        nextViewController = self.player;
     }
-    if (viewController == self.second) {
-        nextViewController = self.third;
+    if (viewController == self.player) {
+        nextViewController = self.chat;
     }
     
     return nextViewController;
@@ -77,11 +82,11 @@
     
     UIViewController *prevViewController = nil;
     
-    if (viewController == self.third) {
-        prevViewController = self.second;
+    if (viewController == self.chat) {
+        prevViewController = self.player;
     }
-    if (viewController == self.second) {
-        prevViewController = self.first;
+    if (viewController == self.player) {
+        prevViewController = self.around_me;
     }
     
     return prevViewController;

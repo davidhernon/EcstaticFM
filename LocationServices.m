@@ -7,6 +7,7 @@
 //
 
 #import "LocationServices.h"
+#import "SDSAPI.h"
 
 @implementation LocationServices
 
@@ -55,46 +56,48 @@
 		
 		
 		
-		static NSString *csrf_cookie;
+//		static NSString *csrf_cookie;
 		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-		NSString* username = [defaults objectForKey:@"sdsUsername"];
-		
-		NSString* urlString = @"http://54.173.157.204/geo/post_location/";
-		NSURL *url = [NSURL URLWithString:urlString];
-		NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL: url];
-		for (NSHTTPCookie *cookie in cookies) {
-			if ([cookie.name isEqualToString:@"csrftoken"]) {
-				csrf_cookie = cookie.value;
-				break;
-			}
-		}
-		
-		NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-		
-		NSString* bodyData = [NSString stringWithFormat:@"username=%@&my_location_lat=%f&my_location_lon=%f", username, location.coordinate.latitude, location.coordinate.longitude];
-		NSData *postData = [bodyData dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-		NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
-		
-		[urlRequest setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]]];
-		[urlRequest addValue:csrf_cookie forHTTPHeaderField:@"X_CSRFTOKEN"];
-		[urlRequest setHTTPMethod:@"POST"];
-		[urlRequest setValue:postLength forHTTPHeaderField:@"Content-Length"];
-		[urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-		[urlRequest setHTTPBody:postData];
-		
-		NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-		
-		[NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-		 {
-			 NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-			 
-			 if ([responseString  isEqual: @"location_received"]) {
-				 NSLog(@"%@", responseString);
-			 }
-			 else{
-				 NSLog(@"%@", responseString);
-			 }
-		 }];
+		NSString* username = [defaults objectForKey:@"username"];
+        
+        [SDSAPI postLocation:username withLatitude:location.coordinate.latitude withLongitude:location.coordinate.longitude];
+        
+//		NSString* urlString = @"http://54.173.157.204/geo/post_location/";
+//		NSURL *url = [NSURL URLWithString:urlString];
+//		NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL: url];
+//		for (NSHTTPCookie *cookie in cookies) {
+//			if ([cookie.name isEqualToString:@"csrftoken"]) {
+//				csrf_cookie = cookie.value;
+//				break;
+//			}
+//		}
+//		
+//		NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+//		
+//		NSString* bodyData = [NSString stringWithFormat:@"username=%@&my_location_lat=%f&my_location_lon=%f", username, location.coordinate.latitude, location.coordinate.longitude];
+//		NSData *postData = [bodyData dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+//		NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
+//		
+//		[urlRequest setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]]];
+//		[urlRequest addValue:csrf_cookie forHTTPHeaderField:@"X_CSRFTOKEN"];
+//		[urlRequest setHTTPMethod:@"POST"];
+//		[urlRequest setValue:postLength forHTTPHeaderField:@"Content-Length"];
+//		[urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+//		[urlRequest setHTTPBody:postData];
+//		
+//		NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+//		
+//		[NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+//		 {
+//			 NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//			 
+//			 if ([responseString  isEqual: @"location_received"]) {
+//				 NSLog(@"%@", responseString);
+//			 }
+//			 else{
+//				 NSLog(@"%@", responseString);
+//			 }
+//		 }];
 		
 	}
 }

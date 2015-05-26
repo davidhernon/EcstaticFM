@@ -36,6 +36,14 @@
                                                                           action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    NSString *cached_user = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    if(cached_user)
+    {
+        _username.text = cached_user;
+        _password.text = [SSKeychain passwordForService:@"EcstaticFM" account:_username.text];
+        [self SDSLogin:self];
+    }
+    
     
     
 }
@@ -76,7 +84,6 @@
         
         return;
     }
-    
     
     //Query soundCloud API to log user in
     [SCSoundCloud requestAccessWithPreparedAuthorizationURLHandler:^(NSURL *preparedURL) {
@@ -122,7 +129,6 @@
         }
     };
     
-    
     NSMutableDictionary *parameter=[[NSMutableDictionary alloc]init];
     [parameter setObject:@"password" forKey:@"grant_type"];
     [parameter setObject:@"230ccb26b40f7c87eb65fc03357ffa81" forKey:@"client_id"];
@@ -159,8 +165,8 @@
 */
 
 - (IBAction)SDSLogin:(id)sender {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:self.username.text forKey:@"sdsUsername"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.username.text forKey:@"username"];
+    [SSKeychain setPassword:_password.text forService:@"EcstaticFM" account:self.username.text];
     [SDSAPI login: self.username.text password:self.password.text];
     [SDSAPI createRoom: self.username.text];
 }

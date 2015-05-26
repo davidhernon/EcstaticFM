@@ -10,8 +10,8 @@
 
 @interface MediaPageViewController ()
 
-@property (nonatomic, retain) soundCloudMediaPickerViewController *first;
-@property (nonatomic, retain) UIViewController *second;
+@property (nonatomic, retain) soundCloudMediaPickerViewController *sound_cloud_media_picker;
+@property (nonatomic, retain) UIViewController *sds_media_picker;
 
 @end
 
@@ -19,22 +19,22 @@
     NSArray *viewControllers;
 }
 
-- (UIViewController *)first {
-    if (!_first) {
+- (UIViewController *)sound_cloud_media_picker {
+    if (!_sound_cloud_media_picker) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        _first = [sb instantiateViewControllerWithIdentifier:@"soundCloudQuery"];
-        [SoundCloudAPI getFavorites:_first];
+        _sound_cloud_media_picker = [sb instantiateViewControllerWithIdentifier:@"soundCloudQuery"];
+        [SoundCloudAPI getFavorites:_sound_cloud_media_picker];
         
     }
-    return _first;
+    return _sound_cloud_media_picker;
 }
 
-- (UIViewController *)second {
-    if (!_second) {
+- (UIViewController *)sds_media_picker {
+    if (!_sds_media_picker) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        _second = [sb instantiateViewControllerWithIdentifier:@"sdsAPI"];
+        _sds_media_picker = [sb instantiateViewControllerWithIdentifier:@"sdsAPI"];
     }
-    return _second;
+    return _sds_media_picker;
 }
 
 
@@ -42,7 +42,7 @@
     [super viewDidLoad];
     self.dataSource = self;
     
-    [self setViewControllers:@[self.first]
+    [self setViewControllers:@[self.sound_cloud_media_picker]
                    direction:UIPageViewControllerNavigationDirectionForward
                     animated:YES
                   completion:nil];
@@ -57,8 +57,8 @@
     
     UIViewController *nextViewController = nil;
     
-    if (viewController == self.first) {
-        nextViewController = self.second;
+    if (viewController == self.sound_cloud_media_picker) {
+        nextViewController = self.sds_media_picker;
     }
     
     return nextViewController;
@@ -68,8 +68,8 @@
     
     UIViewController *prevViewController = nil;
     
-    if (viewController == self.second) {
-        prevViewController = self.first;
+    if (viewController == self.sds_media_picker) {
+        prevViewController = self.sound_cloud_media_picker;
     }
     
     return prevViewController;

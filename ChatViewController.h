@@ -10,6 +10,7 @@
 
 #import "GFXUtils.h"
 #import "RadialGradientLayer.h"
+#import "Room.h"
 
 
 @interface ChatViewController : UIViewController
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *chatScrollView;
 @property (weak, nonatomic) IBOutlet UITextField *chatTextField;
 @property BOOL keyboardIsShown;
+@property (weak, nonatomic) IBOutlet UILabel *people_with_you;
 
 - (void)didReceiveMemoryWarning;
 - (void)keyboardWillHide:(NSNotification *)n;

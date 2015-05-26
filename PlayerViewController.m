@@ -20,7 +20,7 @@ static NSString* cellIdentifier = @"playListCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
   //  [self.player updatePlaylist];
-    
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
     // Set AVAudioSession
     NSError *sessionError = nil;
@@ -34,23 +34,15 @@ static NSString* cellIdentifier = @"playListCell";
 
 
     // Hide the slider thumb & background color
-    
-    UIImage *empty = [UIImage new];
     [_slider setThumbImage:[UIImage alloc] forState:UIControlStateNormal];
-    
-//    UIImage *progressbar = [UIImage imageNamed:[NSString stringWithFormat:@"image_progressbarcolors.png"]];
-//    [_slider setMinimumTrackImage:[UIImage alloc] forState:UIControlStateNormal];
-    
     _slider.maximumTrackTintColor = [UIColor colorWithRed:0.541 green:0.267 blue:0.435 alpha:1] /*#8a446f*/;
     
     
     // Make playerTableView & it's header transparent
-    
     _playListTableView.backgroundColor = [UIColor clearColor];
     __playerTableHeaderView.backgroundColor = [UIColor clearColor];
     
     // Make the nav bar transparent
-
     [self._playerNavigationBar setBackgroundImage:[UIImage new]
                              forBarMetrics:UIBarMetricsDefault];
     self._playerNavigationBar.shadowImage = [UIImage new];
@@ -76,6 +68,10 @@ static NSString* cellIdentifier = @"playListCell";
     _current_album_artwork.clipsToBounds = NO;
     _playListTableView.tableHeaderView = __playerTableHeaderView;
     _playListTableView.tableFooterView = __playerAddMusicCell;
+    
+    // Allow multiple checkmarks
+//     _playListTableView.allowsMultipleSelection = YES;
+    
     
 
 }
@@ -159,17 +155,32 @@ static NSString* cellIdentifier = @"playListCell";
     cell.duration.text = track.duration;
     cell.sc_album_image.image =  track.artwork;
     cell.backgroundColor = [UIColor clearColor];
-    
-    
+        cell.song_index_label.text = [NSString stringWithFormat:@"%d",indexPath.row+1];
+
+    // If the track added is the track currently playing add other UI
     if((int)_current_track_index == (int)indexPath.row && _player.isPlaying)
     {
-        cell.playing_animation.image = [UIImage animatedImageNamed:@"wave" duration:0.6f];
         cell.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
+        cell.song_index_label.text = @"";
+        NSArray *imageNames = @[@"wave1.png", @"wave2.png", @"wave3.png", @"wave4.png", @"wave5.png", @"wave6.png", @"wave7.png"];
+        
+        NSMutableArray *images = [[NSMutableArray alloc] init];
+        for (int i = 0; i < imageNames.count; i++) {
+            [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
+        }
+        
+        // Normal Animation
+        cell.playing_animation.animationImages = images;
+        cell.playing_animation.animationDuration = 0.6;
+        [cell.playing_animation startAnimating];
     }
+    
     
     return cell;
     
 }
+
+
 
 // This method gets called when a row in the table is selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -182,8 +193,9 @@ static NSString* cellIdentifier = @"playListCell";
  @param currentTrack
  MediaItem of the currently playing track
  */
-- (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack atIndex:(NSUInteger*)index
+- (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack atIndex:(int)index
 {
+    NSLog(@"Is the index null? : %d",index);
     _slider.maximumValue = duration;
     _slider.value = 0.0;
     _current_artist.text = currentTrack.artist;
@@ -206,11 +218,10 @@ static NSString* cellIdentifier = @"playListCell";
  the AVAudioPlayer which is a parameter of the EcstaticPlayer
  @return void
  */
-- (void) setCurrentSliderValue:(AVAudioPlayer*)childPlayer
+- (void) setCurrentSliderValue:(AVPlayer*)childPlayer
 {
-    NSLog(@"current time: %f", childPlayer.currentTime);
-    _slider.value = childPlayer.currentTime;
-    _current_time.text = [Utils convertTimeFromMillis:(int)1000*childPlayer.currentTime];
+    _slider.value = (int)CMTimeGetSeconds([childPlayer currentTime]);
+    _current_time.text = [Utils convertTimeFromMillis:(int)1000*_slider.value];
 }
 
 /**

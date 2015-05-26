@@ -10,7 +10,7 @@
 #import "MusicServiceAPI.h"
 #import <UIKit/UIKit.h>
 #import "SCUI.h"
-#import "soundCloudMediaPickerViewController.h"
+@class soundCloudMediaPickerViewController;
 
 @interface SoundCloudAPI : NSObject<MusicServiceAPI>
 
@@ -20,5 +20,6 @@
 + (void)getAccessTokenWithCompletion;
 + (void)storeUserDefaults;
 + (NSString*)getClientID;
-
++ (void)login:(id)sender;
++(void)searchSoundCloud:(NSString*)search_text withSender:(soundCloudMediaPickerViewController*)sender;
 @end

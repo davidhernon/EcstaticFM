@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class SDSAPI;
 @import CoreLocation;
 
 @interface LocationServices : NSObject<CLLocationManagerDelegate>

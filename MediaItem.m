@@ -10,6 +10,25 @@
 
 @implementation MediaItem
 
+- (void)encodeWithCoder:(NSCoder *)coder {
+    
+    [coder encodeObject:self.track_title forKey:@"treack_title"];
+    [coder encodeObject:self.artist forKey:@"artist"];
+    [coder encodeObject:self.duration forKey:@"duration"];
+    [coder encodeObject:self.artwork forKey:@"artwork"];
+    [coder encodeObject:self.stream_url forKey:@"stream_url"];
+}
+
+-(NSDictionary*)serializeMediaItem
+{
+    NSMutableDictionary* serialized = [[NSMutableDictionary alloc] init];
+    [serialized setValue:self.track_title forKey:@"track_title"];
+    [serialized setValue:self.artist forKey:@"artist"];
+    [serialized setValue:self.duration forKey:@"duration"];
+    [serialized setValue:self.stream_url forKey:@"stream_url"];
+    return serialized;
+}
+
 // Default constructor
 - (id) init
 {
@@ -50,6 +69,9 @@
         self.stream_url = [soundCloudTrack objectForKey:@"stream_url"];
         self.waveform_url = [self addWaveform:[soundCloudTrack objectForKey:@"waveform_url"]];
         self.playing_animation = [[UIImage alloc] init];
+        self.username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+//        self.playing_animation = [UIImage animatedImageNamed:@"wave" duration:0.6f];
+        self.playing_animation = [UIImage imageNamed:@"wave1.png"];
     }
     return self;
 }

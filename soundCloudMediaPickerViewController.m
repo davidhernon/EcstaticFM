@@ -43,7 +43,31 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     
     self.soundCloudResultsTableView.allowsMultipleSelectionDuringEditing = YES;
     self.selectedTracks = [[NSMutableArray alloc] init];
+    self.selectedTrackIndices = [[NSMutableArray alloc] init];
+    self.soundCloudAlbumImages = [[NSMutableArray alloc] init];
+    [self getAlbumImageArray];
+
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    
+    if([SCSoundCloud account] == nil)
+    {
+        _connect_to_soundcloud.hidden = NO;
+    }else{
+        _connect_to_soundcloud.hidden = YES;
+    }
+//    _tracksFromSoundCloud = nil;
+//    [SoundCloudAPI getFavorites:self];
+//    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        while(_tracksFromSoundCloud == nil){
+//            [NSThread sleepForTimeInterval:0.1f];
+//        }
+//    });
+//    [self getAlbumImageArray];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,13 +88,31 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MediaItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     NSDictionary *track = [self.tracksFromSoundCloud objectAtIndex:indexPath.row];
     tableView.backgroundColor = [UIColor clearColor];
     cell.track_title.text = [track objectForKey:@"title"];
     cell.artist.text = [[track objectForKey:@"user"] objectForKey:@"username"];
     cell.duration.text = [NSString stringWithFormat:@"%@", [Utils convertTimeFromMillis:(int) [[track objectForKey:@"duration"] intValue]]];
-    [cell setAlbumArtworkFromStringURL:[track objectForKey:@"artwork_url"]];
+
+    if(indexPath.row < [_soundCloudAlbumImages count])
+    {
+        cell.sc_album_image.image = [_soundCloudAlbumImages objectAtIndex:indexPath.row];
+    }
+    
+    [cell setAccessoryType:UITableViewCellAccessoryNone];
+    for (int i = 0; i < _selectedTrackIndices.count; i++) {
+        NSUInteger num = [[_selectedTrackIndices objectAtIndex:i] intValue];
+        
+        if (num == indexPath.row) {
+            [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+            // Once we find a match there is no point continuing the loop
+            break;
+        }
+    }
+    
+    
     
     return cell;
     
@@ -81,18 +123,18 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     //MediaItem* mediaItemSelected = [self mediaItemFromCell:indexPath.row];
     NSDictionary *itemOne = [self.tracksFromSoundCloud objectAtIndex:indexPath.row];
     MediaItem* mediaItemSelected = [[MediaItem alloc] initWithSoundCloudTrack:[self.tracksFromSoundCloud objectAtIndex:indexPath.row]];
-//    MediaItem* mediaItemSelected = [[MediaItem alloc] init];
     
     if([tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryCheckmark){
 //        cell clicked and it was previously selected
         [self removeMediaItemFromSelectedTracks:mediaItemSelected];
         [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+        [_selectedTrackIndices removeObject:@(indexPath.row)];
     }else{
-        
 //        cell clicked and it was not previously selected
         if(![self itemAlreadySelected:mediaItemSelected])
             [self.selectedTracks addObject:mediaItemSelected];
         [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+        [_selectedTrackIndices addObject:@(indexPath.row)];
     }
     [self printSelectedTracks];
 }
@@ -102,26 +144,6 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     self.tracksFromSoundCloud = tracks;
     [self.soundCloudResultsTableView reloadData];
 }
-
-//-(MediaItem*)mediaItemFromCell:(NSInteger)index
-//{
-//    NSDictionary *selectedTrack = [self.tracksFromSoundCloud objectAtIndex:index];
-//    MediaItem* mediaItem = [[MediaItem alloc] init];
-//    mediaItem.track_title = [selectedTrack objectForKey:@"title"];
-//    mediaItem.artist = [selectedTrack objectForKey:@"user"];
-//    mediaItem.duration = [selectedTrack objectForKey:@"duration"];
-//    NSString *stringURL = (NSString*)[selectedTrack objectForKey:@"artwork_url"];
-//    if([stringURL isEqual:[NSNull null]]){
-//        stringURL = @"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi8MYn94Vl1HVxqMb7u31QSRa3cNCJOYhxw7xI_GGDvcSKQ7xwPA370w";
-//    }
-//    //    stringURL = [stringURL stringByReplacingOccurrencesOfString:@"large" withString:@"t67x67"];
-//    NSURL *imageURL = [NSURL URLWithString:stringURL];
-//    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-//    UIImage *myImage = [UIImage imageWithData:imageData];
-//    mediaItem.artwork = (UIImage*)myImage;
-//    
-//    return mediaItem;
-//}
 
 -(void)printSelectedTracks
 {
@@ -163,6 +185,37 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 -(IBAction)addSelectedTracksToPlaylist:(id)sender
 {
     [[Playlist sharedPlaylist] addTracks:self.selectedTracks];
+    for(MediaItem* item in self.selectedTracks)
+    {
+        [SDSAPI sendMediaItemToServer:item];
+    }
+}
+
+-(void) getAlbumImageArray
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        while(_tracksFromSoundCloud == nil)
+        {
+            [NSThread sleepForTimeInterval:0.1f];
+        }
+        
+        for(NSDictionary *track in _tracksFromSoundCloud)
+        {
+            NSString *url = [track objectForKey:@"artwork_url"];
+            if([url isEqual:[NSNull null]]){
+                url = @"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi8MYn94Vl1HVxqMb7u31QSRa3cNCJOYhxw7xI_GGDvcSKQ7xwPA370w";
+            }
+            NSURL *imageURL = [NSURL URLWithString:url];
+            NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+            UIImage *myImage = [UIImage imageWithData:imageData];
+            [_soundCloudAlbumImages addObject:myImage];
+            [_soundCloudResultsTableView performSelectorOnMainThread:@selector(reloadData)
+                                             withObject:nil
+                                          waitUntilDone:NO];
+        }
+        
+    });
+    
 }
 
 // selected state checkmark
@@ -174,6 +227,49 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 -(IBAction)closeMediaPicker:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(NSString*)getLargestArtwork:(NSString*)providedURLString
+{
+    
+    return nil;
+}
+
+-(IBAction)soundcloudLogin:(id)sender
+{
+    [SoundCloudAPI login:self];
+}
+
+-(IBAction)showSearchSoundCloudUI:(id)sender
+{
+    // May break if there is more than one UIView in the NIB
+    ILTranslucentView *search_soundcloud = [[[NSBundle mainBundle] loadNibNamed:@"SoundCloudSearchView" owner:self options:nil] objectAtIndex:0];
+    search_soundcloud.translucentAlpha = 1;
+    search_soundcloud.translucentStyle = UIBarStyleDefault;
+    search_soundcloud.translucentTintColor = [UIColor clearColor];
+    search_soundcloud.backgroundColor = [UIColor clearColor];
+    
+    [search_soundcloud addSender:self];
+    
+    [self.view addSubview:search_soundcloud];
+    
+}
+
+-(void)searchSoundcloud:(NSString*)search_text
+{
+    [SoundCloudAPI searchSoundCloud:search_text withSender:self];
+}
+
+-(void)updateTable
+{
+    
+//    self.selectedTracks = [[NSMutableArray alloc] init];
+//    self.selectedTrackIndices = [[NSMutableArray alloc] init];
+    self.soundCloudAlbumImages = [[NSMutableArray alloc] init];
+    [self getAlbumImageArray];
+    [self.soundCloudResultsTableView reloadData];
+    
+    
 }
 
 /*

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "Playlist.h"
+@class Player;
 
 @interface Room : NSObject
 
@@ -15,6 +17,20 @@
 // title
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *location;
+
+@property (weak, nonatomic) NSArray* other_listeners;
+@property (weak, nonatomic) Playlist* playlist;
+@property (weak, nonatomic) Player* player;
+
+@property (weak, nonatomic) NSString* owner;
+
+@property NSInteger* room_number;
+
+-(int)getNumberOfListenersInRoom;
++ (Room*)currentRoom;
+-(Playlist*)getRoomPlaylist;
+-(Player*)getRoomPlayer;
+-(void)addMediaItemToPlaylist:(MediaItem*)media_item;
 
 
 // playlist

@@ -18,10 +18,11 @@
 
 @property Playlist* playlist;
 @property MediaItem* currentTrack;
-@property AVAudioPlayer* avPlayer;
+@property AVPlayer* avPlayer;
 @property NSTimer* progressTimer;
-@property NSUInteger currentTrackIndex;
+@property int currentTrackIndex;
 @property BOOL isPaused;
+@property BOOL isNextSong;
 
 @property (nonatomic, weak) id<PlayerDelegate> delegate;
 
@@ -41,9 +42,9 @@
 
 @protocol PlayerDelegate <NSObject>
 
-- (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack atIndex:(NSUInteger)index;
+- (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack atIndex:(int)index;
 
-- (void) setCurrentSliderValue:(AVAudioPlayer*)childPlayer;
+- (void) setCurrentSliderValue:(AVPlayer*)childPlayer;
 
 - (void)updatePlaylistTable;
 
