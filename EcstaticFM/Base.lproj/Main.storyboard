@@ -227,7 +227,7 @@ music around you.</string>
                                             <segue destination="VOg-FZ-x98" kind="modal" id="f1Y-iV-NZw"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="M6J-fc-kp4">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="M6J-fc-kp4">
                                         <rect key="frame" x="51" y="400" width="218" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="button-facebook.png">
@@ -246,16 +246,6 @@ music around you.</string>
                                         <rect key="frame" x="51" y="235" width="218" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NOV-nL-pSd">
-                                        <rect key="frame" x="104" y="434" width="102" height="52"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="SoundCloud">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="soundCloudLogin:" destination="Na0-VS-aPw" eventType="touchUpInside" id="b3g-nE-BhA"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <gestureRecognizers/>
                             </view>
@@ -845,19 +835,6 @@ music around you.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhK-Pb-bck" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1956" y="1630"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="6tM-1f-sdg">
-            <objects>
-                <viewController id="zM1-mP-mbq" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="DBc-Pd-7C1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4AH-Ka-19H" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>

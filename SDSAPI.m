@@ -122,7 +122,7 @@ static SocketIOClient *static_socket;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         while(!static_socket.connected){
-            NSLog(@"static_socket connected inside=%d", static_socket.connected);
+//            NSLog(@"static_socket connected inside=%d", static_socket.connected);
             [NSThread sleepForTimeInterval:0.1f];
         }
         
@@ -148,7 +148,7 @@ static SocketIOClient *static_socket;
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		
 		while(!static_socket.connected){
-			NSLog(@"static_socket connected inside=%d", static_socket.connected);
+//			NSLog(@"static_socket connected inside=%d", static_socket.connected);
 			[NSThread sleepForTimeInterval:0.1f];
 		}
 		
@@ -168,7 +168,7 @@ static SocketIOClient *static_socket;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
        while(!static_socket.connected)
        {
-           NSLog(@"waiting to connect!");
+//           NSLog(@"waiting to connect!");
            [NSThread sleepForTimeInterval:0.1f];
        }
         NSLog(@"username, latitude, longitude: %@, %f, %f", username, latitude, longitude);

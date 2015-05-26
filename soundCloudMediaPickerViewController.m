@@ -205,12 +205,9 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
             NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
             UIImage *myImage = [UIImage imageWithData:imageData];
             [_soundCloudAlbumImages addObject:myImage];
-            NSLog(@"reload!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             [_soundCloudResultsTableView performSelectorOnMainThread:@selector(reloadData)
                                              withObject:nil
                                           waitUntilDone:NO];
-            
-
         }
         
     });
