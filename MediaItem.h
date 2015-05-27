@@ -24,10 +24,12 @@
 @property NSString* stream_url;
 @property UIImage* waveform;
 @property UIImage* playing_animation;
+@property NSString* room_number;
 
 @property NSString* username;
 
 - (id) initWithSoundCloudTrack:(NSDictionary *)soundCloudTrack;
+- (id) initWIthDict:(NSDictionary*)sds_dict;
 -(NSDictionary*)serializeMediaItem;
 
 @end

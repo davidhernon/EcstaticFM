@@ -128,6 +128,15 @@ static SocketIOClient *static_socket;
     [static_socket on:@"realtime_leave_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSLog(@"one of the users just left the room");
     }];
+    
+    [static_socket on:@"return_get_playlist" callback:^(NSArray * data, void (^ack) (NSArray*)){
+        NSDictionary *playlist_dict = [((NSDictionary*) data[0]) objectForKey:@"playlist"];
+        [[Playlist sharedPlaylist] initWithDict:playlist_dict];
+    }];
+    
+    [static_socket on:@"realtime_add_song" callback:^(NSArray * data, void (^ack) (NSArray*)){
+        NSLog(@"song recieved");
+    }];
 
     [static_socket connect];
 }
@@ -201,6 +210,7 @@ static SocketIOClient *static_socket;
  */
 +(void) sendMediaItemToServer:(MediaItem*)media_item
 {
+    media_item.room_number = [Room currentRoom].room_number;
     NSDictionary* item = [media_item serializeMediaItem];
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:item

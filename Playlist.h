@@ -19,5 +19,6 @@
 - (void) addTracks:(NSMutableArray*)songsToAdd;
 - (id)objectAtIndex:(NSUInteger)index;
 -(void) removeTrack:(MediaItem*)song;
+- (void) initWithDict:(NSDictionary*)playlist;
 
 @end
