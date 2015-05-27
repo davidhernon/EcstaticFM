@@ -45,7 +45,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     self.selectedTracks = [[NSMutableArray alloc] init];
     self.selectedTrackIndices = [[NSMutableArray alloc] init];
     self.soundCloudAlbumImages = [[NSMutableArray alloc] init];
-    [self getAlbumImageArray];
+//    [self getAlbumImageArray];
 
     
 }
@@ -67,7 +67,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 //            [NSThread sleepForTimeInterval:0.1f];
 //        }
 //    });
-//    [self getAlbumImageArray];
+    [self getAlbumImageArray];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -194,6 +194,8 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 -(void) getAlbumImageArray
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        _soundCloudAlbumImages = nil;
+        _soundCloudAlbumImages = [[NSMutableArray alloc] init];
         while(_tracksFromSoundCloud == nil)
         {
             [NSThread sleepForTimeInterval:0.1f];
@@ -238,6 +240,19 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 -(IBAction)soundcloudLogin:(id)sender
 {
     [SoundCloudAPI login:self];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                while([SCSoundCloud account] == nil)
+                {
+                    [NSThread sleepForTimeInterval:0.1f];
+                }
+//        [SoundCloudAPI getFavorites:self];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self getFaves];
+        });
+        
+    });
+
 }
 
 -(IBAction)showSearchSoundCloudUI:(id)sender
@@ -258,18 +273,22 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 -(void)searchSoundcloud:(NSString*)search_text
 {
     [SoundCloudAPI searchSoundCloud:search_text withSender:self];
+    [self viewDidLoad];
+    [self viewWillAppear:YES];
 }
 
 -(void)updateTable
 {
-    
 //    self.selectedTracks = [[NSMutableArray alloc] init];
 //    self.selectedTrackIndices = [[NSMutableArray alloc] init];
+    [self.soundCloudResultsTableView reloadData];
     self.soundCloudAlbumImages = [[NSMutableArray alloc] init];
     [self getAlbumImageArray];
-    [self.soundCloudResultsTableView reloadData];
-    
-    
+}
+
+-(IBAction)getFaves
+{
+    [SoundCloudAPI getFavorites:self];
 }
 
 /*

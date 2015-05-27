@@ -107,11 +107,11 @@ static SocketIOClient *static_socket;
     static_socket = [[SocketIOClient alloc] initWithSocketURL:@"http://54.173.157.204:8888" options:nil];
     
 	[static_socket on: @"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
-//		NSLog(@"here connected");
+		NSLog(@"here connected");
 	}];
     
     [static_socket on: @"return_post_location" callback: ^(NSArray* data, void (^ack)(NSArray*)){
-//        NSLog(@"Posted a location");
+        NSLog(@"Posted a location");
     }];
 
     [static_socket connect];
@@ -140,9 +140,9 @@ static SocketIOClient *static_socket;
     
     [static_socket on: @"return_get_rooms_around_me" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"get_rooms_around_me returned,%@", data[0]);
-//        NSDictionary* locationsDict =(NSDictionary*) data[0];
-//        NSArray* locationsArray = [locationsDict objectForKey:@"locations"];
-//        [sender showRoomsScrollView:locationsArray];
+        NSDictionary* locationsDict =(NSDictionary*) data[0];
+        NSArray* locationsArray = [locationsDict objectForKey:@"rooms"];
+        [sender showRoomsScrollView:locationsArray];
     }];
     
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
