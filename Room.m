@@ -39,8 +39,20 @@ static Room *currentRoom = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         currentRoom = [[Room alloc] init];
+        currentRoom.room_number = @"-1";
     });
     return currentRoom;
+}
+
+- (void) initWithDict:(NSDictionary *)room_info
+{
+    if(!currentRoom)
+        [Room currentRoom];
+    currentRoom.title = [room_info objectForKey:@"room_name"];
+    currentRoom.room_number = [room_info objectForKey:@"room_number"];
+    currentRoom.host_username = [room_info objectForKey:@"host_username"];
+    currentRoom.other_listeners = [room_info objectForKey:@"number_of_users"];
+    NSLog(@"room number: %@", currentRoom.room_number);
 }
 
 - (void) initWithRoom:(NSDictionary*)room_to_join
@@ -111,9 +123,9 @@ static Room *currentRoom = nil;
     //Update PlayerUI
 }
 
--(NSInteger*)getRoomNumber
-{
-    return _room_number;
-}
+//-(NSInteger*)getRoomNumber
+//{
+//    return _room_number;
+//}
 
 @end

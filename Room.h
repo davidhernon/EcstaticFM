@@ -15,22 +15,23 @@
 
 // location
 // title
-@property (weak, nonatomic) IBOutlet UILabel *title;
-@property (weak, nonatomic) IBOutlet UILabel *location;
+@property (retain, nonatomic) IBOutlet UILabel *title;
+@property (retain, nonatomic) IBOutlet UILabel *location;
 
-@property (weak, nonatomic) NSArray* other_listeners;
+@property (weak, nonatomic) NSString* other_listeners;
 @property (weak, nonatomic) Playlist* playlist;
 @property (weak, nonatomic) Player* player;
 
-@property (weak, nonatomic) NSString* owner;
+@property (retain, nonatomic) NSString* host_username;
 
-@property NSInteger* room_number;
+@property (retain, nonatomic) NSString* room_number;
 
 -(int)getNumberOfListenersInRoom;
 + (Room*)currentRoom;
 -(Playlist*)getRoomPlaylist;
 -(Player*)getRoomPlayer;
 -(void)addMediaItemToPlaylist:(MediaItem*)media_item;
+-(void)initWithDict:(NSDictionary*)room_info;
 
 
 // playlist

@@ -113,6 +113,21 @@ static SocketIOClient *static_socket;
     [static_socket on: @"return_post_location" callback: ^(NSArray* data, void (^ack)(NSArray*)){
         NSLog(@"Posted a location");
     }];
+    
+    [static_socket on:@"return_create_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
+        NSLog(@"create room returned,%@", data[0]);
+        NSDictionary* room_info_dict =[((NSDictionary*) data[0]) objectForKey:@"room_info"];
+//        NSArray* room_info = [room_info_dict objectForKey:@"room_info"];
+        [[Room currentRoom] initWithDict:room_info_dict];
+    }];
+    
+    [static_socket on:@"realtime_join_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
+        NSLog(@"another user just joined you in the room");
+    }];
+    
+    [static_socket on:@"realtime_leave_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
+        NSLog(@"one of the users just left the room");
+    }];
 
     [static_socket connect];
 }
@@ -200,6 +215,42 @@ static SocketIOClient *static_socket;
     
     
     
+}
+
++(void)leaveRoom
+{
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[[Room currentRoom].room_number, username] forKeys:@[@"room_number", @"username"]];
+    NSData *leaveJson = [NSJSONSerialization dataWithJSONObject:leaveDict options:nil error:nil];
+    [static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
+}
+
++(void)joinRoom:(NSString*)room_number
+{
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSDictionary *joinDict  = [NSDictionary dictionaryWithObjects:@[room_number, username] forKeys:@[@"room_number", @"username"]];
+    NSString *rn = [NSString stringWithFormat:@"%@",[Room currentRoom].room_number];
+    NSLog(@"From Room: %@", [Room currentRoom].room_number);
+    NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[rn, username] forKeys:@[@"room_number", @"username"]];
+    NSData *joinJson = [NSJSONSerialization dataWithJSONObject:joinDict options:nil error:nil];
+    NSData *leaveJson = [NSJSONSerialization dataWithJSONObject:leaveDict options:nil error:nil];
+    if([room_number isEqualToString:[Room currentRoom].room_number])
+    {
+        return;
+    }else if([room_number isEqualToString:@"-1"])
+    {
+        [static_socket emitObjc:@"join_room" withItems:@[joinJson]];
+    }else{
+        [static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
+        [static_socket emitObjc:@"join_room" withItems:@[joinJson]];
+    }
+}
+
++(void)getPlaylist:(NSString*)room_number
+{
+    NSDictionary *playlist_query = [NSDictionary dictionaryWithObjects:@[room_number] forKeys:@[@"room_number"]];
+    NSData *json = [NSJSONSerialization dataWithJSONObject:playlist_query options:nil error:nil];
+    [static_socket emitObjc:@"get_playlist" withItems:@[json]];
 }
 
 @end

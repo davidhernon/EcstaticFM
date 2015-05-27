@@ -73,6 +73,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
             room_view.other_listeners.text = [NSString stringWithFormat:@"%@ & %d Other(s)",[room objectForKey:@"host_username"], [[room objectForKey:@"number_of_users"] intValue]-1];
             
             room_view.room_number.text = [NSString stringWithFormat:@"Room Number %@",[room objectForKey:@"room_number"]];
+            room_view.raw_room_number = [room objectForKey:@"room_number"];
             
 //            [button addTarget:self  action:@selector(joinRoom) forControlEvents:UIControlEventTouchUpInside];
 //            [button addSubview:room_view];

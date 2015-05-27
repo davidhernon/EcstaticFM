@@ -7,6 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 #import "RoomsViewController.h"
+#import "Room.h"
 @interface SDSAPI : NSObject
 
 
@@ -19,6 +20,9 @@
 +(void)connect;
 +(void) sendMediaItemToServer:(MediaItem*)media_item;
 +(void)postLocation:(NSString*)username withLatitude:(float)latitude withLongitude:(float)longitude;
++(void)joinRoom:(NSString*)room_number;
++(void)leaveRoom;
++(void)getPlaylist:(NSString*)room_number;
 
 
 @end
