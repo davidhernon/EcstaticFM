@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PlayerPageViewController.h"
 #import "SDSAPI.h"
+@class RoomsViewController;
 
 @interface UIRoomView : UIView
 
@@ -18,6 +19,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *room_number;
 @property (nonatomic, weak) IBOutlet UIButton *button;
 @property (nonatomic, weak) NSString *raw_room_number;
+
+@property (nonatomic, weak) RoomsViewController *rooms_view_controller;
 
 -(void)buttonAction;
 

@@ -130,8 +130,25 @@ static SocketIOClient *static_socket;
     }];
     
     [static_socket on:@"return_get_playlist" callback:^(NSArray * data, void (^ack) (NSArray*)){
-        NSDictionary *playlist_dict = [((NSDictionary*) data[0]) objectForKey:@"playlist"];
-        [[Playlist sharedPlaylist] initWithDict:playlist_dict];
+//        NSDictionary *d = (NSDictionary*)data[0];
+//        NSArray* songs = [d objectForKey:@"playlist"];
+//        NSDictionary *playlist_dict = [((NSDictionary*) data[0]) objectForKey:@"playlist"];
+//    JSONObjectWithData:(NSData *)data
+//    options:(NSJSONReadingOptions)opt
+//    error:(NSError **)error
+        NSDictionary *d = (NSDictionary*)data[0];
+        NSArray* songs = [d objectForKey:@"playlist"];
+        NSMutableDictionary *concat_dict = [[NSMutableDictionary alloc] init];
+        int counter = 0;
+        for(NSString *song in songs)
+        {
+            NSData *data = [song dataUsingEncoding:NSUTF8StringEncoding];
+            NSDictionary *playlist_dict = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
+            [concat_dict setValue:playlist_dict forKey:[NSString stringWithFormat:@"%d", counter]];
+            counter++;
+        }
+        
+        [[Playlist sharedPlaylist] initWithDict:concat_dict];
     }];
     
     [static_socket on:@"realtime_add_song" callback:^(NSArray * data, void (^ack) (NSArray*)){

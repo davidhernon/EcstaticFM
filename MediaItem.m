@@ -12,7 +12,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     
-    [coder encodeObject:self.track_title forKey:@"treack_title"];
+    [coder encodeObject:self.track_title forKey:@"track_title"];
     [coder encodeObject:self.artist forKey:@"artist"];
     [coder encodeObject:self.duration forKey:@"duration"];
     [coder encodeObject:self.artwork forKey:@"artwork"];
@@ -86,7 +86,7 @@
     self = [super init];
     if(self)
     {
-        self.track_title = [sds_dict objectForKey:@"song_name"];
+        self.track_title = [sds_dict objectForKey:@"track_title"];
         self.artist = [sds_dict objectForKey:@"artist"];
         self.duration = [NSString stringWithFormat:@"%@", [Utils convertTimeFromMillis:((int) [[sds_dict objectForKey:@"duration"] intValue])*1000]];
         self.artwork = [self addAlbumArtwork:[sds_dict objectForKey:@"artwork_url"]];

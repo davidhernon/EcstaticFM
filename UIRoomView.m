@@ -7,6 +7,7 @@
 //
 
 #import "UIRoomView.h"
+#import "RoomsViewController.h"
 
 
 @implementation UIRoomView
@@ -42,6 +43,12 @@
     [SDSAPI joinRoom:self.raw_room_number];
     [Room currentRoom].room_number = self.raw_room_number;
     [SDSAPI getPlaylist:self.raw_room_number];
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
+    
+    [_rooms_view_controller presentViewController:player_page animated:YES completion:nil];
+    
 }
 
 /*

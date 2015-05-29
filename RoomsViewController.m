@@ -69,6 +69,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
 //            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
             
             UIRoomView *room_view = [[UIRoomView alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
+            room_view.rooms_view_controller = self;
             room_view.title.text = [room objectForKey:@"room_name"];
             room_view.other_listeners.text = [NSString stringWithFormat:@"%@ & %d Other(s)",[room objectForKey:@"host_username"], [[room objectForKey:@"number_of_users"] intValue]-1];
             
@@ -175,6 +176,11 @@ static NSString* around_me_event_cell = @"around_me_cell";
     _room_cards = room_dictionaries;
     [self viewDidLoad];
     [self viewWillAppear:YES];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    _room_cards = nil;
 }
 
 
