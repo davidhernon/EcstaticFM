@@ -148,7 +148,9 @@ static SocketIOClient *static_socket;
     }];
     
     [static_socket on:@"realtime_add_song" callback:^(NSArray * data, void (^ack) (NSArray*)){
-        NSLog(@"song recieved");
+        [[Playlist sharedPlaylist] addTrack: [[MediaItem alloc] initWIthDict:((NSDictionary*) data[0])] ];
+        [[Playlist sharedPlaylist] reloadPlayer];
+        NSLog(@"song received");
     }];
 
     [static_socket connect];

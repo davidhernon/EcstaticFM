@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "RoomsViewController.h"
 #import "Room.h"
+#import "MediaItem.h"
 @interface SDSAPI : NSObject
 
 
