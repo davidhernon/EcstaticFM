@@ -7,6 +7,7 @@
 //
 
 #import "Playlist.h"
+#import "Player.h"
 
 @implementation Playlist
 
@@ -69,5 +70,9 @@ static Playlist *sharedPlaylist = nil;
     return [self.playlist objectAtIndex:index];
 }
 
+- (void) reloadPlayer
+{
+    [[Player sharedPlayer] reloadUI];
+}
 
 @end

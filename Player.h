@@ -36,6 +36,7 @@
 -(void)updateTime;
 -(void)seek:(float)value;
 -(BOOL)isPlaying;
+-(void) reloadUI;
 
 
 @end
@@ -49,5 +50,7 @@
 - (void)updatePlaylistTable;
 
 - (void)hideUI;
+
+- (void)redrawUI;
 
 @end

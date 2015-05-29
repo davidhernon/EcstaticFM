@@ -130,12 +130,6 @@ static SocketIOClient *static_socket;
     }];
     
     [static_socket on:@"return_get_playlist" callback:^(NSArray * data, void (^ack) (NSArray*)){
-//        NSDictionary *d = (NSDictionary*)data[0];
-//        NSArray* songs = [d objectForKey:@"playlist"];
-//        NSDictionary *playlist_dict = [((NSDictionary*) data[0]) objectForKey:@"playlist"];
-//    JSONObjectWithData:(NSData *)data
-//    options:(NSJSONReadingOptions)opt
-//    error:(NSError **)error
         NSDictionary *d = (NSDictionary*)data[0];
         NSArray* songs = [d objectForKey:@"playlist"];
         NSMutableDictionary *concat_dict = [[NSMutableDictionary alloc] init];
@@ -149,6 +143,8 @@ static SocketIOClient *static_socket;
         }
         
         [[Playlist sharedPlaylist] initWithDict:concat_dict];
+        [[Playlist sharedPlaylist] reloadPlayer];
+        // RE Show UI
     }];
     
     [static_socket on:@"realtime_add_song" callback:^(NSArray * data, void (^ack) (NSArray*)){

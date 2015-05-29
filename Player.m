@@ -271,4 +271,9 @@ the delegate to Player for Player to communicate with a view controller
     [_delegate hideUI];
 }
 
+-(void) reloadUI
+{
+    [_delegate redrawUI];
+}
+
 @end

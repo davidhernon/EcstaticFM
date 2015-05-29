@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "Utils.h"
+@class Room;
 
 @interface MediaItem : NSObject//<NSCoding>
 

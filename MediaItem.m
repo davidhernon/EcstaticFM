@@ -7,6 +7,7 @@
 //
 
 #import "MediaItem.h"
+#import "Room.h"
 
 @implementation MediaItem
 
@@ -94,6 +95,7 @@
         self.playing_animation = [[UIImage alloc] init];
         self.username = [sds_dict objectForKey:@"username"];
         self.playing_animation = [UIImage imageNamed:@"wave1.png"];
+        self.room_number = [Room currentRoom].room_number;
     }
     return self;
 }

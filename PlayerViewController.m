@@ -280,4 +280,11 @@ static NSString* cellIdentifier = @"playListCell";
     _current_track_title = @"";
 }
 
+-(void)redrawUI
+{
+    _playlist = [Playlist sharedPlaylist].playlist;
+    [self viewDidDisappear:YES];
+    [self viewWillAppear:YES];
+}
+
 @end

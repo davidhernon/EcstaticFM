@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "MediaItem.h"
+@class Player;
 
 @interface Playlist : NSObject
 
@@ -20,5 +21,6 @@
 - (id)objectAtIndex:(NSUInteger)index;
 -(void) removeTrack:(MediaItem*)song;
 - (void) initWithDict:(NSDictionary*)playlist;
+- (void) reloadPlayer;
 
 @end
