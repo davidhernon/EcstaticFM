@@ -7,7 +7,7 @@
 //
 #import "SDSAPI.h"
 #import "EcstaticFM-Swift.h"
-
+#import "LoginViewController.h"
 @implementation SDSAPI
 
 @class SocketIOClient;
@@ -47,9 +47,8 @@ static SocketIOClient *static_socket;
     return eventD;
 }
 
-+(void) login:(NSString*)username password:(NSString*)pass
++(void) login:(NSString*)username password:(NSString*)pass ID:(id)callingViewController
 {
-    
     // at the top
     static NSString *csrf_cookie;
     
@@ -89,15 +88,14 @@ static SocketIOClient *static_socket;
                                     NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                     
                                     if ([responseString  isEqual: @"successful_login"]) {
-                                        NSLog(@"%@", responseString);
-                                    }
+//										[callingViewController loginReturned:true];
+										[callingViewController performSelectorOnMainThread:@selector(loginReturnedTrue) withObject:nil waitUntilDone:NO];
+									}
                                     else{
-                                        NSLog(@"%@", responseString);
+										[callingViewController loginReturnedFalse];
                                     }
                                 }];
                            }];
-    
-    
 }
 +(void) fbLogin{
     
