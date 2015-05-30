@@ -447,7 +447,7 @@ music around you.</string>
                                         <rect key="frame" x="103" y="45" width="114" height="114"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <view hidden="YES" contentMode="scaleToFill" id="Xn4-45-2xt">
+                                    <view alpha="0.0" contentMode="scaleToFill" id="Xn4-45-2xt">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="482"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
@@ -902,7 +902,7 @@ music around you.</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="ixu-xt-lhn">
-                                            <rect key="frame" x="55.5" y="7.5" width="6008.5" height="1992"/>
+                                            <rect key="frame" x="56" y="8" width="6008" height="1992"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>
