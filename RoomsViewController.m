@@ -54,12 +54,13 @@ static NSString* around_me_event_cell = @"around_me_cell";
     
         for(NSDictionary *event in _upcoming_events)
         {
-            UIRoomView *room_view = [[UIRoomView alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
-            room_view.rooms_view_controller = self;
-            room_view.title.text = [event objectForKey:@"city"];
-            room_view.other_listeners.text =  @"fix it Dave";
-            room_view.room_number.text = @"More Text";
-            room_view.raw_room_number = [NSString stringWithFormat:@"%d",[[event objectForKey:@"id"] intValue]*(-1)];
+            UIEventView *room_view = [[UIEventView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:event withRoomController:self];
+//            UIRoomView *room_view = [[UIRoomView alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
+//            room_view.rooms_view_controller = self;
+//            room_view.title.text = [event objectForKey:@"city"];
+//            room_view.other_listeners.text =  @"fix it Dave";
+//            room_view.room_number.text = @"More Text";
+//            room_view.raw_room_number = [NSString stringWithFormat:@"%d",[[event objectForKey:@"id"] intValue]*(-1)];
             [_roomsScrollView addSubview:room_view];
             x += (234) + 15;
         }

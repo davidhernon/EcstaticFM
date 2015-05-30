@@ -14,6 +14,8 @@
 #import "LocationServices.h"
 #import "AroundMeTableViewCell.h"
 #import "UIRoomView.h"
+#import "UIAroundMeView.h"
+#import "UIEventView.h"
 #define kUVCellDragInterval 180.f
 
 @interface RoomsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>;
