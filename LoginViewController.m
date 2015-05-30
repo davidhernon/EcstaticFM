@@ -152,21 +152,24 @@
     
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//This method gets called when SDSAPI's login method returns with a true if the login was succesful
+- (void) loginReturnedTrue
+{
+//		[self performSegueWithIdentifier:@"succesfulLogin" sender:self];
+		UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+		PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
+		[self presentViewController:player_page animated:YES completion:nil];
 }
-*/
+
+- (void) loginReturnedFalse
+{
+	NSLog(@"unsuccessful login");
+}
 
 - (IBAction)SDSLogin:(id)sender {
     [[NSUserDefaults standardUserDefaults] setObject:self.username.text forKey:@"username"];
     [SSKeychain setPassword:_password.text forService:@"EcstaticFM" account:self.username.text];
-    [SDSAPI login: self.username.text password:self.password.text];
+	[SDSAPI login: self.username.text password:self.password.text ID:self];
     [SDSAPI createRoom: self.username.text];
 }
 

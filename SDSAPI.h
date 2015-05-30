@@ -9,12 +9,13 @@
 #import "RoomsViewController.h"
 #import "Room.h"
 #import "MediaItem.h"
+@class LoginViewController;
 @interface SDSAPI : NSObject
 
 
 +(NSString*)getWebsiteURL;
 +(NSArray*)getUpcomingEvents;
-+(void)login:(NSString*)username password:(NSString*)password;
++(void)login:(NSString*)username password:(NSString*)password ID:(id)callingViewController;
 +(void)fbLogin;
 +(void)createRoom:(NSString*)params;
 +(void)aroundMe:(NSString*)username withID:(id)sender;
