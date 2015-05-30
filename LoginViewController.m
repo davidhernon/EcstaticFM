@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 #import "EcstaticFM-Swift.h"
 
+#define kTabBarHeight 100.0
+
 @interface LoginViewController ()
 
 @end
@@ -28,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
     // Add the gradient to the view
     [self.view.layer insertSublayer:[GFXUtils getGradient:self.view.bounds] atIndex:0];
     
@@ -42,6 +44,23 @@
         _username.text = cached_user;
         _password.text = [SSKeychain passwordForService:@"EcstaticFM" account:_username.text];
     }
+    
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:self.view.window];
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:self.view.window];
+    
+    _keyboardIsShown = NO;
+    //make contentSize bigger than your scrollSize (you will need to figure out for your own use case)
+    CGSize scrollContentSize = CGSizeMake(320, 490);
+    _loginScrollView.contentSize = scrollContentSize;
+
     
     
     
@@ -151,6 +170,53 @@
     
     
 }
+
+
+- (void)keyboardWillHide:(NSNotification *)n
+{
+    NSDictionary* userInfo = [n userInfo];
+    
+    // get the size of the keyboard
+    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    
+    // resize the scrollview
+    CGRect viewFrame = _loginScrollView.frame;
+    // I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
+    viewFrame.size.height += (keyboardSize.height + kTabBarHeight);
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [_loginScrollView setFrame:viewFrame];
+    [UIView commitAnimations];
+    
+    _keyboardIsShown = NO;
+}
+
+- (void)keyboardWillShow:(NSNotification *)n
+{
+    // This is an ivar I'm using to ensure that we do not do the frame size adjustment on the `UIScrollView` if the keyboard is already shown.  This can happen if the user, after fixing editing a `UITextField`, scrolls the resized `UIScrollView` to another `UITextField` and attempts to edit the next `UITextField`.  If we were to resize the `UIScrollView` again, it would be disastrous.  NOTE: The keyboard notification will fire even when the keyboard is already shown.
+    if (_keyboardIsShown) {
+        return;
+    }
+    
+    NSDictionary* userInfo = [n userInfo];
+    
+    // get the size of the keyboard
+    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    // resize the noteView
+    CGRect viewFrame = _loginScrollView.frame;
+    // I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
+    viewFrame.size.height -= (keyboardSize.height + kTabBarHeight);
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [_loginScrollView setFrame:viewFrame];
+    [UIView commitAnimations];
+    _keyboardIsShown = YES;
+}
+
 
 
 /*
