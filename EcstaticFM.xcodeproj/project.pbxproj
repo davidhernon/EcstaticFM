@@ -383,6 +383,9 @@
 		DEBE1DC51B1A32E9003FE590 /* button_close-dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_close-dark.png"; sourceTree = "<group>"; };
 		DEBE1DC71B1A3509003FE590 /* image_emptyportrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_emptyportrait.png; sourceTree = "<group>"; };
 		DEBE1DC91B1A38B3003FE590 /* button_connectmyacct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_connectmyacct.png; sourceTree = "<group>"; };
+		DEC660B21B1A4821001E6FD5 /* Avenir Next Condensed.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir Next Condensed.ttc"; sourceTree = "<group>"; };
+		DEC660B31B1A4822001E6FD5 /* Avenir Next.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir Next.ttc"; sourceTree = "<group>"; };
+		DEC660B41B1A4822001E6FD5 /* Avenir.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Avenir.ttc; sourceTree = "<group>"; };
 		DECC691C1AFE631D00A761DE /* image_whitearrowleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_whitearrowleft.png; sourceTree = "<group>"; };
 		DECC691E1AFEB07F00A761DE /* image_supermodegraff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_supermodegraff.png; sourceTree = "<group>"; };
 		DECC69201AFEC11A00A761DE /* icon_addmusicfull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_addmusicfull.png; sourceTree = "<group>"; };
@@ -734,6 +737,7 @@
 		DE5763981AF4080B003F7507 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				DEC660B11B1A47AE001E6FD5 /* Avenir */,
 				DE5763991AF40817003F7507 /* Raleway */,
 			);
 			name = Fonts;
@@ -792,6 +796,16 @@
 				DEBE1D941B1A04FB003FE590 /* spinner-16.png */,
 			);
 			name = spinner;
+			sourceTree = "<group>";
+		};
+		DEC660B11B1A47AE001E6FD5 /* Avenir */ = {
+			isa = PBXGroup;
+			children = (
+				DEC660B21B1A4821001E6FD5 /* Avenir Next Condensed.ttc */,
+				DEC660B31B1A4822001E6FD5 /* Avenir Next.ttc */,
+				DEC660B41B1A4822001E6FD5 /* Avenir.ttc */,
+			);
+			name = Avenir;
 			sourceTree = "<group>";
 		};
 		DEE628DC1AFA7FEF009084FF /* GFX */ = {
