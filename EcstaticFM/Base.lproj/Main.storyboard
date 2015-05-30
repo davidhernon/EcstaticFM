@@ -635,7 +635,7 @@ music around you.</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="ixu-xt-lhn">
-                                            <rect key="frame" x="56" y="8" width="5048" height="1683"/>
+                                            <rect key="frame" x="56" y="8" width="5368" height="1786"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>
