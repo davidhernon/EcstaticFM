@@ -27,8 +27,6 @@ static NSString* around_me_event_cell = @"around_me_cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	self.locationServices = [[LocationServices alloc]init];
-	[self.locationServices start_location_services];
     
 //    int x = 0;
 //    int number_of_events = 5;

@@ -25,6 +25,7 @@
     // Override point for customization after application launch.
     _eventD = [SDSAPI getUpcomingEvents];
     _player = [[Player alloc] init];
+    _locationServices = [[LocationServices alloc]init];
     [SDSAPI connect];
     return YES;
     

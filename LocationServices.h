@@ -19,5 +19,6 @@
 	didUpdateLocations:(NSArray *)locations;
 - (void)locationManager:(CLLocationManager *)manager
 	   didFailWithError:(NSError *)error;
+-(Boolean) checkForPermissions;
 
 @end

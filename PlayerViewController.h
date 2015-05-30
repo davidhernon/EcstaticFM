@@ -14,10 +14,12 @@
 #import "Player.h"
 #import "GFXUtils.h"
 #import "RadialGradientLayer.h"
-
+#import "LocationServices.h"
+#import "AppDelegate.h"
 
 @interface PlayerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PlayerDelegate>
 
+- (IBAction)showRooms:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *playListTableView;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UILabel *current_duration;
@@ -37,7 +39,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *playlist_title;
 @property (weak, nonatomic) IBOutlet UIImageView *current_user_picture;
 @property (weak, nonatomic) IBOutlet UILabel *welcomehome;
-
 
 
 
