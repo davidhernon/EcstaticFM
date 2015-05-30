@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 #import "EcstaticFM-Swift.h"
 
+#define kTabBarHeight 100.0
+
 @interface LoginViewController ()
 
 @end
@@ -28,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
     // Add the gradient to the view
     [self.view.layer insertSublayer:[GFXUtils getGradient:self.view.bounds] atIndex:0];
     
@@ -42,6 +44,23 @@
         _username.text = cached_user;
         _password.text = [SSKeychain passwordForService:@"EcstaticFM" account:_username.text];
     }
+    
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:self.view.window];
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:self.view.window];
+    
+    _keyboardIsShown = NO;
+    //make contentSize bigger than your scrollSize (you will need to figure out for your own use case)
+    CGSize scrollContentSize = CGSizeMake(320, 490);
+    _loginScrollView.contentSize = scrollContentSize;
+
     
     
     
