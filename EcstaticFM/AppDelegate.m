@@ -23,7 +23,7 @@
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     // Override point for customization after application launch.
-    _eventD = [SDSAPI getUpcomingEvents];
+//    _eventD = [SDSAPI getUpcomingEvents];
     _player = [[Player alloc] init];
     [SDSAPI connect];
     return YES;

@@ -260,7 +260,7 @@ static SocketIOClient *static_socket;
     if([room_number isEqualToString:[Room currentRoom].room_number])
     {
         return;
-    }else if([room_number isEqualToString:@"-1"])
+    }else if([room_number isEqualToString:@"0"])
     {
         [static_socket emitObjc:@"join_room" withItems:@[joinJson]];
     }else{

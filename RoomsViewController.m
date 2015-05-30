@@ -27,57 +27,51 @@ static NSString* around_me_event_cell = @"around_me_cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _upcoming_events = [SDSAPI getUpcomingEvents];
 	self.locationServices = [[LocationServices alloc]init];
 	[self.locationServices start_location_services];
-    
-//    int x = 0;
-//    int number_of_events = 5;
-//    for( int i = 0; i < number_of_events; i++)
-//    {
-//        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
-//        UIRoomView *room_view = [[UIRoomView alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
-//        button.tag = i;
-//        [button addTarget:self  action:@selector(joinRoom:) forControlEvents:UIControlEventTouchUpInside];
-//        [button addSubview:room_view];
-//        [_roomsScrollView addSubview:button];
-//        x += (234/2) + 15;
-//    }
-//    
-//    _roomsScrollView.contentSize = CGSizeMake(x, _roomsScrollView.frame.size.height);
-   
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
     
-    if(_room_cards == nil)
+    if(_upcoming_events == nil)
+    {
+        _upcoming_events = [SDSAPI getUpcomingEvents];
+    }
+    
+    if(_rooms_around_me == nil)
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString* username = [defaults objectForKey:@"username"];
         [SDSAPI aroundMe:username withID:self];
     }
-    NSLog(@"room cards: %@", _room_cards);
+    NSLog(@"room cards: %@", _rooms_around_me);
     
         int x = 0;
-        int number_of_events = [_room_cards count];
+//        int number_of_events = [_rooms_around_me count];
     
-
-        for( NSDictionary *room in _room_cards)
+        for(NSDictionary *event in _upcoming_events)
         {
-        
-//            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
-            
+            UIRoomView *room_view = [[UIRoomView alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
+            room_view.rooms_view_controller = self;
+            room_view.title.text = [event objectForKey:@"city"];
+            room_view.other_listeners.text =  @"fix it Dave";
+            room_view.room_number.text = @"More Text";
+            room_view.raw_room_number = [NSString stringWithFormat:@"%d",[[event objectForKey:@"id"] intValue]*(-1)];
+            [_roomsScrollView addSubview:room_view];
+            x += (234) + 15;
+        }
+    
+        for( NSDictionary *room in _rooms_around_me)
+        {
             UIRoomView *room_view = [[UIRoomView alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
             room_view.rooms_view_controller = self;
             room_view.title.text = [room objectForKey:@"room_name"];
             room_view.other_listeners.text = [NSString stringWithFormat:@"%@ & %d Other(s)",[room objectForKey:@"host_username"], [[room objectForKey:@"number_of_users"] intValue]-1];
-            
             room_view.room_number.text = [NSString stringWithFormat:@"Room Number %@",[room objectForKey:@"room_number"]];
             room_view.raw_room_number = [room objectForKey:@"room_number"];
-            
-//            [button addTarget:self  action:@selector(joinRoom) forControlEvents:UIControlEventTouchUpInside];
-//            [button addSubview:room_view];
             [_roomsScrollView addSubview:room_view];
             x += (234) + 15;
         }
@@ -105,7 +99,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
     if (section == 0)
         return 1;
     if (section == 1)
-        return [_room_cards count];
+        return [_rooms_around_me count];
     return 0;
 }
 
@@ -140,7 +134,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
             // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
             cell = [topLevelObjects objectAtIndex:0];
         }
-        NSDictionary *json_for_cell = [_room_cards objectAtIndex:indexPath.row];
+        NSDictionary *json_for_cell = [_rooms_around_me objectAtIndex:indexPath.row];
         cell.distance.text = [NSString stringWithFormat:@"%@",[json_for_cell objectForKey:@"distance"] ];
         NSString *user = [json_for_cell objectForKey:@"user"];
         NSLog(@"user: %@", user );
@@ -172,15 +166,15 @@ static NSString* around_me_event_cell = @"around_me_cell";
 
 - (void)showRoomsScrollView:(NSArray*)room_dictionaries
 {
-    _room_cards = [[NSArray alloc] init];
-    _room_cards = room_dictionaries;
+    _rooms_around_me = [[NSArray alloc] init];
+    _rooms_around_me = room_dictionaries;
     [self viewDidLoad];
     [self viewWillAppear:YES];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
 {
-    _room_cards = nil;
+    _rooms_around_me = nil;
 }
 
 

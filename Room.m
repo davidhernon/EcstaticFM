@@ -39,7 +39,7 @@ static Room *currentRoom = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         currentRoom = [[Room alloc] init];
-        currentRoom.room_number = @"-1";
+        currentRoom.room_number = @"0";
     });
     return currentRoom;
 }

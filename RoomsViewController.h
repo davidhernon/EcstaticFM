@@ -22,7 +22,8 @@
 @property NSArray* popular;
 @property NSArray* around_me;
 @property LocationServices* locationServices;
-@property NSArray* room_cards;
+@property NSArray* rooms_around_me;
+@property NSArray* upcoming_events;
 - (void)showRoomsScrollView:(NSArray*)room_dictionaries;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *roomsScrollView;

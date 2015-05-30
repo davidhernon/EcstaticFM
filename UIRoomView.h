@@ -19,6 +19,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *room_number;
 @property (nonatomic, weak) IBOutlet UIButton *button;
 @property (nonatomic, weak) NSString *raw_room_number;
+@property BOOL *is_an_event;
 
 @property (nonatomic, weak) RoomsViewController *rooms_view_controller;
 
