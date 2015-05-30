@@ -7,6 +7,7 @@
 //
 
 #import "Playlist.h"
+#import "Player.h"
 
 @implementation Playlist
 
@@ -29,6 +30,19 @@ static Playlist *sharedPlaylist = nil;
         sharedPlaylist.playlist = [[NSMutableArray alloc]init];
     });
     return sharedPlaylist;
+}
+
+- (void) initWithDict:(NSDictionary*)playlist
+{
+    // Hadnling player UI and stop/start
+    sharedPlaylist.playlist = [[NSMutableArray alloc] init];
+    
+    for(int i = 0; i < [playlist count]; i++)
+    {
+        NSDictionary *track = [playlist objectForKey:[NSString stringWithFormat:@"%d", i]];
+        MediaItem *new_track = [[MediaItem alloc] initWIthDict:track];
+        [self addTrack:new_track];
+    }
 }
 
 - (void) addTrack:(MediaItem *)song
@@ -56,5 +70,9 @@ static Playlist *sharedPlaylist = nil;
     return [self.playlist objectAtIndex:index];
 }
 
+- (void) reloadPlayer
+{
+    [[Player sharedPlayer] reloadUI];
+}
 
 @end

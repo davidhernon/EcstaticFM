@@ -23,8 +23,6 @@
 		1C291D9A1AFFF2A1006A2B4F /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D8F1AFFF2A1006A2B4F /* SwiftRegex.swift */; };
 		1C291D9B1AFFF2A1006A2B4F /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D901AFFF2A1006A2B4F /* WebSocket.swift */; };
 		1C291D9E1B014B96006A2B4F /* AroundMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C291D9D1B014B96006A2B4F /* AroundMeTableViewCell.m */; };
-		1C30272E1B14B25A0085485A /* RoomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C30272D1B14B25A0085485A /* RoomView.xib */; };
-		1C3027311B14C6410085485A /* UIRoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3027301B14C6410085485A /* UIRoomView.m */; };
 		1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C33F84C1A8D4A0C0072ABBE /* Player.m */; };
 		1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C37B7CC1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m */; };
 		1C37B7D91AF540BA00566216 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C37B7D81AF540BA00566216 /* PlayerViewController.m */; };
@@ -36,6 +34,9 @@
 		1C37B7F11AF5789A00566216 /* image_waveform.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C37B7EB1AF5789A00566216 /* image_waveform.png */; };
 		1C4861E61A7AB75C004EFEAD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428A91A799CE9001DB0AD /* Info.plist */; };
 		1C4861E71A7AB75C004EFEAD /* main.m in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
+		1C6D62DD1B1643B200F0EC27 /* UIRoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D62DC1B1643B200F0EC27 /* UIRoomView.m */; };
+		1C6D62DF1B16492600F0EC27 /* UIRoomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6D62DE1B16492600F0EC27 /* UIRoomView.xib */; };
+		1C6D62E21B16535C00F0EC27 /* UIRoomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D62E11B16535C00F0EC27 /* UIRoomScrollView.m */; };
 		1C73F3651AFA936D0003B1FA /* RoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73F3641AFA936D0003B1FA /* RoomsViewController.m */; };
 		1C73F3671AFBDECF0003B1FA /* PopularTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C73F3661AFBDECF0003B1FA /* PopularTableCellView.xib */; };
 		1C73F3691AFBDFF60003B1FA /* AroundMeTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C73F3681AFBDFF60003B1FA /* AroundMeTableCellView.xib */; };
@@ -188,9 +189,6 @@
 		1C291D901AFFF2A1006A2B4F /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		1C291D9C1B014B96006A2B4F /* AroundMeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AroundMeTableViewCell.h; sourceTree = "<group>"; };
 		1C291D9D1B014B96006A2B4F /* AroundMeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AroundMeTableViewCell.m; sourceTree = "<group>"; };
-		1C30272D1B14B25A0085485A /* RoomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomView.xib; sourceTree = "<group>"; };
-		1C30272F1B14C6410085485A /* UIRoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRoomView.h; sourceTree = "<group>"; };
-		1C3027301B14C6410085485A /* UIRoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIRoomView.m; sourceTree = "<group>"; };
 		1C33F84B1A8D4A0C0072ABBE /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		1C33F84C1A8D4A0C0072ABBE /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		1C37B7CB1AF3E29C00566216 /* SoundCloudMediaPickerTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundCloudMediaPickerTableView.h; sourceTree = "<group>"; };
@@ -203,6 +201,11 @@
 		1C37B7E91AF5789A00566216 /* image_coverart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_coverart.png; sourceTree = "<group>"; };
 		1C37B7EA1AF5789A00566216 /* image_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_portrait.png; sourceTree = "<group>"; };
 		1C37B7EB1AF5789A00566216 /* image_waveform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_waveform.png; sourceTree = "<group>"; };
+		1C6D62DB1B1643B200F0EC27 /* UIRoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRoomView.h; sourceTree = "<group>"; };
+		1C6D62DC1B1643B200F0EC27 /* UIRoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIRoomView.m; sourceTree = "<group>"; };
+		1C6D62DE1B16492600F0EC27 /* UIRoomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIRoomView.xib; sourceTree = "<group>"; };
+		1C6D62E01B16535C00F0EC27 /* UIRoomScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRoomScrollView.h; sourceTree = "<group>"; };
+		1C6D62E11B16535C00F0EC27 /* UIRoomScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIRoomScrollView.m; sourceTree = "<group>"; };
 		1C73F3631AFA936D0003B1FA /* RoomsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomsViewController.h; sourceTree = "<group>"; };
 		1C73F3641AFA936D0003B1FA /* RoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomsViewController.m; sourceTree = "<group>"; };
 		1C73F3661AFBDECF0003B1FA /* PopularTableCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopularTableCellView.xib; sourceTree = "<group>"; };
@@ -384,9 +387,11 @@
 				DEEC122C1AFD4F9700E21C52 /* NoGeoTableCellView.xib */,
 				1C291D9C1B014B96006A2B4F /* AroundMeTableViewCell.h */,
 				1C291D9D1B014B96006A2B4F /* AroundMeTableViewCell.m */,
-				1C30272D1B14B25A0085485A /* RoomView.xib */,
-				1C30272F1B14C6410085485A /* UIRoomView.h */,
-				1C3027301B14C6410085485A /* UIRoomView.m */,
+				1C6D62DB1B1643B200F0EC27 /* UIRoomView.h */,
+				1C6D62DC1B1643B200F0EC27 /* UIRoomView.m */,
+				1C6D62DE1B16492600F0EC27 /* UIRoomView.xib */,
+				1C6D62E01B16535C00F0EC27 /* UIRoomScrollView.h */,
+				1C6D62E11B16535C00F0EC27 /* UIRoomScrollView.m */,
 			);
 			name = Rooms;
 			sourceTree = "<group>";
@@ -765,7 +770,7 @@
 				TargetAttributes = {
 					1CA428A41A799CE9001DB0AD = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = VF62VHS44V;
+						DevelopmentTeam = 72PSY3QB44;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -774,7 +779,7 @@
 					};
 					1CA428BD1A799CE9001DB0AD = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = VF62VHS44V;
+						DevelopmentTeam = 72PSY3QB44;
 						TestTargetID = 1CA428A41A799CE9001DB0AD;
 					};
 				};
@@ -838,11 +843,11 @@
 				DE85B6941B1510F300BCC36F /* image_tri-logo.png in Resources */,
 				DE5763AC1AF40817003F7507 /* Raleway-SemiBold.ttf in Resources */,
 				DE5763A81AF40817003F7507 /* Raleway-Heavy.ttf in Resources */,
-				1C30272E1B14B25A0085485A /* RoomView.xib in Resources */,
 				DE14B9D71AFF8AC4004470C7 /* image_playerdropshadow.png in Resources */,
 				DE5763961AF40723003F7507 /* input-password.png in Resources */,
 				DE85B68E1B1510F300BCC36F /* button_login.png in Resources */,
 				DE14B9DF1AFFA8E8004470C7 /* button_controlsplaypink.png in Resources */,
+				1C6D62DF1B16492600F0EC27 /* UIRoomView.xib in Resources */,
 				DE5763941AF40723003F7507 /* button-facebook.png in Resources */,
 				DE85B6901B1510F300BCC36F /* icon_login.png in Resources */,
 				DEEC12251AFCF68700E21C52 /* icon_location.png in Resources */,
@@ -956,6 +961,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C73F36C1AFBE9470003B1FA /* Room.m in Sources */,
+				1C6D62DD1B1643B200F0EC27 /* UIRoomView.m in Sources */,
 				DE5763D41AF5608C003F7507 /* GFXUtils.m in Sources */,
 				DE14B9E21AFFB115004470C7 /* PlayerPageViewController.m in Sources */,
 				1C291D9B1AFFF2A1006A2B4F /* WebSocket.swift in Sources */,
@@ -988,8 +994,8 @@
 				1CA428AB1A799CE9001DB0AD /* main.m in Sources */,
 				1C2251471A9E7E5F00210324 /* Playlist.m in Sources */,
 				1CB8355A1B027BA60003D9DC /* SSKeychain.m in Sources */,
+				1C6D62E21B16535C00F0EC27 /* UIRoomScrollView.m in Sources */,
 				1C291D941AFFF2A1006A2B4F /* SocketEngineClient.swift in Sources */,
-				1C3027311B14C6410085485A /* UIRoomView.m in Sources */,
 				1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */,
 				DE5763CC1AF438E7003F7507 /* RoomViewController.m in Sources */,
 				DE14B9E51AFFB12B004470C7 /* MediaPageViewController.m in Sources */,

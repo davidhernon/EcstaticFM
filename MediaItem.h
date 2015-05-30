@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "Utils.h"
+@class Room;
 
 @interface MediaItem : NSObject//<NSCoding>
 
@@ -24,10 +25,12 @@
 @property NSString* stream_url;
 @property UIImage* waveform;
 @property UIImage* playing_animation;
+@property NSString* room_number;
 
 @property NSString* username;
 
 - (id) initWithSoundCloudTrack:(NSDictionary *)soundCloudTrack;
+- (id) initWIthDict:(NSDictionary*)sds_dict;
 -(NSDictionary*)serializeMediaItem;
 
 @end

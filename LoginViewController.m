@@ -41,7 +41,6 @@
     {
         _username.text = cached_user;
         _password.text = [SSKeychain passwordForService:@"EcstaticFM" account:_username.text];
-        [self SDSLogin:self];
     }
     
     

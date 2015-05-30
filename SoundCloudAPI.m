@@ -39,12 +39,14 @@
             [sender addSoundCloudFavorites:((NSArray*)jsonResponse)];
             // reload table data?
             [sender.soundCloudResultsTableView reloadData];
+//            [sender viewDidLoad];
+//            [sender viewWillAppear:YES];
             
         }else{
             NSLog(@"did not succeed in SC query");
         }
     };
-    
+    NSLog(@"starting request");
     NSString *resourceURL = @"https://api.soundcloud.com/me/favorites.json";
     [SCRequest performMethod:SCRequestMethodGET
                   onResource:[NSURL URLWithString:resourceURL]

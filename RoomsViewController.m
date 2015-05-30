@@ -27,32 +27,67 @@ static NSString* around_me_event_cell = @"around_me_cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString* username = [defaults objectForKey:@"username"];
 	self.locationServices = [[LocationServices alloc]init];
 	[self.locationServices start_location_services];
-    [SDSAPI aroundMe:username withID:self];
     
-    int x = 0;
-    int number_of_events = 5;
-    for( int i = 0; i < number_of_events; i++)
+//    int x = 0;
+//    int number_of_events = 5;
+//    for( int i = 0; i < number_of_events; i++)
+//    {
+//        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
+//        UIRoomView *room_view = [[UIRoomView alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
+//        button.tag = i;
+//        [button addTarget:self  action:@selector(joinRoom:) forControlEvents:UIControlEventTouchUpInside];
+//        [button addSubview:room_view];
+//        [_roomsScrollView addSubview:button];
+//        x += (234/2) + 15;
+//    }
+//    
+//    _roomsScrollView.contentSize = CGSizeMake(x, _roomsScrollView.frame.size.height);
+   
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
+    if(_room_cards == nil)
     {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
-        UIRoomView *room_view = [[UIRoomView alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
-        button.tag = i;
-        [button addTarget:self  action:@selector(joinRoom:) forControlEvents:UIControlEventTouchUpInside];
-        [button addSubview:room_view];
-        [_roomsScrollView addSubview:button];
-        x += (234/2) + 15;
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString* username = [defaults objectForKey:@"username"];
+        [SDSAPI aroundMe:username withID:self];
     }
+    NSLog(@"room cards: %@", _room_cards);
     
+        int x = 0;
+        int number_of_events = [_room_cards count];
+    
+
+        for( NSDictionary *room in _room_cards)
+        {
+        
+//            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
+            
+            UIRoomView *room_view = [[UIRoomView alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
+            room_view.rooms_view_controller = self;
+            room_view.title.text = [room objectForKey:@"room_name"];
+            room_view.other_listeners.text = [NSString stringWithFormat:@"%@ & %d Other(s)",[room objectForKey:@"host_username"], [[room objectForKey:@"number_of_users"] intValue]-1];
+            
+            room_view.room_number.text = [NSString stringWithFormat:@"Room Number %@",[room objectForKey:@"room_number"]];
+            room_view.raw_room_number = [room objectForKey:@"room_number"];
+            
+//            [button addTarget:self  action:@selector(joinRoom) forControlEvents:UIControlEventTouchUpInside];
+//            [button addSubview:room_view];
+            [_roomsScrollView addSubview:room_view];
+            x += (234) + 15;
+        }
     _roomsScrollView.contentSize = CGSizeMake(x, _roomsScrollView.frame.size.height);
 }
 
--(void)joinRoom:(UIButton*)sender
+-(void)joinRoom
 {
     
-    NSLog(@"*******  !!!!!!!!!!!! Holy fuck we clicked a button !!!!!!!!!!! ****** %d", sender.tag);
+    NSLog(@"*******  !!!!!!!!!!!! Holy fuck we clicked a button !!!!!!!!!!! ****** ");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -137,8 +172,15 @@ static NSString* around_me_event_cell = @"around_me_cell";
 
 - (void)showRoomsScrollView:(NSArray*)room_dictionaries
 {
+    _room_cards = [[NSArray alloc] init];
     _room_cards = room_dictionaries;
-    [self.roomTableView reloadData];
+    [self viewDidLoad];
+    [self viewWillAppear:YES];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    _room_cards = nil;
 }
 
 

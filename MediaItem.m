@@ -7,16 +7,19 @@
 //
 
 #import "MediaItem.h"
+#import "Room.h"
 
 @implementation MediaItem
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     
-    [coder encodeObject:self.track_title forKey:@"treack_title"];
+    [coder encodeObject:self.track_title forKey:@"track_title"];
     [coder encodeObject:self.artist forKey:@"artist"];
     [coder encodeObject:self.duration forKey:@"duration"];
     [coder encodeObject:self.artwork forKey:@"artwork"];
     [coder encodeObject:self.stream_url forKey:@"stream_url"];
+    [coder encodeObject:self.room_number forKey:@"room_number"];
+    [coder encodeObject:self.username forKey:@"username"];
 }
 
 -(NSDictionary*)serializeMediaItem
@@ -26,6 +29,8 @@
     [serialized setValue:self.artist forKey:@"artist"];
     [serialized setValue:self.duration forKey:@"duration"];
     [serialized setValue:self.stream_url forKey:@"stream_url"];
+    [serialized setValue:self.room_number forKey:@"room_number"];
+    [serialized setValue:self.username forKey:@"username"];
     return serialized;
 }
 
@@ -72,6 +77,25 @@
         self.username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
 //        self.playing_animation = [UIImage animatedImageNamed:@"wave" duration:0.6f];
         self.playing_animation = [UIImage imageNamed:@"wave1.png"];
+    }
+    return self;
+}
+
+- (id) initWIthDict:(NSDictionary*)sds_dict
+{
+//    {room_number:0, duration:120, artwork_url:"https:test1", stream_url:"https:test1", song_name:'snow', artist:'Red Hot Chili Peppers', username:'mykul'}
+    self = [super init];
+    if(self)
+    {
+        self.track_title = [sds_dict objectForKey:@"track_title"];
+        self.artist = [sds_dict objectForKey:@"artist"];
+        self.duration = [NSString stringWithFormat:@"%@", [Utils convertTimeFromMillis:((int) [[sds_dict objectForKey:@"duration"] intValue])*1000]];
+        self.artwork = [self addAlbumArtwork:[sds_dict objectForKey:@"artwork_url"]];
+        self.stream_url = [sds_dict objectForKey:@"stream_url"];
+        self.playing_animation = [[UIImage alloc] init];
+        self.username = [sds_dict objectForKey:@"username"];
+        self.playing_animation = [UIImage imageNamed:@"wave1.png"];
+        self.room_number = [Room currentRoom].room_number;
     }
     return self;
 }

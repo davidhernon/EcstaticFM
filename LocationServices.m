@@ -18,7 +18,7 @@
 	self.locationManager = [[CLLocationManager alloc] init];
  
 	self.locationManager.delegate = self;
-	self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+	self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 
 	// Set a movement threshold for new events.
 	
