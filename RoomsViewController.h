@@ -18,7 +18,7 @@
 #import "UIEventView.h"
 #define kUVCellDragInterval 180.f
 
-@interface RoomsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>;
+@interface RoomsViewController : UIViewController <UIScrollViewDelegate>;
 
 @property (weak, nonatomic) IBOutlet UITableView *roomTableView;
 @property NSArray* popular;

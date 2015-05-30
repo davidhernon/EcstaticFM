@@ -23,4 +23,6 @@
 
 @property (nonatomic, weak) RoomsViewController *rooms_view_controller;
 
+- (id) initWithFrame:(CGRect)aRect withEvent:(NSDictionary*)event withRoomController:(RoomsViewController*)sender;
+
 @end

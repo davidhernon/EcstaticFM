@@ -53,7 +53,7 @@
             _location.text = [event objectForKey:@"city"];
             //id might actually be an int already
             _room_number_label.text = [NSString stringWithFormat:@"Room Identifier: %@", [event objectForKey:@"id"]];
-            _room_number = _room_number_label.text;
+            _room_number = [NSString stringWithFormat:@"%@",[event objectForKey:@"id"]];
         }
         return self;
 }

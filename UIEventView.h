@@ -19,7 +19,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *hostname;
 @property (nonatomic, weak) IBOutlet UIButton *button;
 @property (nonatomic, weak) IBOutlet UILabel *room_number_label;
-@property (nonatomic, weak) NSString *room_number;
+@property (nonatomic, retain) NSString *room_number;
 
 @property (nonatomic, weak) RoomsViewController *rooms_view_controller;
 

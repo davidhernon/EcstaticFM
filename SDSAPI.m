@@ -251,10 +251,12 @@ static SocketIOClient *static_socket;
 +(void)joinRoom:(NSString*)room_number
 {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    NSDictionary *joinDict  = [NSDictionary dictionaryWithObjects:@[room_number, username] forKeys:@[@"room_number", @"username"]];
+    NSArray * obj = @[room_number, username];
+    NSArray * ky = @[@"room_number", @"username"];
+    NSDictionary *joinDict  = [NSDictionary dictionaryWithObjects:obj forKeys:ky];
     NSString *rn = [NSString stringWithFormat:@"%@",[Room currentRoom].room_number];
     NSLog(@"From Room: %@", [Room currentRoom].room_number);
-    NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[rn, username] forKeys:@[@"room_number", @"username"]];
+    NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[rn, username] forKeys:ky];
     NSData *joinJson = [NSJSONSerialization dataWithJSONObject:joinDict options:nil error:nil];
     NSData *leaveJson = [NSJSONSerialization dataWithJSONObject:leaveDict options:nil error:nil];
     if([room_number isEqualToString:[Room currentRoom].room_number])
