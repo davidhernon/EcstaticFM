@@ -90,7 +90,6 @@ static NSString* cellIdentifier = @"playListCell";
         _play.hidden = YES;
         _last.hidden = YES;
         _next.hidden = YES;
-        _add_songs.hidden = YES;
         _add_songs_welcome.hidden = NO;
         _slider.hidden = YES;
         _coveralpha.hidden = YES;
@@ -99,6 +98,7 @@ static NSString* cellIdentifier = @"playListCell";
         _current_duration.hidden = YES;
         _current_time.hidden = YES;
         _current_user_picture.hidden = YES;
+        _welcomehome.hidden = NO;
         
     }else{
         _play.hidden = NO;
@@ -113,6 +113,8 @@ static NSString* cellIdentifier = @"playListCell";
         _current_duration.hidden = NO;
         _current_time.hidden = NO;
         _current_user_picture.hidden = NO;
+        _welcomehome.hidden = YES;
+        
     }
     if(![_player isPlaying] && ![_player isPaused] && [_playlist count] > 0)
     {
@@ -171,7 +173,7 @@ static NSString* cellIdentifier = @"playListCell";
         
         // Normal Animation
         cell.playing_animation.animationImages = images;
-        cell.playing_animation.animationDuration = 0.6;
+        cell.playing_animation.animationDuration = 0.7;
         [cell.playing_animation startAnimating];
     }
     
