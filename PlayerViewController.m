@@ -289,4 +289,19 @@ static NSString* cellIdentifier = @"playListCell";
     [self viewWillAppear:YES];
 }
 
+- (IBAction)showRooms:(id)sender {
+    AppDelegate* appDelegate = [[UIApplication  sharedApplication]delegate];
+//before doing anything
+    //check if the user has given permissions to use location services
+    if([appDelegate.locationServices checkForPermissions]){
+        [self performSegueWithIdentifier:@"roomsViewSegue" sender:self];
+    }
+    //if they haven't ask them to in the geoAsk uiviewcontroller
+    else{
+		UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+		geoAskViewController *geoAskVC = [sb instantiateViewControllerWithIdentifier:@"geoAskVC"];
+		appDelegate.locationServices.vc=geoAskVC;
+		[self presentViewController:geoAskVC animated:YES completion:nil];
+    }
+}
 @end

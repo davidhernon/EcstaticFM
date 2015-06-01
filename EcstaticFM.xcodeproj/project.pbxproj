@@ -161,6 +161,9 @@
 		DEBE1DC61B1A32E9003FE590 /* button_close-dark.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBE1DC51B1A32E9003FE590 /* button_close-dark.png */; };
 		DEBE1DC81B1A3509003FE590 /* image_emptyportrait.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBE1DC71B1A3509003FE590 /* image_emptyportrait.png */; };
 		DEBE1DCA1B1A38B3003FE590 /* button_connectmyacct.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBE1DC91B1A38B3003FE590 /* button_connectmyacct.png */; };
+		DEC660B71B1A4E27001E6FD5 /* image_darkgradientbottom.png in Resources */ = {isa = PBXBuildFile; fileRef = DEC660B51B1A4E27001E6FD5 /* image_darkgradientbottom.png */; };
+		DEC660BA1B1A4F66001E6FD5 /* image_darkgradienttop.png in Resources */ = {isa = PBXBuildFile; fileRef = DEC660B91B1A4F66001E6FD5 /* image_darkgradienttop.png */; };
+		DEC660BD1B1A68BC001E6FD5 /* geoAskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC660BC1B1A68BC001E6FD5 /* geoAskViewController.m */; };
 		DECC691D1AFE631D00A761DE /* image_whitearrowleft.png in Resources */ = {isa = PBXBuildFile; fileRef = DECC691C1AFE631D00A761DE /* image_whitearrowleft.png */; };
 		DECC691F1AFEB07F00A761DE /* image_supermodegraff.png in Resources */ = {isa = PBXBuildFile; fileRef = DECC691E1AFEB07F00A761DE /* image_supermodegraff.png */; };
 		DECC69211AFEC11A00A761DE /* icon_addmusicfull.png in Resources */ = {isa = PBXBuildFile; fileRef = DECC69201AFEC11A00A761DE /* icon_addmusicfull.png */; };
@@ -381,7 +384,6 @@
 		DEBE1DBA1B1A2425003FE590 /* button_previousnew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_previousnew.png; sourceTree = "<group>"; };
 		DEBE1DBE1B1A2BF0003FE590 /* button_letsconnect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_letsconnect.png; sourceTree = "<group>"; };
 		DEBE1DBF1B1A2BF0003FE590 /* button_notyet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_notyet.png; sourceTree = "<group>"; };
-		DEBE1DC21B1A30BA003FE590 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		DEBE1DC31B1A3221003FE590 /* button_gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_gear.png; sourceTree = "<group>"; };
 		DEBE1DC51B1A32E9003FE590 /* button_close-dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_close-dark.png"; sourceTree = "<group>"; };
 		DEBE1DC71B1A3509003FE590 /* image_emptyportrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_emptyportrait.png; sourceTree = "<group>"; };
@@ -389,6 +391,10 @@
 		DEC660B21B1A4821001E6FD5 /* Avenir Next Condensed.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir Next Condensed.ttc"; sourceTree = "<group>"; };
 		DEC660B31B1A4822001E6FD5 /* Avenir Next.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir Next.ttc"; sourceTree = "<group>"; };
 		DEC660B41B1A4822001E6FD5 /* Avenir.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Avenir.ttc; sourceTree = "<group>"; };
+		DEC660B51B1A4E27001E6FD5 /* image_darkgradientbottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_darkgradientbottom.png; sourceTree = "<group>"; };
+		DEC660B91B1A4F66001E6FD5 /* image_darkgradienttop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_darkgradienttop.png; sourceTree = "<group>"; };
+		DEC660BB1B1A68BC001E6FD5 /* geoAskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geoAskViewController.h; sourceTree = "<group>"; };
+		DEC660BC1B1A68BC001E6FD5 /* geoAskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = geoAskViewController.m; sourceTree = "<group>"; };
 		DECC691C1AFE631D00A761DE /* image_whitearrowleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_whitearrowleft.png; sourceTree = "<group>"; };
 		DECC691E1AFEB07F00A761DE /* image_supermodegraff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_supermodegraff.png; sourceTree = "<group>"; };
 		DECC69201AFEC11A00A761DE /* icon_addmusicfull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_addmusicfull.png; sourceTree = "<group>"; };
@@ -491,7 +497,8 @@
 		1CA4289C1A799CE9001DB0AD = {
 			isa = PBXGroup;
 			children = (
-				DEBE1DC21B1A30BA003FE590 /* Constants.h */,
+				DEC660BB1B1A68BC001E6FD5 /* geoAskViewController.h */,
+				DEC660BC1B1A68BC001E6FD5 /* geoAskViewController.m */,
 				1CC438BA1A7DBF38000A5AEC /* Source */,
 				1CA428A71A799CE9001DB0AD /* EcstaticFM */,
 				1CA428C11A799CE9001DB0AD /* EcstaticFMTests */,
@@ -641,9 +648,11 @@
 				DE4612611B0138C800192E49 /* image_roomdummy.png */,
 				DEFF739E1B15203A0001B107 /* icon_distance2.png */,
 				DEBE1DBE1B1A2BF0003FE590 /* button_letsconnect.png */,
+				DEC660B51B1A4E27001E6FD5 /* image_darkgradientbottom.png */,
 				DEBE1DBF1B1A2BF0003FE590 /* button_notyet.png */,
 				DE4612651B01540300192E49 /* icon_leave.png */,
 				DECC69201AFEC11A00A761DE /* icon_addmusicfull.png */,
+				DEC660B91B1A4F66001E6FD5 /* image_darkgradienttop.png */,
 				DEBE1DA81B1A06C9003FE590 /* button_signup-color.png */,
 				DEBE1DAC1B1A0780003FE590 /* icon_person-dark.png */,
 				DEBE1DAD1B1A0780003FE590 /* icon-key-dark.png */,
@@ -972,6 +981,7 @@
 				DE5763961AF40723003F7507 /* input-password.png in Resources */,
 				DE85B68E1B1510F300BCC36F /* button_login.png in Resources */,
 				DE14B9DF1AFFA8E8004470C7 /* button_controlsplaypink.png in Resources */,
+				DEC660B71B1A4E27001E6FD5 /* image_darkgradientbottom.png in Resources */,
 				DEBE1DA41B1A04FB003FE590 /* spinner-16.png in Resources */,
 				1C6D62DF1B16492600F0EC27 /* UIRoomView.xib in Resources */,
 				DEBE1D9A1B1A04FB003FE590 /* spinner-6.png in Resources */,
@@ -1007,6 +1017,7 @@
 				DECC691F1AFEB07F00A761DE /* image_supermodegraff.png in Resources */,
 				DEBE1DBD1B1A2425003FE590 /* button_previousnew.png in Resources */,
 				DE5763951AF40723003F7507 /* button-login.png in Resources */,
+				DEC660BA1B1A4F66001E6FD5 /* image_darkgradienttop.png in Resources */,
 				1C37B7F11AF5789A00566216 /* image_waveform.png in Resources */,
 				DE14B9EE1AFFBF07004470C7 /* wave2.png in Resources */,
 				DEEC12231AFCF56200E21C52 /* image_roombg02.png in Resources */,
@@ -1123,6 +1134,7 @@
 				1C291D951AFFF2A1006A2B4F /* SocketEventHandler.swift in Sources */,
 				DE5763B91AF427ED003F7507 /* RadialGradientLayer.m in Sources */,
 				1C291D961AFFF2A1006A2B4F /* SocketFixUTF8.swift in Sources */,
+				DEC660BD1B1A68BC001E6FD5 /* geoAskViewController.m in Sources */,
 				1C291D921AFFF2A1006A2B4F /* SocketAnyEvent.swift in Sources */,
 				DE5763D11AF447F4003F7507 /* GradientNavigationBar.m in Sources */,
 				1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */,

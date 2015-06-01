@@ -8,20 +8,40 @@
 
 #import "LocationServices.h"
 #import "SDSAPI.h"
-
+#import "geoAskViewController.h"
 @implementation LocationServices
 
--(void) start_location_services{
-	// Create the location manager if this object does not
-	// already have one.
-	
-	self.locationManager = [[CLLocationManager alloc] init];
- 
-	self.locationManager.delegate = self;
-	self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+-(id)initWithViewController:(geoAskViewController*)vc
+{
+	if(self = [super init])
+	{
+		self.vc = vc;
+	}
+	return self;
+}
 
-	// Set a movement threshold for new events.
-	
+-(Boolean) checkForPermissions{
+    if (self.locationManager == nil){
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    }
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusAuthorizedAlways){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+-(void) try_start_location_services{
+    if (self.locationManager == nil){
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    }
+ 
 	// Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
 	if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
 		[self.locationManager requestAlwaysAuthorization];
@@ -32,9 +52,17 @@
 {
 	if(status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse)
 	{
-		[self.locationManager startUpdatingLocation];
-		self.lastUpdatedTime = [NSDate date];
-		self.howOftenToUpdate = 15.0;
+		[self.vc performSegueWithIdentifier:@"roomsViewSegue" sender:self];
+		
+			[self.locationManager startUpdatingLocation];
+			self.lastUpdatedTime = [NSDate date];
+			self.howOftenToUpdate = 15.0;
+	}
+	else if (status == kCLAuthorizationStatusNotDetermined){
+	}
+	else{
+		[self.vc performSegueWithIdentifier:@"backToPlayerSegue" sender:self];
+
 	}
 }
 
@@ -62,42 +90,6 @@
         
         [SDSAPI postLocation:username withLatitude:location.coordinate.latitude withLongitude:location.coordinate.longitude];
         
-//		NSString* urlString = @"http://54.173.157.204/geo/post_location/";
-//		NSURL *url = [NSURL URLWithString:urlString];
-//		NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL: url];
-//		for (NSHTTPCookie *cookie in cookies) {
-//			if ([cookie.name isEqualToString:@"csrftoken"]) {
-//				csrf_cookie = cookie.value;
-//				break;
-//			}
-//		}
-//		
-//		NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-//		
-//		NSString* bodyData = [NSString stringWithFormat:@"username=%@&my_location_lat=%f&my_location_lon=%f", username, location.coordinate.latitude, location.coordinate.longitude];
-//		NSData *postData = [bodyData dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-//		NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
-//		
-//		[urlRequest setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]]];
-//		[urlRequest addValue:csrf_cookie forHTTPHeaderField:@"X_CSRFTOKEN"];
-//		[urlRequest setHTTPMethod:@"POST"];
-//		[urlRequest setValue:postLength forHTTPHeaderField:@"Content-Length"];
-//		[urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-//		[urlRequest setHTTPBody:postData];
-//		
-//		NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-//		
-//		[NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-//		 {
-//			 NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//			 
-//			 if ([responseString  isEqual: @"location_received"]) {
-//				 NSLog(@"%@", responseString);
-//			 }
-//			 else{
-//				 NSLog(@"%@", responseString);
-//			 }
-//		 }];
 		
 	}
 }

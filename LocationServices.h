@@ -8,16 +8,19 @@
 
 #import <Foundation/Foundation.h>
 @class SDSAPI;
+@class geoAskViewController;
 @import CoreLocation;
 
 @interface LocationServices : NSObject<CLLocationManagerDelegate>
 @property (nonatomic, strong) CLLocationManager* locationManager;
 @property (nonatomic, strong) NSDate *lastUpdatedTime;
 @property int howOftenToUpdate;
--(void)start_location_services;
+@property geoAskViewController* vc;
+-(void)try_start_location_services;
 -(void)locationManager:(CLLocationManager *)manager
 	didUpdateLocations:(NSArray *)locations;
 - (void)locationManager:(CLLocationManager *)manager
 	   didFailWithError:(NSError *)error;
+-(Boolean) checkForPermissions;
 
 @end

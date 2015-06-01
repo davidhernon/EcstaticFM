@@ -27,9 +27,22 @@ static NSString* around_me_event_cell = @"around_me_cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _upcoming_events = [SDSAPI getUpcomingEvents];
-	self.locationServices = [[LocationServices alloc]init];
-	[self.locationServices start_location_services];
+    
+//    int x = 0;
+//    int number_of_events = 5;
+//    for( int i = 0; i < number_of_events; i++)
+//    {
+//        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
+//        UIRoomView *room_view = [[UIRoomView alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
+//        button.tag = i;
+//        [button addTarget:self  action:@selector(joinRoom:) forControlEvents:UIControlEventTouchUpInside];
+//        [button addSubview:room_view];
+//        [_roomsScrollView addSubview:button];
+//        x += (234/2) + 15;
+//    }
+//    
+//    _roomsScrollView.contentSize = CGSizeMake(x, _roomsScrollView.frame.size.height);
+   
 }
 
 -(void)viewWillAppear:(BOOL)animated
