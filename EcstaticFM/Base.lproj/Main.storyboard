@@ -596,7 +596,7 @@ music around you.</string>
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="475"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" id="QqP-t6-IKZ">
+                                    <view contentMode="scaleToFill" id="QqP-t6-IKZ" userLabel="playerCoverImageView">
                                         <rect key="frame" x="80" y="0.0" width="160" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
@@ -607,9 +607,9 @@ music around you.</string>
                                                 <gestureRecognizers/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="R3T-7p-fco">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="R3T-7p-fco" userLabel="playerScrollView">
                                         <rect key="frame" x="0.0" y="65" width="320" height="459"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
@@ -727,16 +727,16 @@ music around you.</string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.82419902150000002" green="0.78960636839160048" blue="0.19776025615470369" alpha="0.0" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" id="20z-45-eEI">
+                            <view hidden="YES" alpha="0.0" contentMode="scaleToFill" id="20z-45-eEI" userLabel="playerDarkenView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="490"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
                             </view>
-                            <view opaque="NO" contentMode="scaleToFill" id="spO-Y5-nH4" userLabel="playerControlsView">
+                            <view opaque="NO" alpha="0.0" contentMode="scaleToFill" id="spO-Y5-nH4" userLabel="playerControlsView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="490"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_darkgradienttop.png" id="6uw-cN-5PX">
+                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_darkgradienttop.png" id="6uw-cN-5PX">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="206"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -782,7 +782,7 @@ music around you.</string>
                                 <rect key="frame" x="0.0" y="280" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_darkgradientbottom.png" id="tuK-DI-3le">
+                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_darkgradientbottom.png" id="tuK-DI-3le">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
@@ -793,7 +793,7 @@ music around you.</string>
                                 <rect key="frame" x="110" y="422" width="100" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="KyU-zZ-L2E">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="KyU-zZ-L2E">
                                         <rect key="frame" x="0.0" y="0.0" width="99" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Add music" image="button_addmusic2.png">
@@ -849,6 +849,7 @@ music around you.</string>
                         <outlet property="current_duration" destination="0VL-8U-vbk" id="0eJ-YZ-Ezz"/>
                         <outlet property="current_time" destination="HOQ-tI-VMR" id="ARJ-iG-kcm"/>
                         <outlet property="current_track_title" destination="Tf3-bn-nva" id="gR3-ho-YF3"/>
+                        <outlet property="darken_view" destination="20z-45-eEI" id="9bM-ex-IYt"/>
                         <outlet property="last" destination="koU-o0-AIH" id="BDb-8r-MAL"/>
                         <outlet property="next" destination="eQi-L5-ahx" id="KbW-RK-D62"/>
                         <outlet property="play" destination="gnl-oJ-0Zd" id="Oix-Te-KKR"/>
@@ -1239,7 +1240,7 @@ on Soundcloud?</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="1fe-a4-XVi"/>
+        <segue reference="sP4-bK-WLP"/>
         <segue reference="Lez-Aa-xiV"/>
         <segue reference="E2U-Ol-7ff"/>
     </inferredMetricsTieBreakers>

@@ -8,6 +8,7 @@
 
 #import "LocationServices.h"
 #import "SDSAPI.h"
+#import "geoAskViewController.h"
 
 @implementation LocationServices
 
@@ -47,6 +48,7 @@
 		[self.locationManager startUpdatingLocation];
 		self.lastUpdatedTime = [NSDate date];
 		self.howOftenToUpdate = 15.0;
+        
 	}
 }
 

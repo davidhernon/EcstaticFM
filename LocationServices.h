@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class SDSAPI;
+@class geoAskViewController;
 @import CoreLocation;
 
 @interface LocationServices : NSObject<CLLocationManagerDelegate>

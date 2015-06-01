@@ -99,6 +99,7 @@ static NSString* cellIdentifier = @"playListCell";
         _current_time.hidden = YES;
         _current_user_picture.hidden = YES;
         _welcomehome.hidden = NO;
+        _darken_view.hidden = YES;
         
     }else{
         _play.hidden = NO;
@@ -114,6 +115,7 @@ static NSString* cellIdentifier = @"playListCell";
         _current_time.hidden = NO;
         _current_user_picture.hidden = NO;
         _welcomehome.hidden = YES;
+        _darken_view.hidden = YES;
         
     }
     if(![_player isPlaying] && ![_player isPaused] && [_playlist count] > 0)
