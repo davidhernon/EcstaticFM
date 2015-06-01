@@ -53,12 +53,16 @@
 	if(status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse)
 	{
 		[self.vc performSegueWithIdentifier:@"roomsViewSegue" sender:self];
-		
+		self.status = kCLAuthorizationStatusAuthorizedAlways;
 			[self.locationManager startUpdatingLocation];
 			self.lastUpdatedTime = [NSDate date];
 			self.howOftenToUpdate = 15.0;
 	}
+	else if (status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusRestricted){
+		self.status = kCLAuthorizationStatusDenied;
+	}
 	else if (status == kCLAuthorizationStatusNotDetermined){
+		self.status = kCLAuthorizationStatusNotDetermined;
 	}
 	else{
 		[self.vc performSegueWithIdentifier:@"backToPlayerSegue" sender:self];
