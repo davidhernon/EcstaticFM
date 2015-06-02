@@ -10,7 +10,6 @@
         <mutableArray key="Raleway-ExtraLight.ttf">
             <string>Raleway-ExtraLight</string>
             <string>Raleway-ExtraLight</string>
-            <string>Raleway-ExtraLight</string>
         </mutableArray>
         <mutableArray key="Raleway-Light.ttf">
             <string>Raleway-Light</string>
@@ -159,7 +158,7 @@ share your location?</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hid-Ld-a4X">
-                                <rect key="frame" x="109" y="15" width="103" height="33"/>
+                                <rect key="frame" x="109" y="16" width="103" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
                                 <color key="textColor" red="0.47603014110000003" green="0.47601586579999999" blue="0.47602397200000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -178,13 +177,6 @@ share your location?</string>
                                 <rect key="frame" x="16" y="178" width="288" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Raleway-ExtraLight" family="Raleway" pointSize="32"/>
-                                <color key="textColor" red="0.47603014110000003" green="0.47601586579999999" blue="0.47602397200000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Power Animal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Z6-EG-EIR">
-                                <rect key="frame" x="16" y="217" width="288" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Raleway-ExtraLight" family="Raleway" pointSize="16"/>
                                 <color key="textColor" red="0.47603014110000003" green="0.47601586579999999" blue="0.47602397200000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -799,6 +791,13 @@ music around you.</string>
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_gradienthiding.png" id="9Pu-JQ-zx9">
+                                        <rect key="frame" x="0.0" y="163" width="320" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                        </accessibility>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -823,11 +822,11 @@ music around you.</string>
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ebX-Vz-7hn">
-                                        <rect key="frame" x="-1" y="14" width="44" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ebX-Vz-7hn" userLabel="Back Button">
+                                        <rect key="frame" x="0.0" y="15" width="51" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                                        <state key="normal" image="button_close.png">
+                                        <inset key="contentEdgeInsets" minX="19" minY="15" maxX="19" maxY="15"/>
+                                        <state key="normal" image="icon_back2.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -966,7 +965,7 @@ music around you.</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="ixu-xt-lhn">
-                                            <rect key="frame" x="56" y="8" width="6648" height="2199"/>
+                                            <rect key="frame" x="56" y="8" width="6968" height="2302"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>
@@ -1022,13 +1021,6 @@ music around you.</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find music" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MoJ-3u-TGw">
-                                <rect key="frame" x="87" y="24" width="147" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="dje-Cg-AB5">
                                 <rect key="frame" x="0.0" y="129" width="320" height="351"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1068,8 +1060,8 @@ music around you.</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playlists" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KpI-G6-rvS">
-                                <rect key="frame" x="134" y="93" width="63" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SDS Mixes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KpI-G6-rvS">
+                                <rect key="frame" x="124" y="93" width="73" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1180,9 +1172,9 @@ on Soundcloud?</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7xK-mt-PwZ">
-                                <rect key="frame" x="1" y="0.0" width="56" height="56"/>
+                                <rect key="frame" x="1" y="5" width="56" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="contentEdgeInsets" minX="32" minY="32" maxX="32" maxY="32"/>
+                                <inset key="contentEdgeInsets" minX="21" minY="21" maxX="21" maxY="21"/>
                                 <state key="normal" image="button_close.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1191,10 +1183,16 @@ on Soundcloud?</string>
                                     <action selector="closeMediaPicker:" destination="mhK-Pb-bck" eventType="touchUpInside" id="Wvd-Fr-kg6"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add music" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MoJ-3u-TGw">
+                                <rect key="frame" x="87" y="22" width="147" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.79843317360287469" green="0.78935001296433938" blue="0.82527503188775508" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -1225,6 +1223,7 @@ on Soundcloud?</string>
         <image name="button_signup.png" width="199" height="76"/>
         <image name="icon-key-dark.png" width="58" height="34"/>
         <image name="icon-key.png" width="56" height="34"/>
+        <image name="icon_back2.png" width="23" height="40"/>
         <image name="icon_distance3.png" width="52" height="77"/>
         <image name="icon_email.png" width="23" height="17"/>
         <image name="icon_gear2.png" width="88" height="88"/>
@@ -1238,6 +1237,7 @@ on Soundcloud?</string>
         <image name="image_darkgradienttop.png" width="1292" height="754"/>
         <image name="image_emptyportrait.png" width="302" height="304"/>
         <image name="image_geobuttonborder.png" width="930" height="182"/>
+        <image name="image_gradienthiding.png" width="640" height="118"/>
         <image name="image_logintextfield.png" width="435" height="76"/>
         <image name="image_portrait.png" width="59" height="62"/>
         <image name="image_tri-logo-color.png" width="460" height="462"/>
@@ -1254,7 +1254,7 @@ on Soundcloud?</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="sP4-bK-WLP"/>
         <segue reference="E2U-Ol-7ff"/>
+        <segue reference="43i-aQ-VQp"/>
     </inferredMetricsTieBreakers>
 </document>
