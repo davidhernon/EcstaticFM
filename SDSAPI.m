@@ -86,7 +86,6 @@ static SocketIOClient *static_socket;
                                [NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
                                 {
                                     NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                    
                                     if ([responseString  isEqual: @"successful_login"]) {
 										[callingViewController performSelectorOnMainThread:@selector(loginReturnedTrue) withObject:nil waitUntilDone:NO];
 									}

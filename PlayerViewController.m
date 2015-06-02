@@ -61,10 +61,10 @@ static NSString* cellIdentifier = @"playListCell";
     [self.player addDelegate:self];
     [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
     
-    _current_album_artwork.layer.shadowColor = [UIColor blackColor].CGColor;
-    _current_album_artwork.layer.shadowRadius = 10.f;
-    _current_album_artwork.layer.shadowOffset = CGSizeMake(0.f, 5.f);
-    _current_album_artwork.layer.shadowOpacity = 1.f;
+    //_current_album_artwork.layer.shadowColor = [UIColor blackColor].CGColor;
+//    _current_album_artwork.layer.shadowRadius = 10.f;
+//    _current_album_artwork.layer.shadowOffset = CGSizeMake(0.f, 5.f);
+//    _current_album_artwork.layer.shadowOpacity = 1.f;
     _current_album_artwork.clipsToBounds = NO;
     _playListTableView.tableHeaderView = __playerTableHeaderView;
     _playListTableView.tableFooterView = __playerAddMusicCell;
@@ -116,6 +116,14 @@ static NSString* cellIdentifier = @"playListCell";
         _current_user_picture.hidden = NO;
         _welcomehome.hidden = YES;
         _darken_view.hidden = YES;
+        float fl;
+        if(_player.currentTrackIndex == 0){
+            fl = 0.0f;
+        }else{
+            fl = (1.0f*CMTimeGetSeconds(_player.avPlayer.currentItem.asset.duration));  
+        }
+        NSLog(@"float:%f", (1.0f*CMTimeGetSeconds(_player.avPlayer.currentItem.asset.duration)));
+        [self initPlayerUI:fl withTrack:_player.currentTrack atIndex:_player.currentTrackIndex];
         
     }
     if(![_player isPlaying] && ![_player isPaused] && [_playlist count] > 0)
@@ -192,6 +200,15 @@ static NSString* cellIdentifier = @"playListCell";
 
 }
 
+//- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    
+//}
+//- (BOOL)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+//{
+//    return YES;
+//}
+
 /**
  Initialize the Player UI with information from the currentTrack
  @param currentTrack
@@ -199,7 +216,6 @@ static NSString* cellIdentifier = @"playListCell";
  */
 - (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack atIndex:(int)index
 {
-    NSLog(@"Is the index null? : %d",index);
     _slider.maximumValue = duration;
     _slider.value = 0.0;
     _current_artist.text = currentTrack.artist;
@@ -225,6 +241,7 @@ static NSString* cellIdentifier = @"playListCell";
 - (void) setCurrentSliderValue:(AVPlayer*)childPlayer
 {
     _slider.value = (int)CMTimeGetSeconds([childPlayer currentTime]);
+    NSLog(@"%f",_slider.value);
     _current_time.text = [Utils convertTimeFromMillis:(int)1000*_slider.value];
 }
 

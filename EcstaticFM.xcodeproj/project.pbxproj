@@ -57,6 +57,11 @@
 		1CB9BB301AA2456400748236 /* SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9BB2F1AA2456400748236 /* SoundCloudAPI.m */; };
 		1CB9BB341AA2459000748236 /* SDSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9BB331AA2459000748236 /* SDSAPI.m */; };
 		1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCB176C1A92792C0055D68C /* LoginViewController.m */; };
+		1CCC0FA31B1E3745002CAB73 /* MyMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CCC0FA21B1E3745002CAB73 /* MyMessageView.xib */; };
+		1CCC0FA51B1E376D002CAB73 /* OtherUserMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CCC0FA41B1E376D002CAB73 /* OtherUserMessageView.xib */; };
+		1CCC0FA81B1E3A88002CAB73 /* ChatMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC0FA71B1E3A88002CAB73 /* ChatMessageTableViewCell.m */; };
+		1CCC0FAB1B1E3BBF002CAB73 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC0FAA1B1E3BBF002CAB73 /* Message.m */; };
+		1CDFEC7F1B1E088F00533110 /* UIAroundMeHereEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDFEC7E1B1E088E00533110 /* UIAroundMeHereEmptyView.m */; };
 		D2A8C828A1F2E13542223221 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA11C45E121802EEDA9E85 /* libPods.a */; };
 		DE14B9BC1AFF0BCD004470C7 /* button_controlsnext.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9BA1AFF0BCD004470C7 /* button_controlsnext.png */; };
 		DE14B9BD1AFF0BCD004470C7 /* button_controlspause.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9BB1AFF0BCD004470C7 /* button_controlspause.png */; };
@@ -293,6 +298,14 @@
 		1CB9BB331AA2459000748236 /* SDSAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSAPI.m; sourceTree = "<group>"; };
 		1CCB176B1A92792C0055D68C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1CCB176C1A92792C0055D68C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		1CCC0FA21B1E3745002CAB73 /* MyMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyMessageView.xib; sourceTree = "<group>"; };
+		1CCC0FA41B1E376D002CAB73 /* OtherUserMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherUserMessageView.xib; sourceTree = "<group>"; };
+		1CCC0FA61B1E3A88002CAB73 /* ChatMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageTableViewCell.h; sourceTree = "<group>"; };
+		1CCC0FA71B1E3A88002CAB73 /* ChatMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessageTableViewCell.m; sourceTree = "<group>"; };
+		1CCC0FA91B1E3BBF002CAB73 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		1CCC0FAA1B1E3BBF002CAB73 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		1CDFEC7D1B1E088E00533110 /* UIAroundMeHereEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAroundMeHereEmptyView.h; sourceTree = "<group>"; };
+		1CDFEC7E1B1E088E00533110 /* UIAroundMeHereEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAroundMeHereEmptyView.m; sourceTree = "<group>"; };
 		357C25CB851B05BF017C7876 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4CDA11C45E121802EEDA9E85 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2B767D1CC5F084F45D1F4FB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -501,6 +514,8 @@
 				1C6D62E91B1A225C00F0EC27 /* UIAroundMeView.xib */,
 				DE18AB901B1CBD5500C9BAE5 /* UIAroundMeHereEmptyView.xib */,
 				1C6D62EB1B1A226900F0EC27 /* UIEventView.xib */,
+				1CDFEC7D1B1E088E00533110 /* UIAroundMeHereEmptyView.h */,
+				1CDFEC7E1B1E088E00533110 /* UIAroundMeHereEmptyView.m */,
 			);
 			name = Rooms;
 			sourceTree = "<group>";
@@ -935,6 +950,12 @@
 			children = (
 				DEEC12281AFCFCC800E21C52 /* ChatViewController.h */,
 				DEEC12291AFCFCC800E21C52 /* ChatViewController.m */,
+				1CCC0FA21B1E3745002CAB73 /* MyMessageView.xib */,
+				1CCC0FA41B1E376D002CAB73 /* OtherUserMessageView.xib */,
+				1CCC0FA61B1E3A88002CAB73 /* ChatMessageTableViewCell.h */,
+				1CCC0FA71B1E3A88002CAB73 /* ChatMessageTableViewCell.m */,
+				1CCC0FA91B1E3BBF002CAB73 /* Message.h */,
+				1CCC0FAA1B1E3BBF002CAB73 /* Message.m */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -1055,6 +1076,7 @@
 				DEBE1DAF1B1A0780003FE590 /* icon-key-dark.png in Resources */,
 				DE18ABA71B1DF71000C9BAE5 /* loadingdark1.png in Resources */,
 				DE14B9BD1AFF0BCD004470C7 /* button_controlspause.png in Resources */,
+				1CCC0FA51B1E376D002CAB73 /* OtherUserMessageView.xib in Resources */,
 				DE5763A91AF40817003F7507 /* Raleway-Light.ttf in Resources */,
 				DECC69211AFEC11A00A761DE /* icon_addmusicfull.png in Resources */,
 				DEE628D91AFA796F009084FF /* icon_bubble.png in Resources */,
@@ -1156,6 +1178,7 @@
 				DE14B9DD1AFFA4CB004470C7 /* button_closepink.png in Resources */,
 				DEEC122F1AFD514D00E21C52 /* button_seewhois.png in Resources */,
 				DE14B9FD1AFFE145004470C7 /* image_progressbarcolors.png in Resources */,
+				1CCC0FA31B1E3745002CAB73 /* MyMessageView.xib in Resources */,
 				DE85B6921B1510F300BCC36F /* image_logintextfield.png in Resources */,
 				DE4612601B0138A100192E49 /* icon_distance.png in Resources */,
 				DE14B9F21AFFBF07004470C7 /* wave6.png in Resources */,
@@ -1243,6 +1266,7 @@
 				DE5763D41AF5608C003F7507 /* GFXUtils.m in Sources */,
 				DE14B9E21AFFB115004470C7 /* PlayerPageViewController.m in Sources */,
 				1C6D62E51B1A223D00F0EC27 /* UIEventView.m in Sources */,
+				1CCC0FA81B1E3A88002CAB73 /* ChatMessageTableViewCell.m in Sources */,
 				1C291D9B1AFFF2A1006A2B4F /* WebSocket.swift in Sources */,
 				1C291D9E1B014B96006A2B4F /* AroundMeTableViewCell.m in Sources */,
 				1C291D991AFFF2A1006A2B4F /* SocketParser.swift in Sources */,
@@ -1264,6 +1288,8 @@
 				1C291D971AFFF2A1006A2B4F /* SocketIOClient.swift in Sources */,
 				FCEB2FDE1B001E3C00010187 /* LocationServices.m in Sources */,
 				1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */,
+				1CDFEC7F1B1E088F00533110 /* UIAroundMeHereEmptyView.m in Sources */,
+				1CCC0FAB1B1E3BBF002CAB73 /* Message.m in Sources */,
 				DEEC122A1AFCFCC800E21C52 /* ChatViewController.m in Sources */,
 				1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */,
 				1CB9BB301AA2456400748236 /* SoundCloudAPI.m in Sources */,

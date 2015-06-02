@@ -16,6 +16,7 @@
 #import "UIRoomView.h"
 #import "UIAroundMeView.h"
 #import "UIEventView.h"
+#import "UIAroundMeHereEmptyView.h"
 #define kUVCellDragInterval 180.f
 
 @interface RoomsViewController : UIViewController <UIScrollViewDelegate>;

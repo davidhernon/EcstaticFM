@@ -1,15 +1,15 @@
 //
-//  UIAroundMeView.m
+//  UIAroundMeHereEmptyView.m
 //  EcstaticFM
 //
-//  Created by David Hernon on 2015-05-30.
+//  Created by David Hernon on 2015-06-02.
 //  Copyright (c) 2015 David Hernon. All rights reserved.
 //
 
-#import "UIAroundMeView.h"
+#import "UIAroundMeHereEmptyView.h"
 #import "RoomsViewController.h"
 
-@implementation UIAroundMeView
+@implementation UIAroundMeHereEmptyView
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
@@ -40,6 +40,7 @@
         NSString *className = NSStringFromClass([self class]);
         self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
         [self addSubview:self.view];
+        _rooms_view_controller = sender;
     }
     return self;
 }
