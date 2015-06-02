@@ -205,6 +205,7 @@
 		DEEC12401AFD82E900E21C52 /* image_whitearrowright.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC123F1AFD82E900E21C52 /* image_whitearrowright.png */; };
 		DEFF739F1B15203A0001B107 /* icon_distance2.png in Resources */ = {isa = PBXBuildFile; fileRef = DEFF739E1B15203A0001B107 /* icon_distance2.png */; };
 		DEFF73A11B1521820001B107 /* icon_headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = DEFF73A01B1521820001B107 /* icon_headphones.png */; };
+		FC2D3EF91B1CBBB300B41546 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2D3EF81B1CBBB300B41546 /* SignupViewController.m */; };
 		FCEB2FDE1B001E3C00010187 /* LocationServices.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEB2FDD1B001E3C00010187 /* LocationServices.m */; };
 /* End PBXBuildFile section */
 
@@ -455,6 +456,8 @@
 		DEEC123F1AFD82E900E21C52 /* image_whitearrowright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_whitearrowright.png; sourceTree = "<group>"; };
 		DEFF739E1B15203A0001B107 /* icon_distance2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_distance2.png; sourceTree = "<group>"; };
 		DEFF73A01B1521820001B107 /* icon_headphones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_headphones.png; sourceTree = "<group>"; };
+		FC2D3EF71B1CBBB300B41546 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		FC2D3EF81B1CBBB300B41546 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		FCEB2FDC1B001E3C00010187 /* LocationServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationServices.h; sourceTree = "<group>"; };
 		FCEB2FDD1B001E3C00010187 /* LocationServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationServices.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -651,7 +654,7 @@
 				DEEC122B1AFCFCD000E21C52 /* Chat */,
 				1C73F35F1AFA8CCB0003B1FA /* Rooms */,
 				DEE628DC1AFA7FEF009084FF /* GFX */,
-				DE5763B61AF40CCD003F7507 /* Login */,
+				DE5763B61AF40CCD003F7507 /* Login and Signup */,
 				1C7E49D21AB33A4E005BB999 /* soundCloudMediaPicker */,
 				1C7E49C51AB1FB5B005BB999 /* Page View Control */,
 				1CB9BB311AA2456900748236 /* API Integrations */,
@@ -869,7 +872,7 @@
 			path = Raleway;
 			sourceTree = "<group>";
 		};
-		DE5763B61AF40CCD003F7507 /* Login */ = {
+		DE5763B61AF40CCD003F7507 /* Login and Signup */ = {
 			isa = PBXGroup;
 			children = (
 				1CCB176B1A92792C0055D68C /* LoginViewController.h */,
@@ -879,8 +882,10 @@
 				DE5763CB1AF438E7003F7507 /* RoomViewController.m */,
 				DE5763CF1AF447F4003F7507 /* GradientNavigationBar.h */,
 				DE5763D01AF447F4003F7507 /* GradientNavigationBar.m */,
+				FC2D3EF71B1CBBB300B41546 /* SignupViewController.h */,
+				FC2D3EF81B1CBBB300B41546 /* SignupViewController.m */,
 			);
-			name = Login;
+			name = "Login and Signup";
 			sourceTree = "<group>";
 		};
 		DEBE1DA51B1A0504003FE590 /* spinner */ = {
@@ -1242,6 +1247,7 @@
 			files = (
 				1C73F36C1AFBE9470003B1FA /* Room.m in Sources */,
 				1C6D62DD1B1643B200F0EC27 /* UIRoomView.m in Sources */,
+				FC2D3EF91B1CBBB300B41546 /* SignupViewController.m in Sources */,
 				DE5763D41AF5608C003F7507 /* GFXUtils.m in Sources */,
 				DE14B9E21AFFB115004470C7 /* PlayerPageViewController.m in Sources */,
 				1C6D62E51B1A223D00F0EC27 /* UIEventView.m in Sources */,

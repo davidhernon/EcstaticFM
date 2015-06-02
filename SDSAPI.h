@@ -15,12 +15,13 @@
 
 +(NSString*)getWebsiteURL;
 +(NSArray*)getUpcomingEvents;
++(void)signup:(NSString*)username password:(NSString*)pass email:(NSString*)email ID:(id)callingViewController;
 +(void)login:(NSString*)username password:(NSString*)password ID:(id)callingViewController;
 +(void)fbLogin;
 +(void)createRoom:(NSString*)params;
 +(void)aroundMe:(NSString*)username withID:(id)sender;
 +(void)connect;
-+(void) sendMediaItemToServer:(MediaItem*)media_item;
++(void)sendMediaItemToServer:(MediaItem*)media_item;
 +(void)postLocation:(NSString*)username withLatitude:(float)latitude withLongitude:(float)longitude;
 +(void)joinRoom:(NSString*)room_number;
 +(void)leaveRoom;

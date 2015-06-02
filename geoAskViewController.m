@@ -16,14 +16,13 @@
     [appDelegate.locationServices try_start_location_services];
 	if(appDelegate.locationServices.status == kCLAuthorizationStatusDenied){
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Permissions Error"
-														message:@"Go to your iPhone's Settings under 'Ecstatic > Location' and set the permission to 'Always'"
+														message:@"Make sure that 'Privacy > Loction Services' is turned on, and go to your iPhone's Settings under 'Ecstatic > Location' and set the permission to 'Always'."
 													   delegate:self
 											  cancelButtonTitle:@"Cancel"
 											  otherButtonTitles: nil];
 		    [alert addButtonWithTitle:@"OK"];
 		    [alert show];
 	}
-
 }
 
 

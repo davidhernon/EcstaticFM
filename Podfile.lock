@@ -14,10 +14,10 @@ DEPENDENCIES:
   - CocoaSoundCloudUI (= 1.0.5)
 
 SPEC CHECKSUMS:
-  CocoaSoundCloudAPI: 5e6bab9b529e0c0de1a0b470a25673e199e3b12b
-  CocoaSoundCloudUI: a9690cb539fc2f9a20cb718caf25be4e760e7f43
-  JSONKit: 2111ac2b11f7ea0d07bb1d9d09e650918336a134
-  NXOAuth2Client: 28de3d9bde510d398e62d723a0123c500017af84
-  OHAttributedLabel: 733b32053cd02be1044749d394e874143e41e8d7
+  CocoaSoundCloudAPI: e8e1f2e463fa9bb9d68b2dcf361572787c7a6c3f
+  CocoaSoundCloudUI: 4deb5ffe558d0b60d0aaeaf2420dda7aa31cb239
+  JSONKit: 5b69e804ea54d99293eed0fd2ce596c5703fefb0
+  NXOAuth2Client: 4705ee7d3532c106e2758e2f10f4e9964b5aec68
+  OHAttributedLabel: 9b2eb99323dee6b3a81ef3bc8e98b084117bca2d
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.37.1

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bOe-aM-vI5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bOe-aM-vI5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -87,7 +87,7 @@
             <objects>
                 <viewController storyboardIdentifier="geoAskVC" id="EBF-eh-6t1" customClass="geoAskViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3hJ-aG-FG0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z0X-aX-qNV">
@@ -136,7 +136,7 @@ share your location?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boa-Xy-f7L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1130" y="1891"/>
+            <point key="canvasLocation" x="1062" y="492"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="M8K-T3-74x">
@@ -475,12 +475,12 @@ music around you.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iU6-sO-xiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1483" y="504"/>
+            <point key="canvasLocation" x="1479" y="667"/>
         </scene>
-        <!--View Controller-->
+        <!--Signup View Controller-->
         <scene sceneID="hjN-df-hsf">
             <objects>
-                <viewController id="Kka-Vs-kOQ" sceneMemberID="viewController">
+                <viewController id="Kka-Vs-kOQ" customClass="SignupViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ka8-W5-62G">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -521,6 +521,9 @@ music around you.</string>
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signup:" destination="Kka-Vs-kOQ" eventType="touchUpInside" id="RrM-DW-uxh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zbL-dC-aJ1">
                                 <rect key="frame" x="46" y="434" width="115" height="30"/>
@@ -584,6 +587,12 @@ music around you.</string>
                     </view>
                     <navigationItem key="navigationItem" id="0UI-GX-lHQ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="email" destination="HHD-Na-blN" id="Zzw-MD-w6k"/>
+                        <outlet property="password" destination="4T0-Yf-lw8" id="18c-Yv-Dpf"/>
+                        <outlet property="username" destination="qIt-Sg-eQg" id="DgV-H2-faD"/>
+                        <segue destination="EBF-eh-6t1" kind="modal" identifier="successfulSignup" id="ag5-lL-hod"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JcI-bz-qgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1079,6 +1088,16 @@ music around you.</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
+                                <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jq1-0v-09B">
+                                    <rect key="frame" x="0.0" y="81" width="310" height="71"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <string key="text">Do you want to listen to
+the songs you liked
+on Soundcloud?</string>
+                                    <fontDescription key="fontDescription" name="Raleway" family="Raleway" pointSize="18"/>
+                                    <color key="textColor" red="1" green="0.99993491172790527" blue="0.99997484683990479" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="soundCloudTrackCell" rowHeight="59" id="J11-R0-4Dp" customClass="MediaItemTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -1140,33 +1159,6 @@ music around you.</string>
                                     <action selector="closeMediaPicker:" destination="mhK-Pb-bck" eventType="touchUpInside" id="R7M-nr-HgY"/>
                                 </connections>
                             </button>
-                            <view alpha="0.0" contentMode="scaleToFill" id="OO2-mf-6vh">
-                                <rect key="frame" x="5" y="129" width="310" height="291"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZO2-Cu-bJq">
-                                        <rect key="frame" x="65" y="204" width="180" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="button_connectmyacct.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="soundcloudLogin:" destination="NW7-8C-V9l" eventType="touchUpInside" id="RPP-OW-rBW"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jq1-0v-09B">
-                                        <rect key="frame" x="47" y="90" width="216" height="71"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <string key="text">Do you want to listen to
-the songs you liked
-on Soundcloud?</string>
-                                        <fontDescription key="fontDescription" name="Raleway" family="Raleway" pointSize="18"/>
-                                        <color key="textColor" red="1" green="0.99993491172790527" blue="0.99997484683990479" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner-16.png" id="P6O-DS-VKr">
                                 <rect key="frame" x="116" y="396" width="88" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1198,7 +1190,6 @@ on Soundcloud?</string>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="addSongsToPlaylist" destination="FSC-Hu-VvY" id="UJ8-B7-KsN"/>
-                        <outlet property="connect_to_soundcloud" destination="OO2-mf-6vh" id="n9c-Ii-46M"/>
                         <outlet property="soundCloudResultsTableView" destination="0FZ-o0-ngg" id="Ikt-a5-Usc"/>
                     </connections>
                 </viewController>
