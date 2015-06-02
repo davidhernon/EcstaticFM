@@ -88,7 +88,7 @@
             <objects>
                 <viewController storyboardIdentifier="geoAskVC" id="EBF-eh-6t1" customClass="geoAskViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3hJ-aG-FG0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z0X-aX-qNV">
@@ -137,7 +137,7 @@ share your location?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boa-Xy-f7L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1130" y="1891"/>
+            <point key="canvasLocation" x="1062" y="492"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="M8K-T3-74x">
@@ -479,12 +479,12 @@ music around you.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iU6-sO-xiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1483" y="504"/>
+            <point key="canvasLocation" x="1479" y="667"/>
         </scene>
-        <!--View Controller-->
+        <!--Signup View Controller-->
         <scene sceneID="hjN-df-hsf">
             <objects>
-                <viewController id="Kka-Vs-kOQ" sceneMemberID="viewController">
+                <viewController id="Kka-Vs-kOQ" customClass="SignupViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ka8-W5-62G">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -519,6 +519,9 @@ music around you.</string>
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signup:" destination="Kka-Vs-kOQ" eventType="touchUpInside" id="RrM-DW-uxh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zbL-dC-aJ1">
                                 <rect key="frame" x="46" y="434" width="115" height="30"/>
@@ -540,16 +543,16 @@ music around you.</string>
                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="14" id="HHD-Na-blN">
                                 <rect key="frame" x="78" y="319" width="162" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="0.53393996479865558" blue="0.001107880135183259" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.29999999999999999" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="14" id="4T0-Yf-lw8">
                                 <rect key="frame" x="78" y="367" width="162" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="0.53393996479865558" blue="0.001107880135183259" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.29999999999999999" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" secureTextEntry="YES"/>
                             </textField>
@@ -564,8 +567,8 @@ music around you.</string>
                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Disco-name" clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="14" id="qIt-Sg-eQg">
                                 <rect key="frame" x="78" y="273" width="162" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="0.53393996479865558" blue="0.001107880135183259" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.29999999999999999" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light"/>
                             </textField>
@@ -578,6 +581,12 @@ music around you.</string>
                     </view>
                     <navigationItem key="navigationItem" id="0UI-GX-lHQ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="email" destination="HHD-Na-blN" id="Zzw-MD-w6k"/>
+                        <outlet property="password" destination="4T0-Yf-lw8" id="18c-Yv-Dpf"/>
+                        <outlet property="username" destination="qIt-Sg-eQg" id="DgV-H2-faD"/>
+                        <segue destination="EBF-eh-6t1" kind="modal" identifier="successfulSignup" id="ag5-lL-hod"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JcI-bz-qgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1239,6 +1248,7 @@ on Soundcloud?</string>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="E2U-Ol-7ff"/>
+        <segue reference="ag5-lL-hod"/>
         <segue reference="1fe-a4-XVi"/>
     </inferredMetricsTieBreakers>
 </document>

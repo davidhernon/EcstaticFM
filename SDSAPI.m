@@ -88,7 +88,6 @@ static SocketIOClient *static_socket;
                                     NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                     
                                     if ([responseString  isEqual: @"successful_login"]) {
-//										[callingViewController loginReturned:true];
 										[callingViewController performSelectorOnMainThread:@selector(loginReturnedTrue) withObject:nil waitUntilDone:NO];
 									}
                                     else{
@@ -97,7 +96,9 @@ static SocketIOClient *static_socket;
                                 }];
                            }];
 }
-
+//+(void) mixes ID:(id)callingViewController
+//{
+//}
 +(void) signup:(NSString*)username password:(NSString*)pass email:(NSString*)email ID:(id)callingViewController
 {
 	// at the top
@@ -138,11 +139,11 @@ static SocketIOClient *static_socket;
 								{
 									NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 									
-									if ([responseString  isEqual: @"true"]) {
-										[callingViewController performSelectorOnMainThread:@selector(signupReturnedTrue) withObject:nil waitUntilDone:NO];
+									if ([responseString  isEqual: @"True"]) {
+										[callingViewController performSelectorOnMainThread:@selector(signupSuccess) withObject:nil waitUntilDone:NO];
 									}
 									else{
-										[callingViewController loginReturnedFalse];
+										[callingViewController performSelectorOnMainThread:@selector(signupFailure:) withObject:responseString waitUntilDone:NO];
 									}
 								}];
 						   }];
