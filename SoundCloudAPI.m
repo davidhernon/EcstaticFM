@@ -20,6 +20,8 @@
 
 +(void) getFavorites:(soundCloudMediaPickerViewController*)sender
 {
+    sender.soundCloudAlbumImages = [[NSMutableArray alloc] init];
+    sender.tracksFromSoundCloud = [[NSArray alloc] init];
     SCAccount *account = [SCSoundCloud account];
     if (account == nil) {
         NSLog(@"tried to get favorites when no user was signed into soundcloud");
@@ -37,6 +39,7 @@
         if (!jsonError && [jsonResponse isKindOfClass:[NSArray class]]) {
             NSLog(@"did succeed in SC query");
             [sender addSoundCloudFavorites:((NSArray*)jsonResponse)];
+            [sender getAlbumImageArray];
             // reload table data?
             [sender.soundCloudResultsTableView reloadData];
 //            [sender viewDidLoad];
@@ -144,6 +147,10 @@
 +(void)searchSoundCloud:(NSString*)search_text withSender:(soundCloudMediaPickerViewController*)sender
 {
     //query SC with text
+    sender.soundCloudAlbumImages = [[NSMutableArray alloc] init];
+    sender.tracksFromSoundCloud = [[NSArray alloc] init];
+    [sender getAlbumImageArray];
+    [sender.soundCloudResultsTableView reloadData];
     
     //when we get the response reload soundCloudMediaPicker
     NSString *search = [search_text stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
