@@ -40,6 +40,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *current_user_picture;
 @property (weak, nonatomic) IBOutlet UILabel *welcomehome;
 
+@property (weak, nonatomic) IBOutlet UIView *darken_view;
+
 
 
 //nav bar

@@ -62,7 +62,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
         [SDSAPI aroundMe:username withID:self];
     }
     
-    int x = 0;
+    int x = 50;
     // get the upcoming events and populate them on screen
     for(NSDictionary *event in _upcoming_events)
     {
