@@ -19,12 +19,13 @@
 @interface LoginViewController : UIViewController
 
 -(void)getAccessToken;
+- (void) loginReturnedFalse;
+- (void) loginReturnedTrue;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *loginScrollView;
 @property BOOL keyboardIsShown;
 
 @property (weak, nonatomic) IBOutlet UITextField *username;
-
 @property (weak, nonatomic) IBOutlet UITextField *password;
 
 

@@ -36,10 +36,7 @@
 
 // Move the User to the Room associated with the screen that they just clicked
 -(IBAction)buttonAction
-{
-//    PlayerPageViewController *player = [[PlayerPageViewController alloc] init];
-//    
-//    [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:player animated:YES completion:nil];
+{ 
     [SDSAPI joinRoom:self.raw_room_number];
     [Room currentRoom].room_number = self.raw_room_number;
     [SDSAPI getPlaylist:self.raw_room_number ];

@@ -106,8 +106,8 @@
                        nil];
     
     // Set locations
-    gradient.startPoint = CGPointMake(0,1);
-    gradient.endPoint = CGPointMake(1,0);
+    gradient.startPoint = CGPointMake(0,0);
+    gradient.endPoint = CGPointMake(1,1);
     
     // Set bounds
     gradient.frame = bounds;

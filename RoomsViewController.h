@@ -14,15 +14,18 @@
 #import "LocationServices.h"
 #import "AroundMeTableViewCell.h"
 #import "UIRoomView.h"
+#import "UIAroundMeView.h"
+#import "UIEventView.h"
 #define kUVCellDragInterval 180.f
 
-@interface RoomsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>;
+@interface RoomsViewController : UIViewController <UIScrollViewDelegate>;
 
 @property (weak, nonatomic) IBOutlet UITableView *roomTableView;
 @property NSArray* popular;
 @property NSArray* around_me;
 @property LocationServices* locationServices;
-@property NSArray* room_cards;
+@property NSArray* rooms_around_me;
+@property NSArray* upcoming_events;
 - (void)showRoomsScrollView:(NSArray*)room_dictionaries;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *roomsScrollView;

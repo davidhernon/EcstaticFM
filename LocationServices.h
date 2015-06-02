@@ -15,7 +15,9 @@
 @property (nonatomic, strong) CLLocationManager* locationManager;
 @property (nonatomic, strong) NSDate *lastUpdatedTime;
 @property int howOftenToUpdate;
--(void)start_location_services;
+@property geoAskViewController* vc;
+@property CLAuthorizationStatus status;
+-(void)try_start_location_services;
 -(void)locationManager:(CLLocationManager *)manager
 	didUpdateLocations:(NSArray *)locations;
 - (void)locationManager:(CLLocationManager *)manager

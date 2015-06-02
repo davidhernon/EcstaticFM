@@ -12,6 +12,14 @@
 
 @implementation LocationServices
 
+-(id)initWithViewController:(geoAskViewController*)vc
+{
+	if(self = [super init])
+	{
+		self.vc = vc;
+	}
+	return self;
+}
 
 -(Boolean) checkForPermissions{
     if (self.locationManager == nil){
@@ -28,7 +36,7 @@
     }
 }
 
--(void) start_location_services{
+-(void) try_start_location_services{
     if (self.locationManager == nil){
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
@@ -45,10 +53,21 @@
 {
 	if(status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse)
 	{
-		[self.locationManager startUpdatingLocation];
-		self.lastUpdatedTime = [NSDate date];
-		self.howOftenToUpdate = 15.0;
-        
+		[self.vc performSegueWithIdentifier:@"roomsViewSegue" sender:self];
+		self.status = kCLAuthorizationStatusAuthorizedAlways;
+			[self.locationManager startUpdatingLocation];
+			self.lastUpdatedTime = [NSDate date];
+			self.howOftenToUpdate = 15.0;
+	}
+	else if (status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusRestricted){
+		self.status = kCLAuthorizationStatusDenied;
+	}
+	else if (status == kCLAuthorizationStatusNotDetermined){
+		self.status = kCLAuthorizationStatusNotDetermined;
+	}
+	else{
+		[self.vc performSegueWithIdentifier:@"backToPlayerSegue" sender:self];
+
 	}
 }
 

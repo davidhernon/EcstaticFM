@@ -13,7 +13,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property id completionHandler;
-@property (nonatomic, retain) NSArray *eventD;
 @property (nonatomic, retain) Player* player;
 @property LocationServices* locationServices;
 

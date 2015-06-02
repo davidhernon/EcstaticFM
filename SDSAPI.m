@@ -7,7 +7,7 @@
 //
 #import "SDSAPI.h"
 #import "EcstaticFM-Swift.h"
-
+#import "LoginViewController.h"
 @implementation SDSAPI
 
 @class SocketIOClient;
@@ -47,9 +47,8 @@ static SocketIOClient *static_socket;
     return eventD;
 }
 
-+(void) login:(NSString*)username password:(NSString*)pass
++(void) login:(NSString*)username password:(NSString*)pass ID:(id)callingViewController
 {
-    
     // at the top
     static NSString *csrf_cookie;
     
@@ -89,31 +88,81 @@ static SocketIOClient *static_socket;
                                     NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                     
                                     if ([responseString  isEqual: @"successful_login"]) {
-                                        NSLog(@"%@", responseString);
-                                    }
+//										[callingViewController loginReturned:true];
+										[callingViewController performSelectorOnMainThread:@selector(loginReturnedTrue) withObject:nil waitUntilDone:NO];
+									}
                                     else{
-                                        NSLog(@"%@", responseString);
+										[callingViewController loginReturnedFalse];
                                     }
                                 }];
                            }];
-    
-    
 }
+
++(void) signup:(NSString*)username password:(NSString*)pass email:(NSString*)email ID:(id)callingViewController
+{
+	// at the top
+	static NSString *csrf_cookie;
+	
+	// in a function:
+	NSURL *url = [[NSURL alloc] initWithString:@"http://54.173.157.204/"];
+	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+	[request setHTTPShouldHandleCookies:YES];
+	
+	[request setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]]];
+	
+	// make GET request are store the csrf
+	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]
+						   completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+							   NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:[(NSHTTPURLResponse *)response allHeaderFields] forURL:url];
+							   [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookies:cookies forURL:url mainDocumentURL:nil];
+							   // for some reason we need to re-store the CSRF token as X_CSRFTOKEN
+							   for (NSHTTPCookie *cookie in cookies) {
+								   if ([cookie.name isEqualToString:@"csrftoken"]) {
+									   csrf_cookie = cookie.value;
+									   NSLog(@"cookie.value=%@", cookie.value);
+									   break;
+								   }
+							   }
+							   NSString* urlString = @"http://54.173.157.204/auth/createprofileiOS/";
+							   NSURL *url = [NSURL URLWithString:urlString];
+							   
+							   NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+							   [urlRequest setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]]];
+							   [urlRequest addValue:csrf_cookie forHTTPHeaderField:@"X_CSRFTOKEN"];
+							   [urlRequest setHTTPMethod:@"POST"];
+							   NSString* bodyData = [NSString stringWithFormat:@"username=%@&password=%@&email=%@", username, pass, email];
+							   [urlRequest setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:strlen([bodyData UTF8String])]];
+							   NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+							   
+							   [NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+								{
+									NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+									
+									if ([responseString  isEqual: @"true"]) {
+										[callingViewController performSelectorOnMainThread:@selector(signupReturnedTrue) withObject:nil waitUntilDone:NO];
+									}
+									else{
+										[callingViewController loginReturnedFalse];
+									}
+								}];
+						   }];
+}
+
 +(void) fbLogin{
-    
+	
 }
 
 + (void) connect{
     static_socket = [[SocketIOClient alloc] initWithSocketURL:@"http://54.173.157.204:8888" options:nil];
-    
+	
 	[static_socket on: @"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
 		NSLog(@"here connected");
 	}];
-    
+	
     [static_socket on: @"return_post_location" callback: ^(NSArray* data, void (^ack)(NSArray*)){
         NSLog(@"Posted a location");
     }];
-    
+	
     [static_socket on:@"return_create_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSLog(@"create room returned,%@", data[0]);
         NSDictionary* room_info_dict =[((NSDictionary*) data[0]) objectForKey:@"room_info"];
@@ -253,16 +302,18 @@ static SocketIOClient *static_socket;
 +(void)joinRoom:(NSString*)room_number
 {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    NSDictionary *joinDict  = [NSDictionary dictionaryWithObjects:@[room_number, username] forKeys:@[@"room_number", @"username"]];
+    NSArray * obj = @[room_number, username];
+    NSArray * ky = @[@"room_number", @"username"];
+    NSDictionary *joinDict  = [NSDictionary dictionaryWithObjects:obj forKeys:ky];
     NSString *rn = [NSString stringWithFormat:@"%@",[Room currentRoom].room_number];
     NSLog(@"From Room: %@", [Room currentRoom].room_number);
-    NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[rn, username] forKeys:@[@"room_number", @"username"]];
+    NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[rn, username] forKeys:ky];
     NSData *joinJson = [NSJSONSerialization dataWithJSONObject:joinDict options:nil error:nil];
     NSData *leaveJson = [NSJSONSerialization dataWithJSONObject:leaveDict options:nil error:nil];
     if([room_number isEqualToString:[Room currentRoom].room_number])
     {
         return;
-    }else if([room_number isEqualToString:@"-1"])
+    }else if([room_number isEqualToString:@"0"])
     {
         [static_socket emitObjc:@"join_room" withItems:@[joinJson]];
     }else{
