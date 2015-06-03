@@ -55,11 +55,14 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:self.view.window];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
     
     _keyboardIsShown = NO;
     //make contentSize bigger than your scrollSize (you will need to figure out for your own use case)
-    CGSize scrollContentSize = CGSizeMake(320, 490);
-    _loginScrollView.contentSize = scrollContentSize;
+//    CGSize scrollContentSize = CGSizeMake(320, 490);
+//    _loginScrollView.contentSize = scrollContentSize;
 
     
     
@@ -214,6 +217,25 @@
     [_loginScrollView setFrame:viewFrame];
     [UIView commitAnimations];
     _keyboardIsShown = YES;
+}
+
+- (void) keyboardWasShown:(NSNotification *)n
+{
+    NSDictionary* info = [n userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    _loginScrollView.contentInset = contentInsets;
+    _loginScrollView.scrollIndicatorInsets = contentInsets;
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    // Your application might not need or want this behavior.
+    CGRect aRect = _loginScrollView.frame;
+    aRect.size.height -= kbSize.height;
+    if (!CGRectContainsPoint(aRect, _password.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0, 200);
+        [_loginScrollView setContentOffset:scrollPoint animated:YES];
+    }
+    
 }
 
 

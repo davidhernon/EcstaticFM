@@ -7,7 +7,7 @@
 //
 
 #import "PlayerViewController.h"
-
+#import "Room.h"
 
 @interface PlayerViewController ()
 
@@ -71,8 +71,6 @@ static NSString* cellIdentifier = @"playListCell";
     
     // Allow multiple checkmarks
 //     _playListTableView.allowsMultipleSelection = YES;
-    
-    
 
 }
 
@@ -117,13 +115,15 @@ static NSString* cellIdentifier = @"playListCell";
         _welcomehome.hidden = YES;
         _darken_view.hidden = YES;
         float fl;
-        if(_player.currentTrackIndex == 0){
+        if(_player.currentTrackIndex == 0 && isnan(CMTimeGetSeconds(_player.avPlayer.currentItem.asset.duration))){
             fl = 0.0f;
         }else{
             fl = (1.0f*CMTimeGetSeconds(_player.avPlayer.currentItem.asset.duration));  
         }
-        NSLog(@"float:%f", (1.0f*CMTimeGetSeconds(_player.avPlayer.currentItem.asset.duration)));
+        NSLog(@"float:%f", fl);
         [self initPlayerUI:fl withTrack:_player.currentTrack atIndex:_player.currentTrackIndex];
+//        _playListTableView.editing = YES;
+//        _playListTableView.allowsMultipleSelectionDuringEditing = NO;
         
     }
     if(![_player isPlaying] && ![_player isPaused] && [_playlist count] > 0)
@@ -152,6 +152,9 @@ static NSString* cellIdentifier = @"playListCell";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MediaItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    cell.rightUtilityButtons = [self rightButtons];
+    cell.delegate = self;
     
     MediaItem *track = [self.playlist objectAtIndex:indexPath.row];
     
@@ -193,6 +196,16 @@ static NSString* cellIdentifier = @"playListCell";
 }
 
 
+- (NSArray *)rightButtons
+{
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
+                                                title:@"Delete"];
+    
+    return rightUtilityButtons;
+}
+
 
 // This method gets called when a row in the table is selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -200,15 +213,97 @@ static NSString* cellIdentifier = @"playListCell";
 
 }
 
-//- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    
-//}
-//- (BOOL)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-//{
-//    return YES;
-//}
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+}
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        [_c removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Detemine if it's in editing mode
+    if (_playListTableView.editing)
+    {
+        return UITableViewCellEditingStyleNone;
+    }
+    
+    return UITableViewCellEditingStyleNone;
+}
+
+- (BOOL)tableView:(UITableView *)tableview shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    switch (index) {
+        case 0:
+            NSLog(@"More button was pressed");
+            break;
+        case 1:
+        {
+            // Delete button was pressed
+            NSIndexPath *cellIndexPath = [_playListTableView indexPathForCell:cell];
+            
+//            [_testArray removeObjectAtIndex:cellIndexPath.row];
+            [_playListTableView deleteRowsAtIndexPaths:@[cellIndexPath]
+                                  withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //	Grip customization code goes in here...
+    UIView* reorderControl = [cell huntedSubviewWithClassName:@"UITableViewCellReorderControl"];
+    
+    UIView* resizedGripView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetMaxX(reorderControl.frame), CGRectGetMaxY(reorderControl.frame))];
+    [resizedGripView addSubview:reorderControl];
+    [cell addSubview:resizedGripView];
+    
+    CGSize sizeDifference = CGSizeMake(resizedGripView.frame.size.width - reorderControl.frame.size.width, resizedGripView.frame.size.height - reorderControl.frame.size.height);
+    CGSize transformRatio = CGSizeMake(resizedGripView.frame.size.width / reorderControl.frame.size.width, resizedGripView.frame.size.height / reorderControl.frame.size.height);
+    
+    //	Original transform
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    
+    //	Scale custom view so grip will fill entire cell
+    transform = CGAffineTransformScale(transform, transformRatio.width, transformRatio.height);
+    
+    //	Move custom view so the grip's top left aligns with the cell's top left
+    transform = CGAffineTransformTranslate(transform, -sizeDifference.width / 2.0, -sizeDifference.height / 2.0);
+    
+    [resizedGripView setTransform:transform];
+    
+    for(UIImageView* cellGrip in reorderControl.subviews)
+    {
+        if([cellGrip isKindOfClass:[UIImageView class]])
+            [cellGrip setImage:nil];
+    }
+}
+
+-(IBAction)reorder:(id)sender
+{
+    if(_playListTableView.editing)
+        _playListTableView.editing = NO;
+    else
+        _playListTableView.editing = YES;
+}
 /**
  Initialize the Player UI with information from the currentTrack
  @param currentTrack
@@ -240,8 +335,12 @@ static NSString* cellIdentifier = @"playListCell";
  */
 - (void) setCurrentSliderValue:(AVPlayer*)childPlayer
 {
-    _slider.value = (int)CMTimeGetSeconds([childPlayer currentTime]);
-    NSLog(@"%f",_slider.value);
+    float sec = CMTimeGetSeconds([childPlayer currentTime]);
+    NSLog(@"float: %f",sec);
+    NSLog(@"int: %d",(int)sec);
+    [_slider setValue:sec animated:YES];
+//    _slider.value = sec;
+    NSLog(@"slider: %f",_slider.value);
     _current_time.text = [Utils convertTimeFromMillis:(int)1000*_slider.value];
 }
 
@@ -276,8 +375,10 @@ static NSString* cellIdentifier = @"playListCell";
  */
 - (IBAction)play:(id)sender
 {
+    [SDSAPI play];
     [self.player updatePlaylist];
     [self.player play];
+    
 }
 
 -(void) pause

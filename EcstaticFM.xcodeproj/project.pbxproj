@@ -32,6 +32,7 @@
 		1C37B7EF1AF5789A00566216 /* image_coverart.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C37B7E91AF5789A00566216 /* image_coverart.png */; };
 		1C37B7F01AF5789A00566216 /* image_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C37B7EA1AF5789A00566216 /* image_portrait.png */; };
 		1C37B7F11AF5789A00566216 /* image_waveform.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C37B7EB1AF5789A00566216 /* image_waveform.png */; };
+		1C3FFFFF1B1F64ED00D416C8 /* UIView+SubviewHunting.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3FFFFE1B1F64ED00D416C8 /* UIView+SubviewHunting.m */; };
 		1C4861E61A7AB75C004EFEAD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428A91A799CE9001DB0AD /* Info.plist */; };
 		1C4861E71A7AB75C004EFEAD /* main.m in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
 		1C6D62DD1B1643B200F0EC27 /* UIRoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D62DC1B1643B200F0EC27 /* UIRoomView.m */; };
@@ -257,6 +258,8 @@
 		1C37B7E91AF5789A00566216 /* image_coverart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_coverart.png; sourceTree = "<group>"; };
 		1C37B7EA1AF5789A00566216 /* image_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_portrait.png; sourceTree = "<group>"; };
 		1C37B7EB1AF5789A00566216 /* image_waveform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_waveform.png; sourceTree = "<group>"; };
+		1C3FFFFD1B1F64ED00D416C8 /* UIView+SubviewHunting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SubviewHunting.h"; sourceTree = "<group>"; };
+		1C3FFFFE1B1F64ED00D416C8 /* UIView+SubviewHunting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SubviewHunting.m"; sourceTree = "<group>"; };
 		1C6D62DB1B1643B200F0EC27 /* UIRoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRoomView.h; sourceTree = "<group>"; };
 		1C6D62DC1B1643B200F0EC27 /* UIRoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIRoomView.m; sourceTree = "<group>"; };
 		1C6D62DE1B16492600F0EC27 /* UIRoomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIRoomView.xib; sourceTree = "<group>"; };
@@ -661,6 +664,8 @@
 		1CC438BA1A7DBF38000A5AEC /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1C3FFFFD1B1F64ED00D416C8 /* UIView+SubviewHunting.h */,
+				1C3FFFFE1B1F64ED00D416C8 /* UIView+SubviewHunting.m */,
 				1CB835571B027B6A0003D9DC /* Security */,
 				DEEC122B1AFCFCD000E21C52 /* Chat */,
 				1C73F35F1AFA8CCB0003B1FA /* Rooms */,
@@ -1020,7 +1025,7 @@
 				TargetAttributes = {
 					1CA428A41A799CE9001DB0AD = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = VF62VHS44V;
+						DevelopmentTeam = 72PSY3QB44;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1029,7 +1034,7 @@
 					};
 					1CA428BD1A799CE9001DB0AD = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = VF62VHS44V;
+						DevelopmentTeam = 72PSY3QB44;
 						TestTargetID = 1CA428A41A799CE9001DB0AD;
 					};
 				};
@@ -1278,6 +1283,7 @@
 				1C291D961AFFF2A1006A2B4F /* SocketFixUTF8.swift in Sources */,
 				DEC660BD1B1A68BC001E6FD5 /* geoAskViewController.m in Sources */,
 				1C291D921AFFF2A1006A2B4F /* SocketAnyEvent.swift in Sources */,
+				1C3FFFFF1B1F64ED00D416C8 /* UIView+SubviewHunting.m in Sources */,
 				DE5763D11AF447F4003F7507 /* GradientNavigationBar.m in Sources */,
 				1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */,
 				1C2838041A955F8D006F10EC /* Utils.m in Sources */,
