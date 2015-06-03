@@ -164,6 +164,7 @@ the delegate to Player for Player to communicate with a view controller
  */
 -(void)updateTime
 {
+    NSLog(@"updating time");
     [_delegate setCurrentSliderValue:_avPlayer];
     if((_avPlayer.rate == 0.0 && !_isPaused) || _avPlayer.error ){
         NSLog(@"rate, isPaused, and error: %f space %hhd", _avPlayer.rate, _isPaused);

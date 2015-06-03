@@ -50,9 +50,6 @@
             <string>Raleway</string>
             <string>Raleway</string>
         </mutableArray>
-        <mutableArray key="Raleway-Thin.ttf">
-            <string>Raleway-Thin</string>
-        </mutableArray>
     </customFonts>
     <scenes>
         <!--Navigation Controller-->
@@ -931,39 +928,38 @@ music around you.</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="BLS-0s-TgN">
-                                <rect key="frame" x="0.0" y="54" width="320" height="426"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="KoV-CT-gWL">
+                                <rect key="frame" x="0.0" y="54" width="320" height="434"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lya-SU-gzo" id="UNu-qn-XeF"/>
+                                    <outlet property="delegate" destination="lya-SU-gzo" id="HYB-h9-Tol"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" id="ejc-Yl-bRN">
+                                <rect key="frame" x="0.0" y="488" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" id="s29-jr-b64">
-                                        <rect key="frame" x="16" y="352" width="288" height="66"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Type your message ..." textAlignment="center" minimumFontSize="17" id="a39-3G-JzK">
-                                                <rect key="frame" x="11" y="8" width="269" height="50"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="textColor" red="0.070033482142857095" green="0.070033482142857095" blue="0.070033482142857095" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="Raleway-Thin" family="Raleway" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light"/>
-                                            </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_portrait.png" id="dZf-RT-gKx">
-                                                <rect key="frame" x="314" y="0.0" width="40" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="12"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_whitearrowright.png" id="2V6-pY-1f2">
-                                        <rect key="frame" x="301" y="392" width="12" height="12"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_portrait.png" id="bBz-6W-GCI">
+                                        <rect key="frame" x="0.0" y="20" width="39" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="1ea-mZ-5X0">
+                                        <rect key="frame" x="47" y="8" width="229" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vTH-YQ-fw7">
+                                        <rect key="frame" x="274" y="20" width="46" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -1005,8 +1001,7 @@ music around you.</string>
                     </view>
                     <navigationItem key="navigationItem" id="cuC-EF-eQm"/>
                     <connections>
-                        <outlet property="chatScrollView" destination="BLS-0s-TgN" id="9KI-4U-t4D"/>
-                        <outlet property="chatTextField" destination="a39-3G-JzK" id="7BG-Bd-eYr"/>
+                        <outlet property="chat_table_view" destination="KoV-CT-gWL" id="hsY-tr-FPm"/>
                         <outlet property="people_with_you" destination="Gj7-uQ-hvi" id="Roj-mA-V6j"/>
                     </connections>
                 </viewController>
@@ -1201,6 +1196,8 @@ on Soundcloud?</string>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="addSongsToPlaylist" destination="FSC-Hu-VvY" id="UJ8-B7-KsN"/>
+                        <outlet property="connect_to_sc_label" destination="jq1-0v-09B" id="5uC-vv-oSA"/>
+                        <outlet property="connect_to_soundcloud" destination="ZO2-Cu-bJq" id="nbR-Ad-FRi"/>
                         <outlet property="soundCloudResultsTableView" destination="0FZ-o0-ngg" id="Ikt-a5-Usc"/>
                     </connections>
                 </viewController>
