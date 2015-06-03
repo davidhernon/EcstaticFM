@@ -48,6 +48,7 @@
             <string>Raleway</string>
             <string>Raleway</string>
             <string>Raleway</string>
+            <string>Raleway</string>
         </mutableArray>
         <mutableArray key="Raleway-Thin.ttf">
             <string>Raleway-Thin</string>
@@ -234,6 +235,7 @@ share your location?</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="2co-nc-x8P"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oa2-hf-52B" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -298,15 +300,15 @@ music around you.</string>
                                     <outlet property="delegate" destination="pL3-Xv-Udv" id="bVF-u4-edG"/>
                                 </connections>
                             </scrollView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_distance3.png" id="Apm-4F-HKq">
-                                <rect key="frame" x="148" y="56" width="25" height="37"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_location2.png" id="Apm-4F-HKq">
+                                <rect key="frame" x="148" y="66" width="25" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qsa-zK-cHg">
-                                <rect key="frame" x="0.0" y="98" width="320" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00/Here/3 meters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qsa-zK-cHg">
+                                <rect key="frame" x="0.0" y="108" width="320" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="28"/>
-                                <color key="textColor" red="0.4760301411151886" green="0.47601586580276489" blue="0.47602397203445435" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.36459061503410339" green="0.3645797073841095" blue="0.36458587646484375" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jonathan &amp; 3 others" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q4r-IV-0mv">
@@ -317,16 +319,29 @@ music around you.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TMc-jI-3i2">
-                                <rect key="frame" x="0.0" y="20" width="44" height="44"/>
+                                <rect key="frame" x="6" y="20" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                <state key="normal" image="icon_gear2.png">
+                                <state key="normal" image="button_gear2.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Uc1-lp-Sxd" kind="modal" modalTransitionStyle="crossDissolve" id="4Y4-CM-9h4"/>
+                                    <segue destination="Uc1-lp-Sxd" kind="popover" popoverAnchorView="TMc-jI-3i2" id="4Y4-CM-9h4">
+                                        <popoverArrowDirection key="popoverArrowDirection" left="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zco-JO-l5l">
+                                <rect key="frame" x="49" y="26" width="57" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Raleway" family="Raleway" pointSize="14"/>
+                                <color key="textColor" red="0.36459061503410339" green="0.3645797073841095" blue="0.36458587646484375" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_time.png" id="eEV-UK-b8u">
+                                <rect key="frame" x="148" y="70" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -377,17 +392,28 @@ music around you.</string>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="94z-tj-JOq">
+                                    <view contentMode="scaleToFill" id="ZuL-hg-OIv" userLabel="login button">
                                         <rect key="frame" x="35" y="430" width="99" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="button_login.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="SDSLogin:" destination="Na0-VS-aPw" eventType="touchUpInside" id="BXu-QB-iOA"/>
-                                        </connections>
-                                    </button>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="94z-tj-JOq">
+                                                <rect key="frame" x="0.0" y="0.0" width="99" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="button_login.png">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="SDSLogin:" destination="Na0-VS-aPw" eventType="touchUpInside" id="BXu-QB-iOA"/>
+                                                </connections>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading4.png" id="lxN-bJ-5oJ">
+                                                <rect key="frame" x="15" y="5" width="69" height="29"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_logintextfield.png" id="Arr-xO-opT">
                                         <rect key="frame" x="35" y="319" width="252" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -442,21 +468,6 @@ music around you.</string>
                                         <rect key="frame" x="103" y="45" width="114" height="114"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <view alpha="0.0" contentMode="scaleToFill" id="Xn4-45-2xt">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="482"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner-16.png" id="l78-4M-Rpd">
-                                                <rect key="frame" x="66" y="8" width="188" height="188"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading1.png" id="lxN-bJ-5oJ">
-                                                <rect key="frame" x="49" y="434" width="69" height="29"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                    </view>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -468,6 +479,8 @@ music around you.</string>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="loginButton" destination="94z-tj-JOq" id="pF5-ee-gb6"/>
+                        <outlet property="loginLoading" destination="lxN-bJ-5oJ" id="oj9-hz-boi"/>
                         <outlet property="loginScrollView" destination="Ndl-hg-wy8" id="Upr-6o-cHZ"/>
                         <outlet property="password" destination="xcA-jx-oUM" id="HBQ-YL-Rnl"/>
                         <outlet property="username" destination="JGO-sv-2TQ" id="Pg8-Vu-66Y"/>
@@ -788,9 +801,6 @@ music around you.</string>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="1T9-Qu-JEF" appends="YES" id="4iE-Xh-zAt"/>
-                                </connections>
                             </view>
                             <view contentMode="scaleToFill" id="ZaA-eY-lmY">
                                 <rect key="frame" x="0.0" y="280" width="320" height="200"/>
@@ -866,7 +876,6 @@ music around you.</string>
                         <outlet property="current_duration" destination="0VL-8U-vbk" id="0eJ-YZ-Ezz"/>
                         <outlet property="current_time" destination="HOQ-tI-VMR" id="ARJ-iG-kcm"/>
                         <outlet property="current_track_title" destination="Tf3-bn-nva" id="gR3-ho-YF3"/>
-                        <outlet property="darken_view" destination="20z-45-eEI" id="9bM-ex-IYt"/>
                         <outlet property="last" destination="koU-o0-AIH" id="BDb-8r-MAL"/>
                         <outlet property="next" destination="eQi-L5-ahx" id="KbW-RK-D62"/>
                         <outlet property="play" destination="gnl-oJ-0Zd" id="Oix-Te-KKR"/>
@@ -878,11 +887,7 @@ music around you.</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJn-H3-nVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="1T9-Qu-JEF">
-                    <connections>
-                        <outlet property="delegate" destination="spO-Y5-nH4" id="431-oy-d4H"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="1T9-Qu-JEF"/>
             </objects>
             <point key="canvasLocation" x="1457" y="1354"/>
         </scene>
@@ -970,7 +975,7 @@ music around you.</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="ixu-xt-lhn">
-                                            <rect key="frame" x="56" y="8" width="7928" height="2611"/>
+                                            <rect key="frame" x="56" y="8" width="8248" height="2714"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>
@@ -1209,6 +1214,7 @@ on Soundcloud?</string>
         <image name="button_close-dark.png" width="34" height="33"/>
         <image name="button_close.png" width="34" height="33"/>
         <image name="button_connectmyacct.png" width="720" height="152"/>
+        <image name="button_gear2.png" width="80" height="80"/>
         <image name="button_letsconnect.png" width="240" height="76"/>
         <image name="button_login.png" width="198" height="76"/>
         <image name="button_nextnew.png" width="93" height="92"/>
@@ -1221,14 +1227,14 @@ on Soundcloud?</string>
         <image name="icon-key-dark.png" width="58" height="34"/>
         <image name="icon-key.png" width="56" height="34"/>
         <image name="icon_back2.png" width="23" height="40"/>
-        <image name="icon_distance3.png" width="52" height="77"/>
         <image name="icon_email.png" width="23" height="17"/>
-        <image name="icon_gear2.png" width="88" height="88"/>
         <image name="icon_heartfull.png" width="82" height="78"/>
+        <image name="icon_location2.png" width="46" height="66"/>
         <image name="icon_login.png" width="44" height="44"/>
         <image name="icon_person-dark.png" width="44" height="44"/>
         <image name="icon_playlist.png" width="74" height="60"/>
         <image name="icon_search.png" width="74" height="76"/>
+        <image name="icon_time.png" width="47" height="47"/>
         <image name="image_covertartgradient.png" width="498" height="235"/>
         <image name="image_darkgradienttop.png" width="1292" height="754"/>
         <image name="image_emptyportrait.png" width="302" height="304"/>
@@ -1240,7 +1246,7 @@ on Soundcloud?</string>
         <image name="image_tri-logo.png" width="231" height="230"/>
         <image name="image_whitearrowleft.png" width="48" height="34"/>
         <image name="image_whitearrowright.png" width="48" height="34"/>
-        <image name="loading1.png" width="144" height="58"/>
+        <image name="loading4.png" width="144" height="59"/>
         <image name="loadingdark1.png" width="144" height="58"/>
         <image name="spinner-16.png" width="302" height="302"/>
     </resources>
@@ -1250,8 +1256,8 @@ on Soundcloud?</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="E2U-Ol-7ff"/>
         <segue reference="LHV-l3-vdI"/>
         <segue reference="sP4-bK-WLP"/>
-        <segue reference="E2U-Ol-7ff"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -40,7 +40,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *current_user_picture;
 @property (weak, nonatomic) IBOutlet UILabel *welcomehome;
 
-@property (weak, nonatomic) IBOutlet UIView *darken_view;
+
+@property (nonatomic,strong) UILongPressGestureRecognizer *lpgr;
+//@property (weak, nonatomic) IBOutlet UIView *controlsDarkenView;
+//@property (weak, nonatomic) IBOutlet UIView *controlsView;
 
 
 

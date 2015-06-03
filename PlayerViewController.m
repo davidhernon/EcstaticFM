@@ -19,6 +19,21 @@ static NSString* cellIdentifier = @"playListCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    // Initialize the long press gesture
+    
+    self.lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGestures:)];
+    self.lpgr.minimumPressDuration = 1.0f;
+    self.lpgr.allowableMovement = 100.0f;
+    
+    [self.view addGestureRecognizer:self.lpgr];
+    
+    
+ //   _controlsView.hidden = YES;
+//    _controlsDarkenView.hidden = YES;
+    
+    
   //  [self.player updatePlaylist];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
@@ -72,9 +87,19 @@ static NSString* cellIdentifier = @"playListCell";
     // Allow multiple checkmarks
 //     _playListTableView.allowsMultipleSelection = YES;
     
-    
-
 }
+
+- (void)handleLongPressGestures:(UILongPressGestureRecognizer *)sender
+{
+    if ([sender isEqual:self.lpgr]) {
+        if (sender.state == UIGestureRecognizerStateBegan)
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Gestures" message:@"Long Gesture Detected" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
+    }
+}
+
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -99,7 +124,7 @@ static NSString* cellIdentifier = @"playListCell";
         _current_time.hidden = YES;
         _current_user_picture.hidden = YES;
         _welcomehome.hidden = NO;
-        _darken_view.hidden = YES;
+
         
         
     }else{
@@ -116,7 +141,7 @@ static NSString* cellIdentifier = @"playListCell";
         _current_time.hidden = NO;
         _current_user_picture.hidden = NO;
         _welcomehome.hidden = YES;
-        _darken_view.hidden = YES;
+
         
     }
     if(![_player isPlaying] && ![_player isPaused] && [_playlist count] > 0)
