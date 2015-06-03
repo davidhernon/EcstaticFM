@@ -101,6 +101,7 @@ static NSString* cellIdentifier = @"playListCell";
         _welcomehome.hidden = NO;
         _darken_view.hidden = YES;
         
+        
     }else{
         _play.hidden = NO;
         _last.hidden = NO;

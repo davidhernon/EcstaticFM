@@ -229,6 +229,8 @@
 //This method gets called when SDSAPI's login method returns with a true if the login was succesful
 - (void) loginReturnedTrue
 {
+    // test
+    self.view.transform = CGAffineTransformMakeScale(2, 2);
     //		[self performSegueWithIdentifier:@"succesfulLogin" sender:self];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
