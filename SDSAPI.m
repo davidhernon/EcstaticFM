@@ -8,6 +8,7 @@
 #import "SDSAPI.h"
 #import "EcstaticFM-Swift.h"
 #import "LoginViewController.h"
+#import "Player.h"
 @implementation SDSAPI
 
 @class SocketIOClient;
@@ -178,6 +179,33 @@ static SocketIOClient *static_socket;
         NSLog(@"one of the users just left the room");
     }];
     
+    [static_socket on:@"realtime_player" callback:^(NSArray * data, void (^ack) (NSArray*)){
+        NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+        NSDictionary *d = (NSDictionary*)data[0];
+        NSString *usr = [d objectForKey:@"username"];
+        if([usr isEqualToString:username]){
+            return;
+        }
+        NSString *command = [d objectForKey:@"msg_type"];
+        if([command isEqualToString:@"play"])
+        {
+            [[Player sharedPlayer] updatePlaylist];
+            [[Player sharedPlayer] play];
+        }else if([command isEqualToString:@"pause"])
+        {
+            [[Player sharedPlayer] updatePlaylist];
+            [[Player sharedPlayer] play];
+        }else if([command isEqualToString:@"skip"])
+        {
+            [[Player sharedPlayer] next];
+        }else if([command isEqualToString:@"back"])
+        {
+            [[Player sharedPlayer] last];
+        }else{
+            NSLog(@"unlogged command returned from server!!!!!");
+        }
+    }];
+    
     [static_socket on:@"return_get_playlist" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSDictionary *d = (NSDictionary*)data[0];
         NSArray* songs = [d objectForKey:@"playlist"];
@@ -327,6 +355,41 @@ static SocketIOClient *static_socket;
     NSDictionary *playlist_query = [NSDictionary dictionaryWithObjects:@[room_number] forKeys:@[@"room_number"]];
     NSData *json = [NSJSONSerialization dataWithJSONObject:playlist_query options:nil error:nil];
     [static_socket emitObjc:@"get_playlist" withItems:@[json]];
+}
+
++ (void) play
+{
+    NSString *room_number = [Room currentRoom].room_number;
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    if([room_number isEqualToString:nil])
+    {
+        room_number = @"0";
+    }
+    NSDictionary *play_query = [NSDictionary dictionaryWithObjects:@[username, room_number, @"play"] forKeys:@[@"username", @"room_number", @"msg_type"]];
+    NSData *json = [NSJSONSerialization dataWithJSONObject:play_query options:nil error:nil];
+    [static_socket emitObjc:@"player" withItems:@[json]];
+}
+
++ (void) next
+{
+    NSString *room_number = [Room currentRoom].room_number;
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    
+    NSDictionary *play_query = [NSDictionary dictionaryWithObjects:@[username, room_number, @"next"] forKeys:@[@"username", @"room_number", @"msg_type"]];
+    NSData *json = [NSJSONSerialization dataWithJSONObject:play_query options:nil error:nil];
+    [static_socket emitObjc:@"player" withItems:@[json]];
+    
+    
+}
+
+ +(void) last
+{
+    
+}
+
++(void) seek
+{
+    
 }
 
 @end

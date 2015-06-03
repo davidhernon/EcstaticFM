@@ -8,10 +8,12 @@ PODS:
   - JSONKit (1.4)
   - NXOAuth2Client (1.2.1)
   - OHAttributedLabel (3.5.5)
+  - SWTableViewCell (0.3.7)
 
 DEPENDENCIES:
   - CocoaSoundCloudAPI (= 1.0.1)
   - CocoaSoundCloudUI (= 1.0.5)
+  - SWTableViewCell (~> 0.3.7)
 
 SPEC CHECKSUMS:
   CocoaSoundCloudAPI: e8e1f2e463fa9bb9d68b2dcf361572787c7a6c3f
@@ -19,5 +21,6 @@ SPEC CHECKSUMS:
   JSONKit: 5b69e804ea54d99293eed0fd2ce596c5703fefb0
   NXOAuth2Client: 4705ee7d3532c106e2758e2f10f4e9964b5aec68
   OHAttributedLabel: 9b2eb99323dee6b3a81ef3bc8e98b084117bca2d
+  SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
 
 COCOAPODS: 0.37.1

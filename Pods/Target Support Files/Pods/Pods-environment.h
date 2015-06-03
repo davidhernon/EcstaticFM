@@ -36,3 +36,9 @@
 #define COCOAPODS_VERSION_MINOR_OHAttributedLabel 5
 #define COCOAPODS_VERSION_PATCH_OHAttributedLabel 5
 
+// SWTableViewCell
+#define COCOAPODS_POD_AVAILABLE_SWTableViewCell
+#define COCOAPODS_VERSION_MAJOR_SWTableViewCell 0
+#define COCOAPODS_VERSION_MINOR_SWTableViewCell 3
+#define COCOAPODS_VERSION_PATCH_SWTableViewCell 7
+

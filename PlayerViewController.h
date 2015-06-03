@@ -16,12 +16,15 @@
 #import "RadialGradientLayer.h"
 #import "LocationServices.h"
 #import "AppDelegate.h"
+#import "UIView+SubviewHunting.h"
+#import "SDSAPI.h"
+@class Room;
 
 @interface PlayerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PlayerDelegate>
 
 - (IBAction)showRooms:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *playListTableView;
-@property (weak, nonatomic) IBOutlet UISlider *slider;
+@property (strong, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UILabel *current_duration;
 @property (weak, nonatomic) IBOutlet UILabel *current_time;
 @property (weak, nonatomic) IBOutlet UILabel *current_artist;
