@@ -62,8 +62,6 @@
 -(IBAction)buttonAction
 {
     [SDSAPI joinRoom:self.room_number];
-    [Room currentRoom].room_number = self.room_number;
-    [SDSAPI getPlaylist:self.room_number];
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];

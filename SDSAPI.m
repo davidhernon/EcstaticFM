@@ -193,7 +193,9 @@ static SocketIOClient *static_socket;
         }
         
         [[Playlist sharedPlaylist] initWithDict:concat_dict];
+        // may cause app to start playing music before right spot is reached (stop this!)
         [[Playlist sharedPlaylist] reloadPlayer];
+        [SDSAPI getPlayerState:[Room currentRoom].room_number];
         // RE Show UI
     }];
     
@@ -215,8 +217,8 @@ static SocketIOClient *static_socket;
             [NSThread sleepForTimeInterval:0.1f];
         }
         
-        NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: username, @"test", nil]
-                                                                    forKeys:[NSArray arrayWithObjects:@"username", @"room_name", nil]];
+        NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: username, @"test", [self getDictForPlayerState], nil]
+                                                                    forKeys:[NSArray arrayWithObjects:@"username", @"room_name", @"player_state", nil]];
         
         NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
         [static_socket emitObjc:@"create_room" withItems:@[jsonData]];
@@ -321,6 +323,15 @@ static SocketIOClient *static_socket;
         [static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
         [static_socket emitObjc:@"join_room" withItems:@[joinJson]];
     }
+    [Room currentRoom].room_number = room_number;
+    [SDSAPI getPlaylist:room_number];
+}
+
++(void)getPlayerState:(NSString*)room_number
+{
+    NSDictionary *gps  = [NSDictionary dictionaryWithObjects:@[room_number] forKeys:@[@"room_number"]];
+    NSData *json = [NSJSONSerialization dataWithJSONObject:gps options:nil error:nil];
+    [static_socket emitObjc:@"get_player_status" withItems:@[json]];
 }
 
 +(void)getPlaylist:(NSString*)room_number

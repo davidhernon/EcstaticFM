@@ -46,7 +46,7 @@
 }
 
 -(IBAction)buttonAction
-{
+{    
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
     

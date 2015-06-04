@@ -276,4 +276,16 @@ the delegate to Player for Player to communicate with a view controller
     [_delegate redrawUI];
 }
 
+- (void) joinPlayingRoom:(int)index withElapsedTime:(int)elapsed
+{
+    if(_avPlayer.rate != 0.0)
+    {
+        [_avPlayer pause];
+    }
+    _currentTrack = nil;
+    _currentTrackIndex = index;
+    [self seek:1.0f*elapsed];
+    [self play];
+}
+
 @end
