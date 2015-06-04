@@ -120,7 +120,6 @@ static NSString* cellIdentifier = @"playListCell";
         }else{
             fl = (1.0f*CMTimeGetSeconds(_player.avPlayer.currentItem.asset.duration));  
         }
-        NSLog(@"float:%f", fl);
         [self initPlayerUI:fl withTrack:_player.currentTrack atIndex:_player.currentTrackIndex];
 //        _playListTableView.editing = YES;
 //        _playListTableView.allowsMultipleSelectionDuringEditing = NO;
@@ -336,11 +335,7 @@ static NSString* cellIdentifier = @"playListCell";
 - (void) setCurrentSliderValue:(AVPlayer*)childPlayer
 {
     float sec = CMTimeGetSeconds([childPlayer currentTime]);
-    NSLog(@"float: %f",sec);
-    NSLog(@"int: %d",(int)sec);
     [_slider setValue:sec animated:YES];
-//    _slider.value = sec;
-    NSLog(@"slider: %f",_slider.value);
     _current_time.text = [Utils convertTimeFromMillis:(int)1000*_slider.value];
 }
 

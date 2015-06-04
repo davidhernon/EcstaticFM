@@ -46,6 +46,8 @@
 
 -(IBAction)buttonAction
 {
+    [SDSAPI joinRoom:self.room_number];
+    
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
     

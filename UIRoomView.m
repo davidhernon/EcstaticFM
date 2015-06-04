@@ -40,6 +40,7 @@
     [SDSAPI joinRoom:self.raw_room_number];
     [Room currentRoom].room_number = self.raw_room_number;
     [SDSAPI getPlaylist:self.raw_room_number ];
+    [SDSAPI getPlayerState:self.raw_room_number];
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
