@@ -13,6 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIAroundMeView">
             <connections>
+                <outlet property="button" destination="hxg-uO-SPh" id="hV7-bW-i7g"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Et1-CY-ZHx"/>
             </connections>
         </placeholder>
@@ -41,6 +42,9 @@
                             <state key="normal" title=" ">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="buttonAction" destination="-1" eventType="touchUpInside" id="ana-J0-t0U"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.82983559370000004" green="0.34100496769999999" blue="0.46299603579999998" alpha="1" colorSpace="calibratedRGB"/>

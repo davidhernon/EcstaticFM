@@ -39,6 +39,9 @@
     {
         NSString *className = NSStringFromClass([self class]);
         self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
+        self.other_listeners = [event objectForKey:@"host_username"];
+        self.room_number = [event objectForKey:@"room_number"];
+        self.rooms_view_controller = sender;
         [self addSubview:self.view];
     }
     return self;
