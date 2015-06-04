@@ -39,14 +39,7 @@ static NSString* cellIdentifier = @"playListCell";
     _playerSpinner.hidden = YES;
 
     
-    // Initialize the long press gesture
-    
-    self.lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGestures:)];
-    self.lpgr.minimumPressDuration = 0.5f;
-    self.lpgr.allowableMovement = 50.0f;
-    
-    [self.view addGestureRecognizer:self.lpgr];
-    
+
     
  //   _controlsView.hidden = YES;
 //    _controlsDarkenView.hidden = YES;
@@ -108,29 +101,6 @@ static NSString* cellIdentifier = @"playListCell";
 }
 
 
-//Do something when press and hold
-
-- (void)handleLongPressGestures:(UILongPressGestureRecognizer *)sender
-{
-    
-    if ([sender isEqual:self.lpgr]) {
-        if (sender.state == UIGestureRecognizerStateBegan)
-        {
-            
-            _playerSpinner.hidden = NO;
-            [_playerSpinner startAnimating];
-            
-            
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Gestures" message:@"Long Gesture Detected" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alertView show];
-            
-        }else if (sender.state == UIGestureRecognizerStateEnded || sender.state == UIGestureRecognizerStateCancelled || sender.state == UIGestureRecognizerStateFailed) {
-            
-            _playerSpinner.hidden = YES;
-            [_playerSpinner stopAnimating];
-        }
-        
-        
 
         
 //            int64_t delayInSeconds = 1.0f;
@@ -144,19 +114,6 @@ static NSString* cellIdentifier = @"playListCell";
 //        }
         
 
-        
-        if (sender.state == UIGestureRecognizerStateCancelled)
-        {    _playerSpinner.hidden = YES;
-            [_playerSpinner stopAnimating];
-        }
-        
-    }
-}
-
-- (void) timerDone
-{
-    _timerd = NO;
-}
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -170,9 +127,7 @@ static NSString* cellIdentifier = @"playListCell";
     //If no playlist then make buttons hidden
     if([_playlist count] == 0)
     {
-        _play.hidden = YES;
-        _last.hidden = YES;
-        _next.hidden = YES;
+        //_playerShowControlsButton.hidden = YES;
         _add_songs_welcome.hidden = NO;
         _slider.hidden = YES;
         _coveralpha.hidden = YES;
@@ -186,6 +141,7 @@ static NSString* cellIdentifier = @"playListCell";
         
         
     }else{
+        //_playerShowControlsButton.hidden = NO;
         _play.hidden = NO;
         _last.hidden = NO;
         _next.hidden = NO;
@@ -291,7 +247,7 @@ static NSString* cellIdentifier = @"playListCell";
     _current_duration.text = currentTrack.duration;
     _current_time.text = @"0";
     _current_album_artwork.image = currentTrack.artwork;
-    _current_waveform.image = currentTrack.waveform_url;
+//    _current_waveform.image = currentTrack.waveform_url;
     _current_track_index = index;
     [self.playListTableView reloadData];
 }
@@ -389,5 +345,9 @@ static NSString* cellIdentifier = @"playListCell";
 		appDelegate.locationServices.vc=geoAskVC;
 		[self presentViewController:geoAskVC animated:YES completion:nil];
     }
+}
+- (IBAction)playerControlsClicked:(id)sender {
+    _controlsView.hidden = NO;
+    
 }
 @end

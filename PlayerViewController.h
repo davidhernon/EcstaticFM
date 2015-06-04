@@ -20,6 +20,8 @@
 @interface PlayerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PlayerDelegate>
 
 - (IBAction)showRooms:(id)sender;
+- (IBAction)playerControlsClicked:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UITableView *playListTableView;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UILabel *current_duration;
@@ -29,8 +31,6 @@
 @property int current_track_index;
 @property (weak, nonatomic) IBOutlet UIImageView *current_album_artwork;
 @property (weak, nonatomic) IBOutlet UIView *coveralpha;
-@property (weak, nonatomic) IBOutlet UIImageView *current_waveform;
-@property (weak, nonatomic) IBOutlet UIImageView *waveform;
 @property (weak, nonatomic) IBOutlet UIButton *play;
 @property (weak, nonatomic) IBOutlet UIButton *last;
 @property (weak, nonatomic) IBOutlet UIButton *next;
@@ -39,12 +39,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *playlist_title;
 @property (weak, nonatomic) IBOutlet UIImageView *current_user_picture;
 @property (weak, nonatomic) IBOutlet UILabel *welcomehome;
-@property BOOL timerd;
 
+@property (weak,nonatomic) IBOutlet UIButton *playerShowControlsButton;
 
-@property (nonatomic,strong) UILongPressGestureRecognizer *lpgr;
-//@property (weak, nonatomic) IBOutlet UIView *controlsDarkenView;
-//@property (weak, nonatomic) IBOutlet UIView *controlsView;
+@property (weak, nonatomic) IBOutlet UIView *controlsDarkenView;
+@property (weak, nonatomic) IBOutlet UIView *controlsView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *playerSpinner;
 

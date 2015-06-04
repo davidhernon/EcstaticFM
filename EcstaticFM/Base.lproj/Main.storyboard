@@ -759,49 +759,6 @@ music around you.</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
                             </view>
-                            <view opaque="NO" alpha="0.0" contentMode="scaleToFill" id="spO-Y5-nH4" userLabel="playerControlsView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="490"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_darkgradienttop.png" id="6uw-cN-5PX">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="206"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </imageView>
-                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eQi-L5-ahx">
-                                        <rect key="frame" x="232" y="93" width="44" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Next" image="button_nextnew.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="next:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="KoH-vt-kGP"/>
-                                        </connections>
-                                    </button>
-                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="koU-o0-AIH">
-                                        <rect key="frame" x="44" y="93" width="44" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Last" image="button_previousnew.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="last:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="17E-Wt-25o"/>
-                                        </connections>
-                                    </button>
-                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="gnl-oJ-0Zd">
-                                        <rect key="frame" x="121" y="77" width="77" height="77"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Play" image="button_pausenew.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="play:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="QZb-RV-uWl"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                            </view>
                             <view contentMode="scaleToFill" id="ZaA-eY-lmY">
                                 <rect key="frame" x="0.0" y="280" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -855,6 +812,17 @@ music around you.</string>
                                         <color key="maximumTrackTintColor" red="1" green="0.0" blue="0.98950002525298864" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </slider>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mRb-We-BcF" userLabel="show controls">
+                                        <rect key="frame" x="2" y="0.0" width="318" height="276"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playerControlsClicked:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="79g-qD-9SU"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -862,6 +830,49 @@ music around you.</string>
                                 <rect key="frame" x="133" y="215" width="53" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view opaque="NO" contentMode="scaleToFill" id="spO-Y5-nH4" userLabel="playerControlsView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="490"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_darkgradienttop.png" id="6uw-cN-5PX">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="206"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </imageView>
+                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" lineBreakMode="middleTruncation" id="eQi-L5-ahx">
+                                        <rect key="frame" x="232" y="93" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Next" image="button_nextnew.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="next:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="KoH-vt-kGP"/>
+                                        </connections>
+                                    </button>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" lineBreakMode="middleTruncation" id="koU-o0-AIH">
+                                        <rect key="frame" x="44" y="93" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Last" image="button_previousnew.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="last:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="17E-Wt-25o"/>
+                                        </connections>
+                                    </button>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" id="gnl-oJ-0Zd">
+                                        <rect key="frame" x="121" y="77" width="77" height="77"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Play" image="button_pausenew.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="play:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="QZb-RV-uWl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.65982380158265119" green="0.65883943487467" blue="0.67940848214285721" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -876,6 +887,9 @@ music around you.</string>
                         <outlet property="_playerAddMusicCell" destination="ujE-F6-d0i" id="6uG-Fx-5lB"/>
                         <outlet property="_playerTableHeaderView" destination="5SA-bc-LWc" id="Vz3-vz-TFc"/>
                         <outlet property="add_songs" destination="KyU-zZ-L2E" id="936-8C-ydK"/>
+                        <outlet property="buttonShow" destination="mRb-We-BcF" id="LiJ-Ux-l6k"/>
+                        <outlet property="buttonShowControls" destination="mRb-We-BcF" id="2Qi-nM-KIp"/>
+                        <outlet property="controlsView" destination="spO-Y5-nH4" id="8ge-xN-ihB"/>
                         <outlet property="current_album_artwork" destination="S8f-jV-zzm" id="UrP-5n-CHf"/>
                         <outlet property="current_duration" destination="0VL-8U-vbk" id="0eJ-YZ-Ezz"/>
                         <outlet property="current_time" destination="HOQ-tI-VMR" id="ARJ-iG-kcm"/>
@@ -884,6 +898,7 @@ music around you.</string>
                         <outlet property="next" destination="eQi-L5-ahx" id="KbW-RK-D62"/>
                         <outlet property="play" destination="gnl-oJ-0Zd" id="Oix-Te-KKR"/>
                         <outlet property="playListTableView" destination="fim-yG-u2G" id="goh-MD-M0Z"/>
+                        <outlet property="playerShowControlsButton" destination="mRb-We-BcF" id="9oV-8e-uxX"/>
                         <outlet property="playerSpinner" destination="gvS-5A-3eq" id="VkS-Zq-QYm"/>
                         <outlet property="slider" destination="w8p-jS-ofe" id="s0c-r3-LAC"/>
                         <outlet property="welcomehome" destination="7TJ-3H-AHn" id="hA0-16-iXA"/>
@@ -980,7 +995,7 @@ music around you.</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="ixu-xt-lhn">
-                                            <rect key="frame" x="56" y="8" width="8568" height="2817"/>
+                                            <rect key="frame" x="56" y="8" width="9208" height="3023"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>

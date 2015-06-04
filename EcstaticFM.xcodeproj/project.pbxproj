@@ -193,9 +193,6 @@
 		DEDCE9551B1E00F60011B91B /* icon_back2.png in Resources */ = {isa = PBXBuildFile; fileRef = DEDCE9541B1E00F60011B91B /* icon_back2.png */; };
 		DEDCE9571B1E05840011B91B /* image_gradienthiding.png in Resources */ = {isa = PBXBuildFile; fileRef = DEDCE9561B1E05840011B91B /* image_gradienthiding.png */; };
 		DEDCE9591B1E23E10011B91B /* images_roomscover.png in Resources */ = {isa = PBXBuildFile; fileRef = DEDCE9581B1E23E10011B91B /* images_roomscover.png */; };
-		DEDF79841B1FD9CD004B194C /* CircleHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF79811B1FD9CD004B194C /* CircleHelpers.swift */; };
-		DEDF79851B1FD9CD004B194C /* RadialMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF79821B1FD9CD004B194C /* RadialMenu.swift */; };
-		DEDF79861B1FD9CD004B194C /* RadialSubMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF79831B1FD9CD004B194C /* RadialSubMenu.swift */; };
 		DEE628D91AFA796F009084FF /* icon_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE628D81AFA796F009084FF /* icon_bubble.png */; };
 		DEE628DB1AFA79C1009084FF /* icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE628DA1AFA79C1009084FF /* icon_back.png */; };
 		DEE628DE1AFA8D59009084FF /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE628DD1AFA8D59009084FF /* icon_close.png */; };
@@ -454,9 +451,6 @@
 		DEDCE9541B1E00F60011B91B /* icon_back2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_back2.png; sourceTree = "<group>"; };
 		DEDCE9561B1E05840011B91B /* image_gradienthiding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_gradienthiding.png; sourceTree = "<group>"; };
 		DEDCE9581B1E23E10011B91B /* images_roomscover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images_roomscover.png; sourceTree = "<group>"; };
-		DEDF79811B1FD9CD004B194C /* CircleHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleHelpers.swift; sourceTree = "<group>"; };
-		DEDF79821B1FD9CD004B194C /* RadialMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadialMenu.swift; sourceTree = "<group>"; };
-		DEDF79831B1FD9CD004B194C /* RadialSubMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadialSubMenu.swift; sourceTree = "<group>"; };
 		DEE628D81AFA796F009084FF /* icon_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble.png; sourceTree = "<group>"; };
 		DEE628DA1AFA79C1009084FF /* icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_back.png; sourceTree = "<group>"; };
 		DEE628DD1AFA8D59009084FF /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_close.png; sourceTree = "<group>"; };
@@ -632,7 +626,6 @@
 		1CB9BB2A1AA2428200748236 /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				DEDF79871B1FD9E1004B194C /* Controls */,
 				1C2251451A9E7E5F00210324 /* Playlist.h */,
 				1C2251461A9E7E5F00210324 /* Playlist.m */,
 				1C33F84B1A8D4A0C0072ABBE /* Player.h */,
@@ -952,16 +945,6 @@
 				DEC660B41B1A4822001E6FD5 /* Avenir.ttc */,
 			);
 			name = Avenir;
-			sourceTree = "<group>";
-		};
-		DEDF79871B1FD9E1004B194C /* Controls */ = {
-			isa = PBXGroup;
-			children = (
-				DEDF79811B1FD9CD004B194C /* CircleHelpers.swift */,
-				DEDF79821B1FD9CD004B194C /* RadialMenu.swift */,
-				DEDF79831B1FD9CD004B194C /* RadialSubMenu.swift */,
-			);
-			name = Controls;
 			sourceTree = "<group>";
 		};
 		DEE628DC1AFA7FEF009084FF /* GFX */ = {
@@ -1309,7 +1292,6 @@
 				1C291D951AFFF2A1006A2B4F /* SocketEventHandler.swift in Sources */,
 				DE5763B91AF427ED003F7507 /* RadialGradientLayer.m in Sources */,
 				1C291D961AFFF2A1006A2B4F /* SocketFixUTF8.swift in Sources */,
-				DEDF79841B1FD9CD004B194C /* CircleHelpers.swift in Sources */,
 				DEC660BD1B1A68BC001E6FD5 /* geoAskViewController.m in Sources */,
 				1C291D921AFFF2A1006A2B4F /* SocketAnyEvent.swift in Sources */,
 				DE5763D11AF447F4003F7507 /* GradientNavigationBar.m in Sources */,
@@ -1320,7 +1302,6 @@
 				1C73F3651AFA936D0003B1FA /* RoomsViewController.m in Sources */,
 				1C291D931AFFF2A1006A2B4F /* SocketEngine.swift in Sources */,
 				1C291D971AFFF2A1006A2B4F /* SocketIOClient.swift in Sources */,
-				DEDF79851B1FD9CD004B194C /* RadialMenu.swift in Sources */,
 				FCEB2FDE1B001E3C00010187 /* LocationServices.m in Sources */,
 				1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */,
 				DEEC122A1AFCFCC800E21C52 /* ChatViewController.m in Sources */,
@@ -1334,7 +1315,6 @@
 				1CB8355A1B027BA60003D9DC /* SSKeychain.m in Sources */,
 				1C6D62E21B16535C00F0EC27 /* UIRoomScrollView.m in Sources */,
 				1C291D941AFFF2A1006A2B4F /* SocketEngineClient.swift in Sources */,
-				DEDF79861B1FD9CD004B194C /* RadialSubMenu.swift in Sources */,
 				1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */,
 				DE5763CC1AF438E7003F7507 /* RoomViewController.m in Sources */,
 				1C6D62E81B1A225100F0EC27 /* UIAroundMeView.m in Sources */,
