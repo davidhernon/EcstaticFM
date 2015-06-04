@@ -227,7 +227,7 @@ the delegate to Player for Player to communicate with a view controller
 {
     if(_avPlayer.rate != 0)
     {
-        [_avPlayer seekToTime:CMTimeMake(value, 100)];
+        [_avPlayer seekToTime:CMTimeMake(value, 1)];
     }
 }
 
@@ -283,16 +283,19 @@ the delegate to Player for Player to communicate with a view controller
     [_delegate redrawUI];
 }
 
-- (void) joinPlayingRoom:(int)index withElapsedTime:(int)elapsed
+- (void) joinPlayingRoom:(int)index withElapsedTime:(int)elapsed andIsPlaying:(int)is_playing
 {
-    if(_avPlayer.rate != 0.0)
-    {
-        [_avPlayer pause];
-    }
-    _currentTrack = nil;
+    float elspd = (elapsed*1.0f) / 1000.0f;
+    _currentTrack = [[Playlist sharedPlaylist].playlist objectAtIndex:index];
     _currentTrackIndex = index;
-    [self seek:1.0f*elapsed];
-    [self play];
+    [self seek:(elspd)];
+    [_delegate setCurrentSliderValue:_avPlayer];
+    [self reloadUI];
+    if(is_playing)
+    {
+        [self play];
+    }
+    NSLog(@"elapsed : %f", elspd );
 }
 
 @end

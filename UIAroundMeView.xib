@@ -16,6 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIAroundMeView">
             <connections>
+                <outlet property="button" destination="hxg-uO-SPh" id="hV7-bW-i7g"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Et1-CY-ZHx"/>
             </connections>
         </placeholder>

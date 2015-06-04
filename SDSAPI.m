@@ -181,10 +181,21 @@ static SocketIOClient *static_socket;
     
     [static_socket on:@"return_get_player_status" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSDictionary *d = (NSDictionary*)data[0];
-        NSString *isPlaying = [d objectForKey:@"is_playing"];
-        int song_index = [[d objectForKey:@"playing_song_index"] intValue];
-        int elapsed_time = [[d objectForKey:@"elapsed"] intValue];
-        [[Player sharedPlayer] joinPlayingRoom:song_index withElapsedTime:elapsed_time];
+        NSDictionary *player_state = [d objectForKey:@"player_state"];
+        
+        int song_index = [[player_state objectForKey:@"playing_song_index"] intValue];
+        int is_playing = [[player_state objectForKey:@"is_playing"] intValue];
+        
+        
+        NSNumber *elapsed_time = [NSNumber numberWithInt:[[player_state objectForKey:@"elapsed"] intValue]];
+        NSNumber *server_timestamp = [NSNumber numberWithLong:[[player_state objectForKey:@"timestamp"] longValue]];
+        
+        NSTimeInterval timeStamp = [@(floor([[NSDate date] timeIntervalSince1970] * 1000)) longLongValue];
+        NSNumber *my_timestamp = [NSNumber numberWithDouble: timeStamp];
+        
+        int el = [my_timestamp intValue] - [server_timestamp intValue] + [elapsed_time intValue];
+
+        [[Player sharedPlayer] joinPlayingRoom:song_index withElapsedTime:el andIsPlaying:is_playing];
     }];
     
     [static_socket on:@"realtime_player" callback:^(NSArray * data, void (^ack) (NSArray*)){
@@ -252,8 +263,8 @@ static SocketIOClient *static_socket;
             [NSThread sleepForTimeInterval:0.1f];
         }
         
-        NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: username, @"test", [self getDictForPlayerState], nil]
-                                                                    forKeys:[NSArray arrayWithObjects:@"username", @"room_name", @"player_state", nil]];
+        NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:@[username, @"test", [self getDictForPlayerState]]
+                                                                    forKeys:@[@"username", @"room_name", @"player_state"]];
         
         NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
         [static_socket emitObjc:@"create_room" withItems:@[jsonData]];
@@ -337,10 +348,10 @@ static SocketIOClient *static_socket;
     [static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
 }
 
-+(void)joinRoom:(NSString*)room_number
++(void)joinRoom:(NSString*)new_room_number
 {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    NSArray * obj = @[room_number, username];
+    NSArray * obj = @[new_room_number, username];
     NSArray * ky = @[@"room_number", @"username"];
     NSDictionary *joinDict  = [NSDictionary dictionaryWithObjects:obj forKeys:ky];
     NSString *rn = [NSString stringWithFormat:@"%@",[Room currentRoom].room_number];
@@ -348,18 +359,19 @@ static SocketIOClient *static_socket;
     NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[rn, username] forKeys:ky];
     NSData *joinJson = [NSJSONSerialization dataWithJSONObject:joinDict options:nil error:nil];
     NSData *leaveJson = [NSJSONSerialization dataWithJSONObject:leaveDict options:nil error:nil];
-    if([room_number isEqualToString:[Room currentRoom].room_number])
+    NSLog(@"room number: %@ current Room: %@",new_room_number, [Room currentRoom].room_number);
+    if([new_room_number isEqualToString:[Room currentRoom].room_number])
     {
         return;
-    }else if([room_number isEqualToString:@"0"])
+    }else if([new_room_number isEqualToString:@"0"])
     {
         [static_socket emitObjc:@"join_room" withItems:@[joinJson]];
     }else{
         [static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
         [static_socket emitObjc:@"join_room" withItems:@[joinJson]];
     }
-    [Room currentRoom].room_number = room_number;
-    [SDSAPI getPlaylist:room_number];
+    [Room currentRoom].room_number = new_room_number;
+    [SDSAPI getPlaylist:new_room_number];
 }
 
 +(void)getPlayerState:(NSString*)room_number
@@ -401,7 +413,12 @@ static SocketIOClient *static_socket;
 
 + (NSDictionary*) getDictForPlayerState
 {
-    return [NSDictionary dictionaryWithObjects:@[ [NSString stringWithFormat:@"%i",[[Player sharedPlayer] isPlaying]], [NSString stringWithFormat:@"%i", [Player sharedPlayer].currentTrackIndex], [NSString stringWithFormat:@"%i",(int)CMTimeGetSeconds([Player sharedPlayer].avPlayer.currentTime)]] forKeys:@[@"is_playing", @"playing_song_index", @"elapsed"]];
+    NSString *elspd = [NSString stringWithFormat:@"%i",(int)CMTimeGetSeconds([Player sharedPlayer].avPlayer.currentTime)];
+    if([elspd isEqual:[NSString stringWithFormat:@"%i",INT_MIN]])
+    {
+        elspd = @"0";
+    }
+    return [NSDictionary dictionaryWithObjects:@[ [NSString stringWithFormat:@"%i",[[Player sharedPlayer] isPlaying]], [NSString stringWithFormat:@"%i", [Player sharedPlayer].currentTrackIndex], elspd] forKeys:@[@"is_playing", @"playing_song_index", @"elapsed"]];
 }
 
 +(void) last
