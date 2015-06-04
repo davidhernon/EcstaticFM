@@ -312,11 +312,14 @@ static NSString* cellIdentifier = @"playListCell";
 {
     [self.player updatePlaylist];
     [self.player play];
+
 }
 
 -(void) pause
 {
     [self.player pause];
+
+
 }
 
 -(IBAction)last:(id)sender
@@ -371,4 +374,17 @@ static NSString* cellIdentifier = @"playListCell";
     _playerShowControlsButton.hidden = NO;
     
 }
+
+-(void)showPlayButton {
+    [_play setImage:[UIImage imageNamed:@"button_playnew.png"] forState:UIControlStateNormal];
+    [_play setSelected:NO];
+}
+
+-(void)showPauseButton {
+    [_play setImage:[UIImage imageNamed:@"button_pausenew.png"] forState:UIControlStateSelected];
+    [_play setSelected:YES];
+}
+
 @end
+
+

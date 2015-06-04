@@ -16,10 +16,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_logintextfield.png" translatesAutoresizingMaskIntoConstraints="NO" id="0Nb-b5-6Ju">
-                    <rect key="frame" x="14" y="152" width="240" height="44"/>
+                    <rect key="frame" x="14" y="155" width="240" height="37"/>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter an artist or track name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="et2-Ib-OOJ">
-                    <rect key="frame" x="8" y="159" width="252" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Type a track title" placeholder="Enter an artist or track name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="et2-Ib-OOJ">
+                    <rect key="frame" x="22" y="157" width="225" height="30"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="Raleway" family="Raleway" pointSize="17"/>

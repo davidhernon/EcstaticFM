@@ -10,11 +10,11 @@ build/
 !EcstaticFM.perspectivev3
 *.xcworkspace
 !EcstaticFM.xcworkspace
-xcuserdata
+xcuserdata/*
 profile
 *.moved-aside
 DerivedData
 .idea/
 # Pods - for those of you who use CocoaPods
 Pods
-
+xcuserdata/jonathandupre*

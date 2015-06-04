@@ -107,6 +107,7 @@ the delegate to Player for Player to communicate with a view controller
             //This hits when song makes it to the end, then a new song is added and user hits play
             [_avPlayer play];
             _isPaused = NO;
+            [_delegate showPauseButton];
             return;
         }
         
@@ -114,6 +115,9 @@ the delegate to Player for Player to communicate with a view controller
     }else if(!_isPaused){
         #warning Update Player UI
         NSLog(@"User just hit pause button, update Player UI to show paused state");
+        
+        [_delegate showPlayButton];
+        
         [_avPlayer pause];
         _isPaused = YES;
         return;
@@ -122,6 +126,9 @@ the delegate to Player for Player to communicate with a view controller
         #warning Update Player UI
 
         NSLog(@"User just hit play after being paused");
+        
+        
+        
         [_avPlayer play];
         _isPaused = NO;
         return;

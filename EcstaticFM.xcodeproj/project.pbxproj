@@ -141,6 +141,7 @@
 		DE79A7DF1AFBFD6A00E99957 /* icon_playerback.png in Resources */ = {isa = PBXBuildFile; fileRef = DE79A7DC1AFBFD6A00E99957 /* icon_playerback.png */; };
 		DE79A7E01AFBFD6A00E99957 /* icon_playernext.png in Resources */ = {isa = PBXBuildFile; fileRef = DE79A7DD1AFBFD6A00E99957 /* icon_playernext.png */; };
 		DE79A7E11AFBFD6A00E99957 /* icon_playerpause.png in Resources */ = {isa = PBXBuildFile; fileRef = DE79A7DE1AFBFD6A00E99957 /* icon_playerpause.png */; };
+		DE80115B1B20EDF40098DB76 /* button_playnew.png in Resources */ = {isa = PBXBuildFile; fileRef = DE80115A1B20EDF40098DB76 /* button_playnew.png */; };
 		DE85B68E1B1510F300BCC36F /* button_login.png in Resources */ = {isa = PBXBuildFile; fileRef = DE85B6871B1510F300BCC36F /* button_login.png */; };
 		DE85B68F1B1510F300BCC36F /* button_signup.png in Resources */ = {isa = PBXBuildFile; fileRef = DE85B6881B1510F300BCC36F /* button_signup.png */; };
 		DE85B6901B1510F300BCC36F /* icon_login.png in Resources */ = {isa = PBXBuildFile; fileRef = DE85B6891B1510F300BCC36F /* icon_login.png */; };
@@ -395,6 +396,7 @@
 		DE79A7DC1AFBFD6A00E99957 /* icon_playerback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_playerback.png; sourceTree = "<group>"; };
 		DE79A7DD1AFBFD6A00E99957 /* icon_playernext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_playernext.png; sourceTree = "<group>"; };
 		DE79A7DE1AFBFD6A00E99957 /* icon_playerpause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_playerpause.png; sourceTree = "<group>"; };
+		DE80115A1B20EDF40098DB76 /* button_playnew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_playnew.png; sourceTree = "<group>"; };
 		DE85B6871B1510F300BCC36F /* button_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_login.png; sourceTree = "<group>"; };
 		DE85B6881B1510F300BCC36F /* button_signup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_signup.png; sourceTree = "<group>"; };
 		DE85B6891B1510F300BCC36F /* icon_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_login.png; sourceTree = "<group>"; };
@@ -740,6 +742,7 @@
 				DE14B9BE1AFF0BF0004470C7 /* button_controlsback.png */,
 				DE14B9BA1AFF0BCD004470C7 /* button_controlsnext.png */,
 				DE14B9BB1AFF0BCD004470C7 /* button_controlspause.png */,
+				DE80115A1B20EDF40098DB76 /* button_playnew.png */,
 				DE14B9DE1AFFA8E8004470C7 /* button_controlsplaypink.png */,
 				DEBE1DBE1B1A2BF0003FE590 /* button_letsconnect.png */,
 				DE85B6871B1510F300BCC36F /* button_login.png */,
@@ -1136,6 +1139,7 @@
 				DE18ABA91B1DF71000C9BAE5 /* loadingdark3.png in Resources */,
 				DEE628E21AFA9D04009084FF /* icon_heartfull.png in Resources */,
 				1C6D62EA1B1A225C00F0EC27 /* UIAroundMeView.xib in Resources */,
+				DE80115B1B20EDF40098DB76 /* button_playnew.png in Resources */,
 				1C6D62EC1B1A226900F0EC27 /* UIEventView.xib in Resources */,
 				DE4C26251B1F58920028C0C3 /* button_gear2.png in Resources */,
 				DE4C262D1B1F5F920028C0C3 /* button_delete.png in Resources */,
