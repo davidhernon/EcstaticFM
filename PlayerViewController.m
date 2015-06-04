@@ -155,7 +155,15 @@ static NSString* cellIdentifier = @"playListCell";
         _current_time.hidden = NO;
         _current_user_picture.hidden = NO;
         _welcomehome.hidden = YES;
-
+        float fl;
+        if(_player.currentTrackIndex == 0 && isnan(CMTimeGetSeconds(_player.avPlayer.currentItem.asset.duration))){
+            fl = 0.0f;
+        }else{
+            fl = (1.0f*CMTimeGetSeconds(_player.avPlayer.currentItem.asset.duration));  
+        }
+        [self initPlayerUI:fl withTrack:_player.currentTrack atIndex:_player.currentTrackIndex];
+//        _playListTableView.editing = YES;
+//        _playListTableView.allowsMultipleSelectionDuringEditing = NO;
         
     }
     if(![_player isPlaying] && ![_player isPaused] && [_playlist count] > 0)
@@ -264,7 +272,8 @@ static NSString* cellIdentifier = @"playListCell";
  */
 - (void) setCurrentSliderValue:(AVPlayer*)childPlayer
 {
-    _slider.value = (int)CMTimeGetSeconds([childPlayer currentTime]);
+    float sec = CMTimeGetSeconds([childPlayer currentTime]);
+    [_slider setValue:sec animated:YES];
     _current_time.text = [Utils convertTimeFromMillis:(int)1000*_slider.value];
 }
 

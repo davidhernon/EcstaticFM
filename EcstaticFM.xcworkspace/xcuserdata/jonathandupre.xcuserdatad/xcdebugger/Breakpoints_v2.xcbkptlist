@@ -391,7 +391,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "350"
             endingLineNumber = "350"
-            landmarkName = "-playerControlsClicked:"
+            landmarkName = "-showRooms:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -26,6 +26,6 @@
 +(void)joinRoom:(NSString*)room_number;
 +(void)leaveRoom;
 +(void)getPlaylist:(NSString*)room_number;
-
++(void)getPlayerState:(NSString*)room_number;
 
 @end
