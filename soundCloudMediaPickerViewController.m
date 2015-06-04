@@ -31,6 +31,10 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 
     [super viewDidLoad];
     
+    //hide add button
+    _addSongsToPlaylist.hidden = YES;
+    _sCMediaPickerSpinner.hidden = NO;
+    
     // Transparency
     
     _soundCloudResultsTableView.backgroundColor = [UIColor clearColor];
@@ -53,11 +57,28 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
+    // Load images
+    NSArray *imageNames = @[@"spinner-1.png", @"spinner-2.png", @"spinner-3.png", @"spinner-4.png",
+                            @"spinner-5.png", @"spinner-6.png", @"spinner-7.png", @"spinner-8.png", @"spinner-9.png", @"spinner-10.png", @"spinner-11.png", @"spinner-12.png", @"spinner-13.png", @"spinner-14.png", @"spinner-15.png", @"spinner-16.png"];
+    
+    NSMutableArray *images = [[NSMutableArray alloc] init];
+    for (int i = 0; i < imageNames.count; i++) {
+        [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
+    }
+    
+    
+    _sCMediaPickerSpinner.animationImages = images;
+    _sCMediaPickerSpinner.animationDuration = 0.5;
+    [_sCMediaPickerSpinner startAnimating];
+ 
+
+    
     if([SCSoundCloud account] == nil)
     {
         _connect_to_soundcloud.hidden = NO;
     }else{
         _connect_to_soundcloud.hidden = YES;
+        _soundcloudLoginButton.hidden = YES;
     }
 //    _tracksFromSoundCloud = nil;
 //    [SoundCloudAPI getFavorites:self];
@@ -68,6 +89,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 //        }
 //    });
     [self getAlbumImageArray];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,6 +117,10 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     cell.track_title.text = [track objectForKey:@"title"];
     cell.artist.text = [[track objectForKey:@"user"] objectForKey:@"username"];
     cell.duration.text = [NSString stringWithFormat:@"%@", [Utils convertTimeFromMillis:(int) [[track objectForKey:@"duration"] intValue]]];
+    
+    //remove spinner
+    _addSongsToPlaylist.hidden = NO;
+    _sCMediaPickerSpinner.hidden = YES;
 
     if(indexPath.row < [_soundCloudAlbumImages count])
     {
@@ -108,6 +134,8 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
         if (num == indexPath.row) {
             [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
             // Once we find a match there is no point continuing the loop
+
+            
             break;
         }
     }
@@ -115,6 +143,8 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     
     
     return cell;
+    
+
     
 }
 
@@ -137,6 +167,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
         [_selectedTrackIndices addObject:@(indexPath.row)];
     }
     [self printSelectedTracks];
+    
 }
 
 -(void) addSoundCloudFavorites:(NSArray*)tracks
@@ -239,7 +270,10 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 
 -(IBAction)soundcloudLogin:(id)sender
 {
+
     [SoundCloudAPI login:self];
+
+
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 while([SCSoundCloud account] == nil)
@@ -258,8 +292,9 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 -(IBAction)showSearchSoundCloudUI:(id)sender
 {
     // May break if there is more than one UIView in the NIB
+    
     ILTranslucentView *search_soundcloud = [[[NSBundle mainBundle] loadNibNamed:@"SoundCloudSearchView" owner:self options:nil] objectAtIndex:0];
-    search_soundcloud.translucentAlpha = 1;
+    search_soundcloud.translucentAlpha = 0;
     search_soundcloud.translucentStyle = UIBarStyleDefault;
     search_soundcloud.translucentTintColor = [UIColor clearColor];
     search_soundcloud.backgroundColor = [UIColor clearColor];
@@ -267,7 +302,8 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     [search_soundcloud addSender:self];
     
     [self.view addSubview:search_soundcloud];
-    
+
+    _soundCloudResultsTableView.hidden = YES;
 }
 
 -(void)searchSoundcloud:(NSString*)search_text
@@ -284,6 +320,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     [self.soundCloudResultsTableView reloadData];
     self.soundCloudAlbumImages = [[NSMutableArray alloc] init];
     [self getAlbumImageArray];
+    
 }
 
 -(IBAction)getFaves

@@ -21,6 +21,7 @@
 
 - (IBAction)showRooms:(id)sender;
 - (IBAction)playerControlsClicked:(id)sender;
+- (IBAction)playerControlsUnClicked:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITableView *playListTableView;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
@@ -41,6 +42,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *welcomehome;
 
 @property (weak,nonatomic) IBOutlet UIButton *playerShowControlsButton;
+@property (weak,nonatomic) IBOutlet UIButton *playerHideControlsButton;
 
 @property (weak, nonatomic) IBOutlet UIView *controlsDarkenView;
 @property (weak, nonatomic) IBOutlet UIView *controlsView;

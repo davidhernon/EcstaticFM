@@ -29,8 +29,6 @@
             <string>Raleway-Light</string>
             <string>Raleway-Light</string>
             <string>Raleway-Light</string>
-            <string>Raleway-Light</string>
-            <string>Raleway-Light</string>
         </mutableArray>
         <mutableArray key="Raleway-Medium.ttf">
             <string>Raleway-Medium</string>
@@ -250,48 +248,7 @@ share your location?</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="guU-ft-yHt">
-                                <rect key="frame" x="16" y="496" width="300" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Q2-fp-aMw">
-                                        <rect key="frame" x="49" y="124" width="201" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <string key="text">Others are listening to
-music around you.</string>
-                                        <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="18"/>
-                                        <color key="textColor" red="0.44469467474489799" green="0.44469467474489799" blue="0.44469467474489799" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See who's around me" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f8O-dt-il8">
-                                        <rect key="frame" x="50" y="227" width="201" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="18"/>
-                                        <color key="textColor" red="0.43359375" green="0.43359375" blue="0.43359375" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CKT-hR-fga">
-                                        <rect key="frame" x="34" y="230" width="233" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Let them find me" image="image_geobuttonborder.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="ee0-pp-KX7">
-                                <rect key="frame" x="10" y="513" width="300" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="155" sectionHeaderHeight="22" sectionFooterHeight="22" id="VCT-aS-wi5">
-                                        <rect key="frame" x="-10" y="-426" width="320" height="480"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </tableView>
-                                </subviews>
-                            </scrollView>
-                            <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="ZxN-2D-bHb" customClass="UIRoomScrollView">
+                            <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="ZxN-2D-bHb" customClass="UIRoomScrollView">
                                 <rect key="frame" x="0.0" y="168" width="320" height="241"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
@@ -300,10 +257,6 @@ music around you.</string>
                                     <outlet property="delegate" destination="pL3-Xv-Udv" id="bVF-u4-edG"/>
                                 </connections>
                             </scrollView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_location2.png" id="Apm-4F-HKq">
-                                <rect key="frame" x="148" y="66" width="25" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00/Here/3 meters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qsa-zK-cHg">
                                 <rect key="frame" x="0.0" y="108" width="320" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -338,6 +291,10 @@ music around you.</string>
                                 <color key="textColor" red="0.36459061503410339" green="0.3645797073841095" blue="0.36458587646484375" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_location2.png" id="Apm-4F-HKq">
+                                <rect key="frame" x="148" y="66" width="25" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_time.png" id="eEV-UK-b8u">
                                 <rect key="frame" x="148" y="70" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -407,12 +364,12 @@ music around you.</string>
                                                     <action selector="SDSLogin:" destination="Na0-VS-aPw" eventType="touchUpInside" id="BXu-QB-iOA"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading4.png" id="lxN-bJ-5oJ">
-                                                <rect key="frame" x="15" y="5" width="69" height="29"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading4.png" id="lxN-bJ-5oJ">
+                                                <rect key="frame" x="11" y="5" width="77" height="29"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_logintextfield.png" id="Arr-xO-opT">
                                         <rect key="frame" x="35" y="319" width="252" height="38"/>
@@ -754,11 +711,6 @@ music around you.</string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.82419902150000002" green="0.78960636839160048" blue="0.19776025615470369" alpha="0.0" colorSpace="calibratedRGB"/>
                             </view>
-                            <view hidden="YES" alpha="0.0" contentMode="scaleToFill" id="20z-45-eEI" userLabel="playerDarkenView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="490"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" id="ZaA-eY-lmY">
                                 <rect key="frame" x="0.0" y="280" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -773,6 +725,24 @@ music around you.</string>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" id="cWa-eN-Cpi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="w8p-jS-ofe">
+                                        <rect key="frame" x="0.0" y="258" width="320" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="maximumTrackTintColor" red="1" green="0.0" blue="0.98950002525298864" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </slider>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="gvS-5A-3eq">
+                                <rect key="frame" x="133" y="215" width="53" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <view contentMode="scaleToFill" id="zAh-Xy-nYN">
                                 <rect key="frame" x="110" y="422" width="100" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -790,48 +760,57 @@ music around you.</string>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" id="cWa-eN-Cpi">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ebX-Vz-7hn" userLabel="Back Button">
-                                        <rect key="frame" x="0.0" y="15" width="51" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <inset key="contentEdgeInsets" minX="19" minY="15" maxX="19" maxY="15"/>
-                                        <state key="normal" image="icon_back2.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="showRooms:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="afJ-9X-o85"/>
-                                        </connections>
-                                    </button>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="w8p-jS-ofe">
-                                        <rect key="frame" x="0.0" y="258" width="320" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="maximumTrackTintColor" red="1" green="0.0" blue="0.98950002525298864" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </slider>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mRb-We-BcF" userLabel="show controls">
-                                        <rect key="frame" x="2" y="0.0" width="318" height="276"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playerControlsClicked:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="79g-qD-9SU"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="gvS-5A-3eq">
-                                <rect key="frame" x="133" y="215" width="53" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <view opaque="NO" contentMode="scaleToFill" id="spO-Y5-nH4" userLabel="playerControlsView">
+                            <view hidden="YES" contentMode="scaleToFill" id="20z-45-eEI" userLabel="controlsDarkenView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="490"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="mRb-We-BcF" userLabel="show controls">
+                                <rect key="frame" x="1" y="0.0" width="318" height="276"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playerControlsClicked:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="e4g-V8-veK"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="vnK-2z-dPz" userLabel="hide controls">
+                                <rect key="frame" x="1" y="158" width="318" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playerControlsUnClicked:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="VNE-Gb-C8B"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="wbf-gp-DuR" userLabel="hide controls top">
+                                <rect key="frame" x="1" y="0.0" width="318" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playerControlsUnClicked:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="HlQ-mF-X4B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ebX-Vz-7hn" userLabel="Back Button">
+                                <rect key="frame" x="-7" y="10" width="51" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="19" minY="15" maxX="19" maxY="15"/>
+                                <state key="normal" image="icon_back2.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showRooms:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="afJ-9X-o85"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="spO-Y5-nH4" userLabel="controlsView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="218"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_darkgradienttop.png" id="6uw-cN-5PX">
@@ -887,8 +866,7 @@ music around you.</string>
                         <outlet property="_playerAddMusicCell" destination="ujE-F6-d0i" id="6uG-Fx-5lB"/>
                         <outlet property="_playerTableHeaderView" destination="5SA-bc-LWc" id="Vz3-vz-TFc"/>
                         <outlet property="add_songs" destination="KyU-zZ-L2E" id="936-8C-ydK"/>
-                        <outlet property="buttonShow" destination="mRb-We-BcF" id="LiJ-Ux-l6k"/>
-                        <outlet property="buttonShowControls" destination="mRb-We-BcF" id="2Qi-nM-KIp"/>
+                        <outlet property="controlsDarkenView" destination="20z-45-eEI" id="nVk-rd-2bK"/>
                         <outlet property="controlsView" destination="spO-Y5-nH4" id="8ge-xN-ihB"/>
                         <outlet property="current_album_artwork" destination="S8f-jV-zzm" id="UrP-5n-CHf"/>
                         <outlet property="current_duration" destination="0VL-8U-vbk" id="0eJ-YZ-Ezz"/>
@@ -898,7 +876,8 @@ music around you.</string>
                         <outlet property="next" destination="eQi-L5-ahx" id="KbW-RK-D62"/>
                         <outlet property="play" destination="gnl-oJ-0Zd" id="Oix-Te-KKR"/>
                         <outlet property="playListTableView" destination="fim-yG-u2G" id="goh-MD-M0Z"/>
-                        <outlet property="playerShowControlsButton" destination="mRb-We-BcF" id="9oV-8e-uxX"/>
+                        <outlet property="playerHideControlsButton" destination="vnK-2z-dPz" id="M1F-By-Twd"/>
+                        <outlet property="playerShowControlsButton" destination="mRb-We-BcF" id="NOU-rS-br0"/>
                         <outlet property="playerSpinner" destination="gvS-5A-3eq" id="VkS-Zq-QYm"/>
                         <outlet property="slider" destination="w8p-jS-ofe" id="s0c-r3-LAC"/>
                         <outlet property="welcomehome" destination="7TJ-3H-AHn" id="hA0-16-iXA"/>
@@ -1057,7 +1036,7 @@ music around you.</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="calibratedWhite"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="22" sectionFooterHeight="22" id="0FZ-o0-ngg">
-                                <rect key="frame" x="5" y="139" width="310" height="270"/>
+                                <rect key="frame" x="5" y="139" width="310" height="341"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
@@ -1221,7 +1200,9 @@ on Soundcloud?</string>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="addSongsToPlaylist" destination="FSC-Hu-VvY" id="UJ8-B7-KsN"/>
+                        <outlet property="sCMediaPickerSpinner" destination="P6O-DS-VKr" id="jRV-hy-G3e"/>
                         <outlet property="soundCloudResultsTableView" destination="0FZ-o0-ngg" id="Ikt-a5-Usc"/>
+                        <outlet property="soundcloudLoginButton" destination="ZO2-Cu-bJq" id="kDT-P6-niY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhK-Pb-bck" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1258,7 +1239,6 @@ on Soundcloud?</string>
         <image name="image_covertartgradient.png" width="498" height="235"/>
         <image name="image_darkgradienttop.png" width="1292" height="754"/>
         <image name="image_emptyportrait.png" width="302" height="304"/>
-        <image name="image_geobuttonborder.png" width="930" height="182"/>
         <image name="image_gradienthiding.png" width="640" height="118"/>
         <image name="image_logintextfield.png" width="435" height="76"/>
         <image name="image_portrait.png" width="59" height="62"/>

@@ -20,6 +20,8 @@ static NSString* cellIdentifier = @"playListCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+        _controlsView.hidden = YES;
+    
     // Load images
     NSArray *imageNames = @[@"spinner-1.png", @"spinner-2.png", @"spinner-3.png", @"spinner-4.png",
                             @"spinner-5.png", @"spinner-6.png", @"spinner-7.png", @"spinner-8.png", @"spinner-9.png", @"spinner-10.png", @"spinner-11.png", @"spinner-12.png", @"spinner-13.png", @"spinner-14.png", @"spinner-15.png", @"spinner-16.png"];
@@ -357,6 +359,16 @@ static NSString* cellIdentifier = @"playListCell";
 }
 - (IBAction)playerControlsClicked:(id)sender {
     _controlsView.hidden = NO;
+    _controlsDarkenView.hidden = NO;
+    _playerShowControlsButton.hidden = YES;
+    _playerHideControlsButton.hidden = NO;
+    
+}
+- (IBAction)playerControlsUnClicked:(id)sender {
+    _controlsView.hidden = YES;
+    _controlsDarkenView.hidden = YES;
+    _playerHideControlsButton.hidden = YES;
+    _playerShowControlsButton.hidden = NO;
     
 }
 @end
