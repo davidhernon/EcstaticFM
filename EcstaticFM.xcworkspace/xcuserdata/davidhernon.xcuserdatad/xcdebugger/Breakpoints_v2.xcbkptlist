@@ -191,8 +191,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "239"
             endingLineNumber = "239"
-            landmarkName = "@implementation SDSAPI"
-            landmarkType = "3">
+            landmarkName = "+connect"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -907,7 +907,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "244"
             endingLineNumber = "244"
-            landmarkName = "+createRoom:"
+            landmarkName = "+connect"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1131,7 +1131,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "289"
             endingLineNumber = "289"
-            landmarkName = "+postLocation:withLatitude:withLongitude:"
+            landmarkName = "+aroundMe:withID:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1179,7 +1179,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "307"
             endingLineNumber = "307"
-            landmarkName = "+sendMediaItemToServer:"
+            landmarkName = "+postLocation:withLatitude:withLongitude:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1797,7 +1797,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "287"
             endingLineNumber = "287"
-            landmarkName = "+postLocation:withLatitude:withLongitude:"
+            landmarkName = "+aroundMe:withID:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2069,7 +2069,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "371"
             endingLineNumber = "371"
-            landmarkName = "+play"
+            landmarkName = "+getPlaylist:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2131,7 +2131,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "377"
             endingLineNumber = "377"
-            landmarkName = "+play"
+            landmarkName = "+getPlaylist:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2147,7 +2147,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "375"
             endingLineNumber = "375"
-            landmarkName = "+play"
+            landmarkName = "+getPlaylist:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2195,7 +2195,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "396"
             endingLineNumber = "396"
-            landmarkName = "+getDictForPlayerState"
+            landmarkName = "+next"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2211,7 +2211,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "241"
             endingLineNumber = "241"
-            landmarkName = "+createRoom:"
+            landmarkName = "+connect"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2305,7 +2305,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "357"
             endingLineNumber = "357"
-            landmarkName = "+getPlayerState:"
+            landmarkName = "+joinRoom:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
