@@ -37,8 +37,8 @@
                                                object:self.view.window];
     _keyboardIsShown = NO;
     //make contentSize bigger than your scrollSize (you will need to figure out for your own use case)
-//    CGSize scrollContentSize = CGSizeMake(320, 640);
-//    _chatScrollView.contentSize = scrollContentSize;
+    CGSize scrollContentSize = CGSizeMake(320, 640);
+    _chatScrollView.contentSize = scrollContentSize;
     
     //Register tap gesture for dimissing the keyboard
     
@@ -47,16 +47,6 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    
-    _messages = [[NSMutableArray alloc] init];
-    Message *myMessage = [[Message alloc] init];
-    myMessage.user = @"the_real_bd";
-    myMessage.content = @"here is a message";
-    Message *theirMessage = [[Message alloc] init];
-    theirMessage.user = @"martin";
-    theirMessage.content = @"other message";
-    [_messages addObjectsFromArray:@[myMessage,theirMessage]];
-    [_chat_table_view reloadData];
 
 }
 
@@ -70,43 +60,7 @@
         _people_with_you.text = [NSString stringWithFormat:@"%d people with you",people];
 
     }
-    
-    // Get Messages and Display them
-    
-}
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_messages count];
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Message *message = [_messages objectAtIndex:indexPath.row];
-    NSString *usr = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    ChatMessageTableViewCell *cell = [[ChatMessageTableViewCell alloc] init];
-    if([usr isEqualToString:message.user])
-    {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"myMessageCell"];
-        if (cell == nil) {
-            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"MyMessageView" owner:self options:nil];
-            cell = [topLevelObjects objectAtIndex:0];
-        }
-    }else{
-        cell = [tableView dequeueReusableCellWithIdentifier:@"otherUserMessageCell"];
-        if (cell == nil) {
-            NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"OtherUserMessageView" owner:self options:nil];
-            cell = [topLevelObjects objectAtIndex:0];
-        }
-    }
-    
-    
-    cell.user.text = message.user;
-    cell.content.text = message.content;
-    cell.clipsToBounds = YES;
-    return cell;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -114,21 +68,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) getMessages
-{
-    // Get the messages back from the server
-}
-
--(void) newMessage
-{
-    // Append new message
-    // Reload the scroll view
-}
-
-- (void) setMessagesInScrollView
-{
-    
-}
 
 - (void)keyboardWillHide:(NSNotification *)n
 {

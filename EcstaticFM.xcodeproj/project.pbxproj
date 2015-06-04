@@ -32,7 +32,6 @@
 		1C37B7EF1AF5789A00566216 /* image_coverart.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C37B7E91AF5789A00566216 /* image_coverart.png */; };
 		1C37B7F01AF5789A00566216 /* image_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C37B7EA1AF5789A00566216 /* image_portrait.png */; };
 		1C37B7F11AF5789A00566216 /* image_waveform.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C37B7EB1AF5789A00566216 /* image_waveform.png */; };
-		1C3FFFFF1B1F64ED00D416C8 /* UIView+SubviewHunting.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3FFFFE1B1F64ED00D416C8 /* UIView+SubviewHunting.m */; };
 		1C4861E61A7AB75C004EFEAD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428A91A799CE9001DB0AD /* Info.plist */; };
 		1C4861E71A7AB75C004EFEAD /* main.m in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
 		1C6D62DD1B1643B200F0EC27 /* UIRoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D62DC1B1643B200F0EC27 /* UIRoomView.m */; };
@@ -58,11 +57,6 @@
 		1CB9BB301AA2456400748236 /* SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9BB2F1AA2456400748236 /* SoundCloudAPI.m */; };
 		1CB9BB341AA2459000748236 /* SDSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9BB331AA2459000748236 /* SDSAPI.m */; };
 		1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCB176C1A92792C0055D68C /* LoginViewController.m */; };
-		1CCC0FA31B1E3745002CAB73 /* MyMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CCC0FA21B1E3745002CAB73 /* MyMessageView.xib */; };
-		1CCC0FA51B1E376D002CAB73 /* OtherUserMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CCC0FA41B1E376D002CAB73 /* OtherUserMessageView.xib */; };
-		1CCC0FA81B1E3A88002CAB73 /* ChatMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC0FA71B1E3A88002CAB73 /* ChatMessageTableViewCell.m */; };
-		1CCC0FAB1B1E3BBF002CAB73 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC0FAA1B1E3BBF002CAB73 /* Message.m */; };
-		1CDFEC7F1B1E088F00533110 /* UIAroundMeHereEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDFEC7E1B1E088E00533110 /* UIAroundMeHereEmptyView.m */; };
 		D2A8C828A1F2E13542223221 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA11C45E121802EEDA9E85 /* libPods.a */; };
 		DE14B9BC1AFF0BCD004470C7 /* button_controlsnext.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9BA1AFF0BCD004470C7 /* button_controlsnext.png */; };
 		DE14B9BD1AFF0BCD004470C7 /* button_controlspause.png in Resources */ = {isa = PBXBuildFile; fileRef = DE14B9BB1AFF0BCD004470C7 /* button_controlspause.png */; };
@@ -199,6 +193,9 @@
 		DEDCE9551B1E00F60011B91B /* icon_back2.png in Resources */ = {isa = PBXBuildFile; fileRef = DEDCE9541B1E00F60011B91B /* icon_back2.png */; };
 		DEDCE9571B1E05840011B91B /* image_gradienthiding.png in Resources */ = {isa = PBXBuildFile; fileRef = DEDCE9561B1E05840011B91B /* image_gradienthiding.png */; };
 		DEDCE9591B1E23E10011B91B /* images_roomscover.png in Resources */ = {isa = PBXBuildFile; fileRef = DEDCE9581B1E23E10011B91B /* images_roomscover.png */; };
+		DEDF79841B1FD9CD004B194C /* CircleHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF79811B1FD9CD004B194C /* CircleHelpers.swift */; };
+		DEDF79851B1FD9CD004B194C /* RadialMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF79821B1FD9CD004B194C /* RadialMenu.swift */; };
+		DEDF79861B1FD9CD004B194C /* RadialSubMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF79831B1FD9CD004B194C /* RadialSubMenu.swift */; };
 		DEE628D91AFA796F009084FF /* icon_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE628D81AFA796F009084FF /* icon_bubble.png */; };
 		DEE628DB1AFA79C1009084FF /* icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE628DA1AFA79C1009084FF /* icon_back.png */; };
 		DEE628DE1AFA8D59009084FF /* icon_close.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE628DD1AFA8D59009084FF /* icon_close.png */; };
@@ -268,8 +265,6 @@
 		1C37B7E91AF5789A00566216 /* image_coverart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_coverart.png; sourceTree = "<group>"; };
 		1C37B7EA1AF5789A00566216 /* image_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_portrait.png; sourceTree = "<group>"; };
 		1C37B7EB1AF5789A00566216 /* image_waveform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_waveform.png; sourceTree = "<group>"; };
-		1C3FFFFD1B1F64ED00D416C8 /* UIView+SubviewHunting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SubviewHunting.h"; sourceTree = "<group>"; };
-		1C3FFFFE1B1F64ED00D416C8 /* UIView+SubviewHunting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SubviewHunting.m"; sourceTree = "<group>"; };
 		1C6D62DB1B1643B200F0EC27 /* UIRoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRoomView.h; sourceTree = "<group>"; };
 		1C6D62DC1B1643B200F0EC27 /* UIRoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIRoomView.m; sourceTree = "<group>"; };
 		1C6D62DE1B16492600F0EC27 /* UIRoomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIRoomView.xib; sourceTree = "<group>"; };
@@ -311,14 +306,6 @@
 		1CB9BB331AA2459000748236 /* SDSAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSAPI.m; sourceTree = "<group>"; };
 		1CCB176B1A92792C0055D68C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1CCB176C1A92792C0055D68C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		1CCC0FA21B1E3745002CAB73 /* MyMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyMessageView.xib; sourceTree = "<group>"; };
-		1CCC0FA41B1E376D002CAB73 /* OtherUserMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherUserMessageView.xib; sourceTree = "<group>"; };
-		1CCC0FA61B1E3A88002CAB73 /* ChatMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageTableViewCell.h; sourceTree = "<group>"; };
-		1CCC0FA71B1E3A88002CAB73 /* ChatMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessageTableViewCell.m; sourceTree = "<group>"; };
-		1CCC0FA91B1E3BBF002CAB73 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
-		1CCC0FAA1B1E3BBF002CAB73 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
-		1CDFEC7D1B1E088E00533110 /* UIAroundMeHereEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAroundMeHereEmptyView.h; sourceTree = "<group>"; };
-		1CDFEC7E1B1E088E00533110 /* UIAroundMeHereEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAroundMeHereEmptyView.m; sourceTree = "<group>"; };
 		357C25CB851B05BF017C7876 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4CDA11C45E121802EEDA9E85 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2B767D1CC5F084F45D1F4FB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -467,6 +454,9 @@
 		DEDCE9541B1E00F60011B91B /* icon_back2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_back2.png; sourceTree = "<group>"; };
 		DEDCE9561B1E05840011B91B /* image_gradienthiding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_gradienthiding.png; sourceTree = "<group>"; };
 		DEDCE9581B1E23E10011B91B /* images_roomscover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images_roomscover.png; sourceTree = "<group>"; };
+		DEDF79811B1FD9CD004B194C /* CircleHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleHelpers.swift; sourceTree = "<group>"; };
+		DEDF79821B1FD9CD004B194C /* RadialMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadialMenu.swift; sourceTree = "<group>"; };
+		DEDF79831B1FD9CD004B194C /* RadialSubMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadialSubMenu.swift; sourceTree = "<group>"; };
 		DEE628D81AFA796F009084FF /* icon_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble.png; sourceTree = "<group>"; };
 		DEE628DA1AFA79C1009084FF /* icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_back.png; sourceTree = "<group>"; };
 		DEE628DD1AFA8D59009084FF /* icon_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_close.png; sourceTree = "<group>"; };
@@ -537,8 +527,6 @@
 				1C6D62E91B1A225C00F0EC27 /* UIAroundMeView.xib */,
 				DE18AB901B1CBD5500C9BAE5 /* UIAroundMeHereEmptyView.xib */,
 				1C6D62EB1B1A226900F0EC27 /* UIEventView.xib */,
-				1CDFEC7D1B1E088E00533110 /* UIAroundMeHereEmptyView.h */,
-				1CDFEC7E1B1E088E00533110 /* UIAroundMeHereEmptyView.m */,
 			);
 			name = Rooms;
 			sourceTree = "<group>";
@@ -644,6 +632,7 @@
 		1CB9BB2A1AA2428200748236 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				DEDF79871B1FD9E1004B194C /* Controls */,
 				1C2251451A9E7E5F00210324 /* Playlist.h */,
 				1C2251461A9E7E5F00210324 /* Playlist.m */,
 				1C33F84B1A8D4A0C0072ABBE /* Player.h */,
@@ -684,8 +673,6 @@
 		1CC438BA1A7DBF38000A5AEC /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				1C3FFFFD1B1F64ED00D416C8 /* UIView+SubviewHunting.h */,
-				1C3FFFFE1B1F64ED00D416C8 /* UIView+SubviewHunting.m */,
 				1CB835571B027B6A0003D9DC /* Security */,
 				DEEC122B1AFCFCD000E21C52 /* Chat */,
 				1C73F35F1AFA8CCB0003B1FA /* Rooms */,
@@ -868,6 +855,9 @@
 		DE5763861AF400BF003F7507 /* Assets (2x) */ = {
 			isa = PBXGroup;
 			children = (
+				DEBE1DC31B1A3221003FE590 /* button_gear.png */,
+				DEBE1DC51B1A32E9003FE590 /* button_close-dark.png */,
+				DE18ABB11B1DF8DD00C9BAE5 /* animation */,
 				DEDCE9581B1E23E10011B91B /* images_roomscover.png */,
 				DE18ABAE1B1DF8B500C9BAE5 /* button */,
 				DEEC123D1AFD76E900E21C52 /* dropshadow_leftofscreen.png */,
@@ -885,7 +875,6 @@
 				DE18ABB01B1DF8CB00C9BAE5 /* image */,
 				DE5763921AF40723003F7507 /* input-password.png */,
 				DE5763931AF40723003F7507 /* input-username.png */,
-				DE18ABB11B1DF8DD00C9BAE5 /* animation */,
 				DE9A4A0F1AF5767300B26BA4 /* splash.png */,
 			);
 			name = "Assets (2x)";
@@ -935,8 +924,6 @@
 		DEBE1DA51B1A0504003FE590 /* spinner */ = {
 			isa = PBXGroup;
 			children = (
-				DEBE1DC31B1A3221003FE590 /* button_gear.png */,
-				DEBE1DC51B1A32E9003FE590 /* button_close-dark.png */,
 				DEBE1D851B1A04FB003FE590 /* spinner-1.png */,
 				DEBE1D861B1A04FB003FE590 /* spinner-2.png */,
 				DEBE1D871B1A04FB003FE590 /* spinner-3.png */,
@@ -967,6 +954,16 @@
 			name = Avenir;
 			sourceTree = "<group>";
 		};
+		DEDF79871B1FD9E1004B194C /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				DEDF79811B1FD9CD004B194C /* CircleHelpers.swift */,
+				DEDF79821B1FD9CD004B194C /* RadialMenu.swift */,
+				DEDF79831B1FD9CD004B194C /* RadialSubMenu.swift */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
 		DEE628DC1AFA7FEF009084FF /* GFX */ = {
 			isa = PBXGroup;
 			children = (
@@ -985,12 +982,6 @@
 			children = (
 				DEEC12281AFCFCC800E21C52 /* ChatViewController.h */,
 				DEEC12291AFCFCC800E21C52 /* ChatViewController.m */,
-				1CCC0FA21B1E3745002CAB73 /* MyMessageView.xib */,
-				1CCC0FA41B1E376D002CAB73 /* OtherUserMessageView.xib */,
-				1CCC0FA61B1E3A88002CAB73 /* ChatMessageTableViewCell.h */,
-				1CCC0FA71B1E3A88002CAB73 /* ChatMessageTableViewCell.m */,
-				1CCC0FA91B1E3BBF002CAB73 /* Message.h */,
-				1CCC0FAA1B1E3BBF002CAB73 /* Message.m */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -1055,7 +1046,7 @@
 				TargetAttributes = {
 					1CA428A41A799CE9001DB0AD = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 72PSY3QB44;
+						DevelopmentTeam = VF62VHS44V;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1064,7 +1055,7 @@
 					};
 					1CA428BD1A799CE9001DB0AD = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 72PSY3QB44;
+						DevelopmentTeam = VF62VHS44V;
 						TestTargetID = 1CA428A41A799CE9001DB0AD;
 					};
 				};
@@ -1111,7 +1102,6 @@
 				DEBE1DAF1B1A0780003FE590 /* icon-key-dark.png in Resources */,
 				DE18ABA71B1DF71000C9BAE5 /* loadingdark1.png in Resources */,
 				DE14B9BD1AFF0BCD004470C7 /* button_controlspause.png in Resources */,
-				1CCC0FA51B1E376D002CAB73 /* OtherUserMessageView.xib in Resources */,
 				DE5763A91AF40817003F7507 /* Raleway-Light.ttf in Resources */,
 				DECC69211AFEC11A00A761DE /* icon_addmusicfull.png in Resources */,
 				DEE628D91AFA796F009084FF /* icon_bubble.png in Resources */,
@@ -1222,7 +1212,6 @@
 				DE14B9DD1AFFA4CB004470C7 /* button_closepink.png in Resources */,
 				DEEC122F1AFD514D00E21C52 /* button_seewhois.png in Resources */,
 				DE14B9FD1AFFE145004470C7 /* image_progressbarcolors.png in Resources */,
-				1CCC0FA31B1E3745002CAB73 /* MyMessageView.xib in Resources */,
 				DE85B6921B1510F300BCC36F /* image_logintextfield.png in Resources */,
 				DE4612601B0138A100192E49 /* icon_distance.png in Resources */,
 				DE14B9F21AFFBF07004470C7 /* wave6.png in Resources */,
@@ -1311,7 +1300,6 @@
 				DE5763D41AF5608C003F7507 /* GFXUtils.m in Sources */,
 				DE14B9E21AFFB115004470C7 /* PlayerPageViewController.m in Sources */,
 				1C6D62E51B1A223D00F0EC27 /* UIEventView.m in Sources */,
-				1CCC0FA81B1E3A88002CAB73 /* ChatMessageTableViewCell.m in Sources */,
 				1C291D9B1AFFF2A1006A2B4F /* WebSocket.swift in Sources */,
 				1C291D9E1B014B96006A2B4F /* AroundMeTableViewCell.m in Sources */,
 				1C291D991AFFF2A1006A2B4F /* SocketParser.swift in Sources */,
@@ -1321,9 +1309,9 @@
 				1C291D951AFFF2A1006A2B4F /* SocketEventHandler.swift in Sources */,
 				DE5763B91AF427ED003F7507 /* RadialGradientLayer.m in Sources */,
 				1C291D961AFFF2A1006A2B4F /* SocketFixUTF8.swift in Sources */,
+				DEDF79841B1FD9CD004B194C /* CircleHelpers.swift in Sources */,
 				DEC660BD1B1A68BC001E6FD5 /* geoAskViewController.m in Sources */,
 				1C291D921AFFF2A1006A2B4F /* SocketAnyEvent.swift in Sources */,
-				1C3FFFFF1B1F64ED00D416C8 /* UIView+SubviewHunting.m in Sources */,
 				DE5763D11AF447F4003F7507 /* GradientNavigationBar.m in Sources */,
 				1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */,
 				1C2838041A955F8D006F10EC /* Utils.m in Sources */,
@@ -1332,10 +1320,9 @@
 				1C73F3651AFA936D0003B1FA /* RoomsViewController.m in Sources */,
 				1C291D931AFFF2A1006A2B4F /* SocketEngine.swift in Sources */,
 				1C291D971AFFF2A1006A2B4F /* SocketIOClient.swift in Sources */,
+				DEDF79851B1FD9CD004B194C /* RadialMenu.swift in Sources */,
 				FCEB2FDE1B001E3C00010187 /* LocationServices.m in Sources */,
 				1C37B7CD1AF3E29C00566216 /* SoundCloudMediaPickerTableView.m in Sources */,
-				1CDFEC7F1B1E088F00533110 /* UIAroundMeHereEmptyView.m in Sources */,
-				1CCC0FAB1B1E3BBF002CAB73 /* Message.m in Sources */,
 				DEEC122A1AFCFCC800E21C52 /* ChatViewController.m in Sources */,
 				1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */,
 				1CB9BB301AA2456400748236 /* SoundCloudAPI.m in Sources */,
@@ -1347,6 +1334,7 @@
 				1CB8355A1B027BA60003D9DC /* SSKeychain.m in Sources */,
 				1C6D62E21B16535C00F0EC27 /* UIRoomScrollView.m in Sources */,
 				1C291D941AFFF2A1006A2B4F /* SocketEngineClient.swift in Sources */,
+				DEDF79861B1FD9CD004B194C /* RadialSubMenu.swift in Sources */,
 				1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */,
 				DE5763CC1AF438E7003F7507 /* RoomViewController.m in Sources */,
 				1C6D62E81B1A225100F0EC27 /* UIAroundMeView.m in Sources */,

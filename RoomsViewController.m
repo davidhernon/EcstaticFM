@@ -70,15 +70,17 @@ static NSString* around_me_event_cell = @"around_me_cell";
         [_roomsScrollView addSubview:room_view];
         x += (234) + 15;
     }
-    
-    UIAroundMeHereEmptyView *room_view = [[UIAroundMeHereEmptyView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:nil withRoomController:self];
-    [_roomsScrollView addSubview:room_view];
-    x += (234) + 15;
 
     // get the rooms around me and populate them in their cells
     for( NSDictionary *room in _rooms_around_me)
     {
         UIAroundMeView *room_view = [[UIAroundMeView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:room withRoomController:self];
+//            UIRoomView *room_view = [[UIRoomView alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
+//            room_view.rooms_view_controller = self;
+//            room_view.title.text = [room objectForKey:@"room_name"];
+//            room_view.other_listeners.text = [NSString stringWithFormat:@"%@ & %d Other(s)",[room objectForKey:@"host_username"], [[room objectForKey:@"number_of_users"] intValue]-1];
+//            room_view.room_number.text = [NSString stringWithFormat:@"Room Number %@",[room objectForKey:@"room_number"]];
+//            room_view.raw_room_number = [room objectForKey:@"room_number"];
         [_roomsScrollView addSubview:room_view];
         x += (234) + 15;
     }
