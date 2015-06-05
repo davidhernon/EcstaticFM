@@ -272,7 +272,4 @@
 	self.loginLabel.text = @"Incorrect username or password.";
 }
 
-- (IBAction)fbLogin:(id)sender {
-    [SDSAPI fbLogin];
-}
 @end

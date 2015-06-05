@@ -152,10 +152,6 @@ static SocketIOClient *static_socket;
 						   }];
 }
 
-+(void) fbLogin{
-    
-}
-
 + (void) connect{
     static_socket = [[SocketIOClient alloc] initWithSocketURL:@"http://54.173.157.204:8888" options:nil];
     
@@ -182,10 +178,14 @@ static SocketIOClient *static_socket;
         NSLog(@"another user just joined you in the room");
     }];
     
-    [static_socket on:@"realtime_leave_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
-        NSLog(@"one of the users just left the room");
-    }];
-    
+	[static_socket on:@"realtime_leave_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
+		NSLog(@"one of the users just left the room");
+	}];
+	
+	[static_socket on:@"return_join_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
+		NSLog(@"return_join_room returned,%@", data[0]);
+	}];
+	
     [static_socket on:@"return_get_player_status" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSDictionary *d = (NSDictionary*)data[0];
         NSDictionary *player_state = [d objectForKey:@"player_state"];
@@ -305,8 +305,6 @@ static SocketIOClient *static_socket;
         [static_socket emitObjc:@"get_rooms_around_me" withItems:@[jsonData]];
 		[static_socket emitObjc:@"get_user_list" withItems:@[jsonData]];
     });
-    
-    
 }
 
 +(void)postLocation:(NSString*)username withLatitude:(float)latitude withLongitude:(float)longitude
