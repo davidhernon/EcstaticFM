@@ -268,6 +268,7 @@
 
 - (void) loginReturnedFalse
 {
+	_loginLoading.hidden = true;
 	self.loginLabel.text = @"Incorrect username or password.";
 }
 
