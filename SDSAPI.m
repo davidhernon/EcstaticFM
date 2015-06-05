@@ -167,13 +167,17 @@ static SocketIOClient *static_socket;
         NSLog(@"Posted a location");
     }];
     
-    [static_socket on:@"return_create_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
-        NSLog(@"create room returned,%@", data[0]);
-        NSDictionary* room_info_dict =[((NSDictionary*) data[0]) objectForKey:@"room_info"];
-        //        NSArray* room_info = [room_info_dict objectForKey:@"room_info"];
-        [[Room currentRoom] initWithDict:room_info_dict];
-    }];
-    
+	[static_socket on:@"return_create_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
+		NSLog(@"create room returned,%@", data[0]);
+		NSDictionary* room_info_dict =[((NSDictionary*) data[0]) objectForKey:@"room_info"];
+		//        NSArray* room_info = [room_info_dict objectForKey:@"room_info"];
+		[[Room currentRoom] initWithDict:room_info_dict];
+	}];
+	
+	[static_socket on:@"return_get_user_list" callback:^(NSArray * data, void (^ack) (NSArray*)){
+		NSLog(@"return_get_user_list returned,%@", data[0]);
+	}];
+	
     [static_socket on:@"realtime_join_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSLog(@"another user just joined you in the room");
     }];
@@ -296,6 +300,7 @@ static SocketIOClient *static_socket;
         
         NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
         [static_socket emitObjc:@"get_rooms_around_me" withItems:@[jsonData]];
+		[static_socket emitObjc:@"get_user_list" withItems:@[jsonData]];
     });
     
     
