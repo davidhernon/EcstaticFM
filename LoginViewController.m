@@ -31,7 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
+   //     _originalCenter = _loginView.center;
     
     
     _loginLoading.hidden = YES;
@@ -61,11 +61,13 @@
     [self.view.layer insertSublayer:[GFXUtils getGradient:self.view.bounds] atIndex:0];
     
     
-    // Tap gesture for keyboard dismiss
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                          action:@selector(dismissKeyboard)];
+//    // Tap gesture for keyboard dismiss
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+//                                                                          action:@selector(dismissKeyboard)];
+//    
+//    [self.view addGestureRecognizer:tap];
     
-    [self.view addGestureRecognizer:tap];
+    
     NSString *cached_user = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     if(cached_user)
     {
@@ -86,19 +88,16 @@
     
     _keyboardIsShown = NO;
     //make contentSize bigger than your scrollSize (you will need to figure out for your own use case)
-    CGSize scrollContentSize = CGSizeMake(320, 490);
-    _loginScrollView.contentSize = scrollContentSize;
-
     
     
     
 }
 
-//Dismisses keyboard
--(void)dismissKeyboard {
-    [_username resignFirstResponder];
-    [_password resignFirstResponder];
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -208,13 +207,13 @@
     
     
     // resize the scrollview
-    CGRect viewFrame = _loginScrollView.frame;
+    CGRect viewFrame = _loginView.frame;
     // I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
     viewFrame.size.height += (keyboardSize.height + kTabBarHeight);
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
-    [_loginScrollView setFrame:viewFrame];
+    [_loginView setFrame:viewFrame];
     [UIView commitAnimations];
     
     _keyboardIsShown = NO;
@@ -222,45 +221,67 @@
 
 - (void)keyboardWillShow:(NSNotification *)n
 {
+
+    _loginView.center = CGPointMake(1,1);
+ 
     // This is an ivar I'm using to ensure that we do not do the frame size adjustment on the `UIScrollView` if the keyboard is already shown.  This can happen if the user, after fixing editing a `UITextField`, scrolls the resized `UIScrollView` to another `UITextField` and attempts to edit the next `UITextField`.  If we were to resize the `UIScrollView` again, it would be disastrous.  NOTE: The keyboard notification will fire even when the keyboard is already shown.
-    if (_keyboardIsShown) {
-        return;
-    }
+ //   if (_keyboardIsShown) {
+ //       return;
+//    }
     
-    NSDictionary* userInfo = [n userInfo];
+ //   NSDictionary* userInfo = [n userInfo];
     
     // get the size of the keyboard
-    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+ //   CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    
+    
+    //move view
+    
+//    CGPoint newCenter = CGPointMake(1.0,1.0);
+    
+//    [UIView animateWithDuration: 15
+//                          delay: 0
+//                        options: (UIViewAnimationOptionCurveLinear | UIViewAnimationOptionAllowUserInteraction)
+//                     animations:^{_loginView.center = newCenter ;
+//                                    //_loginView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
+//                     }
+//                     completion:^(BOOL finished) { }
+//     ];
+ 
+
+    
+    
     
     // resize the noteView
-    CGRect viewFrame = _loginScrollView.frame;
+  //  CGRect viewFrame = _loginView.frame;
     // I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
-    viewFrame.size.height -= (keyboardSize.height + kTabBarHeight);
+ //   viewFrame.size.height -= (keyboardSize.height + kTabBarHeight);
     
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [_loginScrollView setFrame:viewFrame];
-    [UIView commitAnimations];
-    _keyboardIsShown = YES;
+ //   [UIView beginAnimations:nil context:NULL];
+  //  [UIView setAnimationBeginsFromCurrentState:YES];
+  //  [_loginView setFrame:viewFrame];
+  //  [UIView commitAnimations];
+  //  _keyboardIsShown = YES;
 }
-
 
 
 
 - (IBAction)SDSLogin:(id)sender {
     _loginLoading.hidden = NO;
     
+
     
     [[NSUserDefaults standardUserDefaults] setObject:self.username.text forKey:@"username"];
     [SSKeychain setPassword:_password.text forService:@"EcstaticFM" account:self.username.text];
 	[SDSAPI login: self.username.text password:self.password.text ID:self];
-    [SDSAPI createRoom: self.username.text];
 }
 
 //This method gets called when SDSAPI's login method returns with a true if the login was succesful
 - (void) loginReturnedTrue
 {
     //		[self performSegueWithIdentifier:@"succesfulLogin" sender:self];
+    [SDSAPI createRoom: self.username.text];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
     [self presentViewController:player_page animated:YES completion:nil];
@@ -268,6 +289,7 @@
 
 - (void) loginReturnedFalse
 {
+    NSLog(@"returned here");
 	self.loginLabel.text = @"Incorrect username or password.";
 }
 
