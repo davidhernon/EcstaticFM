@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "Playlist.h"
 #import "SoundCloudAPI.h"
+#import "SDSAPI.h"
 @protocol PlayerDelegate;
 
 @interface Player : NSObject
@@ -36,7 +37,7 @@
 -(void)seek:(float)value;
 -(BOOL)isPlaying;
 -(void) reloadUI;
-- (void) joinPlayingRoom:(int)index withElapsedTime:(int)elapsed andIsPlaying:(int)is_playing;
+- (void) joinPlayingRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(int)is_playing;
 
 
 @end

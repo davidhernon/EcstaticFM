@@ -53,9 +53,6 @@
             <string>Raleway</string>
             <string>Raleway</string>
         </mutableArray>
-        <mutableArray key="Raleway-Thin.ttf">
-            <string>Raleway-Thin</string>
-        </mutableArray>
     </customFonts>
     <scenes>
         <!--Navigation Controller-->
@@ -1186,6 +1183,24 @@ share your location?</string>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </tableViewCell>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="92" sectionHeaderHeight="22" sectionFooterHeight="22" id="RQQ-kR-8QL">
+                                <rect key="frame" x="-6" y="49" width="333" height="439"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="92" id="jcI-yE-oDb">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jcI-yE-oDb" id="hLc-8n-OeU">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="lya-SU-gzo" id="uBv-6c-Re5"/>
+                                    <outlet property="delegate" destination="lya-SU-gzo" id="Ttz-aY-r9N"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.76449095746854989" green="0.50370642064419868" blue="0.82419902150000002" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -1195,8 +1210,7 @@ share your location?</string>
                     </view>
                     <navigationItem key="navigationItem" id="cuC-EF-eQm"/>
                     <connections>
-                        <outlet property="chatScrollView" destination="BLS-0s-TgN" id="9KI-4U-t4D"/>
-                        <outlet property="chatTextField" destination="a39-3G-JzK" id="7BG-Bd-eYr"/>
+                        <outlet property="chat_table_view" destination="RQQ-kR-8QL" id="tur-Ya-hWb"/>
                         <outlet property="people_with_you" destination="Gj7-uQ-hvi" id="Roj-mA-V6j"/>
                     </connections>
                 </viewController>
@@ -1441,7 +1455,6 @@ on Soundcloud?</string>
         <image name="image_tri-logo-color.png" width="460" height="462"/>
         <image name="image_tri-logo.png" width="231" height="230"/>
         <image name="image_whitearrowleft.png" width="48" height="34"/>
-        <image name="image_whitearrowright.png" width="48" height="34"/>
         <image name="loading4.png" width="144" height="59"/>
         <image name="loadingdark1.png" width="144" height="58"/>
         <image name="spinner-16.png" width="302" height="302"/>

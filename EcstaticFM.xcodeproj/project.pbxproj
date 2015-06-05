@@ -33,6 +33,10 @@
 		1C37B7EF1AF5789A00566216 /* image_coverart.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C37B7E91AF5789A00566216 /* image_coverart.png */; };
 		1C37B7F01AF5789A00566216 /* image_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C37B7EA1AF5789A00566216 /* image_portrait.png */; };
 		1C37B7F11AF5789A00566216 /* image_waveform.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C37B7EB1AF5789A00566216 /* image_waveform.png */; };
+		1C47EF4A1B222991008D5DDD /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C47EF471B222991008D5DDD /* Message.m */; };
+		1C47EF4B1B222991008D5DDD /* MyMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C47EF481B222991008D5DDD /* MyMessageView.xib */; };
+		1C47EF4C1B222991008D5DDD /* OtherUserMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C47EF491B222991008D5DDD /* OtherUserMessageView.xib */; };
+		1C47EF501B222D5A008D5DDD /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C47EF4F1B222D5A008D5DDD /* MessageTableViewCell.m */; };
 		1C4861E61A7AB75C004EFEAD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428A91A799CE9001DB0AD /* Info.plist */; };
 		1C4861E71A7AB75C004EFEAD /* main.m in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
 		1C6D62DD1B1643B200F0EC27 /* UIRoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D62DC1B1643B200F0EC27 /* UIRoomView.m */; };
@@ -266,6 +270,12 @@
 		1C37B7E91AF5789A00566216 /* image_coverart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_coverart.png; sourceTree = "<group>"; };
 		1C37B7EA1AF5789A00566216 /* image_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_portrait.png; sourceTree = "<group>"; };
 		1C37B7EB1AF5789A00566216 /* image_waveform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_waveform.png; sourceTree = "<group>"; };
+		1C47EF461B222991008D5DDD /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		1C47EF471B222991008D5DDD /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		1C47EF481B222991008D5DDD /* MyMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyMessageView.xib; sourceTree = "<group>"; };
+		1C47EF491B222991008D5DDD /* OtherUserMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherUserMessageView.xib; sourceTree = "<group>"; };
+		1C47EF4E1B222D5A008D5DDD /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
+		1C47EF4F1B222D5A008D5DDD /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		1C6D62DB1B1643B200F0EC27 /* UIRoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRoomView.h; sourceTree = "<group>"; };
 		1C6D62DC1B1643B200F0EC27 /* UIRoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIRoomView.m; sourceTree = "<group>"; };
 		1C6D62DE1B16492600F0EC27 /* UIRoomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIRoomView.xib; sourceTree = "<group>"; };
@@ -971,6 +981,12 @@
 		DEEC122B1AFCFCD000E21C52 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				1C47EF4E1B222D5A008D5DDD /* MessageTableViewCell.h */,
+				1C47EF4F1B222D5A008D5DDD /* MessageTableViewCell.m */,
+				1C47EF461B222991008D5DDD /* Message.h */,
+				1C47EF471B222991008D5DDD /* Message.m */,
+				1C47EF481B222991008D5DDD /* MyMessageView.xib */,
+				1C47EF491B222991008D5DDD /* OtherUserMessageView.xib */,
 				DEEC12281AFCFCC800E21C52 /* ChatViewController.h */,
 				DEEC12291AFCFCC800E21C52 /* ChatViewController.m */,
 			);
@@ -1037,7 +1053,7 @@
 				TargetAttributes = {
 					1CA428A41A799CE9001DB0AD = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = VF62VHS44V;
+						DevelopmentTeam = 72PSY3QB44;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1046,7 +1062,7 @@
 					};
 					1CA428BD1A799CE9001DB0AD = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = VF62VHS44V;
+						DevelopmentTeam = 72PSY3QB44;
 						TestTargetID = 1CA428A41A799CE9001DB0AD;
 					};
 				};
@@ -1191,6 +1207,7 @@
 				DE4C262E1B1F5F920028C0C3 /* image_emptyroomcard.png in Resources */,
 				DE14B9F01AFFBF07004470C7 /* wave4.png in Resources */,
 				DEBE1DAB1B1A06C9003FE590 /* icon_email.png in Resources */,
+				1C47EF4C1B222991008D5DDD /* OtherUserMessageView.xib in Resources */,
 				DEEC12271AFCF79800E21C52 /* icon_person.png in Resources */,
 				DEBE1D9C1B1A04FB003FE590 /* spinner-8.png in Resources */,
 				DE14B9C91AFF1F56004470C7 /* image_paintdrip2.png in Resources */,
@@ -1207,6 +1224,7 @@
 				DE14B9F21AFFBF07004470C7 /* wave6.png in Resources */,
 				DE14B9BF1AFF0BF0004470C7 /* button_controlsback.png in Resources */,
 				DE4C26261B1F58920028C0C3 /* button_search.png in Resources */,
+				1C47EF4B1B222991008D5DDD /* MyMessageView.xib in Resources */,
 				1C7AC2BE1B14FDD30007149B /* SoundCloudSearchView.xib in Resources */,
 				DEBE1D971B1A04FB003FE590 /* spinner-3.png in Resources */,
 				DE14BA031AFFE3E0004470C7 /* image_progressbar.png in Resources */,
@@ -1293,6 +1311,7 @@
 				DE14B9E21AFFB115004470C7 /* PlayerPageViewController.m in Sources */,
 				1C6D62E51B1A223D00F0EC27 /* UIEventView.m in Sources */,
 				1C291D9B1AFFF2A1006A2B4F /* WebSocket.swift in Sources */,
+				1C47EF4A1B222991008D5DDD /* Message.m in Sources */,
 				1C291D9E1B014B96006A2B4F /* AroundMeTableViewCell.m in Sources */,
 				1C291D991AFFF2A1006A2B4F /* SocketParser.swift in Sources */,
 				1C291D911AFFF2A1006A2B4F /* SocketAckMap.swift in Sources */,
@@ -1320,6 +1339,7 @@
 				1C2251441A9E7CA600210324 /* MediaItem.m in Sources */,
 				1CB9BB341AA2459000748236 /* SDSAPI.m in Sources */,
 				1C13A9481AB9BF4800B2DF81 /* MediaItemTableViewCell.m in Sources */,
+				1C47EF501B222D5A008D5DDD /* MessageTableViewCell.m in Sources */,
 				1CA428AB1A799CE9001DB0AD /* main.m in Sources */,
 				1C2251471A9E7E5F00210324 /* Playlist.m in Sources */,
 				1CB8355A1B027BA60003D9DC /* SSKeychain.m in Sources */,
