@@ -66,6 +66,9 @@ static NSString* around_me_event_cell = @"around_me_cell";
     // get the upcoming events and populate them on screen
     for(NSDictionary *event in _upcoming_events)
     {
+        if(event == [NSNull null]){
+            continue;
+        }
         UIEventView *room_view = [[UIEventView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:event withRoomController:self];
         [_roomsScrollView addSubview:room_view];
         x += (234) + 15;
@@ -78,6 +81,9 @@ static NSString* around_me_event_cell = @"around_me_cell";
     // get the rooms around me and populate them in their cells
     for( NSDictionary *room in _rooms_around_me)
     {
+        if(room == [NSNull null]){
+            continue;
+        }
         UIAroundMeView *room_view = [[UIAroundMeView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:room withRoomController:self];
         [_roomsScrollView addSubview:room_view];
         x += (234) + 15;
