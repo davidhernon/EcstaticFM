@@ -372,6 +372,7 @@ static SocketIOClient *static_socket;
         [static_socket emitObjc:@"join_room" withItems:@[joinJson]];
     }
     [Room currentRoom].room_number = new_room_number;
+    [[Room currentRoom] makeNotOwner];
     [SDSAPI getPlaylist:new_room_number];
 }
 

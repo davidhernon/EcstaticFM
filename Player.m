@@ -151,13 +151,13 @@ the delegate to Player for Player to communicate with a view controller
     _avPlayer = [AVPlayer playerWithURL:[NSURL URLWithString:urlString]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioPlayerDidFinishPlaying) name:AVPlayerItemDidPlayToEndTimeNotification object:[_avPlayer currentItem]];
     [_avPlayer play];
-    [SDSAPI updatePlayerState];
-//    _avPlayer.rate = 1.0;
+    if([Room currentRoom].is_owner)
+    {
+        [SDSAPI updatePlayerState];
+    }
     [_delegate initPlayerUI:(1.0f*CMTimeGetSeconds(_avPlayer.currentItem.asset.duration)) withTrack:_currentTrack atIndex:_currentTrackIndex];
     _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
     _isPaused = NO;
-//    if(_currentTrackIndex !=0 && _currentTrackIndex != [[Playlist sharedPlaylist] count])
-//        _isNextSong = YES;
     NSLog(@"make sure player UI reflects that songs is playing");
 }
 
@@ -292,7 +292,7 @@ the delegate to Player for Player to communicate with a view controller
     [self seek:(elspd)];
     [_delegate setCurrentSliderValue:_avPlayer];
     [self reloadUI];
-    if(is_playing)
+    if(!is_playing)
     {
         [self play];
     }
