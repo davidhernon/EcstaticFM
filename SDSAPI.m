@@ -186,17 +186,16 @@ static SocketIOClient *static_socket;
         NSDictionary *d = (NSDictionary*)data[0];
         NSDictionary *player_state = [d objectForKey:@"player_state"];
         
+        NSNumber *current_time_from_server = (NSNumber*)[d objectForKey:@"current_time"];
+        
         int song_index = [[player_state objectForKey:@"playing_song_index"] intValue];
         int is_playing = [[player_state objectForKey:@"is_playing"] intValue];
         
         
         NSNumber *elapsed_time = [NSNumber numberWithInt:[[player_state objectForKey:@"elapsed"] intValue]];
-        NSNumber *server_timestamp = [NSNumber numberWithLong:[[player_state objectForKey:@"timestamp"] longValue]];
+        NSNumber *server_timestamp = (NSNumber*)[player_state objectForKey:@"timestamp"];
         
-        NSTimeInterval timeStamp = [@(floor([[NSDate date] timeIntervalSince1970] * 1000)) longLongValue];
-        NSNumber *my_timestamp = [NSNumber numberWithDouble: timeStamp];
-        
-        int el = [my_timestamp intValue] - [server_timestamp intValue] + [elapsed_time intValue];
+        int el = [current_time_from_server intValue] - [server_timestamp intValue] + [elapsed_time intValue];
 
         [[Player sharedPlayer] joinPlayingRoom:song_index withElapsedTime:el andIsPlaying:is_playing];
     }];
@@ -340,7 +339,6 @@ static SocketIOClient *static_socket;
     }
     
     
-    
 }
 
 +(void)leaveRoom
@@ -432,6 +430,16 @@ static SocketIOClient *static_socket;
     NSDictionary *play_query = [NSDictionary dictionaryWithObjects:@[username, room_number, @"last", [self getDictForPlayerState]] forKeys:@[@"username", @"room_number", @"msg_type", @"player_state"]];
     NSData *json = [NSJSONSerialization dataWithJSONObject:play_query options:nil error:nil];
     [static_socket emitObjc:@"player" withItems:@[json]];
+}
+
++(void) updatePlayerState
+{
+    NSString *room_number = [Room currentRoom].room_number;
+    NSDictionary *ps = [self getDictForPlayerState];
+    
+    NSDictionary *update_query = [NSDictionary dictionaryWithObjects:@[room_number, ps] forKeys:@[@"room_number", @"player_state"]];
+    NSData *json = [NSJSONSerialization dataWithJSONObject:update_query options:nil error:nil];
+    [static_socket emitObjc:@"update_player_state" withItems:@[json]];
 }
 
 +(void) seek
