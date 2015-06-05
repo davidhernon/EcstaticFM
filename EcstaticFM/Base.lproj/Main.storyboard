@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bOe-aM-vI5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bOe-aM-vI5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -48,9 +48,6 @@
             <string>Raleway</string>
             <string>Raleway</string>
         </mutableArray>
-        <mutableArray key="Raleway-Thin.ttf">
-            <string>Raleway-Thin</string>
-        </mutableArray>
     </customFonts>
     <scenes>
         <!--Navigation Controller-->
@@ -86,7 +83,7 @@
             <objects>
                 <viewController storyboardIdentifier="geoAskVC" id="EBF-eh-6t1" customClass="geoAskViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3hJ-aG-FG0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z0X-aX-qNV">
@@ -437,8 +434,8 @@ share your location?</string>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="loginButton" destination="94z-tj-JOq" id="pF5-ee-gb6"/>
-                        <outlet property="loginLoading" destination="lxN-bJ-5oJ" id="oj9-hz-boi"/>
                         <outlet property="loginLabel" destination="tXs-Cn-kP1" id="YsH-qt-Ef7"/>
+                        <outlet property="loginLoading" destination="lxN-bJ-5oJ" id="oj9-hz-boi"/>
                         <outlet property="loginScrollView" destination="Ndl-hg-wy8" id="Upr-6o-cHZ"/>
                         <outlet property="password" destination="xcA-jx-oUM" id="HBQ-YL-Rnl"/>
                         <outlet property="username" destination="JGO-sv-2TQ" id="Pg8-Vu-66Y"/>
@@ -939,43 +936,6 @@ share your location?</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="BLS-0s-TgN">
-                                <rect key="frame" x="0.0" y="54" width="320" height="426"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" id="s29-jr-b64">
-                                        <rect key="frame" x="16" y="352" width="288" height="66"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Type your message ..." textAlignment="center" minimumFontSize="17" id="a39-3G-JzK">
-                                                <rect key="frame" x="11" y="8" width="269" height="50"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="textColor" red="0.070033482142857095" green="0.070033482142857095" blue="0.070033482142857095" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="Raleway-Thin" family="Raleway" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light"/>
-                                            </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_portrait.png" id="dZf-RT-gKx">
-                                                <rect key="frame" x="314" y="0.0" width="40" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="12"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_whitearrowright.png" id="2V6-pY-1f2">
-                                        <rect key="frame" x="301" y="392" width="12" height="12"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                            </scrollView>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="104" id="bA8-v0-geU">
                                 <rect key="frame" x="0.0" y="488" width="320" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -983,7 +943,7 @@ share your location?</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="ixu-xt-lhn">
-                                            <rect key="frame" x="56" y="8" width="10000" height="3436"/>
+                                            <rect key="frame" x="56" y="8" width="10000" height="3000"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>
@@ -1004,6 +964,24 @@ share your location?</string>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </tableViewCell>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="92" sectionHeaderHeight="22" sectionFooterHeight="22" id="RQQ-kR-8QL">
+                                <rect key="frame" x="-6" y="49" width="333" height="439"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="92" id="jcI-yE-oDb">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jcI-yE-oDb" id="hLc-8n-OeU">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="lya-SU-gzo" id="uBv-6c-Re5"/>
+                                    <outlet property="delegate" destination="lya-SU-gzo" id="Ttz-aY-r9N"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.76449095746854989" green="0.50370642064419868" blue="0.82419902150000002" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -1013,8 +991,7 @@ share your location?</string>
                     </view>
                     <navigationItem key="navigationItem" id="cuC-EF-eQm"/>
                     <connections>
-                        <outlet property="chatScrollView" destination="BLS-0s-TgN" id="9KI-4U-t4D"/>
-                        <outlet property="chatTextField" destination="a39-3G-JzK" id="7BG-Bd-eYr"/>
+                        <outlet property="chat_table_view" destination="RQQ-kR-8QL" id="tur-Ya-hWb"/>
                         <outlet property="people_with_you" destination="Gj7-uQ-hvi" id="Roj-mA-V6j"/>
                     </connections>
                 </viewController>
@@ -1267,7 +1244,6 @@ on Soundcloud?</string>
         <image name="image_tri-logo-color.png" width="460" height="462"/>
         <image name="image_tri-logo.png" width="231" height="230"/>
         <image name="image_whitearrowleft.png" width="48" height="34"/>
-        <image name="image_whitearrowright.png" width="48" height="34"/>
         <image name="loading4.png" width="144" height="59"/>
         <image name="loadingdark1.png" width="144" height="58"/>
         <image name="spinner-16.png" width="302" height="302"/>

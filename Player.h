@@ -37,7 +37,7 @@
 -(void)seek:(float)value;
 -(BOOL)isPlaying;
 -(void) reloadUI;
-- (void) joinPlayingRoom:(int)index withElapsedTime:(int)elapsed andIsPlaying:(int)is_playing;
+- (void) joinPlayingRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(int)is_playing;
 
 
 @end

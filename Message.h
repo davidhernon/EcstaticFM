@@ -12,5 +12,4 @@
 
 @property (weak, nonatomic) NSString *user;
 @property (weak, nonatomic) NSString *content;
-
 @end
