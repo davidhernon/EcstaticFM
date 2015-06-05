@@ -151,6 +151,7 @@ the delegate to Player for Player to communicate with a view controller
     _avPlayer = [AVPlayer playerWithURL:[NSURL URLWithString:urlString]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioPlayerDidFinishPlaying) name:AVPlayerItemDidPlayToEndTimeNotification object:[_avPlayer currentItem]];
     [_avPlayer play];
+    [SDSAPI updatePlayerState];
 //    _avPlayer.rate = 1.0;
     [_delegate initPlayerUI:(1.0f*CMTimeGetSeconds(_avPlayer.currentItem.asset.duration)) withTrack:_currentTrack atIndex:_currentTrackIndex];
     _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
