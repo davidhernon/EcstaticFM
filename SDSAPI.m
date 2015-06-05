@@ -195,7 +195,10 @@ static SocketIOClient *static_socket;
         NSNumber *elapsed_time = [NSNumber numberWithInt:[[player_state objectForKey:@"elapsed"] intValue]];
         NSNumber *server_timestamp = (NSNumber*)[player_state objectForKey:@"timestamp"];
         
-        float el = [current_time_from_server floatValue] - [server_timestamp floatValue] + [elapsed_time floatValue];
+        float ctfs = [current_time_from_server longValue];
+        float st = [server_timestamp longValue];
+        float et = [elapsed_time intValue];
+        float el = (float)ctfs - (float)st + (float)(1.0f*et);
 
         [[Player sharedPlayer] joinPlayingRoom:song_index withElapsedTime:el andIsPlaying:is_playing];
     }];

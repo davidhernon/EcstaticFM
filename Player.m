@@ -287,6 +287,7 @@ the delegate to Player for Player to communicate with a view controller
 - (void) joinPlayingRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(int)is_playing
 {
     float elspd = (elapsed) / 1000.0f;
+    NSLog(@"elapsed: %f", elapsed);
     _currentTrack = [[Playlist sharedPlaylist].playlist objectAtIndex:index];
     _currentTrackIndex = index;
     [self seek:(elspd)];
