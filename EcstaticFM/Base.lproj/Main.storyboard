@@ -635,12 +635,12 @@ share your location?</string>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="loginButton" destination="94z-tj-JOq" id="pF5-ee-gb6"/>
-                        <outlet property="loginLabel" destination="tXs-Cn-kP1" id="YsH-qt-Ef7"/>
+                        <outlet property="loginLabel" destination="LRw-9w-5HP" id="FRz-Xj-ToJ"/>
                         <outlet property="loginLoading" destination="lxN-bJ-5oJ" id="oj9-hz-boi"/>
                         <outlet property="loginScrollView" destination="Ndl-hg-wy8" id="Upr-6o-cHZ"/>
                         <outlet property="loginView" destination="AIM-do-p8o" id="2t9-Z1-zJ9"/>
-                        <outlet property="password" destination="xcA-jx-oUM" id="HBQ-YL-Rnl"/>
-                        <outlet property="username" destination="JGO-sv-2TQ" id="Pg8-Vu-66Y"/>
+                        <outlet property="password" destination="nbE-v3-bJ9" id="bk8-01-MGx"/>
+                        <outlet property="username" destination="SMm-SV-xNh" id="FDs-Sa-Awc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iU6-sO-xiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1127,45 +1127,14 @@ share your location?</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BLS-0s-TgN">
-                                <rect key="frame" x="0.0" y="54" width="320" height="426"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s29-jr-b64">
-                                        <rect key="frame" x="16" y="352" width="288" height="66"/>
-                                        <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Type your message ..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a39-3G-JzK">
-                                                <rect key="frame" x="11" y="8" width="269" height="50"/>
-                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="textColor" red="0.070033482142857095" green="0.070033482142857095" blue="0.070033482142857095" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="Raleway-Thin" family="Raleway" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light"/>
-                                            </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_portrait.png" translatesAutoresizingMaskIntoConstraints="NO" id="dZf-RT-gKx">
-                                                <rect key="frame" x="314" y="0.0" width="40" height="40"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="12"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_whitearrowright.png" translatesAutoresizingMaskIntoConstraints="NO" id="2V6-pY-1f2">
-                                        <rect key="frame" x="301" y="392" width="12" height="12"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                            </scrollView>
-                            <tableViewCell contentMode="scaleToFill" fixedFrame="YES" selectionStyle="default" indentationWidth="10" rowHeight="104" translatesAutoresizingMaskIntoConstraints="NO" id="bA8-v0-geU">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="104" id="bA8-v0-geU">
                                 <rect key="frame" x="0.0" y="488" width="320" height="104"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bA8-v0-geU" id="Rp6-dT-8fk">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ixu-xt-lhn">
-                                            <rect key="frame" x="56" y="8" width="10000" height="3436"/>
+                                        <view contentMode="scaleToFill" id="ixu-xt-lhn">
+                                            <rect key="frame" x="56" y="8" width="10320" height="3103"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

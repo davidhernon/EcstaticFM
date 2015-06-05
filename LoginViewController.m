@@ -289,8 +289,8 @@
 
 - (void) loginReturnedFalse
 {
-    NSLog(@"returned here");
-	self.loginLabel.text = @"Incorrect username or password.";
+    _loginLoading.hidden=true;
+    self.loginLabel.text = @"Incorrect username or password.";
 }
 
 - (IBAction)fbLogin:(id)sender {
