@@ -9,6 +9,8 @@
 #import "RoomsViewController.h"
 #import "Room.h"
 #import "MediaItem.h"
+#import "AppDelegate.h"
+@class Player;
 @class LoginViewController;
 @interface SDSAPI : NSObject
 

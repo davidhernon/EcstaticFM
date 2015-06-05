@@ -15,6 +15,7 @@ DerivedData
 xcuserdata
 *.xcworkspace
 !default.xcworkspace
+*.pbxproj
 
 ## Other
 *.xccheckout

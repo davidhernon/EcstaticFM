@@ -27,6 +27,12 @@
     _player = [[Player alloc] init];
     _locationServices = [[LocationServices alloc]init];
     [SDSAPI connect];
+	
+	// Initialize the library with your Mixpanel project token, MIXPANEL_TOKEN
+	[Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
+	
+	// Later, you can get your instance with
+	self.mixpanel = [Mixpanel sharedInstance];
     return YES;
     
     

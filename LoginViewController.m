@@ -268,7 +268,7 @@
 
 - (void) loginReturnedFalse
 {
-    NSLog(@"unsuccessful login");
+	self.loginLabel.text = @"Incorrect username or password.";
 }
 
 - (IBAction)fbLogin:(id)sender {
