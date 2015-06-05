@@ -434,7 +434,7 @@ share your location?</string>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="loginButton" destination="94z-tj-JOq" id="pF5-ee-gb6"/>
-                        <outlet property="loginLabel" destination="tXs-Cn-kP1" id="YsH-qt-Ef7"/>
+                        <outlet property="loginLabel" destination="LRw-9w-5HP" id="FRz-Xj-ToJ"/>
                         <outlet property="loginLoading" destination="lxN-bJ-5oJ" id="oj9-hz-boi"/>
                         <outlet property="loginScrollView" destination="Ndl-hg-wy8" id="Upr-6o-cHZ"/>
                         <outlet property="password" destination="xcA-jx-oUM" id="HBQ-YL-Rnl"/>
