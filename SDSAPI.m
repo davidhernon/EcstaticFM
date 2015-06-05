@@ -88,10 +88,10 @@ static SocketIOClient *static_socket;
                                 {
                                     NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                     if ([responseString  isEqual: @"successful_login"]) {
-										[callingViewController performSelectorOnMainThread:@selector(loginReturnedTrue) withObject:nil waitUntilDone:NO];
-									}
+                                        [callingViewController performSelectorOnMainThread:@selector(loginReturnedTrue) withObject:nil waitUntilDone:NO];
+                                    }
                                     else{
-										[callingViewController loginReturnedFalse];
+                                        [callingViewController loginReturnedFalse];
                                     }
                                 }];
                            }];
@@ -101,73 +101,73 @@ static SocketIOClient *static_socket;
 //}
 +(void) signup:(NSString*)username password:(NSString*)pass email:(NSString*)email ID:(id)callingViewController
 {
-	// at the top
-	static NSString *csrf_cookie;
-	
-	// in a function:
-	NSURL *url = [[NSURL alloc] initWithString:@"http://54.173.157.204/"];
-	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-	[request setHTTPShouldHandleCookies:YES];
-	
-	[request setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]]];
-	
-	// make GET request are store the csrf
-	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]
-						   completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-							   NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:[(NSHTTPURLResponse *)response allHeaderFields] forURL:url];
-							   [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookies:cookies forURL:url mainDocumentURL:nil];
-							   // for some reason we need to re-store the CSRF token as X_CSRFTOKEN
-							   for (NSHTTPCookie *cookie in cookies) {
-								   if ([cookie.name isEqualToString:@"csrftoken"]) {
-									   csrf_cookie = cookie.value;
-									   NSLog(@"cookie.value=%@", cookie.value);
-									   break;
-								   }
-							   }
-							   NSString* urlString = @"http://54.173.157.204/auth/createprofileiOS/";
-							   NSURL *url = [NSURL URLWithString:urlString];
-							   
-							   NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-							   [urlRequest setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]]];
-							   [urlRequest addValue:csrf_cookie forHTTPHeaderField:@"X_CSRFTOKEN"];
-							   [urlRequest setHTTPMethod:@"POST"];
-							   NSString* bodyData = [NSString stringWithFormat:@"username=%@&password=%@&email=%@", username, pass, email];
-							   [urlRequest setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:strlen([bodyData UTF8String])]];
-							   NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-							   
-							   [NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-								{
-									NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-									
-									if ([responseString  isEqual: @"True"]) {
-										[callingViewController performSelectorOnMainThread:@selector(signupSuccess) withObject:nil waitUntilDone:NO];
-									}
-									else{
-										[callingViewController performSelectorOnMainThread:@selector(signupFailure:) withObject:responseString waitUntilDone:NO];
-									}
-								}];
-						   }];
+    // at the top
+    static NSString *csrf_cookie;
+    
+    // in a function:
+    NSURL *url = [[NSURL alloc] initWithString:@"http://54.173.157.204/"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPShouldHandleCookies:YES];
+    
+    [request setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]]];
+    
+    // make GET request are store the csrf
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:[(NSHTTPURLResponse *)response allHeaderFields] forURL:url];
+                               [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookies:cookies forURL:url mainDocumentURL:nil];
+                               // for some reason we need to re-store the CSRF token as X_CSRFTOKEN
+                               for (NSHTTPCookie *cookie in cookies) {
+                                   if ([cookie.name isEqualToString:@"csrftoken"]) {
+                                       csrf_cookie = cookie.value;
+                                       NSLog(@"cookie.value=%@", cookie.value);
+                                       break;
+                                   }
+                               }
+                               NSString* urlString = @"http://54.173.157.204/auth/createprofileiOS/";
+                               NSURL *url = [NSURL URLWithString:urlString];
+                               
+                               NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+                               [urlRequest setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]]];
+                               [urlRequest addValue:csrf_cookie forHTTPHeaderField:@"X_CSRFTOKEN"];
+                               [urlRequest setHTTPMethod:@"POST"];
+                               NSString* bodyData = [NSString stringWithFormat:@"username=%@&password=%@&email=%@", username, pass, email];
+                               [urlRequest setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:strlen([bodyData UTF8String])]];
+                               NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+                               
+                               [NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+                                {
+                                    NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                    
+                                    if ([responseString  isEqual: @"True"]) {
+                                        [callingViewController performSelectorOnMainThread:@selector(signupSuccess) withObject:nil waitUntilDone:NO];
+                                    }
+                                    else{
+                                        [callingViewController performSelectorOnMainThread:@selector(signupFailure:) withObject:responseString waitUntilDone:NO];
+                                    }
+                                }];
+                           }];
 }
 
 +(void) fbLogin{
-	
+    
 }
 
 + (void) connect{
     static_socket = [[SocketIOClient alloc] initWithSocketURL:@"http://54.173.157.204:8888" options:nil];
-	
-	[static_socket on: @"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
-		NSLog(@"here connected");
-	}];
-	
+    
+    [static_socket on: @"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
+        NSLog(@"here connected");
+    }];
+    
     [static_socket on: @"return_post_location" callback: ^(NSArray* data, void (^ack)(NSArray*)){
         NSLog(@"Posted a location");
     }];
-	
+    
     [static_socket on:@"return_create_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSLog(@"create room returned,%@", data[0]);
         NSDictionary* room_info_dict =[((NSDictionary*) data[0]) objectForKey:@"room_info"];
-//        NSArray* room_info = [room_info_dict objectForKey:@"room_info"];
+        //        NSArray* room_info = [room_info_dict objectForKey:@"room_info"];
         [[Room currentRoom] initWithDict:room_info_dict];
     }];
     
@@ -250,7 +250,7 @@ static SocketIOClient *static_socket;
         [[Playlist sharedPlaylist] reloadPlayer];
         NSLog(@"song received");
     }];
-
+    
     [static_socket connect];
 }
 
@@ -259,7 +259,7 @@ static SocketIOClient *static_socket;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         while(!static_socket.connected){
-//            NSLog(@"static_socket connected inside=%d", static_socket.connected);
+            //            NSLog(@"static_socket connected inside=%d", static_socket.connected);
             [NSThread sleepForTimeInterval:0.1f];
         }
         
@@ -282,19 +282,19 @@ static SocketIOClient *static_socket;
         [sender showRoomsScrollView:locationsArray];
     }];
     
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-		
-		while(!static_socket.connected){
-//			NSLog(@"static_socket connected inside=%d", static_socket.connected);
-			[NSThread sleepForTimeInterval:0.1f];
-		}
-		
-		NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: username, nil]
-																	forKeys:[NSArray arrayWithObjects:@"username", nil]];
-		
-		NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
-		[static_socket emitObjc:@"get_rooms_around_me" withItems:@[jsonData]];
-	});
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        while(!static_socket.connected){
+            //			NSLog(@"static_socket connected inside=%d", static_socket.connected);
+            [NSThread sleepForTimeInterval:0.1f];
+        }
+        
+        NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: username, nil]
+                                                                    forKeys:[NSArray arrayWithObjects:@"username", nil]];
+        
+        NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
+        [static_socket emitObjc:@"get_rooms_around_me" withItems:@[jsonData]];
+    });
     
     
 }
@@ -303,11 +303,11 @@ static SocketIOClient *static_socket;
 {
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-       while(!static_socket.connected)
-       {
-//           NSLog(@"waiting to connect!");
-           [NSThread sleepForTimeInterval:0.1f];
-       }
+        while(!static_socket.connected)
+        {
+            //           NSLog(@"waiting to connect!");
+            [NSThread sleepForTimeInterval:0.1f];
+        }
         NSLog(@"username, latitude, longitude: %@, %f, %f", username, latitude, longitude);
         NSArray *objects = [NSArray arrayWithObjects:username, @(latitude), @(longitude), nil];
         NSArray *keys = [NSArray arrayWithObjects:@"username", @"latitude", @"longitude", nil];
@@ -421,7 +421,7 @@ static SocketIOClient *static_socket;
     return [NSDictionary dictionaryWithObjects:@[ [NSString stringWithFormat:@"%i",[[Player sharedPlayer] isPlaying]], [NSString stringWithFormat:@"%i", [Player sharedPlayer].currentTrackIndex], elspd] forKeys:@[@"is_playing", @"playing_song_index", @"elapsed"]];
 }
 
- +(void) last
++(void) last
 {
     NSString *room_number = [Room currentRoom].room_number;
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];

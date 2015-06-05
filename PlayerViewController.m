@@ -7,7 +7,7 @@
 //
 
 #import "PlayerViewController.h"
-#import "Room.h"
+
 
 @interface PlayerViewController ()
 
@@ -19,6 +19,34 @@ static NSString* cellIdentifier = @"playListCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+        _controlsView.hidden = YES;
+    
+    // Load images
+    NSArray *imageNames = @[@"spinner-1.png", @"spinner-2.png", @"spinner-3.png", @"spinner-4.png",
+                            @"spinner-5.png", @"spinner-6.png", @"spinner-7.png", @"spinner-8.png", @"spinner-9.png", @"spinner-10.png", @"spinner-11.png", @"spinner-12.png", @"spinner-13.png", @"spinner-14.png", @"spinner-15.png", @"spinner-16.png"];
+    
+    NSMutableArray *images = [[NSMutableArray alloc] init];
+    for (int i = 0; i < imageNames.count; i++) {
+        [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
+    }
+    
+    
+    // Normal Animation
+   //  UIImageView *_playerSpinner = [[UIImageView alloc] initWithFrame:CGRectMake(60, 95, 86, 193)];
+    _playerSpinner.animationImages = images;
+    _playerSpinner.animationDuration = 1.2;
+    
+    [self.view addSubview:_playerSpinner];
+    _playerSpinner.hidden = YES;
+
+    
+
+    
+ //   _controlsView.hidden = YES;
+//    _controlsDarkenView.hidden = YES;
+    
+    
   //  [self.player updatePlaylist];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
@@ -61,18 +89,34 @@ static NSString* cellIdentifier = @"playListCell";
     [self.player addDelegate:self];
     [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
     
-    //_current_album_artwork.layer.shadowColor = [UIColor blackColor].CGColor;
-//    _current_album_artwork.layer.shadowRadius = 10.f;
-//    _current_album_artwork.layer.shadowOffset = CGSizeMake(0.f, 5.f);
-//    _current_album_artwork.layer.shadowOpacity = 1.f;
+    _current_album_artwork.layer.shadowColor = [UIColor blackColor].CGColor;
+    _current_album_artwork.layer.shadowRadius = 10.f;
+    _current_album_artwork.layer.shadowOffset = CGSizeMake(0.f, 5.f);
+    _current_album_artwork.layer.shadowOpacity = 1.f;
     _current_album_artwork.clipsToBounds = NO;
     _playListTableView.tableHeaderView = __playerTableHeaderView;
     _playListTableView.tableFooterView = __playerAddMusicCell;
     
     // Allow multiple checkmarks
 //     _playListTableView.allowsMultipleSelection = YES;
-
+    
 }
+
+
+
+        
+//            int64_t delayInSeconds = 1.0f;
+//            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+//           
+//            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+//               [_playerSpinner stopAnimating];
+//                   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Gestures" message:@"Long Gesture Detected" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//                   [alertView show];
+//                    });
+//        }
+        
+
+
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -85,9 +129,7 @@ static NSString* cellIdentifier = @"playListCell";
     //If no playlist then make buttons hidden
     if([_playlist count] == 0)
     {
-        _play.hidden = YES;
-        _last.hidden = YES;
-        _next.hidden = YES;
+        //_playerShowControlsButton.hidden = YES;
         _add_songs_welcome.hidden = NO;
         _slider.hidden = YES;
         _coveralpha.hidden = YES;
@@ -97,9 +139,11 @@ static NSString* cellIdentifier = @"playListCell";
         _current_time.hidden = YES;
         _current_user_picture.hidden = YES;
         _welcomehome.hidden = NO;
-        _darken_view.hidden = YES;
+
+        
         
     }else{
+        //_playerShowControlsButton.hidden = NO;
         _play.hidden = NO;
         _last.hidden = NO;
         _next.hidden = NO;
@@ -113,7 +157,6 @@ static NSString* cellIdentifier = @"playListCell";
         _current_time.hidden = NO;
         _current_user_picture.hidden = NO;
         _welcomehome.hidden = YES;
-        _darken_view.hidden = YES;
         float fl;
         if(_player.currentTrackIndex == 0 && isnan(CMTimeGetSeconds(_player.avPlayer.currentItem.asset.duration))){
             fl = 0.0f;
@@ -151,9 +194,6 @@ static NSString* cellIdentifier = @"playListCell";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MediaItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    cell.rightUtilityButtons = [self rightButtons];
-    cell.delegate = self;
     
     MediaItem *track = [self.playlist objectAtIndex:indexPath.row];
     
@@ -195,16 +235,6 @@ static NSString* cellIdentifier = @"playListCell";
 }
 
 
-- (NSArray *)rightButtons
-{
-    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
-    [rightUtilityButtons sw_addUtilityButtonWithColor:
-     [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
-                                                title:@"Delete"];
-    
-    return rightUtilityButtons;
-}
-
 
 // This method gets called when a row in the table is selected
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -212,97 +242,6 @@ static NSString* cellIdentifier = @"playListCell";
 
 }
 
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        [_c removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    }
-}
-
-- (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Detemine if it's in editing mode
-    if (_playListTableView.editing)
-    {
-        return UITableViewCellEditingStyleNone;
-    }
-    
-    return UITableViewCellEditingStyleNone;
-}
-
-- (BOOL)tableView:(UITableView *)tableview shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
-    return NO;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
-    switch (index) {
-        case 0:
-            NSLog(@"More button was pressed");
-            break;
-        case 1:
-        {
-            // Delete button was pressed
-            NSIndexPath *cellIndexPath = [_playListTableView indexPathForCell:cell];
-            
-//            [_testArray removeObjectAtIndex:cellIndexPath.row];
-            [_playListTableView deleteRowsAtIndexPaths:@[cellIndexPath]
-                                  withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-        }
-        default:
-            break;
-    }
-}
-
-- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //	Grip customization code goes in here...
-    UIView* reorderControl = [cell huntedSubviewWithClassName:@"UITableViewCellReorderControl"];
-    
-    UIView* resizedGripView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetMaxX(reorderControl.frame), CGRectGetMaxY(reorderControl.frame))];
-    [resizedGripView addSubview:reorderControl];
-    [cell addSubview:resizedGripView];
-    
-    CGSize sizeDifference = CGSizeMake(resizedGripView.frame.size.width - reorderControl.frame.size.width, resizedGripView.frame.size.height - reorderControl.frame.size.height);
-    CGSize transformRatio = CGSizeMake(resizedGripView.frame.size.width / reorderControl.frame.size.width, resizedGripView.frame.size.height / reorderControl.frame.size.height);
-    
-    //	Original transform
-    CGAffineTransform transform = CGAffineTransformIdentity;
-    
-    //	Scale custom view so grip will fill entire cell
-    transform = CGAffineTransformScale(transform, transformRatio.width, transformRatio.height);
-    
-    //	Move custom view so the grip's top left aligns with the cell's top left
-    transform = CGAffineTransformTranslate(transform, -sizeDifference.width / 2.0, -sizeDifference.height / 2.0);
-    
-    [resizedGripView setTransform:transform];
-    
-    for(UIImageView* cellGrip in reorderControl.subviews)
-    {
-        if([cellGrip isKindOfClass:[UIImageView class]])
-            [cellGrip setImage:nil];
-    }
-}
-
--(IBAction)reorder:(id)sender
-{
-    if(_playListTableView.editing)
-        _playListTableView.editing = NO;
-    else
-        _playListTableView.editing = YES;
-}
 /**
  Initialize the Player UI with information from the currentTrack
  @param currentTrack
@@ -310,6 +249,7 @@ static NSString* cellIdentifier = @"playListCell";
  */
 - (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack atIndex:(int)index
 {
+    NSLog(@"Is the index null? : %d",index);
     _slider.maximumValue = duration;
     _slider.value = 0.0;
     _current_artist.text = currentTrack.artist;
@@ -317,7 +257,7 @@ static NSString* cellIdentifier = @"playListCell";
     _current_duration.text = currentTrack.duration;
     _current_time.text = @"0";
     _current_album_artwork.image = currentTrack.artwork;
-    _current_waveform.image = currentTrack.waveform_url;
+//    _current_waveform.image = currentTrack.waveform_url;
     _current_track_index = index;
     [self.playListTableView reloadData];
 }
@@ -370,15 +310,16 @@ static NSString* cellIdentifier = @"playListCell";
  */
 - (IBAction)play:(id)sender
 {
-    [SDSAPI play];
     [self.player updatePlaylist];
     [self.player play];
-    
+
 }
 
 -(void) pause
 {
     [self.player pause];
+
+
 }
 
 -(IBAction)last:(id)sender
@@ -419,4 +360,31 @@ static NSString* cellIdentifier = @"playListCell";
 		[self presentViewController:geoAskVC animated:YES completion:nil];
     }
 }
+- (IBAction)playerControlsClicked:(id)sender {
+    _controlsView.hidden = NO;
+    _controlsDarkenView.hidden = NO;
+    _playerShowControlsButton.hidden = YES;
+    _playerHideControlsButton.hidden = NO;
+    
+}
+- (IBAction)playerControlsUnClicked:(id)sender {
+    _controlsView.hidden = YES;
+    _controlsDarkenView.hidden = YES;
+    _playerHideControlsButton.hidden = YES;
+    _playerShowControlsButton.hidden = NO;
+    
+}
+
+-(void)showPlayButton {
+    [_play setImage:[UIImage imageNamed:@"button_playnew.png"] forState:UIControlStateNormal];
+    [_play setSelected:NO];
+}
+
+-(void)showPauseButton {
+    [_play setImage:[UIImage imageNamed:@"button_pausenew.png"] forState:UIControlStateSelected];
+    [_play setSelected:YES];
+}
+
 @end
+
+

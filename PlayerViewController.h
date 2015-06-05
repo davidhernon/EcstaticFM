@@ -16,15 +16,15 @@
 #import "RadialGradientLayer.h"
 #import "LocationServices.h"
 #import "AppDelegate.h"
-#import "UIView+SubviewHunting.h"
-#import "SDSAPI.h"
-@class Room;
 
 @interface PlayerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PlayerDelegate>
 
 - (IBAction)showRooms:(id)sender;
+- (IBAction)playerControlsClicked:(id)sender;
+- (IBAction)playerControlsUnClicked:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UITableView *playListTableView;
-@property (strong, nonatomic) IBOutlet UISlider *slider;
+@property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UILabel *current_duration;
 @property (weak, nonatomic) IBOutlet UILabel *current_time;
 @property (weak, nonatomic) IBOutlet UILabel *current_artist;
@@ -32,8 +32,6 @@
 @property int current_track_index;
 @property (weak, nonatomic) IBOutlet UIImageView *current_album_artwork;
 @property (weak, nonatomic) IBOutlet UIView *coveralpha;
-@property (weak, nonatomic) IBOutlet UIImageView *current_waveform;
-@property (weak, nonatomic) IBOutlet UIImageView *waveform;
 @property (weak, nonatomic) IBOutlet UIButton *play;
 @property (weak, nonatomic) IBOutlet UIButton *last;
 @property (weak, nonatomic) IBOutlet UIButton *next;
@@ -43,8 +41,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *current_user_picture;
 @property (weak, nonatomic) IBOutlet UILabel *welcomehome;
 
-@property (weak, nonatomic) IBOutlet UIView *darken_view;
+@property (weak,nonatomic) IBOutlet UIButton *playerShowControlsButton;
+@property (weak,nonatomic) IBOutlet UIButton *playerHideControlsButton;
 
+@property (weak, nonatomic) IBOutlet UIView *controlsDarkenView;
+@property (weak, nonatomic) IBOutlet UIView *controlsView;
+
+@property (weak, nonatomic) IBOutlet UIImageView *playerSpinner;
 
 
 //nav bar

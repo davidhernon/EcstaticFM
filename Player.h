@@ -22,6 +22,7 @@
 @property BOOL isPaused;
 @property BOOL isNextSong;
 
+
 @property (nonatomic, weak) id<PlayerDelegate> delegate;
 
 +(Player*) sharedPlayer;
@@ -40,6 +41,9 @@
 
 @end
 
+
+
+
 @protocol PlayerDelegate <NSObject>
 
 - (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack atIndex:(int)index;
@@ -52,4 +56,10 @@
 
 - (void)redrawUI;
 
+- (void)showPlayButton;
+
+- (void)showPauseButton;
+
 @end
+
+

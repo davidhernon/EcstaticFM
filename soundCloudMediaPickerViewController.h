@@ -18,12 +18,14 @@
 #import "ILTranslucentView.h"
 
 @interface soundCloudMediaPickerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *sCMediaPickerSpinner;
 @property (weak, nonatomic) IBOutlet UIButton *addSongsToPlaylist;
 @property (weak, nonatomic) IBOutlet UIButton *closeMediaPickerButton;
+@property (weak, nonatomic) IBOutlet UIButton *soundcloudLoginButton;
+
 
 @property (weak, nonatomic) IBOutlet UITableView *soundCloudResultsTableView;
-@property (weak, nonatomic) IBOutlet UIButton *connect_to_soundcloud;
-@property (weak, nonatomic) IBOutlet UILabel *connect_to_sc_label;
+@property (weak, nonatomic) IBOutlet UIView *connect_to_soundcloud;
 @property NSMutableArray *selectedTracks;
 @property (strong, nonatomic) NSMutableArray *selectedTrackIndices;
 

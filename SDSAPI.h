@@ -9,7 +9,6 @@
 #import "RoomsViewController.h"
 #import "Room.h"
 #import "MediaItem.h"
-@class Player;
 @class LoginViewController;
 @interface SDSAPI : NSObject
 
@@ -28,7 +27,5 @@
 +(void)leaveRoom;
 +(void)getPlaylist:(NSString*)room_number;
 +(void)getPlayerState:(NSString*)room_number;
-+ (void)play;
-
 
 @end

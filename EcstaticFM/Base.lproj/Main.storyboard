@@ -10,11 +10,8 @@
         <mutableArray key="Raleway-ExtraLight.ttf">
             <string>Raleway-ExtraLight</string>
             <string>Raleway-ExtraLight</string>
-            <string>Raleway-ExtraLight</string>
         </mutableArray>
         <mutableArray key="Raleway-Light.ttf">
-            <string>Raleway-Light</string>
-            <string>Raleway-Light</string>
             <string>Raleway-Light</string>
             <string>Raleway-Light</string>
             <string>Raleway-Light</string>
@@ -49,6 +46,10 @@
             <string>Raleway</string>
             <string>Raleway</string>
             <string>Raleway</string>
+            <string>Raleway</string>
+        </mutableArray>
+        <mutableArray key="Raleway-Thin.ttf">
+            <string>Raleway-Thin</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -156,7 +157,7 @@ share your location?</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hid-Ld-a4X">
-                                <rect key="frame" x="109" y="15" width="103" height="33"/>
+                                <rect key="frame" x="109" y="16" width="103" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
                                 <color key="textColor" red="0.47603014110000003" green="0.47601586579999999" blue="0.47602397200000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -175,13 +176,6 @@ share your location?</string>
                                 <rect key="frame" x="16" y="178" width="288" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Raleway-ExtraLight" family="Raleway" pointSize="32"/>
-                                <color key="textColor" red="0.47603014110000003" green="0.47601586579999999" blue="0.47602397200000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Power Animal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Z6-EG-EIR">
-                                <rect key="frame" x="16" y="217" width="288" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Raleway-ExtraLight" family="Raleway" pointSize="16"/>
                                 <color key="textColor" red="0.47603014110000003" green="0.47601586579999999" blue="0.47602397200000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -239,6 +233,7 @@ share your location?</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="2co-nc-x8P"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oa2-hf-52B" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -253,48 +248,7 @@ share your location?</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="guU-ft-yHt">
-                                <rect key="frame" x="16" y="496" width="300" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Q2-fp-aMw">
-                                        <rect key="frame" x="49" y="124" width="201" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <string key="text">Others are listening to
-music around you.</string>
-                                        <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="18"/>
-                                        <color key="textColor" red="0.44469467474489799" green="0.44469467474489799" blue="0.44469467474489799" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See who's around me" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f8O-dt-il8">
-                                        <rect key="frame" x="50" y="227" width="201" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="18"/>
-                                        <color key="textColor" red="0.43359375" green="0.43359375" blue="0.43359375" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CKT-hR-fga">
-                                        <rect key="frame" x="34" y="230" width="233" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Let them find me" image="image_geobuttonborder.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="ee0-pp-KX7">
-                                <rect key="frame" x="10" y="513" width="300" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="155" sectionHeaderHeight="22" sectionFooterHeight="22" id="VCT-aS-wi5">
-                                        <rect key="frame" x="-10" y="-426" width="320" height="480"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </tableView>
-                                </subviews>
-                            </scrollView>
-                            <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="ZxN-2D-bHb" customClass="UIRoomScrollView">
+                            <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="ZxN-2D-bHb" customClass="UIRoomScrollView">
                                 <rect key="frame" x="0.0" y="168" width="320" height="241"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
@@ -303,15 +257,11 @@ music around you.</string>
                                     <outlet property="delegate" destination="pL3-Xv-Udv" id="bVF-u4-edG"/>
                                 </connections>
                             </scrollView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_distance3.png" id="Apm-4F-HKq">
-                                <rect key="frame" x="148" y="56" width="25" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qsa-zK-cHg">
-                                <rect key="frame" x="0.0" y="98" width="320" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00/Here/3 meters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qsa-zK-cHg">
+                                <rect key="frame" x="0.0" y="108" width="320" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="28"/>
-                                <color key="textColor" red="0.4760301411151886" green="0.47601586580276489" blue="0.47602397203445435" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.36459061503410339" green="0.3645797073841095" blue="0.36458587646484375" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jonathan &amp; 3 others" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q4r-IV-0mv">
@@ -322,16 +272,33 @@ music around you.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TMc-jI-3i2">
-                                <rect key="frame" x="0.0" y="20" width="44" height="44"/>
+                                <rect key="frame" x="6" y="20" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                <state key="normal" image="icon_gear2.png">
+                                <state key="normal" image="button_gear2.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Uc1-lp-Sxd" kind="modal" modalTransitionStyle="crossDissolve" id="4Y4-CM-9h4"/>
+                                    <segue destination="Uc1-lp-Sxd" kind="popover" popoverAnchorView="TMc-jI-3i2" id="4Y4-CM-9h4">
+                                        <popoverArrowDirection key="popoverArrowDirection" left="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zco-JO-l5l">
+                                <rect key="frame" x="49" y="26" width="57" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Raleway" family="Raleway" pointSize="14"/>
+                                <color key="textColor" red="0.36459061503410339" green="0.3645797073841095" blue="0.36458587646484375" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_location2.png" id="Apm-4F-HKq">
+                                <rect key="frame" x="148" y="66" width="25" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_time.png" id="eEV-UK-b8u">
+                                <rect key="frame" x="148" y="70" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -382,17 +349,28 @@ music around you.</string>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="94z-tj-JOq">
+                                    <view contentMode="scaleToFill" id="ZuL-hg-OIv" userLabel="login button">
                                         <rect key="frame" x="35" y="430" width="99" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="button_login.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="SDSLogin:" destination="Na0-VS-aPw" eventType="touchUpInside" id="BXu-QB-iOA"/>
-                                        </connections>
-                                    </button>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="94z-tj-JOq">
+                                                <rect key="frame" x="0.0" y="0.0" width="99" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="button_login.png">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="SDSLogin:" destination="Na0-VS-aPw" eventType="touchUpInside" id="BXu-QB-iOA"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading4.png" id="lxN-bJ-5oJ">
+                                                <rect key="frame" x="11" y="5" width="77" height="29"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_logintextfield.png" id="Arr-xO-opT">
                                         <rect key="frame" x="35" y="319" width="252" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -447,21 +425,6 @@ music around you.</string>
                                         <rect key="frame" x="103" y="45" width="114" height="114"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <view alpha="0.0" contentMode="scaleToFill" id="Xn4-45-2xt">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="482"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner-16.png" id="l78-4M-Rpd">
-                                                <rect key="frame" x="66" y="8" width="188" height="188"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading1.png" id="lxN-bJ-5oJ">
-                                                <rect key="frame" x="49" y="434" width="69" height="29"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                    </view>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -473,6 +436,8 @@ music around you.</string>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="loginButton" destination="94z-tj-JOq" id="pF5-ee-gb6"/>
+                        <outlet property="loginLoading" destination="lxN-bJ-5oJ" id="oj9-hz-boi"/>
                         <outlet property="loginScrollView" destination="Ndl-hg-wy8" id="Upr-6o-cHZ"/>
                         <outlet property="password" destination="xcA-jx-oUM" id="HBQ-YL-Rnl"/>
                         <outlet property="username" destination="JGO-sv-2TQ" id="Pg8-Vu-66Y"/>
@@ -746,22 +711,115 @@ music around you.</string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.82419902150000002" green="0.78960636839160048" blue="0.19776025615470369" alpha="0.0" colorSpace="calibratedRGB"/>
                             </view>
-                            <view hidden="YES" alpha="0.0" contentMode="scaleToFill" id="20z-45-eEI" userLabel="playerDarkenView">
+                            <view contentMode="scaleToFill" id="ZaA-eY-lmY">
+                                <rect key="frame" x="0.0" y="280" width="320" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_gradienthiding.png" id="9Pu-JQ-zx9">
+                                        <rect key="frame" x="0.0" y="163" width="320" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                        </accessibility>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" id="cWa-eN-Cpi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="w8p-jS-ofe">
+                                        <rect key="frame" x="0.0" y="258" width="320" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="maximumTrackTintColor" red="1" green="0.0" blue="0.98950002525298864" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </slider>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="gvS-5A-3eq">
+                                <rect key="frame" x="133" y="215" width="53" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="zAh-Xy-nYN">
+                                <rect key="frame" x="110" y="422" width="100" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="KyU-zZ-L2E">
+                                        <rect key="frame" x="0.0" y="0.0" width="99" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Add music" image="button_addmusic2.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="kbI-5f-GDn" kind="modal" modalTransitionStyle="coverVertical" id="5oG-wH-lum"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" id="20z-45-eEI" userLabel="controlsDarkenView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="490"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
                             </view>
-                            <view opaque="NO" alpha="0.0" contentMode="scaleToFill" id="spO-Y5-nH4" userLabel="playerControlsView">
-                                <rect key="frame" x="0.0" y="73" width="320" height="417"/>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="mRb-We-BcF" userLabel="show controls">
+                                <rect key="frame" x="1" y="0.0" width="318" height="276"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playerControlsClicked:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="e4g-V8-veK"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="vnK-2z-dPz" userLabel="hide controls">
+                                <rect key="frame" x="1" y="158" width="318" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playerControlsUnClicked:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="VNE-Gb-C8B"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="wbf-gp-DuR" userLabel="hide controls top">
+                                <rect key="frame" x="1" y="0.0" width="318" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playerControlsUnClicked:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="HlQ-mF-X4B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ebX-Vz-7hn" userLabel="Back Button">
+                                <rect key="frame" x="-7" y="10" width="51" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="19" minY="15" maxX="19" maxY="15"/>
+                                <state key="normal" image="icon_back2.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showRooms:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="afJ-9X-o85"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="spO-Y5-nH4" userLabel="controlsView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="218"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_darkgradienttop.png" id="6uw-cN-5PX">
-                                        <rect key="frame" x="0.0" y="-73" width="320" height="206"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_darkgradienttop.png" id="6uw-cN-5PX">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="206"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </imageView>
-                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eQi-L5-ahx">
-                                        <rect key="frame" x="232" y="20" width="44" height="44"/>
+                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" lineBreakMode="middleTruncation" id="eQi-L5-ahx">
+                                        <rect key="frame" x="232" y="93" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Next" image="button_nextnew.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -770,8 +828,8 @@ music around you.</string>
                                             <action selector="next:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="KoH-vt-kGP"/>
                                         </connections>
                                     </button>
-                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="koU-o0-AIH">
-                                        <rect key="frame" x="44" y="20" width="44" height="44"/>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" lineBreakMode="middleTruncation" id="koU-o0-AIH">
+                                        <rect key="frame" x="44" y="93" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Last" image="button_previousnew.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -780,8 +838,8 @@ music around you.</string>
                                             <action selector="last:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="17E-Wt-25o"/>
                                         </connections>
                                     </button>
-                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="gnl-oJ-0Zd">
-                                        <rect key="frame" x="121" y="4" width="77" height="77"/>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" id="gnl-oJ-0Zd">
+                                        <rect key="frame" x="121" y="77" width="77" height="77"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Play" image="button_pausenew.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -793,69 +851,6 @@ music around you.</string>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="1T9-Qu-JEF" appends="YES" id="4iE-Xh-zAt"/>
-                                </connections>
-                            </view>
-                            <view contentMode="scaleToFill" id="zAh-Xy-nYN">
-                                <rect key="frame" x="75" y="422" width="172" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="KyU-zZ-L2E">
-                                        <rect key="frame" x="73" y="0.0" width="99" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Add music" image="button_addmusic2.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="kbI-5f-GDn" kind="modal" modalTransitionStyle="coverVertical" id="5oG-wH-lum"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kPv-Ta-i0j">
-                                        <rect key="frame" x="0.0" y="6" width="65" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Reorder">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="reorder:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="GyO-oS-cuJ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" id="cWa-eN-Cpi">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ebX-Vz-7hn">
-                                        <rect key="frame" x="-1" y="14" width="44" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                                        <state key="normal" image="button_close.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="showRooms:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="afJ-9X-o85"/>
-                                        </connections>
-                                    </button>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="w8p-jS-ofe">
-                                        <rect key="frame" x="0.0" y="258" width="320" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="maximumTrackTintColor" red="1" green="0.0" blue="0.98950002525298864" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </slider>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pko-NC-mSw">
-                                        <rect key="frame" x="268" y="14" width="44" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                                        <state key="normal" image="button_close.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.65982380158265119" green="0.65883943487467" blue="0.67940848214285721" alpha="1" colorSpace="calibratedRGB"/>
@@ -871,15 +866,19 @@ music around you.</string>
                         <outlet property="_playerAddMusicCell" destination="ujE-F6-d0i" id="6uG-Fx-5lB"/>
                         <outlet property="_playerTableHeaderView" destination="5SA-bc-LWc" id="Vz3-vz-TFc"/>
                         <outlet property="add_songs" destination="KyU-zZ-L2E" id="936-8C-ydK"/>
+                        <outlet property="controlsDarkenView" destination="20z-45-eEI" id="nVk-rd-2bK"/>
+                        <outlet property="controlsView" destination="spO-Y5-nH4" id="8ge-xN-ihB"/>
                         <outlet property="current_album_artwork" destination="S8f-jV-zzm" id="UrP-5n-CHf"/>
                         <outlet property="current_duration" destination="0VL-8U-vbk" id="0eJ-YZ-Ezz"/>
                         <outlet property="current_time" destination="HOQ-tI-VMR" id="ARJ-iG-kcm"/>
                         <outlet property="current_track_title" destination="Tf3-bn-nva" id="gR3-ho-YF3"/>
-                        <outlet property="darken_view" destination="20z-45-eEI" id="9bM-ex-IYt"/>
                         <outlet property="last" destination="koU-o0-AIH" id="BDb-8r-MAL"/>
                         <outlet property="next" destination="eQi-L5-ahx" id="KbW-RK-D62"/>
                         <outlet property="play" destination="gnl-oJ-0Zd" id="Oix-Te-KKR"/>
                         <outlet property="playListTableView" destination="fim-yG-u2G" id="goh-MD-M0Z"/>
+                        <outlet property="playerHideControlsButton" destination="vnK-2z-dPz" id="M1F-By-Twd"/>
+                        <outlet property="playerShowControlsButton" destination="mRb-We-BcF" id="NOU-rS-br0"/>
+                        <outlet property="playerSpinner" destination="gvS-5A-3eq" id="VkS-Zq-QYm"/>
                         <outlet property="slider" destination="w8p-jS-ofe" id="s0c-r3-LAC"/>
                         <outlet property="welcomehome" destination="7TJ-3H-AHn" id="hA0-16-iXA"/>
                         <segue destination="EBF-eh-6t1" kind="modal" identifier="geoAskSegue" id="LHV-l3-vdI"/>
@@ -887,13 +886,9 @@ music around you.</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJn-H3-nVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="1T9-Qu-JEF">
-                    <connections>
-                        <outlet property="delegate" destination="spO-Y5-nH4" id="431-oy-d4H"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="1T9-Qu-JEF"/>
             </objects>
-            <point key="canvasLocation" x="1463" y="1347"/>
+            <point key="canvasLocation" x="1457" y="1354"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="yiU-pE-MiS">
@@ -935,41 +930,71 @@ music around you.</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="KoV-CT-gWL">
-                                <rect key="frame" x="0.0" y="54" width="320" height="434"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="lya-SU-gzo" id="UNu-qn-XeF"/>
-                                    <outlet property="delegate" destination="lya-SU-gzo" id="HYB-h9-Tol"/>
-                                </connections>
-                            </tableView>
-                            <view contentMode="scaleToFill" id="ejc-Yl-bRN">
-                                <rect key="frame" x="0.0" y="488" width="320" height="80"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="BLS-0s-TgN">
+                                <rect key="frame" x="0.0" y="54" width="320" height="426"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_portrait.png" id="bBz-6W-GCI">
-                                        <rect key="frame" x="0.0" y="20" width="39" height="40"/>
+                                    <view contentMode="scaleToFill" id="s29-jr-b64">
+                                        <rect key="frame" x="16" y="352" width="288" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Type your message ..." textAlignment="center" minimumFontSize="17" id="a39-3G-JzK">
+                                                <rect key="frame" x="11" y="8" width="269" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.070033482142857095" green="0.070033482142857095" blue="0.070033482142857095" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Raleway-Thin" family="Raleway" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light"/>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_portrait.png" id="dZf-RT-gKx">
+                                                <rect key="frame" x="314" y="0.0" width="40" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_whitearrowright.png" id="2V6-pY-1f2">
+                                        <rect key="frame" x="301" y="392" width="12" height="12"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="1ea-mZ-5X0">
-                                        <rect key="frame" x="47" y="8" width="229" height="64"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vTH-YQ-fw7">
-                                        <rect key="frame" x="274" y="20" width="46" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <state key="normal" title="+">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.58714094065656564" green="0.58714094065656564" blue="0.58714094065656564" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                            </scrollView>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="104" id="bA8-v0-geU">
+                                <rect key="frame" x="0.0" y="488" width="320" height="104"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bA8-v0-geU" id="Rp6-dT-8fk">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" id="ixu-xt-lhn">
+                                            <rect key="frame" x="56" y="8" width="10000" height="3436"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="12"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_portrait.png" id="bBz-6W-GCI">
+                                            <rect key="frame" x="8" y="8" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_whitearrowleft.png" id="IaC-dE-iqX">
+                                            <rect key="frame" x="46" y="52" width="12" height="12"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
                         </subviews>
                         <color key="backgroundColor" red="0.76449095746854989" green="0.50370642064419868" blue="0.82419902150000002" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -979,7 +1004,8 @@ music around you.</string>
                     </view>
                     <navigationItem key="navigationItem" id="cuC-EF-eQm"/>
                     <connections>
-                        <outlet property="chat_table_view" destination="KoV-CT-gWL" id="hsY-tr-FPm"/>
+                        <outlet property="chatScrollView" destination="BLS-0s-TgN" id="9KI-4U-t4D"/>
+                        <outlet property="chatTextField" destination="a39-3G-JzK" id="7BG-Bd-eYr"/>
                         <outlet property="people_with_you" destination="Gj7-uQ-hvi" id="Roj-mA-V6j"/>
                     </connections>
                 </viewController>
@@ -1004,73 +1030,18 @@ music around you.</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find music" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MoJ-3u-TGw">
-                                <rect key="frame" x="87" y="24" width="147" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="dje-Cg-AB5">
                                 <rect key="frame" x="0.0" y="129" width="320" height="351"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uXO-dD-ddA">
-                                <rect key="frame" x="61" y="71" width="18" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="icon_heartfull.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="getFaves" destination="NW7-8C-V9l" eventType="touchUpInside" id="8LZ-sV-e0b"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8N3-Ey-j7b">
-                                <rect key="frame" x="151" y="71" width="19" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="icon_playlist.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nkB-dN-JlD">
-                                <rect key="frame" x="242" y="71" width="18" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="icon_search.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showSearchSoundCloudUI:" destination="NW7-8C-V9l" eventType="touchUpInside" id="3nS-kF-Gfx"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Likes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HIz-ud-kta">
-                                <rect key="frame" x="53" y="93" width="41" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="15"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playlists" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KpI-G6-rvS">
-                                <rect key="frame" x="134" y="93" width="63" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="15"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jLe-k8-0at">
-                                <rect key="frame" x="228" y="93" width="54" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="15"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="22" sectionFooterHeight="22" id="0FZ-o0-ngg">
-                                <rect key="frame" x="5" y="139" width="310" height="270"/>
+                                <rect key="frame" x="5" y="139" width="310" height="341"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                                 <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jq1-0v-09B">
-                                    <rect key="frame" x="0.0" y="81" width="310" height="71"/>
+                                    <rect key="frame" x="0.0" y="81" width="310" height="156"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <string key="text">Do you want to listen to
 the songs you liked
@@ -1145,9 +1116,9 @@ on Soundcloud?</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7xK-mt-PwZ">
-                                <rect key="frame" x="1" y="0.0" width="56" height="56"/>
+                                <rect key="frame" x="1" y="5" width="56" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="contentEdgeInsets" minX="32" minY="32" maxX="32" maxY="32"/>
+                                <inset key="contentEdgeInsets" minX="21" minY="21" maxX="21" maxY="21"/>
                                 <state key="normal" image="button_close.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1166,18 +1137,72 @@ on Soundcloud?</string>
                                     <action selector="soundcloudLogin:" destination="NW7-8C-V9l" eventType="touchUpInside" id="RPP-OW-rBW"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add music" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cx6-nP-yj2">
+                                <rect key="frame" x="1" y="22" width="319" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uXO-dD-ddA">
+                                <rect key="frame" x="58" y="69" width="18" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icon_heartfull.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getFaves" destination="NW7-8C-V9l" eventType="touchUpInside" id="8LZ-sV-e0b"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8N3-Ey-j7b">
+                                <rect key="frame" x="243" y="69" width="19" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icon_playlist.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nkB-dN-JlD">
+                                <rect key="frame" x="149" y="69" width="18" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icon_search.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showSearchSoundCloudUI:" destination="NW7-8C-V9l" eventType="touchUpInside" id="3nS-kF-Gfx"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Likes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HIz-ud-kta">
+                                <rect key="frame" x="50" y="91" width="41" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SDS Mixes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KpI-G6-rvS">
+                                <rect key="frame" x="216" y="91" width="73" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jLe-k8-0at">
+                                <rect key="frame" x="135" y="91" width="54" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.79843317360287469" green="0.78935001296433938" blue="0.82527503188775508" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="addSongsToPlaylist" destination="FSC-Hu-VvY" id="UJ8-B7-KsN"/>
-                        <outlet property="connect_to_sc_label" destination="jq1-0v-09B" id="5uC-vv-oSA"/>
-                        <outlet property="connect_to_soundcloud" destination="ZO2-Cu-bJq" id="nbR-Ad-FRi"/>
+                        <outlet property="sCMediaPickerSpinner" destination="P6O-DS-VKr" id="jRV-hy-G3e"/>
                         <outlet property="soundCloudResultsTableView" destination="0FZ-o0-ngg" id="Ikt-a5-Usc"/>
+                        <outlet property="soundcloudLoginButton" destination="ZO2-Cu-bJq" id="kDT-P6-niY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhK-Pb-bck" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1190,6 +1215,7 @@ on Soundcloud?</string>
         <image name="button_close-dark.png" width="34" height="33"/>
         <image name="button_close.png" width="34" height="33"/>
         <image name="button_connectmyacct.png" width="720" height="152"/>
+        <image name="button_gear2.png" width="80" height="80"/>
         <image name="button_letsconnect.png" width="240" height="76"/>
         <image name="button_login.png" width="198" height="76"/>
         <image name="button_nextnew.png" width="93" height="92"/>
@@ -1201,23 +1227,26 @@ on Soundcloud?</string>
         <image name="button_signup.png" width="199" height="76"/>
         <image name="icon-key-dark.png" width="58" height="34"/>
         <image name="icon-key.png" width="56" height="34"/>
-        <image name="icon_distance3.png" width="52" height="77"/>
+        <image name="icon_back2.png" width="23" height="40"/>
         <image name="icon_email.png" width="23" height="17"/>
-        <image name="icon_gear2.png" width="88" height="88"/>
         <image name="icon_heartfull.png" width="82" height="78"/>
+        <image name="icon_location2.png" width="46" height="66"/>
         <image name="icon_login.png" width="44" height="44"/>
         <image name="icon_person-dark.png" width="44" height="44"/>
         <image name="icon_playlist.png" width="74" height="60"/>
         <image name="icon_search.png" width="74" height="76"/>
+        <image name="icon_time.png" width="47" height="47"/>
         <image name="image_covertartgradient.png" width="498" height="235"/>
         <image name="image_darkgradienttop.png" width="1292" height="754"/>
         <image name="image_emptyportrait.png" width="302" height="304"/>
-        <image name="image_geobuttonborder.png" width="930" height="182"/>
+        <image name="image_gradienthiding.png" width="640" height="118"/>
         <image name="image_logintextfield.png" width="435" height="76"/>
         <image name="image_portrait.png" width="59" height="62"/>
         <image name="image_tri-logo-color.png" width="460" height="462"/>
         <image name="image_tri-logo.png" width="231" height="230"/>
-        <image name="loading1.png" width="144" height="58"/>
+        <image name="image_whitearrowleft.png" width="48" height="34"/>
+        <image name="image_whitearrowright.png" width="48" height="34"/>
+        <image name="loading4.png" width="144" height="59"/>
         <image name="loadingdark1.png" width="144" height="58"/>
         <image name="spinner-16.png" width="302" height="302"/>
     </resources>
@@ -1227,8 +1256,8 @@ on Soundcloud?</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="sP4-bK-WLP"/>
-        <segue reference="LHV-l3-vdI"/>
         <segue reference="E2U-Ol-7ff"/>
+        <segue reference="LHV-l3-vdI"/>
+        <segue reference="sP4-bK-WLP"/>
     </inferredMetricsTieBreakers>
 </document>
