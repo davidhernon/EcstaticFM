@@ -40,8 +40,19 @@ static Room *currentRoom = nil;
     dispatch_once(&onceToken, ^{
         currentRoom = [[Room alloc] init];
         currentRoom.room_number = @"0";
+        currentRoom.is_owner = YES;
     });
     return currentRoom;
+}
+
+- (void) makeOwner
+{
+    currentRoom.is_owner = YES;
+}
+
+- (void) makeNotOwner
+{
+    currentRoom.is_owner = NO;
 }
 
 - (void) initWithDict:(NSDictionary *)room_info

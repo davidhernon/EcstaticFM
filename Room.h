@@ -25,6 +25,7 @@
 @property (retain, nonatomic) NSString* host_username;
 
 @property (retain, nonatomic) NSString* room_number;
+@property BOOL is_owner;
 
 -(int)getNumberOfListenersInRoom;
 + (Room*)currentRoom;
@@ -32,6 +33,8 @@
 -(Player*)getRoomPlayer;
 -(void)addMediaItemToPlaylist:(MediaItem*)media_item;
 -(void)initWithDict:(NSDictionary*)room_info;
+-(void)makeNotOwner;
+-(void)makeOwner;
 
 
 // playlist
