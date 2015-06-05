@@ -337,7 +337,6 @@ static SocketIOClient *static_socket;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:item
                                                        options:nil
                                                          error:&error];
-    
     if (! jsonData) {
         NSLog(@"Didnt work kid");
     } else {

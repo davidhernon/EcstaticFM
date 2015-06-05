@@ -36,9 +36,9 @@
 		1C47EF4A1B222991008D5DDD /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C47EF471B222991008D5DDD /* Message.m */; };
 		1C47EF4B1B222991008D5DDD /* MyMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C47EF481B222991008D5DDD /* MyMessageView.xib */; };
 		1C47EF4C1B222991008D5DDD /* OtherUserMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C47EF491B222991008D5DDD /* OtherUserMessageView.xib */; };
-		1C47EF501B222D5A008D5DDD /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C47EF4F1B222D5A008D5DDD /* MessageTableViewCell.m */; };
 		1C4861E61A7AB75C004EFEAD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428A91A799CE9001DB0AD /* Info.plist */; };
 		1C4861E71A7AB75C004EFEAD /* main.m in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
+		1C67DA6B1B225C0B00D1F89F /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C67DA691B225C0B00D1F89F /* MessageTableViewCell.m */; };
 		1C6D62DD1B1643B200F0EC27 /* UIRoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D62DC1B1643B200F0EC27 /* UIRoomView.m */; };
 		1C6D62DF1B16492600F0EC27 /* UIRoomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6D62DE1B16492600F0EC27 /* UIRoomView.xib */; };
 		1C6D62E21B16535C00F0EC27 /* UIRoomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D62E11B16535C00F0EC27 /* UIRoomScrollView.m */; };
@@ -274,8 +274,8 @@
 		1C47EF471B222991008D5DDD /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		1C47EF481B222991008D5DDD /* MyMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyMessageView.xib; sourceTree = "<group>"; };
 		1C47EF491B222991008D5DDD /* OtherUserMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherUserMessageView.xib; sourceTree = "<group>"; };
-		1C47EF4E1B222D5A008D5DDD /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
-		1C47EF4F1B222D5A008D5DDD /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
+		1C67DA691B225C0B00D1F89F /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
+		1C67DA6A1B225C0B00D1F89F /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		1C6D62DB1B1643B200F0EC27 /* UIRoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRoomView.h; sourceTree = "<group>"; };
 		1C6D62DC1B1643B200F0EC27 /* UIRoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIRoomView.m; sourceTree = "<group>"; };
 		1C6D62DE1B16492600F0EC27 /* UIRoomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIRoomView.xib; sourceTree = "<group>"; };
@@ -981,8 +981,8 @@
 		DEEC122B1AFCFCD000E21C52 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				1C47EF4E1B222D5A008D5DDD /* MessageTableViewCell.h */,
-				1C47EF4F1B222D5A008D5DDD /* MessageTableViewCell.m */,
+				1C67DA691B225C0B00D1F89F /* MessageTableViewCell.m */,
+				1C67DA6A1B225C0B00D1F89F /* MessageTableViewCell.h */,
 				1C47EF461B222991008D5DDD /* Message.h */,
 				1C47EF471B222991008D5DDD /* Message.m */,
 				1C47EF481B222991008D5DDD /* MyMessageView.xib */,
@@ -1339,7 +1339,7 @@
 				1C2251441A9E7CA600210324 /* MediaItem.m in Sources */,
 				1CB9BB341AA2459000748236 /* SDSAPI.m in Sources */,
 				1C13A9481AB9BF4800B2DF81 /* MediaItemTableViewCell.m in Sources */,
-				1C47EF501B222D5A008D5DDD /* MessageTableViewCell.m in Sources */,
+				1C67DA6B1B225C0B00D1F89F /* MessageTableViewCell.m in Sources */,
 				1CA428AB1A799CE9001DB0AD /* main.m in Sources */,
 				1C2251471A9E7E5F00210324 /* Playlist.m in Sources */,
 				1CB8355A1B027BA60003D9DC /* SSKeychain.m in Sources */,
