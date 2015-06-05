@@ -437,8 +437,9 @@ share your location?</string>
                         <outlet property="loginLabel" destination="LRw-9w-5HP" id="FRz-Xj-ToJ"/>
                         <outlet property="loginLoading" destination="lxN-bJ-5oJ" id="oj9-hz-boi"/>
                         <outlet property="loginScrollView" destination="Ndl-hg-wy8" id="Upr-6o-cHZ"/>
-                        <outlet property="password" destination="xcA-jx-oUM" id="HBQ-YL-Rnl"/>
-                        <outlet property="username" destination="JGO-sv-2TQ" id="Pg8-Vu-66Y"/>
+                        <outlet property="loginView" destination="AIM-do-p8o" id="2t9-Z1-zJ9"/>
+                        <outlet property="password" destination="nbE-v3-bJ9" id="bk8-01-MGx"/>
+                        <outlet property="username" destination="SMm-SV-xNh" id="FDs-Sa-Awc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iU6-sO-xiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
