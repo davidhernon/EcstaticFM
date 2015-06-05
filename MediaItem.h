@@ -17,6 +17,7 @@
 @property NSString* artist;
 @property NSString* duration;
 @property UIImage* artwork;
+@property NSString* artwork_url;
 @property UIImage* waveform_url;
 //Duration of track
 @property NSNumber* duration_hours;
