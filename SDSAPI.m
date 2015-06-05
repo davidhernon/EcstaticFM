@@ -91,7 +91,7 @@ static SocketIOClient *static_socket;
 										[callingViewController performSelectorOnMainThread:@selector(loginReturnedTrue) withObject:nil waitUntilDone:NO];
 									}
                                     else{
-										[callingViewController loginReturnedFalse];
+										[callingViewController performSelectorOnMainThread:@selector(loginReturnedFalse) withObject:nil waitUntilDone:NO];
                                     }
                                 }];
                            }];
@@ -131,7 +131,10 @@ static SocketIOClient *static_socket;
 							   [urlRequest setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]]];
 							   [urlRequest addValue:csrf_cookie forHTTPHeaderField:@"X_CSRFTOKEN"];
 							   [urlRequest setHTTPMethod:@"POST"];
-							   NSString* bodyData = [NSString stringWithFormat:@"username=%@&password=%@&email=%@", username, pass, email];
+							   
+							   AppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
+							   
+							   NSString* bodyData = [NSString stringWithFormat:@"username=%@&password=%@&email=%@&mixpanel_distinct_id=%@", username, pass, email, appDelegate.mixpanel.distinctId];
 							   [urlRequest setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:strlen([bodyData UTF8String])]];
 							   NSOperationQueue *queue = [[NSOperationQueue alloc] init];
 							   

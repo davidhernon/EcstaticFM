@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *loginScrollView;
 @property BOOL keyboardIsShown;
 
+@property (strong, nonatomic) IBOutlet UILabel *loginLabel;
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 

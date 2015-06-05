@@ -246,8 +246,7 @@
     [SSKeychain setPassword:_password.text forService:@"EcstaticFM" account:self.username.text];
 	[SDSAPI login: self.username.text password:self.password.text ID:self];
     [SDSAPI createRoom: self.username.text];
-//    [self loginReturnedTrue];
-    
+	
 }
 
 //This method gets called when SDSAPI's login method returns with a true if the login was succesful
@@ -261,7 +260,7 @@
 
 - (void) loginReturnedFalse
 {
-    NSLog(@"unsuccessful login");
+	self.loginLabel.text = @"Incorrect username or password.";
 }
 
 - (IBAction)fbLogin:(id)sender {

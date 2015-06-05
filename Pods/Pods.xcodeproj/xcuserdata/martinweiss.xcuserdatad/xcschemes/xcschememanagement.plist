@@ -19,12 +19,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Mixpanel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-NXOAuth2Client.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-OHAttributedLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SWTableViewCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,32 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>296F3958D4ECC40D8EABC37D</key>
+		<key>0D279EDB6AD3DD56859D3ACC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2BFDE86F18B5CAA7947B55DF</key>
+		<key>164BB944E8011C1E9A76258F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4296E5ED38B57DB568F4BA3B</key>
+		<key>1A14D4C558B9B5EC107A4BEF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7F293AF0CA6FCAADFEF6E512</key>
+		<key>33F93526F1C88C855FDD8079</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CFA7B71C089C08F81D0529DC</key>
+		<key>497EFBA1217CA1A4D9857D61</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E7BC241807A10728C8EA512A</key>
+		<key>59E515CDE620F6670B1EEB53</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>85F221DCC867A84FD5BFE0D1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E86A6220B3FD3F176288C163</key>
 		<dict>
 			<key>primary</key>
 			<true/>
