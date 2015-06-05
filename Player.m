@@ -228,7 +228,7 @@ the delegate to Player for Player to communicate with a view controller
 {
     if(_avPlayer.rate != 0)
     {
-        [_avPlayer seekToTime:CMTimeMake(value, 1)];
+        [_avPlayer seekToTime:CMTimeMake(value, 1000)];
     }
 }
 
@@ -286,8 +286,8 @@ the delegate to Player for Player to communicate with a view controller
 
 - (void) joinPlayingRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(int)is_playing
 {
-    float elspd = (elapsed) / 1000.0f;
-    NSLog(@"elapsed: %f", elapsed);
+    float elspd = (elapsed);
+    NSLog(@"Playlist length: %i", [[Playlist sharedPlaylist].playlist count]);
     _currentTrack = [[Playlist sharedPlaylist].playlist objectAtIndex:index];
     _currentTrackIndex = index;
     [self seek:(elspd)];

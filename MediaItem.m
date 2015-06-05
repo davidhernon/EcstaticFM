@@ -16,7 +16,7 @@
     [coder encodeObject:self.track_title forKey:@"track_title"];
     [coder encodeObject:self.artist forKey:@"artist"];
     [coder encodeObject:self.duration forKey:@"duration"];
-    [coder encodeObject:self.artwork forKey:@"artwork"];
+    [coder encodeObject:self.artwork_url forKey:@"artwork_url"];
     [coder encodeObject:self.stream_url forKey:@"stream_url"];
     [coder encodeObject:self.room_number forKey:@"room_number"];
     [coder encodeObject:self.username forKey:@"username"];
@@ -31,6 +31,7 @@
     [serialized setValue:self.stream_url forKey:@"stream_url"];
     [serialized setValue:self.room_number forKey:@"room_number"];
     [serialized setValue:self.username forKey:@"username"];
+    [serialized setValue:self.artwork_url forKey:@"artwork_url"];
     return serialized;
 }
 
@@ -71,6 +72,7 @@
         self.artist = [[soundCloudTrack objectForKey:@"user"] objectForKey:@"username"];
         self.duration = [NSString stringWithFormat:@"%@", [Utils convertTimeFromMillis:(int) [[soundCloudTrack objectForKey:@"duration"] intValue]]];
         self.artwork = [self addAlbumArtwork:[soundCloudTrack objectForKey:@"artwork_url"]];
+        self.artwork_url = [soundCloudTrack objectForKey:@"artwork_url"];
         self.stream_url = [soundCloudTrack objectForKey:@"stream_url"];
         self.waveform_url = [self addWaveform:[soundCloudTrack objectForKey:@"waveform_url"]];
         self.playing_animation = [[UIImage alloc] init];
@@ -83,14 +85,14 @@
 
 - (id) initWIthDict:(NSDictionary*)sds_dict
 {
-//    {room_number:0, duration:120, artwork_url:"https:test1", stream_url:"https:test1", song_name:'snow', artist:'Red Hot Chili Peppers', username:'mykul'}
     self = [super init];
     if(self)
     {
         self.track_title = [sds_dict objectForKey:@"track_title"];
         self.artist = [sds_dict objectForKey:@"artist"];
-        self.duration = [NSString stringWithFormat:@"%@", [Utils convertTimeFromMillis:((int) [[sds_dict objectForKey:@"duration"] intValue])*1000]];
+        self.duration = [sds_dict objectForKey:@"duration"];
         self.artwork = [self addAlbumArtwork:[sds_dict objectForKey:@"artwork_url"]];
+        self.artwork_url = [sds_dict objectForKey:@"artwork_url"];
         self.stream_url = [sds_dict objectForKey:@"stream_url"];
         self.playing_animation = [[UIImage alloc] init];
         self.username = [sds_dict objectForKey:@"username"];
