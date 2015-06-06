@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "SDSAPI.h"
 #import "SCUI.h"
+#import "ChatViewController.h"
 
 @implementation AppDelegate
 

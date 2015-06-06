@@ -10,10 +10,11 @@
 #import "Room.h"
 #import "MediaItem.h"
 #import "AppDelegate.h"
+#import "ChatViewController.h"
+
 @class Player;
 @class LoginViewController;
 @interface SDSAPI : NSObject
-
 
 +(NSString*)getWebsiteURL;
 +(NSArray*)getUpcomingEvents;
@@ -29,5 +30,8 @@
 +(void)getPlaylist:(NSString*)room_number;
 +(void)getPlayerState:(NSString*)room_number;
 +(void) updatePlayerState;
++(void) sendText:(NSString*)textMessage;
+
+@property ChatViewController* chatViewController;
 
 @end

@@ -186,6 +186,14 @@ static SocketIOClient *static_socket;
 		NSLog(@"return_join_room returned,%@", data[0]);
 	}];
 	
+	[static_socket on:@"send_text" callback:^(NSArray * data, void (^ack) (NSArray*)){
+		NSLog(@"send_text returned,%@", data[0]);
+		NSString* textMessage =[((NSDictionary*) data[0]) objectForKey:@"textMessage"];
+		NSString* username =[((NSDictionary*) data[0]) objectForKey:@"username"];
+		AppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
+		[appDelegate.chatViewController addChatText:username content:textMessage];
+	}];
+	
     [static_socket on:@"return_get_player_status" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSDictionary *d = (NSDictionary*)data[0];
         NSDictionary *player_state = [d objectForKey:@"player_state"];
@@ -445,13 +453,24 @@ static SocketIOClient *static_socket;
 
 +(void) updatePlayerState
 {
-    NSString *room_number = [Room currentRoom].room_number;
-    NSDictionary *ps = [self getDictForPlayerState];
-    
-    NSDictionary *update_query = [NSDictionary dictionaryWithObjects:@[room_number, ps] forKeys:@[@"room_number", @"player_state"]];
-    NSData *json = [NSJSONSerialization dataWithJSONObject:update_query options:nil error:nil];
-    [static_socket emitObjc:@"update_player_state" withItems:@[json]];
+	NSString *room_number = [Room currentRoom].room_number;
+	NSDictionary *ps = [self getDictForPlayerState];
+	
+	NSDictionary *update_query = [NSDictionary dictionaryWithObjects:@[room_number, ps] forKeys:@[@"room_number", @"player_state"]];
+	NSData *json = [NSJSONSerialization dataWithJSONObject:update_query options:nil error:nil];
+	[static_socket emitObjc:@"update_player_state" withItems:@[json]];
 }
+
++(void) sendText:(NSString*)textMessage
+{
+	NSString *room_number = [Room currentRoom].room_number;
+	NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+	
+	NSDictionary *textDict = [NSDictionary dictionaryWithObjects:@[room_number, textMessage, username] forKeys:@[@"room_number", @"textMessage", @"username"]];
+	NSData *json = [NSJSONSerialization dataWithJSONObject:textDict options:nil error:nil];
+	[static_socket emitObjc:@"send_text" withItems:@[json]];
+}
+
 
 +(void) seek
 {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bOe-aM-vI5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bOe-aM-vI5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -434,12 +434,11 @@ share your location?</string>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="loginButton" destination="94z-tj-JOq" id="pF5-ee-gb6"/>
-                        <outlet property="loginLabel" destination="LRw-9w-5HP" id="FRz-Xj-ToJ"/>
+                        <outlet property="loginLabel" destination="tXs-Cn-kP1" id="6rk-b7-j3Y"/>
                         <outlet property="loginLoading" destination="lxN-bJ-5oJ" id="oj9-hz-boi"/>
                         <outlet property="loginScrollView" destination="Ndl-hg-wy8" id="Upr-6o-cHZ"/>
-                        <outlet property="loginView" destination="AIM-do-p8o" id="2t9-Z1-zJ9"/>
-                        <outlet property="password" destination="nbE-v3-bJ9" id="bk8-01-MGx"/>
-                        <outlet property="username" destination="SMm-SV-xNh" id="FDs-Sa-Awc"/>
+                        <outlet property="password" destination="xcA-jx-oUM" id="jnb-mM-3SM"/>
+                        <outlet property="username" destination="JGO-sv-2TQ" id="bnw-Ra-bLe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iU6-sO-xiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -942,31 +941,11 @@ share your location?</string>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bA8-v0-geU" id="Rp6-dT-8fk">
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" id="ixu-xt-lhn">
-                                            <rect key="frame" x="55.5" y="8" width="10320" height="3414"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="12"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_portrait.png" id="bBz-6W-GCI">
-                                            <rect key="frame" x="8" y="8" width="40" height="40"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_whitearrowleft.png" id="IaC-dE-iqX">
-                                            <rect key="frame" x="46" y="52" width="12" height="12"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                    </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </tableViewCell>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="92" sectionHeaderHeight="22" sectionFooterHeight="22" id="RQQ-kR-8QL">
-                                <rect key="frame" x="-6" y="49" width="333" height="439"/>
+                                <rect key="frame" x="-6" y="49" width="333" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -983,6 +962,26 @@ share your location?</string>
                                     <outlet property="delegate" destination="lya-SU-gzo" id="Ttz-aY-r9N"/>
                                 </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_portrait.png" id="bBz-6W-GCI">
+                                <rect key="frame" x="8" y="383" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3XQ-a3-PEY">
+                                <rect key="frame" x="276" y="389" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendChat:" destination="lya-SU-gzo" eventType="touchUpInside" id="FF8-cE-z5Y"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="w17-Ct-Vwm">
+                                <rect key="frame" x="69" y="389" width="183" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.76449095746854989" green="0.50370642064419868" blue="0.82419902150000002" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -992,7 +991,8 @@ share your location?</string>
                     </view>
                     <navigationItem key="navigationItem" id="cuC-EF-eQm"/>
                     <connections>
-                        <outlet property="chat_table_view" destination="RQQ-kR-8QL" id="tur-Ya-hWb"/>
+                        <outlet property="chatTableView" destination="RQQ-kR-8QL" id="tHu-1U-HSv"/>
+                        <outlet property="chatTextField" destination="w17-Ct-Vwm" id="7W9-SE-qWF"/>
                         <outlet property="people_with_you" destination="Gj7-uQ-hvi" id="Roj-mA-V6j"/>
                     </connections>
                 </viewController>
@@ -1244,7 +1244,6 @@ on Soundcloud?</string>
         <image name="image_portrait.png" width="59" height="62"/>
         <image name="image_tri-logo-color.png" width="460" height="462"/>
         <image name="image_tri-logo.png" width="231" height="230"/>
-        <image name="image_whitearrowleft.png" width="48" height="34"/>
         <image name="loading4.png" width="144" height="59"/>
         <image name="loadingdark1.png" width="144" height="58"/>
         <image name="spinner-16.png" width="302" height="302"/>
