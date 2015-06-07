@@ -39,7 +39,7 @@
 		1C47EF501B222D5A008D5DDD /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C47EF4F1B222D5A008D5DDD /* MessageTableViewCell.m */; };
 		1C4861E61A7AB75C004EFEAD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428A91A799CE9001DB0AD /* Info.plist */; };
 		1C4861E71A7AB75C004EFEAD /* main.m in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
-		1C5BABCB1B24A931003B96B8 /* SoundCloudSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BABCA1B24A931003B96B8 /* SoundCloudSearchView.m */; };
+		1C5BABCE1B24B084003B96B8 /* SoundCloudSearchview.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BABCD1B24B084003B96B8 /* SoundCloudSearchview.m */; };
 		1C6D62DD1B1643B200F0EC27 /* UIRoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D62DC1B1643B200F0EC27 /* UIRoomView.m */; };
 		1C6D62DF1B16492600F0EC27 /* UIRoomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6D62DE1B16492600F0EC27 /* UIRoomView.xib */; };
 		1C6D62E21B16535C00F0EC27 /* UIRoomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D62E11B16535C00F0EC27 /* UIRoomScrollView.m */; };
@@ -277,8 +277,8 @@
 		1C47EF491B222991008D5DDD /* OtherUserMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherUserMessageView.xib; sourceTree = "<group>"; };
 		1C47EF4E1B222D5A008D5DDD /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		1C47EF4F1B222D5A008D5DDD /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
-		1C5BABC91B24A931003B96B8 /* SoundCloudSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundCloudSearchView.h; sourceTree = "<group>"; };
-		1C5BABCA1B24A931003B96B8 /* SoundCloudSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundCloudSearchView.m; sourceTree = "<group>"; };
+		1C5BABCC1B24B084003B96B8 /* SoundCloudSearchview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundCloudSearchview.h; sourceTree = "<group>"; };
+		1C5BABCD1B24B084003B96B8 /* SoundCloudSearchview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundCloudSearchview.m; sourceTree = "<group>"; };
 		1C6D62DB1B1643B200F0EC27 /* UIRoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRoomView.h; sourceTree = "<group>"; };
 		1C6D62DC1B1643B200F0EC27 /* UIRoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIRoomView.m; sourceTree = "<group>"; };
 		1C6D62DE1B16492600F0EC27 /* UIRoomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIRoomView.xib; sourceTree = "<group>"; };
@@ -566,8 +566,8 @@
 				1C13A9461AB9BF4800B2DF81 /* MediaItemTableViewCell.h */,
 				1C13A9471AB9BF4800B2DF81 /* MediaItemTableViewCell.m */,
 				1C7AC2BD1B14FDD30007149B /* SoundCloudSearchView.xib */,
-				1C5BABC91B24A931003B96B8 /* SoundCloudSearchView.h */,
-				1C5BABCA1B24A931003B96B8 /* SoundCloudSearchView.m */,
+				1C5BABCC1B24B084003B96B8 /* SoundCloudSearchview.h */,
+				1C5BABCD1B24B084003B96B8 /* SoundCloudSearchview.m */,
 			);
 			name = soundCloudMediaPicker;
 			sourceTree = "<group>";
@@ -1316,9 +1316,9 @@
 				DE14B9E21AFFB115004470C7 /* PlayerPageViewController.m in Sources */,
 				1C6D62E51B1A223D00F0EC27 /* UIEventView.m in Sources */,
 				1C291D9B1AFFF2A1006A2B4F /* WebSocket.swift in Sources */,
+				1C5BABCE1B24B084003B96B8 /* SoundCloudSearchview.m in Sources */,
 				1C47EF4A1B222991008D5DDD /* Message.m in Sources */,
 				1C291D9E1B014B96006A2B4F /* AroundMeTableViewCell.m in Sources */,
-				1C5BABCB1B24A931003B96B8 /* SoundCloudSearchView.m in Sources */,
 				1C291D991AFFF2A1006A2B4F /* SocketParser.swift in Sources */,
 				1C291D911AFFF2A1006A2B4F /* SocketAckMap.swift in Sources */,
 				1C291D9A1AFFF2A1006A2B4F /* SwiftRegex.swift in Sources */,

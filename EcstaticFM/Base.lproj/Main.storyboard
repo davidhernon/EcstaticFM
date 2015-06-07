@@ -663,7 +663,7 @@ share your location?</string>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rvA-bD-5h8">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </scrollView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNw-H0-4Jp">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNw-H0-4Jp">
                                 <rect key="frame" x="3" y="0.0" width="320" height="480"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KBU-rd-DGv" userLabel="Line">
@@ -735,7 +735,7 @@ share your location?</string>
                                         <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light"/>
                                     </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="image_tri-logo-color.png" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-Mh-CIb">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="image_tri-logo-color.png" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-Mh-CIb">
                                         <rect key="frame" x="103" y="74" width="114" height="114"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
@@ -1337,7 +1337,7 @@ on Soundcloud?</string>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="addSongsToPlaylist" destination="FSC-Hu-VvY" id="UJ8-B7-KsN"/>
-                        <outlet property="connect_to_soundcloud" destination="jq1-0v-09B" id="0fD-32-2vi"/>
+                        <outlet property="connect_to_soundcloud" destination="jq1-0v-09B" id="aur-rT-X0w"/>
                         <outlet property="sCMediaPickerSpinner" destination="P6O-DS-VKr" id="jRV-hy-G3e"/>
                         <outlet property="soundCloudResultsTableView" destination="0FZ-o0-ngg" id="Ikt-a5-Usc"/>
                         <outlet property="soundcloudLoginButton" destination="ZO2-Cu-bJq" id="kDT-P6-niY"/>
@@ -1345,7 +1345,7 @@ on Soundcloud?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhK-Pb-bck" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3667" y="1721"/>
+            <point key="canvasLocation" x="3667.5" y="1721.8309859154929"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="qoO-gP-2mD">

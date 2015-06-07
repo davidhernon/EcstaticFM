@@ -1,14 +1,14 @@
 //
-//  SoundCloudSearchview.m
+//  UIMyRoomView.m
 //  EcstaticFM
 //
-//  Created by David Hernon on 2015-06-07.
+//  Created by David Hernon on 2015-06-02.
 //  Copyright (c) 2015 David Hernon. All rights reserved.
 //
 
-#import "SoundCloudSearchview.h"
+#import "UIMyRoomView.h"
 
-@implementation SoundCloudSearchview
+@implementation UIMyRoomView
 
 /*
 // Only override drawRect: if you perform custom drawing.

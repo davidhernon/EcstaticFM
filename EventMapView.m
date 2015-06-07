@@ -1,14 +1,14 @@
 //
-//  SoundCloudSearchview.m
+//  EventMapView.m
 //  EcstaticFM
 //
-//  Created by David Hernon on 2015-06-07.
+//  Created by David Hernon on 2015-02-28.
 //  Copyright (c) 2015 David Hernon. All rights reserved.
 //
 
-#import "SoundCloudSearchview.h"
+#import "EventMapView.h"
 
-@implementation SoundCloudSearchview
+@implementation EventMapView
 
 /*
 // Only override drawRect: if you perform custom drawing.

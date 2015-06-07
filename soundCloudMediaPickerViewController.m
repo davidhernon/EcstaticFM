@@ -293,18 +293,17 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 {
     // May break if there is more than one UIView in the NIB
     
-    SoundCloudSearchView *search_soundcloud = [[[NSBundle mainBundle] loadNibNamed:@"SoundCloudSearchView" owner:self options:nil] objectAtIndex:0];
+    ILTranslucentView *search_soundcloud = [[[NSBundle mainBundle] loadNibNamed:@"SoundCloudSearchView" owner:self options:nil] objectAtIndex:0];
     search_soundcloud.translucentAlpha = 0;
     search_soundcloud.translucentStyle = UIBarStyleDefault;
     search_soundcloud.translucentTintColor = [UIColor clearColor];
     search_soundcloud.backgroundColor = [UIColor clearColor];
-    search_soundcloud.delegate = self;
+    
     [search_soundcloud addSender:self];
     
     [self.view addSubview:search_soundcloud];
 
     _soundCloudResultsTableView.hidden = YES;
-    
 }
 
 -(void)searchSoundcloud:(NSString*)search_text

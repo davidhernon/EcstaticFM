@@ -289,6 +289,7 @@
 {
     NSString *user_search = _soundcloud_search.text;
     [_sender searchSoundcloud:user_search];
+    _sender.soundCloudResultsTableView.hidden = NO;
     [self removeFromSuperview];
 }
 
