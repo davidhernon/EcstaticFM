@@ -10,4 +10,14 @@
 
 @implementation Message
 
+- (id) initWithUser:(NSString *)user withContent:(NSString *)content
+{
+    if(self = [super init])
+    {
+        self.user = user;
+        self.content = content;
+    }
+    return self;
+}
+
 @end

@@ -12,4 +12,6 @@
 
 @property (weak, nonatomic) NSString *user;
 @property (weak, nonatomic) NSString *content;
+
+- (id) initWithUser:(NSString *)user withContent:(NSString *)content;
 @end
