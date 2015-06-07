@@ -44,6 +44,7 @@
     [self.view addGestureRecognizer:tap];
     
     _messages = [[NSMutableArray alloc] init];
+    _message = [[Message alloc] init];
 //    Message *myMessage = [[Message alloc] init];
 //    myMessage.user = @"the_real_bd";
 //    myMessage.content = @"here is a message";
@@ -116,10 +117,10 @@
 
 - (void) addChatText:(NSString *)user content:(NSString *)content
 {
-    Message *message = [[Message alloc] init];
-    message.user = user;
-    message.content = content;
-    [_messages addObject:message];
+    _message = [[Message alloc] init];
+    _message.user = user;
+    _message.content = content;
+    [_messages addObject:_message];
     [_chatTableView reloadData];
 }
 
