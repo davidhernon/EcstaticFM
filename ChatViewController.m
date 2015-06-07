@@ -44,15 +44,6 @@
     [self.view addGestureRecognizer:tap];
     
     _messages = [[NSMutableArray alloc] init];
-    _message = [[Message alloc] init];
-//    Message *myMessage = [[Message alloc] init];
-//    myMessage.user = @"the_real_bd";
-//    myMessage.content = @"here is a message";
-//    Message *theirMessage = [[Message alloc] init];
-//    theirMessage.user = @"martin";
-//    theirMessage.content = @"other message";
-//    [_messages addObjectsFromArray:@[myMessage,theirMessage]];
-//    [_chat_table_view reloadData];
     
 }
 
@@ -174,13 +165,13 @@
     CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
     // resize the noteView
-    CGRect viewFrame = _chatScrollView.frame;
+    CGRect viewFrame = _chatTableView.frame;
     // I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
     viewFrame.size.height -= (keyboardSize.height - kTabBarHeight);
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
-    [_chatScrollView setFrame:viewFrame];
+    [_chatTableView setFrame:viewFrame];
     [UIView commitAnimations];
     _keyboardIsShown = YES;
 }
