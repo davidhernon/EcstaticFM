@@ -14,4 +14,5 @@
 @property (retain, nonatomic) NSString *content;
 
 - (id) initWithUser:(NSString *)user withContent:(NSString *)content;
+
 @end
