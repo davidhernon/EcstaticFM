@@ -200,7 +200,7 @@ static SocketIOClient *static_socket;
         NSDictionary *d = (NSDictionary*)data[0];
         NSDictionary *player_state = [d objectForKey:@"player_state"];
         
-        if(player_state == NULL)
+        if(player_state == NULL || player_state == (id)[NSNull null] )
         {
             [[Player sharedPlayer] joinPlayingRoom:0 withElapsedTime:0.0f andIsPlaying:0];
             return;
