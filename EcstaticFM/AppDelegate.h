@@ -10,6 +10,7 @@
 #import "Player.h"
 #import "LocationServices.h"
 #import "Mixpanel.h"
+@class ChatViewController;
 
 //DEV KEY MUST CHANGE TO PRODUCTION
 #define MIXPANEL_TOKEN @"a17f016312fe75ac288ba52dc81b1cdb"
@@ -21,7 +22,7 @@
 @property (nonatomic, retain) Player* player;
 @property LocationServices* locationServices;
 @property Mixpanel* mixpanel;
-
+@property ChatViewController* chatViewController;
 
 @end
 

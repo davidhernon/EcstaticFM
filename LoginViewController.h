@@ -16,7 +16,6 @@
 #import "SDSAPI.h"
 #import "SSKeychain.h"
 
-
 @interface LoginViewController : UIViewController
 
 -(void)getAccessToken;
@@ -25,16 +24,13 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *loginScrollView;
 @property BOOL keyboardIsShown;
-@property  CGPoint originalCenter;
 
-@property (weak, nonatomic) IBOutlet UILabel *loginLabel;
+@property (strong, nonatomic) IBOutlet UILabel *loginLabel;
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIImageView *loginLoading;
-
-@property (weak, nonatomic) IBOutlet UIView *loginView;
 
 
 

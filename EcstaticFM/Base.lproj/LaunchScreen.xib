@@ -10,29 +10,17 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wmC-pi-smK">
-                    <rect key="frame" x="80" y="0.0" width="320" height="480"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wmC-pi-smK">
+                    <rect key="frame" x="0.0" y="0.0" width="496" height="480"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="image_splashwhite.png" translatesAutoresizingMaskIntoConstraints="NO" id="wl2-4k-P6u">
-                            <rect key="frame" x="-4" y="0.0" width="320" height="480"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="320" id="R5z-Hw-j4b"/>
-                                <constraint firstAttribute="height" constant="480" id="WBm-vN-kno"/>
-                            </constraints>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_splashwhite.png" translatesAutoresizingMaskIntoConstraints="NO" id="wl2-4k-P6u">
+                            <rect key="frame" x="88" y="0.0" width="320" height="480"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="centerX" secondItem="wl2-4k-P6u" secondAttribute="centerX" id="WAp-W7-PIj"/>
-                        <constraint firstAttribute="centerY" secondItem="wl2-4k-P6u" secondAttribute="centerY" id="fWV-RN-7dE"/>
-                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstAttribute="centerX" secondItem="wmC-pi-smK" secondAttribute="centerX" id="Ox7-8q-ltf"/>
-                <constraint firstAttribute="centerY" secondItem="wmC-pi-smK" secondAttribute="centerY" id="xS6-73-TIa"/>
-            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
