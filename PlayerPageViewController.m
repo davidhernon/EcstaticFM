@@ -10,10 +10,8 @@
 
 @interface PlayerPageViewController ()
 
-@property (nonatomic, retain) UIViewController *around_me;
 @property (nonatomic, retain) UIViewController *player;
 @property (nonatomic, retain) UIViewController *chat;
-
 
 @end
 
@@ -21,17 +19,8 @@
     NSArray *viewControllers;
 }
 
-NSString* around_me_view_identifier = @"aroundMe";
 NSString* player_me_view_identifier = @"player";
 NSString* chat_view_identifier = @"chat";
-
-- (UIViewController *)around_me {
-    if (!_around_me) {
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        _around_me = [sb instantiateViewControllerWithIdentifier:around_me_view_identifier];
-    }
-    return _around_me;
-}
 
 - (UIViewController *)player {
     if (!_player) {
@@ -68,13 +57,9 @@ NSString* chat_view_identifier = @"chat";
     
     UIViewController *nextViewController = nil;
     
-    if (viewController == self.around_me) {
-        nextViewController = self.player;
-    }
     if (viewController == self.player) {
         nextViewController = self.chat;
     }
-    
     return nextViewController;
 }
 
@@ -85,10 +70,6 @@ NSString* chat_view_identifier = @"chat";
     if (viewController == self.chat) {
         prevViewController = self.player;
     }
-    if (viewController == self.player) {
-        prevViewController = self.around_me;
-    }
-    
     return prevViewController;
 }
 
