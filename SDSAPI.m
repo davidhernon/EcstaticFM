@@ -191,6 +191,7 @@ static SocketIOClient *static_socket;
 		NSString* textMessage =[((NSDictionary*) data[0]) objectForKey:@"textMessage"];
 		NSString* username =[((NSDictionary*) data[0]) objectForKey:@"username"];
 		AppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
+        
 		[appDelegate.chatViewController addChatText:username content:textMessage];
 	}];
 
@@ -198,6 +199,12 @@ static SocketIOClient *static_socket;
     [static_socket on:@"return_get_player_status" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSDictionary *d = (NSDictionary*)data[0];
         NSDictionary *player_state = [d objectForKey:@"player_state"];
+        
+        if(player_state == NULL)
+        {
+            [[Player sharedPlayer] joinPlayingRoom:0 withElapsedTime:0.0f andIsPlaying:0];
+            return;
+        }
         
         NSNumber *current_time_from_server = (NSNumber*)[d objectForKey:@"current_time"];
         
