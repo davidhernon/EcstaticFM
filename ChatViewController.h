@@ -19,11 +19,9 @@
 
 
 @property (nonatomic, strong)UITapGestureRecognizer *chatTapGestureRecognizer;
-@property (weak, nonatomic) IBOutlet UIScrollView *chatScrollView;
 @property BOOL keyboardIsShown;
 @property (weak, nonatomic) IBOutlet UILabel *people_with_you;
-@property (weak, nonatomic) IBOutlet UITableView *chatTableView;
-@property (weak, nonatomic) IBOutlet UITableView *chat_table_view;
+@property (retain, nonatomic) IBOutlet UITableView *chatTableView;
 @property (retain, nonatomic) NSMutableArray *messages;
 @property (weak, nonatomic) IBOutlet UITextView *chatTextField;
 
