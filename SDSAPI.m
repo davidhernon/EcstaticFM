@@ -157,7 +157,7 @@ static SocketIOClient *static_socket;
 }
 
 + (void) connect{
-    static_socket = [[SocketIOClient alloc] initWithSocketURL:@"http://ecstatic.fm/" options:nil];
+    static_socket = [[SocketIOClient alloc] initWithSocketURL:@"http://ecstatic.fm:80" options:nil];
     
     [static_socket on: @"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"here connected");
@@ -185,6 +185,15 @@ static SocketIOClient *static_socket;
     [static_socket on:@"realtime_leave_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSLog(@"one of the users just left the room");
     }];
+	
+	[static_socket on:@"send_text" callback:^(NSArray * data, void (^ack) (NSArray*)){
+		NSLog(@"send_text returned,%@", data[0]);
+		NSString* textMessage =[((NSDictionary*) data[0]) objectForKey:@"textMessage"];
+		NSString* username =[((NSDictionary*) data[0]) objectForKey:@"username"];
+		AppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
+		[appDelegate.chatViewController addChatText:username content:textMessage];
+	}];
+
     
     [static_socket on:@"return_get_player_status" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSDictionary *d = (NSDictionary*)data[0];
