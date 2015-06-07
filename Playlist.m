@@ -37,6 +37,11 @@ static Playlist *sharedPlaylist = nil;
     // Hadnling player UI and stop/start
     sharedPlaylist.playlist = [[NSMutableArray alloc] init];
     
+    if([playlist count] == 0)
+    {
+        return;
+    }
+    
     for(int i = 0; i < [playlist count]; i++)
     {
         NSDictionary *track = [playlist objectForKey:[NSString stringWithFormat:@"%d", i]];
