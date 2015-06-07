@@ -157,7 +157,7 @@ static SocketIOClient *static_socket;
 }
 
 + (void) connect{
-    static_socket = [[SocketIOClient alloc] initWithSocketURL:@"http://54.173.157.204:8888" options:nil];
+    static_socket = [[SocketIOClient alloc] initWithSocketURL:@"http://ecstatic.fm/" options:nil];
     
     [static_socket on: @"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"here connected");
