@@ -19,12 +19,14 @@
 
 
 @property (nonatomic, strong)UITapGestureRecognizer *chatTapGestureRecognizer;
+@property (weak, nonatomic) IBOutlet UIScrollView *chatScrollView;
 @property (weak, nonatomic) IBOutlet UITextField *chatTextField;
+@property BOOL keyboardIsShown;
 @property (weak, nonatomic) IBOutlet UILabel *people_with_you;
 @property (weak, nonatomic) IBOutlet UITableView *chatTableView;
+@property (weak, nonatomic) IBOutlet UITableView *chat_table_view;
 @property (retain, nonatomic) NSMutableArray *messages;
 
-@property BOOL keyboardIsShown;
 - (IBAction)sendChat:(id)sender;
 - (void)addChatText:(NSString*)text;
 - (void)didReceiveMemoryWarning;

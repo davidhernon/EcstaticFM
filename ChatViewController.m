@@ -12,10 +12,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-	AppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
-	appDelegate.chatViewController = self;
-	
+    // Do any additional setup after loading the view.
+    
+    AppDelegate* appDelegate =  (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    appDelegate.chatViewController = self;
+    
     // Add the gradient to the view
     [self.view.layer insertSublayer:[GFXUtils getGradientChat:self.view.bounds] atIndex:0];
     
@@ -43,6 +44,15 @@
     [self.view addGestureRecognizer:tap];
     
     _messages = [[NSMutableArray alloc] init];
+//    Message *myMessage = [[Message alloc] init];
+//    myMessage.user = @"the_real_bd";
+//    myMessage.content = @"here is a message";
+//    Message *theirMessage = [[Message alloc] init];
+//    theirMessage.user = @"martin";
+//    theirMessage.content = @"other message";
+//    [_messages addObjectsFromArray:@[myMessage,theirMessage]];
+//    [_chat_table_view reloadData];
+    
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -94,22 +104,23 @@
     return cell;
 }
 
-- (IBAction)sendChat:(id)sender {
-	[SDSAPI sendText:self.chatTextField.text];
-}
-
-- (void)addChatText:(NSString*)user content:(NSString*)content{
-	Message *myMessage = [[Message alloc] init];
-	myMessage.user = user;
-	myMessage.content = content;
-	[_messages addObject:myMessage];
-	[_chatTableView reloadData];
-
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)sendChat:(id)sender
+{
+    [SDSAPI sendText:self.chatTextField.text];
+}
+
+- (void) addChatText:(NSString *)user content:(NSString *)content
+{
+    Message *message = [[Message alloc] init];
+    message.user = user;
+    message.content = content;
+    [_messages addObject:message];
+    [_chatTableView reloadData];
 }
 
 - (void) getMessages
@@ -123,6 +134,10 @@
     // Reload the scroll view
 }
 
+- (void) setMessagesInScrollView
+{
+    
+}
 
 - (void)keyboardWillHide:(NSNotification *)n
 {
@@ -158,13 +173,13 @@
     CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
     // resize the noteView
-    CGRect viewFrame = _chatTableView.frame;
+    CGRect viewFrame = _chatScrollView.frame;
     // I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
     viewFrame.size.height -= (keyboardSize.height - kTabBarHeight);
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
-    [_chatTableView setFrame:viewFrame];
+    [_chatScrollView setFrame:viewFrame];
     [UIView commitAnimations];
     _keyboardIsShown = YES;
 }

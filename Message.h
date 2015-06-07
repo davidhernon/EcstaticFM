@@ -10,6 +10,6 @@
 
 @interface Message : NSObject
 
-@property (retain, nonatomic) NSString *user;
-@property (retain, nonatomic) NSString *content;
+@property (weak, nonatomic) NSString *user;
+@property (weak, nonatomic) NSString *content;
 @end

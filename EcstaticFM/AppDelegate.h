@@ -24,5 +24,6 @@
 @property Mixpanel* mixpanel;
 @property ChatViewController* chatViewController;
 
+
 @end
 

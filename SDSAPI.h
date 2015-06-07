@@ -11,15 +11,17 @@
 #import "MediaItem.h"
 #import "AppDelegate.h"
 #import "ChatViewController.h"
-
 @class Player;
 @class LoginViewController;
 @interface SDSAPI : NSObject
+
+@property ChatViewController* chatViewController;
 
 +(NSString*)getWebsiteURL;
 +(NSArray*)getUpcomingEvents;
 +(void)signup:(NSString*)username password:(NSString*)pass email:(NSString*)email ID:(id)callingViewController;
 +(void)login:(NSString*)username password:(NSString*)password ID:(id)callingViewController;
++(void)fbLogin;
 +(void)createRoom:(NSString*)params;
 +(void)aroundMe:(NSString*)username withID:(id)sender;
 +(void)connect;
@@ -32,6 +34,6 @@
 +(void) updatePlayerState;
 +(void) sendText:(NSString*)textMessage;
 
-@property ChatViewController* chatViewController;
+
 
 @end
