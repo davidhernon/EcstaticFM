@@ -30,6 +30,7 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="content" destination="bfK-XO-PGj" id="skY-ee-9aL"/>
                 <outlet property="user" destination="Ir9-ir-hCM" id="Imc-Gd-1eW"/>
