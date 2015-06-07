@@ -10,8 +10,8 @@
 
 @interface Message : NSObject
 
-@property (weak, nonatomic) NSString *user;
-@property (weak, nonatomic) NSString *content;
+@property (retain, nonatomic) NSString *user;
+@property (retain, nonatomic) NSString *content;
 
 - (id) initWithUser:(NSString *)user withContent:(NSString *)content;
 @end

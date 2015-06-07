@@ -14,8 +14,8 @@
 {
     if(self = [super init])
     {
-        self.user = user;
-        self.content = content;
+        self.user = [[NSString alloc] initWithString:user];
+        self.content = [[NSString alloc] initWithString:content];
     }
     return self;
 }
