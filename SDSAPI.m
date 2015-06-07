@@ -177,6 +177,10 @@ static SocketIOClient *static_socket;
     [static_socket on:@"realtime_join_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSLog(@"another user just joined you in the room");
     }];
+	
+	[static_socket on:@"return_join_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
+		NSLog(@"return_join_room returned,%@", data[0]);
+	}];
     
     [static_socket on:@"realtime_leave_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSLog(@"one of the users just left the room");
