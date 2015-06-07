@@ -108,10 +108,10 @@
 
 - (void) addChatText:(NSString *)user content:(NSString *)content
 {
-    Message *message = [[Message alloc] init];
-    message.user = user;
-    message.content = content;
-    [_messages addObject:message];
+    _message = [[Message alloc] init];
+    _message.user = user;
+    _message.content = content;
+    [_messages addObject:_message];
     [_chatTableView reloadData];
 }
 

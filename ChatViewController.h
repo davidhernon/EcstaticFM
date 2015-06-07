@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *chatTableView;
 @property (retain, nonatomic) NSMutableArray *messages;
 @property (weak, nonatomic) IBOutlet UITextView *chatTextField;
+@property (strong, nonatomic) Message *message;
 
 - (IBAction)sendChat:(id)sender;
 - (void)addChatText:(NSString*)text;
