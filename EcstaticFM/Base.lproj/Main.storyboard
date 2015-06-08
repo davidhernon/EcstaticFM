@@ -92,7 +92,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wsu-1S-1Ht"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3hJ-aG-FG0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0X-aX-qNV">
@@ -1427,9 +1427,9 @@ on Soundcloud?</string>
         <image name="spinner-16.png" width="302" height="302"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="LHV-l3-vdI"/>
+        <segue reference="sP4-bK-WLP"/>
         <segue reference="E2U-Ol-7ff"/>
         <segue reference="ubM-n0-8uz"/>
-        <segue reference="ag5-lL-hod"/>
-        <segue reference="sP4-bK-WLP"/>
     </inferredMetricsTieBreakers>
 </document>

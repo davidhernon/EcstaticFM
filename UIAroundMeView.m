@@ -35,13 +35,17 @@
 
 - (id) initWithFrame:(CGRect)aRect withEvent:(NSDictionary*)event withRoomController:(RoomsViewController*)sender
 {
+    NSArray *users = [event objectForKey:@"users"];
+    NSDictionary *room_info = [event objectForKey:@"room_info"];
     if((self = [super initWithFrame:aRect]))
     {
         NSString *className = NSStringFromClass([self class]);
         self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
-        self.other_listeners = [event objectForKey:@"host_username"];
-        self.room_number = [event objectForKey:@"room_number"];
+        self.other_listeners.text = [NSString stringWithFormat:@"%@ and %i other(s)", [room_info objectForKey:@"host_username"], [users count] - 1];
+        self.room_number_label.text = [NSString stringWithFormat:@"Room Number: %@", [room_info objectForKey:@"room_number"]];
+        self.room_number = [room_info objectForKey:@"room_number"];
         self.rooms_view_controller = sender;
+        self.title.text = [room_info objectForKey:@"room_name"];
         [self addSubview:self.view];
     }
     return self;

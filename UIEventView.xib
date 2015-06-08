@@ -13,10 +13,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIEventView">
             <connections>
                 <outlet property="button" destination="rxU-CQ-TOQ" id="ul8-jQ-kFa"/>
-                <outlet property="hostname" destination="du5-Rh-Jjr" id="2Tg-wf-rVE"/>
-                <outlet property="location" destination="q7l-pF-EId" id="HuB-aH-GUu"/>
-                <outlet property="room_number_label" destination="aLI-pf-jqJ" id="mpr-bW-5ff"/>
-                <outlet property="title" destination="DRO-ED-pfX" id="JVU-iV-595"/>
+                <outlet property="hostname" destination="4Id-ab-qEK" id="sz6-7C-rJF"/>
+                <outlet property="location" destination="l8S-9q-w5C" id="B7E-nI-vhq"/>
+                <outlet property="room_number_label" destination="0sf-aR-M8X" id="4tW-gA-uwf"/>
+                <outlet property="title" destination="w0X-cY-UFV" id="lvG-O1-xWE"/>
                 <outlet property="view" destination="iN0-l3-epB" id="x2P-Qa-eAF"/>
             </connections>
         </placeholder>
@@ -25,16 +25,10 @@
             <rect key="frame" x="0.0" y="0.0" width="234" height="348"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRO-ED-pfX">
-                    <rect key="frame" x="8" y="23" width="218" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DcH-uv-gc1">
                     <rect key="frame" x="0.0" y="234" width="234" height="48"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sf-aR-M8X">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Room Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sf-aR-M8X">
                             <rect key="frame" x="7" y="16" width="218" height="21"/>
                             <fontDescription key="fontDescription" name="Raleway" family="Raleway" pointSize="17"/>
                             <color key="textColor" red="0.23561207949999999" green="0.23559810219999999" blue="0.23560686410000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -61,26 +55,20 @@
                     </subviews>
                     <color key="backgroundColor" red="0.82983559370000004" green="0.34100496769999999" blue="0.46299603579999998" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7l-pF-EId">
-                    <rect key="frame" x="8" y="57" width="218" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hostname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Id-ab-qEK" userLabel="Hostname">
+                    <rect key="frame" x="77.5" y="164" width="79" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hostname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="du5-Rh-Jjr">
-                    <rect key="frame" x="8" y="93" width="218" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event ID: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLI-pf-jqJ">
-                    <rect key="frame" x="8" y="199" width="226" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8S-9q-w5C" userLabel="Location">
+                    <rect key="frame" x="97" y="153" width="67" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxU-CQ-TOQ">
-                    <rect key="frame" x="0.0" y="0.0" width="234" height="234"/>
+                    <rect key="frame" x="-0.5" y="0.0" width="234" height="234"/>
                     <state key="normal" title=" ">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>

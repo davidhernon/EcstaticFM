@@ -49,8 +49,8 @@
             self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
             [self addSubview:self.view];
             _rooms_view_controller = sender;
-            _title.text = @"title";
-            _location.text = [event objectForKey:@"city"];
+            _title.text = [event objectForKey:@"city"];
+            _location.text = [event objectForKey:@"location"];
             //id might actually be an int already
             _room_number_label.text = [NSString stringWithFormat:@"Room Identifier: %@", [event objectForKey:@"id"]];
             _room_number = [NSString stringWithFormat:@"%@",[event objectForKey:@"id"]];

@@ -14,6 +14,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIAroundMeView">
             <connections>
                 <outlet property="button" destination="hxg-uO-SPh" id="hV7-bW-i7g"/>
+                <outlet property="other_listeners" destination="AKa-f8-i3W" id="xo7-1i-la2"/>
+                <outlet property="room_number_label" destination="1aS-z4-d5b" id="d2K-hq-WMh"/>
+                <outlet property="title" destination="VV0-93-nqw" id="ITo-Sh-uyG"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Et1-CY-ZHx"/>
             </connections>
         </placeholder>
