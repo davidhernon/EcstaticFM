@@ -22,6 +22,7 @@
 @property int currentTrackIndex;
 @property BOOL isPaused;
 @property BOOL isNextSong;
+@property BOOL joining;
 
 
 @property (nonatomic, weak) id<PlayerDelegate> delegate;
@@ -37,7 +38,7 @@
 -(void)seek:(float)value;
 -(BOOL)isPlaying;
 -(void) reloadUI;
-- (void) joinPlayingRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(int)is_playing;
+- (void) joinPlayingRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing;
 
 
 @end

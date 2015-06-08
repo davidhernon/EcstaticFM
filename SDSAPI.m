@@ -219,8 +219,10 @@ static SocketIOClient *static_socket;
         float st = [server_timestamp longValue];
         float et = [elapsed_time intValue];
         float el = (float)ctfs - (float)st + (float)(1.0f*et);
+        
+        BOOL playing = is_playing;
 
-        [[Player sharedPlayer] joinPlayingRoom:song_index withElapsedTime:el andIsPlaying:is_playing];
+        [[Player sharedPlayer] joinPlayingRoom:song_index withElapsedTime:el andIsPlaying:playing ];
     }];
     
     [static_socket on:@"realtime_player" callback:^(NSArray * data, void (^ack) (NSArray*)){
