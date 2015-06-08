@@ -109,4 +109,16 @@ static NSString* around_me_event_cell = @"around_me_cell";
     _rooms_around_me = nil;
 }
 
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    CGFloat kMaxIndex = 23;
+    CGFloat targetX = scrollView.contentOffset.x + velocity.x * 60.0;
+    CGFloat targetIndex = round(targetX / (100));
+    if (targetIndex < 0)
+        targetIndex = 0;
+    if (targetIndex > kMaxIndex)
+        targetIndex = kMaxIndex;
+    targetContentOffset->x = targetIndex * (100);
+}
+
 @end

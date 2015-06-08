@@ -174,6 +174,18 @@ static NSString* cellIdentifier = @"playListCell";
     }
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    if(_player.currentTrackIndex != 0)
+    {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_player.currentTrackIndex inSection:0];
+        [_playListTableView scrollToRowAtIndexPath:indexPath
+                             atScrollPosition:UITableViewScrollPositionTop
+                                     animated:YES];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

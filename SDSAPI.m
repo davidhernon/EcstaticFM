@@ -490,11 +490,19 @@ static SocketIOClient *static_socket;
 +(void)userHitPlay
 {
     NSLog(@"User Hit Play");
+    NSString *room_number = [Room currentRoom].room_number;
+    NSDictionary *textDict = [NSDictionary dictionaryWithObjects:@[room_number] forKeys:@[@"room_number"]];
+    NSData *json = [NSJSONSerialization dataWithJSONObject:textDict options:nil error:nil];
+    [static_socket emitObjc:@"play" withItems:@[json]];
 }
 
 +(void)userHitPause
 {
     NSLog(@"User Hit Pause");
+    NSString *room_number = [Room currentRoom].room_number;
+    NSDictionary *textDict = [NSDictionary dictionaryWithObjects:@[room_number] forKeys:@[@"room_number"]];
+    NSData *json = [NSJSONSerialization dataWithJSONObject:textDict options:nil error:nil];
+    [static_socket emitObjc:@"pause" withItems:@[json]];
 }
 
 +(void) seek
