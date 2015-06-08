@@ -271,7 +271,11 @@ static SocketIOClient *static_socket;
     }];
     
     [static_socket on:@"add_song" callback:^(NSArray * data, void (^ack) (NSArray*)){
-        [[Playlist sharedPlaylist] addTrack: [[MediaItem alloc] initWIthDict:((NSDictionary*) data[0])] ];
+        NSDictionary *song = ((NSDictionary*) data[0]);
+        if([[[NSUserDefaults standardUserDefaults] objectForKey:@"username"] isEqual:[song objectForKey:@"username"]]){
+            return;
+        }
+        [[Playlist sharedPlaylist] addTrack: [[MediaItem alloc] initWIthDict:song] ];
         [[Playlist sharedPlaylist] reloadPlayer];
         NSLog(@"song received");
     }];
