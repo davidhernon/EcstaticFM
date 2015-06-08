@@ -62,7 +62,11 @@ static NSString* cellIdentifier = @"playListCell";
 
 
     // Hide the slider thumb & background color
-    [_slider setThumbImage:[UIImage alloc] forState:UIControlStateNormal];
+    UIImage *img = [UIImage imageNamed:@"image_cursor.png"];
+    NSData *imageData = UIImageJPEGRepresentation(img, 1.0);
+    UIImage *scaled_image = [[UIImage alloc] initWithData:(NSData *)imageData
+                                                    scale:2.0f];
+    [_slider setThumbImage:scaled_image forState:UIControlStateNormal];
     _slider.maximumTrackTintColor = [UIColor colorWithRed:0.541 green:0.267 blue:0.435 alpha:1] /*#8a446f*/;
     
     
@@ -89,10 +93,10 @@ static NSString* cellIdentifier = @"playListCell";
     [self.player addDelegate:self];
     [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
     
-    _current_album_artwork.layer.shadowColor = [UIColor blackColor].CGColor;
-    _current_album_artwork.layer.shadowRadius = 10.f;
+    _current_album_artwork.layer.shadowColor = [UIColor colorWithRed:0.549 green:0.227 blue:0.4 alpha:1].CGColor;
+    _current_album_artwork.layer.shadowRadius = 5.f;
     _current_album_artwork.layer.shadowOffset = CGSizeMake(0.f, 5.f);
-    _current_album_artwork.layer.shadowOpacity = 1.f;
+    _current_album_artwork.layer.shadowOpacity = 0.55f;
     _current_album_artwork.clipsToBounds = NO;
     _playListTableView.tableHeaderView = __playerTableHeaderView;
     _playListTableView.tableFooterView = __playerAddMusicCell;
@@ -197,7 +201,7 @@ static NSString* cellIdentifier = @"playListCell";
     
     MediaItem *track = [self.playlist objectAtIndex:indexPath.row];
     
-    _playListTableView.backgroundColor = [UIColor clearColor];
+    _playListTableView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.23];
     
     cell.backgroundColor = [UIColor clearColor];
     cell.contentView.backgroundColor = [UIColor clearColor];
@@ -214,7 +218,7 @@ static NSString* cellIdentifier = @"playListCell";
     // If the track added is the track currently playing add other UI
     if((int)_current_track_index == (int)indexPath.row && _player.isPlaying)
     {
-        cell.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
+        cell.backgroundColor = [UIColor colorWithRed:0.369 green:0.078 blue:0.298 alpha:0.25] /*#5e144c*/;
         cell.song_index_label.text = @"";
         NSArray *imageNames = @[@"wave1.png", @"wave2.png", @"wave3.png", @"wave4.png", @"wave5.png", @"wave6.png", @"wave7.png"];
         
