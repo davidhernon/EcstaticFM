@@ -42,6 +42,7 @@ static Player *ecstaticPlayer = nil;
         ecstaticPlayer.isPaused = NO;
         ecstaticPlayer.isNextSong = NO;
         ecstaticPlayer.joining = NO;
+        ecstaticPlayer.user_hit_button = NO;
     });
     return ecstaticPlayer;
 }
@@ -107,6 +108,11 @@ the delegate to Player for Player to communicate with a view controller
         }else{
 #warning Update Player UI
             //This hits when song makes it to the end, then a new song is added and user hits play
+            if(_user_hit_button)
+               {
+                   _user_hit_button = NO;
+                   [SDSAPI userHitPlay];
+               }
             [_avPlayer play];
             _isPaused = NO;
             [_delegate showPauseButton];
@@ -117,20 +123,19 @@ the delegate to Player for Player to communicate with a view controller
     }else if(!_isPaused){
         #warning Update Player UI
         NSLog(@"User just hit pause button, update Player UI to show paused state");
-        
+        if(_user_hit_button)
+        {
+            _user_hit_button = NO;
+            [SDSAPI userHitPause];
+        }
         [_delegate showPlayButton];
-        
         [_avPlayer pause];
         _isPaused = YES;
         return;
     // audio is not playing but we are not paused
     }else{
         #warning Update Player UI
-
         NSLog(@"User just hit play after being paused");
-        
-        
-        
         [_avPlayer play];
         _isPaused = NO;
         return;

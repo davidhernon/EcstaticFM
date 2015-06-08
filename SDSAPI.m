@@ -487,6 +487,16 @@ static SocketIOClient *static_socket;
     [static_socket emitObjc:@"send_text" withItems:@[json]];
 }
 
++(void)userHitPlay
+{
+    NSLog(@"User Hit Play");
+}
+
++(void)userHitPause
+{
+    NSLog(@"User Hit Pause");
+}
+
 +(void) seek
 {
     

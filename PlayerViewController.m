@@ -310,6 +310,7 @@ static NSString* cellIdentifier = @"playListCell";
  */
 - (IBAction)play:(id)sender
 {
+    _player.user_hit_button = YES;
     [self.player updatePlaylist];
     [self.player play];
 

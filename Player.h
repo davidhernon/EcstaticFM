@@ -23,6 +23,7 @@
 @property BOOL isPaused;
 @property BOOL isNextSong;
 @property BOOL joining;
+@property BOOL user_hit_button;
 
 
 @property (nonatomic, weak) id<PlayerDelegate> delegate;
