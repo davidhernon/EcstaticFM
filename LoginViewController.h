@@ -28,8 +28,8 @@
 @property  CGPoint originalCenter;
 
 @property (weak, nonatomic) IBOutlet UILabel *loginLabel;
-@property (weak, nonatomic) IBOutlet UITextField *username;
-@property (weak, nonatomic) IBOutlet UITextField *password;
+@property (retain, nonatomic) IBOutlet UITextField *username;
+@property (retain, nonatomic) IBOutlet UITextField *password;
 
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIImageView *loginLoading;

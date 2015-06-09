@@ -271,8 +271,7 @@
     
 
     
-    [[NSUserDefaults standardUserDefaults] setObject:self.username.text forKey:@"username"];
-    [SSKeychain setPassword:_password.text forService:@"EcstaticFM" account:self.username.text];
+    
 	[SDSAPI login: self.username.text password:self.password.text ID:self];
 }
 
@@ -280,6 +279,9 @@
 - (void) loginReturnedTrue
 {
     //		[self performSegueWithIdentifier:@"succesfulLogin" sender:self];
+    [[NSUserDefaults standardUserDefaults] setObject:self.username.text forKey:@"username"];
+    [SSKeychain setPassword:_password.text forService:@"EcstaticFM" account:self.username.text];
+    
     [SDSAPI createRoom: self.username.text];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
