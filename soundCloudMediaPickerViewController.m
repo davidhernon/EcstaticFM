@@ -70,8 +70,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     _sCMediaPickerSpinner.animationImages = images;
     _sCMediaPickerSpinner.animationDuration = 0.5;
     [_sCMediaPickerSpinner startAnimating];
- 
-
+    
     
     if([SCSoundCloud account] == nil)
     {
