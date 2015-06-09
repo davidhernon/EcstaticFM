@@ -115,6 +115,8 @@ the delegate to Player for Player to communicate with a view controller
 
 - (void)updatePlayerStateAndUIWithNewSong
 {
+    
+    
     if([Room currentRoom].is_owner)
     {
         [SDSAPI updatePlayerState];
@@ -127,14 +129,13 @@ the delegate to Player for Player to communicate with a view controller
 -(void)callNextSong
 {
     //set up the UI in advance to display album art while song is buffering
+    [_delegate playerIsLoadingNextSong];
     [_delegate initPlayerUI:0.0f withTrack:_currentTrack atIndex:_currentTrackIndex];
-    
     
     NSString *urlString = [NSString stringWithFormat:@"%@?client_id=%@", _currentTrack.stream_url,[SoundCloudAPI getClientID]];//Your client ID
     _avPlayer = [AVPlayer playerWithURL:[NSURL URLWithString:urlString]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioPlayerDidFinishPlaying) name:AVPlayerItemDidPlayToEndTimeNotification object:[_avPlayer currentItem]];
     [_avPlayer play];
-    
     [self updatePlayerStateAndUIWithNewSong];
 }
 
@@ -150,6 +151,7 @@ the delegate to Player for Player to communicate with a view controller
 -(void)updateTime
 {
     [_delegate setCurrentSliderValue:_avPlayer];
+    [_delegate playerIsDoneLoadingNextSong];
 }
 
 /**

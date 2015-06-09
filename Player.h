@@ -63,6 +63,10 @@
 
 - (void)showPauseButton;
 
+- (void)playerIsLoadingNextSong;
+
+-(void)playerIsDoneLoadingNextSong;
+
 @end
 
 

@@ -48,6 +48,9 @@
 @property (weak, nonatomic) IBOutlet UIView *controlsView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *playerSpinner;
+@property (weak, nonatomic) NSArray *playing_animation;
+@property (weak, nonatomic) NSArray *spinner_animation;
+@property BOOL loading_next_song;
 
 
 //nav bar

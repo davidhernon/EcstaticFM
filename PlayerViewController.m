@@ -20,15 +20,17 @@ static NSString* cellIdentifier = @"playListCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _loading_next_song = true;
+    
         _controlsView.hidden = YES;
     
     // Load images
-    NSArray *imageNames = @[@"spinner-1.png", @"spinner-2.png", @"spinner-3.png", @"spinner-4.png",
+    _spinner_animation = @[@"spinner-1.png", @"spinner-2.png", @"spinner-3.png", @"spinner-4.png",
                             @"spinner-5.png", @"spinner-6.png", @"spinner-7.png", @"spinner-8.png", @"spinner-9.png", @"spinner-10.png", @"spinner-11.png", @"spinner-12.png", @"spinner-13.png", @"spinner-14.png", @"spinner-15.png", @"spinner-16.png"];
     
     NSMutableArray *images = [[NSMutableArray alloc] init];
-    for (int i = 0; i < imageNames.count; i++) {
-        [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
+    for (int i = 0; i < _spinner_animation.count; i++) {
+        [images addObject:[UIImage imageNamed:[_spinner_animation objectAtIndex:i]]];
     }
     
     
@@ -232,7 +234,17 @@ static NSString* cellIdentifier = @"playListCell";
     {
         cell.backgroundColor = [UIColor colorWithRed:0.369 green:0.078 blue:0.298 alpha:0.25] /*#5e144c*/;
         cell.song_index_label.text = @"";
-        NSArray *imageNames = @[@"wave1.png", @"wave2.png", @"wave3.png", @"wave4.png", @"wave5.png", @"wave6.png", @"wave7.png"];
+        
+        NSArray *imageNames = [[NSArray alloc] init];;
+        if(_loading_next_song)
+        {
+            imageNames = @[@"spinner-1.png", @"spinner-2.png", @"spinner-3.png", @"spinner-4.png",
+                           @"spinner-5.png", @"spinner-6.png", @"spinner-7.png", @"spinner-8.png", @"spinner-9.png", @"spinner-10.png", @"spinner-11.png", @"spinner-12.png", @"spinner-13.png", @"spinner-14.png", @"spinner-15.png", @"spinner-16.png"];
+        }
+        else
+        {
+            imageNames = @[@"wave1.png", @"wave2.png", @"wave3.png", @"wave4.png", @"wave5.png", @"wave6.png", @"wave7.png"];
+        }
         
         NSMutableArray *images = [[NSMutableArray alloc] init];
         for (int i = 0; i < imageNames.count; i++) {
@@ -341,11 +353,13 @@ static NSString* cellIdentifier = @"playListCell";
 
 -(IBAction)last:(id)sender
 {
+    
     [self.player last];
 }
 
 -(IBAction)next:(id)sender
 {
+    [self playerIsLoadingNextSong];
     [self.player next];
 }
 
@@ -400,6 +414,18 @@ static NSString* cellIdentifier = @"playListCell";
 -(void)showPauseButton {
     [_play setImage:[UIImage imageNamed:@"button_pausenew.png"] forState:UIControlStateSelected];
     [_play setSelected:YES];
+}
+
+-(void)playerIsLoadingNextSong
+{
+    _loading_next_song = YES;
+    [_playListTableView reloadData];
+}
+
+-(void)playerIsDoneLoadingNextSong
+{
+    _loading_next_song = NO;
+    [_playListTableView reloadData];
 }
 
 @end
