@@ -172,7 +172,7 @@ static NSString* cellIdentifier = @"playListCell";
 //        _playListTableView.allowsMultipleSelectionDuringEditing = NO;
         
     }
-    if(![_player isPlaying] && ![_player isPaused] && [_playlist count] > 0)
+    if(![_player isPlaying] && ![_player player_is_paused] && [_playlist count] > 0)
     {
         [_player play];
     }

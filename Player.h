@@ -20,9 +20,9 @@
 @property AVPlayer* avPlayer;
 @property NSTimer* progressTimer;
 @property int currentTrackIndex;
-@property BOOL isPaused;
+@property BOOL player_is_paused;
 @property BOOL isNextSong;
-@property BOOL joining;
+@property BOOL user_joining_room;
 @property BOOL user_hit_button;
 
 

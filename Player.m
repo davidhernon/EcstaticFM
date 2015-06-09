@@ -39,9 +39,9 @@ static Player *ecstaticPlayer = nil;
         ecstaticPlayer = [[Player alloc] init];
         ecstaticPlayer.avPlayer = [[AVPlayer alloc] init];
         ecstaticPlayer.currentTrackIndex = 0;
-        ecstaticPlayer.isPaused = NO;
+        ecstaticPlayer.player_is_paused = NO;
         ecstaticPlayer.isNextSong = NO;
-        ecstaticPlayer.joining = NO;
+        ecstaticPlayer.user_joining_room = NO;
         ecstaticPlayer.user_hit_button = NO;
     });
     return ecstaticPlayer;
@@ -86,66 +86,42 @@ the delegate to Player for Player to communicate with a view controller
  */
 -(void)play
 {
-   // if(player is not playing audio)
-    if(_avPlayer.rate == 0 || _joining)
+    if([self playerNotPlayingAudioOrCurrentUserJoiningRoom])
     {
-        _joining = NO;
-        // if(there is not current track (i.e. player is not paused)
-        if(!_currentTrack)
+        if([self thereDoesntExistACurrentTrack])
         {
-            // if(playlist has songs and currentTrackIndex is less than the length of the list
-            if([_playlist count] > 0 && _currentTrackIndex < [_playlist count])
-            {
-                _currentTrack = [_playlist objectAtIndex:_currentTrackIndex];
-                [self updatePlaylist];
-            // else player is playing but there is no track to be played in playlist so stop
-            }else{
-                #warning Update Player UI
-                _avPlayer.rate = 0.0;
-                return;
-            }
+            [self playlistExistsAndIndexIsLessThanPlaylistLength];
+            
         // else there is a current track and the player is just paused
         }else{
-#warning Update Player UI
-            //This hits when song makes it to the end, then a new song is added and user hits play
-            if(_user_hit_button)
-               {
-                   _user_hit_button = NO;
-                   [SDSAPI userHitPlay];
-               }
-            [_avPlayer play];
-            _isPaused = NO;
-            [_delegate showPauseButton];
+            //This hits when song makes it to the end, then a new song is added and user hits play or hits when User hits play after a pause
+            [self playSignalFromUserOrPlayer];
             return;
         }
         
     // audio is not playing check if we are not paused
-    }else if(!_isPaused){
-        #warning Update Player UI
-        NSLog(@"User just hit pause button, update Player UI to show paused state");
-        if(_user_hit_button)
-        {
-            _user_hit_button = NO;
-            [SDSAPI userHitPause];
-        }
-        [_delegate showPlayButton];
-        [_avPlayer pause];
-        _isPaused = YES;
+    }else if(!_player_is_paused){
+        [self pauseSignalFromUserOrPlayer];
         return;
     // audio is not playing but we are not paused
     }else{
-        #warning Update Player UI
-        NSLog(@"User just hit play after being paused");
-        [_avPlayer play];
-        _isPaused = NO;
+        [self setupAudioForPlayAfterPause];
         return;
     }
-    //set up the UI in advance to display album art while song is buffering
-    [_delegate initPlayerUI:0.0f withTrack:_currentTrack atIndex:_currentTrackIndex];
-    
     
     [self callNextSong];
     
+}
+
+- (void)updatePlayerStateAndUIWithNewSong
+{
+    if([Room currentRoom].is_owner)
+    {
+        [SDSAPI updatePlayerState];
+    }
+    [_delegate initPlayerUI:(1.0f*CMTimeGetSeconds(_avPlayer.currentItem.asset.duration)) withTrack:_currentTrack atIndex:_currentTrackIndex];
+    _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
+    _player_is_paused = NO;
 }
 
 -(void)callNextSong
@@ -158,14 +134,8 @@ the delegate to Player for Player to communicate with a view controller
     _avPlayer = [AVPlayer playerWithURL:[NSURL URLWithString:urlString]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioPlayerDidFinishPlaying) name:AVPlayerItemDidPlayToEndTimeNotification object:[_avPlayer currentItem]];
     [_avPlayer play];
-    if([Room currentRoom].is_owner)
-    {
-        [SDSAPI updatePlayerState];
-    }
-    [_delegate initPlayerUI:(1.0f*CMTimeGetSeconds(_avPlayer.currentItem.asset.duration)) withTrack:_currentTrack atIndex:_currentTrackIndex];
-    _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
-    _isPaused = NO;
-    NSLog(@"make sure player UI reflects that songs is playing");
+    
+    [self updatePlayerStateAndUIWithNewSong];
 }
 
 /**
@@ -180,14 +150,6 @@ the delegate to Player for Player to communicate with a view controller
 -(void)updateTime
 {
     [_delegate setCurrentSliderValue:_avPlayer];
-    if((_avPlayer.rate == 0.0 && !_isPaused) || _avPlayer.error ){
-        NSLog(@"rate, isPaused, and error: %f space %hhd", _avPlayer.rate, _isPaused);
-        if(_avPlayer.error)
-        {
-            NSLog(@"ERROR: We did not finish playing successfully!! with error: %@", _avPlayer.error);
-        }
-//        [self audioPlayerDidFinishPlaying:_avPlayer successfully:YES];
-    }
 }
 
 /**
@@ -235,7 +197,8 @@ the delegate to Player for Player to communicate with a view controller
 {
     if(_avPlayer.rate != 0)
     {
-        [_avPlayer seekToTime:CMTimeMake(value, 1000)];
+//        [_avPlayer seekToTime:CMTimeMake(value, 1000)];
+        [_avPlayer seekToTime:CMTimeMake(value, 1000) toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
     }
 }
 
@@ -252,7 +215,6 @@ the delegate to Player for Player to communicate with a view controller
 
 -(void)last
 {
-    NSLog(@"print currentTime of player: %f", CMTimeGetSeconds([_avPlayer currentTime]));
     if(CMTimeGetSeconds([_avPlayer currentTime]) <= 10.0f)
     {
         if(!_currentTrackIndex == 0)
@@ -261,7 +223,7 @@ the delegate to Player for Player to communicate with a view controller
             _currentTrack = nil;
             [self updatePlaylist];
             [self pause];
-            _isPaused = YES;
+            _player_is_paused = YES;
             [self play];
             return;
         }
@@ -273,7 +235,7 @@ the delegate to Player for Player to communicate with a view controller
 
 -(BOOL)isPlaying
 {
-    if(_avPlayer.rate == 0 || _isPaused)
+    if(_avPlayer.rate == 0 || _player_is_paused)
     {
         return NO;
     }else{
@@ -293,26 +255,96 @@ the delegate to Player for Player to communicate with a view controller
 
 - (void) joinPlayingRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing
 {
-    float elspd = (elapsed);
-    
     if(index == 0 && !is_playing)
         return;
-    NSLog(@"Playlist length: %i", [[Playlist sharedPlaylist].playlist count]);
     _currentTrack = [[Playlist sharedPlaylist].playlist objectAtIndex:index];
     _currentTrackIndex = index;
-    [self seek:(elspd)];
+    [self seek:(elapsed)];
     [_delegate setCurrentSliderValue:_avPlayer];
     [self reloadUI];
-//    if(!is_playing)
-//    {
-//        [self play];
-//    }else if(is_playing)
-//    {
-//        
-//    }
-    _joining = YES;
+    _user_joining_room = YES;
     [self play];
-    NSLog(@"elapsed : %f", elspd );
+}
+
+-(BOOL)playerNotPlayingAudioOrCurrentUserJoiningRoom
+{
+    if(_avPlayer.rate == 0 || _user_joining_room)
+    {
+        _user_joining_room = NO;
+        return true;
+    }else{
+        return false;
+    }
+}
+
+-(BOOL)thereDoesntExistACurrentTrack
+{
+    return !_currentTrack;
+}
+
+-(BOOL)playlistExistsAndIndexIsLessThanPlaylistLength
+{
+   if( [_playlist count] > 0 && _currentTrackIndex < [_playlist count])
+   {
+       _currentTrack = [_playlist objectAtIndex:_currentTrackIndex];
+       [self updatePlaylist];
+       return true;
+   }else{
+       _avPlayer.rate = 0.0;
+       return false;
+   }
+}
+
+-(void)wasPlayPauseHitByUser:(BOOL)play
+{
+    if(_user_hit_button){
+        [self userHitPlayPauseButtonForPlay:play];
+    }
+}
+
+-(void)userHitPlayPauseButtonForPlay:(BOOL)play
+{
+    if(play)
+    {
+        _user_hit_button = NO;
+        [SDSAPI userHitPlay];
+    }else{
+        _user_hit_button = NO;
+        [SDSAPI userHitPause];
+    }
+}
+
+-(void)userDidPause
+{
+    [_delegate showPlayButton];
+    [_avPlayer pause];
+    _player_is_paused = YES;
+}
+
+-(void)userDidPlay
+{
+    [_avPlayer play];
+    _player_is_paused = NO;
+    [_delegate showPauseButton];
+}
+
+-(void)playSignalFromUserOrPlayer
+{
+    [self wasPlayPauseHitByUser:true];
+    [self userDidPlay];
+}
+
+-(void)pauseSignalFromUserOrPlayer
+{
+    [self wasPlayPauseHitByUser:false];
+    [self userDidPause];
+}
+
+-(void)setupAudioForPlayAfterPause
+{
+//    NSLog(@"User just hit play after being paused");
+    [_avPlayer play];
+    _player_is_paused = NO;
 }
 
 @end
