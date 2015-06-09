@@ -76,9 +76,11 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     if([SCSoundCloud account] == nil)
     {
         _connect_to_soundcloud.hidden = NO;
+        _sCMediaPickerSpinner.hidden = YES;
     }else{
         _connect_to_soundcloud.hidden = YES;
         _soundcloudLoginButton.hidden = YES;
+        _sCMediaPickerSpinner.hidden = NO;
     }
 //    _tracksFromSoundCloud = nil;
 //    [SoundCloudAPI getFavorites:self];
