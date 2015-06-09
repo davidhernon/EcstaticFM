@@ -5,6 +5,7 @@ PODS:
     - CocoaSoundCloudAPI (~> 1.0.1)
     - JSONKit
     - OHAttributedLabel
+  - GRUnit (1.1.3)
   - JSONKit (1.4)
   - Mixpanel (2.8.1):
     - Mixpanel/Mixpanel (= 2.8.1)
@@ -18,12 +19,14 @@ PODS:
 DEPENDENCIES:
   - CocoaSoundCloudAPI (= 1.0.1)
   - CocoaSoundCloudUI (= 1.0.5)
+  - GRUnit
   - Mixpanel
   - SWTableViewCell (~> 0.3.7)
 
 SPEC CHECKSUMS:
   CocoaSoundCloudAPI: e8e1f2e463fa9bb9d68b2dcf361572787c7a6c3f
   CocoaSoundCloudUI: 4deb5ffe558d0b60d0aaeaf2420dda7aa31cb239
+  GRUnit: 3a60546a0d42bc0edb83c4e755f9620517cd7af7
   JSONKit: 5b69e804ea54d99293eed0fd2ce596c5703fefb0
   Mixpanel: 93c4825025e6380ced273ed7178496282e385077
   NXOAuth2Client: 4705ee7d3532c106e2758e2f10f4e9964b5aec68

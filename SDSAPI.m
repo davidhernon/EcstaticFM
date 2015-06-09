@@ -174,7 +174,7 @@ static SocketIOClient *static_socket;
         [[Room currentRoom] initWithDict:room_info_dict];
     }];
     
-    [static_socket on:@"realtime_join_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
+    [static_socket on:@"join" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSLog(@"another user just joined you in the room");
     }];
 	
@@ -182,7 +182,7 @@ static SocketIOClient *static_socket;
 		NSLog(@"return_join_room returned,%@", data[0]);
 	}];
     
-    [static_socket on:@"realtime_leave_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
+    [static_socket on:@"leave_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSLog(@"one of the users just left the room");
     }];
 	
@@ -200,7 +200,7 @@ static SocketIOClient *static_socket;
         NSDictionary *d = (NSDictionary*)data[0];
         NSDictionary *player_state = [d objectForKey:@"player_state"];
         
-        if(player_state == NULL)
+        if(player_state == NULL || player_state == (id)[NSNull null] )
         {
             [[Player sharedPlayer] joinPlayingRoom:0 withElapsedTime:0.0f andIsPlaying:0];
             return;
@@ -219,8 +219,10 @@ static SocketIOClient *static_socket;
         float st = [server_timestamp longValue];
         float et = [elapsed_time intValue];
         float el = (float)ctfs - (float)st + (float)(1.0f*et);
+        
+        BOOL playing = is_playing;
 
-        [[Player sharedPlayer] joinPlayingRoom:song_index withElapsedTime:el andIsPlaying:is_playing];
+        [[Player sharedPlayer] joinPlayingRoom:song_index withElapsedTime:el andIsPlaying:playing ];
     }];
     
     [static_socket on:@"realtime_player" callback:^(NSArray * data, void (^ack) (NSArray*)){
@@ -270,8 +272,12 @@ static SocketIOClient *static_socket;
         // RE Show UI
     }];
     
-    [static_socket on:@"realtime_add_song" callback:^(NSArray * data, void (^ack) (NSArray*)){
-        [[Playlist sharedPlaylist] addTrack: [[MediaItem alloc] initWIthDict:((NSDictionary*) data[0])] ];
+    [static_socket on:@"add_song" callback:^(NSArray * data, void (^ack) (NSArray*)){
+        NSDictionary *song = ((NSDictionary*) data[0]);
+        if([[[NSUserDefaults standardUserDefaults] objectForKey:@"username"] isEqual:[song objectForKey:@"username"]]){
+            return;
+        }
+        [[Playlist sharedPlaylist] addTrack: [[MediaItem alloc] initWIthDict:song] ];
         [[Playlist sharedPlaylist] reloadPlayer];
         NSLog(@"song received");
     }];
@@ -288,7 +294,7 @@ static SocketIOClient *static_socket;
             [NSThread sleepForTimeInterval:0.1f];
         }
         
-        NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:@[username, @"test", [self getDictForPlayerState]]
+        NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:@[username, username, [self getDictForPlayerState]]
                                                                     forKeys:@[@"username", @"room_name", @"player_state"]];
         
         NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
@@ -479,6 +485,16 @@ static SocketIOClient *static_socket;
     NSDictionary *textDict = [NSDictionary dictionaryWithObjects:@[room_number, textMessage, username] forKeys:@[@"room_number", @"textMessage", @"username"]];
     NSData *json = [NSJSONSerialization dataWithJSONObject:textDict options:nil error:nil];
     [static_socket emitObjc:@"send_text" withItems:@[json]];
+}
+
++(void)userHitPlay
+{
+    NSLog(@"User Hit Play");
+}
+
++(void)userHitPause
+{
+    NSLog(@"User Hit Pause");
 }
 
 +(void) seek

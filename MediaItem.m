@@ -118,7 +118,6 @@
     }
     stringURL = [stringURL stringByReplacingOccurrencesOfString:@"large.jpg" withString:@"t500x500.jpg"];
     return [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:stringURL]]];
-    
 }
 
 /**
@@ -136,7 +135,6 @@
         stringURL = @"http://w1.sndcdn.com/fxguEjG4ax6B_m.png";
     }
     return [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:stringURL]]];
-    
 }
 
 @end

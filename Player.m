@@ -41,6 +41,8 @@ static Player *ecstaticPlayer = nil;
         ecstaticPlayer.currentTrackIndex = 0;
         ecstaticPlayer.isPaused = NO;
         ecstaticPlayer.isNextSong = NO;
+        ecstaticPlayer.joining = NO;
+        ecstaticPlayer.user_hit_button = NO;
     });
     return ecstaticPlayer;
 }
@@ -85,8 +87,9 @@ the delegate to Player for Player to communicate with a view controller
 -(void)play
 {
    // if(player is not playing audio)
-    if(_avPlayer.rate == 0)
+    if(_avPlayer.rate == 0 || _joining)
     {
+        _joining = NO;
         // if(there is not current track (i.e. player is not paused)
         if(!_currentTrack)
         {
@@ -105,6 +108,11 @@ the delegate to Player for Player to communicate with a view controller
         }else{
 #warning Update Player UI
             //This hits when song makes it to the end, then a new song is added and user hits play
+            if(_user_hit_button)
+               {
+                   _user_hit_button = NO;
+                   [SDSAPI userHitPlay];
+               }
             [_avPlayer play];
             _isPaused = NO;
             [_delegate showPauseButton];
@@ -115,20 +123,19 @@ the delegate to Player for Player to communicate with a view controller
     }else if(!_isPaused){
         #warning Update Player UI
         NSLog(@"User just hit pause button, update Player UI to show paused state");
-        
+        if(_user_hit_button)
+        {
+            _user_hit_button = NO;
+            [SDSAPI userHitPause];
+        }
         [_delegate showPlayButton];
-        
         [_avPlayer pause];
         _isPaused = YES;
         return;
     // audio is not playing but we are not paused
     }else{
         #warning Update Player UI
-
         NSLog(@"User just hit play after being paused");
-        
-        
-        
         [_avPlayer play];
         _isPaused = NO;
         return;
@@ -284,19 +291,27 @@ the delegate to Player for Player to communicate with a view controller
     [_delegate redrawUI];
 }
 
-- (void) joinPlayingRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(int)is_playing
+- (void) joinPlayingRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing
 {
     float elspd = (elapsed);
+    
+    if(index == 0 && !is_playing)
+        return;
     NSLog(@"Playlist length: %i", [[Playlist sharedPlaylist].playlist count]);
     _currentTrack = [[Playlist sharedPlaylist].playlist objectAtIndex:index];
     _currentTrackIndex = index;
     [self seek:(elspd)];
     [_delegate setCurrentSliderValue:_avPlayer];
     [self reloadUI];
-    if(!is_playing)
-    {
-        [self play];
-    }
+//    if(!is_playing)
+//    {
+//        [self play];
+//    }else if(is_playing)
+//    {
+//        
+//    }
+    _joining = YES;
+    [self play];
     NSLog(@"elapsed : %f", elspd );
 }
 
