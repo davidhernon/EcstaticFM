@@ -354,11 +354,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlayerViewController.m"
-            timestampString = "455130084.588934"
+            timestampString = "455495506.511003"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -370,11 +370,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlayerViewController.m"
-            timestampString = "455130084.588934"
+            timestampString = "455495506.511003"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
+            startingLineNumber = "355"
+            endingLineNumber = "355"
             landmarkName = "-showRooms:"
             landmarkType = "5">
          </BreakpointContent>
@@ -386,27 +386,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlayerViewController.m"
-            timestampString = "455130441.325872"
+            timestampString = "455495506.511003"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
-            landmarkName = "-playerControlsClicked:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlayerViewController.m"
-            timestampString = "455130442.54971"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "359"
-            endingLineNumber = "359"
+            startingLineNumber = "364"
+            endingLineNumber = "364"
             landmarkName = "-showRooms:"
             landmarkType = "5">
          </BreakpointContent>
@@ -418,12 +402,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlayerViewController.m"
-            timestampString = "455131437.959186"
+            timestampString = "455495506.511003"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "361"
-            endingLineNumber = "361"
-            landmarkName = "-playerControlsClicked:"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
+            landmarkName = "-showRooms:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -434,11 +418,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlayerViewController.m"
-            timestampString = "455131437.959186"
+            timestampString = "455495506.511003"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "365"
             endingLineNumber = "365"
+            landmarkName = "-showRooms:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlayerViewController.m"
+            timestampString = "455495506.511003"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "369"
+            endingLineNumber = "369"
             landmarkName = "-playerControlsClicked:"
             landmarkType = "5">
          </BreakpointContent>
