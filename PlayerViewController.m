@@ -102,6 +102,13 @@ static NSString* cellIdentifier = @"playListCell";
     _current_album_artwork.clipsToBounds = NO;
     _playListTableView.tableHeaderView = __playerTableHeaderView;
     _playListTableView.tableFooterView = __playerAddMusicCell;
+    NSString *title = [Room currentRoom].title.text;
+    if(title ==nil || [title isEqual:(id)[NSNull null]])
+    {
+        title = [NSString stringWithFormat:@"%@'s Room", [[NSUserDefaults standardUserDefaults] objectForKey:@"username"] ];
+    }
+    NSLog(@"room title: %@", title);
+    _room_title.text = title;
     
     // Allow multiple checkmarks
 //     _playListTableView.allowsMultipleSelection = YES;
@@ -131,6 +138,7 @@ static NSString* cellIdentifier = @"playListCell";
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    _room_title = [Room currentRoom].title;
     [self.player updatePlaylist];
     //If no playlist then make buttons hidden
     if([_playlist count] == 0)
@@ -392,6 +400,8 @@ static NSString* cellIdentifier = @"playListCell";
     }
 }
 - (IBAction)playerControlsClicked:(id)sender {
+    if([[Playlist sharedPlaylist] count] == 0)
+        return;
     _controlsView.hidden = NO;
     _controlsDarkenView.hidden = NO;
     _playerShowControlsButton.hidden = YES;

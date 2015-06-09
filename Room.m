@@ -41,6 +41,7 @@ static Room *currentRoom = nil;
         currentRoom = [[Room alloc] init];
         currentRoom.room_number = @"0";
         currentRoom.is_owner = YES;
+        currentRoom.title.text = [NSString stringWithFormat:@"%@'s Room", [[NSUserDefaults standardUserDefaults] objectForKey:@"username"] ];
     });
     return currentRoom;
 }

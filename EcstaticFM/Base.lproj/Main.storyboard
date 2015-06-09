@@ -899,7 +899,7 @@ share your location?</string>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PDQ-Gz-7KT">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="International Startup Festival" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geq-y6-kl4">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Room Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geq-y6-kl4">
                                                 <rect key="frame" x="51" y="25" width="219" height="21"/>
                                                 <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="16"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -972,16 +972,6 @@ share your location?</string>
                                     <action selector="playerControlsClicked:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="e4g-V8-veK"/>
                                 </connections>
                             </button>
-                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnK-2z-dPz" userLabel="hide controls">
-                                <rect key="frame" x="1" y="158" width="318" height="322"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playerControlsUnClicked:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="VNE-Gb-C8B"/>
-                                </connections>
-                            </button>
                             <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbf-gp-DuR" userLabel="hide controls top">
                                 <rect key="frame" x="1" y="0.0" width="318" height="73"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -990,16 +980,6 @@ share your location?</string>
                                 </state>
                                 <connections>
                                     <action selector="playerControlsUnClicked:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="HlQ-mF-X4B"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebX-Vz-7hn" userLabel="Back Button">
-                                <rect key="frame" x="-7" y="10" width="51" height="50"/>
-                                <inset key="contentEdgeInsets" minX="19" minY="15" maxX="19" maxY="15"/>
-                                <state key="normal" image="icon_back2.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showRooms:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="afJ-9X-o85"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="spO-Y5-nH4" userLabel="controlsView">
@@ -1036,6 +1016,26 @@ share your location?</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebX-Vz-7hn" userLabel="Back Button">
+                                <rect key="frame" x="-7" y="10" width="51" height="50"/>
+                                <inset key="contentEdgeInsets" minX="19" minY="15" maxX="19" maxY="15"/>
+                                <state key="normal" image="icon_back2.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showRooms:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="afJ-9X-o85"/>
+                                </connections>
+                            </button>
+                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnK-2z-dPz" userLabel="hide controls">
+                                <rect key="frame" x="1" y="158" width="318" height="322"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playerControlsUnClicked:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="VNE-Gb-C8B"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.65982380158265119" green="0.65883943487467" blue="0.67940848214285721" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -1062,6 +1062,7 @@ share your location?</string>
                         <outlet property="playListTableView" destination="fim-yG-u2G" id="goh-MD-M0Z"/>
                         <outlet property="playerHideControlsButton" destination="vnK-2z-dPz" id="M1F-By-Twd"/>
                         <outlet property="playerShowControlsButton" destination="mRb-We-BcF" id="NOU-rS-br0"/>
+                        <outlet property="room_title" destination="geq-y6-kl4" id="STQ-v1-ZT5"/>
                         <outlet property="slider" destination="w8p-jS-ofe" id="s0c-r3-LAC"/>
                         <outlet property="welcomehome" destination="7TJ-3H-AHn" id="hA0-16-iXA"/>
                         <segue destination="EBF-eh-6t1" kind="presentation" identifier="geoAskSegue" id="LHV-l3-vdI"/>
@@ -1071,7 +1072,7 @@ share your location?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJn-H3-nVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="1T9-Qu-JEF"/>
             </objects>
-            <point key="canvasLocation" x="2731" y="1430"/>
+            <point key="canvasLocation" x="2878" y="1426"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="yiU-pE-MiS">

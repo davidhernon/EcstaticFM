@@ -52,6 +52,7 @@
 @property (weak, nonatomic) NSArray *spinner_animation;
 @property BOOL loading_next_song;
 
+@property (retain, nonatomic) IBOutlet UILabel *room_title;
 
 //nav bar
 @property (weak, nonatomic) IBOutlet UINavigationBar *_playerNavigationBar;
@@ -59,7 +60,6 @@
 //@property (weak, nonatomic) IBOutlet UITableView *_playerTableView;
 @property (weak, nonatomic) IBOutlet UIView *_playerTableHeaderView;
 @property (weak, nonatomic) IBOutlet UIView *_playerAddMusicCell;
-
 
 @property (weak, nonatomic) NSArray* playlist;
 @property Player* player;
