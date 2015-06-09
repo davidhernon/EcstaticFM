@@ -10,6 +10,7 @@
 #import "SDSAPI.h"
 #import "SCUI.h"
 #import "ChatViewController.h"
+#import "SSKeychain.h"
 
 @implementation AppDelegate
 

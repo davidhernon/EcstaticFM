@@ -28,6 +28,13 @@
 }
 
 - (void)viewDidLoad {
+    NSString *cached_user = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    if(cached_user)
+    {
+        _username.text = cached_user;
+        _password.text = [SSKeychain passwordForService:@"EcstaticFM" account:_username.text];
+        [SDSAPI login: self.username.text password:self.password.text ID:self];
+    }
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -66,14 +73,6 @@
 //                                                                          action:@selector(dismissKeyboard)];
 //    
 //    [self.view addGestureRecognizer:tap];
-    
-    
-    NSString *cached_user = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    if(cached_user)
-    {
-        _username.text = cached_user;
-        _password.text = [SSKeychain passwordForService:@"EcstaticFM" account:_username.text];
-    }
     
     // register for keyboard notifications
     [[NSNotificationCenter defaultCenter] addObserver:self
