@@ -127,12 +127,13 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
         cell.sc_album_image.image = [_soundCloudAlbumImages objectAtIndex:indexPath.row];
     }
     
-    [cell setAccessoryType:UITableViewCellAccessoryNone];
+    cell.backgroundColor = [UIColor clearColor];
     for (int i = 0; i < _selectedTrackIndices.count; i++) {
         NSUInteger num = [[_selectedTrackIndices objectAtIndex:i] intValue];
         
         if (num == indexPath.row) {
-            [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+//            [self setCellColor:[UIColor whiteColor] ForCell:cell];
+            cell.backgroundColor = [UIColor colorWithRed:0.369 green:0.078 blue:0.298 alpha:0.25];;
             // Once we find a match there is no point continuing the loop
 
             
@@ -148,22 +149,46 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     
 }
 
+//- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return YES;
+//}
+//
+//- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+//    // Add your Colour.
+//    MediaItemTableViewCell *cell = (MediaItemTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+//    [self setCellColor:[UIColor whiteColor] ForCell:cell];  //highlight colour
+//}
+//
+//- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+//    // Reset Colour.
+//    MediaItemTableViewCell *cell = (MediaItemTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+//    [self setCellColor:[UIColor clearColor] ForCell:cell]; //normal color
+//    
+//}
+//
+//- (void)setCellColor:(UIColor *)color ForCell:(UITableViewCell *)cell {
+//    cell.contentView.backgroundColor = color;
+//    cell.backgroundColor = color;
+//}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //MediaItem* mediaItemSelected = [self mediaItemFromCell:indexPath.row];
-    NSDictionary *itemOne = [self.tracksFromSoundCloud objectAtIndex:indexPath.row];
+//    NSDictionary *itemOne = [self.tracksFromSoundCloud objectAtIndex:indexPath.row];
     MediaItem* mediaItemSelected = [[MediaItem alloc] initWithSoundCloudTrack:[self.tracksFromSoundCloud objectAtIndex:indexPath.row]];
     
-    if([tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryCheckmark){
+    if([tableView cellForRowAtIndexPath:indexPath].backgroundColor != [UIColor clearColor]){
 //        cell clicked and it was previously selected
         [self removeMediaItemFromSelectedTracks:mediaItemSelected];
-        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+//        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+        [tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor clearColor];
         [_selectedTrackIndices removeObject:@(indexPath.row)];
     }else{
 //        cell clicked and it was not previously selected
         if(![self itemAlreadySelected:mediaItemSelected])
             [self.selectedTracks addObject:mediaItemSelected];
-        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+//        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+        [tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor colorWithRed:0.369 green:0.078 blue:0.298 alpha:0.25];
         [_selectedTrackIndices addObject:@(indexPath.row)];
     }
     [self printSelectedTracks];

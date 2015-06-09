@@ -14,12 +14,15 @@
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-
-}
+//- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+//    [super setSelected:selected animated:animated];
+//
+//    // Configure the view for the selected state
+//    UIView * selectedBackgroundView = [[UIView alloc] init];
+//    [selectedBackgroundView setBackgroundColor:[UIColor colorWithRed:0.369 green:0.078 blue:0.298 alpha:0.25]]; // set color here
+//    [self setSelectedBackgroundView:selectedBackgroundView];
+//
+//}
 
 - (void)setAlbumArtworkFromStringURL:(NSString*)stringURL
 {
