@@ -21,7 +21,6 @@
 
 -(void)getAccessToken;
 - (void) loginReturnedFalse;
-
 - (void) loginReturnedTrue;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *loginScrollView;
