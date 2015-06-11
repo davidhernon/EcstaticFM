@@ -113,6 +113,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     MediaItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
+    
     NSDictionary *track = [self.tracksFromSoundCloud objectAtIndex:indexPath.row];
     tableView.backgroundColor = [UIColor clearColor];
     cell.track_title.text = [track objectForKey:@"title"];
