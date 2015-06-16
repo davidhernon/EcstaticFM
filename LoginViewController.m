@@ -20,6 +20,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
+    NSString *cached_user = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    if(cached_user)
+    {
+        _username.text = cached_user;
+        _password.text = [SSKeychain passwordForService:@"EcstaticFM" account:_username.text];
+        [SDSAPI login: self.username.text password:self.password.text ID:self];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -28,13 +35,7 @@
 }
 
 - (void)viewDidLoad {
-    NSString *cached_user = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    if(cached_user)
-    {
-        _username.text = cached_user;
-        _password.text = [SSKeychain passwordForService:@"EcstaticFM" account:_username.text];
-        [SDSAPI login: self.username.text password:self.password.text ID:self];
-    }
+
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     

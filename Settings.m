@@ -11,7 +11,15 @@
 @implementation Settings
 
 - (IBAction)Logout:(id)sender {
+    //api handles transition to loginView
 	[SDSAPI logout];
-	//should transition to loginview
+    NSString* cached_username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    if(cached_username)
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"username"];
+        [SSKeychain deletePasswordForService:@"EcstaticFM" account:cached_username];
+        
+    }
+    
 }
 @end

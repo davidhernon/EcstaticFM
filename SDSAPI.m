@@ -63,7 +63,6 @@ static NSTimer *login_timer;
 						   completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
 							   NSLog(@"Logged Out");
 						   }];
-
 }
 
 
@@ -71,8 +70,7 @@ static NSTimer *login_timer;
 {
     // at the top
     static NSString *csrf_cookie;
-    
-    
+	
     // in a function:
     NSURL *url = [[NSURL alloc] initWithString:@"http://54.173.157.204/"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
