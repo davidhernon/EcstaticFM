@@ -35,7 +35,7 @@
 +(void) sendText:(NSString*)textMessage;
 +(void)userHitPlay;
 +(void)userHitPause;
-
++(void)logout;
 
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bOe-aM-vI5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bOe-aM-vI5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -142,10 +142,10 @@ share your location?</string>
             </objects>
             <point key="canvasLocation" x="1991.25" y="519.71830985915494"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="M8K-T3-74x">
             <objects>
-                <viewController id="Uc1-lp-Sxd" sceneMemberID="viewController">
+                <viewController id="Uc1-lp-Sxd" customClass="Settings" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XpR-Jx-gJn"/>
                         <viewControllerLayoutGuide type="bottom" id="Rgg-rq-mkk"/>
@@ -227,6 +227,16 @@ share your location?</string>
                                 <rect key="frame" x="255" y="353" width="51" height="31"/>
                                 <color key="onTintColor" red="0.82983559370000004" green="0.34100496769999999" blue="0.46299603579999998" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BwS-0C-1Np">
+                                <rect key="frame" x="258" y="17" width="49" height="30"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Logout:" destination="Uc1-lp-Sxd" eventType="touchUpInside" id="znV-Gi-747"/>
+                                    <segue destination="Na0-VS-aPw" kind="presentation" id="iBN-mB-dX4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -649,7 +659,7 @@ share your location?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iU6-sO-xiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="vQB-4O-qCV"/>
             </objects>
-            <point key="canvasLocation" x="2850" y="646"/>
+            <point key="canvasLocation" x="2553" y="717"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="hjN-df-hsf">
@@ -666,7 +676,7 @@ share your location?</string>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rvA-bD-5h8">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </scrollView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNw-H0-4Jp">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNw-H0-4Jp">
                                 <rect key="frame" x="3" y="0.0" width="320" height="480"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KBU-rd-DGv" userLabel="Line">
@@ -738,7 +748,7 @@ share your location?</string>
                                         <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light"/>
                                     </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="image_tri-logo-color.png" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-Mh-CIb">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="image_tri-logo-color.png" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-Mh-CIb">
                                         <rect key="frame" x="103" y="74" width="114" height="114"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
@@ -1419,9 +1429,9 @@ on Soundcloud?</string>
         <image name="spinner-16.png" width="302" height="302"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="43i-aQ-VQp"/>
+        <segue reference="iBN-mB-dX4"/>
         <segue reference="ubM-n0-8uz"/>
-        <segue reference="E2U-Ol-7ff"/>
         <segue reference="LHV-l3-vdI"/>
-        <segue reference="sP4-bK-WLP"/>
     </inferredMetricsTieBreakers>
 </document>

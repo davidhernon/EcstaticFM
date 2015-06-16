@@ -48,18 +48,36 @@ static SocketIOClient *static_socket;
     return eventD;
 }
 
++(void) logout
+{
+	// in a function:
+	NSURL *url = [[NSURL alloc] initWithString:@"http://54.173.157.204/logout.html/"];
+	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+	[request setHTTPShouldHandleCookies:YES];
+	
+	[request setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]]];
+	
+	// make GET request are store the csrf
+	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]
+						   completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+							   NSLog(@"Logged Out");
+						   }];
+
+}
+
+
 +(void) login:(NSString*)username password:(NSString*)pass ID:(id)callingViewController
 {
     // at the top
     static NSString *csrf_cookie;
-    
+	
     // in a function:
     NSURL *url = [[NSURL alloc] initWithString:@"http://54.173.157.204/"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPShouldHandleCookies:YES];
-    
+	
     [request setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]]];
-    
+	
     // make GET request are store the csrf
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
