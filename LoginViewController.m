@@ -268,10 +268,6 @@
 
 - (IBAction)SDSLogin:(id)sender {
     _loginLoading.hidden = NO;
-    
-
-    
-    
 	[SDSAPI login: self.username.text password:self.password.text ID:self];
 }
 
@@ -292,6 +288,16 @@
 {
     _loginLoading.hidden=true;
     self.loginLabel.text = @"Incorrect username or password.";
+}
+
+- (void) loginTimedOut
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Timed Out"
+                                                    message:@"Please Check Your Internet Connection and Try Again"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 - (IBAction)fbLogin:(id)sender {

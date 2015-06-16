@@ -14,6 +14,7 @@
 @class SocketIOClient;
 
 static SocketIOClient *static_socket;
+static NSTimer *login_timer;
 
 +(NSString*)getWebsiteURL
 {
@@ -53,6 +54,7 @@ static SocketIOClient *static_socket;
     // at the top
     static NSString *csrf_cookie;
     
+    
     // in a function:
     NSURL *url = [[NSURL alloc] initWithString:@"http://54.173.157.204/"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -63,8 +65,13 @@ static SocketIOClient *static_socket;
     // make GET request are store the csrf
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               if(response!=nil){
+                                [SDSAPI loginReturned];
+                               }
+                               
                                NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:[(NSHTTPURLResponse *)response allHeaderFields] forURL:url];
                                [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookies:cookies forURL:url mainDocumentURL:nil];
+                               
                                // for some reason we need to re-store the CSRF token as X_CSRFTOKEN
                                for (NSHTTPCookie *cookie in cookies) {
                                    if ([cookie.name isEqualToString:@"csrftoken"]) {
@@ -95,7 +102,32 @@ static SocketIOClient *static_socket;
                                     }
                                 }];
                            }];
+    NSMutableDictionary *cb = [[NSMutableDictionary alloc] init];
+    [cb setObject:(id)callingViewController forKey:@"login_controller"];
+
+    login_timer = [NSTimer scheduledTimerWithTimeInterval:10.0
+                                                   target:self
+                                                 selector:@selector(loginTimedOut:)
+                                                 userInfo:(id)cb
+                                                  repeats:NO];
+    
 }
+
++(void)loginReturned
+{
+    [login_timer invalidate];
+    login_timer = nil;
+}
+
++(void)loginTimedOut:(NSTimer*)timer
+{
+    NSDictionary *dict = [timer userInfo];
+    LoginViewController* callingViewController = (LoginViewController*)[dict objectForKey:@"login_controller"];
+    [timer invalidate];
+    timer = nil;
+    [callingViewController performSelectorOnMainThread:@selector(loginTimedOut) withObject:nil waitUntilDone:NO];
+}
+
 //+(void) mixes ID:(id)callingViewController
 //{
 //}

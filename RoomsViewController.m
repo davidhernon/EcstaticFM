@@ -113,12 +113,12 @@ static NSString* around_me_event_cell = @"around_me_cell";
 {
     CGFloat kMaxIndex = 23;
     CGFloat targetX = scrollView.contentOffset.x + velocity.x * 60.0;
-    CGFloat targetIndex = round(targetX / (100));
+    CGFloat targetIndex = round(targetX / (234 + 15));
     if (targetIndex < 0)
         targetIndex = 0;
     if (targetIndex > kMaxIndex)
         targetIndex = kMaxIndex;
-    targetContentOffset->x = targetIndex * (100);
+    targetContentOffset->x = targetIndex * (234 + 15);
 }
 
 @end
