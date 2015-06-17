@@ -20,6 +20,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
+    NSString *cached_user = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    if(cached_user)
+    {
+        _username.text = cached_user;
+        _password.text = [SSKeychain passwordForService:@"EcstaticFM" account:_username.text];
+        [SDSAPI login: self.username.text password:self.password.text ID:self];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -28,13 +35,7 @@
 }
 
 - (void)viewDidLoad {
-    NSString *cached_user = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    if(cached_user)
-    {
-        _username.text = cached_user;
-        _password.text = [SSKeychain passwordForService:@"EcstaticFM" account:_username.text];
-        [SDSAPI login: self.username.text password:self.password.text ID:self];
-    }
+
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -268,10 +269,6 @@
 
 - (IBAction)SDSLogin:(id)sender {
     _loginLoading.hidden = NO;
-    
-
-    
-    
 	[SDSAPI login: self.username.text password:self.password.text ID:self];
 }
 
@@ -292,6 +289,16 @@
 {
     _loginLoading.hidden=true;
     self.loginLabel.text = @"Incorrect username or password.";
+}
+
+- (void) loginTimedOut
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Timed Out"
+                                                    message:@"Please Check Your Internet Connection and Try Again"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 - (IBAction)fbLogin:(id)sender {

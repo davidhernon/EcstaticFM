@@ -224,6 +224,7 @@
 		DEFF739F1B15203A0001B107 /* icon_distance2.png in Resources */ = {isa = PBXBuildFile; fileRef = DEFF739E1B15203A0001B107 /* icon_distance2.png */; };
 		DEFF73A11B1521820001B107 /* icon_headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = DEFF73A01B1521820001B107 /* icon_headphones.png */; };
 		FC2D3EF91B1CBBB300B41546 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2D3EF81B1CBBB300B41546 /* SignupViewController.m */; };
+		FC9B398E1B30B50E002FEA04 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9B398D1B30B50E002FEA04 /* Settings.m */; };
 		FCEB2FDE1B001E3C00010187 /* LocationServices.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEB2FDD1B001E3C00010187 /* LocationServices.m */; };
 /* End PBXBuildFile section */
 
@@ -498,6 +499,8 @@
 		DEFF73A01B1521820001B107 /* icon_headphones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_headphones.png; sourceTree = "<group>"; };
 		FC2D3EF71B1CBBB300B41546 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		FC2D3EF81B1CBBB300B41546 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		FC9B398C1B30B50E002FEA04 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		FC9B398D1B30B50E002FEA04 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		FCEB2FDC1B001E3C00010187 /* LocationServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationServices.h; sourceTree = "<group>"; };
 		FCEB2FDD1B001E3C00010187 /* LocationServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationServices.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -581,8 +584,6 @@
 		1CA4289C1A799CE9001DB0AD = {
 			isa = PBXGroup;
 			children = (
-				DEC660BB1B1A68BC001E6FD5 /* geoAskViewController.h */,
-				DEC660BC1B1A68BC001E6FD5 /* geoAskViewController.m */,
 				1CC438BA1A7DBF38000A5AEC /* Source */,
 				1CA428A71A799CE9001DB0AD /* EcstaticFM */,
 				1CA428C11A799CE9001DB0AD /* EcstaticFMTests */,
@@ -703,6 +704,7 @@
 				1C7E49D21AB33A4E005BB999 /* soundCloudMediaPicker */,
 				1C7E49C51AB1FB5B005BB999 /* Page View Control */,
 				1CB9BB311AA2456900748236 /* API Integrations */,
+				FC9B398B1B30B4D7002FEA04 /* Settings */,
 				1CB9BB2A1AA2428200748236 /* Player */,
 				1C2838021A955F8D006F10EC /* Utils.h */,
 				1C2838031A955F8D006F10EC /* Utils.m */,
@@ -1014,6 +1016,17 @@
 				C2B767D1CC5F084F45D1F4FB /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FC9B398B1B30B4D7002FEA04 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DEC660BB1B1A68BC001E6FD5 /* geoAskViewController.h */,
+				DEC660BC1B1A68BC001E6FD5 /* geoAskViewController.m */,
+				FC9B398C1B30B50E002FEA04 /* Settings.h */,
+				FC9B398D1B30B50E002FEA04 /* Settings.m */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1359,6 +1372,7 @@
 				1C13A9481AB9BF4800B2DF81 /* MediaItemTableViewCell.m in Sources */,
 				1C47EF501B222D5A008D5DDD /* MessageTableViewCell.m in Sources */,
 				1CA428AB1A799CE9001DB0AD /* main.m in Sources */,
+				FC9B398E1B30B50E002FEA04 /* Settings.m in Sources */,
 				1C2251471A9E7E5F00210324 /* Playlist.m in Sources */,
 				1CB8355A1B027BA60003D9DC /* SSKeychain.m in Sources */,
 				1C6D62E21B16535C00F0EC27 /* UIRoomScrollView.m in Sources */,

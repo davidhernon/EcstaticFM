@@ -21,8 +21,8 @@
 
 -(void)getAccessToken;
 - (void) loginReturnedFalse;
-
 - (void) loginReturnedTrue;
+- (void) loginTimedOut;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *loginScrollView;
 @property BOOL keyboardIsShown;

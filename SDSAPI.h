@@ -16,6 +16,7 @@
 @interface SDSAPI : NSObject
 
 @property ChatViewController* chatViewController;
+@property NSTimer *login_timer;
 
 +(NSString*)getWebsiteURL;
 +(NSArray*)getUpcomingEvents;
@@ -35,7 +36,7 @@
 +(void) sendText:(NSString*)textMessage;
 +(void)userHitPlay;
 +(void)userHitPause;
-
++(void)logout;
 
 
 @end

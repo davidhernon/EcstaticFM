@@ -369,7 +369,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
         <!--View Controller-->
         <scene sceneID="M8K-T3-74x">
             <objects>
-                <viewController id="Uc1-lp-Sxd" sceneMemberID="viewController">
+                <viewController id="Uc1-lp-Sxd" customClass="Settings" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XpR-Jx-gJn"/>
                         <viewControllerLayoutGuide type="bottom" id="Rgg-rq-mkk"/>
@@ -492,7 +492,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxN-2D-bHb" customClass="UIRoomScrollView">
+                            <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxN-2D-bHb" customClass="UIRoomScrollView">
                                 <rect key="frame" x="0.0" y="168" width="320" height="241"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -895,7 +895,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iU6-sO-xiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="vQB-4O-qCV"/>
             </objects>
-            <point key="canvasLocation" x="2850" y="646"/>
+            <point key="canvasLocation" x="2553" y="717"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="hjN-df-hsf">
