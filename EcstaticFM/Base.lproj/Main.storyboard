@@ -100,11 +100,15 @@
                         <viewControllerLayoutGuide type="bottom" id="wsu-1S-1Ht"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3hJ-aG-FG0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0X-aX-qNV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0X-aX-qNV">
                                 <rect key="frame" x="35" y="213" width="251" height="139"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="251" id="Ber-sa-3nW"/>
+                                    <constraint firstAttribute="height" constant="139" id="UwP-7p-VCb"/>
+                                </constraints>
                                 <string key="text">Other people are sharing music around you.
 
 Are you ready to 
@@ -113,11 +117,19 @@ share your location?</string>
                                 <color key="textColor" red="0.3273506760597229" green="0.32734087109565735" blue="0.32734647393226624" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_tri-logo-color.png" translatesAutoresizingMaskIntoConstraints="NO" id="JqH-Hn-ybR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_tri-logo-color.png" translatesAutoresizingMaskIntoConstraints="NO" id="JqH-Hn-ybR">
                                 <rect key="frame" x="103" y="46" width="114" height="114"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="114" id="Hlj-BW-1aU"/>
+                                    <constraint firstAttribute="width" constant="114" id="x5e-Dc-VAx"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDr-sG-9xk">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDr-sG-9xk">
                                 <rect key="frame" x="100" y="372" width="120" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="86l-tl-gKX"/>
+                                    <constraint firstAttribute="height" constant="38" id="yxG-6z-nU9"/>
+                                </constraints>
                                 <state key="normal" image="button_notyet.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -125,8 +137,12 @@ share your location?</string>
                                     <segue destination="VOg-FZ-x98" kind="presentation" modalTransitionStyle="crossDissolve" id="Lez-Aa-xiV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT5-0R-ehh">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT5-0R-ehh">
                                 <rect key="frame" x="100" y="422" width="120" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="lGF-MT-l4W"/>
+                                    <constraint firstAttribute="width" constant="120" id="nuE-H7-cpL"/>
+                                </constraints>
                                 <state key="normal" image="button_letsconnect.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -134,10 +150,41 @@ share your location?</string>
                                     <action selector="letsConnect:" destination="EBF-eh-6t1" eventType="touchUpInside" id="0yb-yg-6yH"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QJO-Zt-ous">
+                                <rect key="frame" x="4" y="179" width="300" height="26"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rsm-my-VaF">
+                                <rect key="frame" x="35" y="353" width="300" height="17"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMv-Qz-Hf9">
+                                <rect key="frame" x="0.0" y="-120" width="320" height="140"/>
+                                <color key="backgroundColor" red="0.94083599452554756" green="0.94083599452554756" blue="0.94083599452554756" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="Jn4-E9-3Ti"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wDr-sG-9xk" firstAttribute="bottom" secondItem="rsm-my-VaF" secondAttribute="bottom" constant="40" id="06F-aB-ftJ"/>
+                            <constraint firstItem="rsm-my-VaF" firstAttribute="height" secondItem="QJO-Zt-ous" secondAttribute="height" id="4WE-B7-Rp5"/>
+                            <constraint firstAttribute="centerX" secondItem="z0X-aX-qNV" secondAttribute="centerX" id="A3x-Mm-sLY"/>
+                            <constraint firstItem="zqy-k0-uVw" firstAttribute="top" secondItem="rMv-Qz-Hf9" secondAttribute="bottom" id="BSF-4g-oWa"/>
+                            <constraint firstAttribute="centerX" secondItem="OT5-0R-ehh" secondAttribute="centerX" id="LCr-Pf-gg4"/>
+                            <constraint firstItem="z0X-aX-qNV" firstAttribute="bottom" secondItem="rsm-my-VaF" secondAttribute="bottom" constant="-12" id="OYf-Og-39A"/>
+                            <constraint firstAttribute="centerX" secondItem="JqH-Hn-ybR" secondAttribute="centerX" id="S27-6l-5QK"/>
+                            <constraint firstItem="rMv-Qz-Hf9" firstAttribute="width" secondItem="3hJ-aG-FG0" secondAttribute="width" id="osl-DA-yQl"/>
+                            <constraint firstAttribute="centerX" secondItem="rMv-Qz-Hf9" secondAttribute="centerX" id="vSw-WJ-IBv"/>
+                            <constraint firstItem="wDr-sG-9xk" firstAttribute="bottom" secondItem="OT5-0R-ehh" secondAttribute="bottom" constant="-50" id="whW-mk-Thl"/>
+                            <constraint firstItem="z0X-aX-qNV" firstAttribute="top" secondItem="QJO-Zt-ous" secondAttribute="top" constant="36" id="xef-F6-OZX"/>
+                            <constraint firstAttribute="centerX" secondItem="wDr-sG-9xk" secondAttribute="centerX" id="xzJ-wb-whV"/>
+                            <constraint firstItem="JqH-Hn-ybR" firstAttribute="top" secondItem="zqy-k0-uVw" secondAttribute="bottom" constant="26" id="zgF-ZJ-b2m"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WMX-da-dXj"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <segue destination="pL3-Xv-Udv" kind="presentation" identifier="roomsViewSegue" id="1fe-a4-XVi"/>
                         <segue destination="XgF-Cq-hZq" kind="presentation" identifier="backToPlayerSegue" id="zm6-gB-j1m"/>
@@ -145,7 +192,7 @@ share your location?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boa-Xy-f7L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1991.25" y="519.71830985915494"/>
+            <point key="canvasLocation" x="1991" y="519"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Uhc-25-gue">
@@ -366,7 +413,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
             </objects>
             <point key="canvasLocation" x="952" y="1117"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="M8K-T3-74x">
             <objects>
                 <viewController id="Uc1-lp-Sxd" customClass="Settings" sceneMemberID="viewController">
@@ -783,6 +830,15 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                             <constraint firstAttribute="width" constant="75" id="hzI-Jn-fa1"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofq-Gm-jcY">
+                                        <rect key="frame" x="8" y="8" width="46" height="30"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="EBF-eh-6t1" kind="show" id="BGO-mf-tNw"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -4838,10 +4894,10 @@ Cg
         <image name="spinner-16.png" width="302" height="302"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ag5-lL-hod"/>
-        <segue reference="ubM-n0-8uz"/>
+        <segue reference="1fe-a4-XVi"/>
+        <segue reference="BGO-mf-tNw"/>
         <segue reference="E2U-Ol-7ff"/>
-        <segue reference="43i-aQ-VQp"/>
-        <segue reference="pHj-h8-hL3"/>
+        <segue reference="ubM-n0-8uz"/>
+        <segue reference="HPa-Ki-tbw"/>
     </inferredMetricsTieBreakers>
 </document>
