@@ -37,11 +37,9 @@
 }
 
 -(void) try_start_location_services{
-    if (self.locationManager == nil){
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    }
  
 	// Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
 	if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
