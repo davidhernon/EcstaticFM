@@ -18,8 +18,12 @@
     {
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"username"];
         [SSKeychain deletePasswordForService:@"EcstaticFM" account:cached_username];
-        
     }
-    
 }
+
+- (IBAction)changeSettings:(id)sender {
+	if (&UIApplicationOpenSettingsURLString != NULL)
+		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+}
+
 @end
