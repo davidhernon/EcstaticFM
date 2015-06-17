@@ -227,6 +227,8 @@ static NSTimer *login_timer;
     }];
 	
 	[static_socket on:@"return_join_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
+		Mixpanel *mixpanel = [Mixpanel sharedInstance];
+		[mixpanel track:@"joined_room"];
 		NSLog(@"return_join_room returned,%@", data[0]);
 	}];
     
@@ -236,6 +238,8 @@ static NSTimer *login_timer;
 	
 	[static_socket on:@"send_text" callback:^(NSArray * data, void (^ack) (NSArray*)){
 		NSLog(@"send_text returned,%@", data[0]);
+		Mixpanel *mixpanel = [Mixpanel sharedInstance];
+		[mixpanel track:@"chat_text"];
 		NSString* textMessage =[((NSDictionary*) data[0]) objectForKey:@"textMessage"];
 		NSString* username =[((NSDictionary*) data[0]) objectForKey:@"username"];
 		AppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];

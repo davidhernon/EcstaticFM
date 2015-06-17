@@ -12,6 +12,7 @@
 @implementation SignupViewController
 
 -(void)viewDidLoad{
+	self.wantsPushNotifications = false;
 	UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
 																		  action:@selector(dismissKeyboard)];
 	
@@ -59,11 +60,37 @@
 
 - (IBAction)signup:(id)sender {
 	[SDSAPI signup:self.username.text password:self.password.text email:self.email.text ID:self];
+	if(self.wantsPushNotifications){
+		[self requestPushPermissions];
+	}
+}
+
+-(void)requestPushPermissions{
+	Mixpanel *mixpanel = [Mixpanel sharedInstance];
+	
+	// Tell iOS you want your app to receive push notifications
+	// This code will work in iOS 8.0 xcode 6.0 or later:
+	if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+	{
+		[[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+		[[UIApplication sharedApplication] registerForRemoteNotifications];
+	}
+	// This code will work in iOS 7.0 and below:
+	else
+	{
+		[[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeNewsstandContentAvailability| UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+	}
+	
+	// Call .identify to flush the People record to Mixpanel
+	[mixpanel identify:mixpanel.distinctId];
 }
 
 -(void)signupSuccess{
-    //show the spinner
-    
+	[[NSUserDefaults standardUserDefaults] setObject:self.username.text forKey:@"username"];
+	[SSKeychain setPassword:_password.text forService:@"EcstaticFM" account:self.username.text];
+	
+	[SDSAPI createRoom: self.username.text];
+
 	AppDelegate* appDelegate = [[UIApplication  sharedApplication]delegate];
 	UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 	geoAskViewController *geoAskVC = [sb instantiateViewControllerWithIdentifier:@"geoAskVC"];
@@ -142,4 +169,12 @@
 
 
 
+- (IBAction)pushNotificationSwitch:(id)sender {
+	if(self.wantsPushNotifications){
+		self.wantsPushNotifications = false;
+	}
+	else{
+		self.wantsPushNotifications = true;
+	}
+}
 @end

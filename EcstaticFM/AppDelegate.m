@@ -71,4 +71,14 @@
     [SDSAPI leaveRoom];
 }
 
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+	Mixpanel *mixpanel = [Mixpanel sharedInstance];
+	[mixpanel.people addPushDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
+	NSString *str = [NSString stringWithFormat: @"Error: %@", err];
+	NSLog(@"Error:%@",str);
+}
+
 @end

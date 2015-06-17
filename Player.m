@@ -128,6 +128,9 @@ the delegate to Player for Player to communicate with a view controller
 
 -(void)callNextSong
 {
+	Mixpanel *mixpanel = [Mixpanel sharedInstance];
+	[mixpanel track:@"played_song"];
+
     //set up the UI in advance to display album art while song is buffering
     [_delegate playerIsLoadingNextSong];
     [_delegate initPlayerUI:0.0f withTrack:_currentTrack atIndex:_currentTrackIndex];
