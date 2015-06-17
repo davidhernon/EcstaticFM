@@ -275,7 +275,9 @@
 //This method gets called when SDSAPI's login method returns with a true if the login was succesful
 - (void) loginReturnedTrue
 {
-    //		[self performSegueWithIdentifier:@"succesfulLogin" sender:self];
+	Mixpanel *mixpanel = [Mixpanel sharedInstance];
+	[mixpanel track:@"login"];
+
     [[NSUserDefaults standardUserDefaults] setObject:self.username.text forKey:@"username"];
     [SSKeychain setPassword:_password.text forService:@"EcstaticFM" account:self.username.text];
     

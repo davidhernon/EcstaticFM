@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bOe-aM-vI5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bOe-aM-vI5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -95,7 +95,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wsu-1S-1Ht"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3hJ-aG-FG0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0X-aX-qNV">
@@ -676,7 +676,7 @@ share your location?</string>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rvA-bD-5h8">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </scrollView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNw-H0-4Jp">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNw-H0-4Jp">
                                 <rect key="frame" x="3" y="0.0" width="320" height="480"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KBU-rd-DGv" userLabel="Line">
@@ -684,7 +684,7 @@ share your location?</string>
                                         <color key="backgroundColor" red="0.32800507545471191" green="0.32799524068832397" blue="0.32800081372261047" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Join the Silent Disco Squad community!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptD-fg-pa4">
-                                        <rect key="frame" x="0.0" y="185" width="320" height="90"/>
+                                        <rect key="frame" x="0.0" y="110" width="320" height="90"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
                                         </accessibility>
@@ -693,20 +693,13 @@ share your location?</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_logintextfield.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hzl-bE-8yV">
-                                        <rect key="frame" x="34" y="324" width="252" height="38"/>
+                                        <rect key="frame" x="34" y="286" width="252" height="38"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_logintextfield.png" translatesAutoresizingMaskIntoConstraints="NO" id="AQH-bJ-mT0">
-                                        <rect key="frame" x="34" y="250" width="252" height="38"/>
+                                        <rect key="frame" x="34" y="212" width="252" height="38"/>
                                     </imageView>
-                                    <textField clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Disco-name" clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="qIt-Sg-eQg">
-                                        <rect key="frame" x="65" y="250" width="204" height="38"/>
-                                        <color key="tintColor" red="0.23003031313419342" green="0.23002344369888306" blue="0.23002733290195465" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="textColor" red="0.23561207950115204" green="0.23559810221195221" blue="0.23560686409473419" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light"/>
-                                    </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_person-dark.png" translatesAutoresizingMaskIntoConstraints="NO" id="p9p-Cn-bQG">
-                                        <rect key="frame" x="45" y="263" width="11" height="11"/>
+                                        <rect key="frame" x="45" y="225" width="11" height="11"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYK-qm-Fyj">
                                         <rect key="frame" x="187" y="406" width="99" height="38"/>
@@ -730,36 +723,55 @@ share your location?</string>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_logintextfield.png" translatesAutoresizingMaskIntoConstraints="NO" id="vte-0U-aD4">
-                                        <rect key="frame" x="34" y="287" width="252" height="38"/>
+                                        <rect key="frame" x="34" y="249" width="252" height="38"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-key-dark.png" translatesAutoresizingMaskIntoConstraints="NO" id="qSQ-2b-1fj">
-                                        <rect key="frame" x="43" y="338" width="15" height="9"/>
+                                        <rect key="frame" x="43" y="300" width="15" height="9"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loadingdark1.png" translatesAutoresizingMaskIntoConstraints="NO" id="29r-d6-VtJ">
-                                        <rect key="frame" x="202" y="410" width="69" height="29"/>
+                                        <rect key="frame" x="202" y="422" width="69" height="29"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_email.png" translatesAutoresizingMaskIntoConstraints="NO" id="eGs-Vr-Aue">
-                                        <rect key="frame" x="43" y="300" width="15" height="11"/>
+                                        <rect key="frame" x="43" y="262" width="15" height="11"/>
                                     </imageView>
                                     <textField clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="HHD-Na-blN">
-                                        <rect key="frame" x="65" y="287" width="204" height="38"/>
+                                        <rect key="frame" x="65" y="249" width="204" height="38"/>
                                         <color key="tintColor" red="0.23003031313419342" green="0.23002344369888306" blue="0.23002733290195465" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" red="0.23561207950115204" green="0.23559810221195221" blue="0.23560686409473419" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light"/>
                                     </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="image_tri-logo-color.png" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-Mh-CIb">
-                                        <rect key="frame" x="103" y="74" width="114" height="114"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="image_tri-logo-color.png" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-Mh-CIb">
+                                        <rect key="frame" x="103" y="14" width="114" height="114"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
                                         </accessibility>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="4T0-Yf-lw8">
-                                        <rect key="frame" x="67" y="324" width="204" height="38"/>
+                                        <rect key="frame" x="67" y="286" width="204" height="38"/>
                                         <color key="tintColor" red="0.23003031313419342" green="0.23002344369888306" blue="0.23002733290195465" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" red="0.23561207950115204" green="0.23559810221195221" blue="0.23560686409473419" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" secureTextEntry="YES"/>
+                                    </textField>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="50V-5X-TeX">
+                                        <rect key="frame" x="202" y="361" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="pushNotificationSwitch:" destination="Kka-Vs-kOQ" eventType="valueChanged" id="bts-k7-FTR"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notify me about upcoming events!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCi-lJ-zgi">
+                                        <rect key="frame" x="30" y="332" width="264" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Disco-name" clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="qIt-Sg-eQg">
+                                        <rect key="frame" x="64" y="212" width="204" height="38"/>
+                                        <color key="tintColor" red="0.23003031313419342" green="0.23002344369888306" blue="0.23002733290195465" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.23561207950115204" green="0.23559810221195221" blue="0.23560686409473419" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1390,6 +1402,74 @@ on Soundcloud?</string>
             </objects>
             <point key="canvasLocation" x="2283.75" y="2048.2394366197182"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="lJw-Gc-muS">
+            <objects>
+                <viewController id="tLK-zJ-ff9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o3R-uL-eWq"/>
+                        <viewControllerLayoutGuide type="bottom" id="nHH-6k-9oL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dkr-J5-kPT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rp4-vU-zg3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Y6e-Mj-DC3">
+            <objects>
+                <viewController id="nzo-va-Zl3" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e0D-WH-8ue"/>
+                        <viewControllerLayoutGuide type="bottom" id="ASF-EL-N3A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vca-oy-FFM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Dj-gB-bLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="uQb-RC-DbF">
+            <objects>
+                <viewController id="bBI-NF-Wd0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U8d-Gq-Q4d"/>
+                        <viewControllerLayoutGuide type="bottom" id="p1Q-uN-xhc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wfK-pn-fNC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pSI-uY-4Gc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fBb-co-ql7">
+            <objects>
+                <viewController id="YiO-gz-Dga" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qyK-kd-vfh"/>
+                        <viewControllerLayoutGuide type="bottom" id="YdU-Es-ZZO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Huf-Qh-MSG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OjW-49-YTu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="button_addmusic2.png" width="215" height="92"/>
@@ -1429,9 +1509,9 @@ on Soundcloud?</string>
         <image name="spinner-16.png" width="302" height="302"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="43i-aQ-VQp"/>
-        <segue reference="iBN-mB-dX4"/>
+        <segue reference="ag5-lL-hod"/>
         <segue reference="ubM-n0-8uz"/>
-        <segue reference="LHV-l3-vdI"/>
+        <segue reference="E2U-Ol-7ff"/>
+        <segue reference="43i-aQ-VQp"/>
     </inferredMetricsTieBreakers>
 </document>
