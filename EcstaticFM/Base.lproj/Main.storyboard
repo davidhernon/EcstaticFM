@@ -101,7 +101,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wsu-1S-1Ht"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3hJ-aG-FG0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0X-aX-qNV">
@@ -446,10 +446,6 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                 <rect key="frame" x="255" y="337" width="51" height="31"/>
                                 <color key="onTintColor" red="0.82983559370000004" green="0.34100496769999999" blue="0.46299603579999998" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zQL-Z2-OHY">
-                                <rect key="frame" x="256" y="203" width="51" height="31"/>
-                                <color key="onTintColor" red="0.82983559370000004" green="0.34100496769999999" blue="0.46299603579999998" alpha="1" colorSpace="calibratedRGB"/>
-                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="If on, you will be notified of upcoming events" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7H-8l-O1k">
                                 <rect key="frame" x="18" y="213" width="230" height="33"/>
                                 <fontDescription key="fontDescription" name="Raleway" family="Raleway" pointSize="11"/>
@@ -476,6 +472,15 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                 <connections>
                                     <action selector="Logout:" destination="Uc1-lp-Sxd" eventType="touchUpInside" id="zOf-s8-TOE"/>
                                     <segue destination="Na0-VS-aPw" kind="presentation" id="kOh-mr-y7x"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldg-3N-I1b">
+                                <rect key="frame" x="256" y="203" width="51" height="30"/>
+                                <state key="normal" title="Update">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeSettings:" destination="Uc1-lp-Sxd" eventType="touchUpInside" id="tbt-bM-3QZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -4873,10 +4878,10 @@ Cg
         <image name="spinner-16.png" width="302" height="302"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ag5-lL-hod"/>
-        <segue reference="ubM-n0-8uz"/>
-        <segue reference="E2U-Ol-7ff"/>
-        <segue reference="1fe-a4-XVi"/>
         <segue reference="pHj-h8-hL3"/>
+        <segue reference="43i-aQ-VQp"/>
+        <segue reference="kOh-mr-y7x"/>
+        <segue reference="ubM-n0-8uz"/>
+        <segue reference="ag5-lL-hod"/>
     </inferredMetricsTieBreakers>
 </document>

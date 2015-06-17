@@ -10,6 +10,8 @@
 #import "SDSAPI.h"
 #import "SSKeychain.h"
 @interface Settings : UIViewController
+
 - (IBAction)Logout:(id)sender;
+- (IBAction)changeSettings:(id)sender;
 
 @end
