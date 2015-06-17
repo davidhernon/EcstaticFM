@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *password;
 - (IBAction)pushNotificationSwitch:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *signupLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *signupLoading;
 - (IBAction)signup:(id)sender;
 -(void)signupSuccess;
 -(void)signupFailure:(NSString*)error;

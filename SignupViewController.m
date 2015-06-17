@@ -17,6 +17,7 @@
 																		  action:@selector(dismissKeyboard)];
 	
 	[self.view addGestureRecognizer:tap];
+    
 	
 	// register for keyboard notifications
 	[[NSNotificationCenter defaultCenter] addObserver:self
@@ -33,6 +34,28 @@
 	//make contentSize bigger than your scrollSize (you will need to figure out for your own use case)
 	CGSize scrollContentSize = CGSizeMake(320, 490);
 	_signupScrollView.contentSize = scrollContentSize;
+    
+    _signupLoading.hidden = YES;
+    
+    // Load images
+    NSArray *imageNames = @[@"loading1.png", @"loading2.png", @"loading3.png", @"loading4.png",
+                            @"loading5.png", @"loading6.png"];
+    
+    
+    NSMutableArray *images = [[NSMutableArray alloc] init];
+    for (int i = 0; i < imageNames.count; i++) {
+        [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
+    }
+    
+    // Normal Animation
+    // UIImageView *loginLoader = [[UIImageView alloc] initWithFrame:CGRectMake(60, 95, 86, 193)];
+    _signupLoading.animationImages = images;
+    _signupLoading.animationDuration = 0.5;
+    
+    
+    //   [self.view addSubview:_loginLoading];
+    [_signupLoading startAnimating];
+    
 }
 
 - (IBAction)signup:(id)sender {
