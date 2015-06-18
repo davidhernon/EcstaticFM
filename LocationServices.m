@@ -86,7 +86,6 @@
 			  location.coordinate.longitude);
 		
 		
-		
 //		static NSString *csrf_cookie;
 		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 		NSString* username = [defaults objectForKey:@"username"];
