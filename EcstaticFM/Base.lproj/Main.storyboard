@@ -578,6 +578,54 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
             </objects>
             <point key="canvasLocation" x="2326" y="802"/>
         </scene>
+        <!--Forgot Password View Controller-->
+        <scene sceneID="ZMr-LE-qiT">
+            <objects>
+                <viewController id="t0f-VL-3jP" customClass="ForgotPasswordViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Hk-al-uip"/>
+                        <viewControllerLayoutGuide type="bottom" id="MvJ-16-LgO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vNE-ej-cuO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhs-iy-Yjg">
+                                <rect key="frame" x="130" y="247" width="49" height="30"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submit:" destination="t0f-VL-3jP" eventType="touchUpInside" id="C43-CI-PF0"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yo2-8r-a5H">
+                                <rect key="frame" x="30" y="175" width="410" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L2k-O9-5vs">
+                                <rect key="frame" x="25" y="175" width="410" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please email me my password!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3V-uT-LzF">
+                                <rect key="frame" x="34" y="121" width="240" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="email" destination="L2k-O9-5vs" id="3UV-uD-A2o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZIs-OD-Kp8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1939" y="-952"/>
+        </scene>
         <!--Login Screen-->
         <scene sceneID="L4S-P1-2em">
             <objects>
@@ -600,6 +648,9 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="t0f-VL-3jP" kind="presentation" id="yix-FK-TIQ"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_tri-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="iPs-fA-GMf" userLabel="Logo">
                                         <rect key="frame" x="103" y="74" width="114" height="114"/>
@@ -4840,6 +4891,23 @@ Cg
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OjW-49-YTu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="rZC-Dd-6VX">
+            <objects>
+                <viewController id="c51-fL-6Ia" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cc5-v9-17k"/>
+                        <viewControllerLayoutGuide type="bottom" id="5lY-6Q-a9p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WpN-5x-hS9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3fq-Rt-grP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>

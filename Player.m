@@ -307,10 +307,10 @@ the delegate to Player for Player to communicate with a view controller
     if(play)
     {
         _user_hit_button = NO;
-        [SDSAPI userHitPlay];
+		[SDSAPI realtimePlayer:@"play"];
     }else{
         _user_hit_button = NO;
-        [SDSAPI userHitPause];
+		[SDSAPI realtimePlayer:@"pause"];
     }
 }
 
