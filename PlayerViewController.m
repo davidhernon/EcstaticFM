@@ -103,7 +103,7 @@ static NSString* cellIdentifier = @"playListCell";
     _current_album_artwork.clipsToBounds = NO;
     _playListTableView.tableHeaderView = __playerTableHeaderView;
     _playListTableView.tableFooterView = __playerAddMusicCell;
-    NSString *title = [Room currentRoom].title.text;
+    NSString *title = [Room currentRoom].title;
     if(title ==nil || [title isEqual:(id)[NSNull null]])
     {
         title = [NSString stringWithFormat:@"%@'s Room", [[NSUserDefaults standardUserDefaults] objectForKey:@"username"] ];
