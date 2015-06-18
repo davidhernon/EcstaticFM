@@ -9,6 +9,14 @@
 #import "Settings.h"
 
 @implementation Settings
+- (IBAction)toggleLock:(id)sender {
+	/*if(){
+		
+	}
+	else{
+		
+	}*/
+}
 
 - (IBAction)Logout:(id)sender {
     //api handles transition to loginView

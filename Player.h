@@ -21,6 +21,7 @@
 @property NSTimer* progressTimer;
 @property int currentTrackIndex;
 @property BOOL player_is_paused;
+@property BOOL player_is_locked;
 @property BOOL isNextSong;
 @property BOOL user_joining_room;
 @property BOOL user_hit_button;

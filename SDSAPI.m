@@ -205,7 +205,7 @@ static NSTimer *login_timer;
 }
 
 + (void) connect{
-    static_socket = [[SocketIOClient alloc] initWithSocketURL:@"http://ecstatic.fm:80" options:nil];
+    static_socket = [[SocketIOClient alloc] initWithSocketURL:@"http://ecstatic.fm:8080" options:nil];
     
     [static_socket on: @"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"here connected");
@@ -506,7 +506,7 @@ static NSTimer *login_timer;
     {
         elspd = @"0";
     }
-    return [NSDictionary dictionaryWithObjects:@[ [NSString stringWithFormat:@"%i",[[Player sharedPlayer] isPlaying]], [NSString stringWithFormat:@"%i", [Player sharedPlayer].currentTrackIndex], elspd] forKeys:@[@"is_playing", @"playing_song_index", @"elapsed"]];
+    return [NSDictionary dictionaryWithObjects:@[ [NSString stringWithFormat:@"%i",[[Player sharedPlayer] isPlaying]], [NSString stringWithFormat:@"%i",[[Player sharedPlayer] player_is_locked]], [NSString stringWithFormat:@"%i", [Player sharedPlayer].currentTrackIndex], elspd] forKeys:@[@"is_playing", @"is_locked", @"playing_song_index", @"elapsed"]];
 }
 
 +(void) last
@@ -541,11 +541,11 @@ static NSTimer *login_timer;
 
 +(void)userHitPlay
 {
-    NSLog(@"User Hit Play");
-    NSString *room_number = [Room currentRoom].room_number;
-    NSDictionary *textDict = [NSDictionary dictionaryWithObjects:@[room_number] forKeys:@[@"room_number"]];
-    NSData *json = [NSJSONSerialization dataWithJSONObject:textDict options:nil error:nil];
-    [static_socket emitObjc:@"play" withItems:@[json]];
+	NSLog(@"User Hit Play");
+	NSString *room_number = [Room currentRoom].room_number;
+	NSDictionary *textDict = [NSDictionary dictionaryWithObjects:@[room_number] forKeys:@[@"room_number"]];
+	NSData *json = [NSJSONSerialization dataWithJSONObject:textDict options:nil error:nil];
+	[static_socket emitObjc:@"play" withItems:@[json]];
 }
 
 +(void)userHitPause
@@ -555,6 +555,14 @@ static NSTimer *login_timer;
     NSDictionary *textDict = [NSDictionary dictionaryWithObjects:@[room_number] forKeys:@[@"room_number"]];
     NSData *json = [NSJSONSerialization dataWithJSONObject:textDict options:nil error:nil];
     [static_socket emitObjc:@"pause" withItems:@[json]];
+}
++(void)lock
+{
+	NSLog(@"User Hit Lock");
+	NSString *room_number = [Room currentRoom].room_number;
+	NSDictionary *textDict = [NSDictionary dictionaryWithObjects:@[room_number] forKeys:@[@"room_number"]];
+	NSData *json = [NSJSONSerialization dataWithJSONObject:textDict options:nil error:nil];
+	[static_socket emitObjc:@"lock" withItems:@[json]];
 }
 
 +(void) seek
