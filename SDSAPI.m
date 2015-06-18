@@ -519,16 +519,6 @@ static NSTimer *login_timer;
     [static_socket emitObjc:@"player" withItems:@[json]];
 }
 
-+(void) updatePlayerState
-{
-    NSString *room_number = [Room currentRoom].room_number;
-    NSDictionary *ps = [self getDictForPlayerState];
-    
-    NSDictionary *update_query = [NSDictionary dictionaryWithObjects:@[room_number, ps] forKeys:@[@"room_number", @"player_state"]];
-    NSData *json = [NSJSONSerialization dataWithJSONObject:update_query options:nil error:nil];
-    [static_socket emitObjc:@"update_player_state" withItems:@[json]];
-}
-
 +(void) sendText:(NSString*)textMessage
 {
     NSString *room_number = [Room currentRoom].room_number;
@@ -551,11 +541,14 @@ static NSTimer *login_timer;
 +(void)userHitPause
 {
     NSLog(@"User Hit Pause");
+	NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSString *room_number = [Room currentRoom].room_number;
-    NSDictionary *textDict = [NSDictionary dictionaryWithObjects:@[room_number] forKeys:@[@"room_number"]];
-    NSData *json = [NSJSONSerialization dataWithJSONObject:textDict options:nil error:nil];
-    [static_socket emitObjc:@"pause" withItems:@[json]];
+	NSDictionary *ps = [self getDictForPlayerState];
+	NSDictionary *update_query = [NSDictionary dictionaryWithObjects:@[room_number, @"pause", username, ps] forKeys:@[@"room_number", @"msg_type", @"username", @"player_state"]];
+	NSData *json = [NSJSONSerialization dataWithJSONObject:update_query options:nil error:nil];
+    [static_socket emitObjc:@"player" withItems:@[json]];
 }
+
 +(void)lock
 {
 	NSLog(@"User Hit Lock");

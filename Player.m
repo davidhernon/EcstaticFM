@@ -116,12 +116,6 @@ the delegate to Player for Player to communicate with a view controller
 
 - (void)updatePlayerStateAndUIWithNewSong
 {
-    
-    
-    if([Room currentRoom].is_owner)
-    {
-        [SDSAPI updatePlayerState];
-    }
     [_delegate initPlayerUI:(1.0f*CMTimeGetSeconds(_avPlayer.currentItem.asset.duration)) withTrack:_currentTrack atIndex:_currentTrackIndex];
     _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
     _player_is_paused = NO;
@@ -336,14 +330,14 @@ the delegate to Player for Player to communicate with a view controller
 
 -(void)playSignalFromUserOrPlayer
 {
+	[self userDidPlay];
     [self wasPlayPauseHitByUser:true];
-    [self userDidPlay];
 }
 
 -(void)pauseSignalFromUserOrPlayer
 {
+	[self userDidPause];
     [self wasPlayPauseHitByUser:false];
-    [self userDidPause];
 }
 
 -(void)setupAudioForPlayAfterPause

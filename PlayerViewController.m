@@ -239,7 +239,7 @@ static NSString* cellIdentifier = @"playListCell";
         cell.song_index_label.text = [NSString stringWithFormat:@"%d",indexPath.row+1];
 
     // If the track added is the track currently playing add other UI
-    if((int)_current_track_index == (int)indexPath.row && _player.isPlaying)
+    if((int)_current_track_index == (int)indexPath.row)
     {
         cell.backgroundColor = [UIColor colorWithRed:0.369 green:0.078 blue:0.298 alpha:0.25] /*#5e144c*/;
         cell.song_index_label.text = @"";
@@ -356,8 +356,6 @@ static NSString* cellIdentifier = @"playListCell";
 -(void) pause
 {
     [self.player pause];
-
-
 }
 
 -(IBAction)last:(id)sender
