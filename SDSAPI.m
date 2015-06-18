@@ -250,7 +250,13 @@ static NSTimer *login_timer;
     
     [static_socket on:@"return_get_player_status" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSDictionary *d = (NSDictionary*)data[0];
-        NSDictionary *player_state = [d objectForKey:@"player_state"];
+        NSString *player_state_string = (NSString*)[d objectForKey:@"player_state"];
+        
+        NSData *objectData = [player_state_string dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *player_state = [NSJSONSerialization JSONObjectWithData:objectData
+                                                             options:NSJSONReadingMutableContainers
+                                                               error:nil];
+        
         
         if(player_state == NULL || player_state == (id)[NSNull null] )
         {
