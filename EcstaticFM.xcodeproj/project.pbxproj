@@ -40,8 +40,6 @@
 		1C4861E61A7AB75C004EFEAD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428A91A799CE9001DB0AD /* Info.plist */; };
 		1C4861E71A7AB75C004EFEAD /* main.m in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
 		1C5BABCE1B24B084003B96B8 /* SoundCloudSearchview.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BABCD1B24B084003B96B8 /* SoundCloudSearchview.m */; };
-		1C6D62DD1B1643B200F0EC27 /* UIRoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D62DC1B1643B200F0EC27 /* UIRoomView.m */; };
-		1C6D62DF1B16492600F0EC27 /* UIRoomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6D62DE1B16492600F0EC27 /* UIRoomView.xib */; };
 		1C6D62E21B16535C00F0EC27 /* UIRoomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D62E11B16535C00F0EC27 /* UIRoomScrollView.m */; };
 		1C6D62E51B1A223D00F0EC27 /* UIEventView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D62E41B1A223D00F0EC27 /* UIEventView.m */; };
 		1C6D62E81B1A225100F0EC27 /* UIAroundMeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D62E71B1A225100F0EC27 /* UIAroundMeView.m */; };
@@ -284,9 +282,6 @@
 		1C47EF4F1B222D5A008D5DDD /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		1C5BABCC1B24B084003B96B8 /* SoundCloudSearchview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundCloudSearchview.h; sourceTree = "<group>"; };
 		1C5BABCD1B24B084003B96B8 /* SoundCloudSearchview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundCloudSearchview.m; sourceTree = "<group>"; };
-		1C6D62DB1B1643B200F0EC27 /* UIRoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRoomView.h; sourceTree = "<group>"; };
-		1C6D62DC1B1643B200F0EC27 /* UIRoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIRoomView.m; sourceTree = "<group>"; };
-		1C6D62DE1B16492600F0EC27 /* UIRoomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIRoomView.xib; sourceTree = "<group>"; };
 		1C6D62E01B16535C00F0EC27 /* UIRoomScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRoomScrollView.h; sourceTree = "<group>"; };
 		1C6D62E11B16535C00F0EC27 /* UIRoomScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIRoomScrollView.m; sourceTree = "<group>"; };
 		1C6D62E31B1A223D00F0EC27 /* UIEventView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIEventView.h; sourceTree = "<group>"; };
@@ -541,9 +536,6 @@
 				1C73F36B1AFBE9470003B1FA /* Room.m */,
 				1C291D9C1B014B96006A2B4F /* AroundMeTableViewCell.h */,
 				1C291D9D1B014B96006A2B4F /* AroundMeTableViewCell.m */,
-				1C6D62DB1B1643B200F0EC27 /* UIRoomView.h */,
-				1C6D62DC1B1643B200F0EC27 /* UIRoomView.m */,
-				1C6D62DE1B16492600F0EC27 /* UIRoomView.xib */,
 				1C6D62E01B16535C00F0EC27 /* UIRoomScrollView.h */,
 				1C6D62E11B16535C00F0EC27 /* UIRoomScrollView.m */,
 				1C6D62E31B1A223D00F0EC27 /* UIEventView.h */,
@@ -1181,7 +1173,6 @@
 				DE14B9DF1AFFA8E8004470C7 /* button_controlsplaypink.png in Resources */,
 				DEC660B71B1A4E27001E6FD5 /* image_darkgradientbottom.png in Resources */,
 				DEBE1DA41B1A04FB003FE590 /* spinner-16.png in Resources */,
-				1C6D62DF1B16492600F0EC27 /* UIRoomView.xib in Resources */,
 				DEBE1D9A1B1A04FB003FE590 /* spinner-6.png in Resources */,
 				DE5763941AF40723003F7507 /* button-facebook.png in Resources */,
 				DE85B6901B1510F300BCC36F /* icon_login.png in Resources */,
@@ -1340,7 +1331,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C73F36C1AFBE9470003B1FA /* Room.m in Sources */,
-				1C6D62DD1B1643B200F0EC27 /* UIRoomView.m in Sources */,
 				FC2D3EF91B1CBBB300B41546 /* SignupViewController.m in Sources */,
 				DE5763D41AF5608C003F7507 /* GFXUtils.m in Sources */,
 				DE14B9E21AFFB115004470C7 /* PlayerPageViewController.m in Sources */,
