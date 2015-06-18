@@ -27,22 +27,6 @@ static NSString* around_me_event_cell = @"around_me_cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    int x = 0;
-//    int number_of_events = 5;
-//    for( int i = 0; i < number_of_events; i++)
-//    {
-//        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
-//        UIRoomView *room_view = [[UIRoomView alloc] initWithFrame:CGRectMake(x, 0, 234, 234)];
-//        button.tag = i;
-//        [button addTarget:self  action:@selector(joinRoom:) forControlEvents:UIControlEventTouchUpInside];
-//        [button addSubview:room_view];
-//        [_roomsScrollView addSubview:button];
-//        x += (234/2) + 15;
-//    }
-//    
-//    _roomsScrollView.contentSize = CGSizeMake(x, _roomsScrollView.frame.size.height);
-   
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -62,7 +46,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
         [SDSAPI aroundMe:username withID:self];
     }
     
-    int x = 50;
+    float x = 42;
     // get the upcoming events and populate them on screen
     for(NSDictionary *event in _upcoming_events)
     {
@@ -77,6 +61,10 @@ static NSString* around_me_event_cell = @"around_me_cell";
     UIAroundMeHereEmptyView *room_view = [[UIAroundMeHereEmptyView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:nil withRoomController:self];
     [_roomsScrollView addSubview:room_view];
     x += (234) + 15;
+    
+    // Set the offset to start on the Your ROOM screen
+    _center_point = CGPointMake(x-15,0);
+    [_roomsScrollView setContentOffset:_center_point animated:NO];
 
     // get the rooms around me and populate them in their cells
     for( NSDictionary *room in _rooms_around_me)
@@ -88,6 +76,10 @@ static NSString* around_me_event_cell = @"around_me_cell";
         [_roomsScrollView addSubview:room_view];
         x += (234) + 15;
     }
+    if([_rooms_around_me count] == 0 || _rooms_around_me == nil){
+        x += 30;
+    }
+    //plus 30 to allow for the centering to take place properly when there are no other rooms
     _roomsScrollView.contentSize = CGSizeMake(x, _roomsScrollView.frame.size.height);
 }
 
@@ -119,6 +111,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
     if (targetIndex > kMaxIndex)
         targetIndex = kMaxIndex;
     targetContentOffset->x = targetIndex * (234 + 15);
+    NSLog(@"float: %f and center point: %f", targetX, _center_point.x);
 }
 
 @end

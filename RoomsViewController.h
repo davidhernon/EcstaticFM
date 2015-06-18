@@ -27,6 +27,8 @@
 @property LocationServices* locationServices;
 @property NSArray* rooms_around_me;
 @property NSArray* upcoming_events;
+@property CGPoint center_point;
+
 - (void)showRoomsScrollView:(NSArray*)room_dictionaries;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *roomsScrollView;
