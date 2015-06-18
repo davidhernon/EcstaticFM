@@ -13,7 +13,6 @@
 #import "SDSAPI.h"
 #import "LocationServices.h"
 #import "AroundMeTableViewCell.h"
-#import "UIRoomView.h"
 #import "UIAroundMeView.h"
 #import "UIEventView.h"
 #import "UIAroundMeHereEmptyView.h"

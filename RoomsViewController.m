@@ -76,6 +76,10 @@ static NSString* around_me_event_cell = @"around_me_cell";
         if(room == [NSNull null]){
             continue;
         }
+		NSDictionary *room_info = [room objectForKey:@"room_info"];
+		if(room_info == [NSNull null]){
+			continue;
+		}
         UIAroundMeView *room_view = [[UIAroundMeView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:room withRoomController:self];
         [_roomsScrollView addSubview:room_view];
         x += (234) + 15;
