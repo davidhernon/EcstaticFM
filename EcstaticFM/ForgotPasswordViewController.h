@@ -11,5 +11,5 @@
 @interface ForgotPasswordViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UITextField *email;
 - (IBAction)submit:(id)sender;
-
+-(void)forgotPasswordReturnedTrue;
 @end
