@@ -27,6 +27,10 @@ static NSString* around_me_event_cell = @"around_me_cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _distance_or_time_label.text = @"Here";
+    _location_icon.hidden = YES;
+    _time_icon.hidden = YES;
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -63,8 +67,8 @@ static NSString* around_me_event_cell = @"around_me_cell";
     x += (234) + 15;
     
     // Set the offset to start on the Your ROOM screen
-    _center_point = CGPointMake(x-15,0);
-    [_roomsScrollView setContentOffset:_center_point animated:NO];
+    _center_point = CGPointMake(x-234-(4*15),0);
+    
 
     // get the rooms around me and populate them in their cells
     for( NSDictionary *room in _rooms_around_me)
@@ -76,10 +80,12 @@ static NSString* around_me_event_cell = @"around_me_cell";
         [_roomsScrollView addSubview:room_view];
         x += (234) + 15;
     }
-    if([_rooms_around_me count] == 0 || _rooms_around_me == nil){
-        x += 30;
-    }
-    //plus 30 to allow for the centering to take place properly when there are no other rooms
+//    if([_rooms_around_me count] == 0 || _rooms_around_me == nil){
+//        x += 30;
+//    }
+    //plus 30 to anticipate margins on either end so we can center it properly
+    x += 30;
+    [_roomsScrollView setContentOffset:_center_point animated:NO];
     _roomsScrollView.contentSize = CGSizeMake(x, _roomsScrollView.frame.size.height);
 }
 
@@ -111,7 +117,22 @@ static NSString* around_me_event_cell = @"around_me_cell";
     if (targetIndex > kMaxIndex)
         targetIndex = kMaxIndex;
     targetContentOffset->x = targetIndex * (234 + 15);
-    NSLog(@"float: %f and center point: %f", targetX, _center_point.x);
+    if(_center_point.x - (234/2) <= targetX && targetX <= _center_point.x+(234/2)){
+        _distance_or_time_label.text = @"Here";
+        _location_icon.hidden = YES;
+        _time_icon.hidden = YES;
+    }else if(targetX <= _center_point.x)
+    {
+        _distance_or_time_label.text = @"00:00:00";
+        _location_icon.hidden = YES;
+        _time_icon.hidden = NO;
+    }else
+    {
+        _distance_or_time_label.text = @"3 Meters";
+        _location_icon.hidden = NO;
+        _time_icon.hidden = YES;
+    }
+    NSLog(@"float: %f and center point: %f and difference: %f", targetX, _center_point.x, targetX-_center_point.x);
 }
 
 @end

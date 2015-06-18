@@ -33,10 +33,13 @@
 
 @property (strong, nonatomic) IBOutlet UIScrollView *roomsScrollView;
 @property (weak, nonatomic) IBOutlet UIGestureRecognizer *roomsGestureRecognizer;
+@property (weak, nonatomic) IBOutlet UILabel *distance_or_time_label;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *roomsSwipe;
 @property (weak, nonatomic) IBOutlet UIView *roomView;
+@property (weak, nonatomic) IBOutlet UIImageView *time_icon;
+@property (weak, nonatomic) IBOutlet UIImageView *location_icon;
 
 -(IBAction)buttonPressed:(id)sender;
 

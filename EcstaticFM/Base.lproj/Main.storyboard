@@ -565,8 +565,11 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="distance_or_time_label" destination="Qsa-zK-cHg" id="qxz-3y-f64"/>
+                        <outlet property="location_icon" destination="Apm-4F-HKq" id="oji-ds-m3m"/>
                         <outlet property="roomsGestureRecognizer" destination="Ye1-I8-Bpr" id="A5Z-lN-Ii9"/>
                         <outlet property="roomsScrollView" destination="ZxN-2D-bHb" id="P2b-Kq-di6"/>
+                        <outlet property="time_icon" destination="eEV-UK-b8u" id="mef-zY-UUy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wuJ-ls-KuR" userLabel="First Responder" sceneMemberID="firstResponder"/>
