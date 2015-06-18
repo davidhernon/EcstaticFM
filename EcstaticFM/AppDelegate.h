@@ -10,6 +10,7 @@
 #import "Player.h"
 #import "LocationServices.h"
 #import "Mixpanel.h"
+#import "Settings.h"
 @class ChatViewController;
 
 //DEV KEY MUST CHANGE TO PRODUCTION

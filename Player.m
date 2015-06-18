@@ -42,7 +42,8 @@ static Player *ecstaticPlayer = nil;
         ecstaticPlayer.player_is_paused = NO;
         ecstaticPlayer.isNextSong = NO;
         ecstaticPlayer.user_joining_room = NO;
-        ecstaticPlayer.user_hit_button = NO;
+		ecstaticPlayer.user_hit_button = NO;
+		ecstaticPlayer.player_is_locked = NO;
     });
     return ecstaticPlayer;
 }

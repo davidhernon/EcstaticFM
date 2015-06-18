@@ -9,6 +9,14 @@
 #import "Settings.h"
 
 @implementation Settings
+- (IBAction)toggleLock:(id)sender {
+	/*if(){
+		
+	}
+	else{
+		
+	}*/
+}
 
 - (IBAction)Logout:(id)sender {
     //api handles transition to loginView
@@ -18,8 +26,12 @@
     {
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"username"];
         [SSKeychain deletePasswordForService:@"EcstaticFM" account:cached_username];
-        
     }
-    
 }
+
+- (IBAction)changeSettings:(id)sender {
+	if (&UIApplicationOpenSettingsURLString != NULL)
+		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+}
+
 @end
