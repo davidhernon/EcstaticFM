@@ -68,6 +68,8 @@
 
 -(void)playerIsDoneLoadingNextSong;
 
+-(void)lockToggle;
+
 @end
 
 

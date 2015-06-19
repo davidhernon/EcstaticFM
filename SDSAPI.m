@@ -310,10 +310,13 @@ static NSTimer *login_timer;
         }else if([command isEqualToString:@"skip"])
         {
             [[Player sharedPlayer] next];
-        }else if([command isEqualToString:@"back"])
-        {
-            [[Player sharedPlayer] last];
+		}else if([command isEqualToString:@"back"])
+		{
+			[[Player sharedPlayer] last];
+		}else if([command isEqualToString:@"lock"]){
+			[[Player sharedPlayer].delegate lockToggle];
         }else{
+
             NSLog(@"unlogged command returned from server!!!!!");
         }
     }];
@@ -532,23 +535,13 @@ static NSTimer *login_timer;
 
 +(void)realtimePlayer:(NSString*)command
 {
-	NSLog(@"User Hit Play");
+	NSLog(@"User Hit realtimePlayer = %@", command);
 	NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
 	NSString *room_number = [Room currentRoom].room_number;
 	NSDictionary *ps = [self getDictForPlayerState];
 	NSDictionary *update_query = [NSDictionary dictionaryWithObjects:@[room_number, command, username, ps] forKeys:@[@"room_number", @"msg_type", @"username", @"player_state"]];
 	NSData *json = [NSJSONSerialization dataWithJSONObject:update_query options:nil error:nil];
 	[static_socket emitObjc:@"player" withItems:@[json]];
-}
-
-+(void)lock
-{
-
-	NSLog(@"User Hit Lock");
-	NSString *room_number = [Room currentRoom].room_number;
-	NSDictionary *textDict = [NSDictionary dictionaryWithObjects:@[room_number] forKeys:@[@"room_number"]];
-	NSData *json = [NSJSONSerialization dataWithJSONObject:textDict options:nil error:nil];
-	[static_socket emitObjc:@"lock" withItems:@[json]];
 }
 
 +(void) getChatBacklog{
@@ -560,18 +553,6 @@ static NSTimer *login_timer;
 	[static_socket emitObjc:@"get_chat_backlog" withItems:@[jsonData]];
 
 }
-
-+(void) getLocationForUser:(NSString*)username{
-	NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:@[username]
-																forKeys:@[@"username"]];
-	
-	NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
-	[static_socket emitObjc:@"get_location_for_user" withItems:@[jsonData]];
-	[static_socket on:@"return_location_for_user" callback:^(NSArray * data, void (^ack) (NSArray*)){
-		NSLog(@"got location%@", data[0]);
-	}];
-}
-
 
 +(void) seek
 {
