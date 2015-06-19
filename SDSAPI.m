@@ -466,7 +466,7 @@ static NSTimer *login_timer;
     [static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
 }
 
-+(void)joinRoom:(NSString*)new_room_number
++(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)user
 {
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     NSArray * obj = @[new_room_number, username];
@@ -495,6 +495,7 @@ static NSTimer *login_timer;
     }
     [Room currentRoom].room_number = new_room_number;
     [[Room currentRoom] makeNotOwner];
+    [Room currentRoom].host_username = user;
     [SDSAPI getPlaylist:new_room_number];
 }
 

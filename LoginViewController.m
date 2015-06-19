@@ -27,6 +27,8 @@
         _password.text = [SSKeychain passwordForService:@"EcstaticFM" account:_username.text];
         [SDSAPI login: self.username.text password:self.password.text ID:self];
     }
+    _username.delegate = self;
+    _password.delegate = self;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -334,5 +336,18 @@
 
 - (IBAction)fbLogin:(id)sender {
     [SDSAPI fbLogin];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == _username) {
+        [textField resignFirstResponder];
+        return NO;
+    }
+    if(textField == _password){
+        [textField resignFirstResponder];
+        [self SDSLogin:self];
+        return NO;
+    }
+    return YES;
 }
 @end

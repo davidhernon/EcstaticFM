@@ -17,7 +17,7 @@
 #import "SSKeychain.h"
 #import "AppDelegate.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <UITextFieldDelegate>
 
 -(void)getAccessToken;
 - (void) loginReturnedFalse;

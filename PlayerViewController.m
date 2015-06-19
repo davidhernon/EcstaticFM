@@ -133,7 +133,7 @@ static NSString* cellIdentifier = @"playListCell";
 - (void) viewWillAppear:(BOOL)animated
 {
     _room_title.text = [NSString stringWithFormat:@"%@'s Room", [Room currentRoom].host_username ];
-    
+    NSLog(@"%@",[NSString stringWithFormat:@"%@'s Room", [Room currentRoom].host_username ]);
     [self.player updatePlaylist];
 	
 	//check if is_locked
