@@ -12,6 +12,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.chatTextField.delegate = self;
     // Do any additional setup after loading the view.
     
     AppDelegate* appDelegate =  (AppDelegate*)[[UIApplication sharedApplication]delegate];
@@ -194,6 +195,22 @@
 -(void)dismissKeyboard {
     [_chatTextField resignFirstResponder];
 }
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range
+ replacementText:(NSString *)text
+{
+    // Any new character added is passed in as the "text" parameter
+    if ([text isEqualToString:@"\n"]) {
+        // Be sure to test for equality using the "isEqualToString" message
+        [textView resignFirstResponder];
+        [self sendChat:self];
+        // Return FALSE so that the final '\n' character doesn't get added
+        return FALSE;
+    }
+    // For any other character return TRUE so that the text gets added to the view
+    return TRUE;
+}
+
 
 
 /*

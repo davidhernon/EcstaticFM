@@ -15,7 +15,7 @@
 #import "Message.h"
 #import "SDSAPI.h"
 
-@interface ChatViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ChatViewController : UIViewController <UITextViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 
 @property (nonatomic, strong)UITapGestureRecognizer *chatTapGestureRecognizer;
@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *people_with_you;
 @property (weak, nonatomic) IBOutlet UITableView *chatTableView;
 @property (retain, nonatomic) NSMutableArray *messages;
-@property (weak, nonatomic) IBOutlet UITextView *chatTextField;
+@property (strong, nonatomic) IBOutlet UITextView *chatTextField;
 @property (strong, nonatomic) Message *message;
 
 - (IBAction)sendChat:(id)sender;
