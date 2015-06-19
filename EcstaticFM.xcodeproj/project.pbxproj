@@ -533,6 +533,7 @@
 			children = (
 				1C2318161B213F78001D4ED7 /* UIAroundMeHereEmptyView.h */,
 				1C2318171B213F78001D4ED7 /* UIAroundMeHereEmptyView.m */,
+				DE18AB901B1CBD5500C9BAE5 /* UIAroundMeHereEmptyView.xib */,
 				1C73F3631AFA936D0003B1FA /* RoomsViewController.h */,
 				1C73F3641AFA936D0003B1FA /* RoomsViewController.m */,
 				1C73F36A1AFBE9470003B1FA /* Room.h */,
@@ -546,7 +547,6 @@
 				1C6D62E61B1A225100F0EC27 /* UIAroundMeView.h */,
 				1C6D62E71B1A225100F0EC27 /* UIAroundMeView.m */,
 				1C6D62E91B1A225C00F0EC27 /* UIAroundMeView.xib */,
-				DE18AB901B1CBD5500C9BAE5 /* UIAroundMeHereEmptyView.xib */,
 				1C6D62EB1B1A226900F0EC27 /* UIEventView.xib */,
 				1C77FC5B1B33C2F600703DCB /* UIRoomView.h */,
 				1C77FC5C1B33C2F600703DCB /* UIRoomView.m */,

@@ -415,12 +415,24 @@ static NSTimer *login_timer;
             //           NSLog(@"waiting to connect!");
             [NSThread sleepForTimeInterval:0.1f];
         }
-        NSLog(@"username, latitude, longitude: %@, %f, %f", username, latitude, longitude);
-        NSArray *objects = [NSArray arrayWithObjects:username, @(latitude), @(longitude), nil];
-        NSArray *keys = [NSArray arrayWithObjects:@"username", @"latitude", @"longitude", nil];
-        NSDictionary *postDictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
-        [static_socket emitObjc:@"post_location" withItems:@[jsonData]];
+		
+		if(![username length] >0){
+			NSString* username = @"anonymous disco squid";
+			NSLog(@"username, latitude, longitude: %@, %f, %f", username, latitude, longitude);
+			NSArray *objects = [NSArray arrayWithObjects:username, @(latitude), @(longitude), nil];
+			NSArray *keys = [NSArray arrayWithObjects:@"username", @"latitude", @"longitude", nil];
+			NSDictionary *postDictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+			NSData *jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
+			[static_socket emitObjc:@"post_location" withItems:@[jsonData]];
+		}
+		else{
+			NSLog(@"username, latitude, longitude: %@, %f, %f", username, latitude, longitude);
+			NSArray *objects = [NSArray arrayWithObjects:username, @(latitude), @(longitude), nil];
+			NSArray *keys = [NSArray arrayWithObjects:@"username", @"latitude", @"longitude", nil];
+			NSDictionary *postDictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+			NSData *jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
+			[static_socket emitObjc:@"post_location" withItems:@[jsonData]];
+		}
     });
 }
 
