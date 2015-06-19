@@ -11,7 +11,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="234" height="302"/>
+            <rect key="frame" x="0.0" y="0.0" width="234" height="296"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CxU-Sl-NMI">
@@ -24,8 +24,8 @@
                                 <constraint firstAttribute="width" constant="234" id="yiZ-68-auN"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmg-Qq-HmW" userLabel="hidden button (link to room)">
-                            <rect key="frame" x="0.0" y="0.0" width="234" height="300"/>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmg-Qq-HmW" userLabel="hidden button (link to room)">
+                            <rect key="frame" x="0.0" y="0.0" width="234" height="295"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="300" id="N6M-al-WE4"/>
                                 <constraint firstAttribute="width" constant="234" id="rDt-Jg-Pbh"/>
@@ -33,6 +33,12 @@
                             <state key="normal" title=" ">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="N6M-al-WE4"/>
+                                    <exclude reference="rDt-Jg-Pbh"/>
+                                </mask>
+                            </variation>
                             <connections>
                                 <action selector="buttonAction" destination="-1" eventType="touchUpInside" id="zFg-Gd-39X"/>
                             </connections>
@@ -40,13 +46,27 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="bottom" secondItem="Axk-FO-Pal" secondAttribute="bottom" constant="66" id="3Zf-AV-cDn"/>
-                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="height" secondItem="CxU-Sl-NMI" secondAttribute="height" id="6Ep-GI-04Z"/>
+                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="height" secondItem="Axk-FO-Pal" secondAttribute="height" id="5hS-I0-W2M"/>
                         <constraint firstAttribute="width" constant="234" id="CG9-9G-7tc"/>
+                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="centerX" secondItem="Axk-FO-Pal" secondAttribute="centerX" id="OQp-yA-xKr"/>
                         <constraint firstAttribute="height" constant="350" id="OfB-4i-m2O"/>
+                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="centerY" secondItem="Axk-FO-Pal" secondAttribute="centerY" constant="-2.5" id="P2B-6u-2Ra"/>
+                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="centerY" secondItem="Axk-FO-Pal" secondAttribute="centerY" id="TnA-LO-qzt"/>
                         <constraint firstAttribute="centerX" secondItem="Axk-FO-Pal" secondAttribute="centerX" id="YLO-Gp-QQq"/>
+                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="width" secondItem="Axk-FO-Pal" secondAttribute="width" id="lQ0-Hk-2pR"/>
+                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="height" secondItem="Axk-FO-Pal" secondAttribute="height" id="vlL-SY-pPb"/>
+                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="width" secondItem="Axk-FO-Pal" secondAttribute="width" id="yIG-dh-B11"/>
                         <constraint firstItem="Axk-FO-Pal" firstAttribute="top" secondItem="CxU-Sl-NMI" secondAttribute="top" id="yrC-zZ-xTw"/>
+                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="centerX" secondItem="Axk-FO-Pal" secondAttribute="centerX" id="zoD-hs-3vM"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="5hS-I0-W2M"/>
+                            <exclude reference="P2B-6u-2Ra"/>
+                            <exclude reference="yIG-dh-B11"/>
+                            <exclude reference="zoD-hs-3vM"/>
+                        </mask>
+                    </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -55,7 +75,7 @@
                 <constraint firstAttribute="centerX" secondItem="CxU-Sl-NMI" secondAttribute="centerX" id="Wh2-3k-fQO"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="139" y="188"/>
+            <point key="canvasLocation" x="139" y="185"/>
         </view>
     </objects>
     <resources>
