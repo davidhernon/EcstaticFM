@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bOe-aM-vI5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bOe-aM-vI5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -705,7 +705,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                         <viewControllerLayoutGuide type="bottom" id="MvJ-16-LgO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vNE-ej-cuO">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhs-iy-Yjg">
@@ -975,7 +975,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="EBF-eh-6t1" kind="show" id="BGO-mf-tNw"/>
+                                            <segue destination="EBF-eh-6t1" kind="show" identifier="geoAskSegue" id="BGO-mf-tNw"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1085,6 +1085,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                         <outlet property="loginView" destination="AIM-do-p8o" id="2t9-Z1-zJ9"/>
                         <outlet property="password" destination="nbE-v3-bJ9" id="bk8-01-MGx"/>
                         <outlet property="username" destination="SMm-SV-xNh" id="FDs-Sa-Awc"/>
+                        <segue destination="pL3-Xv-Udv" kind="presentation" identifier="roomsSegue" id="9e6-dF-Meh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iU6-sO-xiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5327,10 +5328,10 @@ Cg
         <image name="spinner-16.png" width="302" height="302"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LHV-l3-vdI"/>
-        <segue reference="sP4-bK-WLP"/>
-        <segue reference="pHj-h8-hL3"/>
+        <segue reference="BGO-mf-tNw"/>
         <segue reference="kOh-mr-y7x"/>
+        <segue reference="pHj-h8-hL3"/>
+        <segue reference="9e6-dF-Meh"/>
         <segue reference="ubM-n0-8uz"/>
     </inferredMetricsTieBreakers>
 </document>

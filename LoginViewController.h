@@ -15,7 +15,7 @@
 #import "RadialGradientLayer.h"
 #import "SDSAPI.h"
 #import "SSKeychain.h"
-
+#import "AppDelegate.h"
 
 @interface LoginViewController : UIViewController
 

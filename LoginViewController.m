@@ -302,9 +302,18 @@
     [SSKeychain setPassword:_password.text forService:@"EcstaticFM" account:self.username.text];
     
     [SDSAPI createRoom: self.username.text];
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
-    [self presentViewController:player_page animated:YES completion:nil];
+	AppDelegate* appDelegate = [[UIApplication  sharedApplication]delegate];
+	//check if the user has given permissions to use location services
+	if([appDelegate.locationServices checkForPermissions]){
+		[self performSegueWithIdentifier:@"roomsSegue" sender:self];
+	}
+	//if they haven't ask them to in the geoAsk uiviewcontroller
+	else{
+		UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+		geoAskViewController *geoAskVC = [sb instantiateViewControllerWithIdentifier:@"geoAskVC"];
+		appDelegate.locationServices.vc=geoAskVC;
+		[self presentViewController:geoAskVC animated:YES completion:nil];
+	}
 }
 
 - (void) loginReturnedFalse
