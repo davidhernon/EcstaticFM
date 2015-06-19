@@ -191,7 +191,7 @@ share your location?</string>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <segue destination="pL3-Xv-Udv" kind="presentation" identifier="roomsViewSegue" id="1fe-a4-XVi"/>
-                        <segue destination="XgF-Cq-hZq" kind="presentation" identifier="backToPlayerSegue" id="zm6-gB-j1m"/>
+                        <segue destination="XgF-Cq-hZq" kind="presentation" identifier="backToPlayerSegue" modalTransitionStyle="crossDissolve" id="zm6-gB-j1m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boa-Xy-f7L" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -630,7 +630,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2326" y="802"/>
+            <point key="canvasLocation" x="2393" y="972"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="ZMr-LE-qiT">
@@ -641,7 +641,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                         <viewControllerLayoutGuide type="bottom" id="MvJ-16-LgO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vNE-ej-cuO">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhs-iy-Yjg">
@@ -1697,8 +1697,8 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                         <outlet property="room_title" destination="geq-y6-kl4" id="STQ-v1-ZT5"/>
                         <outlet property="slider" destination="w8p-jS-ofe" id="s0c-r3-LAC"/>
                         <outlet property="welcomehome" destination="7TJ-3H-AHn" id="hA0-16-iXA"/>
-                        <segue destination="EBF-eh-6t1" kind="presentation" identifier="geoAskSegue" id="LHV-l3-vdI"/>
-                        <segue destination="pL3-Xv-Udv" kind="presentation" identifier="roomsViewSegue" id="sP4-bK-WLP"/>
+                        <segue destination="EBF-eh-6t1" kind="presentation" identifier="geoAskSegue" modalTransitionStyle="crossDissolve" id="LHV-l3-vdI"/>
+                        <segue destination="pL3-Xv-Udv" kind="presentation" identifier="roomsViewSegue" modalTransitionStyle="crossDissolve" id="sP4-bK-WLP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJn-H3-nVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5255,10 +5255,10 @@ Cg
         <image name="spinner-16.png" width="302" height="302"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ubM-n0-8uz"/>
-        <segue reference="kOh-mr-y7x"/>
-        <segue reference="HPa-Ki-tbw"/>
-        <segue reference="sP4-bK-WLP"/>
         <segue reference="LHV-l3-vdI"/>
+        <segue reference="sP4-bK-WLP"/>
+        <segue reference="pHj-h8-hL3"/>
+        <segue reference="kOh-mr-y7x"/>
+        <segue reference="ubM-n0-8uz"/>
     </inferredMetricsTieBreakers>
 </document>
