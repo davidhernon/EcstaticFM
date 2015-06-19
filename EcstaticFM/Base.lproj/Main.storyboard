@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bOe-aM-vI5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bOe-aM-vI5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -559,27 +559,42 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxN-2D-bHb" customClass="UIRoomScrollView">
-                                <rect key="frame" x="0.0" y="168" width="320" height="241"/>
+                            <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxN-2D-bHb" customClass="UIRoomScrollView">
+                                <rect key="frame" x="0.0" y="120" width="320" height="241"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="241" id="fny-xJ-atJ"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="pL3-Xv-Udv" id="bVF-u4-edG"/>
                                 </connections>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00/Here/3 meters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qsa-zK-cHg">
-                                <rect key="frame" x="0.0" y="108" width="320" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0:00/Here/3 meters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qsa-zK-cHg">
+                                <rect key="frame" x="0.0" y="60" width="320" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="4A0-vw-1A2"/>
+                                    <constraint firstAttribute="height" constant="33" id="JaX-kR-2al"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="28"/>
                                 <color key="textColor" red="0.36459061503410339" green="0.3645797073841095" blue="0.36458587646484375" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jonathan &amp; 3 others" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4r-IV-0mv">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Jonathan &amp; 3 others" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4r-IV-0mv">
                                 <rect key="frame" x="83" y="417" width="155" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="155" id="Udt-YY-EBu"/>
+                                    <constraint firstAttribute="height" constant="21" id="UvG-5k-0j7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Raleway-ExtraLight" family="Raleway" pointSize="16"/>
-                                <color key="textColor" red="0.23789967596530914" green="0.23789255321025848" blue="0.23789659142494202" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.23404696583747864" green="0.23403996229171753" blue="0.23404392600059509" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TMc-jI-3i2">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TMc-jI-3i2">
                                 <rect key="frame" x="0.0" y="20" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="2Zc-EK-ABD"/>
+                                    <constraint firstAttribute="height" constant="44" id="CtM-qd-fd6"/>
+                                </constraints>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" image="button_gear2.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -588,14 +603,26 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                     <segue destination="Uc1-lp-Sxd" kind="presentation" modalTransitionStyle="crossDissolve" id="4Y4-CM-9h4"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_location2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Apm-4F-HKq">
-                                <rect key="frame" x="148" y="66" width="25" height="37"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_location2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Apm-4F-HKq">
+                                <rect key="frame" x="148" y="18" width="25" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="D1P-zs-TR0"/>
+                                    <constraint firstAttribute="width" constant="25" id="HJY-L8-roC"/>
+                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_time.png" translatesAutoresizingMaskIntoConstraints="NO" id="eEV-UK-b8u">
-                                <rect key="frame" x="148" y="70" width="25" height="25"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_time.png" translatesAutoresizingMaskIntoConstraints="NO" id="eEV-UK-b8u">
+                                <rect key="frame" x="148" y="22" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="Ico-E7-sgk"/>
+                                    <constraint firstAttribute="height" constant="25" id="SYI-nu-jHA"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cqg-6V-JlI">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cqg-6V-JlI">
                                 <rect key="frame" x="46" y="28" width="57" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="DMY-Cb-1Lq"/>
+                                    <constraint firstAttribute="height" constant="30" id="GiN-L1-X97"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Raleway" family="Raleway" pointSize="14"/>
                                 <state key="normal" title="Settings">
                                     <color key="titleColor" red="0.51527303457260132" green="0.51525759696960449" blue="0.51526635885238647" alpha="1" colorSpace="calibratedRGB"/>
@@ -608,6 +635,43 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Cqg-6V-JlI" firstAttribute="top" secondItem="Ahj-Ta-ehZ" secondAttribute="bottom" constant="8" id="1GI-m1-0dv"/>
+                            <constraint firstItem="Cqg-6V-JlI" firstAttribute="leading" secondItem="TMc-jI-3i2" secondAttribute="leading" constant="46" id="2qs-1o-Dy9"/>
+                            <constraint firstItem="ZxN-2D-bHb" firstAttribute="top" secondItem="Ahj-Ta-ehZ" secondAttribute="bottom" constant="148" id="78Y-fC-usF"/>
+                            <constraint firstItem="Qsa-zK-cHg" firstAttribute="bottom" secondItem="eEV-UK-b8u" secondAttribute="bottom" constant="46" id="7gO-x9-V28"/>
+                            <constraint firstItem="Qsa-zK-cHg" firstAttribute="bottom" secondItem="ZxN-2D-bHb" secondAttribute="bottom" constant="-268" id="7lm-j7-grG"/>
+                            <constraint firstAttribute="centerX" secondItem="eEV-UK-b8u" secondAttribute="centerX" constant="-0.5" id="Ahz-aE-4UG"/>
+                            <constraint firstAttribute="centerX" secondItem="Q4r-IV-0mv" secondAttribute="centerX" constant="-0.5" id="CAd-9U-tnI"/>
+                            <constraint firstItem="Qsa-zK-cHg" firstAttribute="centerX" secondItem="Apm-4F-HKq" secondAttribute="centerX" constant="-0.5" id="CFH-Ud-q7B"/>
+                            <constraint firstAttribute="width" secondItem="ZxN-2D-bHb" secondAttribute="width" id="DcP-RV-au6"/>
+                            <constraint firstItem="ZxN-2D-bHb" firstAttribute="centerX" secondItem="Apm-4F-HKq" secondAttribute="centerX" id="De4-MS-f92"/>
+                            <constraint firstItem="Qsa-zK-cHg" firstAttribute="top" secondItem="Ahj-Ta-ehZ" secondAttribute="bottom" constant="88" id="F19-VH-6AO"/>
+                            <constraint firstItem="eEV-UK-b8u" firstAttribute="centerX" secondItem="ZxN-2D-bHb" secondAttribute="centerX" id="Fbb-f5-SOk"/>
+                            <constraint firstAttribute="centerY" secondItem="ZxN-2D-bHb" secondAttribute="centerY" id="JCc-65-xOS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cqg-6V-JlI" secondAttribute="trailing" constant="201" id="KwA-RE-bsx"/>
+                            <constraint firstItem="TMc-jI-3i2" firstAttribute="leading" secondItem="gwg-uV-IfY" secondAttribute="leadingMargin" constant="-16" id="Mrg-Ew-pjB"/>
+                            <constraint firstAttribute="centerX" secondItem="ZxN-2D-bHb" secondAttribute="centerX" id="O3T-Ba-Ltp"/>
+                            <constraint firstItem="Qsa-zK-cHg" firstAttribute="top" secondItem="ZxN-2D-bHb" secondAttribute="top" constant="-60" id="QkX-X8-rAd"/>
+                            <constraint firstItem="ZxN-2D-bHb" firstAttribute="top" secondItem="Q4r-IV-0mv" secondAttribute="top" constant="-249" id="RY7-Mg-NUg"/>
+                            <constraint firstItem="N6e-QA-vp9" firstAttribute="top" secondItem="Qsa-zK-cHg" secondAttribute="bottom" constant="339" id="bon-uM-9mH"/>
+                            <constraint firstAttribute="centerX" secondItem="Apm-4F-HKq" secondAttribute="centerX" constant="-0.5" id="k3Z-lr-hD7"/>
+                            <constraint firstItem="Qsa-zK-cHg" firstAttribute="bottom" secondItem="Apm-4F-HKq" secondAttribute="bottom" constant="38" id="tNn-Yi-Ao9"/>
+                            <constraint firstItem="TMc-jI-3i2" firstAttribute="top" secondItem="Ahj-Ta-ehZ" secondAttribute="bottom" id="ziA-sy-yGN"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="KwA-RE-bsx"/>
+                                <exclude reference="CFH-Ud-q7B"/>
+                                <exclude reference="F19-VH-6AO"/>
+                                <exclude reference="QkX-X8-rAd"/>
+                                <exclude reference="78Y-fC-usF"/>
+                                <exclude reference="RY7-Mg-NUg"/>
+                                <exclude reference="k3Z-lr-hD7"/>
+                                <exclude reference="Ahz-aE-4UG"/>
+                                <exclude reference="bon-uM-9mH"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Ye1-I8-Bpr" appends="YES" id="dA7-kh-Gzw"/>
                         </connections>
@@ -641,7 +705,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                         <viewControllerLayoutGuide type="bottom" id="MvJ-16-LgO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vNE-ej-cuO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhs-iy-Yjg">
