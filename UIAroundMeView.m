@@ -8,6 +8,7 @@
 
 #import "UIAroundMeView.h"
 #import "RoomsViewController.h"
+#import "EcstaticFM-Swift.h"
 
 @implementation UIAroundMeView
 
@@ -43,8 +44,16 @@
     if((self = [super initWithFrame:aRect]))
     {
 		//Get's the location of the host
-		[SDSAPI getLocationForUser:[room_info objectForKey:@"host_username"]];
-		
+			NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:@[[room_info objectForKey:@"host_username"]]
+																		forKeys:@[@"username"]];
+			
+			NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
+			[[SDSAPI get_static_socket]  emitObjc:@"get_location_for_user" withItems:@[jsonData]];
+			[[SDSAPI get_static_socket]  on:@"return_location_for_user" callback:^(NSArray * data, void (^ack) (NSArray*)){
+				NSLog(@"got location%@", data[0]);
+			}];
+		}
+
 		NSString *className = NSStringFromClass([self class]);
         self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
         self.other_listeners.text = [NSString stringWithFormat:@"%@ and %i other(s)", [room_info objectForKey:@"host_username"], [users count] - 1];

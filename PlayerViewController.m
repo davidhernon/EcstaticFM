@@ -439,8 +439,15 @@ static NSString* cellIdentifier = @"playListCell";
 }
 
 - (IBAction)lockAction:(id)sender {
-	[_lock setOn:!_lock.state];
-	NSLog(@"%u", _lock.state);
+	NSLog(@"%u", _lock.on);
+	if(_lock.on){
+		[_lock setOn:YES];
+		[[Player sharedPlayer] setLock:YES];
+	}
+	else{
+		[_lock setOn:NO];
+		[[Player sharedPlayer] setLock:NO];
+	}
 }
 @end
 
