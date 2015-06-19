@@ -35,6 +35,7 @@
 +(void) updatePlayerState;
 +(void) sendText:(NSString*)textMessage;
 +(void)realtimePlayer:(NSString*)command;
++(void)getChatBacklog;
 +(void)logout;
 
 

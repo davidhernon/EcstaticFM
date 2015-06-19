@@ -31,5 +31,6 @@
 - (void)didReceiveMemoryWarning;
 - (void)keyboardWillHide:(NSNotification *)n;
 - (void)addChatText:(NSString*)user content:(NSString*)content;
+-(void) addChatLog:(NSString *)user content:(NSArray *)chatLog;
 
 @end
