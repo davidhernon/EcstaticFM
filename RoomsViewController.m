@@ -37,6 +37,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
 {
     [super viewWillAppear:YES];
     _center_points = [[NSMutableArray alloc] init];
+    _event_item_list = [[NSMutableArray alloc] init];
     
     if(_upcoming_events == nil)
     {
@@ -58,14 +59,18 @@ static NSString* around_me_event_cell = @"around_me_cell";
         if(event == [NSNull null]){
             continue;
         }
+        
         [_center_points addObject:[NSNumber numberWithFloat:x]];
         UIEventView *room_view = [[UIEventView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:event withRoomController:self];
+        [_event_item_list addObject:room_view];
         [_roomsScrollView addSubview:room_view];
         x += (234) + 15;
     }
     
+    
     [_center_points addObject:[NSNumber numberWithFloat:x]];
     UIAroundMeHereEmptyView *room_view = [[UIAroundMeHereEmptyView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:nil withRoomController:self];
+    [_event_item_list addObject:room_view];
     [_roomsScrollView addSubview:room_view];
     x += (234) + 15;
     
@@ -85,6 +90,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
 		}
         [_center_points addObject:[NSNumber numberWithFloat:x]];
         UIAroundMeView *room_view = [[UIAroundMeView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:room withRoomController:self];
+        [_event_item_list addObject:room_view];
         [_roomsScrollView addSubview:room_view];
         x += (234) + 15;
     }
@@ -152,6 +158,17 @@ static NSString* around_me_event_cell = @"around_me_cell";
         if((position >= [[_center_points objectAtIndex:counter] floatValue] - (234.0f/2.0f)-7.5f) && (position <= [[_center_points objectAtIndex:counter] floatValue] + (234.0f/2.0f)+7.5f) )
         {
             NSLog(@"page %i", counter);
+            _distance_or_time_label.text = ((UIRoomView*)[_event_item_list objectAtIndex:counter]).room_number_label.text;
+            if(_distance_or_time_label.text == nil){
+                _distance_or_time_label.text = @"Here";
+            }
+        }else if( (position < [[_center_points objectAtIndex:0] floatValue] - (234.0f/2.0f)-7.5f))
+        {
+            _distance_or_time_label.text = ((UIRoomView*)[_event_item_list objectAtIndex:0]).room_number_label.text;
+        }
+        else if((position > [[_center_points objectAtIndex:[_center_points count]-1] floatValue] + (234.0f/2.0f)+7.5f))
+        {
+            _distance_or_time_label.text = ((UIRoomView*)[_event_item_list objectAtIndex:[_event_item_list count]-1]).room_number_label.text;
         }
         counter++;
     }
