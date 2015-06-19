@@ -10,6 +10,7 @@
 #import "PlayerPageViewController.h"
 #import "SDSAPI.h"
 #import "UIRoomView.h"
+#import <CoreData/CoreData.h>
 @class RoomsViewController;
 
 @interface UIAroundMeView : UIRoomView
@@ -22,8 +23,11 @@
 @property (nonatomic, retain) NSString *room_number;
 @property BOOL *is_an_event;
 
+@property CLLocationCoordinate2D coord;
+
 @property (nonatomic, weak) RoomsViewController *rooms_view_controller;
 
 - (id) initWithFrame:(CGRect)aRect withEvent:(NSDictionary*)event withRoomController:(RoomsViewController*)sender;
+-(void)setLocation:(NSArray*)location_array_from_server;
 
 @end

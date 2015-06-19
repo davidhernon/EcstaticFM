@@ -11,8 +11,10 @@
 #import "MediaItem.h"
 #import "AppDelegate.h"
 #import "ChatViewController.h"
+#import "UIAroundMeView.h"
 @class Player;
 @class LoginViewController;
+@class SocketIOClient;
 @interface SDSAPI : NSObject
 
 @property ChatViewController* chatViewController;
@@ -36,8 +38,7 @@
 +(void)sendText:(NSString*)textMessage;
 +(void)realtimePlayer:(NSString*)command;
 +(void)getChatBacklog;
-+(void)getLocationForUser:(NSString*)username;
 +(void)logout;
-
++(SocketIOClient*)get_static_socket;
 
 @end

@@ -347,4 +347,9 @@ the delegate to Player for Player to communicate with a view controller
     _player_is_paused = NO;
 }
 
+-(void)setLock:(BOOL)player_is_locked{
+	[SDSAPI realtimePlayer:@"lock"];
+	self.player_is_locked = player_is_locked;
+}
+
 @end
