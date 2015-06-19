@@ -69,6 +69,12 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
     
+    CATransition* transition = [CATransition animation];
+    
+    transition.duration = 0.3;
+    transition.type = kCATransitionFade;
+    
+    [player_page.view.layer addAnimation:transition forKey:kCATransition];
     [_rooms_view_controller presentViewController:player_page animated:YES completion:nil];
     
 }

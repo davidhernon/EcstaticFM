@@ -160,6 +160,7 @@
 		DE9A4A0D1AF5765A00B26BA4 /* button_addmusic.png in Resources */ = {isa = PBXBuildFile; fileRef = DE9A4A0B1AF5765A00B26BA4 /* button_addmusic.png */; };
 		DE9A4A0E1AF5765A00B26BA4 /* image_navbarbg.png in Resources */ = {isa = PBXBuildFile; fileRef = DE9A4A0C1AF5765A00B26BA4 /* image_navbarbg.png */; };
 		DE9A4A101AF5767300B26BA4 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = DE9A4A0F1AF5767300B26BA4 /* splash.png */; };
+		DEB5C44C1B349FBA008A48D0 /* button_cover-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB5C44B1B349FBA008A48D0 /* button_cover-empty.png */; };
 		DEBABA351AFC2113002D66F7 /* image_arrowup.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBABA341AFC2113002D66F7 /* image_arrowup.png */; };
 		DEBE1D951B1A04FB003FE590 /* spinner-1.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBE1D851B1A04FB003FE590 /* spinner-1.png */; };
 		DEBE1D961B1A04FB003FE590 /* spinner-2.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBE1D861B1A04FB003FE590 /* spinner-2.png */; };
@@ -429,6 +430,7 @@
 		DE9A4A0B1AF5765A00B26BA4 /* button_addmusic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_addmusic.png; sourceTree = "<group>"; };
 		DE9A4A0C1AF5765A00B26BA4 /* image_navbarbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_navbarbg.png; sourceTree = "<group>"; };
 		DE9A4A0F1AF5767300B26BA4 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
+		DEB5C44B1B349FBA008A48D0 /* button_cover-empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_cover-empty.png"; sourceTree = "<group>"; };
 		DEBABA341AFC2113002D66F7 /* image_arrowup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_arrowup.png; sourceTree = "<group>"; };
 		DEBE1D851B1A04FB003FE590 /* spinner-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spinner-1.png"; sourceTree = "<group>"; };
 		DEBE1D861B1A04FB003FE590 /* spinner-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spinner-2.png"; sourceTree = "<group>"; };
@@ -533,6 +535,7 @@
 			children = (
 				1C2318161B213F78001D4ED7 /* UIAroundMeHereEmptyView.h */,
 				1C2318171B213F78001D4ED7 /* UIAroundMeHereEmptyView.m */,
+				DE18AB901B1CBD5500C9BAE5 /* UIAroundMeHereEmptyView.xib */,
 				1C73F3631AFA936D0003B1FA /* RoomsViewController.h */,
 				1C73F3641AFA936D0003B1FA /* RoomsViewController.m */,
 				1C73F36A1AFBE9470003B1FA /* Room.h */,
@@ -546,7 +549,6 @@
 				1C6D62E61B1A225100F0EC27 /* UIAroundMeView.h */,
 				1C6D62E71B1A225100F0EC27 /* UIAroundMeView.m */,
 				1C6D62E91B1A225C00F0EC27 /* UIAroundMeView.xib */,
-				DE18AB901B1CBD5500C9BAE5 /* UIAroundMeHereEmptyView.xib */,
 				1C6D62EB1B1A226900F0EC27 /* UIEventView.xib */,
 				1C77FC5B1B33C2F600703DCB /* UIRoomView.h */,
 				1C77FC5C1B33C2F600703DCB /* UIRoomView.m */,
@@ -880,6 +882,7 @@
 		DE5763861AF400BF003F7507 /* Assets (2x) */ = {
 			isa = PBXGroup;
 			children = (
+				DEB5C44B1B349FBA008A48D0 /* button_cover-empty.png */,
 				DE3B50EC1B2649C40057C744 /* img-cover-holder-417-280.png */,
 				DE3B50EE1B264D070057C744 /* image_cursor.png */,
 				DEBE1DC31B1A3221003FE590 /* button_gear.png */,
@@ -1082,7 +1085,7 @@
 				TargetAttributes = {
 					1CA428A41A799CE9001DB0AD = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 72PSY3QB44;
+						DevelopmentTeam = VF62VHS44V;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1091,7 +1094,7 @@
 					};
 					1CA428BD1A799CE9001DB0AD = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 72PSY3QB44;
+						DevelopmentTeam = VF62VHS44V;
 						TestTargetID = 1CA428A41A799CE9001DB0AD;
 					};
 				};
@@ -1253,6 +1256,7 @@
 				DE85B6921B1510F300BCC36F /* image_logintextfield.png in Resources */,
 				DE4612601B0138A100192E49 /* icon_distance.png in Resources */,
 				DE14B9F21AFFBF07004470C7 /* wave6.png in Resources */,
+				DEB5C44C1B349FBA008A48D0 /* button_cover-empty.png in Resources */,
 				DE14B9BF1AFF0BF0004470C7 /* button_controlsback.png in Resources */,
 				DE4C26261B1F58920028C0C3 /* button_search.png in Resources */,
 				1C47EF4B1B222991008D5DDD /* MyMessageView.xib in Resources */,
