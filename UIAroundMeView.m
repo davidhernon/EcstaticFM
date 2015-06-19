@@ -52,7 +52,6 @@
 			[[SDSAPI get_static_socket]  on:@"return_location_for_user" callback:^(NSArray * data, void (^ack) (NSArray*)){
 				NSLog(@"got location%@", data[0]);
 			}];
-		}
 
 		NSString *className = NSStringFromClass([self class]);
         self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
