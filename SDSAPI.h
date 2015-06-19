@@ -11,6 +11,7 @@
 #import "MediaItem.h"
 #import "AppDelegate.h"
 #import "ChatViewController.h"
+#import "UIAroundMeView.h"
 @class Player;
 @class LoginViewController;
 @interface SDSAPI : NSObject
@@ -36,7 +37,7 @@
 +(void)sendText:(NSString*)textMessage;
 +(void)realtimePlayer:(NSString*)command;
 +(void)getChatBacklog;
-+(void)getLocationForUser:(NSString*)username;
++(void) getLocationForUser:(NSString*)username withSender:(id)sender;
 +(void)logout;
 
 

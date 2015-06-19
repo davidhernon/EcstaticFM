@@ -42,52 +42,54 @@
     }
     if((self = [super initWithFrame:aRect]))
     {
-		//Get's the location of the host
-		[SDSAPI getLocationForUser:[room_info objectForKey:@"host_username"]];
 		
 		NSString *className = NSStringFromClass([self class]);
         self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
-        self.other_listeners.text = [NSString stringWithFormat:@"%@ and %i other(s)", [room_info objectForKey:@"host_username"], [users count] - 1];
+        self.other_listeners.text = [NSString stringWithFormat:@"%@ and %lu other(s)", [room_info objectForKey:@"host_username"], [users count] - 1];
         self.room_number_label.text = [NSString stringWithFormat:@"Room Number: %@", [room_info objectForKey:@"room_number"]];
         self.room_number = [room_info objectForKey:@"room_number"];
         self.rooms_view_controller = sender;
         self.title.text = [room_info objectForKey:@"room_name"];
         
         
-//        NSNumber *event_lat = [event objectForKey:@"latitude"];
-//        NSNumber *event_long = [event objectForKey:@"longitude"];
-//        CLLocationCoordinate2D coord;
-//        coord.longitude = (CLLocationDegrees)[event_long doubleValue];
-//        coord.latitude = (CLLocationDegrees)[event_lat doubleValue];
-//        
-//        NSNumber *latitude = [[NSUserDefaults standardUserDefaults] objectForKey:@"latitude"];
-//        NSNumber *longitude = [[NSUserDefaults standardUserDefaults] objectForKey:@"longitude"];
-//        
-//        if(latitude == nil)
-//        {
-//            latitude = [NSNumber numberWithDouble:45.5017];
-//        }
-//        
-//        if(longitude == nil)
-//        {
-//            longitude = [NSNumber numberWithDouble:73.5673];
-//        }
-//        
-//        CLLocationCoordinate2D coord2;
-//        coord2.latitude = (CLLocationDegrees)[latitude doubleValue];
-//        coord2.longitude = (CLLocationDegrees)[longitude doubleValue];
-//        
-//        MKMapPoint point1 = MKMapPointForCoordinate(coord);
-//        MKMapPoint point2 = MKMapPointForCoordinate(coord2);
-//        CLLocationDistance distance = MKMetersBetweenMapPoints(point1, point2);
+        // Set _coord
         
-
+        NSNumber *latitude = [[NSUserDefaults standardUserDefaults] objectForKey:@"latitude"];
+        NSNumber *longitude = [[NSUserDefaults standardUserDefaults] objectForKey:@"longitude"];
         
+        if(latitude == nil)
+        {
+            latitude = [NSNumber numberWithDouble:45.5017];
+        }
         
+        if(longitude == nil)
+        {
+            longitude = [NSNumber numberWithDouble:-73.5673];
+        }
+        
+        CLLocationCoordinate2D coord2;
+        coord2.latitude = (CLLocationDegrees)[latitude doubleValue];
+        coord2.longitude = (CLLocationDegrees)[longitude doubleValue];
+        
+        MKMapPoint point1 = MKMapPointForCoordinate(_coord);
+        MKMapPoint point2 = MKMapPointForCoordinate(coord2);
+        CLLocationDistance distance = MKMetersBetweenMapPoints(point1, point2);
+        
+        NSLog(@"distance: %f", distance);
+        
+        self.room_number_label.text = [NSString stringWithFormat:@"%f meters", distance];
         
         [self addSubview:self.view];
     }
     return self;
+}
+
+-(void)setLocation:(NSDictionary*)location_dict_from_server
+{
+    NSNumber *lat = [location_dict_from_server objectForKey:@"latitude"];
+    NSNumber *lon = [location_dict_from_server objectForKey:@"longitude"];
+    _coord.latitude = [lat doubleValue];
+    _coord.longitude = [lon doubleValue];
 }
 
 -(IBAction)buttonAction

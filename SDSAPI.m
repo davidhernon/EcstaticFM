@@ -559,7 +559,8 @@ static NSTimer *login_timer;
 
 }
 
-+(void) getLocationForUser:(NSString*)username{
++(void) getLocationForUser:(NSString*)username withSender:(UIAroundMeView*)sender
+{
 	NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:@[username]
 																forKeys:@[@"username"]];
 	
@@ -567,6 +568,7 @@ static NSTimer *login_timer;
 	[static_socket emitObjc:@"get_location_for_user" withItems:@[jsonData]];
 	[static_socket on:@"return_location_for_user" callback:^(NSArray * data, void (^ack) (NSArray*)){
 		NSLog(@"got location%@", data[0]);
+        [((UIAroundMeView*)sender) setLocation:(NSDictionary*)data[0]];
 	}];
 }
 
