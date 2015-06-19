@@ -560,17 +560,17 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxN-2D-bHb" customClass="UIRoomScrollView">
-                                <rect key="frame" x="0.0" y="120" width="320" height="241"/>
+                                <rect key="frame" x="0.0" y="120" width="320" height="240"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="241" id="fny-xJ-atJ"/>
+                                    <constraint firstAttribute="height" constant="240" id="fny-xJ-atJ"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="pL3-Xv-Udv" id="bVF-u4-edG"/>
                                 </connections>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0:00/Here/3 meters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qsa-zK-cHg">
-                                <rect key="frame" x="0.0" y="60" width="320" height="28"/>
+                                <rect key="frame" x="0.0" y="84" width="320" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="4A0-vw-1A2"/>
                                     <constraint firstAttribute="height" constant="33" id="JaX-kR-2al"/>
@@ -603,20 +603,6 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                     <segue destination="Uc1-lp-Sxd" kind="presentation" modalTransitionStyle="crossDissolve" id="4Y4-CM-9h4"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_location2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Apm-4F-HKq">
-                                <rect key="frame" x="148" y="18" width="25" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="D1P-zs-TR0"/>
-                                    <constraint firstAttribute="width" constant="25" id="HJY-L8-roC"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_time.png" translatesAutoresizingMaskIntoConstraints="NO" id="eEV-UK-b8u">
-                                <rect key="frame" x="148" y="22" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="Ico-E7-sgk"/>
-                                    <constraint firstAttribute="height" constant="25" id="SYI-nu-jHA"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cqg-6V-JlI">
                                 <rect key="frame" x="46" y="28" width="57" height="30"/>
                                 <constraints>
@@ -632,6 +618,20 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                     <segue destination="Uc1-lp-Sxd" kind="presentation" modalTransitionStyle="crossDissolve" id="pHj-h8-hL3"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_location2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Apm-4F-HKq">
+                                <rect key="frame" x="148" y="39" width="25" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="D1P-zs-TR0"/>
+                                    <constraint firstAttribute="width" constant="25" id="HJY-L8-roC"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_time.png" translatesAutoresizingMaskIntoConstraints="NO" id="eEV-UK-b8u">
+                                <rect key="frame" x="148" y="43" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="Ico-E7-sgk"/>
+                                    <constraint firstAttribute="height" constant="25" id="SYI-nu-jHA"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -644,29 +644,37 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                             <constraint firstAttribute="centerX" secondItem="eEV-UK-b8u" secondAttribute="centerX" constant="-0.5" id="Ahz-aE-4UG"/>
                             <constraint firstAttribute="centerX" secondItem="Q4r-IV-0mv" secondAttribute="centerX" constant="-0.5" id="CAd-9U-tnI"/>
                             <constraint firstItem="Qsa-zK-cHg" firstAttribute="centerX" secondItem="Apm-4F-HKq" secondAttribute="centerX" constant="-0.5" id="CFH-Ud-q7B"/>
+                            <constraint firstItem="ZxN-2D-bHb" firstAttribute="top" secondItem="Qsa-zK-cHg" secondAttribute="top" constant="36" id="CiZ-7b-Ahp"/>
                             <constraint firstAttribute="width" secondItem="ZxN-2D-bHb" secondAttribute="width" id="DcP-RV-au6"/>
                             <constraint firstItem="ZxN-2D-bHb" firstAttribute="centerX" secondItem="Apm-4F-HKq" secondAttribute="centerX" id="De4-MS-f92"/>
                             <constraint firstItem="Qsa-zK-cHg" firstAttribute="top" secondItem="Ahj-Ta-ehZ" secondAttribute="bottom" constant="88" id="F19-VH-6AO"/>
                             <constraint firstItem="eEV-UK-b8u" firstAttribute="centerX" secondItem="ZxN-2D-bHb" secondAttribute="centerX" id="Fbb-f5-SOk"/>
+                            <constraint firstItem="eEV-UK-b8u" firstAttribute="top" secondItem="ZxN-2D-bHb" secondAttribute="top" constant="-77" id="GaC-it-z1w"/>
                             <constraint firstAttribute="centerY" secondItem="ZxN-2D-bHb" secondAttribute="centerY" id="JCc-65-xOS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Cqg-6V-JlI" secondAttribute="trailing" constant="201" id="KwA-RE-bsx"/>
                             <constraint firstItem="TMc-jI-3i2" firstAttribute="leading" secondItem="gwg-uV-IfY" secondAttribute="leadingMargin" constant="-16" id="Mrg-Ew-pjB"/>
                             <constraint firstAttribute="centerX" secondItem="ZxN-2D-bHb" secondAttribute="centerX" id="O3T-Ba-Ltp"/>
                             <constraint firstItem="Qsa-zK-cHg" firstAttribute="top" secondItem="ZxN-2D-bHb" secondAttribute="top" constant="-60" id="QkX-X8-rAd"/>
                             <constraint firstItem="ZxN-2D-bHb" firstAttribute="top" secondItem="Q4r-IV-0mv" secondAttribute="top" constant="-249" id="RY7-Mg-NUg"/>
+                            <constraint firstItem="ZxN-2D-bHb" firstAttribute="top" secondItem="Qsa-zK-cHg" secondAttribute="top" constant="60" id="Tv4-cZ-386"/>
                             <constraint firstItem="N6e-QA-vp9" firstAttribute="top" secondItem="Qsa-zK-cHg" secondAttribute="bottom" constant="339" id="bon-uM-9mH"/>
                             <constraint firstAttribute="centerX" secondItem="Apm-4F-HKq" secondAttribute="centerX" constant="-0.5" id="k3Z-lr-hD7"/>
+                            <constraint firstItem="Apm-4F-HKq" firstAttribute="top" secondItem="ZxN-2D-bHb" secondAttribute="top" constant="-81" id="soA-rK-xAZ"/>
                             <constraint firstItem="Qsa-zK-cHg" firstAttribute="bottom" secondItem="Apm-4F-HKq" secondAttribute="bottom" constant="38" id="tNn-Yi-Ao9"/>
                             <constraint firstItem="TMc-jI-3i2" firstAttribute="top" secondItem="Ahj-Ta-ehZ" secondAttribute="bottom" id="ziA-sy-yGN"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="KwA-RE-bsx"/>
+                                <exclude reference="7gO-x9-V28"/>
+                                <exclude reference="7lm-j7-grG"/>
                                 <exclude reference="CFH-Ud-q7B"/>
                                 <exclude reference="F19-VH-6AO"/>
                                 <exclude reference="QkX-X8-rAd"/>
+                                <exclude reference="tNn-Yi-Ao9"/>
                                 <exclude reference="78Y-fC-usF"/>
                                 <exclude reference="RY7-Mg-NUg"/>
+                                <exclude reference="Tv4-cZ-386"/>
                                 <exclude reference="k3Z-lr-hD7"/>
                                 <exclude reference="Ahz-aE-4UG"/>
                                 <exclude reference="bon-uM-9mH"/>
@@ -1624,7 +1632,23 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="20z-45-eEI" userLabel="controlsDarkenView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="490"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="button_locked.png" offImage="button_unlocked.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Fr-Bi-MO2">
+                                        <rect key="frame" x="265" y="20" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="49" id="kHu-fJ-cMG"/>
+                                            <constraint firstAttribute="height" constant="31" id="uYk-sI-xuZ"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="lockAction:" destination="XgF-Cq-hZq" eventType="valueChanged" id="24h-yL-tkd"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="2Fr-Bi-MO2" secondAttribute="trailing" constant="6" id="VxQ-bd-O93"/>
+                                    <constraint firstItem="2Fr-Bi-MO2" firstAttribute="top" secondItem="20z-45-eEI" secondAttribute="top" constant="20" id="mrQ-W7-knc"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spO-Y5-nH4" userLabel="controlsView">
                                 <rect key="frame" x="31" y="98" width="258" height="83"/>
@@ -1692,12 +1716,6 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                     <action selector="playerControlsUnClicked:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="VNE-Gb-C8B"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Fr-Bi-MO2">
-                                <rect key="frame" x="250" y="20" width="51" height="31"/>
-                                <connections>
-                                    <action selector="lockAction:" destination="XgF-Cq-hZq" eventType="valueChanged" id="24h-yL-tkd"/>
-                                </connections>
-                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="0.65982380158265119" green="0.65883943487467" blue="0.67940848214285721" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -5298,6 +5316,7 @@ Cg
         <image name="button_connectmyacct.png" width="720" height="152"/>
         <image name="button_gear2.png" width="80" height="80"/>
         <image name="button_letsconnect.png" width="240" height="76"/>
+        <image name="button_locked.png" width="31" height="42"/>
         <image name="button_login.png" width="198" height="76"/>
         <image name="button_nextnew.png" width="93" height="92"/>
         <image name="button_notyet.png" width="240" height="76"/>
@@ -5306,6 +5325,7 @@ Cg
         <image name="button_previousnew.png" width="93" height="92"/>
         <image name="button_signup-color.png" width="398" height="152"/>
         <image name="button_signup.png" width="199" height="76"/>
+        <image name="button_unlocked.png" width="62" height="84"/>
         <image name="icon-key-dark.png" width="58" height="34"/>
         <image name="icon-key.png" width="56" height="34"/>
         <image name="icon_back2.png" width="23" height="40"/>
