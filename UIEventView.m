@@ -51,10 +51,12 @@
             _rooms_view_controller = sender;
             _title.text = [event objectForKey:@"city"];
             _location.text = [event objectForKey:@"location"];
-            //id might actually be an int already
+            NSNumber *start_time = [event objectForKey:@"start"];
+            NSNumber *time_now = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
+            double diff = [start_time doubleValue] - [time_now doubleValue];
+            NSString *time = [Utils convertTimeFromMillis:diff];
             
-            
-            self.room_number_label.text = [NSString stringWithFormat:@"00:00:00"];
+            self.room_number_label.text = time;
             _room_number = [NSString stringWithFormat:@"%@",[event objectForKey:@"id"]];
         }
         return self;

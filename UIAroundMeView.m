@@ -38,64 +38,67 @@
 {
     NSArray *users = [event objectForKey:@"users"];
     NSDictionary *room_info = [event objectForKey:@"room_info"];
+    NSDictionary *host_location = [event objectForKey:@"host_location"];
     if([room_info count]==0){
         NSLog(@"Ecstatic - UIAroundMeView - initWithFrame - room_info count returned from server was empty");
     }
     if((self = [super initWithFrame:aRect]))
     {
-		//Get's the location of the host
-			NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:@[[room_info objectForKey:@"host_username"]]
-																		forKeys:@[@"username"]];
-			
-			NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
-			[[SDSAPI get_static_socket]  emitObjc:@"get_location_for_user" withItems:@[jsonData]];
-			[[SDSAPI get_static_socket]  on:@"return_location_for_user" callback:^(NSArray * data, void (^ack) (NSArray*)){
-				NSLog(@"got location%@", data[0]);
-			}];
-
+       /* while(isnan(_coord.longitude))
+        {
+            [NSThread sleepForTimeInterval:0.1f];
+        }
+*/
 		NSString *className = NSStringFromClass([self class]);
         self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
-        self.other_listeners.text = [NSString stringWithFormat:@"%@ and %i other(s)", [room_info objectForKey:@"host_username"], [users count] - 1];
+        self.other_listeners.text = [NSString stringWithFormat:@"%@ and %lu other(s)", [room_info objectForKey:@"host_username"], [users count] - 1];
         self.room_number_label.text = [NSString stringWithFormat:@"Room Number: %@", [room_info objectForKey:@"room_number"]];
         self.room_number = [room_info objectForKey:@"room_number"];
         self.rooms_view_controller = sender;
         self.title.text = [room_info objectForKey:@"room_name"];
         
+        NSNumber *host_lat = [host_location objectForKey:@"latitude"];
+        NSNumber *host_lon = [host_location objectForKey:@"longitude"];
         
-//        NSNumber *event_lat = [event objectForKey:@"latitude"];
-//        NSNumber *event_long = [event objectForKey:@"longitude"];
-//        CLLocationCoordinate2D coord;
-//        coord.longitude = (CLLocationDegrees)[event_long doubleValue];
-//        coord.latitude = (CLLocationDegrees)[event_lat doubleValue];
-//        
-//        NSNumber *latitude = [[NSUserDefaults standardUserDefaults] objectForKey:@"latitude"];
-//        NSNumber *longitude = [[NSUserDefaults standardUserDefaults] objectForKey:@"longitude"];
-//        
-//        if(latitude == nil)
-//        {
-//            latitude = [NSNumber numberWithDouble:45.5017];
-//        }
-//        
-//        if(longitude == nil)
-//        {
-//            longitude = [NSNumber numberWithDouble:73.5673];
-//        }
-//        
-//        CLLocationCoordinate2D coord2;
-//        coord2.latitude = (CLLocationDegrees)[latitude doubleValue];
-//        coord2.longitude = (CLLocationDegrees)[longitude doubleValue];
-//        
-//        MKMapPoint point1 = MKMapPointForCoordinate(coord);
-//        MKMapPoint point2 = MKMapPointForCoordinate(coord2);
-//        CLLocationDistance distance = MKMetersBetweenMapPoints(point1, point2);
+        _coord.latitude = [host_lat doubleValue];
+        _coord.longitude = [host_lon doubleValue];
         
-
+        // Set _coord
+        NSNumber *latitude = [[NSUserDefaults standardUserDefaults] objectForKey:@"latitude"];
+        NSNumber *longitude = [[NSUserDefaults standardUserDefaults] objectForKey:@"longitude"];
         
+        if(latitude == nil)
+        {
+            latitude = [NSNumber numberWithDouble:45.5017];
+        }
+        if(longitude == nil)
+        {
+            longitude = [NSNumber numberWithDouble:-73.5673];
+        }
         
+        CLLocationCoordinate2D coord2;
+        coord2.latitude = (CLLocationDegrees)[latitude doubleValue];
+        coord2.longitude = (CLLocationDegrees)[longitude doubleValue];
+        
+        MKMapPoint point1 = MKMapPointForCoordinate(_coord);
+        MKMapPoint point2 = MKMapPointForCoordinate(coord2);
+        CLLocationDistance distance = MKMetersBetweenMapPoints(point1, point2);
+        
+        NSLog(@"distance: %f", distance);
+        
+        self.room_number_label.text = [NSString stringWithFormat:@"%i meters", (int)distance];
         
         [self addSubview:self.view];
     }
     return self;
+}
+
+-(void)setLocation:(NSDictionary*)location_dict_from_server
+{
+    NSNumber *lat = [location_dict_from_server objectForKey:@"latitude"];
+    NSNumber *lon = [location_dict_from_server objectForKey:@"longitude"];
+    _coord.latitude = [lat doubleValue];
+    _coord.longitude = [lon doubleValue];
 }
 
 -(IBAction)buttonAction
