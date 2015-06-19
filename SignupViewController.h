@@ -10,7 +10,7 @@
 #import "SDSAPI.h"
 #import "SSKeychain.h"
 #import "AppDelegate.h"
-@interface SignupViewController : UIViewController
+@interface SignupViewController : UIViewController <UITextFieldDelegate>
 @property BOOL keyboardIsShown;
 @property BOOL wantsPushNotifications;
 @property (strong, nonatomic) IBOutlet UIScrollView *signupScrollView;
