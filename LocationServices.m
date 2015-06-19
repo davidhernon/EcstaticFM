@@ -17,6 +17,7 @@
 	if(self = [super init])
 	{
 		self.vc = vc;
+        _last_location = [[CLLocation alloc] init];
 	}
 	return self;
 }
@@ -76,6 +77,7 @@
 	
 	// If it's a relatively recent event, turn off updates to save power.
 	CLLocation* location = [locations lastObject];
+    _last_location = [locations lastObject];
 	NSTimeInterval howRecent = [_lastUpdatedTime timeIntervalSinceNow];
 	if (abs(howRecent) > _howOftenToUpdate) {
 		self.lastUpdatedTime = [NSDate date];
@@ -84,6 +86,14 @@
 		NSLog(@"latitude %+.6f, longitude %+.6f\n",
 			  location.coordinate.latitude,
 			  location.coordinate.longitude);
+        
+        _coord.latitude = location.coordinate.latitude;
+        _coord.longitude = location.coordinate.longitude;
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithDouble: _coord.latitude] forKey:@"latitude"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithDouble: _coord.longitude] forKey:@"longitude"];
+        
+        
 		
 		
 //		static NSString *csrf_cookie;

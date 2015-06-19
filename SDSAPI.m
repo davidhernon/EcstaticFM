@@ -223,18 +223,24 @@ static NSTimer *login_timer;
     }];
     
     [static_socket on:@"join" callback:^(NSArray * data, void (^ack) (NSArray*)){
+		Mixpanel *mixpanel = [Mixpanel sharedInstance];
+		[mixpanel track:@"joined_room"];
         NSLog(@"another user just joined you in the room");
     }];
 	
-	[static_socket on:@"return_join_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
-		Mixpanel *mixpanel = [Mixpanel sharedInstance];
-		[mixpanel track:@"joined_room"];
-		NSLog(@"return_join_room returned,%@", data[0]);
+	[static_socket on:@"return_chat_backlog" callback:^(NSArray * data, void (^ack) (NSArray*)){
+		NSLog(@"return_chat_backlog returned,%@", data[0]);
+		NSArray* chatLog =[((NSDictionary*) data[0]) objectForKey:@"chatlog"];
+		NSString* username =[((NSDictionary*) data[0]) objectForKey:@"username"];
+
+		AppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
+		[appDelegate.chatViewController addChatLog:username content:chatLog];
 	}];
-    
-    [static_socket on:@"leave_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
-        NSLog(@"one of the users just left the room");
-    }];
+	
+	[static_socket on:@"leave_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
+		NSLog(@"one of the users just left the room");
+	}];
+	
 	
 	[static_socket on:@"send_text" callback:^(NSArray * data, void (^ack) (NSArray*)){
 		NSLog(@"send_text returned,%@", data[0]);
@@ -543,9 +549,31 @@ static NSTimer *login_timer;
 	[static_socket emitObjc:@"lock" withItems:@[json]];
 }
 
++(void) getChatBacklog{
+	NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+	NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:@[username, [Room currentRoom].room_number]
+																forKeys:@[@"username", @"room_number"]];
+	
+	NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
+	[static_socket emitObjc:@"get_chat_backlog" withItems:@[jsonData]];
+
+}
+
++(void) getLocationForUser:(NSString*)username{
+	NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:@[username]
+																forKeys:@[@"username"]];
+	
+	NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
+	[static_socket emitObjc:@"get_location_for_user" withItems:@[jsonData]];
+	[static_socket on:@"return_location_for_user" callback:^(NSArray * data, void (^ack) (NSArray*)){
+		NSLog(@"got location%@", data[0]);
+	}];
+}
+
+
 +(void) seek
 {
-    
+	
 }
 
 @end

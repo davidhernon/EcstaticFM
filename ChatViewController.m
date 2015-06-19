@@ -57,9 +57,15 @@
         _people_with_you.text = [NSString stringWithFormat:@"%d people with you",people];
         
     }
-    
-    // Get Messages and Display them
-    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:YES];
+	
+	// Get Messages and Display them
+	[SDSAPI getChatBacklog]; 
+	
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -105,7 +111,18 @@
 {
     [SDSAPI sendText:self.chatTextField.text];
 }
-
+-(void) addChatLog:(NSString *)user content:(NSArray *)chatLog{
+	[_messages removeAllObjects];
+	for(NSString* chat in chatLog){
+		NSData *objectData = [chat dataUsingEncoding:NSUTF8StringEncoding];
+		NSDictionary *chatDict = [NSJSONSerialization JSONObjectWithData:objectData
+																	 options:NSJSONReadingMutableContainers
+																	   error:nil];
+		Message* m = [[Message alloc]initWithUser:[chatDict objectForKey:@"username"] withContent:[chatDict objectForKey:@"textMessage"]];
+		NSLog(@"%@", [chatDict objectForKey:@"textMessage"]);
+		[_messages addObject:m];
+	}
+}
 - (void) addChatText:(NSString *)user content:(NSString *)content
 {
     _message = [[Message alloc] initWithUser:user withContent:content];

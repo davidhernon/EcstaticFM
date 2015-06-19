@@ -32,9 +32,11 @@
 +(void)leaveRoom;
 +(void)getPlaylist:(NSString*)room_number;
 +(void)getPlayerState:(NSString*)room_number;
-+(void) updatePlayerState;
-+(void) sendText:(NSString*)textMessage;
++(void)updatePlayerState;
++(void)sendText:(NSString*)textMessage;
 +(void)realtimePlayer:(NSString*)command;
++(void)getChatBacklog;
++(void)getLocationForUser:(NSString*)username;
 +(void)logout;
 
 

@@ -41,6 +41,7 @@
         self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
         [self addSubview:self.view];
         _rooms_view_controller = sender;
+        self.room_number_label.text = @"Here";
     }
     return self;
 }
