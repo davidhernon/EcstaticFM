@@ -705,7 +705,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                         <viewControllerLayoutGuide type="bottom" id="MvJ-16-LgO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vNE-ej-cuO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhs-iy-Yjg">
@@ -1939,7 +1939,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
         <!--Media Page View Controller-->
         <scene sceneID="4i4-y3-gba">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="kbI-5f-GDn" customClass="MediaPageViewController" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="mediaPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="kbI-5f-GDn" customClass="MediaPageViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPV-7f-eXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2968" y="1678"/>
@@ -5329,10 +5329,10 @@ Cg
         <image name="spinner-16.png" width="302" height="302"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BGO-mf-tNw"/>
         <segue reference="kOh-mr-y7x"/>
         <segue reference="pHj-h8-hL3"/>
-        <segue reference="9e6-dF-Meh"/>
+        <segue reference="sP4-bK-WLP"/>
+        <segue reference="LHV-l3-vdI"/>
         <segue reference="ubM-n0-8uz"/>
     </inferredMetricsTieBreakers>
 </document>

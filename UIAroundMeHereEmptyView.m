@@ -47,19 +47,29 @@
 }
 
 -(IBAction)buttonAction
-{    
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
-    
-    CATransition* transition = [CATransition animation];
-    transition.duration = 0.3;
-    transition.type = kCATransitionFade;
-    transition.subtype = kCATransitionFromBottom;
-    
-    [self.view.window.layer addAnimation:transition forKey:kCATransition];
-    
-    [_rooms_view_controller presentViewController:player_page animated:NO completion:nil];
-    
+{
+	if([[Player sharedPlayer] playlist].count > 0){
+		UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+		PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
+		[_rooms_view_controller presentViewController:player_page animated:NO completion:nil];
+	}
+	else{
+		UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+		MediaPageViewController *mediaPageViewController = [sb instantiateViewControllerWithIdentifier:@"mediaPageViewController"];
+		PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
+		
+		CATransition* transition = [CATransition animation];
+		transition.duration = 0.3;
+		transition.type = kCATransitionFade;
+		transition.subtype = kCATransitionFromBottom;
+		
+		[self.view.window.layer addAnimation:transition forKey:kCATransition];
+		
+		[_rooms_view_controller presentViewController:player_page animated:NO completion:^{
+			[player_page presentViewController:mediaPageViewController animated:NO completion:nil];
+		}];
+
+	}
 }
 
 @end
