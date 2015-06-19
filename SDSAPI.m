@@ -237,9 +237,10 @@ static NSTimer *login_timer;
 		[appDelegate.chatViewController addChatLog:username content:chatLog];
 	}];
 	
-    [static_socket on:@"leave_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
-        NSLog(@"one of the users just left the room");
-    }];
+	[static_socket on:@"leave_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
+		NSLog(@"one of the users just left the room");
+	}];
+	
 	
 	[static_socket on:@"send_text" callback:^(NSArray * data, void (^ack) (NSArray*)){
 		NSLog(@"send_text returned,%@", data[0]);
@@ -557,6 +558,19 @@ static NSTimer *login_timer;
 	[static_socket emitObjc:@"get_chat_backlog" withItems:@[jsonData]];
 
 }
+
++(void) getLocationForUser:(NSString*)username{
+	NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:@[username]
+																forKeys:@[@"username"]];
+	
+	NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
+	[static_socket emitObjc:@"get_location_for_user" withItems:@[jsonData]];
+	[static_socket on:@"return_location_for_user" callback:^(NSArray * data, void (^ack) (NSArray*)){
+		NSLog(@"got location%@", data[0]);
+	}];
+}
+
+
 +(void) seek
 {
 	

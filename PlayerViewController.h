@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *current_time;
 @property (weak, nonatomic) IBOutlet UILabel *current_artist;
 @property (weak, nonatomic) IBOutlet UILabel *current_track_title;
+@property (strong, nonatomic) IBOutlet UISwitch *lock;
+- (IBAction)lockAction:(id)sender;
 @property int current_track_index;
 @property (weak, nonatomic) IBOutlet UIImageView *current_album_artwork;
 @property (weak, nonatomic) IBOutlet UIView *coveralpha;

@@ -42,7 +42,10 @@
     }
     if((self = [super initWithFrame:aRect]))
     {
-        NSString *className = NSStringFromClass([self class]);
+		//Get's the location of the host
+		[SDSAPI getLocationForUser:[room_info objectForKey:@"host_username"]];
+		
+		NSString *className = NSStringFromClass([self class]);
         self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
         self.other_listeners.text = [NSString stringWithFormat:@"%@ and %i other(s)", [room_info objectForKey:@"host_username"], [users count] - 1];
         self.room_number_label.text = [NSString stringWithFormat:@"Room Number: %@", [room_info objectForKey:@"room_number"]];

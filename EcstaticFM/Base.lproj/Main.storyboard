@@ -1628,6 +1628,12 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                     <action selector="playerControlsUnClicked:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="VNE-Gb-C8B"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Fr-Bi-MO2">
+                                <rect key="frame" x="250" y="20" width="51" height="31"/>
+                                <connections>
+                                    <action selector="lockAction:" destination="XgF-Cq-hZq" eventType="valueChanged" id="24h-yL-tkd"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="0.65982380158265119" green="0.65883943487467" blue="0.67940848214285721" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -1690,6 +1696,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                         <outlet property="current_time" destination="HOQ-tI-VMR" id="ARJ-iG-kcm"/>
                         <outlet property="current_track_title" destination="Tf3-bn-nva" id="gR3-ho-YF3"/>
                         <outlet property="last" destination="koU-o0-AIH" id="BDb-8r-MAL"/>
+                        <outlet property="lock" destination="2Fr-Bi-MO2" id="iwE-uf-mTa"/>
                         <outlet property="next" destination="eQi-L5-ahx" id="KbW-RK-D62"/>
                         <outlet property="play" destination="gnl-oJ-0Zd" id="Oix-Te-KKR"/>
                         <outlet property="playListTableView" destination="fim-yG-u2G" id="goh-MD-M0Z"/>
@@ -5256,11 +5263,10 @@ Cg
         <image name="spinner-16.png" width="302" height="302"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ag5-lL-hod"/>
-        <segue reference="ubM-n0-8uz"/>
-        <segue reference="kOh-mr-y7x"/>
-        <segue reference="HPa-Ki-tbw"/>
-        <segue reference="sP4-bK-WLP"/>
         <segue reference="LHV-l3-vdI"/>
+        <segue reference="sP4-bK-WLP"/>
+        <segue reference="ubM-n0-8uz"/>
+        <segue reference="4de-VN-8Yq"/>
+        <segue reference="HPa-Ki-tbw"/>
     </inferredMetricsTieBreakers>
 </document>

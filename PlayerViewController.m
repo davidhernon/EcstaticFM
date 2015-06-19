@@ -438,6 +438,10 @@ static NSString* cellIdentifier = @"playListCell";
     [_playListTableView reloadData];
 }
 
+- (IBAction)lockAction:(id)sender {
+	[_lock setOn:!_lock.state];
+	NSLog(@"%u", _lock.state);
+}
 @end
 
 
