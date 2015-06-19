@@ -11,14 +11,16 @@
 #import "Player.h"
 @implementation SDSAPI
 
-@class SocketIOClient;
-
 static SocketIOClient *static_socket;
 static NSTimer *login_timer;
 
 +(NSString*)getWebsiteURL
 {
     return @"http://54.173.157.204/appindex/";
+}
+
++(SocketIOClient*)get_static_socket{
+	return static_socket;
 }
 
 +(NSArray*) getUpcomingEvents

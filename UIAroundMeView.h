@@ -10,6 +10,7 @@
 #import "PlayerPageViewController.h"
 #import "SDSAPI.h"
 #import "UIRoomView.h"
+#import <CoreData/CoreData.h>
 @class RoomsViewController;
 
 @interface UIAroundMeView : UIRoomView

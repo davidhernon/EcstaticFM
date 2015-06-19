@@ -8,6 +8,7 @@
 
 #import "UIAroundMeView.h"
 #import "RoomsViewController.h"
+#import "EcstaticFM-Swift.h"
 
 @implementation UIAroundMeView
 

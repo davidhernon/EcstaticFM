@@ -346,5 +346,8 @@ the delegate to Player for Player to communicate with a view controller
     [_avPlayer play];
     _player_is_paused = NO;
 }
+-(void)setLock:(BOOL)player_is_locked{
+	self.player_is_locked = player_is_locked;
+}
 
 @end

@@ -14,6 +14,7 @@
 #import "UIAroundMeView.h"
 @class Player;
 @class LoginViewController;
+@class SocketIOClient;
 @interface SDSAPI : NSObject
 
 @property ChatViewController* chatViewController;
@@ -39,6 +40,6 @@
 +(void)getChatBacklog;
 +(void) getLocationForUser:(NSString*)username withSender:(id)sender;
 +(void)logout;
-
++(SocketIOClient*)get_static_socket;
 
 @end
