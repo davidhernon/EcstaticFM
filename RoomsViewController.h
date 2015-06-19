@@ -16,6 +16,7 @@
 #import "UIAroundMeView.h"
 #import "UIEventView.h"
 #import "UIAroundMeHereEmptyView.h"
+#import "UIRoomView.h"
 #define kUVCellDragInterval 180.f
 
 @interface RoomsViewController : UIViewController <UIScrollViewDelegate>;
@@ -27,13 +28,14 @@
 @property NSArray* rooms_around_me;
 @property NSArray* upcoming_events;
 @property CGPoint center_point;
+@property NSMutableArray* event_item_list;
 
 - (void)showRoomsScrollView:(NSArray*)room_dictionaries;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *roomsScrollView;
 @property (weak, nonatomic) IBOutlet UIGestureRecognizer *roomsGestureRecognizer;
 @property (weak, nonatomic) IBOutlet UILabel *distance_or_time_label;
-
+@property (retain, nonatomic) NSMutableArray* center_points;
 
 @property (weak, nonatomic) IBOutlet UIButton *roomsSwipe;
 @property (weak, nonatomic) IBOutlet UIView *roomView;

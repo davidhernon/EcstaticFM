@@ -52,6 +52,39 @@
         self.room_number = [room_info objectForKey:@"room_number"];
         self.rooms_view_controller = sender;
         self.title.text = [room_info objectForKey:@"room_name"];
+        
+        
+//        NSNumber *event_lat = [event objectForKey:@"latitude"];
+//        NSNumber *event_long = [event objectForKey:@"longitude"];
+//        CLLocationCoordinate2D coord;
+//        coord.longitude = (CLLocationDegrees)[event_long doubleValue];
+//        coord.latitude = (CLLocationDegrees)[event_lat doubleValue];
+//        
+//        NSNumber *latitude = [[NSUserDefaults standardUserDefaults] objectForKey:@"latitude"];
+//        NSNumber *longitude = [[NSUserDefaults standardUserDefaults] objectForKey:@"longitude"];
+//        
+//        if(latitude == nil)
+//        {
+//            latitude = [NSNumber numberWithDouble:45.5017];
+//        }
+//        
+//        if(longitude == nil)
+//        {
+//            longitude = [NSNumber numberWithDouble:73.5673];
+//        }
+//        
+//        CLLocationCoordinate2D coord2;
+//        coord2.latitude = (CLLocationDegrees)[latitude doubleValue];
+//        coord2.longitude = (CLLocationDegrees)[longitude doubleValue];
+//        
+//        MKMapPoint point1 = MKMapPointForCoordinate(coord);
+//        MKMapPoint point2 = MKMapPointForCoordinate(coord2);
+//        CLLocationDistance distance = MKMetersBetweenMapPoints(point1, point2);
+        
+
+        
+        
+        
         [self addSubview:self.view];
     }
     return self;

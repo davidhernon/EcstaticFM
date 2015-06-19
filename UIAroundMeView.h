@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "PlayerPageViewController.h"
 #import "SDSAPI.h"
+#import "UIRoomView.h"
 @class RoomsViewController;
 
-@interface UIAroundMeView : UIView
+@interface UIAroundMeView : UIRoomView
 
 @property (nonatomic, retain) IBOutlet UIView *view;
 @property (nonatomic, retain) IBOutlet UILabel *title;

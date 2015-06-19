@@ -48,6 +48,7 @@
 		1C73F3651AFA936D0003B1FA /* RoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73F3641AFA936D0003B1FA /* RoomsViewController.m */; };
 		1C73F36C1AFBE9470003B1FA /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C73F36B1AFBE9470003B1FA /* Room.m */; };
 		1C73F36E1AFC036A0003B1FA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C73F36D1AFC036A0003B1FA /* CoreLocation.framework */; };
+		1C77FC5D1B33C2F600703DCB /* UIRoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C77FC5C1B33C2F600703DCB /* UIRoomView.m */; };
 		1C7AC2BC1B14FDC50007149B /* ILTranslucentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7AC2BB1B14FDC50007149B /* ILTranslucentView.m */; };
 		1C7AC2BE1B14FDD30007149B /* SoundCloudSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7AC2BD1B14FDD30007149B /* SoundCloudSearchView.xib */; };
 		1C7E49D11AB33A48005BB999 /* soundCloudMediaPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49D01AB33A48005BB999 /* soundCloudMediaPickerViewController.m */; };
@@ -295,6 +296,8 @@
 		1C73F36A1AFBE9470003B1FA /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
 		1C73F36B1AFBE9470003B1FA /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
 		1C73F36D1AFC036A0003B1FA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1C77FC5B1B33C2F600703DCB /* UIRoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRoomView.h; sourceTree = "<group>"; };
+		1C77FC5C1B33C2F600703DCB /* UIRoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIRoomView.m; sourceTree = "<group>"; };
 		1C7AC2BA1B14FDC50007149B /* ILTranslucentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILTranslucentView.h; sourceTree = "<group>"; };
 		1C7AC2BB1B14FDC50007149B /* ILTranslucentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILTranslucentView.m; sourceTree = "<group>"; };
 		1C7AC2BD1B14FDD30007149B /* SoundCloudSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoundCloudSearchView.xib; sourceTree = "<group>"; };
@@ -545,6 +548,8 @@
 				1C6D62E91B1A225C00F0EC27 /* UIAroundMeView.xib */,
 				DE18AB901B1CBD5500C9BAE5 /* UIAroundMeHereEmptyView.xib */,
 				1C6D62EB1B1A226900F0EC27 /* UIEventView.xib */,
+				1C77FC5B1B33C2F600703DCB /* UIRoomView.h */,
+				1C77FC5C1B33C2F600703DCB /* UIRoomView.m */,
 			);
 			name = Rooms;
 			sourceTree = "<group>";
@@ -1340,6 +1345,7 @@
 				1C47EF4A1B222991008D5DDD /* Message.m in Sources */,
 				1C291D9E1B014B96006A2B4F /* AroundMeTableViewCell.m in Sources */,
 				1C291D991AFFF2A1006A2B4F /* SocketParser.swift in Sources */,
+				1C77FC5D1B33C2F600703DCB /* UIRoomView.m in Sources */,
 				1C291D911AFFF2A1006A2B4F /* SocketAckMap.swift in Sources */,
 				1C291D9A1AFFF2A1006A2B4F /* SwiftRegex.swift in Sources */,
 				1C7AC2BC1B14FDC50007149B /* ILTranslucentView.m in Sources */,

@@ -13,6 +13,8 @@
 
 @interface LocationServices : NSObject<CLLocationManagerDelegate>
 @property (nonatomic, strong) CLLocationManager* locationManager;
+@property (nonatomic, strong) CLLocation* last_location;
+@property CLLocationCoordinate2D coord;
 @property (nonatomic, strong) NSDate *lastUpdatedTime;
 @property int howOftenToUpdate;
 @property geoAskViewController* vc;

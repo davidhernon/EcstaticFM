@@ -9,16 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "PlayerPageViewController.h"
 #import "SDSAPI.h"
+#import "UIRoomView.h"
+#import <MapKit/MapKit.h>
 @class RoomsViewController;
 
-@interface UIEventView : UIView
+@interface UIEventView : UIRoomView
 
 @property (nonatomic, weak) IBOutlet UIView *view;
 @property (nonatomic, weak) IBOutlet UILabel *title;
 @property (nonatomic, weak) IBOutlet UILabel *location;
 @property (nonatomic, weak) IBOutlet UILabel *hostname;
 @property (nonatomic, weak) IBOutlet UIButton *button;
-@property (nonatomic, weak) IBOutlet UILabel *room_number_label;
+@property (nonatomic, retain) IBOutlet UILabel *room_number_label;
 @property (nonatomic, retain) NSString *room_number;
 
 @property (nonatomic, weak) RoomsViewController *rooms_view_controller;
