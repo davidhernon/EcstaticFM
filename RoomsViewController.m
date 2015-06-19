@@ -131,23 +131,19 @@ static NSString* around_me_event_cell = @"around_me_cell";
     if (targetIndex > kMaxIndex)
         targetIndex = kMaxIndex;
     targetContentOffset->x = targetIndex * (234 + 15);
+    [self getPageNumberFromScrollViewPosition:targetX];
     if(_center_point.x - (234/2) <= targetX && targetX <= _center_point.x+(234/2)){
-        _distance_or_time_label.text = @"Here";
         _location_icon.hidden = YES;
         _time_icon.hidden = YES;
     }else if(targetX <= _center_point.x)
     {
-        _distance_or_time_label.text = @"00:00:00";
         _location_icon.hidden = YES;
         _time_icon.hidden = NO;
     }else
     {
-        _distance_or_time_label.text = @"3 Meters";
         _location_icon.hidden = NO;
         _time_icon.hidden = YES;
     }
-    NSLog(@"center points: %@ and  targetX: %f and center: %f", _center_points, targetX, _center_point.x);
-    [self getPageNumberFromScrollViewPosition:targetX];
 }
 
 -(void)getPageNumberFromScrollViewPosition:(float)position

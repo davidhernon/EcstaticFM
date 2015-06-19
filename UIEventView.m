@@ -53,12 +53,12 @@
             _location.text = [event objectForKey:@"location"];
             //id might actually be an int already
             
-            self.room_number_label.text = [NSString stringWithFormat:@"Room Identifier: %@", [event objectForKey:@"id"]];
+            
+            self.room_number_label.text = [NSString stringWithFormat:@"00:00:00"];
             _room_number = [NSString stringWithFormat:@"%@",[event objectForKey:@"id"]];
         }
         return self;
 }
-
 
 -(IBAction)buttonAction
 {

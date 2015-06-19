@@ -10,6 +10,7 @@
 #import "PlayerPageViewController.h"
 #import "SDSAPI.h"
 #import "UIRoomView.h"
+#import <MapKit/MapKit.h>
 @class RoomsViewController;
 
 @interface UIEventView : UIRoomView
