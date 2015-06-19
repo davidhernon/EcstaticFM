@@ -360,14 +360,15 @@ static NSString* cellIdentifier = @"playListCell";
 
 -(IBAction)last:(id)sender
 {
-    
     [self.player last];
+	[SDSAPI realtimePlayer:@"back"];
 }
 
 -(IBAction)next:(id)sender
 {
     [self playerIsLoadingNextSong];
     [self.player next];
+	[SDSAPI realtimePlayer:@"skip"];
 }
 
 -(void)hideUI

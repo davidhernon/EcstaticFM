@@ -34,8 +34,7 @@
 +(void)getPlayerState:(NSString*)room_number;
 +(void) updatePlayerState;
 +(void) sendText:(NSString*)textMessage;
-+(void)userHitPlay;
-+(void)userHitPause;
++(void)realtimePlayer:(NSString*)command;
 +(void)logout;
 
 

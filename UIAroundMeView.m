@@ -37,6 +37,9 @@
 {
     NSArray *users = [event objectForKey:@"users"];
     NSDictionary *room_info = [event objectForKey:@"room_info"];
+    if([room_info count]==0){
+        NSLog(@"Ecstatic - UIAroundMeView - initWithFrame - room_info count returned from server was empty");
+    }
     if((self = [super initWithFrame:aRect]))
     {
         NSString *className = NSStringFromClass([self class]);

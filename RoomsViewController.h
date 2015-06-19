@@ -13,7 +13,6 @@
 #import "SDSAPI.h"
 #import "LocationServices.h"
 #import "AroundMeTableViewCell.h"
-#import "UIRoomView.h"
 #import "UIAroundMeView.h"
 #import "UIEventView.h"
 #import "UIAroundMeHereEmptyView.h"
@@ -27,14 +26,19 @@
 @property LocationServices* locationServices;
 @property NSArray* rooms_around_me;
 @property NSArray* upcoming_events;
+@property CGPoint center_point;
+
 - (void)showRoomsScrollView:(NSArray*)room_dictionaries;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *roomsScrollView;
 @property (weak, nonatomic) IBOutlet UIGestureRecognizer *roomsGestureRecognizer;
+@property (weak, nonatomic) IBOutlet UILabel *distance_or_time_label;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *roomsSwipe;
 @property (weak, nonatomic) IBOutlet UIView *roomView;
+@property (weak, nonatomic) IBOutlet UIImageView *time_icon;
+@property (weak, nonatomic) IBOutlet UIImageView *location_icon;
 
 -(IBAction)buttonPressed:(id)sender;
 

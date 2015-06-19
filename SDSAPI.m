@@ -250,7 +250,13 @@ static NSTimer *login_timer;
     
     [static_socket on:@"return_get_player_status" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSDictionary *d = (NSDictionary*)data[0];
-        NSDictionary *player_state = [d objectForKey:@"player_state"];
+        NSString *player_state_string = (NSString*)[d objectForKey:@"player_state"];
+        
+        NSData *objectData = [player_state_string dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *player_state = [NSJSONSerialization JSONObjectWithData:objectData
+                                                             options:NSJSONReadingMutableContainers
+                                                               error:nil];
+        
         
         if(player_state == NULL || player_state == (id)[NSNull null] )
         {
@@ -359,10 +365,17 @@ static NSTimer *login_timer;
 +(void) aroundMe:(NSString*)username withID:(id)sender{
     
     [static_socket on: @"return_get_rooms_around_me" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
-        NSLog(@"get_rooms_around_me returned,%@", data[0]);
-        NSDictionary* locationsDict =(NSDictionary*) data[0];
-        NSArray* locationsArray = [locationsDict objectForKey:@"rooms"];
-        [sender showRoomsScrollView:locationsArray];
+		NSArray* locationsArray;
+		@try {
+			NSLog(@"get_rooms_around_me returned,%@", data[0]);
+			NSDictionary* locationsDict =(NSDictionary*) data[0];
+			locationsArray = [locationsDict objectForKey:@"rooms"];
+		}
+		@catch (NSException *exception) {
+			locationsArray = @[];
+			NSLog(@"%@", exception.reason);
+		}
+		[sender showRoomsScrollView:locationsArray];
     }];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -489,16 +502,6 @@ static NSTimer *login_timer;
     [static_socket emitObjc:@"player" withItems:@[json]];
 }
 
-+ (void)next
-{
-    NSString *room_number = [Room currentRoom].room_number;
-    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    
-    NSDictionary *play_query = [NSDictionary dictionaryWithObjects:@[username, room_number, @"next", [self getDictForPlayerState]] forKeys:@[@"username", @"room_number", @"msg_type", @"player_state"]];
-    NSData *json = [NSJSONSerialization dataWithJSONObject:play_query options:nil error:nil];
-    [static_socket emitObjc:@"player" withItems:@[json]];
-}
-
 + (NSDictionary*) getDictForPlayerState
 {
     NSString *elspd = [NSString stringWithFormat:@"%i",(int)CMTimeGetSeconds([Player sharedPlayer].avPlayer.currentTime)];
@@ -507,16 +510,6 @@ static NSTimer *login_timer;
         elspd = @"0";
     }
     return [NSDictionary dictionaryWithObjects:@[ [NSString stringWithFormat:@"%i",[[Player sharedPlayer] isPlaying]], [NSString stringWithFormat:@"%i",[[Player sharedPlayer] player_is_locked]], [NSString stringWithFormat:@"%i", [Player sharedPlayer].currentTrackIndex], elspd] forKeys:@[@"is_playing", @"is_locked", @"playing_song_index", @"elapsed"]];
-}
-
-+(void) last
-{
-    NSString *room_number = [Room currentRoom].room_number;
-    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    
-    NSDictionary *play_query = [NSDictionary dictionaryWithObjects:@[username, room_number, @"last", [self getDictForPlayerState]] forKeys:@[@"username", @"room_number", @"msg_type", @"player_state"]];
-    NSData *json = [NSJSONSerialization dataWithJSONObject:play_query options:nil error:nil];
-    [static_socket emitObjc:@"player" withItems:@[json]];
 }
 
 +(void) sendText:(NSString*)textMessage
@@ -529,28 +522,20 @@ static NSTimer *login_timer;
     [static_socket emitObjc:@"send_text" withItems:@[json]];
 }
 
-+(void)userHitPlay
++(void)realtimePlayer:(NSString*)command
 {
 	NSLog(@"User Hit Play");
-	NSString *room_number = [Room currentRoom].room_number;
-	NSDictionary *textDict = [NSDictionary dictionaryWithObjects:@[room_number] forKeys:@[@"room_number"]];
-	NSData *json = [NSJSONSerialization dataWithJSONObject:textDict options:nil error:nil];
-	[static_socket emitObjc:@"play" withItems:@[json]];
-}
-
-+(void)userHitPause
-{
-    NSLog(@"User Hit Pause");
 	NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    NSString *room_number = [Room currentRoom].room_number;
+	NSString *room_number = [Room currentRoom].room_number;
 	NSDictionary *ps = [self getDictForPlayerState];
-	NSDictionary *update_query = [NSDictionary dictionaryWithObjects:@[room_number, @"pause", username, ps] forKeys:@[@"room_number", @"msg_type", @"username", @"player_state"]];
+	NSDictionary *update_query = [NSDictionary dictionaryWithObjects:@[room_number, command, username, ps] forKeys:@[@"room_number", @"msg_type", @"username", @"player_state"]];
 	NSData *json = [NSJSONSerialization dataWithJSONObject:update_query options:nil error:nil];
-    [static_socket emitObjc:@"player" withItems:@[json]];
+	[static_socket emitObjc:@"player" withItems:@[json]];
 }
 
 +(void)lock
 {
+
 	NSLog(@"User Hit Lock");
 	NSString *room_number = [Room currentRoom].room_number;
 	NSDictionary *textDict = [NSDictionary dictionaryWithObjects:@[room_number] forKeys:@[@"room_number"]];

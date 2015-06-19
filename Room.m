@@ -60,7 +60,7 @@ static Room *currentRoom = nil;
 {
     if(!currentRoom)
         [Room currentRoom];
-    currentRoom.title = [room_info objectForKey:@"room_name"];
+    currentRoom.title.text = [room_info objectForKey:@"room_name"];
     currentRoom.room_number = [room_info objectForKey:@"room_number"];
     currentRoom.host_username = [room_info objectForKey:@"host_username"];
     currentRoom.other_listeners = [room_info objectForKey:@"number_of_users"];
@@ -72,7 +72,7 @@ static Room *currentRoom = nil;
     if(!currentRoom)
         [Room currentRoom];
     
-    currentRoom.title = [room_to_join objectForKey:@"title"];
+    currentRoom.title.text = [room_to_join objectForKey:@"title"];
 }
 
 #warning Unfinished Code Block
