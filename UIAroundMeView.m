@@ -88,6 +88,7 @@
         NSLog(@"distance: %f", distance);
         
         self.room_number_label.text = [NSString stringWithFormat:@"%i meters", (int)distance];
+        _hostname = [room_info objectForKey:@"host_username"];
         
         [self addSubview:self.view];
     }
@@ -104,7 +105,7 @@
 
 -(IBAction)buttonAction
 {
-    [SDSAPI joinRoom:self.room_number];
+    [SDSAPI joinRoom:self.room_number withUser:_hostname];
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];

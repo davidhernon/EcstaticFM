@@ -30,7 +30,7 @@
 +(void)connect;
 +(void)sendMediaItemToServer:(MediaItem*)media_item;
 +(void)postLocation:(NSString*)username withLatitude:(float)latitude withLongitude:(float)longitude;
-+(void)joinRoom:(NSString*)room_number;
++(void)joinRoom:(NSString*)room_number withUser:(NSString*) user;
 +(void)leaveRoom;
 +(void)getPlaylist:(NSString*)room_number;
 +(void)getPlayerState:(NSString*)room_number;
