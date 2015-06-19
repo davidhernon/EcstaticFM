@@ -33,7 +33,7 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *roomsScrollView;
 @property (weak, nonatomic) IBOutlet UIGestureRecognizer *roomsGestureRecognizer;
 @property (weak, nonatomic) IBOutlet UILabel *distance_or_time_label;
-
+@property (retain, nonatomic) NSMutableArray* center_points;
 
 @property (weak, nonatomic) IBOutlet UIButton *roomsSwipe;
 @property (weak, nonatomic) IBOutlet UIView *roomView;

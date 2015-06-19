@@ -36,6 +36,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    _center_points = [[NSMutableArray alloc] init];
     
     if(_upcoming_events == nil)
     {
@@ -57,11 +58,13 @@ static NSString* around_me_event_cell = @"around_me_cell";
         if(event == [NSNull null]){
             continue;
         }
+        [_center_points addObject:[NSNumber numberWithFloat:x]];
         UIEventView *room_view = [[UIEventView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:event withRoomController:self];
         [_roomsScrollView addSubview:room_view];
         x += (234) + 15;
     }
     
+    [_center_points addObject:[NSNumber numberWithFloat:x]];
     UIAroundMeHereEmptyView *room_view = [[UIAroundMeHereEmptyView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:nil withRoomController:self];
     [_roomsScrollView addSubview:room_view];
     x += (234) + 15;
@@ -80,6 +83,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
 		if(room_info == [NSNull null]){
 			continue;
 		}
+        [_center_points addObject:[NSNumber numberWithFloat:x]];
         UIAroundMeView *room_view = [[UIAroundMeView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:room withRoomController:self];
         [_roomsScrollView addSubview:room_view];
         x += (234) + 15;
@@ -88,7 +92,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
 //        x += 30;
 //    }
     //plus 30 to anticipate margins on either end so we can center it properly
-    x += 30;
+    x += 42;
     [_roomsScrollView setContentOffset:_center_point animated:NO];
     _roomsScrollView.contentSize = CGSizeMake(x, _roomsScrollView.frame.size.height);
 }
@@ -136,7 +140,21 @@ static NSString* around_me_event_cell = @"around_me_cell";
         _location_icon.hidden = NO;
         _time_icon.hidden = YES;
     }
-    NSLog(@"float: %f and center point: %f and difference: %f", targetX, _center_point.x, targetX-_center_point.x);
+    NSLog(@"center points: %@ and  targetX: %f and center: %f", _center_points, targetX, _center_point.x);
+    [self getPageNumberFromScrollViewPosition:targetX];
+}
+
+-(void)getPageNumberFromScrollViewPosition:(float)position
+{
+    int counter = 0;
+    for(NSNumber *position_from_array in _center_points)
+    {
+        if((position >= [[_center_points objectAtIndex:counter] floatValue] - (234.0f/2.0f)-7.5f) && (position <= [[_center_points objectAtIndex:counter] floatValue] + (234.0f/2.0f)+7.5f) )
+        {
+            NSLog(@"page %i", counter);
+        }
+        counter++;
+    }
 }
 
 @end
