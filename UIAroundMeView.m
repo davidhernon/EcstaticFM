@@ -38,12 +38,17 @@
 {
     NSArray *users = [event objectForKey:@"users"];
     NSDictionary *room_info = [event objectForKey:@"room_info"];
+    NSDictionary *host_location = [event objectForKey:@"host_location"];
     if([room_info count]==0){
         NSLog(@"Ecstatic - UIAroundMeView - initWithFrame - room_info count returned from server was empty");
     }
     if((self = [super initWithFrame:aRect]))
     {
-		
+       /* while(isnan(_coord.longitude))
+        {
+            [NSThread sleepForTimeInterval:0.1f];
+        }
+*/
 		NSString *className = NSStringFromClass([self class]);
         self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
         self.other_listeners.text = [NSString stringWithFormat:@"%@ and %lu other(s)", [room_info objectForKey:@"host_username"], [users count] - 1];
@@ -52,9 +57,13 @@
         self.rooms_view_controller = sender;
         self.title.text = [room_info objectForKey:@"room_name"];
         
+        NSNumber *host_lat = [host_location objectForKey:@"latitude"];
+        NSNumber *host_lon = [host_location objectForKey:@"longitude"];
+        
+        _coord.latitude = [host_lat doubleValue];
+        _coord.longitude = [host_lon doubleValue];
         
         // Set _coord
-        
         NSNumber *latitude = [[NSUserDefaults standardUserDefaults] objectForKey:@"latitude"];
         NSNumber *longitude = [[NSUserDefaults standardUserDefaults] objectForKey:@"longitude"];
         
@@ -62,7 +71,6 @@
         {
             latitude = [NSNumber numberWithDouble:45.5017];
         }
-        
         if(longitude == nil)
         {
             longitude = [NSNumber numberWithDouble:-73.5673];
@@ -78,7 +86,7 @@
         
         NSLog(@"distance: %f", distance);
         
-        self.room_number_label.text = [NSString stringWithFormat:@"%f meters", distance];
+        self.room_number_label.text = [NSString stringWithFormat:@"%i meters", (int)distance];
         
         [self addSubview:self.view];
     }

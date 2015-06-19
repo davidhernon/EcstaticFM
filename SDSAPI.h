@@ -38,7 +38,6 @@
 +(void)sendText:(NSString*)textMessage;
 +(void)realtimePlayer:(NSString*)command;
 +(void)getChatBacklog;
-+(void) getLocationForUser:(NSString*)username withSender:(id)sender;
 +(void)logout;
 +(SocketIOClient*)get_static_socket;
 
