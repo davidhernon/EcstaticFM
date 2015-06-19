@@ -12,6 +12,9 @@
 @implementation SignupViewController
 
 -(void)viewDidLoad{
+    _username.delegate = self;
+    _password.delegate = self;
+    _email.delegate = self;
 	self.wantsPushNotifications = false;
 	UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
 																		  action:@selector(dismissKeyboard)];
@@ -140,6 +143,7 @@
 	[UIView commitAnimations];
 	
 	_keyboardIsShown = NO;
+    
 }
 
 - (void)keyboardWillShow:(NSNotification *)n
@@ -176,5 +180,22 @@
 	else{
 		self.wantsPushNotifications = true;
 	}
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == _username) {
+        [textField resignFirstResponder];
+        return NO;
+    }
+    if(textField == _email){
+        [textField resignFirstResponder];
+        return NO;
+    }
+    if(textField == _password){
+        [textField resignFirstResponder];
+        [self signup:self];
+        return NO;
+    }
+    return YES;
 }
 @end

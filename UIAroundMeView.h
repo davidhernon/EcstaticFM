@@ -21,6 +21,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *room_number_label;
 @property (nonatomic, weak) IBOutlet UIButton *button;
 @property (nonatomic, retain) NSString *room_number;
+@property (nonatomic, retain) NSString* hostname;
 @property BOOL *is_an_event;
 
 @property CLLocationCoordinate2D coord;

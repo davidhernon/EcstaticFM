@@ -5305,6 +5305,7 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fq-Rt-grP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2214" y="1721"/>
         </scene>
     </scenes>
     <resources>

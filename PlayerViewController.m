@@ -103,13 +103,6 @@ static NSString* cellIdentifier = @"playListCell";
     _current_album_artwork.clipsToBounds = NO;
     _playListTableView.tableHeaderView = __playerTableHeaderView;
     _playListTableView.tableFooterView = __playerAddMusicCell;
-    NSString *title = [Room currentRoom].title;
-    if(title ==nil || [title isEqual:(id)[NSNull null]])
-    {
-        title = [NSString stringWithFormat:@"%@'s Room", [[NSUserDefaults standardUserDefaults] objectForKey:@"username"] ];
-    }
-    NSLog(@"room title: %@", title);
-    _room_title.text = title;
     
     // Allow multiple checkmarks
 //     _playListTableView.allowsMultipleSelection = YES;
@@ -139,7 +132,8 @@ static NSString* cellIdentifier = @"playListCell";
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    _room_title = [Room currentRoom].title;
+    _room_title.text = [NSString stringWithFormat:@"%@'s Room", [Room currentRoom].host_username ];
+    NSLog(@"%@",[NSString stringWithFormat:@"%@'s Room", [Room currentRoom].host_username ]);
     [self.player updatePlaylist];
 	
 	//check if is_locked

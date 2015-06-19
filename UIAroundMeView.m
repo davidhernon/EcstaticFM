@@ -44,11 +44,7 @@
     }
     if((self = [super initWithFrame:aRect]))
     {
-       /* while(isnan(_coord.longitude))
-        {
-            [NSThread sleepForTimeInterval:0.1f];
-        }
-*/
+
 		NSString *className = NSStringFromClass([self class]);
         self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
         self.other_listeners.text = [NSString stringWithFormat:@"%@ and %lu other(s)", [room_info objectForKey:@"host_username"], [users count] - 1];
@@ -59,6 +55,11 @@
         
         NSNumber *host_lat = [host_location objectForKey:@"latitude"];
         NSNumber *host_lon = [host_location objectForKey:@"longitude"];
+        
+        if(host_lat == [NSNull null]){
+            host_lat = [NSNumber numberWithDouble:45.5017];
+            host_lon = [NSNumber numberWithDouble:-73.5673];
+        }
         
         _coord.latitude = [host_lat doubleValue];
         _coord.longitude = [host_lon doubleValue];
@@ -87,6 +88,7 @@
         NSLog(@"distance: %f", distance);
         
         self.room_number_label.text = [NSString stringWithFormat:@"%i meters", (int)distance];
+        _hostname = [room_info objectForKey:@"host_username"];
         
         [self addSubview:self.view];
     }
@@ -103,7 +105,7 @@
 
 -(IBAction)buttonAction
 {
-    [SDSAPI joinRoom:self.room_number];
+    [SDSAPI joinRoom:self.room_number withUser:_hostname];
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
