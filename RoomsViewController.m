@@ -88,11 +88,6 @@ static NSString* around_me_event_cell = @"around_me_cell";
 		if(room_info == [NSNull null]){
 			continue;
 		}
-        //If username is equal to room host continue to next loop iteration as this indicates it is the clients room
-        if( [[[NSUserDefaults standardUserDefaults] objectForKey:@"username"] isEqualToString:[room_info objectForKey:@"host_username"]])
-        {
-            continue;
-        }
         [_center_points addObject:[NSNumber numberWithFloat:x]];
         UIAroundMeView *room_view = [[UIAroundMeView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:room withRoomController:self];
         [_event_item_list addObject:room_view];

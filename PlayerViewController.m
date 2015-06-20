@@ -21,10 +21,8 @@ static NSString* cellIdentifier = @"playListCell";
     [super viewDidLoad];
     
     _loading_next_song = true;
-    
-        _controlsView.hidden = YES;
-    
-    
+	_controlsView.hidden = YES;
+	
     // Load images
     _spinner_animation = @[@"spinner-1.png", @"spinner-2.png", @"spinner-3.png", @"spinner-4.png",
                             @"spinner-5.png", @"spinner-6.png", @"spinner-7.png", @"spinner-8.png", @"spinner-9.png", @"spinner-10.png", @"spinner-11.png", @"spinner-12.png", @"spinner-13.png", @"spinner-14.png", @"spinner-15.png", @"spinner-16.png"];

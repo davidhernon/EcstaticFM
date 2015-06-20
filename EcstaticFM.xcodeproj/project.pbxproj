@@ -1091,7 +1091,7 @@
 				TargetAttributes = {
 					1CA428A41A799CE9001DB0AD = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 72PSY3QB44;
+						DevelopmentTeam = 6ZUB2TR58V;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1100,7 +1100,7 @@
 					};
 					1CA428BD1A799CE9001DB0AD = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 72PSY3QB44;
+						DevelopmentTeam = 6ZUB2TR58V;
 						TestTargetID = 1CA428A41A799CE9001DB0AD;
 					};
 				};

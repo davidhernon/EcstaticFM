@@ -304,7 +304,6 @@
     [[NSUserDefaults standardUserDefaults] setObject:self.username.text forKey:@"username"];
     [SSKeychain setPassword:_password.text forService:@"EcstaticFM" account:self.username.text];
     
-    [SDSAPI createRoom: self.username.text];
 	AppDelegate* appDelegate = [[UIApplication  sharedApplication]delegate];
 	//check if the user has given permissions to use location services
 	if([appDelegate.locationServices checkForPermissions]){

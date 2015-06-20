@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bOe-aM-vI5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Unknown constraint types" minToolsVersion="5.1"/>
@@ -5381,9 +5382,9 @@ Cg
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uzf-N5-Chd"/>
-        <segue reference="kOh-mr-y7x"/>
+        <segue reference="ag5-lL-hod"/>
         <segue reference="ubM-n0-8uz"/>
-        <segue reference="BGO-mf-tNw"/>
+        <segue reference="E2U-Ol-7ff"/>
         <segue reference="9e6-dF-Meh"/>
     </inferredMetricsTieBreakers>
 </document>
