@@ -370,12 +370,12 @@ static NSTimer *login_timer;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         while(!static_socket.connected){
-            //            NSLog(@"static_socket connected inside=%d", static_socket.connected);
+//            NSLog(@"static_socket connected inside=%d", static_socket.connected);
             [NSThread sleepForTimeInterval:0.1f];
         }
         
-        NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:@[username, username, [self getDictForPlayerState]]
-                                                                    forKeys:@[@"username", @"room_name", @"player_state"]];
+        NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:@[username, username]
+                                                                    forKeys:@[@"username", @"room_name"]];
         
         NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
         [static_socket emitObjc:@"create_room" withItems:@[jsonData]];
@@ -385,7 +385,7 @@ static NSTimer *login_timer;
 
 
 +(void) aroundMe:(NSString*)username withID:(id)sender{
-    
+    NSLog(@"Start of around me");
     [static_socket on: @"return_get_rooms_around_me" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
 		NSArray* locationsArray;
 		@try {

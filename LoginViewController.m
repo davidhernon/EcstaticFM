@@ -40,6 +40,7 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     
    //     _originalCenter = _loginView.center;
@@ -326,6 +327,16 @@
 		appDelegate.locationServices.vc=geoAskVC;
 		[self presentViewController:geoAskVC animated:YES completion:nil];
 	}
+    NSNumber *lat = [[NSUserDefaults standardUserDefaults] objectForKey:@"latitude"];
+    NSNumber *lon;
+    if(lat)
+    {
+        lon = [[NSUserDefaults standardUserDefaults] objectForKey:@"longitude"];
+    }else{
+        lat = [NSNumber numberWithDouble:-45.5017];
+        lon = [NSNumber numberWithDouble:-73.5637];
+    }
+    [SDSAPI postLocation:_username.text withLatitude:[lat floatValue] withLongitude:[lon floatValue]];
 }
 
 - (void) loginReturnedFalse
