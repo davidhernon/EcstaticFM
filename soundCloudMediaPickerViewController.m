@@ -286,7 +286,14 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 
 -(IBAction)closeMediaPicker:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+	if([Playlist sharedPlaylist].count > 0){
+		[self dismissViewControllerAnimated:YES completion:nil];
+	}
+	else{
+		UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+		RoomsViewController *aroundMe = [sb instantiateViewControllerWithIdentifier:@"aroundMe"];
+		[self presentViewController:aroundMe animated:NO completion:nil];
+	}
 }
 
 -(NSString*)getLargestArtwork:(NSString*)providedURLString
