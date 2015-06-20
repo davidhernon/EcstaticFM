@@ -77,7 +77,7 @@
     
     [self.view.window.layer addAnimation:transition forKey:kCATransition];
     // send me to the player
-    [_rooms_view_controller presentViewController:player_page animated:YES completion:nil];
+    [_rooms_view_controller presentViewController:player_page animated:NO completion:nil];
     
 }
 
