@@ -58,6 +58,7 @@
 		MediaPageViewController *mediaPageViewController = [sb instantiateViewControllerWithIdentifier:@"mediaPageViewController"];
 		PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
 		
+        //initiate a crossfade transition on segue
 		CATransition* transition = [CATransition animation];
 		transition.duration = 0.3;
 		transition.type = kCATransitionFade;
@@ -65,6 +66,7 @@
 		
 		[self.view.window.layer addAnimation:transition forKey:kCATransition];
 		
+        //send me to geoask
 		[_rooms_view_controller presentViewController:player_page animated:NO completion:^{
 			[player_page presentViewController:mediaPageViewController animated:NO completion:nil];
 		}];
