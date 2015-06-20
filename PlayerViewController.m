@@ -21,6 +21,7 @@ static NSString* cellIdentifier = @"playListCell";
     [super viewDidLoad];
     
     _loading_next_song = true;
+	_loading_next_song_has_changed = false;
 	_controlsView.hidden = YES;
 	
     // Load images
