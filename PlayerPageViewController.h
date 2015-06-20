@@ -10,4 +10,7 @@
 
 @interface PlayerPageViewController : UIPageViewController
 
+-(void) setChatAsStart;
+-(void) setPlayerAsStart;
+
 @end

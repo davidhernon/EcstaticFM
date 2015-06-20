@@ -127,6 +127,7 @@
 		[_messages addObject:m];
 	}
 }
+
 - (void) addChatText:(NSString *)user content:(NSString *)content
 {
     NSNumber *time_now = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
@@ -208,6 +209,7 @@
         // Be sure to test for equality using the "isEqualToString" message
         [textView resignFirstResponder];
         [self sendChat:self];
+        _chatTextField = @"";
         // Return FALSE so that the final '\n' character doesn't get added
         return FALSE;
     }
