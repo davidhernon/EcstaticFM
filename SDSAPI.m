@@ -250,6 +250,7 @@ static NSTimer *login_timer;
 		[mixpanel track:@"chat_text"];
 		NSString* textMessage =[((NSDictionary*) data[0]) objectForKey:@"textMessage"];
 		NSString* username =[((NSDictionary*) data[0]) objectForKey:@"username"];
+        NSString* timestamp = [((NSDictionary*) data[0]) objectForKey:@"timestamp"];
 		AppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
         
 		[appDelegate.chatViewController addChatText:username content:textMessage];
@@ -540,8 +541,9 @@ static NSTimer *login_timer;
 {
     NSString *room_number = [Room currentRoom].room_number;
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSNumber *time_now = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     
-    NSDictionary *textDict = [NSDictionary dictionaryWithObjects:@[room_number, textMessage, username] forKeys:@[@"room_number", @"textMessage", @"username"]];
+    NSDictionary *textDict = [NSDictionary dictionaryWithObjects:@[room_number, textMessage, username, time_now] forKeys:@[@"room_number", @"textMessage", @"username", @"timestamp"]];
     NSData *json = [NSJSONSerialization dataWithJSONObject:textDict options:nil error:nil];
     [static_socket emitObjc:@"send_text" withItems:@[json]];
 }

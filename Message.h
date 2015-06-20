@@ -12,7 +12,8 @@
 
 @property (retain, nonatomic) NSString *user;
 @property (retain, nonatomic) NSString *content;
+@property (retain, nonatomic) NSString *time;
 
-- (id) initWithUser:(NSString *)user withContent:(NSString *)content;
+- (id) initWithUser:(NSString *)user withContent:(NSString *)content withTime:(NSString*)time;
 
 @end

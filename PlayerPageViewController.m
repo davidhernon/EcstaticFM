@@ -42,10 +42,23 @@ NSString* chat_view_identifier = @"chat";
     [super viewDidLoad];
     self.dataSource = self;
     
-    [self setViewControllers:@[self.player]
+    [self setViewControllers:@[self.chat]
                    direction:UIPageViewControllerNavigationDirectionForward
                     animated:YES
                   completion:nil];
+    
+//    _weak UIPageViewController* pvcw = pvc;
+//    [pvc setViewControllers:@[page]
+//                  direction:UIPageViewControllerNavigationDirectionForward
+//                   animated:YES completion:^(BOOL finished) {
+//                       UIPageViewController* pvcs = pvcw;
+//                       if (!pvcs) return;
+//                       dispatch_async(dispatch_get_main_queue(), ^{
+//                           [pvcs setViewControllers:@[page]
+//                                          direction:UIPageViewControllerNavigationDirectionForward
+//                                           animated:NO completion:nil];
+//                       });
+//                   }];
 }
 
 - (void)didReceiveMemoryWarning {
