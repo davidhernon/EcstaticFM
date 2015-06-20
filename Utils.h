@@ -16,5 +16,6 @@
 +(UIColor*) colorWithHexString:(NSString*)hex;
 +(NSMutableString*) floatToText: (Float64)time;
 +(NSString*)convertTimeFromMillis:(int)millis;
++(NSString*)convertSecondsToTime:(double)num_seconds;
 @end
 

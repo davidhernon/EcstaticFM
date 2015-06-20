@@ -16,8 +16,9 @@
 #import "RadialGradientLayer.h"
 #import "LocationServices.h"
 #import "AppDelegate.h"
+#import <Foundation/Foundation.h>
 
-@interface PlayerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PlayerDelegate>
+@interface PlayerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PlayerDelegate, SWTableViewCellDelegate>
 
 - (IBAction)showRooms:(id)sender;
 - (IBAction)playerControlsClicked:(id)sender;
@@ -52,6 +53,7 @@
 @property (weak, nonatomic) NSArray *playing_animation;
 @property (weak, nonatomic) NSArray *spinner_animation;
 @property BOOL loading_next_song;
+@property BOOL loading_next_song_has_changed;
 
 @property (retain, nonatomic) IBOutlet UILabel *room_title;
 
@@ -62,7 +64,7 @@
 @property (weak, nonatomic) IBOutlet UIView *_playerTableHeaderView;
 @property (weak, nonatomic) IBOutlet UIView *_playerAddMusicCell;
 
-@property (weak, nonatomic) NSArray* playlist;
+@property (weak, nonatomic) NSMutableArray* playlist;
 @property Player* player;
 - (IBAction)lockAction:(id)sender;
 

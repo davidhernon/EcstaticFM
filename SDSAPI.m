@@ -260,7 +260,9 @@ static NSTimer *login_timer;
     [static_socket on:@"return_get_player_status" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSDictionary *d = (NSDictionary*)data[0];
         NSString *player_state_string = (NSString*)[d objectForKey:@"player_state"];
-        
+        if(player_state_string == NULL){
+            NSLog(@"");
+        }
         NSData *objectData = [player_state_string dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *player_state = [NSJSONSerialization JSONObjectWithData:objectData
                                                              options:NSJSONReadingMutableContainers
@@ -350,6 +352,14 @@ static NSTimer *login_timer;
         [[Playlist sharedPlaylist] addTrack: [[MediaItem alloc] initWIthDict:song] ];
         [[Playlist sharedPlaylist] reloadPlayer];
         NSLog(@"song received");
+    }];
+ 
+    [static_socket on:@"remove_song" callback:^(NSArray * data, void (^ack) (NSArray*)){
+        NSDictionary *remove_song_dict = ((NSDictionary*) data[0]);
+        if([  [[NSUserDefaults standardUserDefaults] objectForKey:@"username"] isEqual:[remove_song_dict objectForKey:@"username"]]){
+            return;
+        }
+        [[Player sharedPlayer] deleteSongWithDict:remove_song_dict];
     }];
     
     [static_socket connect];
@@ -567,6 +577,16 @@ static NSTimer *login_timer;
 	NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
 	[static_socket emitObjc:@"get_chat_backlog" withItems:@[jsonData]];
 
+}
+
++(void)deleteSong:(NSInteger)indexToDelete
+{
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSString *room_number = [Room currentRoom].room_number;
+    NSString *index_to_delete = [NSString stringWithFormat:@"%i",indexToDelete ];
+    NSDictionary *postDict = [NSDictionary dictionaryWithObjects:@[username, room_number, index_to_delete] forKeys:@[@"username", @"room_number", @"index_to_delete"]];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:postDict options:NSJSONReadingMutableContainers error:nil];
+    [static_socket emitObjc:@"remove_song" withItems:@[jsonData]];
 }
 
 +(void) seek

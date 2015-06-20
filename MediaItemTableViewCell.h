@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SWTableViewCell.h>
 
-@interface MediaItemTableViewCell : UITableViewCell
+@interface MediaItemTableViewCell : SWTableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *track_title;
 @property (weak, nonatomic) IBOutlet UILabel *artist;
 @property (weak, nonatomic) IBOutlet UILabel *duration;

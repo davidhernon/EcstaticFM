@@ -39,6 +39,7 @@
 +(void)realtimePlayer:(NSString*)command;
 +(void)getChatBacklog;
 +(void)logout;
++(void)deleteSong:(NSInteger)indexToDelete;
 +(SocketIOClient*)get_static_socket;
 
 @end
