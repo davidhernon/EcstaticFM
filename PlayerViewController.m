@@ -231,7 +231,7 @@ static NSString* cellIdentifier = @"playListCell";
     
     MediaItem *track = [self.playlist objectAtIndex:indexPath.row];
     
-    _playListTableView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.23];
+    _playListTableView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
     
     cell.backgroundColor = [UIColor clearColor];
     cell.contentView.backgroundColor = [UIColor clearColor];
