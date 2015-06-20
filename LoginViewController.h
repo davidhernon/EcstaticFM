@@ -23,7 +23,10 @@
 - (void) loginReturnedFalse;
 - (void) loginReturnedTrue;
 - (void) loginTimedOut;
-
+- (IBAction)forgotPassword:(id)sender;
+@property Boolean sent;
+@property UIAlertView* dialog;
+@property NSString* email;
 @property (weak, nonatomic) IBOutlet UIScrollView *loginScrollView;
 @property BOOL keyboardIsShown;
 @property  CGPoint originalCenter;
