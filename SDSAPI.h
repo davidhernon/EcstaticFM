@@ -19,7 +19,7 @@
 
 @property ChatViewController* chatViewController;
 @property NSTimer *login_timer;
-
+@property NSString *email;
 +(NSString*)getWebsiteURL;
 +(NSArray*)getUpcomingEvents;
 +(void)signup:(NSString*)username password:(NSString*)pass email:(NSString*)email ID:(id)callingViewController;

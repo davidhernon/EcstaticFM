@@ -545,7 +545,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oa2-hf-52B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1617" y="802"/>
+            <point key="canvasLocation" x="1419" y="856"/>
         </scene>
         <!--Rooms View Controller-->
         <scene sceneID="ldK-YC-Z4E">
@@ -702,7 +702,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2393" y="972"/>
+            <point key="canvasLocation" x="2369" y="972"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="ZMr-LE-qiT">
@@ -713,11 +713,14 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                         <viewControllerLayoutGuide type="bottom" id="MvJ-16-LgO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vNE-ej-cuO">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhs-iy-Yjg">
-                                <rect key="frame" x="130" y="247" width="49" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhs-iy-Yjg">
+                                <rect key="frame" x="176" y="374" width="49" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="2IA-Gg-6aL"/>
+                                </constraints>
                                 <state key="normal" title="Submit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -725,25 +728,36 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                     <action selector="submit:" destination="t0f-VL-3jP" eventType="touchUpInside" id="C43-CI-PF0"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yo2-8r-a5H">
-                                <rect key="frame" x="30" y="175" width="410" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L2k-O9-5vs">
+                                <rect key="frame" x="106" y="303" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="YtE-Tn-5ps"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L2k-O9-5vs">
-                                <rect key="frame" x="25" y="175" width="410" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please email me my password!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3V-uT-LzF">
-                                <rect key="frame" x="34" y="121" width="240" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please email me my password!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3V-uT-LzF">
+                                <rect key="frame" x="80" y="248" width="240" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="NzC-M0-aGJ"/>
+                                    <constraint firstAttribute="width" constant="240" id="ZFw-41-OIh"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="qhs-iy-Yjg" secondAttribute="centerX" constant="5.5" id="MzT-Ej-rao"/>
+                            <constraint firstAttribute="centerX" secondItem="Q3V-uT-LzF" secondAttribute="centerX" constant="6" id="Zy1-TP-RMD"/>
+                            <constraint firstAttribute="centerY" secondItem="L2k-O9-5vs" secondAttribute="centerY" id="eSN-eA-BRV"/>
+                            <constraint firstItem="qhs-iy-Yjg" firstAttribute="bottom" secondItem="L2k-O9-5vs" secondAttribute="bottom" constant="71" id="mU0-ig-X36"/>
+                            <constraint firstAttribute="centerX" secondItem="L2k-O9-5vs" secondAttribute="centerX" id="rnf-X7-cVz"/>
+                            <constraint firstItem="L2k-O9-5vs" firstAttribute="bottom" secondItem="Q3V-uT-LzF" secondAttribute="bottom" constant="64" id="vOk-80-eFh"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="email" destination="L2k-O9-5vs" id="3UV-uD-A2o"/>
                         <segue destination="Na0-VS-aPw" kind="presentation" identifier="ShowLogin" id="4de-VN-8Yq"/>
@@ -776,7 +790,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="t0f-VL-3jP" kind="presentation" id="yix-FK-TIQ"/>
+                                            <action selector="forgotPassword:" destination="Na0-VS-aPw" eventType="touchUpInside" id="MT2-Dl-E4k"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_tri-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="iPs-fA-GMf" userLabel="Logo">
@@ -829,6 +843,9 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="forgotPassword:" destination="Na0-VS-aPw" eventType="touchUpInside" id="mRd-dW-Mh2"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VFh-DT-RLb" userLabel="Line">
                                                 <rect key="frame" x="86" y="378" width="141" height="1"/>
@@ -1952,7 +1969,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TYt-f5-Oqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="S0C-vz-uLu"/>
             </objects>
-            <point key="canvasLocation" x="4611" y="1020"/>
+            <point key="canvasLocation" x="1663" y="1544"/>
         </scene>
         <!--Media Page View Controller-->
         <scene sceneID="4i4-y3-gba">
@@ -5349,10 +5366,10 @@ Cg
         <image name="spinner-16.png" width="302" height="302"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kOh-mr-y7x"/>
-        <segue reference="pHj-h8-hL3"/>
-        <segue reference="sP4-bK-WLP"/>
-        <segue reference="LHV-l3-vdI"/>
+        <segue reference="4Y4-CM-9h4"/>
+        <segue reference="9e6-dF-Meh"/>
+        <segue reference="4de-VN-8Yq"/>
         <segue reference="ubM-n0-8uz"/>
+        <segue reference="BGO-mf-tNw"/>
     </inferredMetricsTieBreakers>
 </document>
