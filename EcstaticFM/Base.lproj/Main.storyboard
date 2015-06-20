@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bOe-aM-vI5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bOe-aM-vI5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -94,7 +94,7 @@
                 <pageViewController storyboardIdentifier="pp" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="VOg-FZ-x98" customClass="PlayerPageViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yih-Cc-sb3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3855" y="-99"/>
+            <point key="canvasLocation" x="1793" y="1139"/>
         </scene>
         <!--Geo Ask View Controller-->
         <scene sceneID="Jq6-7X-S7D">
@@ -421,7 +421,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
         <!--Settings-->
         <scene sceneID="M8K-T3-74x">
             <objects>
-                <viewController id="Uc1-lp-Sxd" customClass="Settings" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settings" id="Uc1-lp-Sxd" customClass="Settings" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XpR-Jx-gJn"/>
                         <viewControllerLayoutGuide type="bottom" id="Rgg-rq-mkk"/>
@@ -430,16 +430,6 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rM-lN-tZj">
-                                <rect key="frame" x="2" y="15" width="44" height="44"/>
-                                <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                                <state key="normal" image="button_close-dark.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="lya-SU-gzo" kind="presentation" id="kIY-Qy-Q1o"/>
-                                </connections>
-                            </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gnH-eL-eeO">
                                 <rect key="frame" x="255" y="272" width="51" height="31"/>
                                 <color key="onTintColor" red="0.82983559370040894" green="0.34100496768951416" blue="0.46299603581428528" alpha="1" colorSpace="calibratedRGB"/>
@@ -1378,8 +1368,8 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                                                         <constraint firstAttribute="height" constant="15" id="c3y-9G-pjF"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYH-9M-vGL">
-                                                                    <rect key="frame" x="266" y="6" width="44" height="21"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="000:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYH-9M-vGL">
+                                                                    <rect key="frame" x="244" y="6" width="66" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="44" id="E0a-3A-Vd9"/>
                                                                         <constraint firstAttribute="height" constant="21" id="gAC-Ku-zqp"/>
@@ -1816,6 +1806,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
         <!--View Controller-->
         <scene sceneID="yiU-pE-MiS">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bSz-Zi-L5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="sdsAPI" id="PaF-Wq-qi9" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oZZ-1n-cn9"/>
@@ -1837,7 +1828,6 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bSz-Zi-L5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4483.125" y="2068.3098591549297"/>
         </scene>
@@ -2168,24 +2158,6 @@ on Soundcloud?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhK-Pb-bck" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4011" y="1037"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="qoO-gP-2mD">
-            <objects>
-                <viewController id="Uuq-2v-gZD" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Fus-aM-cKM"/>
-                        <viewControllerLayoutGuide type="bottom" id="laN-At-g7o"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="k2F-8g-9pl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5hq-qB-Ccp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3739" y="2008"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="lJw-Gc-muS">
@@ -5271,80 +5243,10 @@ Cg
             </objects>
             <point key="canvasLocation" x="982" y="1584"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Y6e-Mj-DC3">
-            <objects>
-                <viewController id="nzo-va-Zl3" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="e0D-WH-8ue"/>
-                        <viewControllerLayoutGuide type="bottom" id="ASF-EL-N3A"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Vca-oy-FFM">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Dj-gB-bLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="uQb-RC-DbF">
-            <objects>
-                <viewController id="bBI-NF-Wd0" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="U8d-Gq-Q4d"/>
-                        <viewControllerLayoutGuide type="bottom" id="p1Q-uN-xhc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wfK-pn-fNC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pSI-uY-4Gc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="fBb-co-ql7">
-            <objects>
-                <viewController id="YiO-gz-Dga" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qyK-kd-vfh"/>
-                        <viewControllerLayoutGuide type="bottom" id="YdU-Es-ZZO"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Huf-Qh-MSG">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OjW-49-YTu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="rZC-Dd-6VX">
-            <objects>
-                <viewController id="c51-fL-6Ia" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cc5-v9-17k"/>
-                        <viewControllerLayoutGuide type="bottom" id="5lY-6Q-a9p"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="WpN-5x-hS9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3fq-Rt-grP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2214" y="1721"/>
-        </scene>
     </scenes>
     <resources>
         <image name="button_addmusic2.png" width="215" height="92"/>
         <image name="button_back-dark.png" width="46" height="82"/>
-        <image name="button_close-dark.png" width="34" height="33"/>
         <image name="button_close.png" width="34" height="33"/>
         <image name="button_connectmyacct.png" width="720" height="152"/>
         <image name="button_gear2.png" width="80" height="80"/>

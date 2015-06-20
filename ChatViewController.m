@@ -99,6 +99,7 @@
     
     cell.user.text = message.user;
     cell.content.text = message.content;
+    cell.timestamp.text = message.time;
     cell.clipsToBounds = YES;
     return cell;
 }
@@ -112,6 +113,7 @@
 {
     [SDSAPI sendText:self.chatTextField.text];
 }
+
 -(void) addChatLog:(NSString *)user content:(NSArray *)chatLog{
 	[_messages removeAllObjects];
 	for(NSString* chat in chatLog){
@@ -119,14 +121,17 @@
 		NSDictionary *chatDict = [NSJSONSerialization JSONObjectWithData:objectData
 																	 options:NSJSONReadingMutableContainers
 																	   error:nil];
-		Message* m = [[Message alloc]initWithUser:[chatDict objectForKey:@"username"] withContent:[chatDict objectForKey:@"textMessage"]];
+        //Faking timestamp on the app side
+        Message* m = [[Message alloc]initWithUser:[chatDict objectForKey:@"username"] withContent:[chatDict objectForKey:@"textMessage"] withTime:[chatDict objectForKey:@"timestamp"]];
 		NSLog(@"%@", [chatDict objectForKey:@"textMessage"]);
 		[_messages addObject:m];
 	}
 }
+
 - (void) addChatText:(NSString *)user content:(NSString *)content
 {
-    _message = [[Message alloc] initWithUser:user withContent:content];
+    NSNumber *time_now = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
+    _message = [[Message alloc] initWithUser:user withContent:content withTime:[NSString stringWithFormat:@"%@",time_now ]];
     [_messages addObject:_message];
     [_chatTableView reloadData];
 }
@@ -204,6 +209,7 @@
         // Be sure to test for equality using the "isEqualToString" message
         [textView resignFirstResponder];
         [self sendChat:self];
+        _chatTextField = @"";
         // Return FALSE so that the final '\n' character doesn't get added
         return FALSE;
     }

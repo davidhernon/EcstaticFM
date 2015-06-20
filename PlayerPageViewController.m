@@ -12,6 +12,7 @@
 
 @property (nonatomic, retain) UIViewController *player;
 @property (nonatomic, retain) UIViewController *chat;
+@property (nonatomic, retain) UIViewController *settings;
 
 @end
 
@@ -21,6 +22,7 @@
 
 NSString* player_me_view_identifier = @"player";
 NSString* chat_view_identifier = @"chat";
+NSString* settings_view_identifier = @"settings";
 
 - (UIViewController *)player {
     if (!_player) {
@@ -37,11 +39,23 @@ NSString* chat_view_identifier = @"chat";
     return _chat;
 }
 
+- (UIViewController *) settings {
+    if( !_settings) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        _settings = [sb instantiateViewControllerWithIdentifier:settings_view_identifier];
+    }
+    return _settings;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataSource = self;
-    
+    [self setPlayerAsStart];
+}
+
+-(void) setPlayerAsStart
+{
     [self setViewControllers:@[self.player]
                    direction:UIPageViewControllerNavigationDirectionForward
                     animated:YES
@@ -60,13 +74,18 @@ NSString* chat_view_identifier = @"chat";
     if (viewController == self.player) {
         nextViewController = self.chat;
     }
+    if(viewController == self.chat) {
+        nextViewController = self.settings;
+    }
     return nextViewController;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     
     UIViewController *prevViewController = nil;
-    
+    if(viewController == self.settings) {
+        prevViewController = self.chat;
+    }
     if (viewController == self.chat) {
         prevViewController = self.player;
     }

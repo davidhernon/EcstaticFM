@@ -81,11 +81,14 @@ static NSString* around_me_event_cell = @"around_me_cell";
     // get the rooms around me and populate them in their cells
     for( NSDictionary *room in _rooms_around_me)
     {
+        
         if(room == [NSNull null]){
             continue;
         }
-		NSDictionary *room_info = [room objectForKey:@"room_info"];
-		if(room_info == [NSNull null]){
+        
+		NSDictionary *room_info = (NSDictionary*)[room objectForKey:@"room_info"];
+        
+		if(room_info == [NSNull null] || [((NSDictionary*)room_info) count]==0){
 			continue;
 		}
         [_center_points addObject:[NSNumber numberWithFloat:x]];

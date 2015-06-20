@@ -352,4 +352,9 @@ the delegate to Player for Player to communicate with a view controller
 	self.player_is_locked = player_is_locked;
 }
 
+-(void) deleteSongWithDict:(NSDictionary*)remove_song_dict
+{
+    
+}
+
 @end

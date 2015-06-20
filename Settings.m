@@ -33,5 +33,12 @@
 	if (&UIApplicationOpenSettingsURLString != NULL)
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
 }
+ -(IBAction)segueToChat:(id)sender
+{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
+    [player_page setChatAsStart];
+    [self presentViewController:player_page animated:NO completion:nil];
+}
 
 @end

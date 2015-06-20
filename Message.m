@@ -10,12 +10,13 @@
 
 @implementation Message
 
-- (id) initWithUser:(NSString *)user withContent:(NSString *)content
+- (id) initWithUser:(NSString *)user withContent:(NSString *)content withTime:(NSString*)time
 {
     if(self = [super init])
     {
         self.user = [[NSString alloc] initWithString:user];
         self.content = [[NSString alloc] initWithString:content];
+        self.time = [[NSString alloc] initWithString:time];
     }
     return self;
 }

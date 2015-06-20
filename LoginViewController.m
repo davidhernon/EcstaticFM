@@ -313,6 +313,15 @@
 	else{
 		UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 		geoAskViewController *geoAskVC = [sb instantiateViewControllerWithIdentifier:@"geoAskVC"];
+        
+        //initiate a crossfade transition on segue
+        CATransition* transition = [CATransition animation];
+        transition.duration = 0.3;
+        transition.type = kCATransitionFade;
+        transition.subtype = kCATransitionFromBottom;
+        
+        [self.view.window.layer addAnimation:transition forKey:kCATransition];
+        //send me to the geoask
 		appDelegate.locationServices.vc=geoAskVC;
 		[self presentViewController:geoAskVC animated:YES completion:nil];
 	}

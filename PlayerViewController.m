@@ -107,22 +107,6 @@ static NSString* cellIdentifier = @"playListCell";
     
 }
 
-
-
-        
-//            int64_t delayInSeconds = 1.0f;
-//            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-//           
-//            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//               [_playerSpinner stopAnimating];
-//                   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Gestures" message:@"Long Gesture Detected" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//                   [alertView show];
-//                    });
-//        }
-        
-
-
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self.playListTableView reloadData];
@@ -241,7 +225,7 @@ static NSString* cellIdentifier = @"playListCell";
     cell.duration.text = track.duration;
     cell.sc_album_image.image =  track.artwork;
     cell.backgroundColor = [UIColor clearColor];
-        cell.song_index_label.text = [NSString stringWithFormat:@"%d",indexPath.row+1];
+    cell.song_index_label.text = [NSString stringWithFormat:@"%d",indexPath.row+1];
 
     // If the track added is the track currently playing add other UI
     if((int)_current_track_index == (int)indexPath.row)
@@ -271,11 +255,12 @@ static NSString* cellIdentifier = @"playListCell";
         [cell.playing_animation startAnimating];
     }
     
+    cell.rightUtilityButtons = [self rightButtons];
+    cell.delegate = self;
     
     return cell;
     
 }
-
 
 
 // This method gets called when a row in the table is selected
@@ -434,13 +419,22 @@ static NSString* cellIdentifier = @"playListCell";
 -(void)playerIsLoadingNextSong
 {
     _loading_next_song = YES;
+    _loading_next_song_has_changed = YES;
     [_playListTableView reloadData];
 }
 
+//method ends up getting called everytime by updateTime
 -(void)playerIsDoneLoadingNextSong
 {
+    
     _loading_next_song = NO;
-    [_playListTableView reloadData];
+    //Keeps track of old state of _loading_next_song_boolean
+    //If _loading_next_song has changed since the last time through this loop, reloadData, otherwise ignore the signal
+    //_loading_next_song_has_changed gets set under _playerIsLoadingNextSong
+    if(_loading_next_song != _loading_next_song_has_changed){
+        _loading_next_song_has_changed = _loading_next_song;
+        [_playListTableView reloadData];
+    }
 }
 
 - (IBAction)lockAction:(id)sender {
@@ -467,6 +461,63 @@ static NSString* cellIdentifier = @"playListCell";
 		}
 	}
 }
+
+//creates the array of buttons that will be shown when the tablecell is swiped
+- (NSArray *)rightButtons
+{
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+       [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
+                                                title:@"Delete"];
+    
+    return rightUtilityButtons;
+}
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index
+{
+    NSLog(@"EcstaticFM - Player Module - PlayerViewController - swipeableTableViewCell: didTriggerRightUtilityButtonWithIndex - with index: %li", (long)index);
+    
+    
+    switch (index) {
+        case 0:
+        {
+            //Get index of cell
+            NSIndexPath* cellIndexPath = [_playListTableView indexPathForCell:cell];
+            // delete song from local playlist
+//            [_playlist removeObjectAtIndex:cellIndexPath.row];
+//            [_playListTableView deleteRowsAtIndexPaths:@[cellIndexPath]
+//                                      withRowAnimation:UITableViewRowAnimationAutomatic];
+            //reload data - do I need this?
+            //    [_playListTableView reloadData];
+            // delete song from sharedPlaylist
+            //    [Playlist sharedPlaylist] removeTrack:<#(MediaItem *)#>
+            // send delete to API
+            [SDSAPI deleteSong:cellIndexPath.row];
+            // make sure next song plays
+            if(_current_track_index == cellIndexPath.row)
+            {
+                [self next:self];
+            }
+            [_playlist removeObjectAtIndex:cellIndexPath.row];
+            [_playListTableView reloadData];
+            break;
+        }
+    }
+}
+
+-(void)deleteSongAtIndex:(int)index
+{
+    NSLog(@"EcstaticFM - Player Module - PlayerViewController - deleteSongAtIndex:index - with index: %i", index);
+    
+    //make sure songs play accordingly
+    if(_current_track_index == index)
+    {
+        [self next];
+    }
+    [_playlist removeObjectAtIndex:index];
+    [_playListTableView reloadData];
+}
+
 @end
 
 

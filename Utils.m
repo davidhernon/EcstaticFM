@@ -98,6 +98,34 @@
     }
 }
 
++(NSString*)convertSecondsToTime:(double)num_seconds
+{
+    int days = num_seconds / (60 * 60 * 24);
+    num_seconds -= days * (60 * 60 * 24);
+    int hours = num_seconds / (60 * 60);
+    num_seconds -= hours * (60 * 60);
+    int minutes = num_seconds / 60;
+    
+    
+    NSString *day_string = [self convertIntToStringWithFormat:days];
+    NSString *hour_string = [self convertIntToStringWithFormat:hours];
+    NSString *minute_string = [self convertIntToStringWithFormat:minutes];
+    
+    return [NSString stringWithFormat:@"%@:%@:%@", day_string, hour_string, minute_string];
+}
+
++(NSString*)convertIntToStringWithFormat:(int)num
+{
+    NSString *ret = [[NSString alloc] init];
+    if(num < 10)
+    {
+        ret = [NSString stringWithFormat:@"0%i",num];
+    }else{
+        ret = [NSString stringWithFormat:@"%i", num];
+    }
+    return ret;
+}
+
 
 
 @end
