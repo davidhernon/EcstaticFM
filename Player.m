@@ -48,6 +48,25 @@ static Player *ecstaticPlayer = nil;
     return ecstaticPlayer;
 }
 
+- (void)reinitializePlayer
+{
+
+	//remove the currently playing track from the player
+	ecstaticPlayer.currentTrack = nil;
+	[ecstaticPlayer.avPlayer replaceCurrentItemWithPlayerItem:nil];
+	[ecstaticPlayer updatePlaylist];
+	[ecstaticPlayer.avPlayer pause];
+	[ecstaticPlayer seek:0];
+
+	ecstaticPlayer.currentTrackIndex = 0;
+	ecstaticPlayer.player_is_paused = NO;
+	ecstaticPlayer.isNextSong = NO;
+	ecstaticPlayer.user_joining_room = NO;
+	ecstaticPlayer.user_hit_button = NO;
+	ecstaticPlayer.player_is_locked = NO;
+	return;
+}
+
 /**
 the delegate to Player for Player to communicate with a view controller
  Example usage:

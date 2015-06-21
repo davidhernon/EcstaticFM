@@ -105,8 +105,23 @@
 
 -(IBAction)buttonAction
 {
-    [SDSAPI joinRoom:self.room_number withUser:_hostname];
-    
+	//make sure that the room_number we have is actually a string
+	if([self.room_number isKindOfClass:[NSNumber class]])
+	{
+		// clean the server data
+		self.room_number = [(NSNumber*)self.room_number stringValue];
+	}
+	if([[Room currentRoom].room_number isKindOfClass:[NSNumber class]]){
+		[Room currentRoom].room_number = [(NSNumber*)[Room currentRoom].room_number stringValue];
+	}
+
+	
+
+	//if you're not already in the room you're joining
+	if(![[Room currentRoom].room_number isEqualToString: self.room_number]){
+		[SDSAPI joinRoom:self.room_number withUser:_hostname];
+	}
+	
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
     

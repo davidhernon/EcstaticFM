@@ -53,6 +53,7 @@
 	//leave current room, and create a new room
 	[SDSAPI leaveRoom];
 	[[Playlist sharedPlaylist] initWithDict:nil];
+	[[Player sharedPlayer] reinitializePlayer];
 	[SDSAPI createRoom: usr];
 
 	UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

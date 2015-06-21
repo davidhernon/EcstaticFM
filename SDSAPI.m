@@ -220,10 +220,9 @@ static NSTimer *login_timer;
     [static_socket on:@"return_create_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSLog(@"create room returned,%@", data[0]);
         NSDictionary* room_info_dict =[((NSDictionary*) data[0]) objectForKey:@"room_info"];
-        //        NSArray* room_info = [room_info_dict objectForKey:@"room_info"];
         [[Room currentRoom] initWithDict:room_info_dict];
     }];
-    
+	
     [static_socket on:@"join" callback:^(NSArray * data, void (^ack) (NSArray*)){
 		Mixpanel *mixpanel = [Mixpanel sharedInstance];
 		[mixpanel track:@"joined_room"];
@@ -495,7 +494,7 @@ static NSTimer *login_timer;
 	//send join and leave messages
 	[static_socket emitObjc:@"join_room" withItems:@[joinJson]];
 	
-	//update the currentRoom's state
+	//update the currentRoom's number, owner, player,
     [Room currentRoom].room_number = new_room_number;
     [[Room currentRoom] makeNotOwner];
     [Room currentRoom].host_username = user;

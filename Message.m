@@ -14,6 +14,12 @@
 {
     if(self = [super init])
     {
+		//make sure that the time we have is actually a string
+		if([time isKindOfClass:[NSNumber class]])
+		{
+			// clean the server data
+			time = [(NSNumber*)time stringValue];
+		}
         self.user = [[NSString alloc] initWithString:user];
         self.content = [[NSString alloc] initWithString:content];
         self.time = [[NSString alloc] initWithString:time];
