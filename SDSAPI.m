@@ -256,8 +256,11 @@ static NSTimer *login_timer;
 	}];
 
     
-    [static_socket on:@"return_get_player_status" callback:^(NSArray * data, void (^ack) (NSArray*)){
-        NSDictionary *d = (NSDictionary*)data[0];
+	//server response for player_state query. Called in Join Room
+	[static_socket on:@"get_player_status" callback:^(NSArray * data, void (^ack) (NSArray*)){
+		
+		//Parse the player_state json
+		NSDictionary *d = (NSDictionary*)data[0];
         NSString *player_state_string = (NSString*)[d objectForKey:@"player_state"];
         if(player_state_string == NULL){
             NSLog(@"");
@@ -267,29 +270,29 @@ static NSTimer *login_timer;
                                                              options:NSJSONReadingMutableContainers
                                                                error:nil];
         
-        
+		
+		//check for an error in the player_state rendering it null.
         if(player_state == NULL || player_state == (id)[NSNull null] )
         {
             [[Player sharedPlayer] joinPlayingRoom:0 withElapsedTime:0.0f andIsPlaying:0];
             return;
         }
-        
+		
+		//parse the JSON
         NSNumber *current_time_from_server = (NSNumber*)[d objectForKey:@"current_time"];
-        
+		NSNumber *elapsed_time = [NSNumber numberWithInt:[[player_state objectForKey:@"elapsed"] intValue]];
+		NSNumber *server_timestamp = (NSNumber*)[player_state objectForKey:@"timestamp"];
         int song_index = [[player_state objectForKey:@"playing_song_index"] intValue];
         int is_playing = [[player_state objectForKey:@"is_playing"] intValue];
-        
-        
-        NSNumber *elapsed_time = [NSNumber numberWithInt:[[player_state objectForKey:@"elapsed"] intValue]];
-        NSNumber *server_timestamp = (NSNumber*)[player_state objectForKey:@"timestamp"];
-        
+		BOOL playing = is_playing;
+
+        //convert into floats
         float ctfs = [current_time_from_server longValue];
         float st = [server_timestamp longValue];
         float et = [elapsed_time intValue];
         float el = (float)ctfs - (float)st + (float)(1.0f*et);
-        
-        BOOL playing = is_playing;
-
+		
+		//joinPlayingRoom call
         [[Player sharedPlayer] joinPlayingRoom:song_index withElapsedTime:el andIsPlaying:playing ];
     }];
     
@@ -498,7 +501,9 @@ static NSTimer *login_timer;
     [Room currentRoom].room_number = new_room_number;
     [[Room currentRoom] makeNotOwner];
     [Room currentRoom].host_username = user;
-    [SDSAPI getPlaylist:new_room_number];
+	NSDictionary *playlist_query = [NSDictionary dictionaryWithObjects:@[new_room_number] forKeys:@[@"room_number"]];
+	NSData *json = [NSJSONSerialization dataWithJSONObject:playlist_query options:nil error:nil];
+	[static_socket emitObjc:@"get_playlist" withItems:@[json]];
 }
 
 +(void)getPlayerState:(NSString*)room_number
@@ -508,12 +513,6 @@ static NSTimer *login_timer;
     [static_socket emitObjc:@"get_player_status" withItems:@[json]];
 }
 
-+(void)getPlaylist:(NSString*)room_number
-{
-    NSDictionary *playlist_query = [NSDictionary dictionaryWithObjects:@[room_number] forKeys:@[@"room_number"]];
-    NSData *json = [NSJSONSerialization dataWithJSONObject:playlist_query options:nil error:nil];
-    [static_socket emitObjc:@"get_playlist" withItems:@[json]];
-}
 
 + (void)play
 {

@@ -272,10 +272,14 @@ the delegate to Player for Player to communicate with a view controller
     [_delegate redrawUI];
 }
 
+//Sets up the player
 - (void) joinPlayingRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing
 {
-	if(index == 0 && !is_playing || [Playlist sharedPlaylist].playlist.count == 0)
+	//if the player is empty or the playlist is empty, return
+	if((index == 0 && !is_playing) || [Playlist sharedPlaylist].playlist.count == 0)
         return;
+	
+	//else sync the player
     _currentTrack = [[Playlist sharedPlaylist].playlist objectAtIndex:index];
     _currentTrackIndex = index;
     [self seek:(elapsed)];

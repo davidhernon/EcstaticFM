@@ -115,12 +115,12 @@
 		[Room currentRoom].room_number = [(NSNumber*)[Room currentRoom].room_number stringValue];
 	}
 
-	
-
-	//if you're not already in the room you're joining
+	//if you're actually gonna join a new room, then call join_room to the server
 	if(![[Room currentRoom].room_number isEqualToString: self.room_number]){
 		[SDSAPI joinRoom:self.room_number withUser:_hostname];
 	}
+	
+	//if you're actually just returning to the room you're already in, then local transition
 	
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
