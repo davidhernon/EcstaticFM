@@ -255,7 +255,7 @@ the delegate to Player for Player to communicate with a view controller
 
 - (void) joinPlayingRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing
 {
-    if(index == 0 && !is_playing)
+	if(index == 0 && !is_playing || [Playlist sharedPlaylist].playlist.count == 0)
         return;
     _currentTrack = [[Playlist sharedPlaylist].playlist objectAtIndex:index];
     _currentTrackIndex = index;
