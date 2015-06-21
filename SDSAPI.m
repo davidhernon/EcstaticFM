@@ -468,9 +468,18 @@ static NSTimer *login_timer;
     
 }
 
++(void)leaveRoom{
+	NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+	NSString *rn = [NSString stringWithFormat:@"%@",[Room currentRoom].room_number];
+	NSString *is_owner = [Room currentRoom].is_owner ? @"true" : @"false";
+	NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[rn, username, is_owner] forKeys:@[@"room_number", @"username", @"is_owner"]];
+	NSData *leaveJson = [NSJSONSerialization dataWithJSONObject:leaveDict options:nil error:nil];
+	[static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
+}
 
 +(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)user
 {
+	[SDSAPI leaveRoom];
 	//set up variables to go in the dicts. These contain information about the CURRENT ROOM's state
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
 	NSString *rn = [NSString stringWithFormat:@"%@",[Room currentRoom].room_number];
@@ -479,14 +488,11 @@ static NSTimer *login_timer;
 	
 	//set up the dictionaries
     NSDictionary *joinDict  = [NSDictionary dictionaryWithObjects:@[new_room_number, username] forKeys:@[@"room_number", @"username"]];
-    NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[rn, username, is_owner] forKeys:@[@"room_number", @"username", @"is_owner"]];
 	
 	//serialize them
 	NSData *joinJson = [NSJSONSerialization dataWithJSONObject:joinDict options:nil error:nil];
-    NSData *leaveJson = [NSJSONSerialization dataWithJSONObject:leaveDict options:nil error:nil];
 	
 	//send join and leave messages
-	[static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
 	[static_socket emitObjc:@"join_room" withItems:@[joinJson]];
 	
 	//update the currentRoom's state

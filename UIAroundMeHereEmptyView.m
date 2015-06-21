@@ -50,7 +50,9 @@
 {
 	NSString *usr = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
 
-	//if the playlist is empty, and you are the owner of the room,
+	//leave current room, and create a new room
+	[SDSAPI leaveRoom];
+	[[Playlist sharedPlaylist] initWithDict:nil];
 	[SDSAPI createRoom: usr];
 
 	UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
