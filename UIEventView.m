@@ -53,8 +53,8 @@
             _location.text = [event objectForKey:@"location"];
             NSNumber *start_time = [event objectForKey:@"start"];
             NSNumber *time_now = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
-            double diff = [start_time doubleValue] - [time_now doubleValue];
-            NSString *time = [Utils convertTimeFromMillis:diff];
+            double diff = abs([start_time doubleValue] - [time_now doubleValue]);
+            NSString *time = [Utils convertSecondsToTime:diff];
             
             self.room_number_label.text = time;
             _room_number = [NSString stringWithFormat:@"%@",[event objectForKey:@"id"]];
@@ -64,7 +64,8 @@
 
 -(IBAction)buttonAction
 {
-    [SDSAPI joinRoom:self.room_number withUser:@"Boop!"];
+    NSString *negative_room_number = [NSString stringWithFormat:@"%i",[self.room_number intValue] * (-1)];
+    [SDSAPI joinRoom:negative_room_number withUser:self.title.text];
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];

@@ -10,6 +10,7 @@
 #import "PlayerPageViewController.h"
 #import "UIRoomView.h"
 #import "MediaPageViewController.h";
+#import "SDSAPI.h";
 @class RoomsViewController;
 
 @interface UIAroundMeHereEmptyView : UIRoomView

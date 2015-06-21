@@ -437,16 +437,6 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rM-lN-tZj">
-                                <rect key="frame" x="2" y="15" width="44" height="44"/>
-                                <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                                <state key="normal" image="button_close-dark.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="segueToChat:" destination="Uc1-lp-Sxd" eventType="touchUpInside" id="Mwj-yG-Q7G"/>
-                                </connections>
-                            </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gnH-eL-eeO">
                                 <rect key="frame" x="255" y="272" width="51" height="31"/>
                                 <color key="onTintColor" red="0.82983559370040894" green="0.34100496768951416" blue="0.46299603581428528" alpha="1" colorSpace="calibratedRGB"/>
@@ -1498,8 +1488,8 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                                                         <constraint firstAttribute="height" constant="15" id="c3y-9G-pjF"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYH-9M-vGL">
-                                                                    <rect key="frame" x="266" y="6" width="44" height="21"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="000:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYH-9M-vGL">
+                                                                    <rect key="frame" x="244" y="6" width="66" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="44" id="E0a-3A-Vd9"/>
                                                                         <constraint firstAttribute="height" constant="21" id="gAC-Ku-zqp"/>
@@ -8875,7 +8865,6 @@ Cg
     <resources>
         <image name="button_addmusic2.png" width="215" height="92"/>
         <image name="button_back-dark.png" width="46" height="82"/>
-        <image name="button_close-dark.png" width="34" height="33"/>
         <image name="button_close.png" width="34" height="33"/>
         <image name="button_connectmyacct.png" width="720" height="152"/>
         <image name="button_gear2.png" width="80" height="80"/>

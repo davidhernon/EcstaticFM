@@ -92,8 +92,6 @@
 	[[NSUserDefaults standardUserDefaults] setObject:self.username.text forKey:@"username"];
 	[SSKeychain setPassword:_password.text forService:@"EcstaticFM" account:self.username.text];
 	
-	[SDSAPI createRoom: self.username.text];
-
 	AppDelegate* appDelegate = [[UIApplication  sharedApplication]delegate];
 	UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 	geoAskViewController *geoAskVC = [sb instantiateViewControllerWithIdentifier:@"geoAskVC"];

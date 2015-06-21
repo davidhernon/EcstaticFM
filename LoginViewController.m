@@ -40,6 +40,7 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     
    //     _originalCenter = _loginView.center;
@@ -304,7 +305,6 @@
     [[NSUserDefaults standardUserDefaults] setObject:self.username.text forKey:@"username"];
     [SSKeychain setPassword:_password.text forService:@"EcstaticFM" account:self.username.text];
     
-    [SDSAPI createRoom: self.username.text];
 	AppDelegate* appDelegate = [[UIApplication  sharedApplication]delegate];
 	//check if the user has given permissions to use location services
 	if([appDelegate.locationServices checkForPermissions]){
@@ -326,6 +326,16 @@
 		appDelegate.locationServices.vc=geoAskVC;
 		[self presentViewController:geoAskVC animated:YES completion:nil];
 	}
+    NSNumber *lat = [[NSUserDefaults standardUserDefaults] objectForKey:@"latitude"];
+    NSNumber *lon;
+    if(lat)
+    {
+        lon = [[NSUserDefaults standardUserDefaults] objectForKey:@"longitude"];
+    }else{
+        lat = [NSNumber numberWithDouble:-45.5017];
+        lon = [NSNumber numberWithDouble:-73.5637];
+    }
+    [SDSAPI postLocation:_username.text withLatitude:[lat floatValue] withLongitude:[lon floatValue]];
 }
 
 - (void) loginReturnedFalse

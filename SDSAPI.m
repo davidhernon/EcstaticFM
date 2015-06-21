@@ -260,7 +260,9 @@ static NSTimer *login_timer;
     [static_socket on:@"return_get_player_status" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSDictionary *d = (NSDictionary*)data[0];
         NSString *player_state_string = (NSString*)[d objectForKey:@"player_state"];
-        
+        if(player_state_string == NULL){
+            NSLog(@"");
+        }
         NSData *objectData = [player_state_string dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *player_state = [NSJSONSerialization JSONObjectWithData:objectData
                                                              options:NSJSONReadingMutableContainers
@@ -351,6 +353,14 @@ static NSTimer *login_timer;
         [[Playlist sharedPlaylist] reloadPlayer];
         NSLog(@"song received");
     }];
+ 
+    [static_socket on:@"remove_song" callback:^(NSArray * data, void (^ack) (NSArray*)){
+        NSDictionary *remove_song_dict = ((NSDictionary*) data[0]);
+        if([  [[NSUserDefaults standardUserDefaults] objectForKey:@"username"] isEqual:[remove_song_dict objectForKey:@"username"]]){
+            return;
+        }
+        [[Player sharedPlayer] deleteSongWithDict:remove_song_dict];
+    }];
     
     [static_socket connect];
 }
@@ -360,12 +370,12 @@ static NSTimer *login_timer;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         while(!static_socket.connected){
-            //            NSLog(@"static_socket connected inside=%d", static_socket.connected);
+//            NSLog(@"static_socket connected inside=%d", static_socket.connected);
             [NSThread sleepForTimeInterval:0.1f];
         }
         
-        NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:@[username, username, [self getDictForPlayerState]]
-                                                                    forKeys:@[@"username", @"room_name", @"player_state"]];
+        NSDictionary * postDictionary = [NSDictionary dictionaryWithObjects:@[username, username]
+                                                                    forKeys:@[@"username", @"room_name"]];
         
         NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
         [static_socket emitObjc:@"create_room" withItems:@[jsonData]];
@@ -375,7 +385,7 @@ static NSTimer *login_timer;
 
 
 +(void) aroundMe:(NSString*)username withID:(id)sender{
-    
+    NSLog(@"Start of around me");
     [static_socket on: @"return_get_rooms_around_me" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
 		NSArray* locationsArray;
 		@try {
@@ -413,7 +423,6 @@ static NSTimer *login_timer;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         while(!static_socket.connected)
         {
-            //           NSLog(@"waiting to connect!");
             [NSThread sleepForTimeInterval:0.1f];
         }
 		
@@ -459,41 +468,28 @@ static NSTimer *login_timer;
     
 }
 
-+(void)leaveRoom
-{
-    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[[Room currentRoom].room_number, username] forKeys:@[@"room_number", @"username"]];
-    NSData *leaveJson = [NSJSONSerialization dataWithJSONObject:leaveDict options:nil error:nil];
-    [static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
-}
 
 +(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)user
 {
+	//set up variables to go in the dicts. These contain information about the CURRENT ROOM's state
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    NSArray * obj = @[new_room_number, username];
-    NSArray * ky = @[@"room_number", @"username"];
-    NSDictionary *joinDict  = [NSDictionary dictionaryWithObjects:obj forKeys:ky];
-    NSString *rn = [NSString stringWithFormat:@"%@",[Room currentRoom].room_number];
-    NSLog(@"From Room: %@", [Room currentRoom].room_number);
-    NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[rn, username] forKeys:ky];
-    NSData *joinJson = [NSJSONSerialization dataWithJSONObject:joinDict options:nil error:nil];
+	NSString *rn = [NSString stringWithFormat:@"%@",[Room currentRoom].room_number];
+	NSString *is_owner = [Room currentRoom].is_owner ? @"true" : @"false";
+	
+	
+	//set up the dictionaries
+    NSDictionary *joinDict  = [NSDictionary dictionaryWithObjects:@[new_room_number, username] forKeys:@[@"room_number", @"username"]];
+    NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[rn, username, is_owner] forKeys:@[@"room_number", @"username", @"is_owner"]];
+	
+	//serialize them
+	NSData *joinJson = [NSJSONSerialization dataWithJSONObject:joinDict options:nil error:nil];
     NSData *leaveJson = [NSJSONSerialization dataWithJSONObject:leaveDict options:nil error:nil];
-    NSLog(@"room number: %@ current Room: %@",new_room_number, [Room currentRoom].room_number);
-    if([new_room_number isEqualToString:[Room currentRoom].room_number])
-    {
-        return;
-    }else if([new_room_number isEqualToString:@"0"])
-    {
-        [static_socket emitObjc:@"join_room" withItems:@[joinJson]];
-    }else{
-        [static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
-        if([Room currentRoom].is_owner)
-        {
-            [Room currentRoom].is_owner = NO;
-            // query server and tell it I'm not the owner
-        }
-        [static_socket emitObjc:@"join_room" withItems:@[joinJson]];
-    }
+	
+	//send join and leave messages
+	[static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
+	[static_socket emitObjc:@"join_room" withItems:@[joinJson]];
+	
+	//update the currentRoom's state
     [Room currentRoom].room_number = new_room_number;
     [[Room currentRoom] makeNotOwner];
     [Room currentRoom].host_username = user;
@@ -567,6 +563,16 @@ static NSTimer *login_timer;
 	NSData * jsonData = [NSJSONSerialization dataWithJSONObject:postDictionary options:NSJSONReadingMutableContainers error:nil];
 	[static_socket emitObjc:@"get_chat_backlog" withItems:@[jsonData]];
 
+}
+
++(void)deleteSong:(NSInteger)indexToDelete
+{
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSString *room_number = [Room currentRoom].room_number;
+    NSString *index_to_delete = [NSString stringWithFormat:@"%i",indexToDelete ];
+    NSDictionary *postDict = [NSDictionary dictionaryWithObjects:@[username, room_number, index_to_delete] forKeys:@[@"username", @"room_number", @"index_to_delete"]];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:postDict options:NSJSONReadingMutableContainers error:nil];
+    [static_socket emitObjc:@"remove_song" withItems:@[jsonData]];
 }
 
 +(void) seek
