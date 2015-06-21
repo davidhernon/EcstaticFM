@@ -276,7 +276,7 @@ the delegate to Player for Player to communicate with a view controller
 - (void) joinPlayingRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing
 {
 	//if the player is empty or the playlist is empty, return
-	if((index == 0 && !is_playing) || [Playlist sharedPlaylist].playlist.count == 0)
+	if([Playlist sharedPlaylist].playlist.count == 0)
         return;
 	
 	//else sync the player
