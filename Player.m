@@ -278,8 +278,8 @@ the delegate to Player for Player to communicate with a view controller
     [_delegate redrawUI];
 }
 
-//Sets up the player
-- (void) joinPlayingRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing
+//Sets up the player (elapsed time is in milli)
+- (void) joinRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing
 {
 	//if the player is empty or the playlist is empty, return
 	if([Playlist sharedPlaylist].playlist.count == 0)
@@ -292,7 +292,12 @@ the delegate to Player for Player to communicate with a view controller
     [_delegate setCurrentSliderValue:_avPlayer];
     [self reloadUI];
     _user_joining_room = YES;
-    [self play];
+	if(is_playing){
+		[self play];
+	}
+	else{
+		[self pause];
+	}
 }
 
 -(BOOL)playerNotPlayingAudioOrCurrentUserJoiningRoom
