@@ -13,6 +13,7 @@
 
 static SocketIOClient *static_socket;
 static NSTimer *login_timer;
+static bool createRoomBool;
 
 +(NSString*)getWebsiteURL
 {
@@ -582,6 +583,14 @@ static NSTimer *login_timer;
 +(void) seek
 {
 	
+}
+
++(BOOL)getCreateRoomBool{
+	return createRoomBool;
+}
+
++(void)setCreateRoomBool:(BOOL)passedCreateRoomBool{
+	createRoomBool = passedCreateRoomBool;
 }
 
 @end

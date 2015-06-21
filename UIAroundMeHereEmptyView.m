@@ -48,6 +48,7 @@
 
 -(IBAction)buttonAction
 {
+	[SDSAPI setCreateRoomBool:true];
 	NSString *usr = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
 
 	//leave current room, and create a new room
