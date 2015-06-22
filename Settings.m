@@ -20,11 +20,12 @@
 - (IBAction)toggleLock:(id)sender {
 	if(_toggleLock.on){
 		[[Player sharedPlayer] setLock:true];
+		[SDSAPI realtimePlayer:@"lock"];
 	}
 	else{
 		[[Player sharedPlayer] setLock:false];
+		[SDSAPI realtimePlayer:@"unlock"];
 	}
-	[SDSAPI realtimePlayer:@"lock"];
 }
 
 - (IBAction)Logout:(id)sender {

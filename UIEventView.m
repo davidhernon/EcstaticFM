@@ -58,6 +58,8 @@
             
             self.room_number_label.text = time;
             _room_number = [NSString stringWithFormat:@"%@",[event objectForKey:@"id"]];
+			
+			self.hostname = [event objectForKey:@"host_username"];
         }
         return self;
 }
@@ -65,8 +67,8 @@
 -(IBAction)buttonAction
 {
     NSString *negative_room_number = [NSString stringWithFormat:@"%i",[self.room_number intValue] * (-1)];
-    [SDSAPI joinRoom:negative_room_number withUser:self.title.text];
-    
+	[SDSAPI joinRoom:negative_room_number withUser:self.hostname isEvent:true];
+	
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
     

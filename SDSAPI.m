@@ -330,10 +330,13 @@ static bool createRoomBool;
 		}else if([command isEqualToString:@"back"])
 		{
 			[[Player sharedPlayer] last];
-		}else if([command isEqualToString:@"lock"]){
-			[[Player sharedPlayer].delegate lockToggle];
-        }else{
-
+		}else if([command isEqualToString:@"lock"])
+		{
+			[[Player sharedPlayer].delegate lock];
+		}else if([command isEqualToString:@"unlock"])
+		{
+			[[Player sharedPlayer].delegate unlock];
+		}else{
             NSLog(@"unlogged command returned from server!!!!!");
         }
     }];
@@ -491,17 +494,18 @@ static bool createRoomBool;
 	[static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
 }
 
-+(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)user
++(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)user isEvent:(BOOL)isEvent
 {
 	[SDSAPI leaveRoom];
 	//set up variables to go in the dicts. These contain information about the CURRENT ROOM's state
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
 	NSString *rn = [NSString stringWithFormat:@"%@",[Room currentRoom].room_number];
 	NSString *is_owner = [Room currentRoom].is_owner ? @"true" : @"false";
+	NSString *is_event_string = isEvent ? @"true" : @"false";
 	
 	
 	//set up the dictionaries
-    NSDictionary *joinDict  = [NSDictionary dictionaryWithObjects:@[new_room_number, username] forKeys:@[@"room_number", @"username"]];
+    NSDictionary *joinDict  = [NSDictionary dictionaryWithObjects:@[new_room_number, username, is_event_string] forKeys:@[@"room_number", @"username", @"is_event"]];
 	
 	//serialize them
 	NSData *joinJson = [NSJSONSerialization dataWithJSONObject:joinDict options:nil error:nil];
