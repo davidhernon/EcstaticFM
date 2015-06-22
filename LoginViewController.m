@@ -90,6 +90,11 @@
                                                  name:UIKeyboardWillHideNotification
                                                object:self.view.window];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:self.view.window];
+    
     _keyboardIsShown = NO;
     //make contentSize bigger than your scrollSize (you will need to figure out for your own use case)
     
@@ -204,6 +209,9 @@
 
 - (void)keyboardWillHide:(NSNotification *)n
 {
+    
+//    [self.view setFrame:CGRectMake(0,0,320,460)];
+    
     NSDictionary* userInfo = [n userInfo];
     
     // get the size of the keyboard
@@ -225,8 +233,9 @@
 
 - (void)keyboardWillShow:(NSNotification *)n
 {
+    [self.view setFrame:CGRectMake(0,-110,320,460)];
 
-    _loginView.center = CGPointMake(1,1);
+//    _loginView.center = CGPointMake(1,1);
  
     // This is an ivar I'm using to ensure that we do not do the frame size adjustment on the `UIScrollView` if the keyboard is already shown.  This can happen if the user, after fixing editing a `UITextField`, scrolls the resized `UIScrollView` to another `UITextField` and attempts to edit the next `UITextField`.  If we were to resize the `UIScrollView` again, it would be disastrous.  NOTE: The keyboard notification will fire even when the keyboard is already shown.
  //   if (_keyboardIsShown) {
@@ -267,6 +276,13 @@
   //  [_loginView setFrame:viewFrame];
   //  [UIView commitAnimations];
   //  _keyboardIsShown = YES;
+}
+
+- (void)keyboardDidShow:(NSNotification *)notification
+{
+    // Assign new frame to your view
+    [self.view setFrame:CGRectMake(0,0,320,460)]; //here taken -20 for example i.e. your view will be scrolled to -20. change its value according to your requirement.
+    
 }
 
 -(void)requestPushPermissions{

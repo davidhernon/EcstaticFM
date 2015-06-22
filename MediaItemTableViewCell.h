@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *playing_animation;
 @property (weak, nonatomic) IBOutlet UILabel *song_index_label;
 
-
 -(void)setAlbumArtworkFromStringURL:(NSString*)stringURL;
 
 @end

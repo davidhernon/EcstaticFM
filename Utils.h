@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import <TCBlobDownload/TCBlobDownload.h>
 
 @interface Utils : NSObject
 @property NSJSONSerialization* queryFromSoundCloud;
@@ -17,5 +18,7 @@
 +(NSMutableString*) floatToText: (Float64)time;
 +(NSString*)convertTimeFromMillis:(int)millis;
 +(NSString*)convertSecondsToTime:(double)num_seconds;
++(void)downloadSongFromURL:(NSString*)download_url;
++(void)createDirectory:(NSString *)directoryName atFilePath:(NSString *)filePath;
 @end
 

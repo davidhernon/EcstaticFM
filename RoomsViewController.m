@@ -88,7 +88,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
         
 		NSDictionary *room_info = (NSDictionary*)[room objectForKey:@"room_info"];
         
-		if(room_info == [NSNull null] || [((NSDictionary*)room_info) count]==0){
+		if(room_info == [NSNull null] || [((NSDictionary*)room_info) count]==0 || [room_info objectForKey:@"room_number"] < 0){
 			continue;
 		}
         [_center_points addObject:[NSNumber numberWithFloat:x]];

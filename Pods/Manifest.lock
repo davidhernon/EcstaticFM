@@ -15,6 +15,7 @@ PODS:
   - NXOAuth2Client (1.2.1)
   - OHAttributedLabel (3.5.5)
   - SWTableViewCell (0.3.7)
+  - TCBlobDownload (2.1.1)
 
 DEPENDENCIES:
   - CocoaSoundCloudAPI (= 1.0.1)
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - GRUnit
   - Mixpanel
   - SWTableViewCell (~> 0.3.7)
+  - TCBlobDownload
 
 SPEC CHECKSUMS:
   CocoaSoundCloudAPI: e8e1f2e463fa9bb9d68b2dcf361572787c7a6c3f
@@ -32,5 +34,6 @@ SPEC CHECKSUMS:
   NXOAuth2Client: 4705ee7d3532c106e2758e2f10f4e9964b5aec68
   OHAttributedLabel: 9b2eb99323dee6b3a81ef3bc8e98b084117bca2d
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
+  TCBlobDownload: 8726f054cc00bb5f66a57bb0c99764842dfa5c9f
 
 COCOAPODS: 0.37.2
