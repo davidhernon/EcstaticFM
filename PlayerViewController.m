@@ -126,11 +126,6 @@ static NSString* cellIdentifier = @"playListCell";
 		_add_songs.enabled = NO;
 	}
 	
-	//if you are not the room owner then you cannot toggle the room lock
-	if(![Room currentRoom].is_owner){
-		_lock.hidden = YES;
-	}
-	
     //If no playlist then make buttons hidden
     if([_playlist count] == 0)
     {
@@ -438,13 +433,8 @@ static NSString* cellIdentifier = @"playListCell";
     }
 }
 
-- (IBAction)lockAction:(id)sender {
-	[self lockToggle];
-}
 -(void)lockToggle{
-	NSLog(@"%u", _lock.on);
-	if(_lock.on){
-		[_lock setOn:YES];
+	if(![Player sharedPlayer].player_is_locked){
 		[[Player sharedPlayer] setLock:YES];
 		
 		//if you don't own the room, then the lock affects whether you can use the controls
@@ -454,7 +444,6 @@ static NSString* cellIdentifier = @"playListCell";
 		}
 	}
 	else{
-		[_lock setOn:NO];
 		[[Player sharedPlayer] setLock:NO];
 		if(![Room currentRoom].is_owner){
 			_playerShowControlsButton.enabled = YES;

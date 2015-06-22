@@ -540,6 +540,9 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                     </view>
                     <navigationItem key="navigationItem" id="2co-nc-x8P"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="toggleLock" destination="s5m-u4-P4W" id="Hc0-3q-tdo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oa2-hf-52B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1767,23 +1770,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="20z-45-eEI" userLabel="controlsDarkenView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="490"/>
-                                <subviews>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" onImage="button_locked.png" offImage="button_unlocked.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Fr-Bi-MO2">
-                                        <rect key="frame" x="265" y="20" width="51" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="49" id="kHu-fJ-cMG"/>
-                                            <constraint firstAttribute="height" constant="31" id="uYk-sI-xuZ"/>
-                                        </constraints>
-                                        <connections>
-                                            <action selector="lockAction:" destination="XgF-Cq-hZq" eventType="valueChanged" id="24h-yL-tkd"/>
-                                        </connections>
-                                    </switch>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="2Fr-Bi-MO2" secondAttribute="trailing" constant="6" id="VxQ-bd-O93"/>
-                                    <constraint firstItem="2Fr-Bi-MO2" firstAttribute="top" secondItem="20z-45-eEI" secondAttribute="top" constant="20" id="mrQ-W7-knc"/>
-                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="spO-Y5-nH4" userLabel="controlsView">
                                 <rect key="frame" x="31" y="98" width="258" height="83"/>
@@ -1925,7 +1912,6 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                         <outlet property="current_time" destination="HOQ-tI-VMR" id="ARJ-iG-kcm"/>
                         <outlet property="current_track_title" destination="Tf3-bn-nva" id="gR3-ho-YF3"/>
                         <outlet property="last" destination="koU-o0-AIH" id="BDb-8r-MAL"/>
-                        <outlet property="lock" destination="2Fr-Bi-MO2" id="iwE-uf-mTa"/>
                         <outlet property="next" destination="eQi-L5-ahx" id="KbW-RK-D62"/>
                         <outlet property="play" destination="gnl-oJ-0Zd" id="Oix-Te-KKR"/>
                         <outlet property="playListTableView" destination="fim-yG-u2G" id="goh-MD-M0Z"/>
@@ -8894,7 +8880,6 @@ Cg
         <image name="button_gear2.png" width="80" height="80"/>
         <image name="button_hearts.png" width="91" height="92"/>
         <image name="button_letsconnect.png" width="240" height="76"/>
-        <image name="button_locked.png" width="31" height="42"/>
         <image name="button_login.png" width="198" height="76"/>
         <image name="button_mixes.png" width="91" height="92"/>
         <image name="button_nextnew.png" width="93" height="92"/>
@@ -8906,7 +8891,6 @@ Cg
         <image name="button_search2.png" width="92" height="92"/>
         <image name="button_signup-color.png" width="398" height="152"/>
         <image name="button_signup.png" width="199" height="76"/>
-        <image name="button_unlocked.png" width="62" height="84"/>
         <image name="icon-key-dark.png" width="58" height="34"/>
         <image name="icon-key.png" width="56" height="34"/>
         <image name="icon_back2.png" width="23" height="40"/>
@@ -8932,5 +8916,6 @@ Cg
         <segue reference="uzf-N5-Chd"/>
         <segue reference="kOh-mr-y7x"/>
         <segue reference="PKD-dy-8Rj"/>
+        <segue reference="uzf-N5-Chd"/>
     </inferredMetricsTieBreakers>
 </document>

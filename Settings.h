@@ -13,5 +13,6 @@
 
 - (IBAction)Logout:(id)sender;
 - (IBAction)changeSettings:(id)sender;
+@property (strong, nonatomic) IBOutlet UISwitch *toggleLock;
 
 @end
