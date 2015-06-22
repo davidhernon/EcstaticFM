@@ -282,8 +282,8 @@ static bool createRoomBool;
         NSNumber *server_timestamp = (NSNumber*)[player_state objectForKey:@"timestamp"];
         int song_index = [[player_state objectForKey:@"playing_song_index"] intValue];
         int is_playing = [[player_state objectForKey:@"is_playing"] intValue];
-        BOOL playing = is_playing;
-        BOOL isLocked = [[player_state objectForKey:@"is_locked"] intValue];
+		BOOL playing = is_playing;
+		BOOL isLocked = [[player_state objectForKey:@"is_locked"] intValue];
 		
 		//convert into floats
 		float ctfs = [current_time_from_server longValue];
