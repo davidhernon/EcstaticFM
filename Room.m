@@ -65,6 +65,10 @@ static Room *currentRoom = nil;
     currentRoom.room_number = [room_info objectForKey:@"room_number"];
     currentRoom.host_username = [room_info objectForKey:@"host_username"];
     currentRoom.other_listeners = [room_info objectForKey:@"number_of_users"];
+	NSString* usr = [[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
+	if([usr isEqualToString:currentRoom.host_username]){
+		[self makeOwner];
+	}
     NSLog(@"room number: %@", currentRoom.room_number);
 }
 

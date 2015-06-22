@@ -268,7 +268,7 @@ the delegate to Player for Player to communicate with a view controller
 	if(isLocked && ![username isEqual:[Room currentRoom].host_username]){
 		[_delegate lock];
 	}
-	
+
 	//if the player is empty or the playlist is empty, return
 	if([Playlist sharedPlaylist].playlist.count == 0)
         return;
