@@ -135,6 +135,12 @@ the delegate to Player for Player to communicate with a view controller
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioPlayerDidFinishPlaying) name:AVPlayerItemDidPlayToEndTimeNotification object:[_avPlayer currentItem]];
     [_avPlayer play];
     [self updatePlayerStateAndUIWithNewSong];
+	
+	//if you just created the room
+	if([SDSAPI getCreateRoomBool]){
+		[SDSAPI setCreateRoomBool:false];
+		[SDSAPI realtimePlayer:@"play"];
+	}
 }
 
 /**
@@ -263,7 +269,12 @@ the delegate to Player for Player to communicate with a view controller
     [_delegate setCurrentSliderValue:_avPlayer];
     [self reloadUI];
     _user_joining_room = YES;
-    [self play];
+	if(is_playing){
+		[self play];
+	}
+	else{
+		[self pause];
+	}
 }
 
 -(BOOL)playerNotPlayingAudioOrCurrentUserJoiningRoom

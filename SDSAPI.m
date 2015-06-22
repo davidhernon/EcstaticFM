@@ -13,6 +13,7 @@
 
 static SocketIOClient *static_socket;
 static NSTimer *login_timer;
+static bool createRoomBool;
 
 +(NSString*)getWebsiteURL
 {
@@ -271,7 +272,7 @@ static NSTimer *login_timer;
         
         if(player_state == NULL || player_state == (id)[NSNull null] )
         {
-            [[Player sharedPlayer] joinPlayingRoom:0 withElapsedTime:0.0f andIsPlaying:0];
+            [[Player sharedPlayer] joinRoom:0 withElapsedTime:0.0f andIsPlaying:0];
             return;
         }
         
@@ -578,6 +579,14 @@ static NSTimer *login_timer;
 +(void) seek
 {
 	
+}
+
++(BOOL)getCreateRoomBool{
+	return createRoomBool;
+}
+
++(void)setCreateRoomBool:(BOOL)passedCreateRoomBool{
+	createRoomBool = passedCreateRoomBool;
 }
 
 @end

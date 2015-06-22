@@ -48,6 +48,7 @@
 
 -(IBAction)buttonAction
 {
+	[SDSAPI setCreateRoomBool:true];
 	NSString *usr = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
 
 	//if the playlist is empty, and you are the owner of the room,

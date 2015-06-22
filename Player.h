@@ -40,7 +40,7 @@
 -(void)seek:(float)value;
 -(BOOL)isPlaying;
 -(void) reloadUI;
-- (void) joinPlayingRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing;
+- (void) joinRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing;
 -(void)setLock:(BOOL)player_is_locked;
 -(void) deleteSongWithDict:(NSDictionary*)remove_song_dict;
 
