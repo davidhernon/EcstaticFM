@@ -505,9 +505,13 @@ static NSArray* eventDictionary;
 	
 	//update the currentRoom's state
     [Room currentRoom].room_number = new_room_number;
+	
+	//loop through all the events
 	for(NSDictionary* e in eventDictionary){
-		long val =  (long)-[new_room_number intValue];
-		if([[e objectForKey:@"id"] longValue] == val){
+		
+		//if the room you're entering is the event
+		if([[e objectForKey:@"id"] longValue] == (long)-[new_room_number intValue]){
+			NSString* link = [e objectForKey:@"soundcloudLink"];
 			[Room currentRoom].host_username = [e objectForKey:@"host_username"];
 			break;
 		}
