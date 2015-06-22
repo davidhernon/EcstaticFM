@@ -362,6 +362,11 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     [SoundCloudAPI getFavorites:self];
 }
 
+-(IBAction)getSDSEventTracks
+{
+    [SoundCloudAPI getSDSPlaylistsFromSoundCloud:self];
+}
+
 /*
 #pragma mark - Navigation
 

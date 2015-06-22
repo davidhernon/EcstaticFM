@@ -175,4 +175,33 @@
     }];
 }
 
++(void)getSDSPlaylistsFromSoundCloud:(soundCloudMediaPickerViewController*)sender
+{
+    sender.soundCloudAlbumImages = [[NSMutableArray alloc] init];
+    sender.tracksFromSoundCloud = [[NSArray alloc] init];
+    [sender getAlbumImageArray];
+    [sender.soundCloudResultsTableView reloadData];
+    
+    
+    [SCRequest performMethod:SCRequestMethodGET onResource:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.soundcloud.com/users/silentdiscosquad/tracks"]] usingParameters:nil withAccount:[SCSoundCloud account] sendingProgressHandler:nil responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        NSError *jsonError;
+        NSJSONSerialization *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        
+        if (!jsonError && [jsonResponse isKindOfClass:[NSArray class]]) {
+            
+            [sender addSoundCloudFavorites:((NSArray*)jsonResponse)];
+            // reload table data?
+            [sender.soundCloudResultsTableView reloadData];
+            [sender getAlbumImageArray];
+        }
+        else {
+            
+            NSLog(@"%@", error.localizedDescription);
+            
+        }
+    }];
+//  pi.soundcloud.com/users/silentdiscosquad/tracks.json?client_id=230ccb26b40f7c87eb65fc03357ffa81
+}
+
 @end

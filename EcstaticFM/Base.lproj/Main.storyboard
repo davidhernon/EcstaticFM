@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bOe-aM-vI5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bOe-aM-vI5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -204,7 +204,7 @@ share your location?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boa-Xy-f7L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1991" y="519"/>
+            <point key="canvasLocation" x="2127" y="471"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Uhc-25-gue">
@@ -546,7 +546,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oa2-hf-52B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1419" y="856"/>
+            <point key="canvasLocation" x="1459" y="640"/>
         </scene>
         <!--Rooms View Controller-->
         <scene sceneID="ldK-YC-Z4E">
@@ -701,7 +701,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2369" y="972"/>
+            <point key="canvasLocation" x="2505" y="1252"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="ZMr-LE-qiT">
@@ -1838,6 +1838,15 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                     <action selector="playerControlsUnClicked:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="VNE-Gb-C8B"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iib-vT-nmd">
+                                <rect key="frame" x="111" y="221" width="98" height="30"/>
+                                <state key="normal" title="Download Mix">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="downloadMix:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="NtB-eT-i6E"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -1918,7 +1927,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJn-H3-nVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="1T9-Qu-JEF"/>
             </objects>
-            <point key="canvasLocation" x="2998" y="845"/>
+            <point key="canvasLocation" x="3054" y="613"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="yiU-pE-MiS">
@@ -2100,7 +2109,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TYt-f5-Oqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="S0C-vz-uLu"/>
             </objects>
-            <point key="canvasLocation" x="1624" y="1871"/>
+            <point key="canvasLocation" x="1088" y="2068"/>
         </scene>
         <!--Media Page View Controller-->
         <scene sceneID="4i4-y3-gba">
@@ -2108,7 +2117,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                 <pageViewController storyboardIdentifier="mediaPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="kbI-5f-GDn" customClass="MediaPageViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPV-7f-eXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2968" y="1678"/>
+            <point key="canvasLocation" x="3096" y="1966"/>
         </scene>
         <!--Sound Cloud Media Picker View Controller-->
         <scene sceneID="9K1-1D-fzc">
@@ -2126,6 +2135,12 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lM4-Tm-3Za">
+                                <rect key="frame" x="10" y="10" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xrs-Mp-Oas">
                                 <rect key="frame" x="1" y="0.0" width="319" height="131"/>
                                 <subviews>
@@ -2208,6 +2223,15 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                         </state>
                                         <connections>
                                             <action selector="showSearchSoundCloudUI:" destination="NW7-8C-V9l" eventType="touchUpInside" id="3nS-kF-Gfx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwW-3p-JaB">
+                                        <rect key="frame" x="0.0" y="80" width="46" height="30"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="getSDSEventTracks" destination="NW7-8C-V9l" eventType="touchUpInside" id="P0S-Ax-FL0"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -8890,6 +8914,8 @@ Cg
         <segue reference="gtF-V1-9Ji"/>
         <segue reference="sP4-bK-WLP"/>
         <segue reference="LHV-l3-vdI"/>
+        <segue reference="uzf-N5-Chd"/>
+        <segue reference="kOh-mr-y7x"/>
         <segue reference="PKD-dy-8Rj"/>
         <segue reference="uzf-N5-Chd"/>
     </inferredMetricsTieBreakers>

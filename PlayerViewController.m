@@ -508,6 +508,16 @@ static NSString* cellIdentifier = @"playListCell";
     [_playListTableView reloadData];
 }
 
+- (IBAction)downloadMix:(id)sender {
+    for( MediaItem *track in [Playlist sharedPlaylist].playlist )
+    {
+        if (track.is_event_mix)
+        {
+            [Utils downloadSongFromURL:track.download_url];
+        }
+    }
+}
+
 @end
 
 
