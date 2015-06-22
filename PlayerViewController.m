@@ -124,6 +124,7 @@ static NSString* cellIdentifier = @"playListCell";
 	if(_player.player_is_locked && ![Room currentRoom].is_owner){
 		_playerShowControlsButton.enabled = NO;
 		_add_songs.enabled = NO;
+		_add_songs.alpha = 0;
 	}
 	
     //If no playlist then make buttons hidden
@@ -441,6 +442,7 @@ static NSString* cellIdentifier = @"playListCell";
 		if(![Room currentRoom].is_owner){
 			_playerShowControlsButton.enabled = NO;
 			_add_songs.enabled = NO;
+			_add_songs.alpha = 0;
 		}
 	}
 	else{
@@ -448,6 +450,7 @@ static NSString* cellIdentifier = @"playListCell";
 		if(![Room currentRoom].is_owner){
 			_playerShowControlsButton.enabled = YES;
 			_add_songs.enabled = YES;
+			_add_songs.alpha = 1;
 		}
 	}
 }
