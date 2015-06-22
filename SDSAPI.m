@@ -272,7 +272,7 @@ static bool createRoomBool;
         
         if(player_state == NULL || player_state == (id)[NSNull null] )
         {
-            [[Player sharedPlayer] joinRoom:0 withElapsedTime:0.0f andIsPlaying:0];
+			[[Player sharedPlayer] joinRoom:0 withElapsedTime:0.0f andIsPlaying:0 isLocked:false];
             return;
         }
         
@@ -286,11 +286,11 @@ static bool createRoomBool;
         BOOL isLocked = [[player_state objectForKey:@"is_locked"] intValue];
 		
 		//convert into floats
-
 		float ctfs = [current_time_from_server longValue];
 		float st = [server_timestamp longValue];
 		float et = [elapsed_time intValue];
 		float el;
+		
 		//if it was paused while player_state sitting on server
 		if(is_playing == 0){
 			el = (float)(1000.0f*et);
@@ -302,7 +302,7 @@ static bool createRoomBool;
 		}
 		
 		//joinPlayingRoom call
-        [[Player sharedPlayer] joinRoom:song_index withElapsedTime:el andIsPlaying:playing ];
+		[[Player sharedPlayer] joinRoom:song_index withElapsedTime:el andIsPlaying:playing isLocked:isLocked];
     }];
     
     [static_socket on:@"realtime_player" callback:^(NSArray * data, void (^ack) (NSArray*)){
