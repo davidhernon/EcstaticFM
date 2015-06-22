@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bOe-aM-vI5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bOe-aM-vI5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -1709,11 +1709,24 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAh-Xy-nYN">
-                                <rect key="frame" x="110" y="422" width="100" height="42"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAh-Xy-nYN" userLabel="action button">
+                                <rect key="frame" x="80" y="422" width="160" height="42"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iib-vT-nmd" userLabel="Download the mix">
+                                        <rect key="frame" x="0.0" y="-1" width="160" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Pym-PX-tj4"/>
+                                            <constraint firstAttribute="width" constant="160" id="U31-Ly-CBk"/>
+                                        </constraints>
+                                        <state key="normal" image="button_playlist_downloadmix.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="downloadMix:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="NtB-eT-i6E"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyU-zZ-L2E">
-                                        <rect key="frame" x="0.0" y="0.0" width="99" height="44"/>
+                                        <rect key="frame" x="30" y="0.0" width="99" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="99" id="CGy-v8-50V"/>
                                             <constraint firstAttribute="height" constant="44" id="ma8-19-zhp"/>
@@ -1729,8 +1742,10 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="KyU-zZ-L2E" secondAttribute="centerX" constant="0.5" id="3Cr-EZ-vbA"/>
-                                    <constraint firstAttribute="width" constant="100" id="P0T-vy-dea"/>
+                                    <constraint firstAttribute="width" constant="160" id="P0T-vy-dea"/>
+                                    <constraint firstAttribute="centerY" secondItem="Iib-vT-nmd" secondAttribute="centerY" id="Qrb-78-QyQ"/>
                                     <constraint firstAttribute="height" constant="42" id="i8j-Tp-gme"/>
+                                    <constraint firstAttribute="centerX" secondItem="Iib-vT-nmd" secondAttribute="centerX" id="rXQ-1H-SzT"/>
                                     <constraint firstAttribute="bottom" secondItem="KyU-zZ-L2E" secondAttribute="bottom" constant="-2" id="wUF-JO-XeK"/>
                                 </constraints>
                             </view>
@@ -1773,7 +1788,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                 <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="spO-Y5-nH4" userLabel="controlsView">
-                                <rect key="frame" x="31" y="98" width="258" height="83"/>
+                                <rect key="frame" x="31" y="112" width="258" height="83"/>
                                 <subviews>
                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQi-L5-ahx">
                                         <rect key="frame" x="201" y="19" width="44" height="44"/>
@@ -1838,19 +1853,11 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                     <action selector="playerControlsUnClicked:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="VNE-Gb-C8B"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iib-vT-nmd">
-                                <rect key="frame" x="111" y="221" width="98" height="30"/>
-                                <state key="normal" title="Download Mix">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="downloadMix:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="NtB-eT-i6E"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="spO-Y5-nH4" firstAttribute="centerY" secondItem="S8f-jV-zzm" secondAttribute="centerY" id="2Sa-n0-Tin"/>
                             <constraint firstAttribute="width" secondItem="R3T-7p-fco" secondAttribute="width" id="5d1-MQ-GSX"/>
                             <constraint firstItem="mRb-We-BcF" firstAttribute="top" secondItem="wmN-M4-6bb" secondAttribute="bottom" constant="-20" id="70T-kJ-pTc"/>
                             <constraint firstItem="geq-y6-kl4" firstAttribute="centerY" secondItem="ebX-Vz-7hn" secondAttribute="centerY" constant="0.5" id="AKm-2N-SjT"/>
@@ -1880,6 +1887,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                             <constraint firstItem="NBC-Dr-TUB" firstAttribute="width" secondItem="bvh-Wc-xs5" secondAttribute="width" id="j4Q-XE-tXD"/>
                             <constraint firstItem="wbf-gp-DuR" firstAttribute="top" secondItem="wmN-M4-6bb" secondAttribute="bottom" constant="-20" id="oYy-rd-GYd"/>
                             <constraint firstItem="KyU-zZ-L2E" firstAttribute="centerX" secondItem="NBC-Dr-TUB" secondAttribute="centerX" id="tmF-qF-C1x"/>
+                            <constraint firstItem="spO-Y5-nH4" firstAttribute="centerY" secondItem="QqP-t6-IKZ" secondAttribute="centerY" id="wHc-Rw-ibL"/>
                             <constraint firstItem="NBC-Dr-TUB" firstAttribute="width" secondItem="bvh-Wc-xs5" secondAttribute="width" id="xKf-nG-9hh"/>
                             <constraint firstItem="mRb-We-BcF" firstAttribute="bottom" secondItem="w8p-jS-ofe" secondAttribute="bottom" constant="-15" id="xjt-N5-A3D"/>
                             <constraint firstItem="20z-45-eEI" firstAttribute="width" secondItem="bvh-Wc-xs5" secondAttribute="width" id="zMP-YQ-HLC"/>
@@ -1890,6 +1898,8 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                             <mask key="constraints">
                                 <exclude reference="xKf-nG-9hh"/>
                                 <exclude reference="f4H-DF-c8V"/>
+                                <exclude reference="dWb-5P-WKG"/>
+                                <exclude reference="wHc-Rw-ibL"/>
                                 <exclude reference="brr-Ai-9Rj"/>
                                 <exclude reference="tmF-qF-C1x"/>
                             </mask>
@@ -2135,12 +2145,6 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lM4-Tm-3Za">
-                                <rect key="frame" x="10" y="10" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xrs-Mp-Oas">
                                 <rect key="frame" x="1" y="0.0" width="319" height="131"/>
                                 <subviews>
@@ -2154,16 +2158,6 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8N3-Ey-j7b">
-                                        <rect key="frame" x="137" y="52" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="Mw6-nO-Rtg"/>
-                                            <constraint firstAttribute="width" constant="44" id="YPA-GA-fF7"/>
-                                        </constraints>
-                                        <state key="normal" image="button_mixes.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MIXES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7oq-po-wxQ">
                                         <rect key="frame" x="138" y="101" width="42" height="21"/>
                                         <constraints>
@@ -2174,6 +2168,19 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwW-3p-JaB" userLabel="mixesButton">
+                                        <rect key="frame" x="137" y="52" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="9ce-UQ-VQd"/>
+                                            <constraint firstAttribute="width" constant="44" id="OZQ-hm-FKn"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="button_mixes.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="getSDSEventTracks" destination="NW7-8C-V9l" eventType="touchUpInside" id="P0S-Ax-FL0"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEARCH" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyI-sQ-vrv">
                                         <rect key="frame" x="228" y="101" width="56" height="21"/>
                                         <constraints>
@@ -2199,7 +2206,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                             </mask>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXO-dD-ddA">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXO-dD-ddA" userLabel="likesButton">
                                         <rect key="frame" x="42" y="52" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="0rW-hv-3C6"/>
@@ -2212,7 +2219,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                             <action selector="getFaves" destination="NW7-8C-V9l" eventType="touchUpInside" id="8LZ-sV-e0b"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkB-dN-JlD">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkB-dN-JlD" userLabel="searchButton">
                                         <rect key="frame" x="233" y="52" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="QXI-im-4kd"/>
@@ -2225,41 +2232,30 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                             <action selector="showSearchSoundCloudUI:" destination="NW7-8C-V9l" eventType="touchUpInside" id="3nS-kF-Gfx"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwW-3p-JaB">
-                                        <rect key="frame" x="0.0" y="80" width="46" height="30"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="getSDSEventTracks" destination="NW7-8C-V9l" eventType="touchUpInside" id="P0S-Ax-FL0"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.23000000000000001" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="rwW-3p-JaB" firstAttribute="centerX" secondItem="7oq-po-wxQ" secondAttribute="centerX" id="1zL-mE-A5J"/>
+                                    <constraint firstItem="uXO-dD-ddA" firstAttribute="centerY" secondItem="rwW-3p-JaB" secondAttribute="centerY" id="23F-6f-2Oy"/>
                                     <constraint firstAttribute="centerX" secondItem="cx6-nP-yj2" secondAttribute="centerX" id="28O-w3-gmj"/>
-                                    <constraint firstAttribute="centerX" secondItem="8N3-Ey-j7b" secondAttribute="centerX" constant="0.5" id="3Xi-d3-Bzm"/>
                                     <constraint firstItem="cx6-nP-yj2" firstAttribute="top" secondItem="xrs-Mp-Oas" secondAttribute="top" constant="11" id="9Jv-MP-4XA"/>
+                                    <constraint firstItem="nkB-dN-JlD" firstAttribute="trailing" secondItem="rwW-3p-JaB" secondAttribute="trailing" constant="96" id="BQr-W4-ACn"/>
                                     <constraint firstItem="cx6-nP-yj2" firstAttribute="top" secondItem="xrs-Mp-Oas" secondAttribute="top" constant="11" id="Imc-qK-p6R"/>
-                                    <constraint firstItem="8N3-Ey-j7b" firstAttribute="top" secondItem="7oq-po-wxQ" secondAttribute="top" constant="-49" id="Ivp-uh-9bd"/>
-                                    <constraint firstItem="nkB-dN-JlD" firstAttribute="centerY" secondItem="8N3-Ey-j7b" secondAttribute="centerY" id="KiO-A8-qdS"/>
-                                    <constraint firstItem="uXO-dD-ddA" firstAttribute="leading" secondItem="8N3-Ey-j7b" secondAttribute="leading" constant="-95" id="Knb-Qr-RC7"/>
-                                    <constraint firstItem="8N3-Ey-j7b" firstAttribute="top" secondItem="xrs-Mp-Oas" secondAttribute="top" constant="52" id="M6N-M5-hl0"/>
+                                    <constraint firstItem="uXO-dD-ddA" firstAttribute="leading" secondItem="rwW-3p-JaB" secondAttribute="leading" constant="-95" id="LJm-C2-ncg"/>
                                     <constraint firstAttribute="height" constant="131" id="QVb-jc-mxD"/>
                                     <constraint firstItem="UyI-sQ-vrv" firstAttribute="centerX" secondItem="nkB-dN-JlD" secondAttribute="centerX" constant="1" id="Sef-Ys-KLo"/>
                                     <constraint firstItem="uXO-dD-ddA" firstAttribute="centerX" secondItem="FgQ-6V-OZq" secondAttribute="centerX" constant="-7" id="Sjv-aY-FWZ"/>
-                                    <constraint firstItem="uXO-dD-ddA" firstAttribute="centerY" secondItem="8N3-Ey-j7b" secondAttribute="centerY" id="YWt-fw-1n0"/>
+                                    <constraint firstAttribute="centerX" secondItem="rwW-3p-JaB" secondAttribute="centerX" constant="0.5" id="Vdr-sM-My7"/>
+                                    <constraint firstItem="rwW-3p-JaB" firstAttribute="top" secondItem="xrs-Mp-Oas" secondAttribute="top" constant="52" id="ZQB-3O-aMr"/>
                                     <constraint firstItem="7oq-po-wxQ" firstAttribute="centerY" secondItem="FgQ-6V-OZq" secondAttribute="centerY" id="dS5-JU-S76"/>
                                     <constraint firstAttribute="width" secondItem="cx6-nP-yj2" secondAttribute="width" id="iGo-4p-G1n"/>
-                                    <constraint firstItem="nkB-dN-JlD" firstAttribute="trailing" secondItem="8N3-Ey-j7b" secondAttribute="trailing" constant="96" id="ke1-2Y-e0h"/>
-                                    <constraint firstItem="8N3-Ey-j7b" firstAttribute="centerX" secondItem="7oq-po-wxQ" secondAttribute="centerX" id="qTN-Zl-1Ez"/>
-                                    <constraint firstItem="8N3-Ey-j7b" firstAttribute="top" secondItem="xrs-Mp-Oas" secondAttribute="top" constant="52" id="sDk-Vt-wx6"/>
+                                    <constraint firstItem="nkB-dN-JlD" firstAttribute="centerY" secondItem="rwW-3p-JaB" secondAttribute="centerY" id="tmE-IT-fWk"/>
+                                    <constraint firstItem="rwW-3p-JaB" firstAttribute="bottom" secondItem="7oq-po-wxQ" secondAttribute="bottom" constant="-26" id="wVh-hm-1Ty"/>
                                     <constraint firstItem="UyI-sQ-vrv" firstAttribute="centerY" secondItem="7oq-po-wxQ" secondAttribute="centerY" id="whI-7O-KRf"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Imc-qK-p6R"/>
-                                        <exclude reference="M6N-M5-hl0"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -8886,6 +8882,7 @@ Cg
         <image name="button_notyet.png" width="240" height="76"/>
         <image name="button_options.png" width="90" height="24"/>
         <image name="button_pausenew.png" width="132" height="132"/>
+        <image name="button_playlist_downloadmix.png" width="786" height="208"/>
         <image name="button_pluspink.png" width="168" height="168"/>
         <image name="button_previousnew.png" width="93" height="92"/>
         <image name="button_search2.png" width="92" height="92"/>
@@ -8911,12 +8908,10 @@ Cg
         <image name="spinner-16.png" width="302" height="302"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gtF-V1-9Ji"/>
-        <segue reference="sP4-bK-WLP"/>
-        <segue reference="LHV-l3-vdI"/>
-        <segue reference="uzf-N5-Chd"/>
         <segue reference="kOh-mr-y7x"/>
-        <segue reference="PKD-dy-8Rj"/>
         <segue reference="uzf-N5-Chd"/>
+        <segue reference="LHV-l3-vdI"/>
+        <segue reference="sP4-bK-WLP"/>
+        <segue reference="PKD-dy-8Rj"/>
     </inferredMetricsTieBreakers>
 </document>
