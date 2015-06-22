@@ -27,6 +27,8 @@
 @property UIImage* waveform;
 @property UIImage* playing_animation;
 @property NSString* room_number;
+@property NSString *download_url;
+@property BOOL is_event_mix;
 
 @property NSString* username;
 

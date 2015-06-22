@@ -126,6 +126,52 @@
     return ret;
 }
 
++(void)downloadSongFromURL:(NSString*)download_url
+{
+    NSString *parsed_download_url = [download_url stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
+    parsed_download_url = [parsed_download_url stringByReplacingOccurrencesOfString:@":" withString:@"-"];
+    parsed_download_url = [parsed_download_url stringByReplacingOccurrencesOfString:@"?" withString:@"-"];
+    parsed_download_url = [parsed_download_url stringByReplacingOccurrencesOfString:@"." withString:@"-"];
+    
+    NSString *pathtoDL = [NSString pathWithComponents:@[NSTemporaryDirectory(), @"someDirectory"]];
+
+    
+    TCBlobDownloadManager *sharedManager = [TCBlobDownloadManager sharedInstance];
+
+    TCBlobDownloader *downloader = [sharedManager startDownloadWithURL:[NSURL URLWithString:download_url ]
+                                                            customPath:@"someDirectory"
+                                                         firstResponse:^(NSURLResponse *response) {
+                                                             NSLog(@"anything!");
+                                                         }
+                                                              progress:^(uint64_t receivedLength, uint64_t totalLength, NSInteger remainingTime, float progress) {
+                                                                  // downloader.remainingTime
+                                                                  // downloader.speedRate
+                                                                  NSLog(@"getting data");
+                                                              }
+                                                                 error:^(NSError *error) {
+                                                                     NSLog(@"was there error?: %@", error.description);
+                                                                 }
+                                                              complete:^(BOOL downloadFinished, NSString *pathToFile) {
+                                                                  NSLog(@"Done with file path %@", pathToFile);
+                                                                  [[NSUserDefaults standardUserDefaults] setObject:pathToFile forKey:@"event_file_path"];
+                                                                  // Change teh UI in player view controller when the mix is finished downloading
+                                                              }];
+    [downloader start];
+}
+
++(void)createDirectory:(NSString *)directoryName atFilePath:(NSString *)filePath
+{
+    NSString *filePathAndDirectory = [filePath stringByAppendingPathComponent:directoryName];
+    NSError *error;
+    
+    if (![[NSFileManager defaultManager] createDirectoryAtPath:filePathAndDirectory
+                                   withIntermediateDirectories:NO
+                                                    attributes:nil
+                                                         error:&error])
+    {
+        NSLog(@"Create directory error: %@", error);
+    }
+}
 
 
 @end

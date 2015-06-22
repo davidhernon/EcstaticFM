@@ -39,6 +39,7 @@
 		1C47EF501B222D5A008D5DDD /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C47EF4F1B222D5A008D5DDD /* MessageTableViewCell.m */; };
 		1C4861E61A7AB75C004EFEAD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428A91A799CE9001DB0AD /* Info.plist */; };
 		1C4861E71A7AB75C004EFEAD /* main.m in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
+		1C4D79761B3874B40020101E /* DownloadHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D79751B3874B40020101E /* DownloadHelper.m */; };
 		1C5BABCE1B24B084003B96B8 /* SoundCloudSearchview.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BABCD1B24B084003B96B8 /* SoundCloudSearchview.m */; };
 		1C6D62E21B16535C00F0EC27 /* UIRoomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D62E11B16535C00F0EC27 /* UIRoomScrollView.m */; };
 		1C6D62E51B1A223D00F0EC27 /* UIEventView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D62E41B1A223D00F0EC27 /* UIEventView.m */; };
@@ -293,6 +294,8 @@
 		1C47EF491B222991008D5DDD /* OtherUserMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherUserMessageView.xib; sourceTree = "<group>"; };
 		1C47EF4E1B222D5A008D5DDD /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		1C47EF4F1B222D5A008D5DDD /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
+		1C4D79741B3874B40020101E /* DownloadHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadHelper.h; sourceTree = "<group>"; };
+		1C4D79751B3874B40020101E /* DownloadHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadHelper.m; sourceTree = "<group>"; };
 		1C5BABCC1B24B084003B96B8 /* SoundCloudSearchview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundCloudSearchview.h; sourceTree = "<group>"; };
 		1C5BABCD1B24B084003B96B8 /* SoundCloudSearchview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundCloudSearchview.m; sourceTree = "<group>"; };
 		1C6D62E01B16535C00F0EC27 /* UIRoomScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRoomScrollView.h; sourceTree = "<group>"; };
@@ -732,6 +735,8 @@
 				1CB9BB2A1AA2428200748236 /* Player */,
 				1C2838021A955F8D006F10EC /* Utils.h */,
 				1C2838031A955F8D006F10EC /* Utils.m */,
+				1C4D79741B3874B40020101E /* DownloadHelper.h */,
+				1C4D79751B3874B40020101E /* DownloadHelper.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -1432,6 +1437,7 @@
 				1C6D62E81B1A225100F0EC27 /* UIAroundMeView.m in Sources */,
 				DE14B9E51AFFB12B004470C7 /* MediaPageViewController.m in Sources */,
 				1C7E49D11AB33A48005BB999 /* soundCloudMediaPickerViewController.m in Sources */,
+				1C4D79761B3874B40020101E /* DownloadHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

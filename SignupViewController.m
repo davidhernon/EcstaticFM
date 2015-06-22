@@ -32,6 +32,11 @@
 											 selector:@selector(keyboardWillHide:)
 												 name:UIKeyboardWillHideNotification
 											   object:self.view.window];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:self.view.window];
 	
 	_keyboardIsShown = NO;
 	//make contentSize bigger than your scrollSize (you will need to figure out for your own use case)
@@ -120,55 +125,62 @@
 -(void)dismissKeyboard {
 	[_username resignFirstResponder];
 	[_password resignFirstResponder];
+    [_email resignFirstResponder];
 }
 
 - (void)keyboardWillHide:(NSNotification *)n
 {
-	NSDictionary* userInfo = [n userInfo];
-	
-	// get the size of the keyboard
-	CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-	
-	
-	// resize the scrollview
-	CGRect viewFrame = _signupScrollView.frame;
-	// I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
-	viewFrame.size.height += (keyboardSize.height + kTabBarHeight);
-	
-	[UIView beginAnimations:nil context:NULL];
-	[UIView setAnimationBeginsFromCurrentState:YES];
-	[_signupScrollView setFrame:viewFrame];
-	[UIView commitAnimations];
-	
-	_keyboardIsShown = NO;
+//	NSDictionary* userInfo = [n userInfo];
+//	
+//	// get the size of the keyboard
+//	CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+//	
+//	
+//	// resize the scrollview
+//	CGRect viewFrame = _signupScrollView.frame;
+//	// I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
+//	viewFrame.size.height += (keyboardSize.height + kTabBarHeight);
+//	
+//	[UIView beginAnimations:nil context:NULL];
+//	[UIView setAnimationBeginsFromCurrentState:YES];
+//	[_signupScrollView setFrame:viewFrame];
+//	[UIView commitAnimations];
+//	
+//	_keyboardIsShown = NO;
     
 }
 
 - (void)keyboardWillShow:(NSNotification *)n
 {
+    [self.view setFrame:CGRectMake(0,-110,320,460)];
 	// This is an ivar I'm using to ensure that we do not do the frame size adjustment on the `UIScrollView` if the keyboard is already shown.  This can happen if the user, after fixing editing a `UITextField`, scrolls the resized `UIScrollView` to another `UITextField` and attempts to edit the next `UITextField`.  If we were to resize the `UIScrollView` again, it would be disastrous.  NOTE: The keyboard notification will fire even when the keyboard is already shown.
-	if (_keyboardIsShown) {
-		return;
-	}
+//	if (_keyboardIsShown) {
+//		return;
+//	}
 	
-	NSDictionary* userInfo = [n userInfo];
-	
-	// get the size of the keyboard
-	CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-	
-	// resize the noteView
-	CGRect viewFrame = _signupScrollView.frame;
-	// I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
-	viewFrame.size.height -= (keyboardSize.height + kTabBarHeight);
-	
-	[UIView beginAnimations:nil context:NULL];
-	[UIView setAnimationBeginsFromCurrentState:YES];
-	[_signupScrollView setFrame:viewFrame];
-	[UIView commitAnimations];
-	_keyboardIsShown = YES;
+//	NSDictionary* userInfo = [n userInfo];
+//	
+//	// get the size of the keyboard
+//	CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+//	
+//	// resize the noteView
+//	CGRect viewFrame = _signupScrollView.frame;
+//	// I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
+//	viewFrame.size.height -= (keyboardSize.height + kTabBarHeight);
+//	
+//	[UIView beginAnimations:nil context:NULL];
+//	[UIView setAnimationBeginsFromCurrentState:YES];
+//	[_signupScrollView setFrame:viewFrame];
+//	[UIView commitAnimations];
+//	_keyboardIsShown = YES;
 }
 
-
+- (void)keyboardDidShow:(NSNotification *)notification
+{
+    // Assign new frame to your view
+    [self.view setFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)]; //here taken -20 for example i.e. your view will be scrolled to -20. change its value according to your requirement.
+    
+}
 
 
 - (IBAction)pushNotificationSwitch:(id)sender {

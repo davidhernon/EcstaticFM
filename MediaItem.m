@@ -20,6 +20,8 @@
     [coder encodeObject:self.stream_url forKey:@"stream_url"];
     [coder encodeObject:self.room_number forKey:@"room_number"];
     [coder encodeObject:self.username forKey:@"username"];
+    [coder encodeObject:self.download_url forKey:@"download_url"];
+    [coder encodeObject:[NSNumber numberWithBool:self.is_event_mix] forKey:@"is_event_mix"];
 }
 
 -(NSDictionary*)serializeMediaItem
@@ -32,6 +34,8 @@
     [serialized setValue:self.room_number forKey:@"room_number"];
     [serialized setValue:self.username forKey:@"username"];
     [serialized setValue:self.artwork_url forKey:@"artwork_url"];
+    [serialized setValue:self.download_url forKey:@"download_url"];
+    [serialized setValue:[NSNumber numberWithBool:self.is_event_mix] forKey:@"is_event_mix"];
     return serialized;
 }
 
@@ -79,6 +83,11 @@
         self.username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
 //        self.playing_animation = [UIImage animatedImageNamed:@"wave" duration:0.6f];
         self.playing_animation = [UIImage imageNamed:@"wave1.png"];
+        if([soundCloudTrack objectForKey:@"downloadable"])
+        {
+            self.download_url = [soundCloudTrack objectForKey:@"download_url"];
+        }
+        self.is_event_mix = NO;
     }
     return self;
 }
@@ -98,6 +107,8 @@
         self.username = [sds_dict objectForKey:@"username"];
         self.playing_animation = [UIImage imageNamed:@"wave1.png"];
         self.room_number = [Room currentRoom].room_number;
+        self.download_url = [sds_dict objectForKey:@"soundcloudLink"];
+        self.is_event_mix = YES;
     }
     return self;
 }
