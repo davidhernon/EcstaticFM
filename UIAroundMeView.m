@@ -105,23 +105,8 @@
 
 -(IBAction)buttonAction
 {
-	//make sure that the room_number we have is actually a string
-	if([self.room_number isKindOfClass:[NSNumber class]])
-	{
-		// clean the server data
-		self.room_number = [(NSNumber*)self.room_number stringValue];
-	}
-	if([[Room currentRoom].room_number isKindOfClass:[NSNumber class]]){
-		[Room currentRoom].room_number = [(NSNumber*)[Room currentRoom].room_number stringValue];
-	}
-
-	//if you're actually gonna join a new room, then call join_room to the server
-	if(![[Room currentRoom].room_number isEqualToString: self.room_number]){
-		[SDSAPI joinRoom:self.room_number withUser:_hostname];
-	}
-	
-	//if you're actually just returning to the room you're already in, then local transition
-	
+    [SDSAPI joinRoom:self.room_number withUser:_hostname];
+    
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
     
