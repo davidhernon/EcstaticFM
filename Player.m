@@ -279,8 +279,11 @@ the delegate to Player for Player to communicate with a view controller
 }
 
 //Sets up the player (elapsed time is in milli)
-- (void) joinRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing
+- (void) joinRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing isLocked:(BOOL)isLocked
 {
+	if(isLocked){
+		_player_is_locked = isLocked;
+	}
 	//if the player is empty or the playlist is empty, return
 	if([Playlist sharedPlaylist].playlist.count == 0)
         return;
@@ -382,7 +385,6 @@ the delegate to Player for Player to communicate with a view controller
 }
 
 -(void)setLock:(BOOL)player_is_locked{
-	[SDSAPI realtimePlayer:@"lock"];
 	self.player_is_locked = player_is_locked;
 }
 

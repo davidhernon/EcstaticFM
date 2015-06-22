@@ -9,13 +9,22 @@
 #import "Settings.h"
 
 @implementation Settings
+
+-(void)viewDidLoad{
+	//if you are not the room owner then you cannot toggle the room lock
+	if(![Room currentRoom].is_owner){
+		_toggleLock.hidden = YES;
+	}
+}
+
 - (IBAction)toggleLock:(id)sender {
-	/*if(){
-		
+	if(_toggleLock.on){
+		[[Player sharedPlayer] setLock:true];
 	}
 	else{
-		
-	}*/
+		[[Player sharedPlayer] setLock:false];
+	}
+	[SDSAPI realtimePlayer:@"lock"];
 }
 
 - (IBAction)Logout:(id)sender {
