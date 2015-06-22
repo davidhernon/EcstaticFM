@@ -41,5 +41,7 @@
 +(void)logout;
 +(void)deleteSong:(NSInteger)indexToDelete;
 +(SocketIOClient*)get_static_socket;
-
++(void)leaveRoom;
++(bool)getCreateRoomBool;
++(void)setCreateRoomBool:(bool)passedCreateRoomBool;
 @end

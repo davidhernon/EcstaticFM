@@ -259,7 +259,8 @@ the delegate to Player for Player to communicate with a view controller
     [_delegate redrawUI];
 }
 
-- (void) joinPlayingRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing
+//Sets up the player (elapsed time is in milli)
+- (void) joinRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing
 {
     if(index == 0 && !is_playing)
         return;

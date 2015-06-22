@@ -276,23 +276,33 @@ static bool createRoomBool;
             return;
         }
         
+        //parse the JSON
         NSNumber *current_time_from_server = (NSNumber*)[d objectForKey:@"current_time"];
-        
-        int song_index = [[player_state objectForKey:@"playing_song_index"] intValue];
-        int is_playing = [[player_state objectForKey:@"is_playing"] intValue];
-        
-        
         NSNumber *elapsed_time = [NSNumber numberWithInt:[[player_state objectForKey:@"elapsed"] intValue]];
         NSNumber *server_timestamp = (NSNumber*)[player_state objectForKey:@"timestamp"];
-        
-        float ctfs = [current_time_from_server longValue];
-        float st = [server_timestamp longValue];
-        float et = [elapsed_time intValue];
-        float el = (float)ctfs - (float)st + (float)(1.0f*et);
-        
+        int song_index = [[player_state objectForKey:@"playing_song_index"] intValue];
+        int is_playing = [[player_state objectForKey:@"is_playing"] intValue];
         BOOL playing = is_playing;
+        BOOL isLocked = [[player_state objectForKey:@"is_locked"] intValue];
+		
+		//convert into floats
 
-        [[Player sharedPlayer] joinPlayingRoom:song_index withElapsedTime:el andIsPlaying:playing ];
+		float ctfs = [current_time_from_server longValue];
+		float st = [server_timestamp longValue];
+		float et = [elapsed_time intValue];
+		float el;
+		//if it was paused while player_state sitting on server
+		if(is_playing == 0){
+			el = (float)(1000.0f*et);
+		}
+		
+		//if it was playing while player_state sat on server
+		else{
+			el = (float)ctfs - (float)st + (float)(1.0f*et);
+		}
+		
+		//joinPlayingRoom call
+        [[Player sharedPlayer] joinRoom:song_index withElapsedTime:el andIsPlaying:playing ];
     }];
     
     [static_socket on:@"realtime_player" callback:^(NSArray * data, void (^ack) (NSArray*)){
