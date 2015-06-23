@@ -26,6 +26,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *chatTextField;
 @property (strong, nonatomic) Message *message;
 
+
 - (IBAction)sendChat:(id)sender;
 - (void)addChatText:(NSString*)text;
 - (void)didReceiveMemoryWarning;

@@ -14,7 +14,7 @@
 static SocketIOClient *static_socket;
 static NSTimer *login_timer;
 static bool createRoomBool;
-
+static NSArray* eventDictionary;
 +(NSString*)getWebsiteURL
 {
     return @"http://54.173.157.204/appindex/";
@@ -49,6 +49,9 @@ static bool createRoomBool;
     while(returned == FALSE){
         [NSThread sleepForTimeInterval:0.1f];
     }
+	
+	//set the global variable for eventDictionary :/
+	eventDictionary = eventD;
     return eventD;
 }
 
@@ -221,9 +224,10 @@ static bool createRoomBool;
     [static_socket on:@"return_create_room" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSLog(@"create room returned,%@", data[0]);
         NSDictionary* room_info_dict =[((NSDictionary*) data[0]) objectForKey:@"room_info"];
+        //        NSArray* room_info = [room_info_dict objectForKey:@"room_info"];
         [[Room currentRoom] initWithDict:room_info_dict];
     }];
-	
+    
     [static_socket on:@"join" callback:^(NSArray * data, void (^ack) (NSArray*)){
 		Mixpanel *mixpanel = [Mixpanel sharedInstance];
 		[mixpanel track:@"joined_room"];
@@ -257,11 +261,8 @@ static bool createRoomBool;
 	}];
 
     
-	//server response for player_state query. Called in Join Room
-	[static_socket on:@"get_player_status" callback:^(NSArray * data, void (^ack) (NSArray*)){
-		
-		//Parse the player_state json
-		NSDictionary *d = (NSDictionary*)data[0];
+    [static_socket on:@"get_player_status" callback:^(NSArray * data, void (^ack) (NSArray*)){
+        NSDictionary *d = (NSDictionary*)data[0];
         NSString *player_state_string = (NSString*)[d objectForKey:@"player_state"];
         if(player_state_string == NULL){
             NSLog(@"");
@@ -271,18 +272,17 @@ static bool createRoomBool;
                                                              options:NSJSONReadingMutableContainers
                                                                error:nil];
         
-		
-		//check for an error in the player_state rendering it null.
+        
         if(player_state == NULL || player_state == (id)[NSNull null] )
         {
 			[[Player sharedPlayer] joinRoom:0 withElapsedTime:0.0f andIsPlaying:0 isLocked:false];
             return;
         }
-		
-		//parse the JSON
+        
+        //parse the JSON
         NSNumber *current_time_from_server = (NSNumber*)[d objectForKey:@"current_time"];
-		NSNumber *elapsed_time = [NSNumber numberWithInt:[[player_state objectForKey:@"elapsed"] intValue]];
-		NSNumber *server_timestamp = (NSNumber*)[player_state objectForKey:@"timestamp"];
+        NSNumber *elapsed_time = [NSNumber numberWithInt:[[player_state objectForKey:@"elapsed"] intValue]];
+        NSNumber *server_timestamp = (NSNumber*)[player_state objectForKey:@"timestamp"];
         int song_index = [[player_state objectForKey:@"playing_song_index"] intValue];
         int is_playing = [[player_state objectForKey:@"is_playing"] intValue];
 		BOOL playing = is_playing;
@@ -330,10 +330,13 @@ static bool createRoomBool;
 		}else if([command isEqualToString:@"back"])
 		{
 			[[Player sharedPlayer] last];
-		}else if([command isEqualToString:@"lock"]){
-			[[Player sharedPlayer].delegate lockToggle];
-        }else{
-
+		}else if([command isEqualToString:@"lock"])
+		{
+			[[Player sharedPlayer].delegate lock];
+		}else if([command isEqualToString:@"unlock"])
+		{
+			[[Player sharedPlayer].delegate unlock];
+		}else{
             NSLog(@"unlogged command returned from server!!!!!");
         }
     }];
@@ -482,26 +485,17 @@ static bool createRoomBool;
     
 }
 
-+(void)leaveRoom{
-	NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-	NSString *rn = [NSString stringWithFormat:@"%@",[Room currentRoom].room_number];
-	NSString *is_owner = [Room currentRoom].is_owner ? @"true" : @"false";
-	NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[rn, username, is_owner] forKeys:@[@"room_number", @"username", @"is_owner"]];
-	NSData *leaveJson = [NSJSONSerialization dataWithJSONObject:leaveDict options:nil error:nil];
-	[static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
-}
 
-+(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)user
++(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)host_name isEvent:(BOOL)isEvent
 {
-	[SDSAPI leaveRoom];
 	//set up variables to go in the dicts. These contain information about the CURRENT ROOM's state
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
 	NSString *rn = [NSString stringWithFormat:@"%@",[Room currentRoom].room_number];
 	NSString *is_owner = [Room currentRoom].is_owner ? @"true" : @"false";
-	
+	NSString *is_event_string = isEvent ? @"true" : @"false";
 	
 	//set up the dictionaries
-    NSDictionary *joinDict  = [NSDictionary dictionaryWithObjects:@[new_room_number, username] forKeys:@[@"room_number", @"username"]];
+    NSDictionary *joinDict  = [NSDictionary dictionaryWithObjects:@[new_room_number, username, is_event_string] forKeys:@[@"room_number", @"username", @"is_event"]];
 	
 	//serialize them
 	NSData *joinJson = [NSJSONSerialization dataWithJSONObject:joinDict options:nil error:nil];
@@ -509,13 +503,28 @@ static bool createRoomBool;
 	//send join and leave messages
 	[static_socket emitObjc:@"join_room" withItems:@[joinJson]];
 	
-	//update the currentRoom's number, owner, player,
+	//update the currentRoom's state
     [Room currentRoom].room_number = new_room_number;
-    [[Room currentRoom] makeNotOwner];
-    [Room currentRoom].host_username = user;
-	NSDictionary *playlist_query = [NSDictionary dictionaryWithObjects:@[new_room_number] forKeys:@[@"room_number"]];
-	NSData *json = [NSJSONSerialization dataWithJSONObject:playlist_query options:nil error:nil];
-	[static_socket emitObjc:@"get_playlist" withItems:@[json]];
+	
+	//loop through all the events
+	for(NSDictionary* e in eventDictionary){
+		
+		//if the room you're entering is the event
+		if([[e objectForKey:@"id"] longValue] == (long)-[new_room_number intValue]){
+			NSString* link = [e objectForKey:@"soundcloudLink"];
+			[Room currentRoom].host_username = [e objectForKey:@"host_username"];
+			break;
+		}
+	}
+	if([username isEqualToString:host_name]){
+		[[Room currentRoom] makeOwner];
+	}
+	else{
+		[[Room currentRoom] makeNotOwner];
+	}
+
+    [Room currentRoom].host_username = host_name;
+    [SDSAPI getPlaylist:new_room_number];
 }
 
 +(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)user withTrack:(MediaItem*)track
@@ -554,6 +563,12 @@ static bool createRoomBool;
     [static_socket emitObjc:@"get_player_status" withItems:@[json]];
 }
 
++(void)getPlaylist:(NSString*)room_number
+{
+    NSDictionary *playlist_query = [NSDictionary dictionaryWithObjects:@[room_number] forKeys:@[@"room_number"]];
+    NSData *json = [NSJSONSerialization dataWithJSONObject:playlist_query options:nil error:nil];
+    [static_socket emitObjc:@"get_playlist" withItems:@[json]];
+}
 
 + (void)play
 {

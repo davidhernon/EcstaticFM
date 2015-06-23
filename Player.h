@@ -43,7 +43,7 @@
 - (void) joinRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing isLocked:(BOOL)isLocked;
 -(void)setLock:(BOOL)player_is_locked;
 -(void) deleteSongWithDict:(NSDictionary*)remove_song_dict;
--(void) reinitializePlayer;
+
 @end
 
 
@@ -69,7 +69,8 @@
 
 -(void)playerIsDoneLoadingNextSong;
 
--(void)lockToggle;
+-(void)lock;
+-(void)unlock;
 
 -(void)deleteSongAtIndex:(int)index;
 

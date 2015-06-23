@@ -53,9 +53,9 @@
     int people = [[Room currentRoom] getNumberOfListenersInRoom];
     if(people == 1)
     {
-        _people_with_you.text = [NSString stringWithFormat:@"1 person with you"];
+        _people_with_you.text = [NSString stringWithFormat:@"1"];
     }else{
-        _people_with_you.text = [NSString stringWithFormat:@"%d people with you",people];
+        _people_with_you.text = [NSString stringWithFormat:@"%d",people];
         
     }
 }

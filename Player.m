@@ -48,25 +48,6 @@ static Player *ecstaticPlayer = nil;
     return ecstaticPlayer;
 }
 
-- (void)reinitializePlayer
-{
-
-	//remove the currently playing track from the player
-	ecstaticPlayer.currentTrack = nil;
-	[ecstaticPlayer.avPlayer replaceCurrentItemWithPlayerItem:nil];
-	[ecstaticPlayer updatePlaylist];
-	[ecstaticPlayer.avPlayer pause];
-	[ecstaticPlayer seek:0];
-
-	ecstaticPlayer.currentTrackIndex = 0;
-	ecstaticPlayer.player_is_paused = NO;
-	ecstaticPlayer.isNextSong = NO;
-	ecstaticPlayer.user_joining_room = NO;
-	ecstaticPlayer.user_hit_button = NO;
-	ecstaticPlayer.player_is_locked = NO;
-	return;
-}
-
 /**
 the delegate to Player for Player to communicate with a view controller
  Example usage:
@@ -327,14 +308,16 @@ the delegate to Player for Player to communicate with a view controller
 //Sets up the player (elapsed time is in milli)
 - (void) joinRoom:(int)index withElapsedTime:(float)elapsed andIsPlaying:(BOOL)is_playing isLocked:(BOOL)isLocked
 {
-	if(isLocked){
-		_player_is_locked = isLocked;
+	NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+
+	//if we were just told that the room is locked, and we don't own the room, then lock the room
+	if(isLocked && ![username isEqual:[Room currentRoom].host_username]){
+		[_delegate lock];
 	}
+
 	//if the player is empty or the playlist is empty, return
 	if([Playlist sharedPlaylist].playlist.count == 0)
         return;
-	
-	//else sync the player
     _currentTrack = [[Playlist sharedPlaylist].playlist objectAtIndex:index];
     _currentTrackIndex = index;
     [self seek:(elapsed)];

@@ -31,6 +31,11 @@ static NSString* around_me_event_cell = @"around_me_cell";
     _location_icon.hidden = YES;
     _time_icon.hidden = YES;
     
+    // Add the gradient to the view
+    [self.view.layer insertSublayer:[GFXUtils getGradientPlayer:self.view.bounds] atIndex:0];
+    
+   // self.hostname. = [event objectForKey:@"host_username"];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -159,7 +164,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
             NSLog(@"page %i", counter);
             _distance_or_time_label.text = ((UIRoomView*)[_event_item_list objectAtIndex:counter]).room_number_label.text;
             if(_distance_or_time_label.text == nil){
-                _distance_or_time_label.text = @"Here";
+                _distance_or_time_label.text = @"Right here.";
             }
         }else if( (position < [[_center_points objectAtIndex:0] floatValue] - (234.0f/2.0f)-7.5f))
         {

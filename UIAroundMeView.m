@@ -47,7 +47,7 @@
 
 		NSString *className = NSStringFromClass([self class]);
         self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
-        self.other_listeners.text = [NSString stringWithFormat:@"%@ and %lu other(s)", [room_info objectForKey:@"host_username"], [users count] - 1];
+        self.other_listeners.text = [NSString stringWithFormat:@"%lu", [room_info objectForKey:@"host_username"], [users count] - 1];
         self.room_number_label.text = [NSString stringWithFormat:@"Room Number: %@", [room_info objectForKey:@"room_number"]];
         self.room_number = [room_info objectForKey:@"room_number"];
         self.rooms_view_controller = sender;
@@ -117,7 +117,7 @@
 
 	//if you're actually gonna join a new room, then call join_room to the server
 	if(![[Room currentRoom].room_number isEqualToString: self.room_number]){
-		[SDSAPI joinRoom:self.room_number withUser:_hostname];
+		[SDSAPI joinRoom:self.room_number withUser:_hostname isEvent:false];
 	}
 	
 	//if you're actually just returning to the room you're already in, then local transition
