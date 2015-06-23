@@ -69,7 +69,8 @@
 
 -(void)playerIsDoneLoadingNextSong;
 
--(void)lockToggle;
+-(void)lock;
+-(void)unlock;
 
 -(void)deleteSongAtIndex:(int)index;
 

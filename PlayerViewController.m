@@ -124,6 +124,7 @@ static NSString* cellIdentifier = @"playListCell";
 	if(_player.player_is_locked && ![Room currentRoom].is_owner){
 		_playerShowControlsButton.enabled = NO;
 		_add_songs.enabled = NO;
+		_add_songs.alpha = 0;
 	}
 	
     //If no playlist then make buttons hidden
@@ -433,22 +434,25 @@ static NSString* cellIdentifier = @"playListCell";
     }
 }
 
--(void)lockToggle{
-	if(![Player sharedPlayer].player_is_locked){
-		[[Player sharedPlayer] setLock:YES];
-		
-		//if you don't own the room, then the lock affects whether you can use the controls
-		if(![Room currentRoom].is_owner){
-			_playerShowControlsButton.enabled = NO;
-			_add_songs.enabled = NO;
-		}
+//Lock the room, and if you dont own the room you cannot use the controls
+-(void)lock{
+	[[Player sharedPlayer] setLock:YES];
+	
+	//if you don't own the room, then the lock affects whether you can use the controls
+	if(![Room currentRoom].is_owner){
+		_playerShowControlsButton.enabled = NO;
+		_add_songs.enabled = NO;
+		_add_songs.alpha = 0;
 	}
-	else{
-		[[Player sharedPlayer] setLock:NO];
-		if(![Room currentRoom].is_owner){
-			_playerShowControlsButton.enabled = YES;
-			_add_songs.enabled = YES;
-		}
+}
+
+//unlock the room, and if you dont own the room you can now use the controls
+-(void)unlock{
+	[[Player sharedPlayer] setLock:NO];
+	if(![Room currentRoom].is_owner){
+		_playerShowControlsButton.enabled = YES;
+		_add_songs.enabled = YES;
+		_add_songs.alpha = 1;
 	}
 }
 

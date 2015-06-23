@@ -14,7 +14,7 @@
 static SocketIOClient *static_socket;
 static NSTimer *login_timer;
 static bool createRoomBool;
-
+static NSArray* eventDictionary;
 +(NSString*)getWebsiteURL
 {
     return @"http://54.173.157.204/appindex/";
@@ -49,6 +49,9 @@ static bool createRoomBool;
     while(returned == FALSE){
         [NSThread sleepForTimeInterval:0.1f];
     }
+	
+	//set the global variable for eventDictionary :/
+	eventDictionary = eventD;
     return eventD;
 }
 
@@ -258,7 +261,7 @@ static bool createRoomBool;
 	}];
 
     
-    [static_socket on:@"return_get_player_status" callback:^(NSArray * data, void (^ack) (NSArray*)){
+    [static_socket on:@"get_player_status" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSDictionary *d = (NSDictionary*)data[0];
         NSString *player_state_string = (NSString*)[d objectForKey:@"player_state"];
         if(player_state_string == NULL){
@@ -327,10 +330,13 @@ static bool createRoomBool;
 		}else if([command isEqualToString:@"back"])
 		{
 			[[Player sharedPlayer] last];
-		}else if([command isEqualToString:@"lock"]){
-			[[Player sharedPlayer].delegate lockToggle];
-        }else{
-
+		}else if([command isEqualToString:@"lock"])
+		{
+			[[Player sharedPlayer].delegate lock];
+		}else if([command isEqualToString:@"unlock"])
+		{
+			[[Player sharedPlayer].delegate unlock];
+		}else{
             NSLog(@"unlogged command returned from server!!!!!");
         }
     }];
@@ -480,30 +486,44 @@ static bool createRoomBool;
 }
 
 
-+(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)user
++(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)host_name isEvent:(BOOL)isEvent
 {
 	//set up variables to go in the dicts. These contain information about the CURRENT ROOM's state
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
 	NSString *rn = [NSString stringWithFormat:@"%@",[Room currentRoom].room_number];
 	NSString *is_owner = [Room currentRoom].is_owner ? @"true" : @"false";
-	
+	NSString *is_event_string = isEvent ? @"true" : @"false";
 	
 	//set up the dictionaries
-    NSDictionary *joinDict  = [NSDictionary dictionaryWithObjects:@[new_room_number, username] forKeys:@[@"room_number", @"username"]];
-    NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[rn, username, is_owner] forKeys:@[@"room_number", @"username", @"is_owner"]];
+    NSDictionary *joinDict  = [NSDictionary dictionaryWithObjects:@[new_room_number, username, is_event_string] forKeys:@[@"room_number", @"username", @"is_event"]];
 	
 	//serialize them
 	NSData *joinJson = [NSJSONSerialization dataWithJSONObject:joinDict options:nil error:nil];
-    NSData *leaveJson = [NSJSONSerialization dataWithJSONObject:leaveDict options:nil error:nil];
 	
 	//send join and leave messages
-	[static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
 	[static_socket emitObjc:@"join_room" withItems:@[joinJson]];
 	
 	//update the currentRoom's state
     [Room currentRoom].room_number = new_room_number;
-    [[Room currentRoom] makeNotOwner];
-    [Room currentRoom].host_username = user;
+	
+	//loop through all the events
+	for(NSDictionary* e in eventDictionary){
+		
+		//if the room you're entering is the event
+		if([[e objectForKey:@"id"] longValue] == (long)-[new_room_number intValue]){
+			NSString* link = [e objectForKey:@"soundcloudLink"];
+			[Room currentRoom].host_username = [e objectForKey:@"host_username"];
+			break;
+		}
+	}
+	if([username isEqualToString:host_name]){
+		[[Room currentRoom] makeOwner];
+	}
+	else{
+		[[Room currentRoom] makeNotOwner];
+	}
+
+    [Room currentRoom].host_username = host_name;
     [SDSAPI getPlaylist:new_room_number];
 }
 
