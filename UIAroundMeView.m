@@ -47,7 +47,7 @@
 
 		NSString *className = NSStringFromClass([self class]);
         self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
-        self.other_listeners.text = [NSString stringWithFormat:@"%@ and %lu other(s)", [room_info objectForKey:@"host_username"], [users count] - 1];
+        self.other_listeners.text = [NSString stringWithFormat:@"%lu", [room_info objectForKey:@"host_username"], [users count] - 1];
         self.room_number_label.text = [NSString stringWithFormat:@"Room Number: %@", [room_info objectForKey:@"room_number"]];
         self.room_number = [room_info objectForKey:@"room_number"];
         self.rooms_view_controller = sender;

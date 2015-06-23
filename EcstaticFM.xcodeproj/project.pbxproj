@@ -188,6 +188,11 @@
 		DE814F201B38970F008B0F4F /* image_rooms_cards_aroundme.png in Resources */ = {isa = PBXBuildFile; fileRef = DE814F041B38970F008B0F4F /* image_rooms_cards_aroundme.png */; };
 		DE814F211B38970F008B0F4F /* image_rooms_cards_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = DE814F051B38970F008B0F4F /* image_rooms_cards_empty.png */; };
 		DE814F221B38970F008B0F4F /* image_rooms_cards_events.png in Resources */ = {isa = PBXBuildFile; fileRef = DE814F061B38970F008B0F4F /* image_rooms_cards_events.png */; };
+		DE814F241B38970F008B0F4F /* button_settings_logout.png in Resources */ = {isa = PBXBuildFile; fileRef = DE814F231B38970F008B0F4F /* button_settings_logout.png */; };
+		DE814F271B38A6ED008B0F4F /* icon_clock_white.png in Resources */ = {isa = PBXBuildFile; fileRef = DE814F251B38A6ED008B0F4F /* icon_clock_white.png */; };
+		DE814F281B38A6ED008B0F4F /* icon_distance_white.png in Resources */ = {isa = PBXBuildFile; fileRef = DE814F261B38A6ED008B0F4F /* icon_distance_white.png */; };
+		DE814F2A1B38AD29008B0F4F /* image_rooms_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = DE814F291B38AD29008B0F4F /* image_rooms_shadow.png */; };
+		DE814F2C1B38D2EE008B0F4F /* button_controls_next.png in Resources */ = {isa = PBXBuildFile; fileRef = DE814F2B1B38D2EE008B0F4F /* button_controls_next.png */; };
 		DE85B68E1B1510F300BCC36F /* button_login.png in Resources */ = {isa = PBXBuildFile; fileRef = DE85B6871B1510F300BCC36F /* button_login.png */; };
 		DE85B68F1B1510F300BCC36F /* button_signup.png in Resources */ = {isa = PBXBuildFile; fileRef = DE85B6881B1510F300BCC36F /* button_signup.png */; };
 		DE85B6901B1510F300BCC36F /* icon_login.png in Resources */ = {isa = PBXBuildFile; fileRef = DE85B6891B1510F300BCC36F /* icon_login.png */; };
@@ -500,6 +505,11 @@
 		DE814F041B38970F008B0F4F /* image_rooms_cards_aroundme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_rooms_cards_aroundme.png; sourceTree = "<group>"; };
 		DE814F051B38970F008B0F4F /* image_rooms_cards_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_rooms_cards_empty.png; sourceTree = "<group>"; };
 		DE814F061B38970F008B0F4F /* image_rooms_cards_events.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_rooms_cards_events.png; sourceTree = "<group>"; };
+		DE814F231B38970F008B0F4F /* button_settings_logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_settings_logout.png; sourceTree = "<group>"; };
+		DE814F251B38A6ED008B0F4F /* icon_clock_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_clock_white.png; sourceTree = "<group>"; };
+		DE814F261B38A6ED008B0F4F /* icon_distance_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_distance_white.png; sourceTree = "<group>"; };
+		DE814F291B38AD29008B0F4F /* image_rooms_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_rooms_shadow.png; sourceTree = "<group>"; };
+		DE814F2B1B38D2EE008B0F4F /* button_controls_next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_controls_next.png; sourceTree = "<group>"; };
 		DE85B6871B1510F300BCC36F /* button_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_login.png; sourceTree = "<group>"; };
 		DE85B6881B1510F300BCC36F /* button_signup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_signup.png; sourceTree = "<group>"; };
 		DE85B6891B1510F300BCC36F /* icon_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_login.png; sourceTree = "<group>"; };
@@ -620,6 +630,12 @@
 				1C2318161B213F78001D4ED7 /* UIAroundMeHereEmptyView.h */,
 				1C2318171B213F78001D4ED7 /* UIAroundMeHereEmptyView.m */,
 				DE18AB901B1CBD5500C9BAE5 /* UIAroundMeHereEmptyView.xib */,
+				1C6D62E31B1A223D00F0EC27 /* UIEventView.h */,
+				1C6D62E41B1A223D00F0EC27 /* UIEventView.m */,
+				1C6D62EB1B1A226900F0EC27 /* UIEventView.xib */,
+				1C6D62E61B1A225100F0EC27 /* UIAroundMeView.h */,
+				1C6D62E71B1A225100F0EC27 /* UIAroundMeView.m */,
+				1C6D62E91B1A225C00F0EC27 /* UIAroundMeView.xib */,
 				1C73F3631AFA936D0003B1FA /* RoomsViewController.h */,
 				1C73F3641AFA936D0003B1FA /* RoomsViewController.m */,
 				1C73F36A1AFBE9470003B1FA /* Room.h */,
@@ -630,12 +646,6 @@
 				FC25D6981B38F09500E51DDD /* ChatBubbleLabel.m */,
 				1C6D62E01B16535C00F0EC27 /* UIRoomScrollView.h */,
 				1C6D62E11B16535C00F0EC27 /* UIRoomScrollView.m */,
-				1C6D62E31B1A223D00F0EC27 /* UIEventView.h */,
-				1C6D62E41B1A223D00F0EC27 /* UIEventView.m */,
-				1C6D62E61B1A225100F0EC27 /* UIAroundMeView.h */,
-				1C6D62E71B1A225100F0EC27 /* UIAroundMeView.m */,
-				1C6D62E91B1A225C00F0EC27 /* UIAroundMeView.xib */,
-				1C6D62EB1B1A226900F0EC27 /* UIEventView.xib */,
 				1C77FC5B1B33C2F600703DCB /* UIRoomView.h */,
 				1C77FC5C1B33C2F600703DCB /* UIRoomView.m */,
 			);
@@ -1056,11 +1066,16 @@
 		DE814EEA1B3896FF008B0F4F /* MVP assets */ = {
 			isa = PBXGroup;
 			children = (
+				DE814F231B38970F008B0F4F /* button_settings_logout.png */,
 				DE814EEB1B38970F008B0F4F /* button_aroundme_pink.png */,
+				DE814F251B38A6ED008B0F4F /* icon_clock_white.png */,
+				DE814F261B38A6ED008B0F4F /* icon_distance_white.png */,
+				DE814F2B1B38D2EE008B0F4F /* button_controls_next.png */,
 				DE814EEC1B38970F008B0F4F /* button_aroundme_transparent.png */,
 				DE814EED1B38970F008B0F4F /* button_aroundme_white.png */,
 				DE814EEE1B38970F008B0F4F /* button_chat_pink.png */,
 				DE814EEF1B38970F008B0F4F /* button_chat_transparent.png */,
+				DE814F291B38AD29008B0F4F /* image_rooms_shadow.png */,
 				DE814EF01B38970F008B0F4F /* button_chat_white.png */,
 				DE814EF11B38970F008B0F4F /* button_controls_back.png */,
 				DE814EF21B38970F008B0F4F /* button_controls_play.png */,
@@ -1276,6 +1291,7 @@
 				DEBE1DC41B1A3221003FE590 /* button_gear.png in Resources */,
 				DE04EBBE1B22376F0019D8F5 /* loading6.png in Resources */,
 				DEBE1DAF1B1A0780003FE590 /* icon-key-dark.png in Resources */,
+				DE814F2C1B38D2EE008B0F4F /* button_controls_next.png in Resources */,
 				DE814F1A1B38970F008B0F4F /* icon_people_pink.png in Resources */,
 				DE18ABA71B1DF71000C9BAE5 /* loadingdark1.png in Resources */,
 				DE14B9BD1AFF0BCD004470C7 /* button_controlspause.png in Resources */,
@@ -1316,6 +1332,7 @@
 				DE85B6941B1510F300BCC36F /* image_tri-logo.png in Resources */,
 				DE6C9C4E1B35E18800A5A6A0 /* button_hearts.png in Resources */,
 				DE6C9C4F1B35E18800A5A6A0 /* button_menu.png in Resources */,
+				DE814F241B38970F008B0F4F /* button_settings_logout.png in Resources */,
 				DE814F221B38970F008B0F4F /* image_rooms_cards_events.png in Resources */,
 				DE4C262C1B1F5F920028C0C3 /* button_addmusicrainbow.png in Resources */,
 				DE814F141B38970F008B0F4F /* button_playlist_white.png in Resources */,
@@ -1334,6 +1351,7 @@
 				DEEC12251AFCF68700E21C52 /* icon_location.png in Resources */,
 				DEB5C4501B34BDE4008A48D0 /* button_unlocked.png in Resources */,
 				DE14B9CB1AFF2A16004470C7 /* image_covertartgradient.png in Resources */,
+				DE814F281B38A6ED008B0F4F /* icon_distance_white.png in Resources */,
 				DE9A4A101AF5767300B26BA4 /* splash.png in Resources */,
 				DE1D9FC11B1526BD00829471 /* Images.xcassets in Resources */,
 				DE814F0F1B38970F008B0F4F /* button_controls_stop.png in Resources */,
@@ -1341,6 +1359,7 @@
 				DE814F1B1B38970F008B0F4F /* icon_people_white.png in Resources */,
 				1C4861E61A7AB75C004EFEAD /* Info.plist in Resources */,
 				DE6C9C531B35E18800A5A6A0 /* icon_persons.png in Resources */,
+				DE814F2A1B38AD29008B0F4F /* image_rooms_shadow.png in Resources */,
 				DE18ABA91B1DF71000C9BAE5 /* loadingdark3.png in Resources */,
 				DEE628E21AFA9D04009084FF /* icon_heartfull.png in Resources */,
 				1C6D62EA1B1A225C00F0EC27 /* UIAroundMeView.xib in Resources */,
@@ -1366,6 +1385,7 @@
 				DEDCE9571B1E05840011B91B /* image_gradienthiding.png in Resources */,
 				DE6C9C521B35E18800A5A6A0 /* button_search2.png in Resources */,
 				1CA428B91A799CE9001DB0AD /* LaunchScreen.xib in Resources */,
+				DE814F271B38A6ED008B0F4F /* icon_clock_white.png in Resources */,
 				DEBE1DB11B1A1F84003FE590 /* button_close.png in Resources */,
 				DEDCE9551B1E00F60011B91B /* icon_back2.png in Resources */,
 				DEFF739F1B15203A0001B107 /* icon_distance2.png in Resources */,
