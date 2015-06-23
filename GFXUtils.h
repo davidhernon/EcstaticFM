@@ -16,5 +16,6 @@
 +(RadialGradientLayer*)getGradient:(CGRect)bounds;
 +(RadialGradientLayer*)getGradientPlayer:(CGRect)bounds;
 +(RadialGradientLayer*)getGradientChat:(CGRect)bounds;
++(RadialGradientLayer*)getGradientMediaPicker:(CGRect)bounds;
 
 @end
