@@ -263,6 +263,7 @@
 		DEEC12401AFD82E900E21C52 /* image_whitearrowright.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC123F1AFD82E900E21C52 /* image_whitearrowright.png */; };
 		DEFF739F1B15203A0001B107 /* icon_distance2.png in Resources */ = {isa = PBXBuildFile; fileRef = DEFF739E1B15203A0001B107 /* icon_distance2.png */; };
 		DEFF73A11B1521820001B107 /* icon_headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = DEFF73A01B1521820001B107 /* icon_headphones.png */; };
+		FC25D6991B38F09500E51DDD /* ChatBubbleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC25D6981B38F09500E51DDD /* ChatBubbleLabel.m */; };
 		FC2D3EF91B1CBBB300B41546 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2D3EF81B1CBBB300B41546 /* SignupViewController.m */; };
 		FC3201C01B334E5C0021A072 /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3201BF1B334E5C0021A072 /* ForgotPasswordViewController.m */; };
 		FC9B398E1B30B50E002FEA04 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9B398D1B30B50E002FEA04 /* Settings.m */; };
@@ -579,6 +580,8 @@
 		DEEC123F1AFD82E900E21C52 /* image_whitearrowright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_whitearrowright.png; sourceTree = "<group>"; };
 		DEFF739E1B15203A0001B107 /* icon_distance2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_distance2.png; sourceTree = "<group>"; };
 		DEFF73A01B1521820001B107 /* icon_headphones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_headphones.png; sourceTree = "<group>"; };
+		FC25D6971B38F09500E51DDD /* ChatBubbleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatBubbleLabel.h; sourceTree = "<group>"; };
+		FC25D6981B38F09500E51DDD /* ChatBubbleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatBubbleLabel.m; sourceTree = "<group>"; };
 		FC2D3EF71B1CBBB300B41546 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		FC2D3EF81B1CBBB300B41546 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		FC3201BE1B334E5C0021A072 /* ForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgotPasswordViewController.h; path = EcstaticFM/ForgotPasswordViewController.h; sourceTree = "<group>"; };
@@ -623,6 +626,8 @@
 				1C73F36B1AFBE9470003B1FA /* Room.m */,
 				1C291D9C1B014B96006A2B4F /* AroundMeTableViewCell.h */,
 				1C291D9D1B014B96006A2B4F /* AroundMeTableViewCell.m */,
+				FC25D6971B38F09500E51DDD /* ChatBubbleLabel.h */,
+				FC25D6981B38F09500E51DDD /* ChatBubbleLabel.m */,
 				1C6D62E01B16535C00F0EC27 /* UIRoomScrollView.h */,
 				1C6D62E11B16535C00F0EC27 /* UIRoomScrollView.m */,
 				1C6D62E31B1A223D00F0EC27 /* UIEventView.h */,
@@ -1557,6 +1562,7 @@
 				1C6D62E81B1A225100F0EC27 /* UIAroundMeView.m in Sources */,
 				DE14B9E51AFFB12B004470C7 /* MediaPageViewController.m in Sources */,
 				1C7E49D11AB33A48005BB999 /* soundCloudMediaPickerViewController.m in Sources */,
+				FC25D6991B38F09500E51DDD /* ChatBubbleLabel.m in Sources */,
 				1C4D79761B3874B40020101E /* DownloadHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
