@@ -55,8 +55,6 @@
 		1C7E49D11AB33A48005BB999 /* soundCloudMediaPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7E49D01AB33A48005BB999 /* soundCloudMediaPickerViewController.m */; };
 		1CA428AB1A799CE9001DB0AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
 		1CA428AE1A799CE9001DB0AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428AD1A799CE9001DB0AD /* AppDelegate.m */; };
-		1CA428B41A799CE9001DB0AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428B21A799CE9001DB0AD /* Main.storyboard */; };
-		1CA428B91A799CE9001DB0AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428B71A799CE9001DB0AD /* LaunchScreen.xib */; };
 		1CA428C51A799CE9001DB0AD /* EcstaticFMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA428C41A799CE9001DB0AD /* EcstaticFMTests.m */; };
 		1CB835561B027A9F0003D9DC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB835551B027A9F0003D9DC /* Security.framework */; };
 		1CB8355A1B027BA60003D9DC /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB835591B027BA60003D9DC /* SSKeychain.m */; };
@@ -293,6 +291,8 @@
 		FC25D6991B38F09500E51DDD /* ChatBubbleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC25D6981B38F09500E51DDD /* ChatBubbleLabel.m */; };
 		FC2D3EF91B1CBBB300B41546 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2D3EF81B1CBBB300B41546 /* SignupViewController.m */; };
 		FC3201C01B334E5C0021A072 /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3201BF1B334E5C0021A072 /* ForgotPasswordViewController.m */; };
+		FC6E9E381B39FC6D00DE8B3F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428B71A799CE9001DB0AD /* LaunchScreen.xib */; };
+		FC6E9E391B39FC7D00DE8B3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428B21A799CE9001DB0AD /* Main.storyboard */; };
 		FC9B398E1B30B50E002FEA04 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9B398D1B30B50E002FEA04 /* Settings.m */; };
 		FCEB2FDE1B001E3C00010187 /* LocationServices.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEB2FDD1B001E3C00010187 /* LocationServices.m */; };
 /* End PBXBuildFile section */
@@ -1341,6 +1341,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC6E9E391B39FC7D00DE8B3F /* Main.storyboard in Resources */,
+				FC6E9E381B39FC6D00DE8B3F /* LaunchScreen.xib in Resources */,
 				DE46125E1B01388B00192E49 /* image_ecstaticlogocolor.png in Resources */,
 				DE18ABAB1B1DF71000C9BAE5 /* loadingdark5.png in Resources */,
 				DE04EBB91B22376F0019D8F5 /* loading1.png in Resources */,
@@ -1461,11 +1463,9 @@
 				1C37B7EC1AF5789A00566216 /* icon_heart.png in Resources */,
 				DE814F111B38970F008B0F4F /* button_playlist_downloadmix.png in Resources */,
 				DE5763A71AF40817003F7507 /* Raleway-ExtraLight.ttf in Resources */,
-				1CA428B41A799CE9001DB0AD /* Main.storyboard in Resources */,
 				DE04EBBD1B22376F0019D8F5 /* loading5.png in Resources */,
 				DEDCE9571B1E05840011B91B /* image_gradienthiding.png in Resources */,
 				DE6C9C521B35E18800A5A6A0 /* button_search2.png in Resources */,
-				1CA428B91A799CE9001DB0AD /* LaunchScreen.xib in Resources */,
 				DE814F271B38A6ED008B0F4F /* icon_clock_white.png in Resources */,
 				DEBE1DB11B1A1F84003FE590 /* button_close.png in Resources */,
 				DEDCE9551B1E00F60011B91B /* icon_back2.png in Resources */,
