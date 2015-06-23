@@ -115,5 +115,27 @@
     return gradient;
 }
 
+// The Media Picker's gradient
++(RadialGradientLayer*)getGradientMediaPicker:(CGRect)bounds
+{
+    // Create the gradient
+    RadialGradientLayer *gradient = [RadialGradientLayer layer];
+    
+    // Set colors
+    gradient.colors = [NSArray arrayWithObjects:
+                       (id)UIColorOrange.CGColor,
+                       (id)UIColorPurple.CGColor,
+                       nil];
+    
+    // Set locations
+    gradient.startPoint = CGPointMake(1,1);
+    gradient.endPoint = CGPointMake(0,0);
+    
+    // Set bounds
+    gradient.frame = bounds;
+    
+    return gradient;
+}
+
 @end
 

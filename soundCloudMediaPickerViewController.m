@@ -40,7 +40,8 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     _soundCloudResultsTableView.backgroundColor = [UIColor clearColor];
     
     // Add the gradient to the view
-    [self.view.layer insertSublayer:[GFXUtils getGradientPlayer:(CGRect)self.view.bounds] atIndex:0];
+    [self.view.layer insertSublayer:[GFXUtils getGradientMediaPicker:(CGRect)self.view.bounds] atIndex:0];
+    
     
     // Remove line between cells
     self.soundCloudResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -59,7 +60,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     
     // Load images
     NSArray *imageNames = @[@"spinner-1.png", @"spinner-2.png", @"spinner-3.png", @"spinner-4.png",
-                            @"spinner-5.png", @"spinner-6.png", @"spinner-7.png", @"spinner-8.png", @"spinner-9.png", @"spinner-10.png", @"spinner-11.png", @"spinner-12.png", @"spinner-13.png", @"spinner-14.png", @"spinner-15.png", @"spinner-16.png"];
+                            @"spinner-5.png", @"spinner-6.png", @"spinner-7.png", @"spinner-8.png", @"spinner-9.png", @"spinner-10.png", @"spinner-11.png", @"spinner-12.png", @"spinner-13.png", @"spinner-14.png", @"spinner-15.png", @"spinner-16.png", @"spinner-17.png", @"spinner-18.png", @"spinner-19.png", @"spinner-20.png", @"spinner-21.png", @"spinner-22.png", @"spinner-23.png", @"spinner-24.png", @"spinner-25.png", @"spinner-26.png", @"spinner-27.png", @"spinner-28.png", @"spinner-29.png", @"spinner-30.png", @"spinner-0.png"];
     
     NSMutableArray *images = [[NSMutableArray alloc] init];
     for (int i = 0; i < imageNames.count; i++) {

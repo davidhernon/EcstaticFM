@@ -34,6 +34,8 @@ static NSString* around_me_event_cell = @"around_me_cell";
     // Add the gradient to the view
     [self.view.layer insertSublayer:[GFXUtils getGradientPlayer:self.view.bounds] atIndex:0];
     
+   // self.hostname. = [event objectForKey:@"host_username"];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated

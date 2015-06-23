@@ -42,6 +42,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *time_icon;
 @property (weak, nonatomic) IBOutlet UIImageView *location_icon;
 
+@property (nonatomic, weak) IBOutlet UILabel *hostname;
+
 -(IBAction)buttonPressed:(id)sender;
 
 @end
