@@ -518,6 +518,35 @@ static bool createRoomBool;
 	[static_socket emitObjc:@"get_playlist" withItems:@[json]];
 }
 
++(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)user withTrack:(MediaItem*)track
+{
+    [SDSAPI leaveRoom];
+    //set up variables to go in the dicts. These contain information about the CURRENT ROOM's state
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    
+    //spoofing username so we get the playlist properly
+    NSMutableDictionary *media_item = [[NSMutableDictionary alloc] init];
+    media_item = [NSMutableDictionary dictionaryWithDictionary:[track serializeMediaItem]];
+    [media_item setObject:@"" forKey:@"username"];
+    
+    //set up the dictionaries
+    NSDictionary *joinDict  = [NSDictionary dictionaryWithObjects:@[new_room_number, username, media_item, @"true"] forKeys:@[@"room_number", @"username", @"media_item", @"is_event"]];
+    
+    //serialize them
+    NSData *joinJson = [NSJSONSerialization dataWithJSONObject:joinDict options:nil error:nil];
+    
+    //send join and leave messages
+    [static_socket emitObjc:@"join_room" withItems:@[joinJson]];
+    
+    //update the currentRoom's number, owner, player,
+    [Room currentRoom].room_number = new_room_number;
+    [[Room currentRoom] makeNotOwner];
+    [Room currentRoom].host_username = user;
+    NSDictionary *playlist_query = [NSDictionary dictionaryWithObjects:@[new_room_number] forKeys:@[@"room_number"]];
+    NSData *json = [NSJSONSerialization dataWithJSONObject:playlist_query options:nil error:nil];
+    [static_socket emitObjc:@"get_playlist" withItems:@[json]];
+}
+
 +(void)getPlayerState:(NSString*)room_number
 {
     NSDictionary *gps  = [NSDictionary dictionaryWithObjects:@[room_number] forKeys:@[@"room_number"]];

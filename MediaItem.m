@@ -8,6 +8,7 @@
 
 #import "MediaItem.h"
 #import "Room.h"
+#import "SoundCloudAPI.h"
 
 @implementation MediaItem
 
@@ -83,11 +84,42 @@
         self.username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
 //        self.playing_animation = [UIImage animatedImageNamed:@"wave" duration:0.6f];
         self.playing_animation = [UIImage imageNamed:@"wave1.png"];
-        if([soundCloudTrack objectForKey:@"downloadable"])
+        self.original_format = [soundCloudTrack objectForKey:@"original_format"];
+        NSString *b = [NSString stringWithFormat:@"%@",[soundCloudTrack objectForKey:@"downloadable"] ];
+        if([b isEqualToString:@"1"])
+            self.downloadable = YES;
+        else
+            self.downloadable = NO;
+        if(self.downloadable)
         {
+//            [SoundCloudAPI getSoundCloudTrackFromURL:[soundCloudTrack objectForKey:@"download_url"]];
+            
+            
             self.download_url = [soundCloudTrack objectForKey:@"download_url"];
+            //find local file if it already downloaded
+            NSString *locl_url = [[NSUserDefaults standardUserDefaults] objectForKey:[Utils getParsedURL:[NSString stringWithFormat:@"%@-client_id=%@",self.download_url,[SoundCloudAPI getClientID]]]];
+            NSLog(@"printing key we need for string: %@", [Utils getParsedURL:[NSString stringWithFormat:@"%@-client_id=%@",self.download_url,[SoundCloudAPI getClientID]]]);
+            
+            NSLog(@"printing local file path: %@", self.local_file_path);
+            
+            
+            
+            //location exists locally
+            if(locl_url)
+            {
+                self.local_file_path = locl_url;
+                NSLog(@"printing local file path: %@", self.local_file_path);
+                self.is_local_item = YES;
+            }else{
+                self.is_local_item = NO;
+            }
+        }else{
+            self.is_local_item = NO;
         }
         self.is_event_mix = NO;
+        
+        
+        
     }
     return self;
 }
@@ -109,9 +141,20 @@
         self.room_number = [Room currentRoom].room_number;
         self.download_url = [sds_dict objectForKey:@"soundcloudLink"];
         self.is_event_mix = YES;
+        self.is_local_item = NO;
+        self.local_file_path = [[NSString alloc] init];
+        
+        [SoundCloudAPI getSoundCloudTrackFromURL:[sds_dict objectForKey:@"soundcloudLink"]];
+        
+//        self.original_format = [sdsobjectForKey:@"original_format"];
     }
     return self;
 }
+
+//- (void) downloadMediaItem
+//{
+////    [Utils downloadSongFromURL:self.download_url];
+//}
 
 /**
  A Method for adding a UIImage from a url string containing the album artwork location for a track

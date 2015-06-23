@@ -58,14 +58,41 @@
             
             self.room_number_label.text = time;
             _room_number = [NSString stringWithFormat:@"%@",[event objectForKey:@"id"]];
+            
+            _event_dictionary = event;
+            _sc_event_song = nil;
+            NSString *sc_url = [_event_dictionary objectForKey:@"soundcloudLink"];
+            if(sc_url)
+                [SoundCloudAPI getSoundCloudTrackFromURL:sc_url fromSender:self];
         }
         return self;
 }
 
 -(IBAction)buttonAction
 {
+//    NSString *sc_url = [_event_dictionary objectForKey:@"soundcloudLink"];
+//    [SoundCloudAPI getSoundCloudTrackFromURL:sc_url withSender:self];
+//    
+    //wait while we get the sc track, wait a max time of 10 seconds
+    int counter =0;
+    while(!_sc_event_song || counter < 50)
+    {
+        // SEt spinner while we get the SC track
+        [NSThread sleepForTimeInterval:0.1f];
+        counter++;
+        
+    }
+    
     NSString *negative_room_number = [NSString stringWithFormat:@"%i",[self.room_number intValue] * (-1)];
-    [SDSAPI joinRoom:negative_room_number withUser:self.title.text];
+    //if no event track
+    if(!_sc_event_song)
+    {
+        [SDSAPI joinRoom:negative_room_number withUser:self.title.text]; //WIthTrackForRoomParsedFromEvent];
+        //else there is an event track
+    }else{
+        MediaItem *event_track = [[MediaItem alloc] initWithSoundCloudTrack:_sc_event_song];
+        [SDSAPI joinRoom:negative_room_number withUser:self.title.text withTrack:event_track];
+    }
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
@@ -79,6 +106,7 @@
     [self.view.window.layer addAnimation:transition forKey:kCATransition];
     // send me to the player
     [_rooms_view_controller presentViewController:player_page animated:NO completion:nil];
+    
 }
 
 @end

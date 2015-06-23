@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 #import "SCUI.h"
 @class soundCloudMediaPickerViewController;
+@class UIEventView;
 
 @interface SoundCloudAPI : NSObject<MusicServiceAPI>
 
@@ -23,4 +24,6 @@
 + (void)login:(id)sender;
 +(void)searchSoundCloud:(NSString*)search_text withSender:(soundCloudMediaPickerViewController*)sender;
 +(void)getSDSPlaylistsFromSoundCloud:(soundCloudMediaPickerViewController*)sender;
++(void)getSoundCloudTrackFromURL:(NSString*)string_url;
++(void)getSoundCloudTrackFromURL:(NSString*)string_url fromSender:(UIEventView*)sender;
 @end

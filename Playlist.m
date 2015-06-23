@@ -46,6 +46,7 @@ static Playlist *sharedPlaylist = nil;
     {
         NSDictionary *track = [playlist objectForKey:[NSString stringWithFormat:@"%d", i]];
         MediaItem *new_track = [[MediaItem alloc] initWIthDict:track];
+        
         [self addTrack:new_track];
     }
 }

@@ -63,7 +63,7 @@
 @property (weak, nonatomic) IBOutlet UIView *_playerTableHeaderView;
 @property (weak, nonatomic) IBOutlet UIView *_playerAddMusicCell;
 
-@property (weak, nonatomic) NSMutableArray* playlist;
+@property (strong, nonatomic) NSMutableArray* playlist;
 @property Player* player;
 
 - (IBAction)sliderValueChanged:(UISlider *)sender;

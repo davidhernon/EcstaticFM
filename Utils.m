@@ -8,6 +8,7 @@
 
 #import "Utils.h"
 #import "SCUI.h"
+#import "MediaItem.h"
 
 @implementation Utils
 @synthesize queryFromSoundCloud;
@@ -126,20 +127,16 @@
     return ret;
 }
 
-+(void)downloadSongFromURL:(NSString*)download_url
++(void)downloadSongFromURL:(NSString*)download_url withRoomNumber:(NSString*)room_number withMediaItem:(MediaItem*)track
 {
-    NSString *parsed_download_url = [download_url stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
-    parsed_download_url = [parsed_download_url stringByReplacingOccurrencesOfString:@":" withString:@"-"];
-    parsed_download_url = [parsed_download_url stringByReplacingOccurrencesOfString:@"?" withString:@"-"];
-    parsed_download_url = [parsed_download_url stringByReplacingOccurrencesOfString:@"." withString:@"-"];
-    
-    NSString *pathtoDL = [NSString pathWithComponents:@[NSTemporaryDirectory(), @"someDirectory"]];
-
+    NSString *parsed_download_url = [Utils getParsedURL:download_url];
+        
+    NSString *folderPath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/%@/",[Utils getParsedURL:track.track_title]]];
     
     TCBlobDownloadManager *sharedManager = [TCBlobDownloadManager sharedInstance];
 
     TCBlobDownloader *downloader = [sharedManager startDownloadWithURL:[NSURL URLWithString:download_url ]
-                                                            customPath:@"someDirectory"
+                                                            customPath:folderPath
                                                          firstResponse:^(NSURLResponse *response) {
                                                              NSLog(@"anything!");
                                                          }
@@ -153,25 +150,33 @@
                                                                  }
                                                               complete:^(BOOL downloadFinished, NSString *pathToFile) {
                                                                   NSLog(@"Done with file path %@", pathToFile);
-                                                                  [[NSUserDefaults standardUserDefaults] setObject:pathToFile forKey:@"event_file_path"];
-                                                                  // Change teh UI in player view controller when the mix is finished downloading
+                                                                  //Commented out because its not used but we might need to try it later
+                                                                  
+                                                                  NSError * err = NULL;
+                                                                  NSFileManager * fm = [[NSFileManager alloc] init];
+                                                                  BOOL result = [fm moveItemAtPath:pathToFile toPath:[NSString stringWithFormat:@"%@.%@",pathToFile, track.original_format] error:&err];
+                                                                  NSLog(@"printing formatted path: %@", [NSString stringWithFormat:@"%@.%@",pathToFile, track.original_format]);
+                                                                  
+                                                                  if(!result)
+                                                                      NSLog(@"Error: %@", err);
+                                                                  
+                                                                  track.local_file_path = [NSString stringWithFormat:@"%@.%@",pathToFile, track.original_format];
+                                                                  
+                                                                  [[NSUserDefaults standardUserDefaults] setObject:track.local_file_path forKey:parsed_download_url];
+                                                                  NSLog(@"Printing key and object for storage: %@ for key %@",track.local_file_path,parsed_download_url);
+                                                                  track.is_local_item = YES;
+                                                                  track.local_file_path = pathToFile;
                                                               }];
     [downloader start];
 }
 
-+(void)createDirectory:(NSString *)directoryName atFilePath:(NSString *)filePath
++(NSString*)getParsedURL:(NSString*)url
 {
-    NSString *filePathAndDirectory = [filePath stringByAppendingPathComponent:directoryName];
-    NSError *error;
-    
-    if (![[NSFileManager defaultManager] createDirectoryAtPath:filePathAndDirectory
-                                   withIntermediateDirectories:NO
-                                                    attributes:nil
-                                                         error:&error])
-    {
-        NSLog(@"Create directory error: %@", error);
-    }
+    NSString *parsed_download_url = [url stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
+    parsed_download_url = [parsed_download_url stringByReplacingOccurrencesOfString:@":" withString:@"-"];
+    parsed_download_url = [parsed_download_url stringByReplacingOccurrencesOfString:@"?" withString:@"-"];
+    parsed_download_url = [parsed_download_url stringByReplacingOccurrencesOfString:@" " withString:@""];
+    return [parsed_download_url stringByReplacingOccurrencesOfString:@"." withString:@"-"];
 }
-
 
 @end
