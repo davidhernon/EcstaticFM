@@ -294,6 +294,11 @@
 		FC6E9E381B39FC6D00DE8B3F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428B71A799CE9001DB0AD /* LaunchScreen.xib */; };
 		FC6E9E391B39FC7D00DE8B3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428B21A799CE9001DB0AD /* Main.storyboard */; };
 		FC9B398E1B30B50E002FEA04 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9B398D1B30B50E002FEA04 /* Settings.m */; };
+		FCA06B6F1B3A0D89003C37F3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA06B6A1B3A0D89003C37F3 /* Default-568h@2x.png */; };
+		FCA06B701B3A0D89003C37F3 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA06B6B1B3A0D89003C37F3 /* Default-667h@2x.png */; };
+		FCA06B711B3A0D89003C37F3 /* Default-Portrait-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA06B6C1B3A0D89003C37F3 /* Default-Portrait-736h@3x.png */; };
+		FCA06B721B3A0D89003C37F3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA06B6D1B3A0D89003C37F3 /* Default.png */; };
+		FCA06B731B3A0D89003C37F3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA06B6E1B3A0D89003C37F3 /* Default@2x.png */; };
 		FCEB2FDE1B001E3C00010187 /* LocationServices.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEB2FDD1B001E3C00010187 /* LocationServices.m */; };
 /* End PBXBuildFile section */
 
@@ -643,6 +648,11 @@
 		FC3201BF1B334E5C0021A072 /* ForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgotPasswordViewController.m; path = EcstaticFM/ForgotPasswordViewController.m; sourceTree = "<group>"; };
 		FC9B398C1B30B50E002FEA04 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		FC9B398D1B30B50E002FEA04 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		FCA06B6A1B3A0D89003C37F3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FCA06B6B1B3A0D89003C37F3 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
+		FCA06B6C1B3A0D89003C37F3 /* Default-Portrait-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait-736h@3x.png"; sourceTree = "<group>"; };
+		FCA06B6D1B3A0D89003C37F3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FCA06B6E1B3A0D89003C37F3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		FCEB2FDC1B001E3C00010187 /* LocationServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationServices.h; sourceTree = "<group>"; };
 		FCEB2FDD1B001E3C00010187 /* LocationServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationServices.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -752,6 +762,11 @@
 				1CA428AD1A799CE9001DB0AD /* AppDelegate.m */,
 				1CA428B21A799CE9001DB0AD /* Main.storyboard */,
 				DE1D9FC01B1526BD00829471 /* Images.xcassets */,
+				FCA06B6A1B3A0D89003C37F3 /* Default-568h@2x.png */,
+				FCA06B6B1B3A0D89003C37F3 /* Default-667h@2x.png */,
+				FCA06B6C1B3A0D89003C37F3 /* Default-Portrait-736h@3x.png */,
+				FCA06B6D1B3A0D89003C37F3 /* Default.png */,
+				FCA06B6E1B3A0D89003C37F3 /* Default@2x.png */,
 				1CA428B71A799CE9001DB0AD /* LaunchScreen.xib */,
 				1CA428A81A799CE9001DB0AD /* Supporting Files */,
 			);
@@ -1341,6 +1356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCA06B731B3A0D89003C37F3 /* Default@2x.png in Resources */,
 				FC6E9E391B39FC7D00DE8B3F /* Main.storyboard in Resources */,
 				FC6E9E381B39FC6D00DE8B3F /* LaunchScreen.xib in Resources */,
 				DE46125E1B01388B00192E49 /* image_ecstaticlogocolor.png in Resources */,
@@ -1360,6 +1376,7 @@
 				DE57638B1AF400E6003F7507 /* icon-key-21.png in Resources */,
 				DEBE1D991B1A04FB003FE590 /* spinner-5.png in Resources */,
 				DE85B6911B1510F300BCC36F /* icon-key.png in Resources */,
+				FCA06B721B3A0D89003C37F3 /* Default.png in Resources */,
 				DEBE1DC61B1A32E9003FE590 /* button_close-dark.png in Resources */,
 				DEBE1DC41B1A3221003FE590 /* button_gear.png in Resources */,
 				DE04EBBE1B22376F0019D8F5 /* loading6.png in Resources */,
@@ -1379,6 +1396,7 @@
 				DE4C26271B1F58920028C0C3 /* icon_location2.png in Resources */,
 				DE814F151B38970F008B0F4F /* button_settings_update.png in Resources */,
 				DE1694281B39127900E5E5F7 /* spinner-18.png in Resources */,
+				FCA06B711B3A0D89003C37F3 /* Default-Portrait-736h@3x.png in Resources */,
 				DEBE1D9B1B1A04FB003FE590 /* spinner-7.png in Resources */,
 				1C37B7EE1AF5789A00566216 /* icon_people.png in Resources */,
 				DE14B9F11AFFBF07004470C7 /* wave5.png in Resources */,
@@ -1434,6 +1452,7 @@
 				DE14B9CB1AFF2A16004470C7 /* image_covertartgradient.png in Resources */,
 				DE814F281B38A6ED008B0F4F /* icon_distance_white.png in Resources */,
 				DE9A4A101AF5767300B26BA4 /* splash.png in Resources */,
+				FCA06B6F1B3A0D89003C37F3 /* Default-568h@2x.png in Resources */,
 				DE1D9FC11B1526BD00829471 /* Images.xcassets in Resources */,
 				DE814F0F1B38970F008B0F4F /* button_controls_stop.png in Resources */,
 				DE814F0A1B38970F008B0F4F /* button_chat_pink.png in Resources */,
@@ -1524,6 +1543,7 @@
 				DE814F121B38970F008B0F4F /* button_playlist_pink.png in Resources */,
 				DE4612601B0138A100192E49 /* icon_distance.png in Resources */,
 				DE14B9F21AFFBF07004470C7 /* wave6.png in Resources */,
+				FCA06B701B3A0D89003C37F3 /* Default-667h@2x.png in Resources */,
 				DEB5C44C1B349FBA008A48D0 /* button_cover-empty.png in Resources */,
 				DE1694331B39127900E5E5F7 /* spinner-29.png in Resources */,
 				DE814F361B39078B008B0F4F /* button_mediapicker_heart_white.png in Resources */,
@@ -1732,7 +1752,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1775,7 +1795,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1801,13 +1821,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Martin Weiss (6ZUB2TR58V)";
 				INFOPLIST_FILE = EcstaticFM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = EcstaticFM;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7feb3a44-e1d5-4ee2-9981-b4f56cbd5b93";
 				SWIFT_OBJC_BRIDGING_HEADER = "EcstaticFM-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1819,13 +1838,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Martin Weiss (6ZUB2TR58V)";
 				INFOPLIST_FILE = EcstaticFM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = EcstaticFM;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7feb3a44-e1d5-4ee2-9981-b4f56cbd5b93";
 				SWIFT_OBJC_BRIDGING_HEADER = "EcstaticFM-Bridging-Header.h";
 			};
 			name = Release;
@@ -1834,8 +1852,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1847,7 +1863,6 @@
 				INFOPLIST_FILE = EcstaticFMTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = EcstaticFMTests;
-				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EcstaticFM.app/EcstaticFM";
 			};
 			name = Debug;
@@ -1856,8 +1871,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1865,7 +1878,6 @@
 				INFOPLIST_FILE = EcstaticFMTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = EcstaticFMTests;
-				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EcstaticFM.app/EcstaticFM";
 			};
 			name = Release;
