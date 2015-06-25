@@ -11,7 +11,8 @@
 #import "Playlist.h"
 #import "SoundCloudAPI.h"
 #import "SDSAPI.h"
-@protocol PlayerDelegate;
+#import "PlayerDelegate.h"
+//@protocol PlayerDelegate;
 
 @interface Player : NSObject
 
@@ -45,35 +46,4 @@
 -(void) deleteSongWithDict:(NSDictionary*)remove_song_dict;
 
 @end
-
-
-
-
-@protocol PlayerDelegate <NSObject>
-
-- (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack atIndex:(int)index;
-
-- (void) setCurrentSliderValue:(AVPlayer*)childPlayer;
-
-- (void)updatePlaylistTable;
-
-- (void)hideUI;
-
-- (void)redrawUI;
-
-- (void)showPlayButton;
-
-- (void)showPauseButton;
-
-- (void)playerIsLoadingNextSong;
-
--(void)playerIsDoneLoadingNextSong;
-
--(void)lock;
--(void)unlock;
-
--(void)deleteSongAtIndex:(int)index;
-
-@end
-
 

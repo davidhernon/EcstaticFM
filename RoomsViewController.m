@@ -66,7 +66,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
         }
         
         [_center_points addObject:[NSNumber numberWithFloat:x]];
-        UIEventView *room_view = [[UIEventView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:event withRoomController:self];
+        EventView *room_view = [[EventView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:event withRoomController:self];
         [_event_item_list addObject:room_view];
         [_roomsScrollView addSubview:room_view];
         x += (234) + 15;
@@ -74,7 +74,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
     
     
     [_center_points addObject:[NSNumber numberWithFloat:x]];
-    UIAroundMeHereEmptyView *room_view = [[UIAroundMeHereEmptyView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:nil withRoomController:self];
+    CreateRoomView *room_view = [[CreateRoomView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:nil withRoomController:self];
     [_event_item_list addObject:room_view];
     [_roomsScrollView addSubview:room_view];
     x += (234) + 15;

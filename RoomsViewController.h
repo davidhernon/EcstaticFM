@@ -14,8 +14,8 @@
 #import "LocationServices.h"
 #import "AroundMeTableViewCell.h"
 #import "UIAroundMeView.h"
-#import "UIEventView.h"
-#import "UIAroundMeHereEmptyView.h"
+#import "EventView.h"
+#import "CreateRoomView.h"
 #import "UIRoomView.h"
 #define kUVCellDragInterval 180.f
 

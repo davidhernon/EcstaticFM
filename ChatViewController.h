@@ -14,6 +14,7 @@
 #import "MessageTableViewCell.h"
 #import "Message.h"
 #import "SDSAPI.h"
+#import "PlayerPageViewController.h"
 
 @interface ChatViewController : UIViewController <UITextViewDelegate, UITableViewDataSource, UITableViewDelegate>
 

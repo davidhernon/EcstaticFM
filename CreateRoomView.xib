@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIAroundMeHereEmptyView">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateRoomView">
             <connections>
                 <outlet property="view" destination="iN0-l3-epB" id="fET-4T-Hxm"/>
             </connections>
@@ -72,12 +72,12 @@
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="TOd-ti-Vq3"/>
-                            <exclude reference="a6j-9d-Kp3"/>
                             <exclude reference="5hS-I0-W2M"/>
                             <exclude reference="P2B-6u-2Ra"/>
                             <exclude reference="yIG-dh-B11"/>
                             <exclude reference="zoD-hs-3vM"/>
+                            <exclude reference="TOd-ti-Vq3"/>
+                            <exclude reference="a6j-9d-Kp3"/>
                         </mask>
                     </variation>
                 </view>

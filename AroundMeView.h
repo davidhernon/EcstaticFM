@@ -1,5 +1,5 @@
 //
-//  UIEventView.h
+//  UIAroundMeView.h
 //  EcstaticFM
 //
 //  Created by David Hernon on 2015-05-30.
@@ -10,24 +10,25 @@
 #import "PlayerPageViewController.h"
 #import "SDSAPI.h"
 #import "UIRoomView.h"
-#import <MapKit/MapKit.h>
+#import <CoreData/CoreData.h>
 @class RoomsViewController;
 
-@interface UIEventView : UIRoomView
+@interface AroundMeView : UIRoomView
 
-@property (nonatomic, weak) IBOutlet UIView *view;
-@property (nonatomic, weak) IBOutlet UILabel *title;
-@property (nonatomic, weak) IBOutlet UILabel *location;
-@property (nonatomic, weak) IBOutlet UILabel *hostname;
-@property (nonatomic, weak) IBOutlet UIButton *button;
+@property (nonatomic, retain) IBOutlet UIView *view;
+@property (nonatomic, retain) IBOutlet UILabel *title;
+@property (nonatomic, retain) IBOutlet UILabel *other_listeners;
 @property (nonatomic, retain) IBOutlet UILabel *room_number_label;
+@property (nonatomic, weak) IBOutlet UIButton *button;
 @property (nonatomic, retain) NSString *room_number;
-@property (nonatomic, retain) NSDictionary *event_dictionary;
-@property (nonatomic, retain) NSDictionary *sc_event_song;
+@property (nonatomic, retain) NSString* hostname;
+@property BOOL *is_an_event;
+
+@property CLLocationCoordinate2D coord;
 
 @property (nonatomic, weak) RoomsViewController *rooms_view_controller;
 
 - (id) initWithFrame:(CGRect)aRect withEvent:(NSDictionary*)event withRoomController:(RoomsViewController*)sender;
-
+-(void)setLocation:(NSArray*)location_array_from_server;
 
 @end

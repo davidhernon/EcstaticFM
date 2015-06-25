@@ -43,4 +43,5 @@
 +(void)leaveRoom;
 +(bool)getCreateRoomBool;
 +(void)setCreateRoomBool:(bool)passedCreateRoomBool;
++(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)user withTrack:(MediaItem*)track;
 @end

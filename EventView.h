@@ -13,7 +13,7 @@
 #import <MapKit/MapKit.h>
 @class RoomsViewController;
 
-@interface UIEventView : UIRoomView
+@interface EventView : UIRoomView
 
 @property (nonatomic, weak) IBOutlet UIView *view;
 @property (nonatomic, weak) IBOutlet UILabel *title;

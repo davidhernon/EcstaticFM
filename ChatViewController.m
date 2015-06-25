@@ -125,17 +125,26 @@
 }
 
 -(void) addChatLog:(NSString *)user content:(NSArray *)chatLog{
-	[_messages removeAllObjects];
-	for(NSString* chat in chatLog){
-		NSData *objectData = [chat dataUsingEncoding:NSUTF8StringEncoding];
-		NSDictionary *chatDict = [NSJSONSerialization JSONObjectWithData:objectData
-																	 options:NSJSONReadingMutableContainers
-																	   error:nil];
-        //Faking timestamp on the app side
-        Message* m = [[Message alloc]initWithUser:[chatDict objectForKey:@"username"] withContent:[chatDict objectForKey:@"textMessage"] withTime:[chatDict objectForKey:@"timestamp"]];
-		NSLog(@"%@", [chatDict objectForKey:@"textMessage"]);
-		[_messages addObject:m];
-	}
+    
+    [_messages removeAllObjects];
+    for(NSString* chat in chatLog){
+        NSData *objectData = [chat dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *chatDict = [NSJSONSerialization JSONObjectWithData:objectData
+                                                                 options:NSJSONReadingMutableContainers
+                                                                   error:nil];
+        
+        
+        //Format the time back from the server
+        NSDate* date = [NSDate dateWithTimeIntervalSince1970:[(NSNumber*)[chatDict objectForKey:@"timestamp"] intValue] ];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss zzz"];
+        NSString *stringFromDate = [formatter stringFromDate:date];
+        
+        Message* m = [[Message alloc]initWithUser:[chatDict objectForKey:@"username"] withContent:[chatDict objectForKey:@"textMessage"] withTime:stringFromDate];
+        NSLog(@"%@", [chatDict objectForKey:@"textMessage"]);
+        [_messages addObject:m];
+    }
+    
 }
 
 - (void) addChatText:(NSString *)user content:(NSString *)content
@@ -228,6 +237,15 @@
     return TRUE;
 }
 
+-(IBAction)swipeToPlayer:(id)sender
+{
+    [(PlayerPageViewController*)self.parentViewController swipeToPlayerViewControllerReverse];
+}
+
+-(IBAction)swipeToSettings:(id)sender
+{
+    [(PlayerPageViewController*)self.parentViewController swipeToSettingsViewControllerForward];
+}
 
 
 /*

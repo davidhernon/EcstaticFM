@@ -7,6 +7,7 @@
 //
 
 #import "PlayerViewController.h"
+#import "PlayerDelegate.h"
 
 
 @interface PlayerViewController ()
@@ -513,13 +514,27 @@ static NSString* cellIdentifier = @"playListCell";
 }
 
 - (IBAction)downloadMix:(id)sender {
-    for( MediaItem *track in [Playlist sharedPlaylist].playlist )
+    for( MediaItem *track in _playlist )
     {
-        if (track.is_event_mix)
+        NSLog(@"Media Item title: %@", track.track_title);
+        NSLog(@"player counter %lu", (unsigned long)[[Playlist sharedPlaylist].playlist count]);
+        if (track.downloadable)
         {
-            [Utils downloadSongFromURL:track.download_url];
+            NSString *sc_url = [NSString stringWithFormat:@"%@?client_id=%@",track.download_url,[SoundCloudAPI getClientID]];
+        NSLog(@"sc_url: %@",sc_url);
+            [Utils downloadSongFromURL:sc_url withRoomNumber:[Room currentRoom].room_number withMediaItem:track];
+//            [Utils downloadSongFromURL:@"https://api.soundcloud.com/tracks/127646863/download?client_id=230ccb26b40f7c87eb65fc03357ffa81" withRoomNumber:self.room_number];
+
         }
     }
+    
+    MediaItem *track = [[Playlist sharedPlaylist].playlist objectAtIndex:0];
+    
+}
+
+-(IBAction)swipeToChat:(id)sender
+{
+    [(PlayerPageViewController*)self.parentViewController swipeToChatViewControllerForward];
 }
 
 @end
