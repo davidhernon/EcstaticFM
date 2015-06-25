@@ -51,4 +51,9 @@
     [self presentViewController:player_page animated:NO completion:nil];
 }
 
+-(IBAction)swipeToChat:(id)sender
+{
+    [(PlayerPageViewController*)self.parentViewController swipeToChatViewControllerReverse];
+}
+
 @end

@@ -12,5 +12,10 @@
 
 -(void) setChatAsStart;
 -(void) setPlayerAsStart;
+-(void)swipeToChatViewControllerForward;
+-(void)swipeToChatViewControllerReverse;
+-(void)swipeToPlayerViewControllerReverse;
+-(void)swipeToSettingsViewControllerForward;
+-(void)swipeToPlayerViewControllerForward;
 
 @end

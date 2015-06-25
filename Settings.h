@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SDSAPI.h"
 #import "SSKeychain.h"
+#import "PlayerPageViewController.h"
 @interface Settings : UIViewController
 
 - (IBAction)Logout:(id)sender;

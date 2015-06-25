@@ -51,15 +51,7 @@ NSString* settings_view_identifier = @"settings";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataSource = self;
-    [self setPlayerAsStart];
-}
-
--(void) setPlayerAsStart
-{
-    [self setViewControllers:@[self.player]
-                   direction:UIPageViewControllerNavigationDirectionForward
-                    animated:YES
-                  completion:nil];
+    [self swipeToPlayerViewControllerForward];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,6 +83,51 @@ NSString* settings_view_identifier = @"settings";
     }
     return prevViewController;
 }
+
+
+//Begin block of programmatic swipes between UIViewControllers
+//These functions can be called from a childVC to swipe to other view controllers in this PageViewController in Forward and Reverse directions
+//Currently they are called from functions in the respective child vc which are hooked up to UI buttons
+-(void)swipeToChatViewControllerForward
+{
+    [self setViewControllers:@[self.chat]
+                   direction:UIPageViewControllerNavigationDirectionForward
+                    animated:YES
+                  completion:nil];
+}
+
+-(void)swipeToChatViewControllerReverse
+{
+    [self setViewControllers:@[self.chat]
+                   direction:UIPageViewControllerNavigationDirectionReverse
+                    animated:YES
+                  completion:nil];
+}
+
+-(void)swipeToPlayerViewControllerReverse
+{
+    [self setViewControllers:@[self.player]
+                   direction:UIPageViewControllerNavigationDirectionReverse
+                    animated:YES
+                  completion:nil];
+}
+
+-(void)swipeToPlayerViewControllerForward
+{
+    [self setViewControllers:@[self.player]
+                   direction:UIPageViewControllerNavigationDirectionForward
+                    animated:YES
+                  completion:nil];
+}
+
+-(void)swipeToSettingsViewControllerForward
+{
+    [self setViewControllers:@[self.settings]
+                   direction:UIPageViewControllerNavigationDirectionForward
+                    animated:YES
+                  completion:nil];
+}
+//End block of programmatic swipes
 
 @end
 

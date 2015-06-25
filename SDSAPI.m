@@ -505,6 +505,7 @@ static NSArray* eventDictionary;
 	
 	//update the currentRoom's state
     [Room currentRoom].room_number = new_room_number;
+    [Room currentRoom].is_event = isEvent;
 	
 	//loop through all the events
 	for(NSDictionary* e in eventDictionary){
@@ -530,6 +531,9 @@ static NSArray* eventDictionary;
 +(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)user withTrack:(MediaItem*)track
 {
     [SDSAPI leaveRoom];
+    //this method is only called from uieventview
+    [Room currentRoom].is_event = true;
+
     //set up variables to go in the dicts. These contain information about the CURRENT ROOM's state
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     
@@ -633,6 +637,14 @@ static NSArray* eventDictionary;
     NSDictionary *postDict = [NSDictionary dictionaryWithObjects:@[username, room_number, index_to_delete] forKeys:@[@"username", @"room_number", @"index_to_delete"]];
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:postDict options:NSJSONReadingMutableContainers error:nil];
     [static_socket emitObjc:@"remove_song" withItems:@[jsonData]];
+}
+
++(void)leaveRoom
+{
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[[Room currentRoom].room_number, username] forKeys:@[@"room_number", @"username"]];
+    NSData *leaveJson = [NSJSONSerialization dataWithJSONObject:leaveDict options:nil error:nil];
+    [static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
 }
 
 +(void) seek

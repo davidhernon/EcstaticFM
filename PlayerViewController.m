@@ -7,6 +7,7 @@
 //
 
 #import "PlayerViewController.h"
+#import "PlayerDelegate.h"
 
 
 @interface PlayerViewController ()
@@ -529,6 +530,11 @@ static NSString* cellIdentifier = @"playListCell";
     
     MediaItem *track = [[Playlist sharedPlaylist].playlist objectAtIndex:0];
     
+}
+
+-(IBAction)swipeToChat:(id)sender
+{
+    [(PlayerPageViewController*)self.parentViewController swipeToChatViewControllerForward];
 }
 
 @end

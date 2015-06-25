@@ -144,9 +144,8 @@
         self.is_local_item = NO;
         self.local_file_path = [[NSString alloc] init];
         
-        [SoundCloudAPI getSoundCloudTrackFromURL:[sds_dict objectForKey:@"soundcloudLink"]];
-        
 //        self.original_format = [sdsobjectForKey:@"original_format"];
+        [self checkIfLocalSong];
     }
     return self;
 }
@@ -189,6 +188,24 @@
         stringURL = @"http://w1.sndcdn.com/fxguEjG4ax6B_m.png";
     }
     return [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:stringURL]]];
+}
+
+-(void)checkIfLocalSong
+{
+    //find local file if it already downloaded
+    NSString *locl_url = [[NSUserDefaults standardUserDefaults] objectForKey:[Utils getParsedURL:[NSString stringWithFormat:@"%@-client_id=%@",self.download_url,[SoundCloudAPI getClientID]]]];
+    
+    
+    //location exists locally
+    if(locl_url)
+    {
+        self.local_file_path = locl_url;
+        NSLog(@"printing local file path: %@", self.local_file_path);
+        self.is_local_item = YES;
+    }else{
+        self.is_local_item = NO;
+    }
+
 }
 
 @end

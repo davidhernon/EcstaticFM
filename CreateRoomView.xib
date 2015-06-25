@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateRoomView">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="fET-4T-Hxm"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="234" height="251"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CxU-Sl-NMI">
+                    <rect key="frame" x="0.0" y="0.0" width="234" height="350"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_rooms_cards_empty.png" translatesAutoresizingMaskIntoConstraints="NO" id="Axk-FO-Pal">
+                            <rect key="frame" x="18" y="0.0" width="198" height="198"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="198" id="ip3-64-vF2"/>
+                                <constraint firstAttribute="width" constant="198" id="t5o-q7-AJa"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="image_rooms_shadow.png" translatesAutoresizingMaskIntoConstraints="NO" id="b4N-h8-6Xs">
+                            <rect key="frame" x="17" y="223" width="198" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="26" id="Bz0-0I-YmF"/>
+                                <constraint firstAttribute="width" constant="198" id="EVb-1u-7uI"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmg-Qq-HmW" userLabel="hidden button (link to room)">
+                            <rect key="frame" x="17" y="-1" width="234" height="295"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="300" id="N6M-al-WE4"/>
+                                <constraint firstAttribute="width" constant="234" id="rDt-Jg-Pbh"/>
+                            </constraints>
+                            <state key="normal" title=" ">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="N6M-al-WE4"/>
+                                    <exclude reference="rDt-Jg-Pbh"/>
+                                </mask>
+                            </variation>
+                            <connections>
+                                <action selector="buttonAction" destination="-1" eventType="touchUpInside" id="zFg-Gd-39X"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="height" secondItem="Axk-FO-Pal" secondAttribute="height" id="5hS-I0-W2M"/>
+                        <constraint firstAttribute="width" constant="234" id="CG9-9G-7tc"/>
+                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="centerX" secondItem="Axk-FO-Pal" secondAttribute="centerX" id="OQp-yA-xKr"/>
+                        <constraint firstAttribute="height" constant="350" id="OfB-4i-m2O"/>
+                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="centerY" secondItem="Axk-FO-Pal" secondAttribute="centerY" constant="-2.5" id="P2B-6u-2Ra"/>
+                        <constraint firstItem="Axk-FO-Pal" firstAttribute="bottom" secondItem="b4N-h8-6Xs" secondAttribute="bottom" constant="-50" id="P8E-FV-DUD"/>
+                        <constraint firstItem="Axk-FO-Pal" firstAttribute="width" secondItem="b4N-h8-6Xs" secondAttribute="width" id="TOd-ti-Vq3"/>
+                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="centerY" secondItem="Axk-FO-Pal" secondAttribute="centerY" id="TnA-LO-qzt"/>
+                        <constraint firstAttribute="centerX" secondItem="Axk-FO-Pal" secondAttribute="centerX" id="YLO-Gp-QQq"/>
+                        <constraint firstItem="Axk-FO-Pal" firstAttribute="top" secondItem="b4N-h8-6Xs" secondAttribute="top" constant="-253" id="a6j-9d-Kp3"/>
+                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="width" secondItem="Axk-FO-Pal" secondAttribute="width" id="lQ0-Hk-2pR"/>
+                        <constraint firstItem="Axk-FO-Pal" firstAttribute="centerX" secondItem="b4N-h8-6Xs" secondAttribute="centerX" id="n7D-mv-hek"/>
+                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="height" secondItem="Axk-FO-Pal" secondAttribute="height" id="vlL-SY-pPb"/>
+                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="width" secondItem="Axk-FO-Pal" secondAttribute="width" id="yIG-dh-B11"/>
+                        <constraint firstItem="Axk-FO-Pal" firstAttribute="top" secondItem="CxU-Sl-NMI" secondAttribute="top" id="yrC-zZ-xTw"/>
+                        <constraint firstItem="mmg-Qq-HmW" firstAttribute="centerX" secondItem="Axk-FO-Pal" secondAttribute="centerX" id="zoD-hs-3vM"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="5hS-I0-W2M"/>
+                            <exclude reference="P2B-6u-2Ra"/>
+                            <exclude reference="yIG-dh-B11"/>
+                            <exclude reference="zoD-hs-3vM"/>
+                            <exclude reference="TOd-ti-Vq3"/>
+                            <exclude reference="a6j-9d-Kp3"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="CxU-Sl-NMI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Dt8-L5-5O6"/>
+                <constraint firstAttribute="centerX" secondItem="CxU-Sl-NMI" secondAttribute="centerX" id="Wh2-3k-fQO"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="139" y="162.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="image_rooms_cards_empty.png" width="414" height="414"/>
+        <image name="image_rooms_shadow.png" width="415" height="66"/>
+    </resources>
+</document>

@@ -17,6 +17,8 @@
 #import "LocationServices.h"
 #import "AppDelegate.h"
 #import <Foundation/Foundation.h>
+#import "PlayerPageViewController.h"
+@class PLayerDelegate;
 
 @interface PlayerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PlayerDelegate, SWTableViewCellDelegate>
 
@@ -55,6 +57,7 @@
 @property BOOL loading_next_song_has_changed;
 
 @property (retain, nonatomic) IBOutlet UILabel *room_title;
+@property (weak, nonatomic) IBOutlet UIButton *download_mix_button;
 
 //nav bar
 @property (weak, nonatomic) IBOutlet UINavigationBar *_playerNavigationBar;
