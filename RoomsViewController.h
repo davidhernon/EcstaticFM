@@ -42,7 +42,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *time_icon;
 @property (weak, nonatomic) IBOutlet UIImageView *location_icon;
 
-@property (nonatomic, weak) IBOutlet UILabel *hostname;
+@property (nonatomic, weak) IBOutlet UILabel *room_header;
 
 -(IBAction)buttonPressed:(id)sender;
 

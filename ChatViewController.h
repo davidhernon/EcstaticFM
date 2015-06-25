@@ -20,11 +20,15 @@
 
 @property (nonatomic, strong)UITapGestureRecognizer *chatTapGestureRecognizer;
 @property BOOL keyboardIsShown;
+@property BOOL clearField; 
 @property (weak, nonatomic) IBOutlet UILabel *people_with_you;
 @property (weak, nonatomic) IBOutlet UITableView *chatTableView;
 @property (retain, nonatomic) NSMutableArray *messages;
-@property (strong, nonatomic) IBOutlet UITextView *chatTextField;
+@property (strong, nonatomic) IBOutlet UITextField *chatTextField;
 @property (strong, nonatomic) Message *message;
+
+@property (weak, nonatomic) IBOutlet UIView *chatView;
+
 
 
 - (IBAction)sendChat:(id)sender;

@@ -159,17 +159,24 @@ static NSString* around_me_event_cell = @"around_me_cell";
     int counter = 0;
     for(NSNumber *position_from_array in _center_points)
     {
+        //if you hit any page in the array
         if((position >= [[_center_points objectAtIndex:counter] floatValue] - (234.0f/2.0f)-7.5f) && (position <= [[_center_points objectAtIndex:counter] floatValue] + (234.0f/2.0f)+7.5f) )
         {
             NSLog(@"page %i", counter);
-            _distance_or_time_label.text = ((UIRoomView*)[_event_item_list objectAtIndex:counter]).room_number_label.text;
+            UIRoomView* room = (UIRoomView*)[_event_item_list objectAtIndex:counter];
+            NSString* label_string = room.room_number_label.text;
+            _distance_or_time_label.text = label_string;
             if(_distance_or_time_label.text == nil){
                 _distance_or_time_label.text = @"Right here.";
             }
-        }else if( (position < [[_center_points objectAtIndex:0] floatValue] - (234.0f/2.0f)-7.5f))
+        }
+        
+        //if the position you swiped to is below the beginning of the array
+        else if( (position < [[_center_points objectAtIndex:0] floatValue] - (234.0f/2.0f)-7.5f))
         {
             _distance_or_time_label.text = ((UIRoomView*)[_event_item_list objectAtIndex:0]).room_number_label.text;
         }
+        //if the position you swiped to is beyond the end of the array
         else if((position > [[_center_points objectAtIndex:[_center_points count]-1] floatValue] + (234.0f/2.0f)+7.5f))
         {
             _distance_or_time_label.text = ((UIRoomView*)[_event_item_list objectAtIndex:[_event_item_list count]-1]).room_number_label.text;
