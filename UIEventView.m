@@ -64,6 +64,8 @@
             NSString *sc_url = [_event_dictionary objectForKey:@"soundcloudLink"];
             if(sc_url)
                 [SoundCloudAPI getSoundCloudTrackFromURL:sc_url fromSender:self];
+			
+			self.hostname = [event objectForKey:@"host_username"];
         }
         return self;
 }
@@ -87,7 +89,7 @@
     //if no event track
     if(!_sc_event_song)
     {
-        [SDSAPI joinRoom:negative_room_number withUser:self.title.text]; //WIthTrackForRoomParsedFromEvent];
+        [SDSAPI joinRoom:negative_room_number withUser:self.title.text isEvent:true]; //WIthTrackForRoomParsedFromEvent];
         //else there is an event track
     }else{
         MediaItem *event_track = [[MediaItem alloc] initWithSoundCloudTrack:_sc_event_song];
