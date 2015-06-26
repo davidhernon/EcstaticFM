@@ -10,6 +10,10 @@
 
 @implementation MessageTableViewCell
 
+- (void)viewDidLoad {
+    _content.layer.cornerRadius = 12;
+}
+
 - (void)awakeFromNib {
     // Initialization code
 }
@@ -20,5 +24,7 @@
     // Configure the view for the selected state
     
 }
+
+
 
 @end

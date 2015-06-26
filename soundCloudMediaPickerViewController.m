@@ -106,6 +106,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     // Dispose of any resources that can be recreated.
 }
 
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }

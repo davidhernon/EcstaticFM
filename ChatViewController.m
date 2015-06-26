@@ -6,12 +6,17 @@
 
 @interface ChatViewController ()
 
+
 @end
 
 @implementation ChatViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _chatTableView.estimatedRowHeight = 72.0;
+    _chatTableView.rowHeight = UITableViewAutomaticDimension;
+    
     self.chatTextField.delegate = self;
     // Do any additional setup after loading the view.
     
@@ -32,10 +37,7 @@
                                                  name:UIKeyboardWillHideNotification
                                                object:self.view.window];
     _keyboardIsShown = NO;
-    //make contentSize bigger than your scrollSize (you will need to figure out for your own use case)
-    //    CGSize scrollContentSize = CGSizeMake(320, 640);
-    //    _chatScrollView.contentSize = scrollContentSize;
-    
+
     //Register tap gesture for dimissing the keyboard
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -63,6 +65,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:YES];
+    
+    
 	
 	// Get Messages and Display them
 	[SDSAPI getChatBacklog]; 
@@ -76,6 +80,8 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_messages count];
 }
+
+
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Message *message = [_messages objectAtIndex:indexPath.row];
@@ -112,6 +118,10 @@
 - (IBAction)sendChat:(id)sender
 {
     [SDSAPI sendText:self.chatTextField.text];
+    //empty the text field
+    _chatTextField.text = @"";
+    //close the keyboard
+    [self.view endEditing:YES];
 }
 
 -(void) addChatLog:(NSString *)user content:(NSArray *)chatLog{
@@ -143,6 +153,13 @@
     _message = [[Message alloc] initWithUser:user withContent:content withTime:[NSString stringWithFormat:@"%@",time_now ]];
     [_messages addObject:_message];
     [_chatTableView reloadData];
+    
+    //scroll to the last row
+    int lastRowNumber = [_chatTableView numberOfRowsInSection:0] - 1;
+    NSIndexPath* ip = [NSIndexPath indexPathForRow:lastRowNumber inSection:0];
+    [_chatTableView scrollToRowAtIndexPath:ip atScrollPosition:UITableViewScrollPositionTop animated:NO];
+
+    
 }
 
 - (void) getMessages
@@ -161,54 +178,45 @@
     
 }
 
-- (void)keyboardWillHide:(NSNotification *)n
-{
-    NSDictionary* userInfo = [n userInfo];
-    
-    // get the size of the keyboard
-    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    
-    // resize the scrollview
-    CGRect viewFrame = _chatTableView.frame;
-    // I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
-    viewFrame.size.height += (keyboardSize.height - kTabBarHeight);
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [_chatTableView setFrame:viewFrame];
-    [UIView commitAnimations];
-    
-    _keyboardIsShown = NO;
-}
 
-- (void)keyboardWillShow:(NSNotification *)n
-{
-    // This is an ivar I'm using to ensure that we do not do the frame size adjustment on the `UIScrollView` if the keyboard is already shown.  This can happen if the user, after fixing editing a `UITextField`, scrolls the resized `UIScrollView` to another `UITextField` and attempts to edit the next `UITextField`.  If we were to resize the `UIScrollView` again, it would be disastrous.  NOTE: The keyboard notification will fire even when the keyboard is already shown.
-    if (_keyboardIsShown) {
-        return;
+// Pushes the view up when the keyboard appears and brings it back to original position after
+
+    - (void)keyboardWillShow:(NSNotification *)n
+    {
+        
+        //get the screen size and store it in floats
+        float SW;
+        float SH;
+        SW = [[UIScreen mainScreen] bounds].size.width;
+        SH = [[UIScreen mainScreen] bounds].size.height;
+        
+        // get the size of the keyboard
+        NSDictionary* userInfo = [n userInfo];
+        CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+        
+        //reposition the view
+        [_chatView setFrame:CGRectMake(0,-keyboardSize.height,SW,SH)];
+        
     }
-    
-    NSDictionary* userInfo = [n userInfo];
-    
-    // get the size of the keyboard
-    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    // resize the noteView
-    CGRect viewFrame = _chatTableView.frame;
-    // I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
-    viewFrame.size.height -= (keyboardSize.height - kTabBarHeight);
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [_chatTableView setFrame:viewFrame];
-    [UIView commitAnimations];
-    _keyboardIsShown = YES;
-}
 
--(void)dismissKeyboard {
-    [_chatTextField resignFirstResponder];
-}
+    - (void)keyboardWillHide:(NSNotification *)n
+    {
+        //get the screen size and store it in floats
+        float SW;
+        float SH;
+        SW = [[UIScreen mainScreen] bounds].size.width;
+        SH = [[UIScreen mainScreen] bounds].size.height;
+        
+        //reset the view to it's original position and size
+        [_chatView setFrame:CGRectMake(0,0,SW,SH)];
+        
+    }
+
+
+    -(void)dismissKeyboard {
+        [_chatTextField resignFirstResponder];
+    }
+
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range
  replacementText:(NSString *)text
@@ -216,11 +224,14 @@
     // Any new character added is passed in as the "text" parameter
     if ([text isEqualToString:@"\n"]) {
         // Be sure to test for equality using the "isEqualToString" message
-        [textView resignFirstResponder];
-        [self sendChat:self];
-        _chatTextField = @"";
+            [textView resignFirstResponder];
+            [self sendChat:self];
+        //empty the text field
+            _chatTextField.text = @"";
+        //close the keyboard
+            [self.view endEditing:YES];
         // Return FALSE so that the final '\n' character doesn't get added
-        return FALSE;
+            return FALSE;
     }
     // For any other character return TRUE so that the text gets added to the view
     return TRUE;
@@ -246,6 +257,9 @@
  // Pass the selected object to the new view controller.
  }
  */
+
+//
+
 
 @end
 

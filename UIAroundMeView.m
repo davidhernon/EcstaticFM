@@ -51,7 +51,7 @@
         self.room_number_label.text = [NSString stringWithFormat:@"Room Number: %@", [room_info objectForKey:@"room_number"]];
         self.room_number = [room_info objectForKey:@"room_number"];
         self.rooms_view_controller = sender;
-        self.title.text = [room_info objectForKey:@"room_name"];
+        self.title = [room_info objectForKey:@"room_name"];
         
         NSNumber *host_lat = [host_location objectForKey:@"latitude"];
         NSNumber *host_lon = [host_location objectForKey:@"longitude"];

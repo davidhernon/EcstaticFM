@@ -10,6 +10,7 @@
 
 @implementation Message
 
+
 - (id) initWithUser:(NSString *)user withContent:(NSString *)content withTime:(NSString*)time
 {
     if(self = [super init])

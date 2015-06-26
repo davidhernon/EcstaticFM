@@ -7,26 +7,23 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myMessageCell" rowHeight="160" id="7us-OJ-4co" customClass="MessageTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="429" height="140"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myMessageCell" rowHeight="205" id="7us-OJ-4co" customClass="MessageTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="429" height="117"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7us-OJ-4co" id="LlA-pv-78f">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="My Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ir9-ir-hCM">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ir9-ir-hCM">
                         <rect key="frame" x="87" y="2" width="70" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="j9V-zX-rcd"/>
-                        </constraints>
                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
                         <color key="textColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" Content" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfK-XO-PGj" userLabel="Content">
-                        <rect key="frame" x="87" y="28" width="342" height="66"/>
+                    <label autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" Content" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="bfK-XO-PGj" userLabel="Content">
+                        <rect key="frame" x="87" y="29" width="334" height="66"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="200" id="VNn-JL-yme"/>
+                            <constraint firstAttribute="width" constant="334" id="ORg-lZ-DM0"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
                         <color key="textColor" red="0.42467421293258667" green="0.42466148734092712" blue="0.42466869950294495" alpha="1" colorSpace="calibratedRGB"/>
@@ -36,43 +33,46 @@
                                 <integer key="value" value="12"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ORg-lZ-DM0"/>
+                            </mask>
+                        </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88K-0W-ixO">
                         <rect key="frame" x="167" y="1" width="38" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="rRf-lI-jix"/>
-                        </constraints>
                         <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="15"/>
                         <color key="textColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="image_circle-me.png" translatesAutoresizingMaskIntoConstraints="NO" id="r2D-6W-j1h">
-                        <rect key="frame" x="14" y="24" width="55" height="55"/>
+                        <rect key="frame" x="14" y="25" width="55" height="55"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="55" id="6AC-Ni-QoW"/>
-                            <constraint firstAttribute="height" constant="55" id="8St-Vy-fAI"/>
+                            <constraint firstAttribute="width" constant="55" id="9tt-Jb-TzH"/>
+                            <constraint firstAttribute="height" constant="55" id="hJC-fR-EDZ"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="Ir9-ir-hCM" firstAttribute="top" secondItem="bfK-XO-PGj" secondAttribute="top" constant="-27" id="25l-ac-EhQ"/>
-                    <constraint firstItem="r2D-6W-j1h" firstAttribute="leading" secondItem="LlA-pv-78f" secondAttribute="leadingMargin" constant="6" id="J3g-li-jLX"/>
-                    <constraint firstItem="r2D-6W-j1h" firstAttribute="leading" secondItem="bfK-XO-PGj" secondAttribute="leading" constant="-73" id="Jkt-eO-Khm"/>
-                    <constraint firstItem="88K-0W-ixO" firstAttribute="trailing" secondItem="Ir9-ir-hCM" secondAttribute="trailing" constant="43" id="Px5-lW-aYR"/>
-                    <constraint firstItem="Ir9-ir-hCM" firstAttribute="top" secondItem="LlA-pv-78f" secondAttribute="topMargin" constant="-8" id="QW5-9I-qCr"/>
-                    <constraint firstItem="r2D-6W-j1h" firstAttribute="top" secondItem="LlA-pv-78f" secondAttribute="topMargin" constant="15" id="XkF-Qe-n8q"/>
-                    <constraint firstItem="88K-0W-ixO" firstAttribute="centerY" secondItem="Ir9-ir-hCM" secondAttribute="centerY" id="gLP-98-ok7"/>
-                    <constraint firstItem="Ir9-ir-hCM" firstAttribute="leading" secondItem="LlA-pv-78f" secondAttribute="leadingMargin" constant="79" id="iGy-Ua-f7g"/>
-                    <constraint firstItem="88K-0W-ixO" firstAttribute="leading" secondItem="Ir9-ir-hCM" secondAttribute="leading" constant="47" id="pUe-1T-IUR"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="bfK-XO-PGj" secondAttribute="bottom" constant="13" id="18l-pl-d6G"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="bfK-XO-PGj" secondAttribute="bottom" constant="56" id="5Jj-FF-cVf"/>
+                    <constraint firstItem="bfK-XO-PGj" firstAttribute="top" secondItem="LlA-pv-78f" secondAttribute="topMargin" constant="20" id="IiK-Em-j7t"/>
+                    <constraint firstItem="r2D-6W-j1h" firstAttribute="leading" secondItem="bfK-XO-PGj" secondAttribute="leading" constant="-73" id="JfV-cS-8qE"/>
+                    <constraint firstItem="r2D-6W-j1h" firstAttribute="leading" secondItem="LlA-pv-78f" secondAttribute="leadingMargin" constant="6" id="SEq-gQ-Trx"/>
+                    <constraint firstItem="r2D-6W-j1h" firstAttribute="top" secondItem="LlA-pv-78f" secondAttribute="topMargin" constant="16" id="TQV-9h-ijD"/>
+                    <constraint firstItem="bfK-XO-PGj" firstAttribute="trailing" secondItem="LlA-pv-78f" secondAttribute="trailingMargin" id="Tkx-Cv-dvZ"/>
+                    <constraint firstItem="bfK-XO-PGj" firstAttribute="leading" secondItem="LlA-pv-78f" secondAttribute="leadingMargin" constant="79" id="f8h-FN-8pL"/>
+                    <constraint firstItem="bfK-XO-PGj" firstAttribute="leading" secondItem="LlA-pv-78f" secondAttribute="leadingMargin" constant="79" id="pJi-el-vxN"/>
                 </constraints>
                 <variation key="default">
                     <mask key="subviews">
                         <exclude reference="88K-0W-ixO"/>
                     </mask>
                     <mask key="constraints">
-                        <exclude reference="Px5-lW-aYR"/>
-                        <exclude reference="pUe-1T-IUR"/>
+                        <exclude reference="JfV-cS-8qE"/>
+                        <exclude reference="5Jj-FF-cVf"/>
+                        <exclude reference="f8h-FN-8pL"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
@@ -82,7 +82,7 @@
                 <outlet property="timestamp" destination="88K-0W-ixO" id="tIE-GG-7D4"/>
                 <outlet property="user" destination="Ir9-ir-hCM" id="Imc-Gd-1eW"/>
             </connections>
-            <point key="canvasLocation" x="429.5" y="136"/>
+            <point key="canvasLocation" x="429.5" y="157.5"/>
         </tableViewCell>
     </objects>
     <resources>
