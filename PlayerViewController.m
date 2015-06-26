@@ -225,12 +225,14 @@ static NSString* cellIdentifier = @"playListCell";
     cell.backgroundColor = [UIColor clearColor];
     cell.song_index_label.text = [NSString stringWithFormat:@"%d",indexPath.row+1];
 
+    
     // If the track added is the track currently playing add other UI
     if((int)_current_track_index == (int)indexPath.row)
     {
         cell.backgroundColor = [UIColor colorWithRed:0.369 green:0.078 blue:0.298 alpha:0.25] /*#5e144c*/;
         cell.song_index_label.text = @"";
         
+        // select either the spinner or the playing animation to place on the table view cells
         NSArray *imageNames = [[NSArray alloc] init];;
         if(_loading_next_song)
         {

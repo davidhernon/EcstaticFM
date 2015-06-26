@@ -50,13 +50,20 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     self.selectedTracks = [[NSMutableArray alloc] init];
     self.selectedTrackIndices = [[NSMutableArray alloc] init];
     self.soundCloudAlbumImages = [[NSMutableArray alloc] init];
+    self.selected_favorites_indices = [[NSMutableArray alloc] init];
+    self.selected_sds_indices = [[NSMutableArray alloc] init];
+    self.selected_search_indices = [[NSMutableArray alloc] init];
 //    [self getAlbumImageArray];
 
-    
+    _current_media_picker_type = @"favorites";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+    
+    //used to hold highlighting when switching between pickers
+    // starts on favorites as we show the users favorites first
+    
     
     // Load images
     NSArray *imageNames = @[@"spinner-1.png", @"spinner-2.png", @"spinner-3.png", @"spinner-4.png",
@@ -192,7 +199,9 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
             [self.selectedTracks addObject:mediaItemSelected];
 //        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
         [tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor colorWithRed:0.369 green:0.078 blue:0.298 alpha:0.25];
-        [_selectedTrackIndices addObject:@(indexPath.row)];
+        //skip over this step if we are on search
+        if(![_current_media_picker_type isEqualToString:@"search"])
+            [_selectedTrackIndices addObject:@(indexPath.row)];
     }
     [self printSelectedTracks];
     
@@ -212,6 +221,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     }
 }
 
+//Checks to see if the MediaItem selected was already selected
 -(BOOL)itemAlreadySelected:(MediaItem*)selected
 {
     for(MediaItem * mediaItem in self.selectedTracks)
@@ -223,6 +233,35 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     }
     return false;
 }
+
+//Change which list we track selections with
+-(void)changeSelectedListWithString:(NSString*)new_list from:(NSString*)old_list
+{
+    //save the current track indices into the proper lists
+    if([_current_media_picker_type isEqualToString:@"favorites"]){
+        _selected_favorites_indices = _selectedTrackIndices;
+    }else if([_current_media_picker_type isEqualToString:@"sds_mixes"]){
+        _selected_sds_indices = _selectedTrackIndices;
+    }else{
+        _selected_search_indices = _selectedTrackIndices;
+    }
+    
+    //change which current indices list we are holding
+    _current_media_picker_type  = new_list;
+    
+    //set the selectedIndices to the new list selected indices
+    if([new_list isEqualToString:@"favorites"]){
+        _selectedTrackIndices = _selected_favorites_indices;
+    }else if([new_list isEqualToString:@"sds_mixes"]){
+        _selectedTrackIndices = _selected_sds_indices;
+    }else{
+        //search
+        _selectedTrackIndices = _selected_search_indices;
+    }
+    
+    _selected_search_indices = @[];
+}
+
 
 -(void)removeMediaItemFromSelectedTracks:(MediaItem *)itemToRemove
 {
@@ -343,8 +382,12 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 
 -(void)searchSoundcloud:(NSString*)search_text
 {
+    //SWITCH switch from _old_list to search
+    
+    [self changeSelectedListWithString:@"search" from:_current_media_picker_type];
+    
     [SoundCloudAPI searchSoundCloud:search_text withSender:self];
-    [self viewDidLoad];
+//    [self viewDidLoad];
     [self viewWillAppear:YES];
 }
 
@@ -360,11 +403,17 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 
 -(IBAction)getFaves
 {
+    //SWITCH switch from old_list to favorites
+    [self changeSelectedListWithString:@"favorites" from:_current_media_picker_type];
+
     [SoundCloudAPI getFavorites:self];
 }
 
 -(IBAction)getSDSEventTracks
 {
+    //SWITCH switch from old_list to sds_mixes
+    [self changeSelectedListWithString:@"sds_mixes" from:_current_media_picker_type];
+
     [SoundCloudAPI getSDSPlaylistsFromSoundCloud:self];
 }
 
