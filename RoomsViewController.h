@@ -17,9 +17,18 @@
 #import "EventView.h"
 #import "CreateRoomView.h"
 #import "UIRoomView.h"
+#import "EventView.h"
+#import "UIAroundMeView.h"
 #define kUVCellDragInterval 180.f
 
 @interface RoomsViewController : UIViewController <UIScrollViewDelegate>;
+
+//Define properties for event cell layout
+@property float left_hand_padding;
+@property float event_view_height;
+@property float event_view_width;
+@property float scroll_view_margin_padding;
+@property float event_view_padding;
 
 @property (weak, nonatomic) IBOutlet UITableView *roomTableView;
 @property NSArray* popular;

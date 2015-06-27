@@ -10,7 +10,7 @@
 
 @implementation Settings
 
--(void)viewDidAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated{
 	//if you are not the room owner then you cannot toggle the room lock
 	if(![Room currentRoom].is_owner){
 		_toggleLock.hidden = YES;

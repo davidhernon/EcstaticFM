@@ -31,7 +31,7 @@
 @property BOOL is_event_mix;
 @property BOOL is_local_item;
 @property BOOL downloadable;
-@property NSString *local_file_path;
+@property (strong, nonatomic) NSString *local_file_path;
 @property NSString *original_format;
 
 @property NSString* username;

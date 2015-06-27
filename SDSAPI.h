@@ -30,7 +30,6 @@
 +(void)connect;
 +(void)sendMediaItemToServer:(MediaItem*)media_item;
 +(void)postLocation:(NSString*)username withLatitude:(float)latitude withLongitude:(float)longitude;
-+(void)joinRoom:(NSString*)room_number withUser:(NSString*) host_name isEvent:(BOOL)isEvent;
 +(void)getPlaylist:(NSString*)room_number;
 +(void)getPlayerState:(NSString*)room_number;
 +(void)updatePlayerState;
@@ -43,5 +42,5 @@
 +(void)leaveRoom;
 +(bool)getCreateRoomBool;
 +(void)setCreateRoomBool:(bool)passedCreateRoomBool;
-+(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)user withTrack:(MediaItem*)track;
++(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)host_username isEvent:(BOOL)isEvent withTrack:(MediaItem*)event_track;
 @end

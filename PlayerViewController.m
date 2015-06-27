@@ -116,17 +116,35 @@ static NSString* cellIdentifier = @"playListCell";
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    //CHANGE
+    _player.player_is_locked = NO;
+    [self unlock];
+    
     _room_title.text = [NSString stringWithFormat:@"%@'s Room", [Room currentRoom].host_username ];
     NSLog(@"%@",[NSString stringWithFormat:@"%@'s Room", [Room currentRoom].host_username ]);
     [self.player updatePlaylist];
-	
-	//check if is_locked
+    
+    
+//	check if is_locked
 	NSLog(@"player_is_locked=%hhd",_player.player_is_locked);
 	if(_player.player_is_locked && ![Room currentRoom].is_owner){
 		_playerShowControlsButton.enabled = NO;
 		_add_songs.enabled = NO;
 		_add_songs.alpha = 0;
 	}
+    
+//    // set the state of the download button
+    if([Room currentRoom].is_event && _player.player_is_locked)
+    {
+        _download_mix_button.hidden = NO;
+        _add_songs.hidden = YES;
+    }else if(![Room currentRoom].is_event && !_player.player_is_locked){
+        _download_mix_button.hidden = NO;
+        _add_songs.hidden = NO;
+    }else if(![Room currentRoom].is_event){
+        _download_mix_button.hidden = YES;
+        
+    }
 	
     //If no playlist then make buttons hidden
     if([_playlist count] == 0)
@@ -174,6 +192,9 @@ static NSString* cellIdentifier = @"playListCell";
     {
         [_player play];
     }
+    
+    _download_mix_button.hidden = NO;
+    _add_songs.hidden = NO;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -515,11 +536,16 @@ static NSString* cellIdentifier = @"playListCell";
     [_playListTableView reloadData];
 }
 
+
+//Currently is only selecting the first song in the playlist
 - (IBAction)downloadMix:(id)sender {
     for( MediaItem *track in _playlist )
     {
         NSLog(@"Media Item title: %@", track.track_title);
         NSLog(@"player counter %lu", (unsigned long)[[Playlist sharedPlaylist].playlist count]);
+        
+#warning Uncompleted Code Block
+        //if (track.downloadable && track.is_event_track)
         if (track.downloadable)
         {
             NSString *sc_url = [NSString stringWithFormat:@"%@?client_id=%@",track.download_url,[SoundCloudAPI getClientID]];
@@ -530,7 +556,8 @@ static NSString* cellIdentifier = @"playListCell";
         }
     }
     
-    MediaItem *track = [[Playlist sharedPlaylist].playlist objectAtIndex:0];
+    //selects the first song in the playlist to download
+//    MediaItem *track = [[Playlist sharedPlaylist].playlist objectAtIndex:0];
     
 }
 

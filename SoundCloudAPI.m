@@ -228,6 +228,9 @@
         
         if(!jsonError){
             sender.sc_event_song = jsonResponse;
+            NSString *album_location = [jsonResponse objectForKey:@"artwork_url"];
+            if(album_location)
+                [sender setAlbumImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:album_location]]]];
         }else{
             NSLog(@"%@", error.localizedDescription);
         }
@@ -257,5 +260,10 @@
 //        }
 //    }];
 //}
+
++(void)getSoundCloudTracKImageFromURL
+{
+    
+}
 
 @end

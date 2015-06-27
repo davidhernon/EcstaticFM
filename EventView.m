@@ -45,29 +45,39 @@
 {
         if((self = [super initWithFrame:aRect]))
         {
+            _event_dictionary = event;
+            NSString *sc_url = [event objectForKey:@"soundcloudLink"];
+            if(sc_url)
+                [SoundCloudAPI getSoundCloudTrackFromURL:sc_url fromSender:self];
+            
+            
             NSString *className = NSStringFromClass([self class]);
             self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
             [self addSubview:self.view];
             _rooms_view_controller = sender;
-            _title.text = [event objectForKey:@"city"];
+            NSString *city_title =[event objectForKey:@"city"];
+            _title.text = city_title;
             _location.text = [event objectForKey:@"location"];
             NSNumber *start_time = [event objectForKey:@"start"];
             NSNumber *time_now = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
             double diff = abs([start_time doubleValue] - [time_now doubleValue]);
             NSString *time = [Utils convertSecondsToTime:diff];
-            
-            self.room_number_label.text = time;
+            self.distance_or_time_for_event = time;
+            self.room_number_label.text = [event objectForKey:@"id"];
             _room_number = [NSString stringWithFormat:@"%@",[event objectForKey:@"id"]];
             
-            _event_dictionary = event;
+            
             _sc_event_song = nil;
-            NSString *sc_url = [_event_dictionary objectForKey:@"soundcloudLink"];
-            if(sc_url)
-                [SoundCloudAPI getSoundCloudTrackFromURL:sc_url fromSender:self];
+            
 			
 			self.hostname = [event objectForKey:@"host_username"];
         }
         return self;
+}
+
+-(void)setAlbumImage:(UIImage*)artwork
+{
+    _album_image_for_event.image = artwork;
 }
 
 -(IBAction)buttonAction
@@ -77,7 +87,7 @@
 //    
     //wait while we get the sc track, wait a max time of 10 seconds
     int counter =0;
-    while(!_sc_event_song || counter < 50)
+    while(!_sc_event_song)
     {
         // SEt spinner while we get the SC track
         [NSThread sleepForTimeInterval:0.1f];
@@ -86,14 +96,17 @@
     }
     
     NSString *negative_room_number = [NSString stringWithFormat:@"%i",[self.room_number intValue] * (-1)];
-    //if no event track
+    
+    //if no event track (shouldnt happen but is possible)
     if(!_sc_event_song)
     {
-        [SDSAPI joinRoom:negative_room_number withUser:self.title.text isEvent:true]; //WIthTrackForRoomParsedFromEvent];
+        [SDSAPI joinRoom:negative_room_number withUser:self.title.text isEvent:true withTrack:nil]; //WIthTrackForRoomParsedFromEvent];
         //else there is an event track
     }else{
         MediaItem *event_track = [[MediaItem alloc] initWithSoundCloudTrack:_sc_event_song];
-        [SDSAPI joinRoom:negative_room_number withUser:self.title.text withTrack:event_track];
+        event_track.is_event_mix = YES;
+        NSString *host_username = [self.event_dictionary objectForKey:@"host_username"];
+        [SDSAPI joinRoom:negative_room_number withUser:host_username isEvent:true withTrack:event_track];
     }
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

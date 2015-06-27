@@ -117,7 +117,7 @@
 
 	//if you're actually gonna join a new room, then call join_room to the server
 	if(![[Room currentRoom].room_number isEqualToString: self.room_number]){
-		[SDSAPI joinRoom:self.room_number withUser:_hostname isEvent:false];
+        [SDSAPI joinRoom:self.room_number withUser:_hostname isEvent:false withTrack:nil];
 	}
 	
 	//if you're actually just returning to the room you're already in, then local transition

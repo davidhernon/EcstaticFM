@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventView">
             <connections>
+                <outlet property="album_image_for_event" destination="lgm-HL-oDQ" id="Hxw-Vd-Ln3"/>
                 <outlet property="button" destination="rxU-CQ-TOQ" id="ul8-jQ-kFa"/>
                 <outlet property="view" destination="iN0-l3-epB" id="x2P-Qa-eAF"/>
             </connections>
@@ -40,6 +41,9 @@
                                 <constraint firstAttribute="width" constant="198" id="7Re-hh-fYm"/>
                                 <constraint firstAttribute="height" constant="26" id="AeD-oU-WoP"/>
                             </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgm-HL-oDQ">
+                            <rect key="frame" x="0.0" y="0.0" width="234" height="198"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

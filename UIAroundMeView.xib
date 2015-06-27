@@ -24,8 +24,11 @@
                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAX-vx-ZBI">
                     <rect key="frame" x="0.0" y="0.0" width="235" height="350"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_rooms_cards_aroundme.png" translatesAutoresizingMaskIntoConstraints="NO" id="XoA-Kw-RWD">
-                            <rect key="frame" x="19" y="0.0" width="198" height="198"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OLM-A1-J2a">
+                            <rect key="frame" x="0.0" y="0.0" width="235" height="198"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="image_rooms_cards_aroundme.png" translatesAutoresizingMaskIntoConstraints="NO" id="XoA-Kw-RWD">
+                            <rect key="frame" x="17" y="0.0" width="198" height="198"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="198" id="18a-qm-B1b"/>
                                 <constraint firstAttribute="height" constant="198" id="BB5-pO-zFu"/>
@@ -40,7 +43,7 @@
                             </variation>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_rooms_shadow.png" translatesAutoresizingMaskIntoConstraints="NO" id="Eqz-jt-H3t">
-                            <rect key="frame" x="19" y="227" width="198" height="21"/>
+                            <rect key="frame" x="18" y="227" width="198" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="198" id="DlU-y4-2T5"/>
                                 <constraint firstAttribute="height" constant="21" id="Ob6-Hi-HRT"/>
@@ -52,15 +55,15 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_people_pink.png" translatesAutoresizingMaskIntoConstraints="NO" id="bLd-AY-eab">
-                            <rect key="frame" x="167" y="148" width="44" height="44"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_people_pink.png" translatesAutoresizingMaskIntoConstraints="NO" id="bLd-AY-eab">
+                            <rect key="frame" x="165" y="148" width="44" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="44" id="4SJ-Z5-2Wc"/>
                                 <constraint firstAttribute="height" constant="44" id="Nhn-fm-BJe"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKa-f8-i3W">
-                            <rect key="frame" x="123" y="160" width="52" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="6" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKa-f8-i3W">
+                            <rect key="frame" x="121" y="160" width="52" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="52" id="0Lc-jS-jaF"/>
                                 <constraint firstAttribute="height" constant="21" id="D7V-ZO-Pnw"/>
@@ -69,8 +72,8 @@
                             <color key="textColor" red="0.75856614112854004" green="0.28835791349411011" blue="0.42037311196327209" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxg-uO-SPh">
-                            <rect key="frame" x="19" y="0.0" width="198" height="198"/>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxg-uO-SPh">
+                            <rect key="frame" x="17" y="0.0" width="198" height="198"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <state key="normal" title=" ">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -137,7 +140,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="371.5" y="457"/>
+            <point key="canvasLocation" x="355.5" y="457"/>
         </view>
     </objects>
     <resources>

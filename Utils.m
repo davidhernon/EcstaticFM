@@ -143,7 +143,7 @@
                                                               progress:^(uint64_t receivedLength, uint64_t totalLength, NSInteger remainingTime, float progress) {
                                                                   // downloader.remainingTime
                                                                   // downloader.speedRate
-                                                                  NSLog(@"getting data");
+                                                                  NSLog(@"getting data, progress: %f", progress);
                                                               }
                                                                  error:^(NSError *error) {
                                                                      NSLog(@"was there error?: %@", error.description);
@@ -161,11 +161,12 @@
                                                                       NSLog(@"Error: %@", err);
                                                                   
                                                                   track.local_file_path = [NSString stringWithFormat:@"%@.%@",pathToFile, track.original_format];
+                                                                  track.is_local_item = YES;
                                                                   
                                                                   [[NSUserDefaults standardUserDefaults] setObject:track.local_file_path forKey:parsed_download_url];
                                                                   NSLog(@"Printing key and object for storage: %@ for key %@",track.local_file_path,parsed_download_url);
-                                                                  track.is_local_item = YES;
-                                                                  track.local_file_path = pathToFile;
+                                                                  
+//                                                                  track.local_file_path = pathToFile;
                                                               }];
     [downloader start];
 }

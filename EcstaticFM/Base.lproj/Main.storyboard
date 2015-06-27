@@ -669,8 +669,8 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                     <outlet property="delegate" destination="pL3-Xv-Udv" id="bVF-u4-edG"/>
                                 </connections>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty Space" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNI-Sl-mQ2" userLabel="*hostname's Space">
-                                <rect key="frame" x="74" y="96" width="173" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Create Room" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNI-Sl-mQ2" userLabel="*hostname's Space">
+                                <rect key="frame" x="74" y="96" width="173" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="3x5-Ta-d57"/>
                                     <constraint firstAttribute="width" constant="173" id="qYj-IJ-jiS"/>
