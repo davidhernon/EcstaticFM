@@ -117,9 +117,11 @@
 
 - (IBAction)sendChat:(id)sender
 {
-    [SDSAPI sendText:self.chatTextField.text];
+    
+    if(_chatTextField.text.length > 0)
+        [SDSAPI sendText:self.chatTextField.text];
     //empty the text field
-    _chatTextField.text = @"";
+    _chatTextField.text = nil;
     //close the keyboard
     [self.view endEditing:YES];
 }
