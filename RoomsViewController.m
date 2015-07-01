@@ -49,7 +49,28 @@ static NSString* around_me_event_cell = @"around_me_cell";
     
     if(_upcoming_events == nil)
     {
-        _upcoming_events = [SDSAPI getUpcomingEvents];
+		//Query the Django SDS server and get upcoming events
+		__block NSArray *eventD;
+		__block BOOL returned;
+		NSURLSession *defaultSession = [NSURLSession sharedSession];
+		
+		NSURL * url = [NSURL URLWithString:@"http://54.173.157.204/appindex/"];
+		NSURLSessionDataTask *dataTask = [defaultSession dataTaskWithURL:url
+													   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+														   eventD = [NSJSONSerialization JSONObjectWithData:data
+																									options:kNilOptions
+																									  error:&error];
+														   for(NSDictionary *item in eventD) {
+															   NSLog (@"nsdic = %@", item);
+														   }
+														   returned = TRUE;
+													   }];
+		[dataTask resume];
+		returned = FALSE;
+		while(returned == FALSE){
+			[NSThread sleepForTimeInterval:0.1f];
+		}
+        _upcoming_events = eventD;
     }
     
     // if _rooms_around_me is nil then we need to laod the username and go get them
