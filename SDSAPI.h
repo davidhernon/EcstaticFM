@@ -18,8 +18,6 @@
 @interface SDSAPI : NSObject
 
 @property ChatViewController* chatViewController;
-@property NSString *email;
-+(void)signup:(NSString*)username password:(NSString*)pass email:(NSString*)email ID:(id)callingViewController;
 +(void)createRoom:(NSString*)params;
 +(void)aroundMe:(NSString*)username withID:(id)sender;
 +(void)connect;
