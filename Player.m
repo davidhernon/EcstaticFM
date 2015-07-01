@@ -49,6 +49,18 @@ static Player *ecstaticPlayer = nil;
     return ecstaticPlayer;
 }
 
+- (void) resetPlayer
+{
+    [[Player sharedPlayer] joinRoom:0 withElapsedTime:0.0f andIsPlaying:0 isLocked:false];
+    
+    [self updatePlaylist];
+    
+    [[Playlist sharedPlaylist] reloadPlayer];
+//    [SDSAPI getPlayerState:[Room currentRoom].room_number];
+//    [self reloadUI];
+//    [self play];
+}
+
 /**
 the delegate to Player for Player to communicate with a view controller
  Example usage:
@@ -144,16 +156,49 @@ the delegate to Player for Player to communicate with a view controller
 //    if(_currentTrack.is_event_mix && _currentTrack.is_local_item)
     if(_currentTrack.is_local_item)
     {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+
+        NSString *documentsPath = [paths objectAtIndex:0];
+        
+        NSFileManager *manager = [[NSFileManager alloc] init];
+        NSDirectoryEnumerator *fileEnumerator = [manager enumeratorAtPath:documentsPath];
+        
+        for (NSString *filename in fileEnumerator) {
+            NSLog(@"String of filename: %@", filename);
+        }
         NSLog(@"Playing Local Song %@", _currentTrack.local_file_path);
         
-        NSLog(@"PLaying local song with formatted: %@", _currentTrack.local_file_path);
+//        url = [[NSURL alloc] initFileURLWithPath: _currentTrack.local_file_path];
+        url = [NSURL fileURLWithPath:_currentTrack.local_file_path];
+        NSString *loc_id = [NSString stringWithFormat:@"%@",_currentTrack.sc_id];
+        NSString *filePath = [[NSUserDefaults standardUserDefaults] objectForKey:loc_id];
+        NSError *attributesError;
+        NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:&attributesError];
         
+        NSNumber *fileSizeNumber = [fileAttributes objectForKey:NSFileSize];
+        long long fileSize = [fileSizeNumber longLongValue];
         
-        url = [[NSURL alloc] initFileURLWithPath: _currentTrack.local_file_path];
-        NSData *data = [[NSFileManager defaultManager] contentsAtPath:_currentTrack.local_file_path];
+        NSString *dataFile = [NSString stringWithContentsOfFile:filePath
+                                                   usedEncoding:NSUTF8StringEncoding
+                                                          error:NULL];
+        
+        NSFileManager *fm = [NSFileManager defaultManager];
+        NSData *data = [fm contentsAtPath:[[NSUserDefaults standardUserDefaults] objectForKey:loc_id]];
+        NSData *fileData = [fm contentsAtPath:[[NSBundle mainBundle]
+                                               pathForResource:[NSString stringWithFormat:@"%@",_currentTrack.sc_id] ofType:@"mp3"]];
+        NSData *fileData3 = [fm contentsAtPath:[[NSBundle mainBundle]
+                                               pathForResource:filePath ofType:@"mp3"]];
+        NSData *fileData2 = [fm contentsAtPath:[[NSBundle mainBundle]
+                                               pathForResource:[NSString stringWithFormat:@"%@.mp3",_currentTrack.sc_id] ofType:@"mp3"]];
+        if([[NSFileManager defaultManager] fileExistsAtPath:[url absoluteString]]){
+            NSLog(@"Hail Mary");
+        }
+        
         AVAsset *asset = [AVAsset assetWithURL:url];
+        NSArray *metadata = [asset commonMetadata];
         AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
         _avPlayer = [AVPlayer playerWithPlayerItem:item];
+
     }else{
         url = [NSURL URLWithString:urlString];
         _avPlayer = [AVPlayer playerWithURL:url];
@@ -317,8 +362,14 @@ the delegate to Player for Player to communicate with a view controller
 	}
 
 	//if the player is empty or the playlist is empty, return
-	if([Playlist sharedPlaylist].playlist.count == 0)
+    if([Playlist sharedPlaylist].playlist.count == 0){
+        if([self isPlaying]){
+            [self pause];
+        }
+        _currentTrack = nil;
+        _currentTrackIndex = 0;
         return;
+    }
     _currentTrack = [[Playlist sharedPlaylist].playlist objectAtIndex:index];
     _currentTrackIndex = index;
     [self seek:(elapsed)];
@@ -409,7 +460,6 @@ the delegate to Player for Player to communicate with a view controller
 
 -(void)setupAudioForPlayAfterPause
 {
-//    NSLog(@"User just hit play after being paused");
     [_avPlayer play];
     _player_is_paused = NO;
 }

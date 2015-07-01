@@ -212,6 +212,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 {
     self.tracksFromSoundCloud = tracks;
     [self.soundCloudResultsTableView reloadData];
+    
 }
 
 -(void)printSelectedTracks

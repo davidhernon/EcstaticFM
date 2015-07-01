@@ -379,6 +379,14 @@ static NSArray* eventDictionary;
         [[Player sharedPlayer] deleteSongWithDict:remove_song_dict];
     }];
     
+    [static_socket on:@"new_owner" callback:^(NSArray * data, void (^ack) (NSArray*)){
+        NSDictionary *change_owner_dict = ((NSDictionary*) data[0]);
+        NSString *new_owner = [change_owner_dict objectForKey:@"new_owner"];
+        [Room currentRoom].host_username = new_owner;
+        if([[[NSUserDefaults standardUserDefaults] objectForKey:@"username"] isEqual:new_owner])
+           [Room currentRoom].is_owner = YES;
+    }];
+    
     [static_socket connect];
 }
 
@@ -622,8 +630,10 @@ static NSArray* eventDictionary;
 
 +(void)leaveRoom
 {
+    [[Playlist sharedPlaylist] clearPlaylist];
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[[Room currentRoom].room_number, username] forKeys:@[@"room_number", @"username"]];
+    NSString *isowner = [Room currentRoom].is_owner ? @"true" : @"false";
+    NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[[Room currentRoom].room_number, username, isowner ] forKeys:@[@"room_number", @"username", @"is_owner"]];
     NSData *leaveJson = [NSJSONSerialization dataWithJSONObject:leaveDict options:nil error:nil];
     [static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
 }
