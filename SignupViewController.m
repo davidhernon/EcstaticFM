@@ -63,11 +63,58 @@
     
     //   [self.view addSubview:_loginLoading];
     [_signupLoading startAnimating];
-    
 }
 
 - (IBAction)signup:(id)sender {
-	[SDSAPI signup:self.username.text password:self.password.text email:self.email.text ID:self];
+		static NSString *csrf_cookie;
+		
+		// in a function:
+		NSURL *url = [[NSURL alloc] initWithString:@"http://54.173.157.204/"];
+		NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+		[request setHTTPShouldHandleCookies:YES];
+		
+		[request setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]]];
+		
+		// make GET request are store the csrf
+		[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]
+							   completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+								   NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:[(NSHTTPURLResponse *)response allHeaderFields] forURL:url];
+								   [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookies:cookies forURL:url mainDocumentURL:nil];
+								   // for some reason we need to re-store the CSRF token as X_CSRFTOKEN
+								   for (NSHTTPCookie *cookie in cookies) {
+									   if ([cookie.name isEqualToString:@"csrftoken"]) {
+										   csrf_cookie = cookie.value;
+										   NSLog(@"cookie.value=%@", cookie.value);
+										   break;
+									   }
+								   }
+								   NSString* urlString = @"http://54.173.157.204/auth/createprofileiOS/";
+								   NSURL *url = [NSURL URLWithString:urlString];
+								   
+								   NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+								   [urlRequest setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]]];
+								   [urlRequest addValue:csrf_cookie forHTTPHeaderField:@"X_CSRFTOKEN"];
+								   [urlRequest setHTTPMethod:@"POST"];
+								   
+								   AppDelegate* appDelegate = [[UIApplication sharedApplication]delegate];
+								   
+								   NSString* bodyData = [NSString stringWithFormat:@"username=%@&password=%@&email=%@&mixpanel_distinct_id=%@", self.username, self.password, self.email, appDelegate.mixpanel.distinctId];
+								   [urlRequest setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:strlen([bodyData UTF8String])]];
+								   NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+								   
+								   [NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+									{
+										NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+										
+										if ([responseString  isEqual: @"True"]) {
+											[self performSelectorOnMainThread:@selector(signupSuccess) withObject:nil waitUntilDone:NO];
+										}
+										else{
+											[self performSelectorOnMainThread:@selector(signupFailure:) withObject:responseString waitUntilDone:NO];
+										}
+									}];
+							   }];
+
 	if(self.wantsPushNotifications){
 		[self requestPushPermissions];
 	}
