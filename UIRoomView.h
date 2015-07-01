@@ -11,5 +11,6 @@
 @interface UIRoomView : UIView
 
 @property (nonatomic, retain) IBOutlet UILabel *room_number_label;
+@property (nonatomic, retain) NSString *distance_or_time_for_event;
 
 @end

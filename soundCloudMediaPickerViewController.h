@@ -26,13 +26,19 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *soundCloudResultsTableView;
 @property (weak, nonatomic) IBOutlet UIView *connect_to_soundcloud;
-@property NSMutableArray *selectedTracks;
-@property (strong, nonatomic) NSMutableArray *selectedTrackIndices;
 
 @property (strong, nonatomic) NSArray *tracksFromSoundCloud;
 @property (strong, nonatomic) NSMutableArray *soundCloudAlbumImages;
 @property (strong, nonatomic) NSArray *soundCloudAlbumUrls;
 @property BOOL returned;
+
+//used to hold proper highlighting when user selects a new category
+@property (strong, nonatomic) NSMutableArray *selectedTrackIndices;
+@property NSMutableArray *selectedTracks;
+@property (strong, nonatomic) NSMutableArray *selected_favorites_indices;
+@property (strong, nonatomic) NSMutableArray *selected_sds_indices;
+@property (strong, nonatomic) NSMutableArray *selected_search_indices;
+@property NSString *current_media_picker_type;
 
 -(IBAction)searchSoundcloud:(id)sender;
 -(IBAction)showSearchSoundCloudUI:(id)sender;

@@ -22,6 +22,8 @@
 @property (nonatomic, weak) IBOutlet UIButton *button;
 @property (nonatomic, retain) IBOutlet UILabel *room_number_label;
 @property (nonatomic, retain) NSString *room_number;
+@property (nonatomic, retain) NSDictionary *event_dictionary;
+@property (nonatomic, retain) NSDictionary *sc_event_song;
 
 @property (nonatomic, weak) RoomsViewController *rooms_view_controller;
 

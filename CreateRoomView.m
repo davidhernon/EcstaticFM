@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 David Hernon. All rights reserved.
 //
 
-#import "UIAroundMeHereEmptyView.h"
+#import "CreateRoomView.h"
 #import "RoomsViewController.h"
 
-@implementation UIAroundMeHereEmptyView
+@implementation CreateRoomView
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {

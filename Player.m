@@ -10,6 +10,7 @@
 #import "Player.h"
 #import "Playlist.h"
 
+
 @implementation Player
 
 static Player *ecstaticPlayer = nil;
@@ -131,7 +132,44 @@ the delegate to Player for Player to communicate with a view controller
     [_delegate initPlayerUI:0.0f withTrack:_currentTrack atIndex:_currentTrackIndex];
     
     NSString *urlString = [NSString stringWithFormat:@"%@?client_id=%@", _currentTrack.stream_url,[SoundCloudAPI getClientID]];//Your client ID
-    _avPlayer = [AVPlayer playerWithURL:[NSURL URLWithString:urlString]];
+    
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"MyAudio" ofType:@"mp3"];
+//    
+//    // - - -
+//
+    
+   
+    
+    NSURL *url;
+//    if(_currentTrack.is_event_mix && _currentTrack.is_local_item)
+    if(_currentTrack.is_local_item)
+    {
+        NSLog(@"Playing Local Song %@", _currentTrack.local_file_path);
+        
+        NSLog(@"PLaying local song with formatted: %@", _currentTrack.local_file_path);
+        
+        
+        url = [[NSURL alloc] initFileURLWithPath: _currentTrack.local_file_path];
+        NSData *data = [[NSFileManager defaultManager] contentsAtPath:_currentTrack.local_file_path];
+        AVAsset *asset = [AVAsset assetWithURL:url];
+        AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
+        _avPlayer = [AVPlayer playerWithPlayerItem:item];
+    }else{
+        url = [NSURL URLWithString:urlString];
+        _avPlayer = [AVPlayer playerWithURL:url];
+    }
+    
+//    NSData *data = [[NSFileManager defaultManager] contentsAtPath:_currentTrack.local_file_path];
+//    
+//    NSString *myPath = [NSString stringWithFormat:@"%@/..",_currentTrack.local_file_path ];
+//    NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:_currentTrack.local_file_path error:NULL];
+//    for (int count = 0; count < (int)[directoryContent count]; count++)
+//    {
+//        NSLog(@"File %d: %@", (count + 1), [directoryContent objectAtIndex:count]);
+//    }
+    
+//    _avPlayer = [AVPlayer playerWithURL:data];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioPlayerDidFinishPlaying) name:AVPlayerItemDidPlayToEndTimeNotification object:[_avPlayer currentItem]];
     [_avPlayer play];
     [self updatePlayerStateAndUIWithNewSong];
@@ -172,6 +210,15 @@ the delegate to Player for Player to communicate with a view controller
  */
 - (void)audioPlayerDidFinishPlaying
 {
+//    NSError *error;
+//    if ([[NSFileManager defaultManager] fileExistsAtPath:_currentTrack.local_file_path])     //Does file exist?
+//    {
+//        if (![[NSFileManager defaultManager] removeItemAtPath:_currentTrack.local_file_path error:&error])   //Delete it
+//        {
+//            NSLog(@"Delete file error: %@", error);
+//        }
+//    }
+    
     if(_currentTrackIndex == [[Playlist sharedPlaylist] count] - 1)
     {
         _currentTrack = nil;

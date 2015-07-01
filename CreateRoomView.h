@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "PlayerPageViewController.h"
 #import "UIRoomView.h"
-#import "MediaPageViewController.h";
-#import "SDSAPI.h";
+#import "MediaPageViewController.h"
+#import "SDSAPI.h"
 @class RoomsViewController;
 
-@interface UIAroundMeHereEmptyView : UIRoomView
+@interface CreateRoomView : UIRoomView
 
 @property (nonatomic, weak) IBOutlet UIView *view;
 @property (nonatomic, weak) IBOutlet UIButton *button;

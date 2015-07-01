@@ -51,7 +51,7 @@
         self.room_number_label.text = [NSString stringWithFormat:@"Room Number: %@", [room_info objectForKey:@"room_number"]];
         self.room_number = [room_info objectForKey:@"room_number"];
         self.rooms_view_controller = sender;
-        self.title.text = [room_info objectForKey:@"room_name"];
+        self.title = [room_info objectForKey:@"room_name"];
         
         NSNumber *host_lat = [host_location objectForKey:@"latitude"];
         NSNumber *host_lon = [host_location objectForKey:@"longitude"];
@@ -117,7 +117,7 @@
 
 	//if you're actually gonna join a new room, then call join_room to the server
 	if(![[Room currentRoom].room_number isEqualToString: self.room_number]){
-		[SDSAPI joinRoom:self.room_number withUser:_hostname isEvent:false];
+        [SDSAPI joinRoom:self.room_number withUser:_hostname isEvent:false withTrack:nil];
 	}
 	
 	//if you're actually just returning to the room you're already in, then local transition

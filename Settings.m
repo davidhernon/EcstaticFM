@@ -10,7 +10,7 @@
 
 @implementation Settings
 
--(void)viewDidAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated{
 	//if you are not the room owner then you cannot toggle the room lock
 	if(![Room currentRoom].is_owner){
 		_toggleLock.hidden = YES;
@@ -49,6 +49,11 @@
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
     [player_page setChatAsStart];
     [self presentViewController:player_page animated:NO completion:nil];
+}
+
+-(IBAction)swipeToChat:(id)sender
+{
+    [(PlayerPageViewController*)self.parentViewController swipeToChatViewControllerReverse];
 }
 
 @end

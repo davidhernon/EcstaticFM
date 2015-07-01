@@ -485,47 +485,61 @@ static NSArray* eventDictionary;
     
 }
 
-
-+(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)host_name isEvent:(BOOL)isEvent
++(void)joinRoom:(NSString*)new_room_number withUser:(NSString*)host_username isEvent:(BOOL)isEvent withTrack:(MediaItem*)event_track
 {
-	//set up variables to go in the dicts. These contain information about the CURRENT ROOM's state
+    
+    //TEST if(event_track) then also isEvent
+ 
+    // In Order to join a room we start by removing ourself from the old room
+    [SDSAPI leaveRoom];
+    
+    //If the event is a Room, set the current Room variable
+    [Room currentRoom].is_event = isEvent;
+    
+    //set up variables to go in the dicts. These contain information about the CURRENT ROOM's state
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-	NSString *rn = [NSString stringWithFormat:@"%@",[Room currentRoom].room_number];
-	NSString *is_owner = [Room currentRoom].is_owner ? @"true" : @"false";
-	NSString *is_event_string = isEvent ? @"true" : @"false";
-	
-	//set up the dictionaries
-    NSDictionary *joinDict  = [NSDictionary dictionaryWithObjects:@[new_room_number, username, is_event_string] forKeys:@[@"room_number", @"username", @"is_event"]];
-	
-	//serialize them
-	NSData *joinJson = [NSJSONSerialization dataWithJSONObject:joinDict options:nil error:nil];
-	
-	//send join and leave messages
-	[static_socket emitObjc:@"join_room" withItems:@[joinJson]];
-	
-	//update the currentRoom's state
+    NSString *current_room_number_as_string = [NSString stringWithFormat:@"%@",[Room currentRoom].room_number]; //rn
+    NSString *is_event_string = isEvent ? @"true" : @"false";
+    
+    //set up the dictionaries to send to server
+    NSMutableDictionary *joinDict  = [NSMutableDictionary dictionaryWithObjects:@[new_room_number, username, is_event_string] forKeys:@[@"room_number", @"username", @"is_event"]];
+    
+    if(event_track)
+    {
+        //spoofing username so we get the playlist properly
+        NSMutableDictionary *media_item = [[NSMutableDictionary alloc] init];
+        media_item = [NSMutableDictionary dictionaryWithDictionary:[event_track serializeMediaItem]];
+        [media_item setObject:@"" forKey:@"username"];
+        
+        //add the item to the event
+        [joinDict setValue:media_item forKey:@"media_item"];
+    }
+    
+    //serialize the Dict
+    NSData *joinJson = [NSJSONSerialization dataWithJSONObject:joinDict options:nil error:nil];
+    //send join and leave messages
+    [static_socket emitObjc:@"join_room" withItems:@[joinJson]];
+    
+    //update the currentRoom's state
     [Room currentRoom].room_number = new_room_number;
-	
-	//loop through all the events
-	for(NSDictionary* e in eventDictionary){
-		
-		//if the room you're entering is the event
-		if([[e objectForKey:@"id"] longValue] == (long)-[new_room_number intValue]){
-			NSString* link = [e objectForKey:@"soundcloudLink"];
-			[Room currentRoom].host_username = [e objectForKey:@"host_username"];
-			break;
-		}
-	}
-	if([username isEqualToString:host_name]){
-		[[Room currentRoom] makeOwner];
-	}
-	else{
-		[[Room currentRoom] makeNotOwner];
-	}
-
-    [Room currentRoom].host_username = host_name;
-    [SDSAPI getPlaylist:new_room_number];
+    [Room currentRoom].is_event = isEvent;
+    
+    if([username isEqualToString:host_username]){
+        [[Room currentRoom] makeOwner];
+    }
+    else{
+        [[Room currentRoom] makeNotOwner];
+    }
+    
+    [Room currentRoom].host_username = host_username;
+    
+    NSDictionary *playlist_query = [NSDictionary dictionaryWithObjects:@[new_room_number] forKeys:@[@"room_number"]];
+    NSData *json = [NSJSONSerialization dataWithJSONObject:playlist_query options:nil error:nil];
+    [static_socket emitObjc:@"get_playlist" withItems:@[json]];
+    
 }
+
+
 
 +(void)getPlayerState:(NSString*)room_number
 {
@@ -604,6 +618,14 @@ static NSArray* eventDictionary;
     NSDictionary *postDict = [NSDictionary dictionaryWithObjects:@[username, room_number, index_to_delete] forKeys:@[@"username", @"room_number", @"index_to_delete"]];
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:postDict options:NSJSONReadingMutableContainers error:nil];
     [static_socket emitObjc:@"remove_song" withItems:@[jsonData]];
+}
+
++(void)leaveRoom
+{
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSDictionary *leaveDict  = [NSDictionary dictionaryWithObjects:@[[Room currentRoom].room_number, username] forKeys:@[@"room_number", @"username"]];
+    NSData *leaveJson = [NSJSONSerialization dataWithJSONObject:leaveDict options:nil error:nil];
+    [static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
 }
 
 +(void) seek

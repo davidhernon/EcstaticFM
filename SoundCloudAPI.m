@@ -8,6 +8,7 @@
 
 #import "SoundCloudAPI.h"
 #import "soundCloudMediaPickerViewController.h"
+#import "EventView.h"
 
 
 @implementation SoundCloudAPI
@@ -202,6 +203,67 @@
         }
     }];
 //  pi.soundcloud.com/users/silentdiscosquad/tracks.json?client_id=230ccb26b40f7c87eb65fc03357ffa81
+}
+
++(void)getSoundCloudTrackFromURL:(NSString*)string_url fromSender:(EventView*)sender
+{
+    //api.soundcloud.com/resolve.json?url=https://soundcloud.com/daveisrising/sets/mumt-303-assignment-one&client_id=230ccb26b40f7c87eb65fc03357ffa81
+//    HTTP GET: https//api.soundcloud.com/resolve.json?url=URL&client_id=CLIENTID
+    __block BOOL finished = NO;
+//    string_url = [string_url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    NSString *request = [NSString stringWithFormat:@"https://api.soundcloud.com/resolve.json?url=%@&client_id=%@",string_url,[self getClientID]];
+    NSLog(@"FOR REQUEST !!!!! %@",request);
+    
+    
+    [SCRequest performMethod:SCRequestMethodGET onResource:[NSURL URLWithString:request] usingParameters:nil withAccount:[SCSoundCloud account] sendingProgressHandler:nil responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        if(error){
+            NSLog(@"error: %@",error.localizedDescription);
+        }
+        
+        NSError *jsonError;
+        NSDictionary *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        
+        if(!jsonError){
+            sender.sc_event_song = jsonResponse;
+            NSString *album_location = [jsonResponse objectForKey:@"artwork_url"];
+            if(album_location)
+                [sender setAlbumImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:album_location]]]];
+        }else{
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+//+(void)getSoundCloudTrackFromURL:(NSString*)string_url withMediaItemd:(MediaItem*)sender
+//{
+//    
+//    NSString *request = [NSString stringWithFormat:@"https://api.soundcloud.com/resolve.json?url=%@&client_id=%@",string_url,[self getClientID]];
+//    NSLog(@"FOR REQUEST !!!!! %@",request);
+//    
+//    
+//    [SCRequest performMethod:SCRequestMethodGET onResource:[NSURL URLWithString:request] usingParameters:nil withAccount:[SCSoundCloud account] sendingProgressHandler:nil responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+//        
+//        if(error){
+//            NSLog(@"error: %@",error.localizedDescription);
+//        }
+//        
+//        NSError *jsonError;
+//        NSDictionary *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+//        
+//        if(!jsonError){
+//            sender.sc_event_song = jsonResponse;
+//        }else{
+//            NSLog(@"%@", error.localizedDescription);
+//        }
+//    }];
+//}
+
++(void)getSoundCloudTracKImageFromURL
+{
+    
 }
 
 @end

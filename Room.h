@@ -18,6 +18,8 @@
 @property (retain, nonatomic) IBOutlet UILabel *title;
 @property (retain, nonatomic) IBOutlet UILabel *location;
 
+@property BOOL is_event;
+
 @property (weak, nonatomic) NSString* other_listeners;
 @property (weak, nonatomic) Playlist* playlist;
 @property (weak, nonatomic) Player* player;

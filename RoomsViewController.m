@@ -11,10 +11,6 @@
 @implementation RoomsViewController
 #define kDragVelocityDampener .85
 
-// https://api.soundcloud.com/tracks/189670713/stream
-// https://api.soundcloud.com/tracks/189917203/stream
-// https://api.soundcloud.com/tracks/191160846/stream
-
 -(void)createDummyRooms
 {
     _popular = @[[[Room alloc] init]];
@@ -26,6 +22,13 @@ static NSString* around_me_event_cell = @"around_me_cell";
 
 
 - (void)viewDidLoad {
+    
+    //set up some vars
+    _scroll_view_margin_padding = 42;
+    _event_view_height = 234;
+    _event_view_width = 234;
+    _event_view_padding = 15;
+    
     [super viewDidLoad];
     _distance_or_time_label.text = @"Here";
     _location_icon.hidden = YES;
@@ -57,7 +60,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
         [SDSAPI aroundMe:username withID:self];
     }
     
-    float x = 42;
+    float current_scroll_view_offset = _scroll_view_margin_padding;
     // get the upcoming events and populate them on screen
     for(NSDictionary *event in _upcoming_events)
     {
@@ -65,22 +68,24 @@ static NSString* around_me_event_cell = @"around_me_cell";
             continue;
         }
         
-        [_center_points addObject:[NSNumber numberWithFloat:x]];
-        UIEventView *room_view = [[UIEventView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:event withRoomController:self];
+        [_center_points addObject:[NSNumber numberWithFloat:current_scroll_view_offset]];
+        EventView *room_view = [[EventView alloc] initWithFrame:CGRectMake(current_scroll_view_offset, 0, _event_view_width, _event_view_height) withEvent:event withRoomController:self];
         [_event_item_list addObject:room_view];
         [_roomsScrollView addSubview:room_view];
-        x += (234) + 15;
+        current_scroll_view_offset += (_event_view_width) + _event_view_padding;
+        NSString *soundcloudLink = [event objectForKey:@"soundcloudLink"];
+        NSLog(@"%@",soundcloudLink);
     }
     
     
-    [_center_points addObject:[NSNumber numberWithFloat:x]];
-    UIAroundMeHereEmptyView *room_view = [[UIAroundMeHereEmptyView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:nil withRoomController:self];
+    [_center_points addObject:[NSNumber numberWithFloat:current_scroll_view_offset]];
+    CreateRoomView *room_view = [[CreateRoomView alloc] initWithFrame:CGRectMake(current_scroll_view_offset, 0, _event_view_width, _event_view_height) withEvent:nil withRoomController:self];
     [_event_item_list addObject:room_view];
     [_roomsScrollView addSubview:room_view];
-    x += (234) + 15;
+    current_scroll_view_offset += (_event_view_width) + _event_view_padding;
     
     // Set the offset to start on the Your ROOM screen
-    _center_point = CGPointMake(x-234-(4*15),0);
+    _center_point = CGPointMake(current_scroll_view_offset-_event_view_width-(4*_event_view_padding),0);
     
 
     // get the rooms around me and populate them in their cells
@@ -96,19 +101,17 @@ static NSString* around_me_event_cell = @"around_me_cell";
 		if(room_info == [NSNull null] || [((NSDictionary*)room_info) count]==0 || [room_info objectForKey:@"room_number"] < 0){
 			continue;
 		}
-        [_center_points addObject:[NSNumber numberWithFloat:x]];
-        UIAroundMeView *room_view = [[UIAroundMeView alloc] initWithFrame:CGRectMake(x, 0, 234, 234) withEvent:room withRoomController:self];
+        [_center_points addObject:[NSNumber numberWithFloat:current_scroll_view_offset]];
+        UIAroundMeView *room_view = [[UIAroundMeView alloc] initWithFrame:CGRectMake(current_scroll_view_offset, 0, _event_view_width, _event_view_height) withEvent:room withRoomController:self];
         [_event_item_list addObject:room_view];
         [_roomsScrollView addSubview:room_view];
-        x += (234) + 15;
+        current_scroll_view_offset += (_event_view_width) + _event_view_padding;
     }
-//    if([_rooms_around_me count] == 0 || _rooms_around_me == nil){
-//        x += 30;
-//    }
-    //plus 30 to anticipate margins on either end so we can center it properly
-    x += 42;
+
+    //plus 42 to anticipate margins on either end so we can center it properly
+    current_scroll_view_offset += _scroll_view_margin_padding;
     [_roomsScrollView setContentOffset:_center_point animated:NO];
-    _roomsScrollView.contentSize = CGSizeMake(x, _roomsScrollView.frame.size.height);
+    _roomsScrollView.contentSize = CGSizeMake(current_scroll_view_offset, _roomsScrollView.frame.size.height);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -131,17 +134,22 @@ static NSString* around_me_event_cell = @"around_me_cell";
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
+    //Some maths about how to scroll and lock onto the proper event cell
     CGFloat kMaxIndex = 23;
     CGFloat targetX = scrollView.contentOffset.x + velocity.x * 60.0;
-    CGFloat targetIndex = round(targetX / (234 + 15));
+    CGFloat targetIndex = round(targetX / (_event_view_width + _event_view_padding));
     if (targetIndex < 0)
         targetIndex = 0;
     if (targetIndex > kMaxIndex)
         targetIndex = kMaxIndex;
-    targetContentOffset->x = targetIndex * (234 + 15);
-    [self getPageNumberFromScrollViewPosition:targetX];
-    if(_center_point.x - (234/2) <= targetX && targetX <= _center_point.x+(234/2)){
-        _location_icon.hidden = YES;
+    targetContentOffset->x = targetIndex * (_event_view_width + _event_view_padding);
+    
+    //
+    [self setRoomsViewUIToMatchRoom:targetX];
+    
+    //Depending on where the target of the swipe is we can set our labels to show or hided
+    if(_center_point.x - (_event_view_width/2) <= targetX && targetX <= _center_point.x+(_event_view_width/2)){
+        _location_icon.hidden = NO;
         _time_icon.hidden = YES;
     }else if(targetX <= _center_point.x)
     {
@@ -154,25 +162,52 @@ static NSString* around_me_event_cell = @"around_me_cell";
     }
 }
 
--(void)getPageNumberFromScrollViewPosition:(float)position
+
+//Display the Title or Distance UI for the whole controller depending on which page the user is currently looking at
+-(void)setRoomsViewUIToMatchRoom:(float)position
 {
     int counter = 0;
     for(NSNumber *position_from_array in _center_points)
     {
-        if((position >= [[_center_points objectAtIndex:counter] floatValue] - (234.0f/2.0f)-7.5f) && (position <= [[_center_points objectAtIndex:counter] floatValue] + (234.0f/2.0f)+7.5f) )
+        //if you hit any page in the array
+        if((position >= [[_center_points objectAtIndex:counter] floatValue] - (_event_view_width/2.0f)-_event_view_padding/2.0f) && (position <= [[_center_points objectAtIndex:counter] floatValue] + (_event_view_width/2.0f)+_event_view_padding/2.0f) )
         {
-            NSLog(@"page %i", counter);
-            _distance_or_time_label.text = ((UIRoomView*)[_event_item_list objectAtIndex:counter]).room_number_label.text;
-            if(_distance_or_time_label.text == nil){
-                _distance_or_time_label.text = @"Right here.";
+            
+            //Figure out which class our room is and do label accordingly
+            if([[_event_item_list objectAtIndex:counter] isKindOfClass:[EventView class]]){
+                EventView *room = [_event_item_list objectAtIndex:counter];
+                _room_header.text = [room.event_dictionary objectForKey:@"city"];
+            }else if([[_event_item_list objectAtIndex:counter] isKindOfClass:[UIAroundMeView class]]){
+                UIAroundMeView *room = [_event_item_list objectAtIndex:counter];
+            }else{
+                //WE are on the create room
+                _room_header.text = @"Create Room";
+                _distance_or_time_label.text = @"Here";
             }
-        }else if( (position < [[_center_points objectAtIndex:0] floatValue] - (234.0f/2.0f)-7.5f))
-        {
-            _distance_or_time_label.text = ((UIRoomView*)[_event_item_list objectAtIndex:0]).room_number_label.text;
+            
+            
+//            UIRoomView* room = (UIRoomView*)[_event_item_list objectAtIndex:counter];
+//            NSString* label_string = room.room_number_label.text;
+//            
+//            _distance_or_time_label.text = room.distance_or_time_for_event;
+//            
+//            //if the label is nil that means we assigned it from the create room view
+//            //we should set the text to "create room"
+//            if(_room_header.text == nil){
+//                _room_header.text = @"Create Room";
+//                _distance_or_time_label.text = @"Here";
+//            }
         }
-        else if((position > [[_center_points objectAtIndex:[_center_points count]-1] floatValue] + (234.0f/2.0f)+7.5f))
+        
+        //if the position you swiped to is below the beginning of the array
+        else if( (position < [[_center_points objectAtIndex:0] floatValue] - (_event_view_width/2.0f)-_event_view_padding/2.0f))
         {
-            _distance_or_time_label.text = ((UIRoomView*)[_event_item_list objectAtIndex:[_event_item_list count]-1]).room_number_label.text;
+            _room_header.text = ((UIRoomView*)[_event_item_list objectAtIndex:0]).room_number_label.text;
+        }
+        //if the position you swiped to is beyond the end of the array
+        else if((position > [[_center_points objectAtIndex:[_center_points count]-1] floatValue] + (_event_view_width/2.0f)+_event_view_padding/2.0f))
+        {
+            _room_header.text = ((UIRoomView*)[_event_item_list objectAtIndex:[_event_item_list count]-1]).room_number_label.text;
         }
         counter++;
     }

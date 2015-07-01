@@ -10,12 +10,19 @@
 
 @implementation Message
 
+
 - (id) initWithUser:(NSString *)user withContent:(NSString *)content withTime:(NSString*)time
 {
     if(self = [super init])
     {
         self.user = [[NSString alloc] initWithString:user];
         self.content = [[NSString alloc] initWithString:content];
+        
+        if([time isKindOfClass:[NSNumber class]])
+        {
+            time = [NSString stringWithFormat:@"%i",(NSNumber*)time ];
+        }
+        
         self.time = [[NSString alloc] initWithString:time];
     }
     return self;

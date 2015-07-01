@@ -7,6 +7,7 @@
 //
 
 #import "PlayerViewController.h"
+#import "PlayerDelegate.h"
 
 
 @interface PlayerViewController ()
@@ -115,17 +116,35 @@ static NSString* cellIdentifier = @"playListCell";
 
 - (void) viewWillAppear:(BOOL)animated
 {
+//    //CHANGE
+//    _player.player_is_locked = NO;
+//    [self unlock];
+    
     _room_title.text = [NSString stringWithFormat:@"%@'s Room", [Room currentRoom].host_username ];
     NSLog(@"%@",[NSString stringWithFormat:@"%@'s Room", [Room currentRoom].host_username ]);
     [self.player updatePlaylist];
-	
-	//check if is_locked
+    
+    
+//	check if is_locked
 	NSLog(@"player_is_locked=%hhd",_player.player_is_locked);
 	if(_player.player_is_locked && ![Room currentRoom].is_owner){
 		_playerShowControlsButton.enabled = NO;
 		_add_songs.enabled = NO;
 		_add_songs.alpha = 0;
 	}
+    
+//    // set the state of the download button
+    if([Room currentRoom].is_event && _player.player_is_locked)
+    {
+        _download_mix_button.hidden = NO;
+        _add_songs.hidden = YES;
+    }else if(![Room currentRoom].is_event && !_player.player_is_locked){
+        _download_mix_button.hidden = NO;
+        _add_songs.hidden = NO;
+    }else if(![Room currentRoom].is_event){
+        _download_mix_button.hidden = YES;
+        
+    }
 	
     //If no playlist then make buttons hidden
     if([_playlist count] == 0)
@@ -173,6 +192,9 @@ static NSString* cellIdentifier = @"playListCell";
     {
         [_player play];
     }
+    
+//    _download_mix_button.hidden = NO;
+//    _add_songs.hidden = NO;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -224,12 +246,14 @@ static NSString* cellIdentifier = @"playListCell";
     cell.backgroundColor = [UIColor clearColor];
     cell.song_index_label.text = [NSString stringWithFormat:@"%d",indexPath.row+1];
 
+    
     // If the track added is the track currently playing add other UI
     if((int)_current_track_index == (int)indexPath.row)
     {
         cell.backgroundColor = [UIColor colorWithRed:0.369 green:0.078 blue:0.298 alpha:0.25] /*#5e144c*/;
         cell.song_index_label.text = @"";
         
+        // select either the spinner or the playing animation to place on the table view cells
         NSArray *imageNames = [[NSArray alloc] init];;
         if(_loading_next_song)
         {
@@ -512,14 +536,34 @@ static NSString* cellIdentifier = @"playListCell";
     [_playListTableView reloadData];
 }
 
+
+//Currently is only selecting the first song in the playlist
 - (IBAction)downloadMix:(id)sender {
-    for( MediaItem *track in [Playlist sharedPlaylist].playlist )
+    for( MediaItem *track in _playlist )
     {
-        if (track.is_event_mix)
+        NSLog(@"Media Item title: %@", track.track_title);
+        NSLog(@"player counter %lu", (unsigned long)[[Playlist sharedPlaylist].playlist count]);
+        
+#warning Uncompleted Code Block
+        //if (track.downloadable && track.is_event_track)
+        if (track.downloadable)
         {
-            [Utils downloadSongFromURL:track.download_url];
+            NSString *sc_url = [NSString stringWithFormat:@"%@?client_id=%@",track.download_url,[SoundCloudAPI getClientID]];
+        NSLog(@"sc_url: %@",sc_url);
+            [Utils downloadSongFromURL:sc_url withRoomNumber:[Room currentRoom].room_number withMediaItem:track];
+//            [Utils downloadSongFromURL:@"https://api.soundcloud.com/tracks/127646863/download?client_id=230ccb26b40f7c87eb65fc03357ffa81" withRoomNumber:self.room_number];
+
         }
     }
+    
+    //selects the first song in the playlist to download
+//    MediaItem *track = [[Playlist sharedPlaylist].playlist objectAtIndex:0];
+    
+}
+
+-(IBAction)swipeToChat:(id)sender
+{
+    [(PlayerPageViewController*)self.parentViewController swipeToChatViewControllerForward];
 }
 
 @end

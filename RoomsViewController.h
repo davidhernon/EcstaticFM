@@ -14,12 +14,21 @@
 #import "LocationServices.h"
 #import "AroundMeTableViewCell.h"
 #import "UIAroundMeView.h"
-#import "UIEventView.h"
-#import "UIAroundMeHereEmptyView.h"
+#import "EventView.h"
+#import "CreateRoomView.h"
 #import "UIRoomView.h"
+#import "EventView.h"
+#import "UIAroundMeView.h"
 #define kUVCellDragInterval 180.f
 
 @interface RoomsViewController : UIViewController <UIScrollViewDelegate>;
+
+//Define properties for event cell layout
+@property float left_hand_padding;
+@property float event_view_height;
+@property float event_view_width;
+@property float scroll_view_margin_padding;
+@property float event_view_padding;
 
 @property (weak, nonatomic) IBOutlet UITableView *roomTableView;
 @property NSArray* popular;
@@ -42,7 +51,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *time_icon;
 @property (weak, nonatomic) IBOutlet UIImageView *location_icon;
 
-@property (nonatomic, weak) IBOutlet UILabel *hostname;
+@property (nonatomic, weak) IBOutlet UILabel *room_header;
 
 -(IBAction)buttonPressed:(id)sender;
 
