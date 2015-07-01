@@ -48,6 +48,12 @@
 
 -(IBAction)buttonAction
 {
+    // is not the default room
+    if(![[Room currentRoom].room_number isEqualToString: [NSString stringWithFormat:@"0" ]] ){
+        NSLog(@"leave Room");
+        [SDSAPI leaveRoom];
+    }
+    
 	[SDSAPI setCreateRoomBool:true];
 	NSString *usr = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
 

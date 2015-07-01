@@ -22,5 +22,6 @@
 -(void) removeTrack:(MediaItem*)song;
 - (void) initWithDict:(NSDictionary*)playlist;
 - (void) reloadPlayer;
+-(void) clearPlaylist;
 
 @end

@@ -127,13 +127,19 @@
     return ret;
 }
 
+/**
+ Downloads a remote file from a http URL to the local file system. At the completion of the download it writes the file to the local system, under Documents. The file path can be returned from NSUserDefaults using a key made from the parsed download_url
+ */
 +(void)downloadSongFromURL:(NSString*)download_url withRoomNumber:(NSString*)room_number withMediaItem:(MediaItem*)track
 {
+    // parse download url into
     NSString *parsed_download_url = [Utils getParsedURL:download_url];
         
     NSString *folderPath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/%@/",[Utils getParsedURL:track.track_title]]];
     
     TCBlobDownloadManager *sharedManager = [TCBlobDownloadManager sharedInstance];
+    
+    [sharedManager cancelAllDownloadsAndRemoveFiles:YES];
 
     TCBlobDownloader *downloader = [sharedManager startDownloadWithURL:[NSURL URLWithString:download_url ]
                                                             customPath:folderPath
@@ -147,30 +153,71 @@
                                                               }
                                                                  error:^(NSError *error) {
                                                                      NSLog(@"was there error?: %@", error.description);
+//                                                                     [downloader cancelDownloadAndRemoveFile:YES];
+//                                                                     [self downloadSongFromURL:download_url withRoomNumber:room_number withMediaItem:track];
+//                                                                     return;
                                                                  }
                                                               complete:^(BOOL downloadFinished, NSString *pathToFile) {
-                                                                  NSLog(@"Done with file path %@", pathToFile);
-                                                                  //Commented out because its not used but we might need to try it later
+                                                                  NSLog(@"Utility Module - downloadSongFromURL:withRoomNumber:withMediaItem: - Done downloading item with file path %@", pathToFile);
                                                                   
-                                                                  NSError * err = NULL;
-                                                                  NSFileManager * fm = [[NSFileManager alloc] init];
-                                                                  BOOL result = [fm moveItemAtPath:pathToFile toPath:[NSString stringWithFormat:@"%@.%@",pathToFile, track.original_format] error:&err];
-                                                                  NSLog(@"printing formatted path: %@", [NSString stringWithFormat:@"%@.%@",pathToFile, track.original_format]);
+                                                                  // If Path To File is null then we return
+                                                                  // This is an interesting flow from TCBlobDownloader where on a download we hit the completion block with an unfinished download and (null) path to file. We should just return and move on at this point because we will hit the completion block again with a complete download in a few ms
+                                                                  if(!pathToFile)
+                                                                  {
+                                                                      return;
+                                                                  }
                                                                   
-                                                                  if(!result)
-                                                                      NSLog(@"Error: %@", err);
+                                                                  //At this point, completion block finished with a complete download
                                                                   
-                                                                  track.local_file_path = [NSString stringWithFormat:@"%@.%@",pathToFile, track.original_format];
-                                                                  track.is_local_item = YES;
+                                                                  //Item downloaded will be called /download we need to rename it with NSFileManager to /download.[track_format] (i.e. /download.mp3 or /download.m4a
+//                                                                  NSError * err = NULL;
+//                                                                  NSFileManager * fm = [[NSFileManager alloc] init];
+//                                                                  BOOL result = [fm moveItemAtPath:pathToFile toPath:[NSString stringWithFormat:@"%@.%@",pathToFile, track.original_format] error:&err];
                                                                   
-                                                                  [[NSUserDefaults standardUserDefaults] setObject:track.local_file_path forKey:parsed_download_url];
-                                                                  NSLog(@"Printing key and object for storage: %@ for key %@",track.local_file_path,parsed_download_url);
+//                                                                  NSLog(@"Utility Module - downloadSongFromURL:withRoomNumber:withMediaItem: - Move item to final location at: %@", [NSString stringWithFormat:@"%@.%@",pathToFile, track.original_format]);
+                                                                  
+                                                                  //Operation completed with an error
+//                                                                  if(!result)
+//                                                                      NSLog(@"Utility Module - downloadSongFromURL:withRoomNumber:withMediaItem: - File Move Operation Failed in Completion Block: %@", err);
+                                                                  
+                                                                  NSData *data = [[NSFileManager defaultManager] contentsAtPath:pathToFile];
+                                                                  
+                                                                  //write data to path but also save data to trackid_data in userdefaults
+                                                                  [Utils writeDataToAudioFile:data forTrack:track];
+                                                                  [[NSUserDefaults standardUserDefaults] setObject:data forKey:[NSString stringWithFormat:@"%@_data",track.sc_id]];
+                                                                  
+                                                                  
+                                                                  // Set the resultant local path to the track
+//                                                                  track.local_file_path = [NSString stringWithFormat:@"%@.%@",pathToFile, track.original_format];
+//                                                                  track.is_local_item = YES;
+                                                                  
+                                                                  // Save the local path with a unique key into NSUSerDefaults in order to get the file back at a later date
+//                                                                  [[NSUserDefaults standardUserDefaults] setObject:track.local_file_path forKey:parsed_download_url];
+//                                                                  NSLog(@"Printing key and object for storage: %@ for key %@",track.local_file_path,parsed_download_url);
+                                                                  
+                                                                  //EXPERIMENTAL
+                                                                  // Save NSData in NSUserDefaults to use later as a URL
+//                                                                  NSURL *url = [[NSURL alloc] initFileURLWithPath: track.local_file_path];
+////                                                                  NSData *data = [[NSFileManager defaultManager] contentsAtPath:track.local_file_path];
+//                                                                  NSString *data_key = [NSString stringWithFormat:@"%@_data",parsed_download_url];
+////                                                                  [[NSUserDefaults standardUserDefaults] setObject:data forKey:data_key];
+////                                                                  track.ns_defaults_data_key = data_key;
+//                                                                  
+//                                                                  // Do we need to do this on the main thread?
+//                                                                  dispatch_async(dispatch_get_main_queue(), ^{
+//                                                                      [Utils saveDownloadData:data forKey:data_key onTrack:track];
+//                                                                  });
+                                                                  
                                                                   
 //                                                                  track.local_file_path = pathToFile;
                                                               }];
     [downloader start];
 }
 
+
+/**
+ A tool for parsing a download URL and returning a parsed string which can be used as a unique identifier to the file
+ */
 +(NSString*)getParsedURL:(NSString*)url
 {
     NSString *parsed_download_url = [url stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
@@ -178,6 +225,52 @@
     parsed_download_url = [parsed_download_url stringByReplacingOccurrencesOfString:@"?" withString:@"-"];
     parsed_download_url = [parsed_download_url stringByReplacingOccurrencesOfString:@" " withString:@""];
     return [parsed_download_url stringByReplacingOccurrencesOfString:@"." withString:@"-"];
+}
+
++(void)saveDownloadData:(NSData*)data forKey:(NSString*)key onTrack:(MediaItem*)track
+{
+    NSLog(@"%@",track.sc_id);
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:[NSString stringWithFormat:@"%@",track.sc_id]];
+//    track.ns_defaults_data_key = key;
+    [track setLocalFilePathKey:key];
+}
+
+//write file to iOS device
+// save path to file against the key track id in NSUSerDefaults
++(void)writeDataToAudioFile:(NSData*)data forTrack:(MediaItem*)track
+{
+    NSString *fileName = [NSString stringWithFormat:@"%@.%@",track.sc_id,track.original_format];
+    
+    NSString *pathName = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                                  NSUserDomainMask,
+                                                                  YES) firstObject]
+                             stringByAppendingPathComponent:fileName];
+    
+    [[NSFileManager defaultManager] createFileAtPath:pathName
+                                            contents:data
+                                          attributes:nil];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:pathName forKey:[NSString stringWithFormat:@"%@",track.sc_id]];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    
+    NSFileManager *manager = [[NSFileManager alloc] init];
+    NSDirectoryEnumerator *fileEnumerator = [manager enumeratorAtPath:documentsPath];
+    
+    for (NSString *filename in fileEnumerator) {
+        NSLog(@"String of filename: %@", filename);
+    }
+}
+
+//return the local URL for a given tracks file
++(NSURL*)getLocalURLForTrack:(MediaItem*)track
+{
+    
+    NSString *path_name = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@",track.sc_id ]];
+    NSURL *file_path = [NSURL fileURLWithPath:path_name];
+    return file_path;
+    
 }
 
 @end

@@ -51,6 +51,12 @@ static Playlist *sharedPlaylist = nil;
     }
 }
 
+-(void)clearPlaylist
+{
+    sharedPlaylist. playlist = [[NSMutableArray alloc] init];
+    [[Player sharedPlayer] resetPlayer];
+}
+
 - (void) addTrack:(MediaItem *)song
 {
     [self.playlist addObject:song];

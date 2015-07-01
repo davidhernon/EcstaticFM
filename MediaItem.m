@@ -85,23 +85,23 @@
 //        self.playing_animation = [UIImage animatedImageNamed:@"wave" duration:0.6f];
         self.playing_animation = [UIImage imageNamed:@"wave1.png"];
         self.original_format = [soundCloudTrack objectForKey:@"original_format"];
+        self.sc_id = [soundCloudTrack objectForKey:@"id"];
         NSString *b = [NSString stringWithFormat:@"%@",[soundCloudTrack objectForKey:@"downloadable"] ];
         if([b isEqualToString:@"1"])
             self.downloadable = YES;
         else
             self.downloadable = NO;
+        
+        //find local file if it already downloaded
         if(self.downloadable)
         {
-//            [SoundCloudAPI getSoundCloudTrackFromURL:[soundCloudTrack objectForKey:@"download_url"]];
-            
-            
             self.download_url = [soundCloudTrack objectForKey:@"download_url"];
-            //find local file if it already downloaded
-            NSString *locl_url = [[NSUserDefaults standardUserDefaults] objectForKey:[Utils getParsedURL:[NSString stringWithFormat:@"%@-client_id=%@",self.download_url,[SoundCloudAPI getClientID]]]];
-            NSLog(@"printing key we need for string: %@", [Utils getParsedURL:[NSString stringWithFormat:@"%@-client_id=%@",self.download_url,[SoundCloudAPI getClientID]]]);
             
-            NSLog(@"printing local file path: %@", self.local_file_path);
+            NSString *locl_url = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@",self.sc_id ]];
             
+//            NSString *locl_url = [[NSUserDefaults standardUserDefaults] objectForKey:[Utils getParsedURL:[NSString stringWithFormat:@"%@-client_id=%@",self.download_url,[SoundCloudAPI getClientID]]]];
+//            NSLog(@"printing key we need for string: %@", [Utils getParsedURL:[NSString stringWithFormat:@"%@-client_id=%@",self.download_url,[SoundCloudAPI getClientID]]]);
+//            NSLog(@"printing local file path: %@", self.local_file_path);
             
             
             //location exists locally
@@ -110,16 +110,15 @@
                 self.local_file_path = locl_url;
                 NSLog(@"printing local file path: %@", self.local_file_path);
                 self.is_local_item = YES;
+                self.ns_defaults_data_key = [NSString stringWithFormat:@"%@",self.sc_id];
             }else{
                 self.is_local_item = NO;
             }
         }else{
             self.is_local_item = NO;
+            self.ns_defaults_data_key = @"";
         }
         self.is_event_mix = NO;
-        
-        
-        
     }
     return self;
 }
@@ -143,17 +142,13 @@
         self.is_event_mix = YES;
         self.is_local_item = NO;
         self.local_file_path = [[NSString alloc] init];
+        self.ns_defaults_data_key = @"";
         
 //        self.original_format = [sdsobjectForKey:@"original_format"];
         [self checkIfLocalSong];
     }
     return self;
 }
-
-//- (void) downloadMediaItem
-//{
-////    [Utils downloadSongFromURL:self.download_url];
-//}
 
 /**
  A Method for adding a UIImage from a url string containing the album artwork location for a track
@@ -206,6 +201,11 @@
         self.is_local_item = NO;
     }
 
+}
+
+-(void)setLocalFilePathKey:(NSString*)key
+{
+    self.ns_defaults_data_key = key;
 }
 
 @end
