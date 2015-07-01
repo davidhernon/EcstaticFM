@@ -442,11 +442,6 @@ static bool createRoomBool;
     [static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
 }
 
-+(void) seek
-{
-	
-}
-
 +(BOOL)getCreateRoomBool{
 	return createRoomBool;
 }
