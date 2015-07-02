@@ -30,7 +30,14 @@
 
 - (IBAction)Logout:(id)sender {
     //api handles transition to loginView
-	[SDSAPI logout];
+	NSURL *url = [[NSURL alloc] initWithString:@"http://54.173.157.204/logout.html/"];
+	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+	[request setHTTPShouldHandleCookies:YES];
+	[request setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]]];
+	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]
+						   completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+							   NSLog(@"Logged Out");
+						   }];
     NSString* cached_username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     if(cached_username)
     {

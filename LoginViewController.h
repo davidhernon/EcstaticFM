@@ -24,6 +24,9 @@
 - (void) loginReturnedTrue;
 - (void) loginTimedOut;
 - (IBAction)forgotPassword:(id)sender;
+-(void) login:(NSString*)username password:(NSString*)password;
+-(void)loginReturned;
+-(void)loginTimedOut:(NSTimer*)timer;
 @property Boolean sent;
 @property UIAlertView* dialog;
 @property NSString* email;

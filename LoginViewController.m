@@ -16,6 +16,82 @@
 @end
 
 @implementation LoginViewController
+static NSTimer *login_timer;
+
+-(void) login:(NSString*)username password:(NSString*)pass
+{
+	// at the top
+	static NSString *csrf_cookie;
+	
+	// in a function:
+	NSURL *url = [[NSURL alloc] initWithString:@"http://54.173.157.204/"];
+	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+	[request setHTTPShouldHandleCookies:YES];
+	
+	[request setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]]];
+	
+	// make GET request are store the csrf
+	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]
+						   completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+							   if(response!=nil){
+								   [self loginReturned];
+							   }
+							   
+							   NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:[(NSHTTPURLResponse *)response allHeaderFields] forURL:url];
+							   [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookies:cookies forURL:url mainDocumentURL:nil];
+							   
+							   // for some reason we need to re-store the CSRF token as X_CSRFTOKEN
+							   for (NSHTTPCookie *cookie in cookies) {
+								   if ([cookie.name isEqualToString:@"csrftoken"]) {
+									   csrf_cookie = cookie.value;
+									   NSLog(@"cookie.value=%@", cookie.value);
+									   break;
+								   }
+							   }
+							   NSString* urlString = @"http://54.173.157.204/auth/loginViewiOS/";
+							   NSURL *url = [NSURL URLWithString:urlString];
+							   
+							   NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+							   [urlRequest setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url]]];
+							   [urlRequest addValue:csrf_cookie forHTTPHeaderField:@"X_CSRFTOKEN"];
+							   [urlRequest setHTTPMethod:@"POST"];
+							   NSString* bodyData = [NSString stringWithFormat:@"username=%@&password=%@", username, pass];
+							   [urlRequest setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:strlen([bodyData UTF8String])]];
+							   NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+							   
+							   [NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+								{
+									NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+									if ([responseString  isEqual: @"successful_login"]) {
+										[self performSelectorOnMainThread:@selector(loginReturnedTrue) withObject:nil waitUntilDone:NO];
+									}
+									else{
+										[self performSelectorOnMainThread:@selector(loginReturnedFalse) withObject:nil waitUntilDone:NO];
+									}
+								}];
+						   }];
+	login_timer = [NSTimer scheduledTimerWithTimeInterval:10.0
+												   target:self
+												 selector:@selector(loginTimedOut:)
+												 userInfo:nil
+												  repeats:NO];
+	
+}
+
+-(void)loginReturned
+{
+	[login_timer invalidate];
+	login_timer = nil;
+}
+
+-(void)loginTimedOut:(NSTimer*)timer
+{
+	NSDictionary *dict = [timer userInfo];
+	LoginViewController* callingViewController = (LoginViewController*)[dict objectForKey:@"login_controller"];
+	[timer invalidate];
+	timer = nil;
+	[callingViewController performSelectorOnMainThread:@selector(loginTimedOut) withObject:nil waitUntilDone:NO];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
 	_sent = false;
@@ -26,7 +102,7 @@
     {
         _username.text = cached_user;
         _password.text = [SSKeychain passwordForService:@"EcstaticFM" account:_username.text];
-        [SDSAPI login: self.username.text password:self.password.text ID:self];
+        [self login: self.username.text password:self.password.text];
     }
     _username.delegate = self;
     _password.delegate = self;
@@ -40,14 +116,14 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
-    
+	
     // Do any additional setup after loading the view.
-    
+	
    //     _originalCenter = _loginView.center;
-    
-    
+	
+	
     _loginLoading.hidden = YES;
-    
+	
     // Load images
     NSArray *imageNames = @[@"loading1.png", @"loading2.png", @"loading3.png", @"loading4.png",
                             @"loading5.png", @"loading6.png"];
@@ -309,7 +385,7 @@
 - (IBAction)SDSLogin:(id)sender {
     _loginLoading.hidden = NO;
 	[self requestPushPermissions];
-	[SDSAPI login: self.username.text password:self.password.text ID:self];
+	[self login: self.username.text password:self.password.text];
 }
 
 //This method gets called when SDSAPI's login method returns with a true if the login was succesful
@@ -368,10 +444,6 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
-}
-
-- (IBAction)fbLogin:(id)sender {
-    [SDSAPI fbLogin];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
