@@ -47,11 +47,13 @@
 
 		NSString *className = NSStringFromClass([self class]);
         self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
-        self.other_listeners.text = [NSString stringWithFormat:@"%lu", [room_info objectForKey:@"host_username"], [users count] - 1];
+        self.other_listeners.text = [NSString stringWithFormat:@"%u", [users count] ];
         self.room_number_label.text = [NSString stringWithFormat:@"Room Number: %@", [room_info objectForKey:@"room_number"]];
         self.room_number = [room_info objectForKey:@"room_number"];
         self.rooms_view_controller = sender;
-        self.title = [room_info objectForKey:@"room_name"];
+        NSString *room_n = [room_info objectForKey:@"room_name"];
+        self.title = room_n;
+        self.distance_or_time_for_event = [room_info objectForKey:@"distance"];
         
         NSNumber *host_lat = [host_location objectForKey:@"latitude"];
         NSNumber *host_lon = [host_location objectForKey:@"longitude"];
@@ -87,7 +89,7 @@
         
         NSLog(@"distance: %f", distance);
         
-        self.room_number_label.text = [NSString stringWithFormat:@"%i meters", (int)distance];
+        self.distance_or_time_for_event = [NSString stringWithFormat:@"%i meters", (int)distance];
         _hostname = [room_info objectForKey:@"host_username"];
         
         [self addSubview:self.view];

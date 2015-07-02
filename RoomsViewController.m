@@ -193,31 +193,20 @@ static NSString* around_me_event_cell = @"around_me_cell";
         //if you hit any page in the array
         if((position >= [[_center_points objectAtIndex:counter] floatValue] - (_event_view_width/2.0f)-_event_view_padding/2.0f) && (position <= [[_center_points objectAtIndex:counter] floatValue] + (_event_view_width/2.0f)+_event_view_padding/2.0f) )
         {
-            
             //Figure out which class our room is and do label accordingly
             if([[_event_item_list objectAtIndex:counter] isKindOfClass:[EventView class]]){
                 EventView *room = [_event_item_list objectAtIndex:counter];
                 _room_header.text = [room.event_dictionary objectForKey:@"city"];
+                _distance_or_time_label.text = room.distance_or_time_for_event;
             }else if([[_event_item_list objectAtIndex:counter] isKindOfClass:[UIAroundMeView class]]){
                 UIAroundMeView *room = [_event_item_list objectAtIndex:counter];
+                _room_header.text = room.title;
+                _distance_or_time_label.text = room.distance_or_time_for_event;
             }else{
-                //WE are on the create room
+                //We are on the create room
                 _room_header.text = @"Create Room";
                 _distance_or_time_label.text = @"Here";
             }
-            
-            
-//            UIRoomView* room = (UIRoomView*)[_event_item_list objectAtIndex:counter];
-//            NSString* label_string = room.room_number_label.text;
-//            
-//            _distance_or_time_label.text = room.distance_or_time_for_event;
-//            
-//            //if the label is nil that means we assigned it from the create room view
-//            //we should set the text to "create room"
-//            if(_room_header.text == nil){
-//                _room_header.text = @"Create Room";
-//                _distance_or_time_label.text = @"Here";
-//            }
         }
         
         //if the position you swiped to is below the beginning of the array
