@@ -100,7 +100,7 @@
     }
 }
 
-+(NSString*)convertSecondsToTime:(double)num_seconds
++(NSString*)convertSecondsToCountdownString:(double)num_seconds
 {
     int days = num_seconds / (60 * 60 * 24);
     num_seconds -= days * (60 * 60 * 24);
@@ -108,12 +108,18 @@
     num_seconds -= hours * (60 * 60);
     int minutes = num_seconds / 60;
     
+    if(days != 0){
+        NSString *day_string = [self convertIntToStringWithFormat:days];
+        return [NSString stringWithFormat:@"%@ days",day_string];
+    }else if(hours != 0){
+        NSString *hour_string = [self convertIntToStringWithFormat:hours];
+        return [NSString stringWithFormat:@"%@ hours",hour_string];
+    }else{
+        NSString *minute_string = [self convertIntToStringWithFormat:minutes];
+        return [NSString stringWithFormat:@"%@ minutes",minute_string];
+    }
     
-    NSString *day_string = [self convertIntToStringWithFormat:days];
-    NSString *hour_string = [self convertIntToStringWithFormat:hours];
-    NSString *minute_string = [self convertIntToStringWithFormat:minutes];
-    
-    return [NSString stringWithFormat:@"%@:%@:%@", day_string, hour_string, minute_string];
+    return @"converting seconds into Countdown String failed :)";
 }
 
 +(NSString*)convertIntToStringWithFormat:(int)num
