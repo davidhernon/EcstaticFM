@@ -103,7 +103,7 @@
     _coord.longitude = [lon doubleValue];
 }
 
--(IBAction)buttonAction
+-(IBAction)joinRoomButton
 {
 	//make sure that the room_number we have is actually a string
 	if([self.room_number isKindOfClass:[NSNumber class]])

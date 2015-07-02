@@ -80,7 +80,7 @@
     _album_image_for_event.image = artwork;
 }
 
--(IBAction)buttonAction
+-(IBAction)joinEventButton
 {
 //    NSString *sc_url = [_event_dictionary objectForKey:@"soundcloudLink"];
 //    [SoundCloudAPI getSoundCloudTrackFromURL:sc_url withSender:self];

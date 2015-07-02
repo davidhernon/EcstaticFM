@@ -1828,7 +1828,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = EcstaticFM;
-				PROVISIONING_PROFILE = "7feb3a44-e1d5-4ee2-9981-b4f56cbd5b93";
+				PROVISIONING_PROFILE = "3c12d2eb-c9cf-45d5-bbd3-32fd7a9fd437";
 				SWIFT_OBJC_BRIDGING_HEADER = "EcstaticFM-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1845,7 +1845,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = EcstaticFM;
-				PROVISIONING_PROFILE = "7feb3a44-e1d5-4ee2-9981-b4f56cbd5b93";
+				PROVISIONING_PROFILE = "3c12d2eb-c9cf-45d5-bbd3-32fd7a9fd437";
 				SWIFT_OBJC_BRIDGING_HEADER = "EcstaticFM-Bridging-Header.h";
 			};
 			name = Release;
