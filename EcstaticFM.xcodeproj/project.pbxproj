@@ -63,6 +63,7 @@
 		1CB9BB301AA2456400748236 /* SoundCloudAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9BB2F1AA2456400748236 /* SoundCloudAPI.m */; };
 		1CB9BB341AA2459000748236 /* SDSAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9BB331AA2459000748236 /* SDSAPI.m */; };
 		1CCB176D1A92792C0055D68C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCB176C1A92792C0055D68C /* LoginViewController.m */; };
+		1CF164A81B44806A00F8A474 /* Utils.h in Sources */ = {isa = PBXBuildFile; fileRef = 1C2838021A955F8D006F10EC /* Utils.h */; };
 		D2A8C828A1F2E13542223221 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDA11C45E121802EEDA9E85 /* libPods.a */; };
 		DE04EBB91B22376F0019D8F5 /* loading1.png in Resources */ = {isa = PBXBuildFile; fileRef = DE04EBB31B22376F0019D8F5 /* loading1.png */; };
 		DE04EBBA1B22376F0019D8F5 /* loading2.png in Resources */ = {isa = PBXBuildFile; fileRef = DE04EBB41B22376F0019D8F5 /* loading2.png */; };
@@ -1677,6 +1678,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CF164A81B44806A00F8A474 /* Utils.h in Sources */,
 				1CA428C51A799CE9001DB0AD /* EcstaticFMTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

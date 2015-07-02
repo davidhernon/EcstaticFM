@@ -10,6 +10,7 @@
 #import "SCUI.h"
 #import "MediaItem.h"
 
+
 @implementation Utils
 @synthesize queryFromSoundCloud;
 

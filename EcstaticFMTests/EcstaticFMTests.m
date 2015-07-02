@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+//#import "SDSAPI.h"
 
 @interface EcstaticFMTests : XCTestCase
 
@@ -25,10 +26,13 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+- (void) testGetUpcomingEvents
+{
+//    NSArray *events = [SDSAPI getUpcomingEvents];
+//    XCTAssertNotNil(events, @"Upcoming Events returned nil from the SDS Server");
+    
 }
+
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
