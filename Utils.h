@@ -18,7 +18,7 @@
 +(UIColor*) colorWithHexString:(NSString*)hex;
 +(NSMutableString*) floatToText: (Float64)time;
 +(NSString*)convertTimeFromMillis:(int)millis;
-+(NSString*)convertSecondsToTime:(double)num_seconds;
++(NSString*)convertSecondsToCountdownString:(double)num_seconds;
 +(void)downloadSongFromURL:(NSString*)download_url withRoomNumber:(NSString*)room_number withMediaItem:(MediaItem*)track;
 +(void)createDirectory:(NSString *)directoryName atFilePath:(NSString *)filePath;
 +(NSString*)getParsedURL:(NSString*)url;

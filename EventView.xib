@@ -43,7 +43,7 @@
                             </constraints>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgm-HL-oDQ">
-                            <rect key="frame" x="0.0" y="0.0" width="234" height="198"/>
+                            <rect key="frame" x="26" y="18" width="183" height="161"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

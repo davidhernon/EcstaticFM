@@ -61,7 +61,7 @@
             NSNumber *start_time = [event objectForKey:@"start"];
             NSNumber *time_now = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
             double diff = abs([start_time doubleValue] - [time_now doubleValue]);
-            NSString *time = [Utils convertSecondsToTime:diff];
+            NSString *time = [Utils convertSecondsToCountdownString:diff];
             self.distance_or_time_for_event = time;
             self.room_number_label.text = [event objectForKey:@"id"];
             _room_number = [NSString stringWithFormat:@"%@",[event objectForKey:@"id"]];
