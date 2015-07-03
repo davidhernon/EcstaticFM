@@ -185,7 +185,7 @@ static bool createRoomBool;
     
     [static_socket on:@"new_owner" callback:^(NSArray * data, void (^ack) (NSArray*)){
         NSDictionary *change_owner_dict = ((NSDictionary*) data[0]);
-        NSString *new_owner = [change_owner_dict objectForKey:@"new_owner"];
+        NSString *new_owner = [change_owner_dict objectForKey:@"msg"];
         [Room currentRoom].host_username = new_owner;
         if([[[NSUserDefaults standardUserDefaults] objectForKey:@"username"] isEqual:new_owner])
            [Room currentRoom].is_owner = YES;

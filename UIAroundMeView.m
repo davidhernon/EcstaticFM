@@ -107,7 +107,7 @@
     _coord.longitude = [lon doubleValue];
 }
 
--(IBAction)buttonAction
+-(IBAction)joinRoomButton
 {
     MWLogDebug(@"Ecstatic - UIAroundMeView - buttonAction - client clicked on the around me view button for: %@", self.title);
 

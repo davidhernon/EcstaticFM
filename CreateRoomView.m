@@ -53,15 +53,15 @@
     return self;
 }
 
--(IBAction)buttonAction
+-(IBAction)createRoomButton
 {
     MWLogDebug(@"Rooms - CreateRoomView - buttonAction - user selected a room button, leaving old room and entering room now. Will Present player and MediaPicker on top of it");
     
     // is not the default room
-    if(![[Room currentRoom].room_number isEqualToString: [NSString stringWithFormat:@"0" ]] ){
+    //if(![[Room currentRoom].room_number isEqualToString: [NSString stringWithFormat:@"0" ]] ){
         NSLog(@"leave Room");
         [SDSAPI leaveRoom];
-    }
+    //}
     
 	[SDSAPI setCreateRoomBool:true];
 	NSString *usr = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
