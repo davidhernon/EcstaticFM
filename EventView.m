@@ -77,6 +77,8 @@
 
 -(void)setAlbumImage:(UIImage*)artwork
 {
+    MWLogDebug(@"Rooms - EventView - setAlbumImage - setting album image for room: %@", self.title.text);
+
     _album_image_for_event.image = artwork;
 }
 
@@ -86,23 +88,30 @@
 //    [SoundCloudAPI getSoundCloudTrackFromURL:sc_url withSender:self];
 //    
     //wait while we get the sc track, wait a max time of 10 seconds
-    int counter =0;
-    while(!_sc_event_song)
+    int counter = 0;
+    while(!_sc_event_song && counter < 10)
     {
+        MWLogDebug(@"Rooms - EventView - buttonAction - sleeping until we have an event song");
+
         // SEt spinner while we get the SC track
-        [NSThread sleepForTimeInterval:0.1f];
-        counter++;
-        
+        [NSThread sleepForTimeInterval:0.01f];
+        counter ++;
     }
+    
+    
     
     NSString *negative_room_number = [NSString stringWithFormat:@"%i",[self.room_number intValue] * (-1)];
     
-    //if no event track (shouldnt happen but is possible)
+    //if no event track
     if(!_sc_event_song)
     {
-        [SDSAPI joinRoom:negative_room_number withUser:self.title.text isEvent:true withTrack:nil]; //WIthTrackForRoomParsedFromEvent];
+        MWLogDebug(@"Rooms - EventView - buttonAction - no event song so we join Room with Track = nil");
+        
+        [SDSAPI joinRoom:negative_room_number withUser:[self.event_dictionary objectForKey:@"host_username"] isEvent:true withTrack:nil]; //WIthTrackForRoomParsedFromEvent];
         //else there is an event track
     }else{
+        MWLogDebug(@"Rooms - EventView - buttonAction - event song exists so joinRoom with Track");
+        
         MediaItem *event_track = [[MediaItem alloc] initWithSoundCloudTrack:_sc_event_song];
         event_track.is_event_mix = YES;
         NSString *host_username = [self.event_dictionary objectForKey:@"host_username"];

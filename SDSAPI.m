@@ -442,6 +442,14 @@ static bool createRoomBool;
     [static_socket emitObjc:@"leave_room" withItems:@[leaveJson]];
 }
 
++(void)user_connect
+{
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSDictionary *connectDict  = [NSDictionary dictionaryWithObjects:@[ username ] forKeys:@[ @"username"]];
+    NSData *connectJson = [NSJSONSerialization dataWithJSONObject:connectDict options:nil error:nil];
+    [static_socket emitObjc:@"connect" withItems:@[connectJson]];
+}
+
 +(BOOL)getCreateRoomBool{
 	return createRoomBool;
 }

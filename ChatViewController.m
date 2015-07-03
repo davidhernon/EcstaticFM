@@ -12,6 +12,7 @@
 @implementation ChatViewController
 
 - (void)viewDidLoad {
+    MWLogDebug(@"Chat - ChatViewController - viewDidLoad - Loading the Chat  View Controller");
     [super viewDidLoad];
     
     _chatTableView.estimatedRowHeight = 72.0;
@@ -48,10 +49,14 @@
     
     _messages = [[NSMutableArray alloc] init];
     
+    MWLogDebug(@"Chat - ChatViewController - viewDidLoad - Completed loading the Chat  View Controller");
+    
 }
 
 -(void) viewDidAppear:(BOOL)animated
 {
+    MWLogDebug(@"Chat - ChatViewController - viewDidAppear - Chat View Did Appear, setting _people_with_you label text");
+    
     int people = [[Room currentRoom] getNumberOfListenersInRoom];
     if(people == 1)
     {
@@ -66,7 +71,7 @@
 {
 	[super viewWillAppear:YES];
     
-    
+    MWLogDebug(@"Chat - ChatViewController - viewWillAppear : About to get Chat Backlog");
 	
 	// Get Messages and Display them
 	[SDSAPI getChatBacklog]; 
@@ -78,12 +83,16 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    MWLogDebug(@"Chat - ChatViewController - tableView:numberOfRowsInSection - Returning number of rows in section, number of rows is = %i", [_messages count]);
     return [_messages count];
 }
 
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    
     Message *message = [_messages objectAtIndex:indexPath.row];
     NSString *usr = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
     MessageTableViewCell *cell = [[MessageTableViewCell alloc] init];
@@ -102,6 +111,7 @@
         }
     }
     
+    MWLogDebug(@"Chat - ChatViewController - tableView:cellForRowAtIndexPath: - setting up MessageTableaViewCell for user: %@ with content: %@ at timestamp:%@", message.user, message.content, message.time);
     
     cell.user.text = message.user;
     cell.content.text = message.content;
@@ -117,6 +127,7 @@
 
 - (IBAction)sendChat:(id)sender
 {
+    MWLogDebug(@"Chat - ChatViewController - sendChat: - sending chat message from client");
     
     if(_chatTextField.text.length > 0)
         [SDSAPI sendText:self.chatTextField.text];
@@ -127,6 +138,8 @@
 }
 
 -(void) addChatLog:(NSString *)user content:(NSArray *)chatLog{
+    
+    MWLogDebug(@"Chat - ChatViewController - addChatLog:content - removing current messages and adding chat messages from server");
     
     [_messages removeAllObjects];
     for(NSString* chat in chatLog){
@@ -151,6 +164,9 @@
 
 - (void) addChatText:(NSString *)user content:(NSString *)content
 {
+    MWLogDebug(@"Chat - ChatViewController - addChatText:content - adding chat text sent to user and scrolling to last row");
+    
+    //Format the time back from the server
     NSNumber *time_now = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     _message = [[Message alloc] initWithUser:user withContent:content withTime:[NSString stringWithFormat:@"%@",time_now ]];
     [_messages addObject:_message];
@@ -164,27 +180,31 @@
     
 }
 
-- (void) getMessages
-{
-    // Get the messages back from the server
-}
 
--(void) newMessage
-{
-    // Append new message
-    // Reload the scroll view
-}
+//- (void) getMessages
+//{
+//    // Get the messages back from the server
+//}
 
-- (void) setMessagesInScrollView
-{
-    
-}
+//-(void) newMessage
+//{
+//    // Append new message
+//    // Reload the scroll view
+//}
+
+//- (void) setMessagesInScrollView
+//{
+//    
+//}
 
 
 // Pushes the view up when the keyboard appears and brings it back to original position after
 
-    - (void)keyboardWillShow:(NSNotification *)n
+- (void)keyboardWillShow:(NSNotification *)n
     {
+        
+    MWLogDebug(@"Chat - ChatViewController - keyboardWillShow - showing keyboard and sliding up screen view");
+
         
         //get the screen size and store it in floats
         float SW;
@@ -201,8 +221,11 @@
         
     }
 
-    - (void)keyboardWillHide:(NSNotification *)n
+- (void)keyboardWillHide:(NSNotification *)n
     {
+        
+        MWLogDebug(@"Chat - ChatViewController - keyboardWillHide - hiding keyboard and sliding down screen view");
+
         //get the screen size and store it in floats
         float SW;
         float SH;
@@ -223,6 +246,9 @@
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range
  replacementText:(NSString *)text
 {
+    MWLogDebug(@"Chat - ChatViewController - textView:shouldChangeTextInRange:replacementText - textView had send button pressed. Sending chat and resigning the keyboard and reinitializing the text input field.");
+
+    
     // Any new character added is passed in as the "text" parameter
     if ([text isEqualToString:@"\n"]) {
         // Be sure to test for equality using the "isEqualToString" message

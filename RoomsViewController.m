@@ -11,17 +11,13 @@
 @implementation RoomsViewController
 #define kDragVelocityDampener .85
 
--(void)createDummyRooms
-{
-    _popular = @[[[Room alloc] init]];
-    
-}
-
 static NSString* popular_event_cell = @"popular_event_cell";
 static NSString* around_me_event_cell = @"around_me_cell";
 
 
 - (void)viewDidLoad {
+    
+    MWLogDebug(@"Rooms - RoomsViewController - viewDidLoad - loading Rooms View Controller");
     
     //set up some vars
     _scroll_view_margin_padding = 42;
@@ -43,12 +39,17 @@ static NSString* around_me_event_cell = @"around_me_cell";
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    MWLogDebug(@"Rooms - RoomsViewController - viewWillAppear: - Rooms View Controller will Appear");
+
+    
     [super viewWillAppear:YES];
     _center_points = [[NSMutableArray alloc] init];
     _event_item_list = [[NSMutableArray alloc] init];
     
     if(_upcoming_events == nil)
     {
+        MWLogDebug(@"Rooms - RoomsViewController - viewWillAppear: - Upcoming Events is nil so we query the server for events");
+
 		//Query the Django SDS server and get upcoming events
 		__block NSArray *eventD;
 		__block BOOL returned;
@@ -76,6 +77,8 @@ static NSString* around_me_event_cell = @"around_me_cell";
     // if _rooms_around_me is nil then we need to laod the username and go get them
     if(_rooms_around_me == nil)
     {
+        MWLogDebug(@"Rooms - RoomsViewController - viewWillAppear: - Rooms Around Me is nil so we query the server for events");
+        
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString* username = [defaults objectForKey:@"username"];
         [SDSAPI aroundMe:username withID:self];
@@ -142,6 +145,8 @@ static NSString* around_me_event_cell = @"around_me_cell";
 
 - (void)showRoomsScrollView:(NSArray*)room_dictionaries
 {
+    MWLogDebug(@"Rooms - RoomsViewController - showRoomsScrollView: - reshowing the ScrollView by clearing rooms around me and calling view did load and view will appear");
+    
     _rooms_around_me = [[NSArray alloc] init];
     _rooms_around_me = room_dictionaries;
     [self viewDidLoad];
@@ -155,6 +160,7 @@ static NSString* around_me_event_cell = @"around_me_cell";
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
+    
     //Some maths about how to scroll and lock onto the proper event cell
     CGFloat kMaxIndex = 23;
     CGFloat targetX = scrollView.contentOffset.x + velocity.x * 60.0;
@@ -195,14 +201,17 @@ static NSString* around_me_event_cell = @"around_me_cell";
         {
             //Figure out which class our room is and do label accordingly
             if([[_event_item_list objectAtIndex:counter] isKindOfClass:[EventView class]]){
+                 MWLogDebug(@"Rooms - RoomsViewController - setRoomsViewUIToMatchRoom: - labelling EventView");
                 EventView *room = [_event_item_list objectAtIndex:counter];
                 _room_header.text = [room.event_dictionary objectForKey:@"city"];
                 _distance_or_time_label.text = room.distance_or_time_for_event;
             }else if([[_event_item_list objectAtIndex:counter] isKindOfClass:[UIAroundMeView class]]){
+                 MWLogDebug(@"Rooms - RoomsViewController - setRoomsViewUIToMatchRoom: - labelling UIAroundMeView");
                 UIAroundMeView *room = [_event_item_list objectAtIndex:counter];
                 _room_header.text = room.title;
                 _distance_or_time_label.text = room.distance_or_time_for_event;
             }else{
+                MWLogDebug(@"Rooms - RoomsViewController - setRoomsViewUIToMatchRoom: - labelling CreateRoomView");
                 //We are on the create room
                 _room_header.text = @"Create Room";
                 _distance_or_time_label.text = @"Here";
@@ -212,11 +221,13 @@ static NSString* around_me_event_cell = @"around_me_cell";
         //if the position you swiped to is below the beginning of the array
         else if( (position < [[_center_points objectAtIndex:0] floatValue] - (_event_view_width/2.0f)-_event_view_padding/2.0f))
         {
+            MWLogDebug(@"Rooms - RoomsViewController - setRoomsViewUIToMatchRoom: - labelling EventView, user scrolled off edge of array");
             _room_header.text = ((UIRoomView*)[_event_item_list objectAtIndex:0]).room_number_label.text;
         }
         //if the position you swiped to is beyond the end of the array
         else if((position > [[_center_points objectAtIndex:[_center_points count]-1] floatValue] + (_event_view_width/2.0f)+_event_view_padding/2.0f))
         {
+            MWLogDebug(@"Rooms - RoomsViewController - setRoomsViewUIToMatchRoom: - labelling AroundMeView, user scrolled off edge of array");
             _room_header.text = ((UIRoomView*)[_event_item_list objectAtIndex:[_event_item_list count]-1]).room_number_label.text;
         }
         counter++;

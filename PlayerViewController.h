@@ -18,6 +18,7 @@
 #import "AppDelegate.h"
 #import <Foundation/Foundation.h>
 #import "PlayerPageViewController.h"
+#import "MWLogging.h"
 @class PLayerDelegate;
 
 @interface PlayerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PlayerDelegate, SWTableViewCellDelegate>

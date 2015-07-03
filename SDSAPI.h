@@ -36,4 +36,5 @@
 +(void)getPlayerState:(NSString*)room_number;
 +(void)getChatBacklog;
 +(bool)getCreateRoomBool;
++(void)user_connect;
 @end

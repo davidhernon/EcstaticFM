@@ -20,6 +20,8 @@ static NSTimer *login_timer;
 
 -(void) login:(NSString*)username password:(NSString*)pass
 {
+    MWLogDebug(@"Login and Signup - LoginViewController - login:password - client logged in");
+
 	// at the top
 	static NSString *csrf_cookie;
 	
@@ -80,12 +82,15 @@ static NSTimer *login_timer;
 
 -(void)loginReturned
 {
+    MWLogDebug(@"Login and Signup - LoginViewController - loginReturned - login returned, invalidated login timer");
+   
 	[login_timer invalidate];
 	login_timer = nil;
 }
 
 -(void)loginTimedOut:(NSTimer*)timer
 {
+    MWLogDebug(@"Login and Signup - LoginViewController - loginTimedOut - login timed out");
 	NSDictionary *dict = [timer userInfo];
 	LoginViewController* callingViewController = (LoginViewController*)[dict objectForKey:@"login_controller"];
 	[timer invalidate];
@@ -94,6 +99,7 @@ static NSTimer *login_timer;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    MWLogDebug(@"Login and Signup - LoginViewController - viewWillAppear - login view will appear");
 	_sent = false;
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
@@ -189,99 +195,99 @@ static NSTimer *login_timer;
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction) soundCloudLogin:(id) sender
-{
-//    [self getAccessToken];
-    SCLoginViewControllerCompletionHandler handler = ^(NSError *error) {
-        if (SC_CANCELED(error)) {
-            NSLog(@"Canceled!");
-        } else if (error) {
-            NSLog(@"Error: %@", [error localizedDescription]);
-        } else {
-            NSLog(@"Done!");
-        }
-    };
-    
-    // if access token is available
-        // use it to login
-    // else
-        // login using soundcloud details
-    
-    NSString *userAccessToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"SC_ACCESS_TOKEN"];
-    NSLog(@"user token: %@",userAccessToken);
-    
-    if(userAccessToken != nil){
-        
-        return;
-    }
-    
-    //Query soundCloud API to log user in
-    [SCSoundCloud requestAccessWithPreparedAuthorizationURLHandler:^(NSURL *preparedURL) {
-        SCLoginViewController *loginViewController;
-        
-        loginViewController = [SCLoginViewController
-                               loginViewControllerWithPreparedURL:preparedURL
-                               completionHandler:handler];
-        [self presentModalViewController:loginViewController animated:YES];
-    }];
-    
-}
+//- (IBAction) soundCloudLogin:(id) sender
+//{
+////    [self getAccessToken];
+//    SCLoginViewControllerCompletionHandler handler = ^(NSError *error) {
+//        if (SC_CANCELED(error)) {
+//            NSLog(@"Canceled!");
+//        } else if (error) {
+//            NSLog(@"Error: %@", [error localizedDescription]);
+//        } else {
+//            NSLog(@"Done!");
+//        }
+//    };
+//    
+//    // if access token is available
+//        // use it to login
+//    // else
+//        // login using soundcloud details
+//    
+//    NSString *userAccessToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"SC_ACCESS_TOKEN"];
+//    NSLog(@"user token: %@",userAccessToken);
+//    
+//    if(userAccessToken != nil){
+//        
+//        return;
+//    }
+//    
+//    //Query soundCloud API to log user in
+//    [SCSoundCloud requestAccessWithPreparedAuthorizationURLHandler:^(NSURL *preparedURL) {
+//        SCLoginViewController *loginViewController;
+//        
+//        loginViewController = [SCLoginViewController
+//                               loginViewControllerWithPreparedURL:preparedURL
+//                               completionHandler:handler];
+//        [self presentModalViewController:loginViewController animated:YES];
+//    }];
+//    
+//}
 
-- (void)getAccessToken
-{
-    NSString *BaseURI = @"https://api.soundcloud.com";
-    NSString *OAuth2TokenURI = @"/oauth2/token";
-    
-    NSString *requestURL = [BaseURI stringByAppendingString:OAuth2TokenURI];
-    
-    SCRequestResponseHandler handler;
-    handler = ^(NSURLResponse *response, NSData *data, NSError *error) {
-        NSError *jsonError = nil;
-        NSJSONSerialization *jsonResponse = [NSJSONSerialization
-                                             JSONObjectWithData:data
-                                             options:0
-                                             error:&jsonError];
-        if (!jsonError)
-        {
-            NSLog(@"output of getToken\n%@",jsonResponse);
-            NSDictionary* serverResponse = (NSDictionary*)jsonResponse;
-            if ([serverResponse objectForKey:@"access_token"])
-            {
-                NSString *accessToken = [serverResponse objectForKey:@"access_token"];
-                NSLog(@"Got the non-expiring token: %@", accessToken);
-                [[NSUserDefaults standardUserDefaults] setObject:accessToken forKey:@"SC_ACCESS_TOKEN_KEY"];
-//                NSDictionary *dict=[[NSDictionary alloc]initWithObjectsAndKeys:accessToken,SC_ACCESS_TOKEN_KEY,nil];
-//                completion(dict);
-            }
-            else{
-//                completion(nil);
-            }
-        }
-    };
-    
-    NSMutableDictionary *parameter=[[NSMutableDictionary alloc]init];
-    [parameter setObject:@"password" forKey:@"grant_type"];
-    [parameter setObject:@"230ccb26b40f7c87eb65fc03357ffa81" forKey:@"client_id"];
-    [parameter setObject:@"4a50ef64acc242ce02e9abc5e370c064" forKey:@"client_secret"];
-    [parameter setObject:@"" forKey:@"username"];
-    [parameter setObject:@"" forKey:@"password"];
-    [parameter setObject:@"non-expiring" forKey:@"scope"];
-    
-    
-    [SCRequest performMethod:SCRequestMethodPOST
-                  onResource:[NSURL URLWithString:requestURL]
-             usingParameters:parameter
-                 withAccount:nil
-      sendingProgressHandler:nil
-             responseHandler:handler];
-}
+//- (void)getAccessToken
+//{
+//    NSString *BaseURI = @"https://api.soundcloud.com";
+//    NSString *OAuth2TokenURI = @"/oauth2/token";
+//    
+//    NSString *requestURL = [BaseURI stringByAppendingString:OAuth2TokenURI];
+//    
+//    SCRequestResponseHandler handler;
+//    handler = ^(NSURLResponse *response, NSData *data, NSError *error) {
+//        NSError *jsonError = nil;
+//        NSJSONSerialization *jsonResponse = [NSJSONSerialization
+//                                             JSONObjectWithData:data
+//                                             options:0
+//                                             error:&jsonError];
+//        if (!jsonError)
+//        {
+//            NSLog(@"output of getToken\n%@",jsonResponse);
+//            NSDictionary* serverResponse = (NSDictionary*)jsonResponse;
+//            if ([serverResponse objectForKey:@"access_token"])
+//            {
+//                NSString *accessToken = [serverResponse objectForKey:@"access_token"];
+//                NSLog(@"Got the non-expiring token: %@", accessToken);
+//                [[NSUserDefaults standardUserDefaults] setObject:accessToken forKey:@"SC_ACCESS_TOKEN_KEY"];
+////                NSDictionary *dict=[[NSDictionary alloc]initWithObjectsAndKeys:accessToken,SC_ACCESS_TOKEN_KEY,nil];
+////                completion(dict);
+//            }
+//            else{
+////                completion(nil);
+//            }
+//        }
+//    };
+//    
+//    NSMutableDictionary *parameter=[[NSMutableDictionary alloc]init];
+//    [parameter setObject:@"password" forKey:@"grant_type"];
+//    [parameter setObject:@"230ccb26b40f7c87eb65fc03357ffa81" forKey:@"client_id"];
+//    [parameter setObject:@"4a50ef64acc242ce02e9abc5e370c064" forKey:@"client_secret"];
+//    [parameter setObject:@"" forKey:@"username"];
+//    [parameter setObject:@"" forKey:@"password"];
+//    [parameter setObject:@"non-expiring" forKey:@"scope"];
+//    
+//    
+//    [SCRequest performMethod:SCRequestMethodPOST
+//                  onResource:[NSURL URLWithString:requestURL]
+//             usingParameters:parameter
+//                 withAccount:nil
+//      sendingProgressHandler:nil
+//             responseHandler:handler];
+//}
 
-- (void)signInWithAccessToken
-{
-    
-    
-    
-}
+//- (void)signInWithAccessToken
+//{
+//    
+//    
+//    
+//}
 
 - (void)keyboardWillHide:(NSNotification *)n
 {
@@ -362,6 +368,8 @@ static NSTimer *login_timer;
 }
 
 -(void)requestPushPermissions{
+    MWLogDebug(@"Login and Signup - LoginViewController - requestPushPermissions - requesting push permissions from client");
+
 	Mixpanel *mixpanel = [Mixpanel sharedInstance];
 	
 	// Tell iOS you want your app to receive push notifications
@@ -383,6 +391,7 @@ static NSTimer *login_timer;
 
 
 - (IBAction)SDSLogin:(id)sender {
+    MWLogDebug(@"Login and Signup - LoginViewController - SDSLogin - logging in SDS user through Django");
     _loginLoading.hidden = NO;
 	[self requestPushPermissions];
 	[self login: self.username.text password:self.password.text];
@@ -391,11 +400,15 @@ static NSTimer *login_timer;
 //This method gets called when SDSAPI's login method returns with a true if the login was succesful
 - (void) loginReturnedTrue
 {
+    MWLogDebug(@"Login and Signup - LoginViewController - loginReturnedTrue - login is true from server");
+
 	Mixpanel *mixpanel = [Mixpanel sharedInstance];
 	[mixpanel track:@"login"];
 
     [[NSUserDefaults standardUserDefaults] setObject:self.username.text forKey:@"username"];
     [SSKeychain setPassword:_password.text forService:@"EcstaticFM" account:self.username.text];
+    
+    [SDSAPI user_connect];
     
 	AppDelegate* appDelegate = [[UIApplication  sharedApplication]delegate];
 	//check if the user has given permissions to use location services
@@ -432,12 +445,16 @@ static NSTimer *login_timer;
 
 - (void) loginReturnedFalse
 {
+    MWLogDebug(@"Login and Signup - LoginViewController - loginReturnedFalse - login is false from server");
+
     _loginLoading.hidden=true;
     self.loginLabel.text = @"Incorrect username or password.";
 }
 
 - (void) loginTimedOut
 {
+    MWLogDebug(@"Login and Signup - LoginViewController - loginTimedOut - login timed out from the server");
+
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Timed Out"
                                                     message:@"Please Check Your Internet Connection and Try Again"
                                                    delegate:self

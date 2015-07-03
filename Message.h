@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MWLogging.h"
 
 @interface Message : NSObject
 

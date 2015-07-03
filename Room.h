@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "Playlist.h"
+#import "MWLogging.h"
+
 @class Player;
 
 @interface Room : NSObject

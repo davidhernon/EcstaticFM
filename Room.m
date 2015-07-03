@@ -37,6 +37,7 @@ static Room *currentRoom = nil;
 + (Room*)currentRoom
 {
     static dispatch_once_t onceToken;
+    MWLogDebug(@"Rooms - Room - currentRoom - initializing new singleton Room");
     dispatch_once(&onceToken, ^{
         currentRoom = [[Room alloc] init];
         currentRoom.room_number = @"0";
@@ -50,16 +51,19 @@ static Room *currentRoom = nil;
 
 - (void) makeOwner
 {
+    MWLogDebug(@"Rooms - Room - makeOwner - setting client as Room owner");
     currentRoom.is_owner = YES;
 }
 
 - (void) makeNotOwner
 {
+    MWLogDebug(@"Rooms - Room - makeNowOwner - removing client as room owner");
     currentRoom.is_owner = NO;
 }
 
 - (void) initWithDict:(NSDictionary *)room_info
 {
+    MWLogDebug(@"Rooms - Room - initWithDict: - initializing room with a dict");
     if(!currentRoom)
         [Room currentRoom];
     currentRoom.title.text = [room_info objectForKey:@"room_name"];
@@ -73,13 +77,14 @@ static Room *currentRoom = nil;
     NSLog(@"room number: %@", currentRoom.room_number);
 }
 
-- (void) initWithRoom:(NSDictionary*)room_to_join
-{
-    if(!currentRoom)
-        [Room currentRoom];
-    
-    currentRoom.title.text = [room_to_join objectForKey:@"title"];
-}
+//- (void) initWithRoom:(NSDictionary*)room_to_join
+//{
+//    MWLogDebug(@"Rooms - Room - makeNowOwner - removing client as room owner");
+//    if(!currentRoom)
+//        [Room currentRoom];
+//    
+//    currentRoom.title.text = [room_to_join objectForKey:@"title"];
+//}
 
 #warning Unfinished Code Block
 /**
@@ -87,59 +92,37 @@ static Room *currentRoom = nil;
  */
 -(int)getNumberOfListenersInRoom
 {
+    MWLogDebug(@"Rooms - Room - getNumberOfListenersInRoom - dummy method called, always returns 0");
     return 0;
 }
-/**
- Updates the playlist based off of the shared playlist
- */
--(void)updatePlaylist
-{
-    
-}
-
-/**
- Returns the Playlist for this room
- */
--(Playlist*)getRoomPlaylist
-{
-    return _playlist;
-}
-
-/**
- Returns the player for the Room
- */
--(Player*)getRoomPlayer
-{
-    return _player;
-}
-
-/**
- Add parameter media_item to this Room's playlist and update the server with the change
- */
-#warning Unfinished Code Block
--(void)addMediaItemToPlaylist:(MediaItem*)media_item
-{
-#warning Make sure if multiple people add songs they get the right playlist
-    [_playlist addTrack:media_item];
-    //Update Server With the mediaItem
-    //Wait and check server queue to see if playlists match or client needs to reorder
-    //Update Playey
-    //Update PlayerUI
-}
-
-/**
- Add parameter media_items to this Room's playlist and update the server with the changes
- */
-#warning Unfinished Code Block
--(void)addMediaItemsToPlaylist:(NSArray*)media_items
-{
-#warning Make sure if multiple people add songs they get the right playlist
-    [_playlist addTracks:(NSMutableArray*)media_items];
-    //Update Server With the mediaItem
-    //Wait and check server queue to see if playlists match or client needs to reorder
-    //Update Playey
-    //Update PlayerUI
-}
+//
+///**
+// Add parameter media_item to this Room's playlist and update the server with the change
+// */
+//#warning Unfinished Code Block
+//-(void)addMediaItemToPlaylist:(MediaItem*)media_item
+//{
+//#warning Make sure if multiple people add songs they get the right playlist
+//    [_playlist addTrack:media_item];
+//    //Update Server With the mediaItem
+//    //Wait and check server queue to see if playlists match or client needs to reorder
+//    //Update Playey
+//    //Update PlayerUI
+//}
+//
+///**
+// Add parameter media_items to this Room's playlist and update the server with the changes
+// */
+//#warning Unfinished Code Block
+//-(void)addMediaItemsToPlaylist:(NSArray*)media_items
+//{
+//#warning Make sure if multiple people add songs they get the right playlist
+//    [_playlist addTracks:(NSMutableArray*)media_items];
+//    //Update Server With the mediaItem
+//    //Wait and check server queue to see if playlists match or client needs to reorder
+//    //Update Playey
+//    //Update PlayerUI
+//}
 
 //-(NSInteger*)getRoomNumber
 //{

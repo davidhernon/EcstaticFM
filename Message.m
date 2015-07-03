@@ -13,6 +13,8 @@
 
 - (id) initWithUser:(NSString *)user withContent:(NSString *)content withTime:(NSString*)time
 {
+    MWLogDebug(@"Chat - Message - initWIthUser:withContent:withTime - initializing a new Message object.");
+    
     if(self = [super init])
     {
         self.user = [[NSString alloc] initWithString:user];

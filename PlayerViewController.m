@@ -120,6 +120,8 @@ static NSString* cellIdentifier = @"playListCell";
 //    _player.player_is_locked = NO;
 //    [self unlock];
     
+//    MWLogDebug(@"joining room, is event: %@ and is locked: %@", [Room currentRoom].is_event, _player.player_is_locked);
+    
     _room_title.text = [NSString stringWithFormat:@"%@'s Room", [Room currentRoom].host_username ];
     NSLog(@"%@",[NSString stringWithFormat:@"%@'s Room", [Room currentRoom].host_username ]);
     [self.player updatePlaylist];
@@ -193,8 +195,6 @@ static NSString* cellIdentifier = @"playListCell";
         [_player play];
     }
     
-//    _download_mix_button.hidden = NO;
-//    _add_songs.hidden = NO;
 }
 
 -(void)viewDidAppear:(BOOL)animated

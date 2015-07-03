@@ -40,7 +40,7 @@
     NSDictionary *room_info = [event objectForKey:@"room_info"];
     NSDictionary *host_location = [event objectForKey:@"host_location"];
     if([room_info count]==0){
-        NSLog(@"Ecstatic - UIAroundMeView - initWithFrame - room_info count returned from server was empty");
+        MWLogDebug(@"Ecstatic - UIAroundMeView - initWithFrame - room_info count returned from server was empty");
     }
     if((self = [super initWithFrame:aRect]))
     {
@@ -99,6 +99,8 @@
 
 -(void)setLocation:(NSDictionary*)location_dict_from_server
 {
+    MWLogDebug(@"Ecstatic - UIAroundMeView - setLocation - setting location for room: %@", self.title);
+    
     NSNumber *lat = [location_dict_from_server objectForKey:@"latitude"];
     NSNumber *lon = [location_dict_from_server objectForKey:@"longitude"];
     _coord.latitude = [lat doubleValue];
@@ -107,23 +109,28 @@
 
 -(IBAction)buttonAction
 {
+    MWLogDebug(@"Ecstatic - UIAroundMeView - buttonAction - client clicked on the around me view button for: %@", self.title);
+
+    
 	//make sure that the room_number we have is actually a string
 	if([self.room_number isKindOfClass:[NSNumber class]])
 	{
 		// clean the server data
 		self.room_number = [(NSNumber*)self.room_number stringValue];
 	}
+    
 	if([[Room currentRoom].room_number isKindOfClass:[NSNumber class]]){
 		[Room currentRoom].room_number = [(NSNumber*)[Room currentRoom].room_number stringValue];
 	}
 
 	//if you're actually gonna join a new room, then call join_room to the server
 	if(![[Room currentRoom].room_number isEqualToString: self.room_number]){
+        MWLogDebug(@"Ecstatic - UIAroundMeView - buttonAction - joining new room: %@", self.room_number);
         [SDSAPI joinRoom:self.room_number withUser:_hostname isEvent:false withTrack:nil];
 	}
 	
 	//if you're actually just returning to the room you're already in, then local transition
-	
+    MWLogDebug(@"Ecstatic - UIAroundMeView - buttonAction - rejoining the room we were already in");
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerPageViewController *player_page = [sb instantiateViewControllerWithIdentifier:@"pp"];
     

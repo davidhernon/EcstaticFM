@@ -112,6 +112,7 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    MWLogDebug(@"soundCloudMediaPicker - soundCloudMediaPickerViewController - tablveView:numberOfRowsInSection - returning row count: %i", self.tracksFromSoundCloud.count);
     return self.tracksFromSoundCloud.count;
 }
 
@@ -204,12 +205,13 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
         if(![_current_media_picker_type isEqualToString:@"search"])
             [_selectedTrackIndices addObject:@(indexPath.row)];
     }
-    [self printSelectedTracks];
+//    [self printSelectedTracks];
     
 }
 
 -(void) addSoundCloudFavorites:(NSArray*)tracks
 {
+    MWLogDebug(@"soundCloudMediaPicker - soundCloudMediaPickerViewController - addSoundCloudFavorites - adding tracks, number of tracks: %i", tracks.count);
     self.tracksFromSoundCloud = tracks;
     [self.soundCloudResultsTableView reloadData];
     
@@ -217,7 +219,6 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 
 -(void)printSelectedTracks
 {
-    NSLog(@"Printing the tracks selected by the user");
     for(MediaItem* mediaItem in self.selectedTracks){
         NSLog(@"%@", mediaItem.track_title);
     }
@@ -237,8 +238,12 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 }
 
 //Change which list we track selections with
+// used for highlighting the proper songs in the list depending on which list is selected
 -(void)changeSelectedListWithString:(NSString*)new_list from:(NSString*)old_list
 {
+    
+    MWLogDebug(@"soundCloudMediaPicker - soundCloudMediaPickerViewController - changeSelectedListWithString - to new list: %@ from old_list: %@", new_list, old_list);
+
     //save the current track indices into the proper lists
     if([_current_media_picker_type isEqualToString:@"favorites"]){
         _selected_favorites_indices = _selectedTrackIndices;
@@ -320,12 +325,8 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
     
 }
 
-// selected state checkmark
-
-
 
 // The close button
-
 -(IBAction)closeMediaPicker:(id)sender
 {
 	if([Playlist sharedPlaylist].count > 0){
@@ -338,14 +339,9 @@ static NSString* cellIdentifier = @"soundCloudTrackCell";
 	}
 }
 
--(NSString*)getLargestArtwork:(NSString*)providedURLString
-{
-    
-    return nil;
-}
-
 -(IBAction)soundcloudLogin:(id)sender
 {
+    MWLogDebug(@"soundCloudMediaPicker - soundCloudMediaPickerViewController - soundCloudLogin - logging into soundcloud");
 
     [SoundCloudAPI login:self];
 

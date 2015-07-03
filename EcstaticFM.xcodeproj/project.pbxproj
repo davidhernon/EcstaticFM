@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C0A67B51B46F44B005771F2 /* MWLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0A67B41B46F44B005771F2 /* MWLogging.m */; };
 		1C13A9481AB9BF4800B2DF81 /* MediaItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C13A9471AB9BF4800B2DF81 /* MediaItemTableViewCell.m */; };
 		1C2251441A9E7CA600210324 /* MediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2251431A9E7CA600210324 /* MediaItem.m */; };
 		1C2251471A9E7E5F00210324 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2251461A9E7E5F00210324 /* Playlist.m */; };
@@ -158,7 +159,6 @@
 		DE5763AD1AF40817003F7507 /* Raleway-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE5763A31AF40817003F7507 /* Raleway-Thin.ttf */; };
 		DE5763AF1AF40A8F003F7507 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5763AE1AF40A8E003F7507 /* QuartzCore.framework */; };
 		DE5763B91AF427ED003F7507 /* RadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5763B81AF427ED003F7507 /* RadialGradientLayer.m */; };
-		DE5763CC1AF438E7003F7507 /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5763CB1AF438E7003F7507 /* RoomViewController.m */; };
 		DE5763D11AF447F4003F7507 /* GradientNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5763D01AF447F4003F7507 /* GradientNavigationBar.m */; };
 		DE5763D41AF5608C003F7507 /* GFXUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5763D31AF5608C003F7507 /* GFXUtils.m */; };
 		DE6C9C4E1B35E18800A5A6A0 /* button_hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = DE6C9C461B35E18800A5A6A0 /* button_hearts.png */; };
@@ -314,6 +314,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C0A67B31B46F44B005771F2 /* MWLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWLogging.h; sourceTree = "<group>"; };
+		1C0A67B41B46F44B005771F2 /* MWLogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWLogging.m; sourceTree = "<group>"; };
 		1C13A9461AB9BF4800B2DF81 /* MediaItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaItemTableViewCell.h; sourceTree = "<group>"; };
 		1C13A9471AB9BF4800B2DF81 /* MediaItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaItemTableViewCell.m; sourceTree = "<group>"; };
 		1C2251421A9E7CA600210324 /* MediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaItem.h; sourceTree = "<group>"; };
@@ -502,8 +504,6 @@
 		DE5763AE1AF40A8E003F7507 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DE5763B71AF427ED003F7507 /* RadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadialGradientLayer.h; sourceTree = "<group>"; };
 		DE5763B81AF427ED003F7507 /* RadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadialGradientLayer.m; sourceTree = "<group>"; };
-		DE5763CA1AF438E7003F7507 /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
-		DE5763CB1AF438E7003F7507 /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
 		DE5763CF1AF447F4003F7507 /* GradientNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientNavigationBar.h; sourceTree = "<group>"; };
 		DE5763D01AF447F4003F7507 /* GradientNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientNavigationBar.m; sourceTree = "<group>"; };
 		DE5763D21AF5608C003F7507 /* GFXUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFXUtils.h; sourceTree = "<group>"; };
@@ -681,6 +681,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C0A67AF1B46F29C005771F2 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1C0A67B31B46F44B005771F2 /* MWLogging.h */,
+				1C0A67B41B46F44B005771F2 /* MWLogging.m */,
+				1C2838021A955F8D006F10EC /* Utils.h */,
+				1C2838031A955F8D006F10EC /* Utils.m */,
+				1C4D79741B3874B40020101E /* DownloadHelper.h */,
+				1C4D79751B3874B40020101E /* DownloadHelper.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		1C73F35F1AFA8CCB0003B1FA /* Rooms */ = {
 			isa = PBXGroup;
 			children = (
@@ -857,6 +870,7 @@
 		1CC438BA1A7DBF38000A5AEC /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1C0A67AF1B46F29C005771F2 /* Utilities */,
 				1CB835571B027B6A0003D9DC /* Security */,
 				DEEC122B1AFCFCD000E21C52 /* Chat */,
 				1C73F35F1AFA8CCB0003B1FA /* Rooms */,
@@ -867,10 +881,6 @@
 				1CB9BB311AA2456900748236 /* API Integrations */,
 				FC9B398B1B30B4D7002FEA04 /* Settings */,
 				1CB9BB2A1AA2428200748236 /* Player */,
-				1C2838021A955F8D006F10EC /* Utils.h */,
-				1C2838031A955F8D006F10EC /* Utils.m */,
-				1C4D79741B3874B40020101E /* DownloadHelper.h */,
-				1C4D79751B3874B40020101E /* DownloadHelper.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -1114,8 +1124,6 @@
 				1CCB176B1A92792C0055D68C /* LoginViewController.h */,
 				1CCB176C1A92792C0055D68C /* LoginViewController.m */,
 				1C291D851AFFF06B006A2B4F /* EcstaticFM-Bridging-Header.h */,
-				DE5763CA1AF438E7003F7507 /* RoomViewController.h */,
-				DE5763CB1AF438E7003F7507 /* RoomViewController.m */,
 				DE5763CF1AF447F4003F7507 /* GradientNavigationBar.h */,
 				DE5763D01AF447F4003F7507 /* GradientNavigationBar.m */,
 				FC2D3EF71B1CBBB300B41546 /* SignupViewController.h */,
@@ -1671,6 +1679,7 @@
 				1C2838041A955F8D006F10EC /* Utils.m in Sources */,
 				1C37B7D91AF540BA00566216 /* PlayerViewController.m in Sources */,
 				1C291D981AFFF2A1006A2B4F /* SocketPacket.swift in Sources */,
+				1C0A67B51B46F44B005771F2 /* MWLogging.m in Sources */,
 				1C73F3651AFA936D0003B1FA /* RoomsViewController.m in Sources */,
 				1C291D931AFFF2A1006A2B4F /* SocketEngine.swift in Sources */,
 				1C291D971AFFF2A1006A2B4F /* SocketIOClient.swift in Sources */,
@@ -1691,7 +1700,6 @@
 				1C6D62E21B16535C00F0EC27 /* UIRoomScrollView.m in Sources */,
 				1C291D941AFFF2A1006A2B4F /* SocketEngineClient.swift in Sources */,
 				1C33F84D1A8D4A0C0072ABBE /* Player.m in Sources */,
-				DE5763CC1AF438E7003F7507 /* RoomViewController.m in Sources */,
 				1C6D62E81B1A225100F0EC27 /* UIAroundMeView.m in Sources */,
 				DE14B9E51AFFB12B004470C7 /* MediaPageViewController.m in Sources */,
 				1C7E49D11AB33A48005BB999 /* soundCloudMediaPickerViewController.m in Sources */,
