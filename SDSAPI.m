@@ -136,10 +136,10 @@ static bool createRoomBool;
 			[[Player sharedPlayer] last];
 		}else if([command isEqualToString:@"lock"])
 		{
-			[[Player sharedPlayer].delegate lock];
+            [[Player sharedPlayer] setLock:YES];
 		}else if([command isEqualToString:@"unlock"])
 		{
-			[[Player sharedPlayer].delegate unlock];
+            [[Player sharedPlayer] setLock:NO];
 		}else{
             NSLog(@"unlogged command returned from server!!!!!");
         }

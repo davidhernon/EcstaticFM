@@ -195,6 +195,14 @@ static NSString* cellIdentifier = @"playListCell";
         [_player play];
     }
     
+    
+    
+    // Until Download is implemented we need to hide the download button
+    if(![Room currentRoom].is_owner && [Room currentRoom].is_event){
+        _add_songs.hidden = YES;
+    }
+    _download_mix_button.hidden = YES;
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -460,7 +468,6 @@ static NSString* cellIdentifier = @"playListCell";
 
 //Lock the room, and if you dont own the room you cannot use the controls
 -(void)lock{
-	[[Player sharedPlayer] setLock:YES];
 	
 	//if you don't own the room, then the lock affects whether you can use the controls
 	if(![Room currentRoom].is_owner){

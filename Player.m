@@ -356,10 +356,11 @@ the delegate to Player for Player to communicate with a view controller
 {
 	NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
 
-	//if we were just told that the room is locked, and we don't own the room, then lock the room
-	if(isLocked && ![username isEqual:[Room currentRoom].host_username]){
-		[_delegate lock];
-	}
+    //if we were just told that the room is locked, and we don't own the room, then lock the room
+    if(isLocked && ![username isEqual:[Room currentRoom].host_username]){
+        [[Player sharedPlayer] setLock:isLocked];
+        
+    }
 
 	//if the player is empty or the playlist is empty, return
     if([Playlist sharedPlaylist].playlist.count == 0){
@@ -382,6 +383,7 @@ the delegate to Player for Player to communicate with a view controller
 	else{
 		[self pause];
 	}
+    
 }
 
 -(BOOL)playerNotPlayingAudioOrCurrentUserJoiningRoom
@@ -466,6 +468,10 @@ the delegate to Player for Player to communicate with a view controller
 
 -(void)setLock:(BOOL)player_is_locked{
 	self.player_is_locked = player_is_locked;
+    if(player_is_locked)
+        [_delegate lock];
+    else
+        [_delegate unlock];
 }
 
 -(void) deleteSongWithDict:(NSDictionary*)remove_song_dict
