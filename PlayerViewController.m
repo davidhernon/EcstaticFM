@@ -116,9 +116,9 @@ static NSString* cellIdentifier = @"playListCell";
 
 - (void) viewWillAppear:(BOOL)animated
 {
-//    //CHANGE
-//    _player.player_is_locked = NO;
-//    [self unlock];
+    if([Room currentRoom].is_owner){
+        NSLog(@"you are the room owner");
+    }
     
 //    MWLogDebug(@"joining room, is event: %@ and is locked: %@", [Room currentRoom].is_event, _player.player_is_locked);
     
@@ -131,21 +131,24 @@ static NSString* cellIdentifier = @"playListCell";
 	NSLog(@"player_is_locked=%hhd",_player.player_is_locked);
 	if(_player.player_is_locked && ![Room currentRoom].is_owner){
 		_playerShowControlsButton.enabled = NO;
-		_add_songs.enabled = NO;
-		_add_songs.alpha = 0;
-	}
+        _add_songs.hidden = YES;
+//		_add_songs.enabled = NO;
+//		_add_songs.alpha = 0;
+    }else{
+        _playerShowControlsButton.enabled = YES;
+        _add_songs.hidden = NO;
+    }
     
 //    // set the state of the download button
-    if([Room currentRoom].is_event && _player.player_is_locked)
+    if([Room currentRoom].is_event && ![Room currentRoom].is_owner)
     {
         _download_mix_button.hidden = NO;
         _add_songs.hidden = YES;
-    }else if(![Room currentRoom].is_event && !_player.player_is_locked){
+    }else if([Room currentRoom].is_event && [Room currentRoom].is_owner){
         _download_mix_button.hidden = NO;
         _add_songs.hidden = NO;
     }else if(![Room currentRoom].is_event){
         _download_mix_button.hidden = YES;
-        
     }
 	
     //If no playlist then make buttons hidden
@@ -169,7 +172,7 @@ static NSString* cellIdentifier = @"playListCell";
         _play.hidden = NO;
         _last.hidden = NO;
         _next.hidden = NO;
-        _add_songs.hidden = NO;
+//        _add_songs.hidden = NO;
         _add_songs_welcome.hidden = YES;
         _slider.hidden = NO;
         _coveralpha.hidden = NO;
@@ -194,14 +197,6 @@ static NSString* cellIdentifier = @"playListCell";
     {
         [_player play];
     }
-    
-    
-    
-    // Until Download is implemented we need to hide the download button
-    if(![Room currentRoom].is_owner && [Room currentRoom].is_event){
-        _add_songs.hidden = YES;
-    }
-    _download_mix_button.hidden = YES;
     
 }
 
@@ -306,7 +301,9 @@ static NSString* cellIdentifier = @"playListCell";
 - (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack atIndex:(int)index
 {
     NSLog(@"Is the index null? : %d",index);
-    _slider.maximumValue = duration;
+    if(!isnan(duration)){
+        _slider.maximumValue = duration;
+    }
     _slider.value = 0.0;
     _current_artist.text = currentTrack.artist;
     _current_track_title.text = currentTrack.track_title;

@@ -40,6 +40,7 @@
 		1C47EF501B222D5A008D5DDD /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C47EF4F1B222D5A008D5DDD /* MessageTableViewCell.m */; };
 		1C4861E61A7AB75C004EFEAD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428A91A799CE9001DB0AD /* Info.plist */; };
 		1C4861E71A7AB75C004EFEAD /* main.m in Resources */ = {isa = PBXBuildFile; fileRef = 1CA428AA1A799CE9001DB0AD /* main.m */; };
+		1C4AA5281B4AED5700949FED /* DownloadItemManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4AA5271B4AED5700949FED /* DownloadItemManagerViewController.m */; };
 		1C4D79761B3874B40020101E /* DownloadHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4D79751B3874B40020101E /* DownloadHelper.m */; };
 		1C5BABCE1B24B084003B96B8 /* SoundCloudSearchview.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BABCD1B24B084003B96B8 /* SoundCloudSearchview.m */; };
 		1C6D62E21B16535C00F0EC27 /* UIRoomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6D62E11B16535C00F0EC27 /* UIRoomScrollView.m */; };
@@ -358,6 +359,8 @@
 		1C47EF491B222991008D5DDD /* OtherUserMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherUserMessageView.xib; sourceTree = "<group>"; };
 		1C47EF4E1B222D5A008D5DDD /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		1C47EF4F1B222D5A008D5DDD /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
+		1C4AA5261B4AED5700949FED /* DownloadItemManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadItemManagerViewController.h; sourceTree = "<group>"; };
+		1C4AA5271B4AED5700949FED /* DownloadItemManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadItemManagerViewController.m; sourceTree = "<group>"; };
 		1C4D79741B3874B40020101E /* DownloadHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadHelper.h; sourceTree = "<group>"; };
 		1C4D79751B3874B40020101E /* DownloadHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadHelper.m; sourceTree = "<group>"; };
 		1C5BABCC1B24B084003B96B8 /* SoundCloudSearchview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundCloudSearchview.h; sourceTree = "<group>"; };
@@ -1274,6 +1277,8 @@
 				DEC660BC1B1A68BC001E6FD5 /* geoAskViewController.m */,
 				FC9B398C1B30B50E002FEA04 /* Settings.h */,
 				FC9B398D1B30B50E002FEA04 /* Settings.m */,
+				1C4AA5261B4AED5700949FED /* DownloadItemManagerViewController.h */,
+				1C4AA5271B4AED5700949FED /* DownloadItemManagerViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -1695,6 +1700,7 @@
 				1C47EF501B222D5A008D5DDD /* MessageTableViewCell.m in Sources */,
 				1CA428AB1A799CE9001DB0AD /* main.m in Sources */,
 				FC9B398E1B30B50E002FEA04 /* Settings.m in Sources */,
+				1C4AA5281B4AED5700949FED /* DownloadItemManagerViewController.m in Sources */,
 				1C2251471A9E7E5F00210324 /* Playlist.m in Sources */,
 				1CB8355A1B027BA60003D9DC /* SSKeychain.m in Sources */,
 				1C6D62E21B16535C00F0EC27 /* UIRoomScrollView.m in Sources */,
@@ -1841,7 +1847,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = EcstaticFM;
-				PROVISIONING_PROFILE = "3c12d2eb-c9cf-45d5-bbd3-32fd7a9fd437";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EcstaticFM-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1859,7 +1865,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = EcstaticFM;
-				PROVISIONING_PROFILE = "3c12d2eb-c9cf-45d5-bbd3-32fd7a9fd437";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EcstaticFM-Bridging-Header.h";
 			};
 			name = Release;

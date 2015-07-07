@@ -92,32 +92,30 @@
         else
             self.downloadable = NO;
         
+        self.is_local_item = NO;
+        
         //find local file if it already downloaded
         if(self.downloadable)
         {
             self.download_url = [soundCloudTrack objectForKey:@"download_url"];
             
-            NSString *locl_url = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@",self.sc_id ]];
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             
-//            NSString *locl_url = [[NSUserDefaults standardUserDefaults] objectForKey:[Utils getParsedURL:[NSString stringWithFormat:@"%@-client_id=%@",self.download_url,[SoundCloudAPI getClientID]]]];
-//            NSLog(@"printing key we need for string: %@", [Utils getParsedURL:[NSString stringWithFormat:@"%@-client_id=%@",self.download_url,[SoundCloudAPI getClientID]]]);
-//            NSLog(@"printing local file path: %@", self.local_file_path);
+            NSString *documentsPath = [paths objectAtIndex:0];
             
-            
-            //location exists locally
-            if(locl_url)
+            NSFileManager *manager = [[NSFileManager alloc] init];
+            NSDirectoryEnumerator *fileEnumerator = [manager enumeratorAtPath:documentsPath];
+ 
+            for(NSString* filename in fileEnumerator)
             {
-                self.local_file_path = locl_url;
-                NSLog(@"printing local file path: %@", self.local_file_path);
-                self.is_local_item = YES;
-                self.ns_defaults_data_key = [NSString stringWithFormat:@"%@",self.sc_id];
-            }else{
-                self.is_local_item = NO;
+                if([filename isEqualToString:[NSString stringWithFormat:@"%@.%@",_sc_id,_original_format]]){
+                    self.is_local_item = YES;
+                    NSString *local_path = [NSString stringWithFormat:@"%@/%@",documentsPath, filename];
+                    self.local_file_path = local_path;
+                }
             }
-        }else{
-            self.is_local_item = NO;
-            self.ns_defaults_data_key = @"";
         }
+        
         self.is_event_mix = NO;
     }
     return self;
@@ -142,10 +140,26 @@
         self.is_event_mix = YES;
         self.is_local_item = NO;
         self.local_file_path = [[NSString alloc] init];
-        self.ns_defaults_data_key = @"";
+        
+//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//        
+//        NSString *documentsPath = [paths objectAtIndex:0];
+//        
+//        NSFileManager *manager = [[NSFileManager alloc] init];
+//        NSDirectoryEnumerator *fileEnumerator = [manager enumeratorAtPath:documentsPath];
+//        
+//        for(NSString* filename in fileEnumerator)
+//        {
+//            if([filename isEqualToString:[NSString stringWithFormat:@"%@.%@",_sc_id,_original_format]]){
+//                self.is_local_item = YES;
+//                NSString *local_path = [NSString stringWithFormat:@"%@/%@",documentsPath, filename];
+//                self.local_file_path = local_path;
+//            }
+//        }
+//        self.ns_defaults_data_key = @"";
         
 //        self.original_format = [sdsobjectForKey:@"original_format"];
-        [self checkIfLocalSong];
+//        [self checkIfLocalSong];
     }
     return self;
 }
@@ -185,27 +199,43 @@
     return [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:stringURL]]];
 }
 
--(void)checkIfLocalSong
-{
-    //find local file if it already downloaded
-    NSString *locl_url = [[NSUserDefaults standardUserDefaults] objectForKey:[Utils getParsedURL:[NSString stringWithFormat:@"%@-client_id=%@",self.download_url,[SoundCloudAPI getClientID]]]];
-    
-    
-    //location exists locally
-    if(locl_url)
-    {
-        self.local_file_path = locl_url;
-        NSLog(@"printing local file path: %@", self.local_file_path);
-        self.is_local_item = YES;
-    }else{
-        self.is_local_item = NO;
-    }
+//-(void)checkIfLocalSong
+//{
+//    //find local file if it already downloaded
+//    NSString *locl_url = [[NSUserDefaults standardUserDefaults] objectForKey:[Utils getParsedURL:[NSString stringWithFormat:@"%@-client_id=%@",self.download_url,[SoundCloudAPI getClientID]]]];
+//    
+//    
+//    //location exists locally
+//    if(locl_url)
+//    {
+//        self.local_file_path = locl_url;
+//        NSLog(@"printing local file path: %@", self.local_file_path);
+//        self.is_local_item = YES;
+//    }else{
+//        self.is_local_item = NO;
+//    }
+//
+//}
 
+//set the local file path and boolean
+//save metadata in user defaults
+-(void)makeLocalTrack:(NSString*)file_path
+{
+    self.local_file_path = file_path;
+    self.is_local_item = YES;
+    NSMutableDictionary* saved_track_info = [[NSMutableDictionary alloc] init];
+    
+    [saved_track_info setValue:self.track_title forKey:@"track_title"];
+    [saved_track_info setValue:self.artist forKey:@"artist"];
+    
+    [[NSUserDefaults standardUserDefaults] setValue:saved_track_info forKey:[NSString stringWithFormat:@"%@",self.sc_id ]];
 }
 
--(void)setLocalFilePathKey:(NSString*)key
+-(void)makeNotLocalTrack
 {
-    self.ns_defaults_data_key = key;
+    self.local_file_path = nil;
+    self.is_local_item = NO;
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:[NSString stringWithFormat:@"%@",self.sc_id ]];
 }
 
 @end

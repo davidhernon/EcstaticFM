@@ -79,13 +79,80 @@
             </objects>
             <point key="canvasLocation" x="1244" y="-120"/>
         </scene>
+        <!--Download Item Manager View Controller-->
+        <scene sceneID="hKz-AN-Yt8">
+            <objects>
+                <viewController id="TGo-DQ-lum" customClass="DownloadItemManagerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EbV-9h-lUE"/>
+                        <viewControllerLayoutGuide type="bottom" id="84t-ek-dzB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QLi-oe-mlK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vLZ-y1-7Mj">
+                                <rect key="frame" x="0.0" y="66" width="304" height="534"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="deletecell" rowHeight="81" id="2Ml-ay-pAw" customClass="MediaItemTableViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Ml-ay-pAw" id="0d9-Ur-I7q">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwh-9G-LBS">
+                                                    <rect key="frame" x="26" y="13" width="267" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="930-rw-dSz">
+                                                    <rect key="frame" x="26" y="42" width="270" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="artist" destination="930-rw-dSz" id="GiS-CD-nU1"/>
+                                            <outlet property="track_title" destination="iwh-9G-LBS" id="fbL-LX-Dk0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="TGo-DQ-lum" id="yVQ-OR-d78"/>
+                                    <outlet property="delegate" destination="TGo-DQ-lum" id="bZU-IN-ti6"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Beq-fC-g4M">
+                                <rect key="frame" x="25" y="20" width="35" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton:" destination="TGo-DQ-lum" eventType="touchUpInside" id="jLp-nB-NMZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="downloaded_items_tableview" destination="vLZ-y1-7Mj" id="6WW-ej-Gr3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ua-Xb-VkC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1518" y="1298"/>
+        </scene>
         <!--Player Page View Controller-->
         <scene sceneID="l8Y-7L-9Zm">
             <objects>
                 <pageViewController storyboardIdentifier="pp" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="VOg-FZ-x98" customClass="PlayerPageViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yih-Cc-sb3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1793" y="1139"/>
+            <point key="canvasLocation" x="2061" y="1185"/>
         </scene>
         <!--Geo Ask View Controller-->
         <scene sceneID="Jq6-7X-S7D">
@@ -113,7 +180,7 @@ share your location?</string>
                                 <color key="textColor" red="0.3273506760597229" green="0.32734087109565735" blue="0.32734647393226624" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_tri-logo-color.png" translatesAutoresizingMaskIntoConstraints="NO" id="JqH-Hn-ybR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="image_tri-logo-color.png" translatesAutoresizingMaskIntoConstraints="NO" id="JqH-Hn-ybR">
                                 <rect key="frame" x="103" y="46" width="114" height="114"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="114" id="Hlj-BW-1aU"/>
@@ -154,7 +221,7 @@ share your location?</string>
                                 <rect key="frame" x="35" y="353" width="300" height="17"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMv-Qz-Hf9">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rMv-Qz-Hf9">
                                 <rect key="frame" x="0.0" y="-120" width="320" height="140"/>
                                 <color key="backgroundColor" red="0.94083599452554756" green="0.94083599452554756" blue="0.94083599452554756" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
@@ -572,6 +639,15 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                     <constraint firstAttribute="height" constant="1" id="dps-32-SVi"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYl-gs-1OH">
+                                <rect key="frame" x="257" y="383" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="TGo-DQ-lum" kind="show" id="EdJ-W6-9AV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -5583,7 +5659,7 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rp4-vU-zg3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972" y="1434"/>
+            <point key="canvasLocation" x="944" y="1185"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="YCf-hT-zt0">
@@ -8928,6 +9004,23 @@ Cg
             </objects>
             <point key="canvasLocation" x="3070" y="-870"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Xdk-IC-koA">
+            <objects>
+                <viewController id="jok-Vb-6Mt" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lgI-yj-iNL"/>
+                        <viewControllerLayoutGuide type="bottom" id="3o4-lQ-1ke"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xFy-Vd-znb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bwb-CV-gNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="button_addmusic2.png" width="215" height="92"/>
@@ -8980,9 +9073,9 @@ Cg
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ubM-n0-8uz"/>
-        <segue reference="E2U-Ol-7ff"/>
-        <segue reference="9e6-dF-Meh"/>
-        <segue reference="ag5-lL-hod"/>
-        <segue reference="pfT-yc-fMQ"/>
+        <segue reference="gtF-V1-9Ji"/>
+        <segue reference="LHV-l3-vdI"/>
+        <segue reference="sP4-bK-WLP"/>
+        <segue reference="HPa-Ki-tbw"/>
     </inferredMetricsTieBreakers>
 </document>

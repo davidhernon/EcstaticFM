@@ -37,8 +37,8 @@ static Room *currentRoom = nil;
 + (Room*)currentRoom
 {
     static dispatch_once_t onceToken;
-    MWLogDebug(@"Rooms - Room - currentRoom - initializing new singleton Room");
     dispatch_once(&onceToken, ^{
+        MWLogDebug(@"Rooms - Room - currentRoom - initializing new singleton Room");
         currentRoom = [[Room alloc] init];
         currentRoom.room_number = @"0";
         currentRoom.is_owner = YES;

@@ -23,5 +23,6 @@
 - (void) initWithDict:(NSDictionary*)playlist;
 - (void) reloadPlayer;
 -(void) clearPlaylist;
+- (void) removeLocalSongById:(NSString*)track_id;
 
 @end

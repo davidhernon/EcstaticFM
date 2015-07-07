@@ -144,56 +144,32 @@ the delegate to Player for Player to communicate with a view controller
     [_delegate initPlayerUI:0.0f withTrack:_currentTrack atIndex:_currentTrackIndex];
     
     NSString *urlString = [NSString stringWithFormat:@"%@?client_id=%@", _currentTrack.stream_url,[SoundCloudAPI getClientID]];//Your client ID
-    
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"MyAudio" ofType:@"mp3"];
-//    
-//    // - - -
-//
-    
    
     
     NSURL *url;
 //    if(_currentTrack.is_event_mix && _currentTrack.is_local_item)
     if(_currentTrack.is_local_item)
     {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-
-        NSString *documentsPath = [paths objectAtIndex:0];
-        
-        NSFileManager *manager = [[NSFileManager alloc] init];
-        NSDirectoryEnumerator *fileEnumerator = [manager enumeratorAtPath:documentsPath];
-        
-        for (NSString *filename in fileEnumerator) {
-            NSLog(@"String of filename: %@", filename);
-        }
-        NSLog(@"Playing Local Song %@", _currentTrack.local_file_path);
-        
-//        url = [[NSURL alloc] initFileURLWithPath: _currentTrack.local_file_path];
+//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//
+//        NSString *documentsPath = [paths objectAtIndex:0];
+//        
+//        NSFileManager *manager = [[NSFileManager alloc] init];
+//        NSDirectoryEnumerator *fileEnumerator = [manager enumeratorAtPath:documentsPath];
+//        
+//        
+//        //Get the url for the absolute file path
+//        for (NSString *filename in fileEnumerator) {
+//            NSString *trackname = [NSString stringWithFormat:@"%@.%@",_currentTrack.sc_id,_currentTrack.original_format];
+//            if([filename isEqualToString:trackname]){
+//                NSLog(@"we found a matching track");
+//                NSString *absolute_path_file = [NSString stringWithFormat:@"%@/%@",documentsPath,trackname];
+//                url = [NSURL fileURLWithPath:absolute_path_file];
+//                break;
+//            }
+//        }
         url = [NSURL fileURLWithPath:_currentTrack.local_file_path];
-        NSString *loc_id = [NSString stringWithFormat:@"%@",_currentTrack.sc_id];
-        NSString *filePath = [[NSUserDefaults standardUserDefaults] objectForKey:loc_id];
-        NSError *attributesError;
-        NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:&attributesError];
-        
-        NSNumber *fileSizeNumber = [fileAttributes objectForKey:NSFileSize];
-        long long fileSize = [fileSizeNumber longLongValue];
-        
-        NSString *dataFile = [NSString stringWithContentsOfFile:filePath
-                                                   usedEncoding:NSUTF8StringEncoding
-                                                          error:NULL];
-        
-        NSFileManager *fm = [NSFileManager defaultManager];
-        NSData *data = [fm contentsAtPath:[[NSUserDefaults standardUserDefaults] objectForKey:loc_id]];
-        NSData *fileData = [fm contentsAtPath:[[NSBundle mainBundle]
-                                               pathForResource:[NSString stringWithFormat:@"%@",_currentTrack.sc_id] ofType:@"mp3"]];
-        NSData *fileData3 = [fm contentsAtPath:[[NSBundle mainBundle]
-                                               pathForResource:filePath ofType:@"mp3"]];
-        NSData *fileData2 = [fm contentsAtPath:[[NSBundle mainBundle]
-                                               pathForResource:[NSString stringWithFormat:@"%@.mp3",_currentTrack.sc_id] ofType:@"mp3"]];
-        if([[NSFileManager defaultManager] fileExistsAtPath:[url absoluteString]]){
-            NSLog(@"Hail Mary");
-        }
-        
+        //load the url into an asset and init the avplayer with it
         AVAsset *asset = [AVAsset assetWithURL:url];
         NSArray *metadata = [asset commonMetadata];
         AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
@@ -203,17 +179,6 @@ the delegate to Player for Player to communicate with a view controller
         url = [NSURL URLWithString:urlString];
         _avPlayer = [AVPlayer playerWithURL:url];
     }
-    
-//    NSData *data = [[NSFileManager defaultManager] contentsAtPath:_currentTrack.local_file_path];
-//    
-//    NSString *myPath = [NSString stringWithFormat:@"%@/..",_currentTrack.local_file_path ];
-//    NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:_currentTrack.local_file_path error:NULL];
-//    for (int count = 0; count < (int)[directoryContent count]; count++)
-//    {
-//        NSLog(@"File %d: %@", (count + 1), [directoryContent objectAtIndex:count]);
-//    }
-    
-//    _avPlayer = [AVPlayer playerWithURL:data];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioPlayerDidFinishPlaying) name:AVPlayerItemDidPlayToEndTimeNotification object:[_avPlayer currentItem]];
     [_avPlayer play];

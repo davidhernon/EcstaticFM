@@ -306,7 +306,7 @@ static bool createRoomBool;
     [SDSAPI leaveRoom];
     
     //If the event is a Room, set the current Room variable
-    [Room currentRoom].is_event = isEvent;
+//    [Room currentRoom].is_event = isEvent;
     
     //set up variables to go in the dicts. These contain information about the CURRENT ROOM's state
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];

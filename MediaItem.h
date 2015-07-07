@@ -35,14 +35,13 @@
 @property NSString *original_format;
 @property (strong, nonatomic) NSNumber *sc_id;
 
-//EXPERIMENTAL
-@property (strong, nonatomic) NSString *ns_defaults_data_key;
-
 @property NSString* username;
 
 - (id) initWithSoundCloudTrack:(NSDictionary *)soundCloudTrack;
 - (id) initWIthDict:(NSDictionary*)sds_dict;
 -(NSDictionary*)serializeMediaItem;
 -(void)setLocalFilePathKey:(NSString*)key;
+-(void)makeLocalTrack:(NSString*)file_path;
+-(void)makeNotLocalTrack;
 
 @end

@@ -87,4 +87,18 @@ static Playlist *sharedPlaylist = nil;
     [[Player sharedPlayer] reloadUI];
 }
 
+- (void) removeLocalSongById:(NSString*)track_id
+{
+    NSArray* parsed_track_id_array = [track_id componentsSeparatedByString: @"."];
+    track_id = [parsed_track_id_array firstObject];
+    
+    for(MediaItem* track in _playlist)
+    {
+        if([[NSString stringWithFormat:@"%@",track.sc_id] isEqualToString:track_id]){
+            //we found the local track that just got deleted so lets remove it
+            [track makeNotLocalTrack];
+        }
+    }
+}
+
 @end
