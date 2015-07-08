@@ -180,7 +180,7 @@ share your location?</string>
                                 <color key="textColor" red="0.3273506760597229" green="0.32734087109565735" blue="0.32734647393226624" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="image_tri-logo-color.png" translatesAutoresizingMaskIntoConstraints="NO" id="JqH-Hn-ybR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_tri-logo-color.png" translatesAutoresizingMaskIntoConstraints="NO" id="JqH-Hn-ybR">
                                 <rect key="frame" x="103" y="46" width="114" height="114"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="114" id="Hlj-BW-1aU"/>
@@ -221,7 +221,7 @@ share your location?</string>
                                 <rect key="frame" x="35" y="353" width="300" height="17"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rMv-Qz-Hf9">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMv-Qz-Hf9">
                                 <rect key="frame" x="0.0" y="-120" width="320" height="140"/>
                                 <color key="backgroundColor" red="0.94083599452554756" green="0.94083599452554756" blue="0.94083599452554756" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
@@ -255,7 +255,7 @@ share your location?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boa-Xy-f7L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2127" y="471"/>
+            <point key="canvasLocation" x="2121" y="523"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Uhc-25-gue">
@@ -755,6 +755,12 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                 <color key="textColor" red="1" green="0.9999350905418396" blue="0.99997484683990479" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqG-P7-toA">
+                                <rect key="frame" x="16" y="28" width="288" height="43"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="31"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.99340784549713135" green="0.69970071315765381" blue="0.78865373134613037" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -779,6 +785,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="dancefloor_label" destination="iqG-P7-toA" id="U7Q-9R-gtr"/>
                         <outlet property="distance_or_time_label" destination="Qsa-zK-cHg" id="qxz-3y-f64"/>
                         <outlet property="location_icon" destination="Apm-4F-HKq" id="oji-ds-m3m"/>
                         <outlet property="room_header" destination="HNI-Sl-mQ2" id="gBV-vS-GRu"/>
@@ -2061,34 +2068,6 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                 <tapGestureRecognizer id="1T9-Qu-JEF"/>
             </objects>
             <point key="canvasLocation" x="3054" y="624"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="yiU-pE-MiS">
-            <objects>
-                <viewController storyboardIdentifier="sdsAPI" id="PaF-Wq-qi9" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oZZ-1n-cn9"/>
-                        <viewControllerLayoutGuide type="bottom" id="bLY-fE-7Sd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Cad-hV-OHl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SDS Media Picker" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBW-RK-8uD">
-                                <rect key="frame" x="91" y="20" width="139" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.96141954255335527" green="0.66976473011645077" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bSz-Zi-L5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4483.125" y="2068.3098591549297"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="ZOF-of-Qtp">
@@ -9074,8 +9053,8 @@ Cg
     <inferredMetricsTieBreakers>
         <segue reference="ubM-n0-8uz"/>
         <segue reference="gtF-V1-9Ji"/>
-        <segue reference="LHV-l3-vdI"/>
-        <segue reference="sP4-bK-WLP"/>
+        <segue reference="ag5-lL-hod"/>
+        <segue reference="1fe-a4-XVi"/>
         <segue reference="HPa-Ki-tbw"/>
     </inferredMetricsTieBreakers>
 </document>

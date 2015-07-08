@@ -132,8 +132,6 @@ static NSString* cellIdentifier = @"playListCell";
 	if(_player.player_is_locked && ![Room currentRoom].is_owner){
 		_playerShowControlsButton.enabled = NO;
         _add_songs.hidden = YES;
-//		_add_songs.enabled = NO;
-//		_add_songs.alpha = 0;
     }else{
         _playerShowControlsButton.enabled = YES;
         _add_songs.hidden = NO;
@@ -401,19 +399,22 @@ static NSString* cellIdentifier = @"playListCell";
 }
 
 - (IBAction)showRooms:(id)sender {
-    AppDelegate* appDelegate = [[UIApplication  sharedApplication]delegate];
+    //removed GEOask so we just show rooms:
+    [self performSegueWithIdentifier:@"roomsViewSegue" sender:self];
+    
+//    AppDelegate* appDelegate = [[UIApplication  sharedApplication]delegate];
 //before doing anything
     //check if the user has given permissions to use location services
-    if([appDelegate.locationServices checkForPermissions]){
-        [self performSegueWithIdentifier:@"roomsViewSegue" sender:self];
-    }
-    //if they haven't ask them to in the geoAsk uiviewcontroller
-    else{
-		UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-		geoAskViewController *geoAskVC = [sb instantiateViewControllerWithIdentifier:@"geoAskVC"];
-		appDelegate.locationServices.vc=geoAskVC;
-		[self presentViewController:geoAskVC animated:YES completion:nil];
-    }
+//    if([appDelegate.locationServices checkForPermissions]){
+//        [self performSegueWithIdentifier:@"roomsViewSegue" sender:self];
+//    }
+//    //if they haven't ask them to in the geoAsk uiviewcontroller
+//    else{
+//		UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//		geoAskViewController *geoAskVC = [sb instantiateViewControllerWithIdentifier:@"geoAskVC"];
+//		appDelegate.locationServices.vc=geoAskVC;
+//		[self presentViewController:geoAskVC animated:YES completion:nil];
+//    }
 }
 - (IBAction)playerControlsClicked:(id)sender {
     if([[Playlist sharedPlaylist] count] == 0)
@@ -550,7 +551,7 @@ static NSString* cellIdentifier = @"playListCell";
         
 #warning Uncompleted Code Block
         //if (track.downloadable && track.is_event_track)
-        if (track.downloadable)
+        if (track.downloadable && track.is_event_mix)
         {
             NSString *sc_url = [NSString stringWithFormat:@"%@?client_id=%@",track.download_url,[SoundCloudAPI getClientID]];
         NSLog(@"sc_url: %@",sc_url);

@@ -205,16 +205,19 @@ static NSString* around_me_event_cell = @"around_me_cell";
                 EventView *room = [_event_item_list objectAtIndex:counter];
                 _room_header.text = [room.event_dictionary objectForKey:@"city"];
                 _distance_or_time_label.text = room.distance_or_time_for_event;
+                _dancefloor_label.text = @"Global Dancefloor";
             }else if([[_event_item_list objectAtIndex:counter] isKindOfClass:[UIAroundMeView class]]){
                  MWLogDebug(@"Rooms - RoomsViewController - setRoomsViewUIToMatchRoom: - labelling UIAroundMeView");
                 UIAroundMeView *room = [_event_item_list objectAtIndex:counter];
                 _room_header.text = room.title;
                 _distance_or_time_label.text = room.distance_or_time_for_event;
+                _dancefloor_label.text = @"Connect Around Me";
             }else{
                 MWLogDebug(@"Rooms - RoomsViewController - setRoomsViewUIToMatchRoom: - labelling CreateRoomView");
                 //We are on the create room
                 _room_header.text = @"Create Room";
                 _distance_or_time_label.text = @"Here";
+                _dancefloor_label.text = @"Welcome Home";
             }
         }
         

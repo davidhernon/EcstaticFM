@@ -57,9 +57,9 @@
     
     UIViewController *nextViewController = nil;
     
-    if (viewController == self.sound_cloud_media_picker) {
-        nextViewController = self.sds_media_picker;
-    }
+//    if (viewController == self.sound_cloud_media_picker) {
+//        nextViewController = self.sds_media_picker;
+//    }
     
     return nextViewController;
 }
@@ -68,9 +68,9 @@
     
     UIViewController *prevViewController = nil;
     
-    if (viewController == self.sds_media_picker) {
-        prevViewController = self.sound_cloud_media_picker;
-    }
+//    if (viewController == self.sds_media_picker) {
+//        prevViewController = self.sound_cloud_media_picker;
+//    }
     
     return prevViewController;
 }

@@ -52,6 +52,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *location_icon;
 
 @property (nonatomic, weak) IBOutlet UILabel *room_header;
+@property (weak, nonatomic) IBOutlet UILabel *dancefloor_label;
 
 -(IBAction)buttonPressed:(id)sender;
 

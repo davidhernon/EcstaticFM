@@ -143,12 +143,12 @@
 -(void)signupSuccess{
 	[[NSUserDefaults standardUserDefaults] setObject:self.username.text forKey:@"username"];
 	[SSKeychain setPassword:_password.text forService:@"EcstaticFM" account:self.username.text];
-	
-	AppDelegate* appDelegate = [[UIApplication  sharedApplication]delegate];
-	UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-	geoAskViewController *geoAskVC = [sb instantiateViewControllerWithIdentifier:@"geoAskVC"];
-	appDelegate.locationServices.vc=geoAskVC;
-	[self presentViewController:geoAskVC animated:YES completion:nil];
+	[self performSegueWithIdentifier:@"successfulSignup" sender:self];
+//	AppDelegate* appDelegate = [[UIApplication  sharedApplication]delegate];
+//	UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//	geoAskViewController *geoAskVC = [sb instantiateViewControllerWithIdentifier:@"geoAskVC"];
+//	appDelegate.locationServices.vc=geoAskVC;
+//	[self presentViewController:geoAskVC animated:YES completion:nil];
 }
 
 -(void)signupFailure:(NSString*)error{

@@ -409,38 +409,39 @@ static NSTimer *login_timer;
     [SSKeychain setPassword:_password.text forService:@"EcstaticFM" account:self.username.text];
     
     [SDSAPI user_connect];
+    [self performSegueWithIdentifier:@"roomsSegue" sender:self];
     
-	AppDelegate* appDelegate = [[UIApplication  sharedApplication]delegate];
+//	AppDelegate* appDelegate = [[UIApplication  sharedApplication]delegate];
 	//check if the user has given permissions to use location services
-	if([appDelegate.locationServices checkForPermissions]){
-		[self performSegueWithIdentifier:@"roomsSegue" sender:self];
-	}
-	//if they haven't ask them to in the geoAsk uiviewcontroller
-	else{
-		UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-		geoAskViewController *geoAskVC = [sb instantiateViewControllerWithIdentifier:@"geoAskVC"];
-        
-        //initiate a crossfade transition on segue
-        CATransition* transition = [CATransition animation];
-        transition.duration = 0.3;
-        transition.type = kCATransitionFade;
-        transition.subtype = kCATransitionFromBottom;
-        
-        [self.view.window.layer addAnimation:transition forKey:kCATransition];
-        //send me to the geoask
-		appDelegate.locationServices.vc=geoAskVC;
-		[self presentViewController:geoAskVC animated:YES completion:nil];
-	}
-    NSNumber *lat = [[NSUserDefaults standardUserDefaults] objectForKey:@"latitude"];
-    NSNumber *lon;
-    if(lat)
-    {
-        lon = [[NSUserDefaults standardUserDefaults] objectForKey:@"longitude"];
-    }else{
-        lat = [NSNumber numberWithDouble:-45.5017];
-        lon = [NSNumber numberWithDouble:-73.5637];
-    }
-    [SDSAPI postLocation:_username.text withLatitude:[lat floatValue] withLongitude:[lon floatValue]];
+//	if([appDelegate.locationServices checkForPermissions]){
+//		[self performSegueWithIdentifier:@"roomsSegue" sender:self];
+//	}
+//	//if they haven't ask them to in the geoAsk uiviewcontroller
+//	else{
+//		UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//		geoAskViewController *geoAskVC = [sb instantiateViewControllerWithIdentifier:@"geoAskVC"];
+//        
+//        //initiate a crossfade transition on segue
+//        CATransition* transition = [CATransition animation];
+//        transition.duration = 0.3;
+//        transition.type = kCATransitionFade;
+//        transition.subtype = kCATransitionFromBottom;
+//        
+//        [self.view.window.layer addAnimation:transition forKey:kCATransition];
+//        //send me to the geoask
+//		appDelegate.locationServices.vc=geoAskVC;
+//		[self presentViewController:geoAskVC animated:YES completion:nil];
+//	}
+//    NSNumber *lat = [[NSUserDefaults standardUserDefaults] objectForKey:@"latitude"];
+//    NSNumber *lon;
+//    if(lat)
+//    {
+//        lon = [[NSUserDefaults standardUserDefaults] objectForKey:@"longitude"];
+//    }else{
+//        lat = [NSNumber numberWithDouble:-45.5017];
+//        lon = [NSNumber numberWithDouble:-73.5637];
+//    }
+//    [SDSAPI postLocation:_username.text withLatitude:[lat floatValue] withLongitude:[lon floatValue]];
 }
 
 - (void) loginReturnedFalse
