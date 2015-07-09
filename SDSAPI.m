@@ -15,7 +15,7 @@ static SocketIOClient *static_socket;
 static bool createRoomBool;
 
 + (void) connect{
-    static_socket = [[SocketIOClient alloc] initWithSocketURL:@"http://ecstatic.fm:8080" options:nil];
+    static_socket = [[SocketIOClient alloc] initWithSocketURL:@"http://squad.fm:8080" options:nil];
     
     [static_socket on: @"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"connected");

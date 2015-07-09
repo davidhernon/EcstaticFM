@@ -26,6 +26,7 @@
 @property (nonatomic, retain) NSString *room_number;
 @property (nonatomic, retain) NSDictionary *event_dictionary;
 @property (nonatomic, retain) NSDictionary *sc_event_song;
+@property (nonatomic, retain) NSString *download_url;
 
 //@property (nonatomic, retain) NSString *distance_or_time_for_event;
 
@@ -33,6 +34,7 @@
 
 - (id) initWithFrame:(CGRect)aRect withEvent:(NSDictionary*)event withRoomController:(RoomsViewController*)sender;
 -(void)setAlbumImage:(UIImage*)artwork;
+-(void)setDownloadURL:(NSString*)downloadurl;
 
 
 @end

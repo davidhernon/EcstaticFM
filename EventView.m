@@ -82,6 +82,11 @@
     _album_image_for_event.image = artwork;
 }
 
+-(void)setDownloadURL:(NSString *)downloadurl
+{
+    _download_url = downloadurl;
+}
+
 -(IBAction)joinEventButton
 {
 //    NSString *sc_url = [_event_dictionary objectForKey:@"soundcloudLink"];

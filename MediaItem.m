@@ -116,6 +116,11 @@
             }
         }
         
+        if([Room currentRoom].is_event)
+        {
+            self.is_event_mix = YES;
+        }
+        
         self.is_event_mix = NO;
     }
     return self;
@@ -126,6 +131,12 @@
     self = [super init];
     if(self)
     {
+        
+        
+        NSArray* foo = [[sds_dict objectForKey:@"stream_url"] componentsSeparatedByString: @"/"];
+        self.sc_id = [NSNumber numberWithInt:[(NSString*)[foo objectAtIndex: 4] intValue]];
+        
+        
         self.track_title = [sds_dict objectForKey:@"track_title"];
         self.artist = [sds_dict objectForKey:@"artist"];
         self.duration = [sds_dict objectForKey:@"duration"];
@@ -139,7 +150,35 @@
         self.download_url = [sds_dict objectForKey:@"soundcloudLink"];
         self.is_event_mix = YES;
         self.is_local_item = NO;
+        self.downloadable = YES;
         self.local_file_path = [[NSString alloc] init];
+        
+        //find local file if it already downloaded
+        if(self.downloadable)
+        {
+//            self.download_url = [soundCloudTrack objectForKey:@"download_url"];
+            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            
+            NSString *documentsPath = [paths objectAtIndex:0];
+            
+            NSFileManager *manager = [[NSFileManager alloc] init];
+            NSDirectoryEnumerator *fileEnumerator = [manager enumeratorAtPath:documentsPath];
+            
+            for(NSString* filename in fileEnumerator)
+            {
+                if([filename isEqualToString:[NSString stringWithFormat:@"%@.%@",_sc_id,_original_format]]){
+                    self.is_local_item = YES;
+                    NSString *local_path = [NSString stringWithFormat:@"%@/%@",documentsPath, filename];
+                    self.local_file_path = local_path;
+                }
+            }
+        }
+        
+        if(!self.is_local_item){
+            // get download link
+            self.download_url = [NSString stringWithFormat:@"https://api.soundcloud.com/tracks/%@/download",self.sc_id ];
+        }
         
 //        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 //        

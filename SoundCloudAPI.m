@@ -229,8 +229,10 @@
         if(!jsonError){
             sender.sc_event_song = jsonResponse;
             NSString *album_location = [jsonResponse objectForKey:@"artwork_url"];
+            NSString *download_url = [jsonResponse objectForKey:@"download_url"];
             if(album_location)
                 [sender setAlbumImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:album_location]]]];
+            [sender setDownloadURL:download_url];
         }else{
             NSLog(@"%@", error.localizedDescription);
         }
