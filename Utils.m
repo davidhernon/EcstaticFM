@@ -146,13 +146,14 @@
 //    NSString *folderPath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/%@/",[Utils getParsedURL:track.track_title]]];
     NSLog(@"download url: %@", download_url);
     
+    [track setOriginal_format:[track.sc_event_song objectForKey:@"original_format"]];
+    
     TCBlobDownloadManager *sharedManager = [TCBlobDownloadManager sharedInstance];
     
     [sharedManager cancelAllDownloadsAndRemoveFiles:YES];
 
     //SENDER start running load image
     //SENDER change download button to "In Progress: "
-    
     
     TCBlobDownloader *downloader = [sharedManager startDownloadWithURL:[NSURL URLWithString:download_url ]
                                                             customPath:nil
@@ -192,8 +193,10 @@
                                                                   //SENDER change download button
                                                                   [sender setDownloadFinished];
                                                             
-                                                              }];
-        [downloader start];
+                                                        }];
+        
+           [downloader start];
+        
 }
 
 //write file to iOS device

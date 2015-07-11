@@ -571,17 +571,16 @@ static NSString* cellIdentifier = @"playListCell";
     {
         NSLog(@"Media Item title: %@", track.track_title);
         NSLog(@"player counter %lu", (unsigned long)[[Playlist sharedPlaylist].playlist count]);
-        _can_download = NO;
         if (track.downloadable && track.is_event_mix)
         {
-//                        _track_to_download = track;
-//                        _track_to_download.original_format = [_track_to_download.sc_event_song objectForKey:@"original_format"];
                         int megabytes = [track.size intValue] / 1000000;
                         NSString *message = [NSString stringWithFormat:@"File to download is %i megabytes. Do you want to continue?",megabytes];
                         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Download File" message:message delegate:self cancelButtonTitle:@"Nevermind" otherButtonTitles:nil];
                         // optional - add more buttons:
                         [alert addButtonWithTitle:@"Download!"];
                         [alert show];
+//            NSString *sc_url = [NSString stringWithFormat:@"https://api.soundcloud.com/tracks/%@/download?client_id=%@",track.sc_id,[SoundCloudAPI getClientID]];
+//            [Utils downloadSongFromURL:sc_url withRoomNumber:[Room currentRoom].room_number withMediaItem:track withSender:self];
         }
     }
 }
@@ -598,13 +597,15 @@ static NSString* cellIdentifier = @"playListCell";
     {
         if (track.downloadable && track.is_event_mix)
         {
-              dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSString *sc_url = [NSString stringWithFormat:@"https://api.soundcloud.com/tracks/%@/download?client_id=%@",track.sc_id,[SoundCloudAPI getClientID]];
-            NSLog(@"sc_url: %@",sc_url);
-            [Utils downloadSongFromURL:sc_url withRoomNumber:[Room currentRoom].room_number withMediaItem:track withSender:self];
-              });
+//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                NSString *sc_url = [NSString stringWithFormat:@"https://api.soundcloud.com/tracks/%@/download?client_id=%@",track.sc_id,[SoundCloudAPI getClientID]];
+                NSLog(@"sc_url: %@",sc_url);
+                [Utils downloadSongFromURL:sc_url withRoomNumber:[Room currentRoom].room_number withMediaItem:track withSender:self];
+//                });
         }
     }
+        
+
 }
 
 -(IBAction)swipeToChat:(id)sender
