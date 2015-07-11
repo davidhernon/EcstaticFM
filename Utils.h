@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 #import <TCBlobDownload/TCBlobDownload.h>
 @class MediaItem;
+@class PlayerViewController;
 
 @interface Utils : NSObject
 @property NSJSONSerialization* queryFromSoundCloud;
@@ -19,7 +20,7 @@
 +(NSMutableString*) floatToText: (Float64)time;
 +(NSString*)convertTimeFromMillis:(int)millis;
 +(NSString*)convertSecondsToCountdownString:(double)num_seconds;
-+(void)downloadSongFromURL:(NSString*)download_url withRoomNumber:(NSString*)room_number withMediaItem:(MediaItem*)track;
++(void)downloadSongFromURL:(NSString*)download_url withRoomNumber:(NSString*)room_number withMediaItem:(MediaItem*)track withSender:(PlayerViewController*)sender;
 +(void)createDirectory:(NSString *)directoryName atFilePath:(NSString *)filePath;
 +(NSString*)getParsedURL:(NSString*)url;
 @end

@@ -233,11 +233,38 @@
             if(album_location)
                 [sender setAlbumImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:album_location]]]];
             [sender setDownloadURL:download_url];
+            [sender setEventDict:jsonResponse];
         }else{
             NSLog(@"%@", error.localizedDescription);
         }
     }];
 }
+
++(void)getSoundCloudTrackFromURL:(NSNumber*)sc_id fromMediaItem:(MediaItem*)sender
+{
+    NSString *request = [NSString stringWithFormat:@"https://api.soundcloud.com/tracks/%@?client_id=%@",sc_id,[self getClientID]];
+    NSLog(@"FOR REQUEST !!!!! %@",request);
+    
+    
+    [SCRequest performMethod:SCRequestMethodGET onResource:[NSURL URLWithString:request] usingParameters:nil withAccount:[SCSoundCloud account] sendingProgressHandler:nil responseHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        if(error){
+            NSLog(@"error: %@",error.localizedDescription);
+        }
+        
+        NSError *jsonError;
+        NSDictionary *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        
+        if(!jsonError){
+            sender.sc_event_song = jsonResponse;
+            sender.size = [jsonResponse objectForKey:@"original_content_size"];
+        }else{
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+
 
 //+(void)getSoundCloudTrackFromURL:(NSString*)string_url withMediaItemd:(MediaItem*)sender
 //{
@@ -263,9 +290,9 @@
 //    }];
 //}
 
-+(void)getSoundCloudTracKImageFromURL
-{
-    
-}
+//+(void)getSoundCloudTracKImageFromURL:(MediaItem*)track
+//{
+//    
+//}
 
 @end

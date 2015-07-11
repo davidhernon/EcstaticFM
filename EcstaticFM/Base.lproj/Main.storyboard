@@ -104,13 +104,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwh-9G-LBS">
                                                     <rect key="frame" x="26" y="13" width="267" height="38"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="930-rw-dSz">
                                                     <rect key="frame" x="26" y="42" width="270" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -180,7 +180,7 @@ share your location?</string>
                                 <color key="textColor" red="0.3273506760597229" green="0.32734087109565735" blue="0.32734647393226624" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_tri-logo-color.png" translatesAutoresizingMaskIntoConstraints="NO" id="JqH-Hn-ybR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="image_tri-logo-color.png" translatesAutoresizingMaskIntoConstraints="NO" id="JqH-Hn-ybR">
                                 <rect key="frame" x="103" y="46" width="114" height="114"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="114" id="Hlj-BW-1aU"/>
@@ -221,7 +221,7 @@ share your location?</string>
                                 <rect key="frame" x="35" y="353" width="300" height="17"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMv-Qz-Hf9">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rMv-Qz-Hf9">
                                 <rect key="frame" x="0.0" y="-120" width="320" height="140"/>
                                 <color key="backgroundColor" red="0.94083599452554756" green="0.94083599452554756" blue="0.94083599452554756" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
@@ -620,7 +620,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                     <constraint firstAttribute="width" constant="120" id="ngO-rs-Xo2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="11"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQN-ec-9FS" userLabel="line">
@@ -640,8 +640,9 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYl-gs-1OH">
-                                <rect key="frame" x="257" y="383" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="17" y="316" width="137" height="30"/>
+                                <state key="normal" title="Manage Downloads">
+                                    <color key="titleColor" red="0.8666666666666667" green="0.47450980392156861" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -842,7 +843,7 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                     <constraint firstAttribute="width" constant="240" id="ZFw-41-OIh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1773,19 +1774,6 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAh-Xy-nYN" userLabel="action button">
                                 <rect key="frame" x="0.0" y="380" width="320" height="100"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iib-vT-nmd" userLabel="Download the mix">
-                                        <rect key="frame" x="66" y="41" width="160" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="Pym-PX-tj4"/>
-                                            <constraint firstAttribute="width" constant="160" id="U31-Ly-CBk"/>
-                                        </constraints>
-                                        <state key="normal" image="button_playlist_downloadmix.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="downloadMix:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="NtB-eT-i6E"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyU-zZ-L2E">
                                         <rect key="frame" x="100" y="40" width="99" height="44"/>
                                         <constraints>
@@ -1797,6 +1785,19 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                         </state>
                                         <connections>
                                             <segue destination="kbI-5f-GDn" kind="presentation" modalTransitionStyle="coverVertical" id="5oG-wH-lum"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iib-vT-nmd" userLabel="Download the mix">
+                                        <rect key="frame" x="66" y="41" width="160" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Pym-PX-tj4"/>
+                                            <constraint firstAttribute="width" constant="160" id="U31-Ly-CBk"/>
+                                        </constraints>
+                                        <state key="normal" image="button_playlist_downloadmix.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="downloadMix:" destination="XgF-Cq-hZq" eventType="touchUpInside" id="NtB-eT-i6E"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="image_playlist_downloaded.png" translatesAutoresizingMaskIntoConstraints="NO" id="hMk-AH-uhc">
@@ -1819,6 +1820,15 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                                             </mask>
                                         </variation>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yQu-Fl-vzg">
+                                        <rect key="frame" x="234" y="41" width="43" height="39"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUd-Tq-aV8">
+                                        <rect key="frame" x="8" y="40" width="304" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -2050,7 +2060,9 @@ Amendment. This Agreement is subject to change by the Company at any time.</stri
                         <outlet property="current_duration" destination="0VL-8U-vbk" id="0eJ-YZ-Ezz"/>
                         <outlet property="current_time" destination="HOQ-tI-VMR" id="ARJ-iG-kcm"/>
                         <outlet property="current_track_title" destination="Tf3-bn-nva" id="gR3-ho-YF3"/>
+                        <outlet property="download_label" destination="lUd-Tq-aV8" id="d5M-3d-7pL"/>
                         <outlet property="download_mix_button" destination="Iib-vT-nmd" id="ney-Xx-tYS"/>
+                        <outlet property="download_spinner" destination="yQu-Fl-vzg" id="qmQ-pV-Pjv"/>
                         <outlet property="last" destination="koU-o0-AIH" id="BDb-8r-MAL"/>
                         <outlet property="next" destination="eQi-L5-ahx" id="KbW-RK-D62"/>
                         <outlet property="play" destination="gnl-oJ-0Zd" id="Oix-Te-KKR"/>
@@ -9000,6 +9012,23 @@ Cg
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwb-CV-gNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="t6Q-Tb-IVc">
+            <objects>
+                <viewController id="T6L-Se-AJ7" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pca-jj-gOx"/>
+                        <viewControllerLayoutGuide type="bottom" id="w25-Wu-yHh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w3o-08-VaK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rb1-BF-dyq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="button_addmusic2.png" width="215" height="92"/>
@@ -9051,10 +9080,10 @@ Cg
         <image name="spinner-16.png" width="302" height="302"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="LHV-l3-vdI"/>
+        <segue reference="sP4-bK-WLP"/>
         <segue reference="ubM-n0-8uz"/>
-        <segue reference="gtF-V1-9Ji"/>
-        <segue reference="ag5-lL-hod"/>
-        <segue reference="1fe-a4-XVi"/>
+        <segue reference="kOh-mr-y7x"/>
         <segue reference="HPa-Ki-tbw"/>
     </inferredMetricsTieBreakers>
 </document>

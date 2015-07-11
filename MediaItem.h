@@ -34,6 +34,8 @@
 @property (strong, nonatomic) NSString *local_file_path;
 @property NSString *original_format;
 @property (strong, nonatomic) NSNumber *sc_id;
+@property (strong, retain) NSDictionary *sc_event_song;
+@property (strong, nonatomic) NSNumber *size;
 
 @property NSString* username;
 

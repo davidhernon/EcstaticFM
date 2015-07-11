@@ -26,4 +26,5 @@
 +(void)getSDSPlaylistsFromSoundCloud:(soundCloudMediaPickerViewController*)sender;
 +(void)getSoundCloudTrackFromURL:(NSString*)string_url;
 +(void)getSoundCloudTrackFromURL:(NSString*)string_url fromSender:(EventView*)sender;
++(void)getSoundCloudTrackFromURL:(NSNumber*)sc_id fromMediaItem:(MediaItem*)sender;
 @end

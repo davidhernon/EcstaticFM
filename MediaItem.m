@@ -87,6 +87,7 @@
         self.original_format = [soundCloudTrack objectForKey:@"original_format"];
         self.sc_id = [soundCloudTrack objectForKey:@"id"];
         NSString *b = [NSString stringWithFormat:@"%@",[soundCloudTrack objectForKey:@"downloadable"] ];
+        self.size = [soundCloudTrack objectForKey:@"size"];
         if([b isEqualToString:@"1"])
             self.downloadable = YES;
         else
@@ -132,10 +133,11 @@
     if(self)
     {
         
-        
         NSArray* foo = [[sds_dict objectForKey:@"stream_url"] componentsSeparatedByString: @"/"];
         self.sc_id = [NSNumber numberWithInt:[(NSString*)[foo objectAtIndex: 4] intValue]];
         
+        [SoundCloudAPI getSoundCloudTrackFromURL:self.sc_id fromMediaItem:self];
+
         
         self.track_title = [sds_dict objectForKey:@"track_title"];
         self.artist = [sds_dict objectForKey:@"artist"];
@@ -147,7 +149,7 @@
         self.username = [sds_dict objectForKey:@"username"];
         self.playing_animation = [UIImage imageNamed:@"wave1.png"];
         self.room_number = [Room currentRoom].room_number;
-        self.download_url = [sds_dict objectForKey:@"soundcloudLink"];
+        self.download_url = [sds_dict objectForKey:@"download_url"];
         self.is_event_mix = YES;
         self.is_local_item = NO;
         self.downloadable = YES;

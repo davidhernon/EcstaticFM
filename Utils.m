@@ -9,6 +9,7 @@
 #import "Utils.h"
 #import "SCUI.h"
 #import "MediaItem.h"
+#import "PlayerViewController.h"
 
 
 @implementation Utils
@@ -137,17 +138,22 @@
 /**
  Downloads a remote file from a http URL to the local file system. At the completion of the download it writes the file to the local system, under Documents. The file path can be returned from NSUserDefaults using a key made from the parsed download_url
  */
-+(void)downloadSongFromURL:(NSString*)download_url withRoomNumber:(NSString*)room_number withMediaItem:(MediaItem*)track
++(void)downloadSongFromURL:(NSString*)download_url withRoomNumber:(NSString*)room_number withMediaItem:(MediaItem*)track withSender:(PlayerViewController*)sender
 {
     // parse download url into
 //    NSString *parsed_download_url = [Utils getParsedURL:download_url];
     
 //    NSString *folderPath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/%@/",[Utils getParsedURL:track.track_title]]];
+    NSLog(@"download url: %@", download_url);
     
     TCBlobDownloadManager *sharedManager = [TCBlobDownloadManager sharedInstance];
     
     [sharedManager cancelAllDownloadsAndRemoveFiles:YES];
 
+    //SENDER start running load image
+    //SENDER change download button to "In Progress: "
+    
+    
     TCBlobDownloader *downloader = [sharedManager startDownloadWithURL:[NSURL URLWithString:download_url ]
                                                             customPath:nil
                                                          firstResponse:^(NSURLResponse *response) {
@@ -156,7 +162,10 @@
                                                               progress:^(uint64_t receivedLength, uint64_t totalLength, NSInteger remainingTime, float progress) {
                                                                   // downloader.remainingTime
                                                                   // downloader.speedRate
+                                                                  //SENDER update progress
+                                                                  [sender setIsDownloading];
                                                                   NSLog(@"getting data, progress: %f", progress);
+                                                                  [sender updateDownloadProgress:progress];
                                                               }
                                                                  error:^(NSError *error) {
                                                                      NSLog(@"was there error?: %@", error.description);
@@ -179,9 +188,12 @@
                                                                   //write data to path but also save data to trackid_data in userdefaults
                                                                   [Utils writeDataToAudioFile:data forTrack:track];
                                                                   [[NSFileManager defaultManager] removeItemAtPath:pathToFile error:nil];
+                                                                  //SENDER stop running load image
+                                                                  //SENDER change download button
+                                                                  [sender setDownloadFinished];
                                                             
                                                               }];
-    [downloader start];
+        [downloader start];
 }
 
 //write file to iOS device

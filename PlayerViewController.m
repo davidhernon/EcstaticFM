@@ -21,6 +21,10 @@ static NSString* cellIdentifier = @"playListCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _track_to_download = [[MediaItem alloc] init];
+    
+    _download_label.text = @"";
+    
     _loading_next_song = true;
 	_loading_next_song_has_changed = false;
 	_controlsView.hidden = YES;
@@ -42,6 +46,14 @@ static NSString* cellIdentifier = @"playListCell";
     
     [self.view addSubview:_playerSpinner];
     _playerSpinner.hidden = YES;
+    
+    
+    
+    _download_spinner.animationImages = images;
+    _download_spinner.animationDuration = 1.2;
+    
+    [self.view addSubview:_download_spinner];
+    _download_spinner.hidden = YES;
 
     
 
@@ -195,6 +207,17 @@ static NSString* cellIdentifier = @"playListCell";
     {
         [_player play];
     }
+    
+    if(![Room currentRoom].is_event){
+        _download_mix_button.hidden = YES;
+    }
+    
+    if([Player sharedPlayer].currentTrack.is_local_item)
+    {
+        _download_mix_button.hidden = YES;
+    }
+    
+    [self existsLocalTrackInPlaylist];
     
 }
 
@@ -548,27 +571,109 @@ static NSString* cellIdentifier = @"playListCell";
     {
         NSLog(@"Media Item title: %@", track.track_title);
         NSLog(@"player counter %lu", (unsigned long)[[Playlist sharedPlaylist].playlist count]);
-        
-#warning Uncompleted Code Block
-        //if (track.downloadable && track.is_event_track)
+        _can_download = NO;
         if (track.downloadable && track.is_event_mix)
         {
-            NSString *sc_url = [NSString stringWithFormat:@"%@?client_id=%@",track.download_url,[SoundCloudAPI getClientID]];
-        NSLog(@"sc_url: %@",sc_url);
-            [Utils downloadSongFromURL:sc_url withRoomNumber:[Room currentRoom].room_number withMediaItem:track];
-//            [Utils downloadSongFromURL:@"https://api.soundcloud.com/tracks/127646863/download?client_id=230ccb26b40f7c87eb65fc03357ffa81" withRoomNumber:self.room_number];
-
+//                        _track_to_download = track;
+//                        _track_to_download.original_format = [_track_to_download.sc_event_song objectForKey:@"original_format"];
+                        int megabytes = [track.size intValue] / 1000000;
+                        NSString *message = [NSString stringWithFormat:@"File to download is %i megabytes. Do you want to continue?",megabytes];
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Download File" message:message delegate:self cancelButtonTitle:@"Nevermind" otherButtonTitles:nil];
+                        // optional - add more buttons:
+                        [alert addButtonWithTitle:@"Download!"];
+                        [alert show];
         }
     }
-    
-    //selects the first song in the playlist to download
-//    MediaItem *track = [[Playlist sharedPlaylist].playlist objectAtIndex:0];
-    
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [self performSelectorOnMainThread:@selector(download) withObject:nil waitUntilDone:NO];
+    }
+}
+
+-(void)download
+{
+    for( MediaItem *track in _playlist )
+    {
+        if (track.downloadable && track.is_event_mix)
+        {
+              dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSString *sc_url = [NSString stringWithFormat:@"https://api.soundcloud.com/tracks/%@/download?client_id=%@",track.sc_id,[SoundCloudAPI getClientID]];
+            NSLog(@"sc_url: %@",sc_url);
+            [Utils downloadSongFromURL:sc_url withRoomNumber:[Room currentRoom].room_number withMediaItem:track withSender:self];
+              });
+        }
+    }
 }
 
 -(IBAction)swipeToChat:(id)sender
 {
     [(PlayerPageViewController*)self.parentViewController swipeToChatViewControllerForward];
+}
+
+-(void)downloadButtonSwitchSelected
+{
+    _download_mix_button.selected = ![_download_mix_button isSelected];
+}
+
+-(void)setIsDownloading
+{
+    NSLog(@"is downloading");
+    
+    NSArray *imageNames = @[@"spinner-1.png", @"spinner-2.png", @"spinner-3.png", @"spinner-4.png",
+                   @"spinner-5.png", @"spinner-6.png", @"spinner-7.png", @"spinner-8.png", @"spinner-9.png", @"spinner-10.png", @"spinner-11.png", @"spinner-12.png", @"spinner-13.png", @"spinner-14.png", @"spinner-15.png", @"spinner-16.png"];
+
+    NSMutableArray *images = [[NSMutableArray alloc] init];
+    for (int i = 0; i < imageNames.count; i++) {
+        [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
+    }
+
+    // Normal Animation
+    _download_spinner.animationImages = images;
+    _download_spinner.animationDuration = 0.7;
+    [_download_spinner startAnimating];
+    _download_spinner.hidden = NO;
+    
+    [_download_mix_button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_download_mix_button setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+
+    [_download_mix_button setTitle:@"Title" forState:UIControlStateNormal];
+    [_download_mix_button setTitle:@"Title" forState:UIControlStateHighlighted];
+    _download_mix_button.hidden = YES;
+    _download_label.text = @"Download in Progress";
+}
+
+-(void)setDownloadFinished
+{
+    NSLog(@"download finished");
+    _download_spinner.hidden = YES;
+    _download_label.text = @"Download Finished :)";
+}
+
+-(void)updateDownloadProgress:(float)progress
+{
+    float prog = progress*100;
+    NSLog(@"updating progress %f", prog);
+    int p_int = floor(prog);
+    _download_label.text = [NSString stringWithFormat:@"In Progress: %i%%", p_int];
+}
+
+-(void)clearDownloadFinishedUI
+{
+    NSLog(@"Clearing download finished message");
+    _download_label.text = @"";
+}
+
+-(void)existsLocalTrackInPlaylist
+{
+    for( MediaItem *track in _playlist )
+    {
+        if (track.is_local_item)
+        {
+            _download_label.text = @"Local Item Downloaded :)";
+        }
+    }
 }
 
 @end

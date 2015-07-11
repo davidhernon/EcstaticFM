@@ -21,7 +21,7 @@
 #import "MWLogging.h"
 @class PLayerDelegate;
 
-@interface PlayerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PlayerDelegate, SWTableViewCellDelegate>
+@interface PlayerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PlayerDelegate, SWTableViewCellDelegate, UIAlertViewDelegate>
 
 - (IBAction)showRooms:(id)sender;
 - (IBAction)playerControlsClicked:(id)sender;
@@ -45,6 +45,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *current_user_picture;
 @property (weak, nonatomic) IBOutlet UILabel *welcomehome;
 
+@property (strong, nonatomic) MediaItem *track_to_download;
+
 @property (weak,nonatomic) IBOutlet UIButton *playerShowControlsButton;
 @property (weak,nonatomic) IBOutlet UIButton *playerHideControlsButton;
 
@@ -59,6 +61,7 @@
 
 @property (retain, nonatomic) IBOutlet UILabel *room_title;
 @property (weak, nonatomic) IBOutlet UIButton *download_mix_button;
+@property (weak, nonatomic) IBOutlet UILabel *download_label;
 
 //nav bar
 @property (weak, nonatomic) IBOutlet UINavigationBar *_playerNavigationBar;
@@ -69,8 +72,15 @@
 
 @property (strong, nonatomic) NSMutableArray* playlist;
 @property Player* player;
+@property (weak, nonatomic) IBOutlet UIImageView *download_spinner;
+
+@property BOOL can_download;
 
 - (IBAction)sliderValueChanged:(UISlider *)sender;
+-(void)downloadButtonSwitchSelected;
+-(void)setIsDownloading;
+-(void)setDownloadFinished;
+-(void)updateDownloadProgress:(float)progress;
 //- (void) initPlayerUI:(float)duration withTrack:(MediaItem*)currentTrack atIndex:(NSUInteger*)index;
 
 @end

@@ -145,7 +145,9 @@ the delegate to Player for Player to communicate with a view controller
     
     NSString *urlString = [NSString stringWithFormat:@"%@?client_id=%@", _currentTrack.stream_url,[SoundCloudAPI getClientID]];//Your client ID
    
-    
+    if(!_currentTrack.is_local_item){
+        [_delegate clearDownloadFinishedUI];
+    }
     NSURL *url;
 //    if(_currentTrack.is_event_mix && _currentTrack.is_local_item)
     if(_currentTrack.is_local_item)

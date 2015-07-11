@@ -34,6 +34,8 @@
 
 -(void)deleteSongAtIndex:(int)index;
 
+-(void)clearDownloadFinishedUI;
+
 @end
 
 

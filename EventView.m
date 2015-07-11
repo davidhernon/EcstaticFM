@@ -46,6 +46,7 @@
         if((self = [super initWithFrame:aRect]))
         {
             _event_dictionary = event;
+            _sc_event_song = nil;
             NSString *sc_url = [event objectForKey:@"soundcloudLink"];
             if(sc_url)
                 [SoundCloudAPI getSoundCloudTrackFromURL:sc_url fromSender:self];
@@ -67,7 +68,7 @@
             _room_number = [NSString stringWithFormat:@"%@",[event objectForKey:@"id"]];
             
             
-            _sc_event_song = nil;
+            
             
 			
 			self.hostname = [event objectForKey:@"host_username"];
@@ -85,6 +86,11 @@
 -(void)setDownloadURL:(NSString *)downloadurl
 {
     _download_url = downloadurl;
+}
+
+-(void)setEventDict:(NSDictionary*)trackDict
+{
+    _sc_event_song = trackDict;
 }
 
 -(IBAction)joinEventButton

@@ -359,15 +359,34 @@ NSString * const TCBlobDownloadErrorHTTPStatusKey = @"TCBlobDownloadErrorHTTPSta
 
 - (void)updateTransferRate
 {
-    if (self.samplesOfDownloadedBytes.count > kNumberOfSamples) {
-        [self.samplesOfDownloadedBytes removeObjectAtIndex:0];
-    }
+//    if (self.samplesOfDownloadedBytes.count > kNumberOfSamples) {
+//        NSMutableArray *newDownloadedBytes = [[NSMutableArray alloc] init];
+//        for(int i = 1; i < [self.samplesOfDownloadedBytes count]; i++){
+//            [newDownloadedBytes addObject:[self.samplesOfDownloadedBytes objectAtIndex:i]];
+//        }
+////        [_samplesOfDownloadedBytes removeObjectAtIndex:0] retain];
+//        self.samplesOfDownloadedBytes = [[NSMutableArray alloc] init];
+//        self.samplesOfDownloadedBytes = newDownloadedBytes;
+//    }
+//
+//    // Add the sample
+//    [self.samplesOfDownloadedBytes addObject:[NSNumber numberWithUnsignedLongLong:self.receivedDataLength - self.previousTotal]];
+//    self.previousTotal = self.receivedDataLength;
+//    // Compute the speed rate on the average of the last seconds samples
+////    self.speedRate = [[self.samplesOfDownloadedBytes valueForKeyPath:@"@avg.longValue"] longValue];
+//    self.speedRate = [self getAvg:self.samplesOfDownloadedBytes];
+}
 
-    // Add the sample
-    [self.samplesOfDownloadedBytes addObject:[NSNumber numberWithUnsignedLongLong:self.receivedDataLength - self.previousTotal]];
-    self.previousTotal = self.receivedDataLength;
-    // Compute the speed rate on the average of the last seconds samples
-    self.speedRate = [[self.samplesOfDownloadedBytes valueForKeyPath:@"@avg.longValue"] longValue];
+- (long)getAvg:(NSArray*)numbers
+{
+    NSNumber *result = [NSNumber numberWithInt:0];
+    long counter = 0;
+    for(NSNumber *number in numbers)
+    {
+        result = [NSNumber numberWithFloat:([result floatValue] + [number floatValue])];
+        counter++;
+    }
+    return ([result longValue] / counter);
 }
 
 - (BOOL)removeFileWithError:(NSError *__autoreleasing *)error

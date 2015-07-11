@@ -35,6 +35,7 @@
 - (id) initWithFrame:(CGRect)aRect withEvent:(NSDictionary*)event withRoomController:(RoomsViewController*)sender;
 -(void)setAlbumImage:(UIImage*)artwork;
 -(void)setDownloadURL:(NSString*)downloadurl;
+-(void)setEventDict:(NSDictionary*)trackDict;
 
 
 @end
